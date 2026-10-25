@@ -1,0 +1,536 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #10101A;
+  --accent: #10101A;
+  --primary: #10101A;
+  --secondary: #525252;
+  --muted: #f1f0ee;
+  --border: #e7e5e1;
+  --card: #FFFFFF;
+  --card-foreground: #323232;
+  --input: #fcfcfd;
+  --ring: #10101A;
+  --font-gilroy: var(--font-inter-tight);
+  --font-landing: var(--font-inter-tight);
+  --font-heading: var(--font-gilroy);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-gilroy), var(--font-lexend-deca), system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: var(--font-sans);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 3px;
+  }
+
+  /* Reset browser default link colors */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Subtle transitions for interactive elements */
+  a,
+  button {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+
+  /* Add new animations for hero section */
+  .animate-progress {
+    animation: progress 3s ease-in-out infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes progress {
+    0% {
+      transform: scaleX(0.5);
+      opacity: 0.5;
+    }
+
+    50% {
+      transform: scaleX(0.75);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scaleX(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes ping {
+
+    75%,
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+
+/* Add radial gradient background */
+.bg-radial-gradient {
+  background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+}
+
+.bg-hero-gradient {
+  background-image: url('/landingpage/hero/hero-bgimg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn-primary-gradient {
+  background: linear-gradient(189deg, #1A1A1A 16.84%, #636363 97.72%) !important;
+  box-shadow: 0 3.778px 11.333px 0 rgba(0, 0, 0, 0.18), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset !important;
+  color: #FFFFFF !important;
+  transition: all 250ms ease !important;
+}
+
+.btn-primary-gradient:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 10px 24px rgba(16, 16, 26, 0.2), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset !important;
+}
+
+.btn-primary-gradient:active {
+  transform: translateY(0) !important;
+  scale: 0.98 !important;
+}
+
+/* Chat page animations and styling */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thumb-black\/10::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Animation keyframes */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Animation classes */
+.animate-wave {
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+/* Shadow utility classes */
+.glow-black-sm {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Add these animations for the chat page */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+/* Styling for formatted chat content */
+.formatted-content {
+  @apply text-foreground/90;
+}
+
+.formatted-content h1,
+.formatted-content h2,
+.formatted-content h3,
+.formatted-content h4 {
+  @apply font-bold mt-3 mb-2;
+}
+
+.formatted-content h1 {
+  @apply text-xl;
+}
+
+.formatted-content h2 {
+  @apply text-lg;
+}
+
+.formatted-content h3 {
+  @apply text-base;
+}
+
+.formatted-content p {
+  @apply my-2;
+}
+
+.formatted-content ul {
+  @apply list-disc pl-5 my-2;
+}
+
+.formatted-content ol {
+  @apply list-decimal pl-5 my-2;
+}
+
+.formatted-content li {
+  @apply my-1;
+}
+
+.formatted-content strong,
+.formatted-content b {
+  @apply font-bold text-white;
+}
+
+.formatted-content em,
+.formatted-content i {
+  @apply italic;
+}
+
+.formatted-content a {
+  @apply text-blue-300 underline;
+}
+
+.formatted-content blockquote {
+  @apply border-l-4 border-white/20 pl-4 italic my-3;
+}
+
+.formatted-content code {
+  @apply font-mono bg-white/10 px-1 rounded;
+}
+
+.formatted-content pre {
+  @apply bg-white/10 p-3 rounded my-3 overflow-auto;
+}
+
+/* Formatted chat content styles */
+.formatted-content h2 {
+  @apply text-lg font-bold mb-3 mt-4 first:mt-0;
+}
+
+.formatted-content h3 {
+  @apply text-base font-semibold mb-2 mt-3;
+}
+
+.formatted-content h4 {
+  @apply text-sm font-medium mb-2 mt-2;
+}
+
+.formatted-content p {
+  @apply mb-3 last:mb-0;
+}
+
+.formatted-content ul,
+.formatted-content ol {
+  @apply mb-3 pl-5;
+}
+
+.formatted-content ul {
+  @apply list-disc;
+}
+
+.formatted-content ol {
+  @apply list-decimal;
+}
+
+.formatted-content li {
+  @apply mb-1.5;
+}
+
+.formatted-content strong {
+  @apply font-bold;
+}
+
+.formatted-content em {
+  @apply italic;
+}
+
+.formatted-content a {
+  @apply text-blue-300 underline;
+}
+
+.formatted-content blockquote {
+  @apply border-l-4 border-border pl-3 italic my-3;
+}
+
+.formatted-content code {
+  @apply bg-white/10 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.formatted-content pre {
+  @apply bg-muted p-3 rounded-lg my-3 overflow-x-auto;
+}
+
+/* FAQ accordion icon toggle (supports progressive enhancement with no JS) */
+details .faqPlus {
+  display: inline;
+}
+
+details .faqMinus {
+  display: none;
+}
+
+details[open] .faqPlus {
+  display: none;
+}
+
+details[open] .faqMinus {
+  display: inline;
+}
+
+@keyframes trustedby-slide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 30px));
+  }
+}
+
+.animate-trustedby-slide {
+  animation: trustedby-slide 24s linear infinite;
+}
+
+/* Landing page font scope: enforce Gilroy on headings too */
+.landing-gilroy,
+.landing-gilroy h1,
+.landing-gilroy h2,
+.landing-gilroy h3,
+.landing-gilroy h4,
+.landing-gilroy h5,
+.landing-gilroy h6,
+.landing-gilroy p,
+.landing-gilroy a,
+.landing-gilroy button,
+.landing-gilroy li,
+.landing-gilroy span {
+  font-family: var(--font-landing), system-ui, sans-serif !important;
+}
+
+.landing-primary-btn {
+  border-radius: 29.51363rem;
+  background: linear-gradient(189deg, #1A1A1A 16.84%, #636363 97.72%);
+  box-shadow: 0 3.778px 11.333px 0 rgba(0, 0, 0, 0.18), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset;
+  color: #FFF;
+  text-align: center;
+  font-family: var(--font-landing), system-ui, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.65275rem;
+  letter-spacing: -0.01181rem;
+  text-transform: capitalize;
+  transition: transform 250ms ease, filter 250ms ease, box-shadow 250ms ease;
+}
+
+.landing-primary-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 24px rgba(16, 16, 26, 0.2), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset;
+}
+
+.landing-secondary-btn {
+  display: flex;
+  width: 10.81025rem;
+  height: 2.83331rem;
+  padding: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  border-radius: 29.51363rem;
+  border: 1px solid #e7e5e1;
+  background: #f1f0ee;
+  color: #10101A;
+  text-align: center;
+  font-family: var(--font-landing), system-ui, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.65275rem;
+  letter-spacing: -0.01181rem;
+  transition: transform 250ms ease, background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.landing-secondary-btn:hover {
+  transform: translateY(-2px);
+  background: #eceae7;
+  border-color: #d4d2ce;
+  box-shadow: 0 8px 20px rgba(16, 16, 26, 0.08);
+}
+
+.landing-surface {
+  border: 1px solid #e7e7ea;
+  background: #fff;
+  border-radius: 2rem;
+}
+
+.landing-card {
+  border: 1px solid #e7e7ea;
+  background: #fcfcfd;
+  border-radius: 1.25rem;
+}

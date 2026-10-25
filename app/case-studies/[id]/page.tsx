@@ -1,0 +1,37 @@
+import localFont from 'next/font/local';
+import { notFound } from 'next/navigation';
+import { CtaSection } from '@/app/components/landingpage';
+import { caseStudies, getCaseStudyByParam } from '../caseStudiesData';
+import CaseStudyDetailExperience from './CaseStudyDetailExperience';
+
+const landingGilroy = localFont({
+  src: [
+    { path: '../../../public/fonts/InterTight-Regular.ttf', weight: '300', style: 'normal' },
+    { path: '../../../public/fonts/InterTight-Regular.ttf', weight: '400', style: 'normal' },
+    { path: '../../../public/fonts/InterTight-Medium.ttf', weight: '500', style: 'normal' },
+    { path: '../../../public/fonts/InterTight-Bold.ttf', weight: '700', style: 'normal' },
+    { path: '../../../public/fonts/InterTight-Bold.ttf', weight: '800', style: 'normal' },
+  ],
+  variable: '--font-gilroy',
+  display: 'swap',
+});
+
+export function generateStaticParams() {
+  return caseStudies.map((c) => ({ id: String(c.id) }));
+}
+
+export default async function CaseStudyDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const study = getCaseStudyByParam(id);
+  if (!study) notFound();
+
+  return (
+    <div className={`${landingGilroy.variable} landing-gilroy bg-[#F5F5F4] text-foreground`}>
+      <CaseStudyDetailExperience study={study} />
+      <div className="mt-16 lg:mt-[130px]">
+        <CtaSection />
+      </div>
+    </div>
+  );
+}
+

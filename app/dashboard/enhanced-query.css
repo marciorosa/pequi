@@ -1,0 +1,134 @@
+/* Enhanced Query Styling */
+
+.legal-search-result {
+  color: #323232;
+  font-family: inherit;
+  max-width: 800px;
+  margin: 0;
+}
+ 
+/* Title styling */
+.legal-search-result h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #10101A;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid #e7e5e1;
+  padding-bottom: 1rem;
+}
+ 
+/* Numbered points styling */
+.legal-search-result h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #10101A;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+ 
+.legal-search-result h3 span.font-semibold {
+  font-weight: 600;
+}
+ 
+/* Paragraph text */
+.legal-search-result p {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  color: #525252;
+  font-size: 1rem;
+}
+ 
+/* Introduction paragraph - slightly larger */
+.legal-search-result>p:first-of-type {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #323232;
+  font-weight: 500;
+}
+
+/* Point container */
+.legal-search-result>div {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+  animation-fill-mode: both;
+}
+
+.legal-search-result>div:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.legal-search-result>div:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.legal-search-result>div:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.legal-search-result>div:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.legal-search-result>div:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+/* Follow-up prompts styling */
+.follow-up-prompts {
+  animation: fadeIn 0.5s ease-in-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.follow-up-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.follow-up-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.follow-up-button:hover::after {
+  transform: scaleX(1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make the search results responsive */
+@media (max-width: 768px) {
+  .legal-search-result h2 {
+    font-size: 1.25rem;
+  }
+
+  .legal-search-result h3 {
+    font-size: 1rem;
+  }
+
+  .legal-search-result p {
+    font-size: 0.9rem;
+  }
+}
