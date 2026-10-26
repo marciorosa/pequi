@@ -10,10 +10,10 @@ const featureCardClass =
   'flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]';
 
 const tabs = [
-  { id: 'all' as const, label: 'All' },
-  { id: 'contract' as const, label: 'Contract' },
-  { id: 'court' as const, label: 'Court' },
-  { id: 'corporate' as const, label: 'Corporate' },
+  { id: 'all' as const, label: 'Todos' },
+  { id: 'contract' as const, label: 'Contratos' },
+  { id: 'court' as const, label: 'Judicial' },
+  { id: 'corporate' as const, label: 'Societário' },
 ];
 
 export default function VaultExperience() {
@@ -21,14 +21,14 @@ export default function VaultExperience() {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]['id']>('all');
 
   const documents = [
-    { id: 1, name: 'Signed Rental Agreement.pdf', type: 'contract', size: '245 KB', lastModified: '2024-02-20', status: 'e-sign valid' },
-    { id: 2, name: 'IP Assignment Agreement.docx', type: 'contract', size: '188 KB', lastModified: '2024-02-18', status: 'verified' },
-    { id: 3, name: 'Non-Disclosure Agreement.pdf', type: 'contract', size: '167 KB', lastModified: '2023-10-28', status: 'pending' },
-    { id: 4, name: 'Property Lease Agreement.pdf', type: 'contract', size: '312 KB', lastModified: '2023-10-15', status: 'verified' },
-    { id: 5, name: 'Johnson vs. Smith - Brief.pdf', type: 'court', size: '1.2 MB', lastModified: '2023-11-08', status: 'verified' },
-    { id: 6, name: 'Expert Witness Statement.docx', type: 'court', size: '290 KB', lastModified: '2023-11-01', status: 'pending' },
-    { id: 7, name: 'Corporate Bylaws.pdf', type: 'corporate', size: '420 KB', lastModified: '2023-09-22', status: 'verified' },
-    { id: 8, name: 'Board Meeting Minutes - Q3.pdf', type: 'corporate', size: '156 KB', lastModified: '2023-10-05', status: 'verified' },
+    { id: 1, name: 'Contrato de Locação Assinado.pdf', type: 'contract', size: '245 KB', lastModified: '2024-02-20', status: 'e-sign valid' },
+    { id: 2, name: 'Contrato de Cessão de PI.docx', type: 'contract', size: '188 KB', lastModified: '2024-02-18', status: 'verified' },
+    { id: 3, name: 'Acordo de Confidencialidade.pdf', type: 'contract', size: '167 KB', lastModified: '2023-10-28', status: 'pending' },
+    { id: 4, name: 'Contrato de Arrendamento de Imóvel.pdf', type: 'contract', size: '312 KB', lastModified: '2023-10-15', status: 'verified' },
+    { id: 5, name: 'Johnson vs. Smith - Petição.pdf', type: 'court', size: '1.2 MB', lastModified: '2023-11-08', status: 'verified' },
+    { id: 6, name: 'Laudo do Perito.docx', type: 'court', size: '290 KB', lastModified: '2023-11-01', status: 'pending' },
+    { id: 7, name: 'Estatuto Social.pdf', type: 'corporate', size: '420 KB', lastModified: '2023-09-22', status: 'verified' },
+    { id: 8, name: 'Ata de Reunião do Conselho - 3º Tri.pdf', type: 'corporate', size: '156 KB', lastModified: '2023-10-05', status: 'verified' },
   ];
 
   const filteredDocuments = documents
@@ -41,8 +41,8 @@ export default function VaultExperience() {
 
   const features = [
     {
-      title: 'Secure document storage',
-      description: 'Encryption and access controls keep sensitive legal files available only to authorized users.',
+      title: 'Armazenamento seguro de documentos',
+      description: 'Criptografia e controles de acesso garantem que arquivos jurídicos sensíveis fiquem disponíveis apenas para usuários autorizados.',
       icon: (
         <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -55,8 +55,8 @@ export default function VaultExperience() {
       ),
     },
     {
-      title: 'AI-powered analysis',
-      description: 'Surface risks, key terms, and summaries across large volumes of matter documents.',
+      title: 'Análise com IA',
+      description: 'Identifique riscos, termos-chave e resumos em grandes volumes de documentos dos casos.',
       icon: (
         <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -69,8 +69,8 @@ export default function VaultExperience() {
       ),
     },
     {
-      title: 'E-sign workflows',
-      description: 'Bring executed agreements into the right vault folders automatically from your signing flows.',
+      title: 'Fluxos de assinatura eletrônica',
+      description: 'Leve automaticamente os contratos assinados para as pastas certas do cofre a partir dos seus fluxos de assinatura.',
       icon: (
         <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -83,8 +83,8 @@ export default function VaultExperience() {
       ),
     },
     {
-      title: 'Collaboration & permissions',
-      description: 'Share with teams and clients using granular roles—without losing audit visibility.',
+      title: 'Colaboração e permissões',
+      description: 'Compartilhe com equipes e clientes usando funções granulares, sem perder a rastreabilidade.',
       icon: (
         <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -99,10 +99,10 @@ export default function VaultExperience() {
   ];
 
   const securityPoints = [
-    { title: 'AES-256 encryption', desc: 'Data protected at rest and in transit.' },
-    { title: 'SOC 2 Type II', desc: 'Enterprise-grade security practices.' },
-    { title: 'GDPR aligned', desc: 'Controls built for global privacy expectations.' },
-    { title: 'Role-based access', desc: 'Fine-grained permission management.' },
+    { title: 'Criptografia AES-256', desc: 'Dados protegidos em repouso e em trânsito.' },
+    { title: 'SOC 2 Tipo II', desc: 'Práticas de segurança de nível corporativo.' },
+    { title: 'Alinhado à GDPR/LGPD', desc: 'Controles criados para as exigências globais de privacidade.' },
+    { title: 'Acesso baseado em funções', desc: 'Gestão detalhada de permissões.' },
   ];
 
   return (
@@ -114,7 +114,7 @@ export default function VaultExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
@@ -122,27 +122,27 @@ export default function VaultExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Secure intelligence</p>
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Inteligência segura</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  AIForLawyers Vault
+                  Cofre Pequi
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-[#525252]">
-                  Intelligent storage and management for legal documents—with AI that helps you find, review, and govern
-                  what matters.
+                  Armazenamento e gestão inteligentes de documentos jurídicos, com IA que ajuda você a encontrar, revisar e controlar
+                  o que importa.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                   >
-                    Request access
+                    Solicitar acesso
                   </Link>
                   <button
                     type="button"
                     onClick={() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' })}
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                   >
-                    Explorer demo
+                    Demonstração do explorador
                   </button>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function VaultExperience() {
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/secure-document-vault.png"
-                      alt="Secure document vault preview"
+                      alt="Prévia do cofre seguro de documentos"
                       fill
                       className="object-contain object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -169,10 +169,10 @@ export default function VaultExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Built for sensitive legal work</h2>
+            <h2 className={sectionHeadingClass}>Feito para o trabalho jurídico sensível</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              One vault for contracts, litigation, and corporate records—with the controls and intelligence modern teams
-              expect.
+              Um único cofre para contratos, processos e registros societários, com os controles e a inteligência que as equipes modernas
+              esperam.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {features.map((feature) => (
@@ -197,10 +197,10 @@ export default function VaultExperience() {
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
               <div className="text-center lg:text-left">
                 <h2 className="text-[#10101A] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
-                  Interactive vault explorer
+                  Explorador interativo do cofre
                 </h2>
                 <p className="mt-4 text-[#525252] text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
-                  Filter by matter type and search the demo library—mirrors how teams navigate a real vault.
+                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que as equipes navegam em um cofre real.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center lg:justify-end gap-2 md:gap-3">
@@ -235,7 +235,7 @@ export default function VaultExperience() {
                   </svg>
                   <input
                     type="search"
-                    placeholder="Search vault..."
+                    placeholder="Pesquisar no cofre..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] py-3.5 pl-12 pr-4 text-[0.9375rem] text-[#10101A] placeholder:text-[#525252] transition-all focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
@@ -248,7 +248,7 @@ export default function VaultExperience() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                   </svg>
-                  Upload file
+                  Enviar arquivo
                 </button>
               </div>
 
@@ -257,13 +257,13 @@ export default function VaultExperience() {
                   <thead>
                     <tr className="border-b border-[#e7e7ea] bg-[#f1f0ee]/75">
                       <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
-                        Name
+                        Nome
                       </th>
                       <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
-                        Type
+                        Tipo
                       </th>
                       <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
-                        Modified
+                        Modificado em
                       </th>
                       <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
                         Status
@@ -294,7 +294,7 @@ export default function VaultExperience() {
                         </td>
                         <td className="px-5 md:px-8 py-4 md:py-5">
                           <span className="inline-block rounded-md border border-[#e7e5e1] bg-[#f1f0ee] px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-[#525252]">
-                            {doc.type}
+                            {({ contract: 'Contrato', court: 'Judicial', corporate: 'Societário' } as Record<string, string>)[doc.type] ?? doc.type}
                           </span>
                         </td>
                         <td className="px-5 md:px-8 py-4 md:py-5">
@@ -308,7 +308,7 @@ export default function VaultExperience() {
                               }`}
                             />
                             <span className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-[#525252]">
-                              {doc.status}
+                              {({ 'e-sign valid': 'assinatura válida', verified: 'verificado', pending: 'pendente' } as Record<string, string>)[doc.status] ?? doc.status}
                             </span>
                           </div>
                         </td>
@@ -316,7 +316,7 @@ export default function VaultExperience() {
                           <button
                             type="button"
                             className="p-2 rounded-lg border border-transparent opacity-0 transition-all hover:border-[#e7e5e1] hover:bg-white group-hover:opacity-100"
-                            aria-label="More actions"
+                            aria-label="Mais ações"
                           >
                             <svg className="w-4 h-4 text-[#525252]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                               <path
@@ -335,20 +335,20 @@ export default function VaultExperience() {
               </div>
               <div className="flex flex-col items-center justify-between gap-4 border-t border-[#e7e7ea] bg-[#f1f0ee]/55 p-5 md:p-6 sm:flex-row">
                 <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
-                  Displaying {filteredDocuments.length} files
+                  Exibindo {filteredDocuments.length} arquivos
                 </p>
                 <div className="flex gap-2">
                   <button
                     type="button"
                     className="rounded-[0.625rem] border border-[#e7e5e1] bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
                   >
-                    Prev
+                    Anterior
                   </button>
                   <button
                     type="button"
                     className="rounded-[0.625rem] border border-[#e7e5e1] bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
                   >
-                    Next
+                    Próxima
                   </button>
                 </div>
               </div>
@@ -362,13 +362,13 @@ export default function VaultExperience() {
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Architecture</p>
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Arquitetura</p>
                 <h2 className="text-[#10101A] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
-                  Hardened legal cloud
+                  Nuvem jurídica reforçada
                 </h2>
                 <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-                  Legal documents demand more than generic file storage. The vault is designed for confidentiality,
-                  availability, and auditability at enterprise scale.
+                  Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade,
+                  disponibilidade e auditabilidade em escala corporativa.
                 </p>
                 <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
                   {securityPoints.map((point) => (
@@ -382,7 +382,7 @@ export default function VaultExperience() {
                   href="/security"
                   className="mt-10 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-[#10101A] transition-opacity hover:opacity-80"
                 >
-                  Review security overview
+                  Ver visão geral de segurança
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -394,7 +394,7 @@ export default function VaultExperience() {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-[#f1f0ee]">
                     <Image
                       src="/landingpage/one-legal-platform/vault.png"
-                      alt="Vault access in the legal platform"
+                      alt="Acesso ao cofre na plataforma jurídica"
                       fill
                       className="object-contain p-4 md:p-6"
                       sizes="(max-width: 1024px) 100vw, 560px"
@@ -410,7 +410,7 @@ export default function VaultExperience() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] leading-snug">End-to-end encrypted</p>
+                  <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] leading-snug">Criptografia de ponta a ponta</p>
                 </div>
               </div>
             </div>

@@ -82,10 +82,10 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
 
       // Set document properties
       pdf.setProperties({
-        title: agreement.title || 'Legal Agreement',
-        subject: 'Legal Agreement Document',
-        author: 'AIForLawyers',
-        creator: 'AIForLawyers Document Creator'
+        title: agreement.title || 'Contrato Jurídico',
+        subject: 'Documento de Contrato Jurídico',
+        author: 'Pequi',
+        creator: 'Criador de Documentos Pequi'
       });
 
       // Define margins and dimensions
@@ -100,7 +100,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
       pdf.setFontSize(16);
       pdf.setTextColor(0, 0, 0);
 
-      const title = agreement.title?.toUpperCase() || 'LEGAL AGREEMENT';
+      const title = agreement.title?.toUpperCase() || 'CONTRATO JURÍDICO';
       const titleWidth = pdf.getStringUnitWidth(title) * 16 / pdf.internal.scaleFactor;
       const titleX = (pageWidth - titleWidth) / 2;
       pdf.text(title, titleX, y);
@@ -150,24 +150,24 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
       y += 5;
       pdf.setFont("times", "bold");
       pdf.setFontSize(11);
-      pdf.text("Signature", margin, y);
-      pdf.text("Signature", pageWidth - margin - 70, y);
+      pdf.text("Assinatura", margin, y);
+      pdf.text("Assinatura", pageWidth - margin - 70, y);
 
       y += 15;
       pdf.line(margin, y, margin + 70, y);
       pdf.line(pageWidth - margin - 70, y, pageWidth - margin, y);
 
       y += 5;
-      pdf.text("Print Name", margin, y);
-      pdf.text("Print Name", pageWidth - margin - 70, y);
+      pdf.text("Nome completo", margin, y);
+      pdf.text("Nome completo", pageWidth - margin - 70, y);
 
       y += 15;
       pdf.line(margin, y, margin + 70, y);
       pdf.line(pageWidth - margin - 70, y, pageWidth - margin, y);
 
       y += 5;
-      pdf.text("Date", margin, y);
-      pdf.text("Date", pageWidth - margin - 70, y);
+      pdf.text("Data", margin, y);
+      pdf.text("Data", pageWidth - margin - 70, y);
 
       // Add page numbers and footer to all pages
       const totalPages = pdf.getNumberOfPages();
@@ -176,8 +176,8 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
         pdf.setFont("helvetica", "normal");
         pdf.setFontSize(10);
         pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-        pdf.text(`AIForLawyers | Legal Agreement | Generated on ${new Date().toLocaleDateString()}`, margin, pageHeight - margin);
-        pdf.text(`Page ${i} of ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
+        pdf.text(`Pequi | Contrato Jurídico | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+        pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
       }
 
       // Save the PDF
@@ -198,7 +198,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v12" />
           </svg>
-          Download PDF
+          Baixar PDF
         </button>
       </div>
 
@@ -218,13 +218,13 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
             <div className="grid grid-cols-2 gap-12">
               <div className="signature-block">
                 <div className="h-16 border-b border-black mb-2"></div>
-                <p className="font-semibold">Landlord Signature</p>
-                <p className="text-sm text-gray-600">Date: ________________</p>
+                <p className="font-semibold">Assinatura do Locador</p>
+                <p className="text-sm text-gray-600">Data: ________________</p>
               </div>
               <div className="signature-block">
                 <div className="h-16 border-b border-black mb-2"></div>
-                <p className="font-semibold">Tenant Signature</p>
-                <p className="text-sm text-gray-600">Date: ________________</p>
+                <p className="font-semibold">Assinatura do Locatário</p>
+                <p className="text-sm text-gray-600">Data: ________________</p>
               </div>
             </div>
           </div>

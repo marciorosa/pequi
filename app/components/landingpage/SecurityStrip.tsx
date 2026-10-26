@@ -5,26 +5,26 @@ export default function SecurityStrip() {
   const steps = [
     {
       id: '01',
-      title: 'Assistant',
-      desc: 'Optimize your expertise with a specialized AI personal assistant for legal research and drafting.',
+      title: 'Assistente',
+      desc: 'Potencialize sua expertise com um assistente pessoal de IA especializado em pesquisa e redação jurídica.',
       tone: 'from-[#21D4C8] to-[#14AFA4]',
     },
     {
       id: '02',
-      title: 'Knowledge',
-      desc: 'Instant access to case law, regulatory changes, and legal precedents with verified citations.',
+      title: 'Conhecimento',
+      desc: 'Acesso instantâneo a jurisprudência, mudanças regulatórias e precedentes, com citações verificadas.',
       tone: 'from-[#2996FF] to-[#1E6ED5]',
     },
     {
       id: '03',
-      title: 'Vault',
-      desc: 'Securely analyze thousands of documents using powerful generative AI extraction tools.',
+      title: 'Cofre',
+      desc: 'Analise milhares de documentos com segurança usando poderosas ferramentas de extração com IA generativa.',
       tone: 'from-[#7A53F5] to-[#5B36CC]',
     },
     {
       id: '04',
-      title: 'Workflows',
-      desc: 'Multi-model agent workflows designed to streamline complex legal and administrative operations.',
+      title: 'Fluxos de trabalho',
+      desc: 'Fluxos com agentes multimodelo criados para simplificar operações jurídicas e administrativas complexas.',
       tone: 'from-[#FF8A5B] to-[#E35B5B]',
     },
   ];
@@ -34,9 +34,9 @@ export default function SecurityStrip() {
       <section id="security" className="bg-[#EFF3FF] scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="rounded-[2rem] p-6 md:p-10 lg:p-12">
-          <h3 className={sectionHeadingClass}>One Integrated, Secure Platform</h3>
+          <h3 className={sectionHeadingClass}>Uma plataforma integrada e segura</h3>
           <p className="w-full max-w-[39.1975rem] mx-auto text-center text-[#636977] text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] font-normal leading-[160%] mt-4">
-            Explore features that boost productivity, strengthen compliance, and simplify legal operations across teams.
+            Conheça recursos que aumentam a produtividade, fortalecem o compliance e simplificam as operações jurídicas entre equipes.
           </p>
 
           <div className="mt-10 lg:mt-14">

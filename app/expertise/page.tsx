@@ -27,63 +27,63 @@ const PracticeAreaCard = ({
 export default function ExpertisePage() {
   const practiceAreas = [
     {
-      title: "Corporate Law & M&A",
-      description: "Advanced analysis and insights for complex corporate transactions and mergers & acquisitions.",
+      title: "Direito Societário e M&A",
+      description: "Análises avançadas e insights para operações societárias complexas e fusões e aquisições.",
       capabilities: [
-        "Due diligence automation and risk assessment",
-        "Contract analysis and comparison",
-        "Regulatory compliance verification",
-        "Transaction document drafting assistance"
+        "Automação de due diligence e avaliação de riscos",
+        "Análise e comparação de contratos",
+        "Verificação de conformidade regulatória",
+        "Apoio na redação de documentos da operação"
       ]
     },
     {
-      title: "Litigation & Dispute Resolution",
-      description: "Comprehensive support for litigation strategy and case analysis across jurisdictions.",
+      title: "Contencioso e Resolução de Disputas",
+      description: "Suporte completo para estratégia processual e análise de casos em diversas jurisdições.",
       capabilities: [
-        "Case law research and analysis",
-        "Document review and evidence extraction",
-        "Precedent identification and application",
-        "Legal argument development support"
+        "Pesquisa e análise de jurisprudência",
+        "Revisão de documentos e extração de provas",
+        "Identificação e aplicação de precedentes",
+        "Apoio no desenvolvimento de teses jurídicas"
       ]
     },
     {
-      title: "Regulatory & Compliance",
-      description: "Real-time monitoring and analysis of regulatory requirements across multiple jurisdictions.",
+      title: "Regulatório e Compliance",
+      description: "Monitoramento e análise em tempo real de exigências regulatórias em várias jurisdições.",
       capabilities: [
-        "Regulatory change tracking",
-        "Compliance risk assessment",
-        "Policy review and updates",
-        "Cross-border regulation analysis"
+        "Acompanhamento de mudanças regulatórias",
+        "Avaliação de riscos de compliance",
+        "Revisão e atualização de políticas",
+        "Análise de regulação internacional"
       ]
     },
     {
-      title: "Intellectual Property",
-      description: "Advanced IP analytics and protection strategies for global intellectual property portfolios.",
+      title: "Propriedade Intelectual",
+      description: "Análises avançadas e estratégias de proteção para portfólios globais de propriedade intelectual.",
       capabilities: [
-        "Patent analysis and prior art search",
-        "Trademark clearance and monitoring",
-        "IP portfolio management",
-        "Licensing agreement review"
+        "Análise de patentes e busca de anterioridade",
+        "Busca de disponibilidade e monitoramento de marcas",
+        "Gestão de portfólio de PI",
+        "Revisão de contratos de licenciamento"
       ]
     },
     {
-      title: "Banking & Finance",
-      description: "Sophisticated financial legal analysis and regulatory compliance solutions.",
+      title: "Bancário e Financeiro",
+      description: "Análise jurídica financeira sofisticada e soluções de conformidade regulatória.",
       capabilities: [
-        "Financial regulation compliance",
-        "Transaction documentation review",
-        "Risk assessment and mitigation",
-        "Securities law compliance"
+        "Conformidade com a regulação financeira",
+        "Revisão da documentação de operações",
+        "Avaliação e mitigação de riscos",
+        "Conformidade com a legislação de valores mobiliários"
       ]
     },
     {
-      title: "Real Estate & Construction",
-      description: "Comprehensive legal support for real estate transactions and construction projects.",
+      title: "Imobiliário e Construção",
+      description: "Suporte jurídico completo para transações imobiliárias e projetos de construção.",
       capabilities: [
-        "Property due diligence",
-        "Contract review and drafting",
-        "Zoning and permit compliance",
-        "Construction dispute analysis"
+        "Due diligence de imóveis",
+        "Revisão e redação de contratos",
+        "Conformidade com zoneamento e licenças",
+        "Análise de disputas na construção"
       ]
     }
   ];
@@ -99,21 +99,21 @@ export default function ExpertisePage() {
             <div className="inline-block mb-6 backdrop-blur-sm bg-white/5 rounded-full px-4 py-1.5 border border-white/10">
               <span className="text-xs uppercase tracking-widest text-white/80 font-light flex items-center">
                 <span className="inline-block w-1.5 h-1.5 bg-white rounded-full mr-2"></span>
-                Domain-Specific Legal Intelligence
+                Inteligência jurídica especializada
               </span>
             </div>
 
             <h1 className="text-5xl font-light mb-8 leading-tight">
-              Specialized Legal Expertise
+              Expertise jurídica especializada
               <span className="block text-lg mt-3 tracking-widest font-extralight opacity-50 uppercase">
-                Powered by Advanced AI Models
+                Com modelos de IA avançados
               </span>
             </h1>
 
             <div className="w-20 h-px bg-gradient-to-r from-white/40 to-transparent mb-8"></div>
 
             <p className="text-xl text-white/70 leading-relaxed mb-12">
-              Our AI models are specifically trained on legal precedents, regulations, and jurisprudence to deliver superior understanding of legal context and terminology across multiple practice areas.
+              Nossos modelos de IA são treinados especificamente com precedentes, normas e jurisprudência para oferecer uma compreensão superior do contexto e da terminologia jurídica em diversas áreas de atuação.
             </p>
           </div>
         </div>
@@ -123,9 +123,9 @@ export default function ExpertisePage() {
       <section className="py-24 border-t border-white/10">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-20">
-            <h2 className="text-3xl font-light mb-6">Core Capabilities</h2>
+            <h2 className="text-3xl font-light mb-6">Principais recursos</h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              AIForLawyers combines deep legal domain knowledge with advanced AI capabilities to deliver unparalleled assistance across various practice areas.
+              O Pequi combina profundo conhecimento jurídico com recursos avançados de IA para oferecer um apoio incomparável em diversas áreas de atuação.
             </p>
           </div>
 
@@ -143,9 +143,9 @@ export default function ExpertisePage() {
 
         <div className="container mx-auto px-6 max-w-6xl relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-light mb-6">Advanced Technology Stack</h2>
+            <h2 className="text-3xl font-light mb-6">Tecnologia avançada</h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Built on cutting-edge AI models and technologies specifically optimized for legal applications.
+              Construído sobre modelos de IA e tecnologias de ponta, otimizados especificamente para aplicações jurídicas.
             </p>
           </div>
 
@@ -156,9 +156,9 @@ export default function ExpertisePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4">Large Language Models</h3>
+              <h3 className="text-xl font-light mb-4">Grandes modelos de linguagem</h3>
               <p className="text-white/60">
-                Custom-trained models on extensive legal datasets for superior comprehension and analysis.
+                Modelos treinados sob medida com amplos conjuntos de dados jurídicos para compreensão e análise superiores.
               </p>
             </div>
 
@@ -168,9 +168,9 @@ export default function ExpertisePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4">Natural Language Processing</h3>
+              <h3 className="text-xl font-light mb-4">Processamento de linguagem natural</h3>
               <p className="text-white/60">
-                Advanced NLP capabilities for understanding complex legal terminology and context.
+                Recursos avançados de PLN para compreender terminologia e contexto jurídicos complexos.
               </p>
             </div>
 
@@ -180,9 +180,9 @@ export default function ExpertisePage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-light mb-4">Security & Compliance</h3>
+              <h3 className="text-xl font-light mb-4">Segurança e compliance</h3>
               <p className="text-white/60">
-                Built-in compliance checks and security measures for sensitive legal data.
+                Verificações de conformidade e medidas de segurança integradas para dados jurídicos sensíveis.
               </p>
             </div>
           </div>
@@ -192,9 +192,9 @@ export default function ExpertisePage() {
       {/* CTA Section */}
       <section className="py-24 border-t border-white/10">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-3xl font-light mb-8">Experience Professional-Grade Legal AI</h2>
+          <h2 className="text-3xl font-light mb-8">Experimente uma IA jurídica de nível profissional</h2>
           <p className="text-white/60 mb-12 text-lg">
-            Discover how AIForLawyers can transform your legal practice with advanced AI capabilities.
+            Descubra como o Pequi pode transformar sua prática jurídica com recursos avançados de IA.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -202,7 +202,7 @@ export default function ExpertisePage() {
               href="/contact"
               className="bg-white hover:bg-white/90 text-black px-8 py-3 transition-all duration-300"
             >
-              Schedule a Demo
+              Agendar uma demonstração
             </Link>
 
             <Link
@@ -212,7 +212,7 @@ export default function ExpertisePage() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              Security Overview
+              Visão geral de segurança
             </Link>
           </div>
         </div>

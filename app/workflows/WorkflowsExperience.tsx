@@ -13,8 +13,8 @@ const tabIds = ['contract', 'litigation', 'compliance'] as const;
 type WorkflowTab = (typeof tabIds)[number];
 
 const tabLabels: Record<WorkflowTab, string> = {
-  contract: 'Contract',
-  litigation: 'Litigation',
+  contract: 'Contratos',
+  litigation: 'Contencioso',
   compliance: 'Compliance',
 };
 
@@ -27,70 +27,70 @@ export default function WorkflowsExperience() {
   > = {
     contract: [
       {
-        name: 'Contract review & approval',
-        description: 'Automate review with AI analysis, approval routing, and e-signatures.',
+        name: 'Revisão e aprovação de contratos',
+        description: 'Automatize a revisão com análise por IA, encaminhamento para aprovação e assinatura eletrônica.',
         steps: 5,
-        users: 'Legal team, executives',
+        users: 'Equipe jurídica, executivos',
         image: '/landingpage/one-legal-platform/document-regis.png',
       },
       {
-        name: 'NDA processing',
-        description: 'From template selection through signing and vault storage—in one flow.',
+        name: 'Processamento de NDAs',
+        description: 'Da escolha do modelo à assinatura e ao armazenamento no cofre, em um único fluxo.',
         steps: 3,
-        users: 'Legal, HR, contractors',
+        users: 'Jurídico, RH, prestadores',
         image: '/landingpage/one-legal-platform/search-opt.png',
       },
       {
-        name: 'Contract renewal management',
-        description: 'Alerts, change review, and renewal handling without manual chasing.',
+        name: 'Gestão de renovações contratuais',
+        description: 'Alertas, revisão de alterações e renovações sem cobranças manuais.',
         steps: 4,
-        users: 'Legal, account managers',
+        users: 'Jurídico, gerentes de conta',
         image: '/landingpage/one-legal-platform/vault.png',
       },
     ],
     litigation: [
       {
-        name: 'Case filing workflow',
-        description: 'Intake through filing with document generation and checklist discipline.',
+        name: 'Fluxo de ajuizamento',
+        description: 'Da captação ao protocolo, com geração de documentos e checklists rigorosos.',
         steps: 7,
-        users: 'Litigation, paralegals',
+        users: 'Contencioso, paralegais',
         image: '/landingpage/one-legal-platform/ai-assitants.png',
       },
       {
-        name: 'Discovery management',
-        description: 'Collection, review, and production with AI-assisted prioritization.',
+        name: 'Gestão de produção de provas',
+        description: 'Coleta, revisão e produção de provas com priorização assistida por IA.',
         steps: 6,
-        users: 'Litigation, outside counsel',
+        users: 'Contencioso, advogados externos',
         image: '/landingpage/one-legal-platform/channels.png',
       },
       {
-        name: 'Deposition preparation',
-        description: 'Scheduling, prep packets, and follow-ups connected to your matter.',
+        name: 'Preparação de depoimentos',
+        description: 'Agendamento, materiais de preparação e acompanhamentos vinculados ao seu caso.',
         steps: 5,
-        users: 'Litigation, witnesses',
+        users: 'Contencioso, testemunhas',
         image: '/landingpage/one-legal-platform/document-regis.png',
       },
     ],
     compliance: [
       {
-        name: 'Regulatory filing',
-        description: 'Draft, review, and submission workflows with clear ownership.',
+        name: 'Protocolos regulatórios',
+        description: 'Fluxos de redação, revisão e envio com responsáveis bem definidos.',
         steps: 4,
-        users: 'Compliance, legal',
+        users: 'Compliance, jurídico',
         image: '/landingpage/one-legal-platform/vault.png',
       },
       {
-        name: 'Compliance monitoring',
-        description: 'Track regulatory change and route alerts to the right owners.',
+        name: 'Monitoramento de compliance',
+        description: 'Acompanhe mudanças regulatórias e envie alertas aos responsáveis certos.',
         steps: 3,
-        users: 'Compliance, leadership',
+        users: 'Compliance, liderança',
         image: '/landingpage/one-legal-platform/search-opt.png',
       },
       {
-        name: 'Internal audit process',
-        description: 'Plan, fieldwork, reporting, and remediation in a single system.',
+        name: 'Processo de auditoria interna',
+        description: 'Planejamento, trabalho de campo, relatórios e correções em um único sistema.',
         steps: 6,
-        users: 'Compliance, department heads',
+        users: 'Compliance, chefes de departamento',
         image: '/landingpage/one-legal-platform/channels.png',
       },
     ],
@@ -98,15 +98,15 @@ export default function WorkflowsExperience() {
 
   const benefits = [
     {
-      title: 'Reduce manual work',
-      description: 'Automate repetitive tasks so your team spends time on judgment, not paperwork.',
+      title: 'Menos trabalho manual',
+      description: 'Automatize tarefas repetitivas para que sua equipe dedique tempo à análise, e não à burocracia.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       ),
     },
     {
-      title: 'Digital signature sync',
-      description: 'Send, track, and archive executed agreements into your vault automatically.',
+      title: 'Sincronização de assinaturas digitais',
+      description: 'Envie, acompanhe e arquive automaticamente no cofre os contratos assinados.',
       icon: (
         <path
           strokeLinecap="round"
@@ -117,8 +117,8 @@ export default function WorkflowsExperience() {
       ),
     },
     {
-      title: 'Fewer handoff errors',
-      description: 'Validation and AI checks at each step reduce rework and missed approvals.',
+      title: 'Menos erros nas transições',
+      description: 'Validações e verificações por IA em cada etapa reduzem retrabalho e aprovações esquecidas.',
       icon: (
         <path
           strokeLinecap="round"
@@ -129,8 +129,8 @@ export default function WorkflowsExperience() {
       ),
     },
     {
-      title: 'Vault integration',
-      description: 'Outputs—from drafts to signed PDFs—land in governed storage by default.',
+      title: 'Integração com o cofre',
+      description: 'Os resultados, de minutas a PDFs assinados, vão por padrão para um armazenamento controlado.',
       icon: (
         <path
           strokeLinecap="round"
@@ -146,18 +146,18 @@ export default function WorkflowsExperience() {
     'DocuSign',
     'Google Gemini AI',
     'AWS S3',
-    'Vector database',
-    'Knowledge search',
-    'Case analysis',
-    'Workflow automation',
-    'Secure vault',
+    'Banco de dados vetorial',
+    'Pesquisa de conhecimento',
+    'Análise de casos',
+    'Automação de fluxos',
+    'Cofre seguro',
   ];
 
   const steps = [
-    { num: '1', title: 'Design', desc: 'Drag-and-drop builder for stages, owners, and SLAs.' },
-    { num: '2', title: 'Automate', desc: 'Add AI generation, review, and routing rules.' },
-    { num: '3', title: 'Deploy', desc: 'Launch with one click and connect existing tools.' },
-    { num: '4', title: 'Monitor', desc: 'Track throughput, bottlenecks, and compliance signals.' },
+    { num: '1', title: 'Desenhe', desc: 'Editor de arrastar e soltar para etapas, responsáveis e SLAs.' },
+    { num: '2', title: 'Automatize', desc: 'Adicione regras de geração por IA, revisão e encaminhamento.' },
+    { num: '3', title: 'Implante', desc: 'Publique com um clique e conecte as ferramentas que você já usa.' },
+    { num: '4', title: 'Monitore', desc: 'Acompanhe volume, gargalos e sinais de compliance.' },
   ];
 
   return (
@@ -169,7 +169,7 @@ export default function WorkflowsExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
@@ -177,26 +177,26 @@ export default function WorkflowsExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">AiForLawyers</p>
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Pequi</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  AI-powered workflows
+                  Fluxos de trabalho com IA
                 </h1>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-                  Automate legal processes end to end—routing, documents, signatures, and audit trails in one place.
+                  Automatize processos jurídicos de ponta a ponta: encaminhamentos, documentos, assinaturas e trilhas de auditoria em um só lugar.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                   >
-                    Request a demo
+                    Solicitar uma demonstração
                   </Link>
                   <button
                     type="button"
                     onClick={() => document.getElementById('templates')?.scrollIntoView({ behavior: 'smooth' })}
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                   >
-                    Browse templates
+                    Ver modelos
                   </button>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function WorkflowsExperience() {
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
-                      alt="Workflow and automation preview"
+                      alt="Prévia de fluxos e automação"
                       fill
                       className="object-contain object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -223,9 +223,9 @@ export default function WorkflowsExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Transform your legal operations</h2>
+            <h2 className={sectionHeadingClass}>Transforme suas operações jurídicas</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Measurable impact on speed, quality, and governance—without ripping out the tools you already use.
+              Impacto mensurável em agilidade, qualidade e governança, sem abrir mão das ferramentas que você já usa.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {benefits.map((b) => (
@@ -249,9 +249,9 @@ export default function WorkflowsExperience() {
       <FadeInSection delay={0.1}>
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>How it works</h2>
+            <h2 className={sectionHeadingClass}>Como funciona</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-12 md:mb-14`}>
-              From first blueprint to live operations in four clear stages.
+              Do primeiro esboço à operação em produção, em quatro etapas claras.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 relative">
               {steps.map((step, idx) => (
@@ -280,12 +280,12 @@ export default function WorkflowsExperience() {
               <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-5 py-2">
                 <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" aria-hidden />
                 <span className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
-                  Templates expanding
+                  Novos modelos em breve
                 </span>
               </div>
-              <h2 className={sectionHeadingClass}>Ready-to-use workflow templates</h2>
+              <h2 className={sectionHeadingClass}>Modelos de fluxo prontos para usar</h2>
               <p className={`${sectionSubTextClass} mt-4`}>
-                Starter flows by practice area—customize steps, owners, and integrations to match your firm.
+                Fluxos iniciais por área de atuação: personalize etapas, responsáveis e integrações de acordo com o seu escritório.
               </p>
             </div>
 
@@ -334,7 +334,7 @@ export default function WorkflowsExperience() {
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                           />
                         </svg>
-                        {workflow.steps} steps
+                        {workflow.steps} etapas
                       </span>
                       <span className="inline-flex items-center gap-2 sm:text-right">
                         <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -359,9 +359,9 @@ export default function WorkflowsExperience() {
       <FadeInSection delay={0.14}>
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Seamless integrations</h2>
+            <h2 className={sectionHeadingClass}>Integrações sem complicação</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Connect signatures, storage, models, and search so workflows run where your stack already lives.
+              Conecte assinaturas, armazenamento, modelos e pesquisa para que os fluxos rodem onde suas ferramentas já estão.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {integrations.map((name) => (
@@ -384,14 +384,14 @@ export default function WorkflowsExperience() {
               <div className="grid lg:grid-cols-2 gap-0 lg:gap-0">
                 <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
                   <p className="mb-4 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">
-                    Success story
+                    História de sucesso
                   </p>
                   <h2 className="mb-6 text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">
-                    From 12 days to 2 days
+                    De 12 dias para 2 dias
                   </h2>
                   <p className="mb-8 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-                    &quot;Before AiForLawyers, our contract review process took an average of 12 days. With automated
-                    workflows we&apos;ve cut that to about two days—while improving consistency and compliance.&quot;
+                    &quot;Antes do Pequi, nosso processo de revisão de contratos levava em média 12 dias. Com fluxos
+                    automatizados, reduzimos para cerca de dois dias, melhorando a consistência e o compliance.&quot;
                   </p>
                   <div className="flex items-center gap-4 mb-8">
                     <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-[#e7e5e1] bg-[#f1f0ee]">
@@ -405,14 +405,14 @@ export default function WorkflowsExperience() {
                     </div>
                     <div>
                       <p className="text-[0.9375rem] font-medium text-[#10101A]">John Anderson</p>
-                      <p className="text-[0.8125rem] text-[#525252]">General counsel, Fortune 500 technology company</p>
+                      <p className="text-[0.8125rem] text-[#525252]">Diretor jurídico, empresa de tecnologia da Fortune 500</p>
                     </div>
                   </div>
                   <Link
                     href="/customers"
                     className="inline-flex w-fit items-center gap-2 rounded-[0.875rem] border border-[#e7e5e1] px-6 py-3 text-[0.9375rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
                   >
-                    Read more case studies
+                    Ver mais casos de sucesso
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -422,7 +422,7 @@ export default function WorkflowsExperience() {
                   <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-[#e7e5e1] bg-white">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
-                      alt="Team workflow visualization"
+                      alt="Visualização do fluxo de trabalho da equipe"
                       fill
                       className="object-contain p-4 md:p-6"
                       sizes="(max-width: 1024px) 100vw, 50vw"

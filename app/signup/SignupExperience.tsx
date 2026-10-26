@@ -15,22 +15,22 @@ import {
 function SignupAside() {
   const items = [
     {
-      title: 'Smart document analysis',
-      body: 'Review contracts and briefs faster with AI-assisted risk and clause insights.',
+      title: 'Análise inteligente de documentos',
+      body: 'Revise contratos e peças mais rápido com insights de riscos e cláusulas assistidos por IA.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
       ),
     },
     {
-      title: 'Legal research assistant',
-      body: 'Surface relevant cases and statutes with context-aware answers.',
+      title: 'Assistente de pesquisa jurídica',
+      body: 'Encontre jurisprudência e legislação relevantes com respostas contextualizadas.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       ),
     },
     {
-      title: 'Always-on workspace',
-      body: 'Draft, summarize, and collaborate with guardrails built for legal teams.',
+      title: 'Espaço de trabalho sempre disponível',
+      body: 'Redija, resuma e colabore com salvaguardas criadas para equipes jurídicas.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
       ),
@@ -39,9 +39,9 @@ function SignupAside() {
 
   return (
     <div className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">Built for modern legal teams</h2>
+      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">Feito para equipes jurídicas modernas</h2>
       <p className="mb-10 text-[1rem] leading-relaxed text-[#525252]">
-        Join professionals who use AIForLawyers to move faster without sacrificing rigor.
+        Junte-se aos profissionais que usam o Pequi para trabalhar mais rápido sem abrir mão do rigor.
       </p>
       <ul className="space-y-8">
         {items.map((item) => (
@@ -60,9 +60,9 @@ function SignupAside() {
       </ul>
       <div className="mt-10 grid grid-cols-3 gap-3">
         {[
-          { n: '73%', l: 'Time saved' },
-          { n: '95%', l: 'Teams trust' },
-          { n: '24/7', l: 'Access' },
+          { n: '73%', l: 'Tempo economizado' },
+          { n: '95%', l: 'Confiança das equipes' },
+          { n: '24/7', l: 'Acesso' },
         ].map((s) => (
           <div
             key={s.l}
@@ -99,12 +99,12 @@ export default function SignupExperience() {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-      setError('Please fill in all fields');
+      setError('Preencha todos os campos');
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError('As senhas não coincidem');
       return;
     }
 
@@ -121,7 +121,7 @@ export default function SignupExperience() {
     } catch (err: unknown) {
       setError(
         (err as { response?: { data?: { message?: string } } }).response?.data?.message ||
-          'Registration failed. Please try again.'
+          'Falha no cadastro. Tente novamente.'
       );
     } finally {
       setIsLoading(false);
@@ -131,18 +131,18 @@ export default function SignupExperience() {
   return (
     <div className="min-h-screen">
       <AuthHero
-        eyebrow="Get started"
-        title="Create your account"
-        subtitle="Join AIForLawyers and start working with AI built for legal workflows."
+        eyebrow="Comece agora"
+        title="Crie sua conta"
+        subtitle="Junte-se ao Pequi e comece a trabalhar com uma IA criada para fluxos jurídicos."
       />
       <AuthPageLayout
         aside={<SignupAside />}
         footer={
           <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
             <p className="text-[0.9375rem] text-[#525252]">
-              Already have an account?{' '}
+              Já tem uma conta?{' '}
               <Link href="/login" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
-                Sign in
+                Entrar
               </Link>
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function SignupExperience() {
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name" className={authLabelClass}>
-              Full name
+              Nome completo
             </label>
             <input
               id="name"
@@ -171,13 +171,13 @@ export default function SignupExperience() {
               value={formData.name}
               onChange={handleChange}
               className={authInputClass}
-              placeholder="John Doe"
+              placeholder="João da Silva"
             />
           </div>
 
           <div>
             <label htmlFor="email" className={authLabelClass}>
-              Email address
+              Endereço de e-mail
             </label>
             <input
               id="email"
@@ -188,13 +188,13 @@ export default function SignupExperience() {
               value={formData.email}
               onChange={handleChange}
               className={authInputClass}
-              placeholder="name@company.com"
+              placeholder="nome@empresa.com.br"
             />
           </div>
 
           <div>
             <label htmlFor="password" className={authLabelClass}>
-              Password
+              Senha
             </label>
             <input
               id="password"
@@ -211,7 +211,7 @@ export default function SignupExperience() {
 
           <div>
             <label htmlFor="confirmPassword" className={authLabelClass}>
-              Confirm password
+              Confirmar senha
             </label>
             <input
               id="confirmPassword"
@@ -227,7 +227,7 @@ export default function SignupExperience() {
           </div>
 
           <button type="submit" disabled={isLoading} className={authPrimaryButtonClass}>
-            {isLoading ? 'Creating account...' : 'Create account'}
+            {isLoading ? 'Criando conta...' : 'Criar conta'}
           </button>
         </form>
       </AuthPageLayout>

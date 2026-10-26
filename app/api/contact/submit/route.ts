@@ -21,13 +21,13 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Backend response error:', response.status, errorText);
-      let errorMessage = 'Failed to submit form. Please check your inputs and try again.';
+      let errorMessage = 'Falha ao enviar o formulário. Verifique os dados informados e tente novamente.';
       try {
         const errorJson = JSON.parse(errorText);
         if (errorJson.details && Array.isArray(errorJson.details)) {
-            errorMessage = errorJson.details.map((e: any) => e.msg || e.message).filter(Boolean).join(', ') || errorJson.message || 'Validation failed';
+            errorMessage = errorJson.details.map((e: any) => e.msg || e.message).filter(Boolean).join(', ') || errorJson.message || 'Falha na validação';
         } else if (errorJson.errors && Array.isArray(errorJson.errors)) {
-          errorMessage = errorJson.errors.map((e: any) => e.msg || e.message).filter(Boolean).join(', ') || errorJson.message || 'Validation failed';
+          errorMessage = errorJson.errors.map((e: any) => e.msg || e.message).filter(Boolean).join(', ') || errorJson.message || 'Falha na validação';
         } else if (errorJson.message) {
           errorMessage = errorJson.message;
         }
@@ -44,11 +44,11 @@ export async function POST(request: NextRequest) {
     console.error('Contact form proxy error:', error);
     return NextResponse.json(
       {
-        message: error instanceof Error ? error.message : 'Internal server error',
+        message: error instanceof Error ? error.message : 'Erro interno do servidor',
         success: false,
         debug: {
           backendUrl: BACKEND_URL,
-          error: error instanceof Error ? error.message : 'Unknown error'
+          error: error instanceof Error ? error.message : 'Erro desconhecido'
         }
       },
       { status: 500 }

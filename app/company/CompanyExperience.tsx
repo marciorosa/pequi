@@ -20,26 +20,26 @@ export default function CompanyExperience() {
   const executives = [
     {
       name: 'Michael Chen',
-      position: 'Chief executive officer',
-      bio: 'Former strategy leader in legal tech; focused on shipping enterprise-grade AI without cutting corners on trust.',
+      position: 'Diretor executivo (CEO)',
+      bio: 'Ex-líder de estratégia em legal tech; focado em entregar IA de nível corporativo sem abrir mão da confiança.',
       image: heroAvatars[0],
     },
     {
       name: 'Sarah Johnson',
-      position: 'Chief product officer',
-      bio: 'Builds workflows attorneys actually adopt—bridging practice, design, and model evaluation.',
+      position: 'Diretora de produto (CPO)',
+      bio: 'Cria fluxos de trabalho que os advogados realmente adotam, unindo prática jurídica, design e avaliação de modelos.',
       image: heroAvatars[1],
     },
     {
       name: 'David Wilson',
-      position: 'Chief technology officer',
-      bio: 'Background in applied ML and secure systems; champions privacy, evals, and operational rigor.',
+      position: 'Diretor de tecnologia (CTO)',
+      bio: 'Experiência em ML aplicado e sistemas seguros; defensor da privacidade, das avaliações e do rigor operacional.',
       image: heroAvatars[2],
     },
     {
       name: 'Elena Rodriguez',
-      position: 'Chief revenue officer',
-      bio: 'Enterprise GTM for legal and compliance software; partners closely with GCs and innovation teams.',
+      position: 'Diretora de receita (CRO)',
+      bio: 'GTM corporativo para softwares jurídicos e de compliance; trabalha lado a lado com diretores jurídicos e equipes de inovação.',
       image: heroAvatars[3],
     },
   ];
@@ -47,25 +47,25 @@ export default function CompanyExperience() {
   const investors = [
     {
       name: 'Marc Andreessen',
-      designation: 'Co-founder & general partner',
+      designation: 'Cofundador e sócio-geral',
       firm: 'Andreessen Horowitz',
       image: heroAvatars[1],
     },
     {
       name: 'Neil Sequoia',
-      designation: 'Managing partner',
+      designation: 'Sócio-diretor',
       firm: 'Sequoia Capital',
       image: heroAvatars[2],
     },
     {
       name: 'Sarah Chen',
-      designation: 'Partner',
+      designation: 'Sócia',
       firm: 'Bessemer Venture Partners',
       image: heroAvatars[3],
     },
     {
       name: 'James Rodriguez',
-      designation: 'General partner',
+      designation: 'Sócio-geral',
       firm: 'Accel',
       image: heroAvatars[4],
     },
@@ -73,8 +73,8 @@ export default function CompanyExperience() {
 
   const values = [
     {
-      title: 'Innovation',
-      description: 'We push what is possible in legal technology—without losing sight of real-world practice.',
+      title: 'Inovação',
+      description: 'Expandimos os limites da tecnologia jurídica sem perder de vista a prática do dia a dia.',
       icon: (
         <path
           strokeLinecap="round"
@@ -85,8 +85,8 @@ export default function CompanyExperience() {
       ),
     },
     {
-      title: 'Excellence',
-      description: 'High standards for security, accuracy, and how we show up for customers every day.',
+      title: 'Excelência',
+      description: 'Altos padrões de segurança, precisão e atendimento aos clientes, todos os dias.',
       icon: (
         <path
           strokeLinecap="round"
@@ -97,8 +97,8 @@ export default function CompanyExperience() {
       ),
     },
     {
-      title: 'Integrity',
-      description: 'Transparent about capabilities, limitations, and how customer data is handled.',
+      title: 'Integridade',
+      description: 'Transparência sobre recursos, limitações e a forma como os dados dos clientes são tratados.',
       icon: (
         <path
           strokeLinecap="round"
@@ -109,8 +109,8 @@ export default function CompanyExperience() {
       ),
     },
     {
-      title: 'Client focus',
-      description: 'We win when legal teams ship better outcomes—our roadmap is shaped by that bar.',
+      title: 'Foco no cliente',
+      description: 'Vencemos quando as equipes jurídicas alcançam resultados melhores; nosso roadmap é guiado por esse padrão.',
       icon: (
         <path
           strokeLinecap="round"
@@ -131,25 +131,25 @@ export default function CompanyExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
           />
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">About AiForLawyers</p>
+            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Sobre a Pequi</p>
             <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-              Transforming legal practice
+              Transformando a prática jurídica
             </h1>
             <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-              We build AI that respects the bar—so firms and legal departments can move faster without trading away
-              judgment or governance.
+              Desenvolvemos IA que respeita a advocacia, para que escritórios e departamentos jurídicos avancem mais rápido sem abrir mão
+              do discernimento ou da governança.
             </p>
             <Link
               href="/careers"
               className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
             >
-              View careers
+              Ver carreiras
             </Link>
           </div>
         </section>
@@ -160,21 +160,21 @@ export default function CompanyExperience() {
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Who we are</p>
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Quem somos</p>
                 <h2 className="text-[2rem] font-medium leading-[1.1] text-[#10101A] md:text-[2.5rem] lg:text-[3rem]">
-                  About AiForLawyers
+                  Sobre a Pequi
                 </h2>
                 <p className="mt-5 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-                  Founded in 2020, AiForLawyers sits at the intersection of legal practice and applied AI—shipping research,
-                  drafting, and workflow tools that teams can deploy with clear guardrails.
+                  Fundada em 2020, a Pequi está na interseção entre a prática jurídica e a IA aplicada, entregando ferramentas de pesquisa,
+                  redação e fluxos de trabalho que as equipes podem implantar com salvaguardas claras.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-                  Lawyers, researchers, and product builders work side by side so the product reflects how matters,
-                  contracts, and compliance actually run.
+                  Advogados, pesquisadores e criadores de produto trabalham lado a lado para que o produto reflita como processos,
+                  contratos e compliance funcionam na prática.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-                  With hubs in New York, San Francisco, and London, we support solo practices, Am Law firms, and Fortune
-                  500 legal teams worldwide.
+                  Com escritórios em Nova York, San Francisco e Londres, atendemos advogados autônomos, grandes escritórios e equipes jurídicas
+                  de empresas da Fortune 500 no mundo todo.
                 </p>
               </div>
               <div className="relative">
@@ -211,10 +211,10 @@ export default function CompanyExperience() {
                   </svg>
                 </div>
                 <div className="mt-auto">
-                  <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-[#323232] md:text-[1.75rem]">Our mission</h3>
+                  <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-[#323232] md:text-[1.75rem]">Nossa missão</h3>
                   <p className="text-[1rem] leading-[160%] text-[#323232] md:text-[1.0625rem]">
-                    Empower legal professionals with AI that improves speed and consistency—while keeping humans in charge
-                    of strategy, ethics, and client counsel.
+                    Capacitar profissionais do Direito com IA que aumenta a agilidade e a consistência, mantendo as pessoas no comando
+                    da estratégia, da ética e do aconselhamento aos clientes.
                   </p>
                 </div>
               </div>
@@ -237,10 +237,10 @@ export default function CompanyExperience() {
                   </svg>
                   </div>
                 </div>
-                <h3 className="mb-4 text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">Our vision</h3>
+                <h3 className="mb-4 text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">Nossa visão</h3>
                 <p className="text-[1rem] leading-[160%] text-white/80 md:text-[1.0625rem]">
-                  A world where AI and legal expertise reinforce each other—making sophisticated legal work more scalable
-                  and more accessible where it matters most.
+                  Um mundo em que a IA e o conhecimento jurídico se fortalecem mutuamente, tornando o trabalho jurídico sofisticado mais escalável
+                  e mais acessível onde ele mais importa.
                 </p>
               </div>
             </div>
@@ -251,9 +251,9 @@ export default function CompanyExperience() {
       <FadeInSection delay={0.1}>
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Our core values</h2>
+            <h2 className={sectionHeadingClass}>Nossos valores essenciais</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Principles that show up in how we build, sell, and support the platform.
+              Princípios presentes na forma como desenvolvemos, vendemos e damos suporte à plataforma.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {values.map((value) => (
@@ -277,9 +277,9 @@ export default function CompanyExperience() {
       <FadeInSection delay={0.12}>
         <section className="border-t border-[#eceae7] bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
-            <h2 className={sectionHeadingClass}>Leadership</h2>
+            <h2 className={sectionHeadingClass}>Liderança</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Operators and builders with deep experience in legal, enterprise software, and AI.
+              Executivos e criadores com ampla experiência em Direito, software corporativo e IA.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {executives.map((executive) => (
@@ -313,9 +313,9 @@ export default function CompanyExperience() {
       <FadeInSection delay={0.14}>
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Backed by leading investors</h2>
+            <h2 className={sectionHeadingClass}>Apoiada por investidores de referência</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Partners who understand long-term bets on regulated, mission-critical software.
+              Parceiros que entendem apostas de longo prazo em software regulado e de missão crítica.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {investors.map((investor) => (
@@ -350,22 +350,22 @@ export default function CompanyExperience() {
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="rounded-[2rem] border border-[#eceae7] bg-[#f8f7f6] px-6 py-12 text-center shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:px-12 md:py-14">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">Join our mission</h2>
+              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">Junte-se à nossa missão</h2>
               <p className="mx-auto mt-4 max-w-xl text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-                We hire for craft, curiosity, and respect for the legal profession—see open roles or reach out.
+                Contratamos pela excelência, curiosidade e respeito pela profissão jurídica. Veja as vagas abertas ou entre em contato.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
                   href="/careers"
                   className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                 >
-                  View open positions
+                  Ver vagas abertas
                 </Link>
                 <Link
                   href="/contact"
                   className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                 >
-                  Contact us
+                  Fale conosco
                 </Link>
               </div>
             </div>

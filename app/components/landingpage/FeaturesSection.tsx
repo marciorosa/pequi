@@ -4,20 +4,20 @@ import FadeInSection from './FadeInSection';
 
 const featureItems = [
   {
-    title: 'AI-Powered Legal Intelligence Search',
-    description: 'Search with natural language, case IDs, or complex legal queries to instantly surface relevant insights.',
+    title: 'Pesquisa de Inteligência Jurídica com IA',
+    description: 'Pesquise em linguagem natural, por número de processo ou com consultas jurídicas complexas para encontrar insights relevantes na hora.',
   },
   {
-    title: 'AI Legal Assistant',
-    description: 'Your intelligent co-pilot for legal work - ask questions, analyze documents, and get contextual recommendations.',
+    title: 'Assistente Jurídico com IA',
+    description: 'Seu copiloto inteligente para o trabalho jurídico: faça perguntas, analise documentos e receba recomendações contextualizadas.',
   },
   {
-    title: 'Global Legal Database Access',
-    description: 'Summarize agreements, convert images to text, translate documents, and search precedents in seconds.',
+    title: 'Acesso a Base Jurídica Global',
+    description: 'Resuma contratos, converta imagens em texto, traduza documentos e pesquise precedentes em segundos.',
   },
   {
-    title: 'Secure Document Vault Access',
-    description: 'Enterprise-grade encrypted storage with controlled access and audit visibility for every legal document.',
+    title: 'Acesso ao Cofre Seguro de Documentos',
+    description: 'Armazenamento criptografado de nível corporativo, com acesso controlado e auditoria para cada documento jurídico.',
   },
 ];
 
@@ -32,9 +32,9 @@ export default function FeaturesSection() {
     <FadeInSection delay={0.1}>
       <section id="features" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-        <h3 className={sectionHeadingClass}>Features of Legal AI</h3>
+        <h3 className={sectionHeadingClass}>Recursos da IA jurídica</h3>
         <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[760px]`}>
-          Build better outcomes with tools crafted for legal teams, faster drafting, and confident decision making.
+          Alcance resultados melhores com ferramentas feitas para equipes jurídicas, redação mais rápida e decisões mais seguras.
         </p>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
@@ -43,21 +43,21 @@ export default function FeaturesSection() {
               <div className="mx-auto max-w-[760px]">
                 <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-xl border border-[#e1e4ef] bg-[#f8f7f6] px-4 py-2 shadow-[0_8px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)]">
                   <span className="h-4 w-4 rounded bg-[#b5a7ff]" />
-                  <span className="text-[0.92rem] font-medium tracking-[0.01em] text-[#10101A]">AI legal workspace preview</span>
+                  <span className="text-[0.92rem] font-medium tracking-[0.01em] text-[#10101A]">Prévia do espaço de trabalho jurídico com IA</span>
                 </div>
                 <div className="relative mx-auto h-[250px] w-full overflow-hidden rounded-2xl border border-[#e1e4ef] bg-[#f1f0ee]">
                   <Image
                     src="/landingpage/features/workflow-automation.png"
-                    alt="Legal AI workflow preview"
+                    alt="Prévia do fluxo de trabalho com IA jurídica"
                     fill
                     className="object-contain p-4"
                     sizes="(max-width: 1024px) 100vw, 760px"
                   />
                 </div>
                 <div className="mt-4 rounded-xl border border-[#e1e4ef] bg-white px-4 py-3 md:px-5 md:py-4">
-                  <h4 className="text-[1.05rem] font-medium leading-tight text-[#10101A]">AI Workflow Engine</h4>
+                  <h4 className="text-[1.05rem] font-medium leading-tight text-[#10101A]">Motor de fluxos com IA</h4>
                   <p className="mt-1.5 text-[0.9rem] leading-[1.35rem] text-[#525252]">
-                    Trigger document actions, compliance checks, and delivery steps in one structured legal flow.
+                    Acione ações em documentos, verificações de compliance e etapas de entrega em um único fluxo jurídico estruturado.
                   </p>
                 </div>
               </div>
@@ -66,17 +66,17 @@ export default function FeaturesSection() {
 
           <article className="landing-card lg:col-span-4 p-4 md:p-5">
             <div className="rounded-[0.9rem] border border-[#ececf2] bg-[linear-gradient(160deg,#171825_0%,#23253b_100%)] p-5 text-white">
-              <p className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white/75">Featured capability</p>
-              <h4 className="mt-2 text-[1.2rem] font-medium leading-snug">AI Legal Assistant</h4>
+              <p className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white/75">Recurso em destaque</p>
+              <h4 className="mt-2 text-[1.2rem] font-medium leading-snug">Assistente Jurídico com IA</h4>
               <ul className="mt-5 space-y-2.5 text-[0.92rem] leading-relaxed text-white/85">
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Ask legal questions in plain language.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Get contextual drafting support and summaries.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Clause-level risk flags with suggested next steps.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Cross-check references against your document set instantly.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Prepare client-ready responses with consistent legal tone.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Faça perguntas jurídicas em linguagem simples.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Receba apoio contextualizado na redação e resumos.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Alertas de risco por cláusula, com sugestões de próximos passos.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Confira referências com seu acervo de documentos instantaneamente.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Prepare respostas prontas para o cliente com tom jurídico consistente.</span></li>
               </ul>
               <div className="mt-5 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-[0.8rem] text-white/80 transition-all duration-300 hover:border-white/30 hover:bg-white/15">
-                Ready for contracts, compliance, and case prep.
+                Pronto para contratos, compliance e preparação de casos.
               </div>
             </div>
           </article>
@@ -88,7 +88,7 @@ export default function FeaturesSection() {
                   <div className="relative h-full w-full overflow-hidden rounded-xl border border-[#e1e4ef] bg-white">
                     <Image
                       src={featureImages[idx]}
-                      alt={`${item.title} preview`}
+                      alt={`Prévia de ${item.title}`}
                       fill
                       className="object-contain p-3"
                       sizes="(max-width: 1024px) 100vw, 33vw"

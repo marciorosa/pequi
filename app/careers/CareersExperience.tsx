@@ -11,28 +11,28 @@ const tabs = ['all', 'engineering', 'product', 'design', 'legal', 'sales'] as co
 
 const values = [
   {
-    title: 'Innovation',
+    title: 'Inovação',
     description:
-      'We push what is possible in legal technology through creative thinking and disciplined experimentation.',
+      'Expandimos os limites da tecnologia jurídica com pensamento criativo e experimentação disciplinada.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
     ),
   },
   {
-    title: 'Excellence',
-    description: 'We set a high bar for product quality, security, and how we show up for customers.',
+    title: 'Excelência',
+    description: 'Elevamos o padrão de qualidade do produto, de segurança e da forma como atendemos nossos clientes.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
     ),
   },
   {
-    title: 'Impact',
-    description: 'We are motivated by making legal work more efficient, accessible, and fair.',
+    title: 'Impacto',
+    description: 'Nossa motivação é tornar o trabalho jurídico mais eficiente, acessível e justo.',
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />,
   },
   {
-    title: 'Collaboration',
-    description: 'The best ideas come from diverse teams working with respect and direct communication.',
+    title: 'Colaboração',
+    description: 'As melhores ideias surgem de equipes diversas que trabalham com respeito e comunicação direta.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
     ),
@@ -40,19 +40,19 @@ const values = [
 ];
 
 const benefits = [
-  { title: 'Competitive compensation', description: 'Salary, equity, and bonuses aligned with impact.' },
-  { title: 'Healthcare', description: 'Medical, dental, and vision with strong employer support.' },
-  { title: 'Flexible work', description: 'Remote-friendly roles and flexible schedules where the work allows.' },
-  { title: 'Learning budget', description: 'Annual stipend for courses, conferences, and certifications.' },
-  { title: 'Wellness', description: 'Mental health resources and wellness perks.' },
-  { title: 'Time off', description: 'Generous PTO with encouragement to actually use it.' },
+  { title: 'Remuneração competitiva', description: 'Salário, participação acionária e bônus alinhados ao impacto.' },
+  { title: 'Saúde', description: 'Planos médico, odontológico e oftalmológico com forte subsídio da empresa.' },
+  { title: 'Trabalho flexível', description: 'Vagas compatíveis com trabalho remoto e horários flexíveis quando a função permite.' },
+  { title: 'Verba para aprendizado', description: 'Auxílio anual para cursos, conferências e certificações.' },
+  { title: 'Bem-estar', description: 'Recursos de saúde mental e benefícios de bem-estar.' },
+  { title: 'Folgas', description: 'Férias remuneradas generosas, com incentivo para que você realmente as aproveite.' },
 ];
 
 const cultureTiles = [
-  { label: 'Collaboration', surface: 'from-[#f1f0ee] to-[#e8e4df]' },
-  { label: 'Deep work', surface: 'from-[#efeeec] to-[#e5e2dc]' },
-  { label: 'Customer visits', surface: 'from-[#f4f2ef] to-[#ebe7e1]' },
-  { label: 'Team rituals', surface: 'from-[#f0eeeb] to-[#e6e3dd]' },
+  { label: 'Colaboração', surface: 'from-[#f1f0ee] to-[#e8e4df]' },
+  { label: 'Trabalho focado', surface: 'from-[#efeeec] to-[#e5e2dc]' },
+  { label: 'Visitas a clientes', surface: 'from-[#f4f2ef] to-[#ebe7e1]' },
+  { label: 'Rituais de equipe', surface: 'from-[#f0eeeb] to-[#e6e3dd]' },
 ];
 
 function JobRow({ job }: { job: CareerJobFull }) {
@@ -71,12 +71,12 @@ function JobRow({ job }: { job: CareerJobFull }) {
             {job.type}
           </span>
           <span className="rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] capitalize text-[#525252]">
-            {job.department}
+            {job.departmentLabel}
           </span>
         </div>
       </div>
       <div className="mb-6">
-        <h4 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#525252]">Requirements</h4>
+        <h4 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#525252]">Requisitos</h4>
         <ul className="space-y-2">
           {job.requirements.map((req) => (
             <li key={req} className="flex gap-3 text-[0.9375rem] text-[#525252]">
@@ -90,7 +90,7 @@ function JobRow({ job }: { job: CareerJobFull }) {
         href={`/careers/${job.id}`}
         className="inline-flex items-center justify-center rounded-[0.875rem] bg-[#1A1A1A] px-6 py-3 text-[0.9375rem] font-medium text-white transition-all hover:brightness-110"
       >
-        View role & apply
+        Ver vaga e candidatar-se
       </Link>
     </article>
   );
@@ -113,18 +113,18 @@ export default function CareersExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
           />
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Careers at AiForLawyers</p>
+            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Carreiras na Pequi</p>
             <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-              Join our mission
+              Junte-se à nossa missão
             </h1>
             <p className="mt-5 max-w-xl text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
-              Help transform legal work with responsible AI—build product, models, and trust with us.
+              Ajude a transformar o trabalho jurídico com IA responsável: construa produtos, modelos e confiança com a gente.
             </p>
           </div>
         </section>
@@ -135,16 +135,16 @@ export default function CareersExperience() {
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Our purpose</p>
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Nosso propósito</p>
                 <h2 className="text-left text-[2rem] font-medium leading-[1.1] text-[#10101A] md:text-[2.5rem]">
-                  Why we are here
+                  Por que estamos aqui
                 </h2>
                 <p className="mt-4 text-[1rem] leading-[175%] text-[#525252] md:text-[1.0625rem]">
-                  We automate routine legal work and surface better insight so teams can focus on judgment, strategy, and
-                  clients. If you care about shipping serious software in a serious domain, you will fit in.
+                  Automatizamos o trabalho jurídico rotineiro e trazemos insights melhores para que as equipes possam se concentrar em análise, estratégia e
+                  clientes. Se você gosta de entregar software sério em uma área séria, vai se encaixar aqui.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[175%] text-[#525252] md:text-[1.0625rem]">
-                  We hire for craft, kindness, and intellectual honesty—across engineering, product, design, legal, and
+                  Contratamos pela excelência técnica, gentileza e honestidade intelectual, em engenharia, produto, design, jurídico e
                   go-to-market.
                 </p>
               </div>
@@ -152,13 +152,13 @@ export default function CareersExperience() {
                 <div className="relative h-48 border-b border-[#eceae7] bg-gradient-to-br from-[#f1f0ee] via-[#ebe8e3] to-[#e0ddd6]">
                   <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_50%)]" aria-hidden />
                   <div className="relative flex h-full items-end p-8">
-                    <p className="max-w-sm text-lg font-medium text-[#10101A]">Build the future of legal intelligence.</p>
+                    <p className="max-w-sm text-lg font-medium text-[#10101A]">Construa o futuro da inteligência jurídica.</p>
                   </div>
                 </div>
                 <div className="space-y-4 p-8 text-[0.9375rem] leading-relaxed text-[#525252]">
-                  <p>Cross-functional squads. High ownership. Clear problems worth solving.</p>
+                  <p>Squads multidisciplinares. Muita autonomia. Problemas claros que valem a pena resolver.</p>
                   <Link href="#openings" className="inline-flex font-medium text-[#10101A] hover:underline">
-                    Jump to open roles →
+                    Ir para as vagas abertas →
                   </Link>
                 </div>
               </div>
@@ -170,9 +170,9 @@ export default function CareersExperience() {
       <FadeInSection delay={0.08}>
         <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={`${sectionHeadingClass} text-center`}>Our values</h2>
+            <h2 className={`${sectionHeadingClass} text-center`}>Nossos valores</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center md:mb-12`}>
-              How we work day to day—not just words on a wall.
+              Como trabalhamos no dia a dia, e não apenas palavras na parede.
             </p>
             <div className="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4">
               {values.map((v) => (
@@ -197,9 +197,9 @@ export default function CareersExperience() {
       <FadeInSection delay={0.1}>
         <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={`${sectionHeadingClass} text-center`}>Life at AiForLawyers</h2>
+            <h2 className={`${sectionHeadingClass} text-center`}>A vida na Pequi</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center`}>
-              Async-friendly, outcome-driven, and intentional about how we spend time together.
+              Favorável ao trabalho assíncrono, orientado a resultados e intencional na forma como passamos tempo juntos.
             </p>
             <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
               {cultureTiles.map((t) => (
@@ -218,9 +218,9 @@ export default function CareersExperience() {
       <FadeInSection delay={0.12}>
         <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={`${sectionHeadingClass} text-center`}>Benefits & perks</h2>
+            <h2 className={`${sectionHeadingClass} text-center`}>Benefícios e vantagens</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center md:mb-12`}>
-              The basics done well—plus room to grow.
+              O essencial bem feito, e espaço para crescer.
             </p>
             <div className="grid gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
               {benefits.map((b) => (
@@ -241,9 +241,9 @@ export default function CareersExperience() {
       <FadeInSection delay={0.14}>
         <section id="openings" className="scroll-mt-24 bg-[#FFFFFF] py-12 md:py-16 md:scroll-mt-28">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={`${sectionHeadingClass} text-center`}>Open positions</h2>
+            <h2 className={`${sectionHeadingClass} text-center`}>Vagas abertas</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-8 max-w-2xl text-center`}>
-              Filter by team. Each listing has full details and an application form.
+              Filtre por equipe. Cada vaga traz todos os detalhes e um formulário de candidatura.
             </p>
 
             <div className="mb-10 flex flex-wrap justify-center gap-2">
@@ -258,7 +258,7 @@ export default function CareersExperience() {
                       : 'border-[#e7e5e1] bg-[#f1f0ee] text-[#525252] hover:border-[#d4d2ce] hover:text-[#10101A]'
                   }`}
                 >
-                  {tab === 'all' ? 'All teams' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  {tab === 'all' ? 'Todas as equipes' : ({ engineering: 'Engenharia', product: 'Produto', design: 'Design', legal: 'Jurídico', sales: 'Vendas' } as Record<string, string>)[tab]}
                 </button>
               ))}
             </div>
@@ -268,12 +268,12 @@ export default function CareersExperience() {
                 filtered.map((job) => <JobRow key={job.id} job={job} />)
               ) : (
                 <div className="rounded-[1.25rem] border border-[#eceae7] bg-white p-12 text-center shadow-[0_12px_28px_rgba(16,16,26,0.04)]">
-                  <p className="mb-2 text-[#525252]">No open roles in this team right now.</p>
+                  <p className="mb-2 text-[#525252]">Não há vagas abertas nesta equipe no momento.</p>
                   <p className="text-sm text-[#525252]">
                     <Link href="/contact" className="font-medium text-[#10101A] hover:underline">
-                      Contact us
+                      Fale conosco
                     </Link>{' '}
-                    about future opportunities.
+                    sobre oportunidades futuras.
                   </p>
                 </div>
               )}
@@ -285,11 +285,11 @@ export default function CareersExperience() {
       <FadeInSection delay={0.16}>
         <section className="border-t border-[#eceae7] bg-[#f8f7f6] py-12 md:py-14">
           <div className="mx-auto max-w-[48rem] px-4 text-center">
-            <h2 className="mb-4 text-xl font-medium text-[#10101A] md:text-2xl">Equal opportunity employer</h2>
+            <h2 className="mb-4 text-xl font-medium text-[#10101A] md:text-2xl">Empresa com igualdade de oportunidades</h2>
             <p className="text-[0.9375rem] leading-relaxed text-[#525252]">
-              AiForLawyers is an equal opportunity employer. We welcome qualified applicants regardless of race, religion,
-              color, national origin, gender, sexual orientation, age, disability, veteran status, or other protected
-              characteristics.
+              A Pequi é uma empresa que oferece igualdade de oportunidades. Recebemos candidatos qualificados independentemente de raça, religião,
+              cor, origem nacional, gênero, orientação sexual, idade, deficiência, condição de veterano ou outras características
+              protegidas.
             </p>
           </div>
         </section>

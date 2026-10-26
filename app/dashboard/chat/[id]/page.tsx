@@ -25,7 +25,7 @@ export default function ChatRedirect() {
           <div className="w-3 h-3 rounded-full bg-white/70 animate-pulse delay-100"></div>
           <div className="w-3 h-3 rounded-full bg-white/70 animate-pulse delay-200"></div>
         </div>
-        <p className="text-white/50">Loading chat...</p>
+        <p className="text-white/50">Carregando chat...</p>
       </div>
     </div>
   );

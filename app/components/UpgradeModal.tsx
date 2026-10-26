@@ -34,14 +34,14 @@ const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose, title, des
           </div>
 
           <h2 className="text-2xl font-bold text-foreground mb-4 leading-tight">
-            {title || "Premium Feature"}
+            {title || "Recurso Premium"}
           </h2>
           
           <p className="text-foreground/50 text-sm mb-10 leading-relaxed font-medium">
             {description || (
               <>
-                This feature is not included in your current plan.<br/>
-                Please upgrade to Pro to access this.
+                Este recurso não está incluído no seu plano atual.<br/>
+                Faça upgrade para o Pro para acessá-lo.
               </>
             )}
           </p>
@@ -51,13 +51,13 @@ const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose, title, des
               onClick={() => router.push('/dashboard/billing')}
               className="w-full py-4 bg-foreground text-white rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
-              Upgrade to Pro
+              Fazer upgrade para o Pro
             </button>
             <button
               onClick={onClose}
               className="w-full py-4 bg-gray-50 text-foreground/40 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] hover:bg-gray-100 transition-all"
             >
-              Maybe Later
+              Talvez depois
             </button>
           </div>
         </div>

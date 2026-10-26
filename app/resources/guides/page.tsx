@@ -11,112 +11,112 @@ export default function LegalGuidesPage() {
   const guides = [
     {
       id: 1,
-      title: "Complete Guide to Business Formation",
+      title: "Guia Completo de Abertura de Empresas",
       category: "business-law",
-      description: "Everything you need to know about starting a business, from choosing entity types to filing requirements.",
+      description: "Tudo o que você precisa saber para abrir uma empresa, da escolha do tipo societário aos requisitos de registro.",
       readTime: "25 min",
       lastUpdated: "2024-01-15",
       author: "Sarah Johnson, Esq.",
       difficulty: "Beginner",
-      topics: ["LLC Formation", "Corporation Setup", "Tax Implications", "State Requirements"],
+      topics: ["Constituição de Ltda.", "Constituição de S.A.", "Implicações Tributárias", "Exigências Estaduais"],
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2340&auto=format&fit=crop",
       featured: true,
       downloadable: true
     },
     {
       id: 2,
-      title: "Employment Law Essentials for Small Business",
+      title: "Fundamentos de Direito do Trabalho para Pequenas Empresas",
       category: "employment-law",
-      description: "Navigate hiring, managing employees, and staying compliant with employment regulations.",
+      description: "Saiba como contratar, gerir funcionários e manter a conformidade com a legislação trabalhista.",
       readTime: "18 min",
       lastUpdated: "2024-01-20",
       author: "Michael Chen, Esq.",
       difficulty: "Intermediate",
-      topics: ["Hiring Practices", "Employee Rights", "Wage Laws", "Termination Procedures"],
+      topics: ["Práticas de Contratação", "Direitos dos Empregados", "Leis Salariais", "Procedimentos de Desligamento"],
       image: "https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=2669&auto=format&fit=crop",
       featured: true,
       downloadable: true
     },
     {
       id: 3,
-      title: "Contract Law Fundamentals",
+      title: "Fundamentos de Direito Contratual",
       category: "contract-law",
-      description: "Learn the basics of contract formation, interpretation, and enforcement.",
+      description: "Aprenda o básico sobre formação, interpretação e execução de contratos.",
       readTime: "22 min",
       lastUpdated: "2024-01-12",
       author: "Elena Rodriguez, Esq.",
       difficulty: "Beginner",
-      topics: ["Contract Elements", "Performance", "Breach", "Remedies"],
+      topics: ["Elementos do Contrato", "Cumprimento", "Inadimplemento", "Remédios Jurídicos"],
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2670&auto=format&fit=crop",
       featured: false,
       downloadable: true
     },
     {
       id: 4,
-      title: "Intellectual Property Protection Strategies",
+      title: "Estratégias de Proteção da Propriedade Intelectual",
       category: "ip-law",
-      description: "Protect your ideas, inventions, and brand through trademarks, patents, and copyrights.",
+      description: "Proteja suas ideias, invenções e sua marca por meio de registros de marca, patentes e direitos autorais.",
       readTime: "30 min",
       lastUpdated: "2024-01-18",
       author: "David Wilson, Esq.",
       difficulty: "Advanced",
-      topics: ["Patents", "Trademarks", "Copyright", "Trade Secrets"],
+      topics: ["Patentes", "Marcas", "Direitos Autorais", "Segredos Comerciais"],
       image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2526&auto=format&fit=crop",
       featured: true,
       downloadable: true
     },
     {
       id: 5,
-      title: "Real Estate Transaction Guide",
+      title: "Guia de Transações Imobiliárias",
       category: "real-estate-law",
-      description: "Step-by-step guide to buying, selling, and leasing commercial and residential properties.",
+      description: "Guia passo a passo para comprar, vender e alugar imóveis comerciais e residenciais.",
       readTime: "35 min",
       lastUpdated: "2024-01-14",
       author: "Jennifer Park, Esq.",
       difficulty: "Intermediate",
-      topics: ["Purchase Agreements", "Due Diligence", "Closing Process", "Title Issues"],
+      topics: ["Contratos de Compra e Venda", "Due Diligence", "Fechamento do Negócio", "Questões de Titularidade"],
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop",
       featured: false,
       downloadable: true
     },
     {
       id: 6,
-      title: "Data Privacy and Security Compliance",
+      title: "Conformidade em Privacidade e Segurança de Dados",
       category: "privacy-law",
-      description: "Navigate GDPR, CCPA, and other privacy regulations to protect customer data.",
+      description: "Entenda a LGPD, a GDPR, a CCPA e outras normas de privacidade para proteger os dados dos clientes.",
       readTime: "28 min",
       lastUpdated: "2024-01-22",
       author: "Thomas Anderson, Esq.",
       difficulty: "Advanced",
-      topics: ["GDPR Compliance", "CCPA Requirements", "Data Breaches", "Privacy Policies"],
+      topics: ["Conformidade com a GDPR", "Requisitos da CCPA", "Vazamentos de Dados", "Políticas de Privacidade"],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2500&auto=format&fit=crop",
       featured: true,
       downloadable: true
     },
     {
       id: 7,
-      title: "Corporate Governance Best Practices",
+      title: "Boas Práticas de Governança Corporativa",
       category: "corporate-law",
-      description: "Essential governance practices for boards, executives, and stakeholders.",
+      description: "Práticas essenciais de governança para conselhos, executivos e partes interessadas.",
       readTime: "26 min",
       lastUpdated: "2024-01-16",
       author: "Lisa Wang, Esq.",
       difficulty: "Advanced",
-      topics: ["Board Duties", "Shareholder Rights", "Compliance", "Risk Management"],
+      topics: ["Deveres do Conselho", "Direitos dos Acionistas", "Compliance", "Gestão de Riscos"],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2670&auto=format&fit=crop",
       featured: false,
       downloadable: true
     },
     {
       id: 8,
-      title: "Startup Legal Checklist",
+      title: "Checklist Jurídico para Startups",
       category: "business-law",
-      description: "Critical legal steps every startup should take from inception to funding rounds.",
+      description: "Etapas jurídicas essenciais que toda startup deve seguir, da fundação às rodadas de investimento.",
       readTime: "20 min",
       lastUpdated: "2024-01-19",
       author: "Robert Kim, Esq.",
       difficulty: "Beginner",
-      topics: ["Entity Formation", "Founder Agreements", "IP Assignment", "Investment Terms"],
+      topics: ["Constituição da Empresa", "Acordo de Sócios", "Cessão de PI", "Termos de Investimento"],
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=2500&auto=format&fit=crop",
       featured: false,
       downloadable: true
@@ -124,14 +124,14 @@ export default function LegalGuidesPage() {
   ];
 
   const categories = [
-    { id: 'all', name: 'All Guides', count: guides.length },
-    { id: 'business-law', name: 'Business Law', count: guides.filter(g => g.category === 'business-law').length },
-    { id: 'employment-law', name: 'Employment Law', count: guides.filter(g => g.category === 'employment-law').length },
-    { id: 'contract-law', name: 'Contract Law', count: guides.filter(g => g.category === 'contract-law').length },
-    { id: 'ip-law', name: 'IP Law', count: guides.filter(g => g.category === 'ip-law').length },
-    { id: 'real-estate-law', name: 'Real Estate', count: guides.filter(g => g.category === 'real-estate-law').length },
-    { id: 'privacy-law', name: 'Privacy Law', count: guides.filter(g => g.category === 'privacy-law').length },
-    { id: 'corporate-law', name: 'Corporate Law', count: guides.filter(g => g.category === 'corporate-law').length }
+    { id: 'all', name: 'Todos os guias', count: guides.length },
+    { id: 'business-law', name: 'Direito Empresarial', count: guides.filter(g => g.category === 'business-law').length },
+    { id: 'employment-law', name: 'Direito do Trabalho', count: guides.filter(g => g.category === 'employment-law').length },
+    { id: 'contract-law', name: 'Direito Contratual', count: guides.filter(g => g.category === 'contract-law').length },
+    { id: 'ip-law', name: 'Propriedade Intelectual', count: guides.filter(g => g.category === 'ip-law').length },
+    { id: 'real-estate-law', name: 'Imobiliário', count: guides.filter(g => g.category === 'real-estate-law').length },
+    { id: 'privacy-law', name: 'Privacidade', count: guides.filter(g => g.category === 'privacy-law').length },
+    { id: 'corporate-law', name: 'Direito Societário', count: guides.filter(g => g.category === 'corporate-law').length }
   ];
 
   const filteredGuides = guides.filter(guide => {
@@ -161,7 +161,7 @@ export default function LegalGuidesPage() {
         <div className="absolute inset-0">
           <Image 
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop" 
-            alt="Legal Guides" 
+            alt="Guias jurídicos" 
             layout="fill"
             objectFit="cover"
             priority
@@ -170,12 +170,12 @@ export default function LegalGuidesPage() {
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center max-w-4xl mx-auto px-6">
-            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">Legal Guides</h1>
+            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">Guias jurídicos</h1>
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
-              Comprehensive legal guides written by expert attorneys to help you navigate complex legal topics
+              Guias jurídicos completos escritos por advogados especialistas para ajudar você com temas jurídicos complexos
             </p>
             <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
-              Access All Guides
+              Acessar todos os guias
             </Link>
           </div>
         </div>
@@ -185,10 +185,10 @@ export default function LegalGuidesPage() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light mb-6">Featured Guides</h2>
+            <h2 className="text-4xl font-light mb-6">Guias em destaque</h2>
             <div className="w-24 h-1 bg-white/20 mx-auto mb-6"></div>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Our most popular and comprehensive legal guides
+              Nossos guias jurídicos mais populares e completos
             </p>
           </div>
 
@@ -206,7 +206,7 @@ export default function LegalGuidesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                   <div className="absolute top-4 right-4">
                     <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-black/60`}>
-                      {guide.difficulty}
+                      {({ Beginner: 'Iniciante', Intermediate: 'Intermediário', Advanced: 'Avançado' } as Record<string, string>)[guide.difficulty] ?? guide.difficulty}
                     </span>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function LegalGuidesPage() {
                     href={`/resources/guides/${guide.id}`}
                     className="text-white hover:text-white/80 transition-colors text-sm font-medium"
                   >
-                    Read Guide →
+                    Ler guia →
                   </Link>
                 </div>
               </div>
@@ -242,7 +242,7 @@ export default function LegalGuidesPage() {
             <div className="relative flex-1 max-w-md">
               <input
                 type="text"
-                placeholder="Search legal guides..."
+                placeholder="Pesquisar guias jurídicos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full bg-white/10 border border-white/20 text-white placeholder-white/60 px-4 py-3 pl-12 focus:outline-none focus:border-white/40 transition-colors"
@@ -272,8 +272,8 @@ export default function LegalGuidesPage() {
 
           {/* Results count */}
           <div className="text-white/60 mb-8">
-            Showing {filteredGuides.length} guide{filteredGuides.length !== 1 ? 's' : ''}
-            {searchTerm && ` for "${searchTerm}"`}
+            Exibindo {filteredGuides.length} {filteredGuides.length !== 1 ? 'guias' : 'guia'}
+            {searchTerm && ` para "${searchTerm}"`}
           </div>
         </div>
       </section>
@@ -295,13 +295,13 @@ export default function LegalGuidesPage() {
                     />
                     <div className="absolute top-4 left-4">
                       <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-black/60`}>
-                        {guide.difficulty}
+                        {({ Beginner: 'Iniciante', Intermediate: 'Intermediário', Advanced: 'Avançado' } as Record<string, string>)[guide.difficulty] ?? guide.difficulty}
                       </span>
                     </div>
                     {guide.downloadable && (
                       <div className="absolute top-4 right-4">
                         <span className="px-2 py-1 text-xs font-medium rounded bg-green-600 text-white">
-                          Downloadable
+                          Disponível para download
                         </span>
                       </div>
                     )}
@@ -312,7 +312,7 @@ export default function LegalGuidesPage() {
                       <h3 className="text-2xl font-medium">{guide.title}</h3>
                       {guide.featured && (
                         <span className="bg-white text-black px-3 py-1 text-sm font-medium">
-                          Featured
+                          Destaque
                         </span>
                       )}
                     </div>
@@ -337,13 +337,13 @@ export default function LegalGuidesPage() {
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        Updated {new Date(guide.lastUpdated).toLocaleDateString()}
+                        Atualizado em {new Date(guide.lastUpdated).toLocaleDateString('pt-BR')}
                       </div>
                     </div>
 
                     {/* Topics */}
                     <div className="mb-8">
-                      <h4 className="text-sm font-medium text-white/90 mb-3">Topics Covered:</h4>
+                      <h4 className="text-sm font-medium text-white/90 mb-3">Temas abordados:</h4>
                       <div className="flex flex-wrap gap-2">
                         {guide.topics.map((topic, index) => (
                           <span key={index} className="bg-white/10 text-white/80 px-3 py-1 text-sm rounded-full">
@@ -359,14 +359,14 @@ export default function LegalGuidesPage() {
                         href={`/resources/guides/${guide.id}`}
                         className="bg-white text-black px-6 py-3 font-medium transition-all hover:bg-white/90"
                       >
-                        Read Guide
+                        Ler guia
                       </Link>
                       {guide.downloadable && (
                         <Link
                           href="#"
                           className="bg-white/10 text-white px-6 py-3 font-medium border border-white/20 transition-all hover:bg-white/20"
                         >
-                          Download PDF
+                          Baixar PDF
                         </Link>
                       )}
                     </div>
@@ -378,7 +378,7 @@ export default function LegalGuidesPage() {
 
           {filteredGuides.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-white/60 mb-4">No guides found matching your criteria.</div>
+              <div className="text-white/60 mb-4">Nenhum guia encontrado com esses critérios.</div>
               <button
                 onClick={() => {
                   setSearchTerm('');
@@ -386,7 +386,7 @@ export default function LegalGuidesPage() {
                 }}
                 className="text-white hover:text-white/80 transition-colors"
               >
-                Clear filters and show all guides
+                Limpar filtros e mostrar todos os guias
               </button>
             </div>
           )}
@@ -399,23 +399,23 @@ export default function LegalGuidesPage() {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="p-8">
               <div className="text-4xl font-light mb-4">50+</div>
-              <h3 className="text-xl font-medium mb-2">Expert Guides</h3>
-              <p className="text-white/60">Comprehensive legal resources</p>
+              <h3 className="text-xl font-medium mb-2">Guias especializados</h3>
+              <p className="text-white/60">Recursos jurídicos completos</p>
             </div>
             <div className="p-8">
               <div className="text-4xl font-light mb-4">25+</div>
-              <h3 className="text-xl font-medium mb-2">Practice Areas</h3>
-              <p className="text-white/60">Covering all major legal topics</p>
+              <h3 className="text-xl font-medium mb-2">Áreas de atuação</h3>
+              <p className="text-white/60">Cobrindo todos os principais temas jurídicos</p>
             </div>
             <div className="p-8">
               <div className="text-4xl font-light mb-4">100K+</div>
               <h3 className="text-xl font-medium mb-2">Downloads</h3>
-              <p className="text-white/60">Trusted by legal professionals</p>
+              <p className="text-white/60">A confiança de profissionais do Direito</p>
             </div>
             <div className="p-8">
-              <div className="text-4xl font-light mb-4">Weekly</div>
-              <h3 className="text-xl font-medium mb-2">Updates</h3>
-              <p className="text-white/60">Fresh content and legal insights</p>
+              <div className="text-4xl font-light mb-4">Semanais</div>
+              <h3 className="text-xl font-medium mb-2">Atualizações</h3>
+              <p className="text-white/60">Conteúdo novo e insights jurídicos</p>
             </div>
           </div>
         </div>
@@ -424,16 +424,16 @@ export default function LegalGuidesPage() {
       {/* CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-light mb-8">Stay Informed with Expert Legal Guidance</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-8">Mantenha-se informado com orientação jurídica especializada</h2>
           <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto">
-            Access our complete library of legal guides and get the knowledge you need to make informed decisions.
+            Acesse nossa biblioteca completa de guias jurídicos e obtenha o conhecimento necessário para tomar decisões fundamentadas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
-              Start Free Trial
+              Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">
-              View Pricing
+              Ver preços
             </Link>
           </div>
         </div>

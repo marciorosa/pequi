@@ -13,124 +13,124 @@ import {
 } from '@/app/components/legal/LegalDocChrome';
 
 const privacyPolicy = {
-  title: 'Privacy Policy',
-  lastUpdated: 'November 10, 2023',
+  title: 'Política de Privacidade',
+  lastUpdated: '10 de novembro de 2023',
   sections: [
     {
       id: 'introduction',
-      title: 'Introduction',
+      title: 'Introdução',
       content:
-        'At AIForLawyers, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this Privacy Policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access the site or use our services.',
+        'No Pequi, levamos sua privacidade a sério. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site ou usa nossos serviços. Leia esta Política de Privacidade com atenção. Se você não concordar com os termos desta Política de Privacidade, não acesse o site nem use nossos serviços.',
     },
     {
       id: 'information-we-collect',
-      title: 'Information We Collect',
-      content: 'We collect information in several ways when you use our services:',
+      title: 'Informações que coletamos',
+      content: 'Coletamos informações de várias formas quando você usa nossos serviços:',
       subsections: [
         {
-          title: 'Personal Information You Provide',
+          title: 'Informações pessoais que você fornece',
           content:
-            'We collect personal information that you voluntarily provide to us when you register for an account, express interest in obtaining information about us or our products and services, participate in activities on our services, or otherwise contact us. This may include names, email addresses, billing information, and other information you choose to provide.',
+            'Coletamos as informações pessoais que você nos fornece voluntariamente ao se cadastrar, manifestar interesse em obter informações sobre nós ou nossos produtos e serviços, participar de atividades em nossos serviços ou entrar em contato conosco. Isso pode incluir nome, endereço de e-mail, dados de cobrança e outras informações que você decida fornecer.',
         },
         {
-          title: 'Information Automatically Collected',
+          title: 'Informações coletadas automaticamente',
           content:
-            'When you use our services, we automatically collect certain information about your device and how you interact with our services. This includes device data (IP address, browser type, operating system) and usage data (pages visited, time spent, referring website addresses).',
+            'Quando você usa nossos serviços, coletamos automaticamente determinadas informações sobre seu dispositivo e sobre como você interage com nossos serviços. Isso inclui dados do dispositivo (endereço IP, tipo de navegador, sistema operacional) e dados de uso (páginas visitadas, tempo de permanência, sites de origem).',
         },
         {
-          title: 'Legal Documents and Content',
+          title: 'Documentos e conteúdos jurídicos',
           content:
-            'When you upload or create legal documents and content using our services, we collect and store that information. This may include sensitive legal information related to your cases, contracts, and other legal matters.',
+            'Quando você envia ou cria documentos e conteúdos jurídicos usando nossos serviços, coletamos e armazenamos essas informações. Isso pode incluir informações jurídicas sensíveis relacionadas aos seus casos, contratos e outros assuntos jurídicos.',
         },
       ],
     },
     {
       id: 'how-we-use-information',
-      title: 'How We Use Your Information',
-      content: 'We may use the information we collect for various purposes, including to:',
+      title: 'Como usamos suas informações',
+      content: 'Podemos usar as informações coletadas para diversas finalidades, incluindo:',
       bulletPoints: [
-        'Provide, operate, and maintain our services',
-        'Improve, personalize, and expand our services',
-        'Understand and analyze how you use our services',
-        'Develop new products, services, features, and functionality',
-        'Communicate with you directly or through our partners',
-        'Process your transactions and manage your account',
-        'Send you emails and updates about our services',
-        'Find and prevent fraud or other harmful activities',
+        'Fornecer, operar e manter nossos serviços',
+        'Aprimorar, personalizar e expandir nossos serviços',
+        'Entender e analisar como você usa nossos serviços',
+        'Desenvolver novos produtos, serviços, recursos e funcionalidades',
+        'Comunicar-nos com você diretamente ou por meio de nossos parceiros',
+        'Processar suas transações e gerenciar sua conta',
+        'Enviar e-mails e novidades sobre nossos serviços',
+        'Identificar e prevenir fraudes ou outras atividades prejudiciais',
       ],
     },
     {
       id: 'sharing-information',
-      title: 'Sharing Your Information',
-      content: 'We may share your information in the following situations:',
+      title: 'Compartilhamento das suas informações',
+      content: 'Podemos compartilhar suas informações nas seguintes situações:',
       subsections: [
         {
-          title: 'With Service Providers',
+          title: 'Com prestadores de serviços',
           content:
-            'We may share your information with third-party vendors, service providers, contractors, or agents who perform services for us or on our behalf and require access to such information to do that work.',
+            'Podemos compartilhar suas informações com fornecedores, prestadores de serviços, contratados ou agentes terceirizados que prestam serviços para nós ou em nosso nome e que precisam acessar essas informações para realizar esse trabalho.',
         },
         {
-          title: 'Business Transfers',
+          title: 'Transferências empresariais',
           content:
-            'We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.',
+            'Podemos compartilhar ou transferir suas informações em conexão com, ou durante negociações de, qualquer fusão, venda de ativos da empresa, financiamento ou aquisição de todo ou parte do nosso negócio por outra empresa.',
         },
         {
-          title: 'Legal Requirements',
+          title: 'Exigências legais',
           content:
-            'We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, judicial proceedings, court orders, or legal processes.',
+            'Podemos divulgar suas informações quando formos legalmente obrigados a fazê-lo para cumprir a legislação aplicável, solicitações governamentais, processos judiciais, ordens judiciais ou procedimentos legais.',
         },
       ],
     },
     {
       id: 'data-security',
-      title: 'Data Security',
+      title: 'Segurança dos dados',
       content:
-        'We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. Please remember that no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.',
+        'Adotamos medidas de segurança técnicas e organizacionais adequadas para proteger as informações pessoais que tratamos. Lembre-se de que nenhum método de transmissão pela Internet ou de armazenamento eletrônico é 100% seguro, e não podemos garantir segurança absoluta.',
     },
     {
       id: 'data-retention',
-      title: 'Data Retention',
+      title: 'Retenção de dados',
       content:
-        'We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. When we no longer need to use your data, we will either securely delete or anonymize it.',
+        'Manteremos suas informações pessoais apenas pelo tempo necessário para as finalidades descritas nesta Política de Privacidade. Quando não precisarmos mais usar seus dados, iremos excluí-los com segurança ou anonimizá-los.',
     },
     {
       id: 'your-rights',
-      title: 'Your Privacy Rights',
-      content: 'Depending on your location, you may have certain rights regarding your personal information, such as:',
+      title: 'Seus direitos de privacidade',
+      content: 'Dependendo da sua localização, você pode ter determinados direitos sobre suas informações pessoais, como:',
       bulletPoints: [
-        'Right to access – Request copies of your personal information.',
-        'Right to rectification – Request correction of inaccurate or incomplete information.',
-        'Right to erasure – Request that we erase your personal information.',
-        'Right to restrict processing – Request that we restrict processing of your information.',
-        'Right to data portability – Request transfer of your personal information.',
-        'Right to object – Object to our processing of your personal information.',
+        'Direito de acesso – Solicitar cópias das suas informações pessoais.',
+        'Direito de retificação – Solicitar a correção de informações imprecisas ou incompletas.',
+        'Direito de eliminação – Solicitar que eliminemos suas informações pessoais.',
+        'Direito de restringir o tratamento – Solicitar que restrinjamos o tratamento das suas informações.',
+        'Direito à portabilidade dos dados – Solicitar a transferência das suas informações pessoais.',
+        'Direito de oposição – Opor-se ao tratamento das suas informações pessoais.',
       ],
       additionalContent:
-        'To exercise any of these rights, please contact us at privacy@AIForLawyers.com. We will respond to your request within 30 days.',
+        'Para exercer qualquer um desses direitos, entre em contato pelo e-mail privacy@AIForLawyers.com. Responderemos à sua solicitação em até 30 dias.',
     },
     {
       id: 'international-transfers',
-      title: 'International Data Transfers',
+      title: 'Transferências internacionais de dados',
       content:
-        'Our services are operated in the United States. If you are located in the European Economic Area, United Kingdom, or other regions with laws governing data collection, please note that we may transfer information to a country without the same data protection laws as your jurisdiction. We will take all steps reasonably necessary to ensure your data is treated securely.',
+        'Nossos serviços são operados nos Estados Unidos. Se você estiver no Brasil, no Espaço Econômico Europeu, no Reino Unido ou em outras regiões com leis que regulam a coleta de dados, observe que poderemos transferir informações para um país que não possui as mesmas leis de proteção de dados da sua jurisdição. Tomaremos todas as medidas razoavelmente necessárias para garantir que seus dados sejam tratados com segurança.',
     },
     {
       id: 'children-privacy',
-      title: "Children's Privacy",
+      title: 'Privacidade de crianças e adolescentes',
       content:
-        "Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18. If you believe we might have any information from or about a child under 18, please contact us at privacy@AIForLawyers.com.",
+        'Nossos serviços não se destinam a menores de 18 anos. Não coletamos intencionalmente informações pessoais de menores de 18 anos. Se você acredita que possamos ter informações de ou sobre um menor de 18 anos, entre em contato pelo e-mail privacy@AIForLawyers.com.',
     },
     {
       id: 'changes-to-policy',
-      title: 'Changes to This Privacy Policy',
+      title: 'Alterações nesta Política de Privacidade',
       content:
-        "We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the 'Last Updated' date.",
+        "Podemos atualizar esta Política de Privacidade periodicamente. Avisaremos sobre quaisquer alterações relevantes publicando a nova Política de Privacidade nesta página e atualizando a data de 'Última atualização'.",
     },
     {
       id: 'contact-us',
-      title: 'Contact Us',
+      title: 'Fale conosco',
       content:
-        'If you have any questions about this Privacy Policy, please contact us at privacy@AIForLawyers.com or write to us at: AIForLawyers, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, USA.',
+        'Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail privacy@AIForLawyers.com ou escreva para: Pequi, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, EUA.',
     },
   ],
 };
@@ -147,7 +147,7 @@ type Section = {
 export default function PrivacyPageContent() {
   return (
     <main className="min-h-screen">
-      <LegalHero eyebrow="Data protection" title={privacyPolicy.title} lastUpdated={privacyPolicy.lastUpdated} />
+      <LegalHero eyebrow="Proteção de dados" title={privacyPolicy.title} lastUpdated={privacyPolicy.lastUpdated} />
       <LegalTOC items={privacyPolicy.sections.map((s) => ({ id: s.id, title: s.title }))} />
       <LegalMain>
         {privacyPolicy.sections.map((section: Section, index: number) => (
@@ -177,35 +177,35 @@ export default function PrivacyPageContent() {
         ))}
       </LegalMain>
       <LegalLinkGrid
-        title="Additional resources"
+        title="Recursos adicionais"
         items={[
           {
             href: '/terms',
-            title: 'Terms of Service',
-            desc: 'Read our Terms of Service that govern your use of our platform.',
-            label: 'Read Terms',
+            title: 'Termos de Serviço',
+            desc: 'Leia os Termos de Serviço que regem o uso da nossa plataforma.',
+            label: 'Ler os Termos',
           },
           {
             href: '/cookies',
-            title: 'Cookie Policy',
-            desc: 'Learn about how we use cookies and similar technologies.',
-            label: 'Read Cookie Policy',
+            title: 'Política de Cookies',
+            desc: 'Saiba como usamos cookies e tecnologias semelhantes.',
+            label: 'Ler a Política de Cookies',
           },
           {
             href: '/security',
-            title: 'Security practices',
-            desc: 'Discover how we protect your data and maintain security.',
-            label: 'Learn about security',
+            title: 'Práticas de segurança',
+            desc: 'Descubra como protegemos seus dados e mantemos a segurança.',
+            label: 'Saiba mais sobre segurança',
           },
           {
             href: '/contact',
-            title: 'Data request',
-            desc: 'Request a copy of your data or exercise your privacy rights.',
-            label: 'Contact privacy team',
+            title: 'Solicitação de dados',
+            desc: 'Solicite uma cópia dos seus dados ou exerça seus direitos de privacidade.',
+            label: 'Falar com a equipe de privacidade',
           },
         ]}
       />
-      <LegalFooterBar printLabel="Print this policy" emailLabel="privacy@AIForLawyers.com" emailHref="mailto:privacy@AIForLawyers.com" />
+      <LegalFooterBar printLabel="Imprimir esta política" emailLabel="privacy@AIForLawyers.com" emailHref="mailto:privacy@AIForLawyers.com" />
     </main>
   );
 }

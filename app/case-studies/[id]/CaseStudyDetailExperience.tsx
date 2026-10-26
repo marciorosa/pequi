@@ -40,7 +40,7 @@ export default function CaseStudyDetailExperience({ study }: Props) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            All case studies
+            Todos os casos
           </Link>
           <p className="text-white/75 text-[0.8125rem] font-semibold uppercase tracking-[0.14em] mb-3">{study.industry}</p>
           <h1 className="text-white text-[1.75rem] md:text-[2.5rem] lg:text-[2.75rem] font-medium leading-[1.15] max-w-4xl">
@@ -73,15 +73,15 @@ export default function CaseStudyDetailExperience({ study }: Props) {
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-[48rem] mx-auto px-4 md:px-8 lg:px-6 xl:px-0 space-y-10">
           <div>
-            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Challenge</h2>
+            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Desafio</h2>
             <p className="text-[#636977] text-[1.0625rem] leading-[175%]">{study.challenge}</p>
           </div>
           <div>
-            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Solution</h2>
+            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Solução</h2>
             <p className="text-[#636977] text-[1.0625rem] leading-[175%]">{study.solution}</p>
           </div>
           <div>
-            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Results</h2>
+            <h2 className="text-[#111827] text-[1.25rem] font-medium mb-3">Resultados</h2>
             <p className="text-[#636977] text-[1.0625rem] leading-[175%]">{study.results}</p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function CaseStudyDetailExperience({ study }: Props) {
       {related.length > 0 && (
         <section className="bg-white py-12 md:py-16">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className="text-[#111827] text-[1.25rem] md:text-[1.5rem] font-medium mb-8">More case studies</h2>
+            <h2 className="text-[#111827] text-[1.25rem] md:text-[1.5rem] font-medium mb-8">Mais casos de sucesso</h2>
             <div className="grid sm:grid-cols-2 gap-5 max-w-3xl">
               {related.map((s) => (
                 <RelatedCard key={s.id} s={s} />

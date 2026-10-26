@@ -8,19 +8,27 @@ import { getArticleBySlug, getRelatedArticles, type NewsArticleRecord } from '..
 
 type Props = { slug: string };
 
+const categoryLabels: Record<NewsArticleRecord['categoryKey'], string> = {
+  product: 'Produto',
+  company: 'Empresa',
+  industry: 'Setor',
+  partnership: 'Parcerias',
+  press: 'Imprensa',
+};
+
 function ArticleNotFound() {
   return (
     <div className="mx-auto max-w-[1274px] px-4 pb-24 pt-28 text-center md:px-8 lg:px-6 xl:px-0">
-      <p className="mb-3 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-[#525252]">News</p>
-      <h1 className="text-[2rem] font-medium text-[#10101A] md:text-[2.5rem]">Article not found</h1>
+      <p className="mb-3 text-[0.8125rem] font-medium uppercase tracking-[0.14em] text-[#525252]">Notícias</p>
+      <h1 className="text-[2rem] font-medium text-[#10101A] md:text-[2.5rem]">Artigo não encontrado</h1>
       <p className="mx-auto mt-4 max-w-md text-[1rem] text-[#525252]">
-        This story may have moved. Browse the latest updates on the news hub.
+        Esta notícia pode ter sido movida. Confira as novidades mais recentes na central de notícias.
       </p>
       <Link
         href="/news"
         className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
       >
-        Back to news
+        Voltar para notícias
       </Link>
     </div>
   );
@@ -46,7 +54,7 @@ function RelatedCard({ art }: { art: NewsArticleRecord }) {
         </div>
         <div className="absolute left-4 top-4 z-10">
           <span className="inline-block rounded-md bg-[#10101A] px-3 py-1.5 text-[0.625rem] font-medium capitalize tracking-[0.06em] text-white">
-            {art.categoryKey}
+            {categoryLabels[art.categoryKey]}
           </span>
         </div>
       </div>
@@ -71,7 +79,7 @@ export default function NewsArticleExperience({ slug }: Props) {
 
   const related = getRelatedArticles(slug, 3);
 
-  const formattedDate = new Date(article.publishedDate).toLocaleDateString('en-US', {
+  const formattedDate = new Date(article.publishedDate).toLocaleDateString('pt-BR', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -92,7 +100,7 @@ export default function NewsArticleExperience({ slug }: Props) {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="z-0 object-cover object-top"
@@ -103,13 +111,13 @@ export default function NewsArticleExperience({ slug }: Props) {
               <div className="text-left">
                 <nav
                   className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] text-[#525252]"
-                  aria-label="Breadcrumb"
+                  aria-label="Navegação estrutural"
                 >
                   <Link href="/news" className="transition-colors hover:text-[#10101A]">
-                    News
+                    Notícias
                   </Link>
                   <span aria-hidden>/</span>
-                  <span className="capitalize text-[#10101A]">{article.categoryKey}</span>
+                  <span className="capitalize text-[#10101A]">{categoryLabels[article.categoryKey]}</span>
                 </nav>
                 <h1 className="max-w-4xl text-[1.95rem] font-medium leading-[1.12] tracking-[-0.04rem] text-[#10101A] md:text-[2.5rem] lg:text-[2.75rem]">
                   {article.title}
@@ -188,7 +196,7 @@ export default function NewsArticleExperience({ slug }: Props) {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-2 border-t border-[#eceae7] pt-8">
-            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">Share</span>
+            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">Compartilhar</span>
             {[
               {
                 label: 'Twitter',
@@ -203,7 +211,7 @@ export default function NewsArticleExperience({ slug }: Props) {
                 key={s.label}
                 type="button"
                 className="rounded-lg border border-transparent p-2 text-[#525252] transition-colors hover:border-[#eceae7] hover:bg-[#f8f7f6] hover:text-[#10101A]"
-                aria-label={`Share on ${s.label}`}
+                aria-label={`Compartilhar no ${s.label}`}
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path d={s.path} />
@@ -219,20 +227,20 @@ export default function NewsArticleExperience({ slug }: Props) {
           <div className="rounded-[2rem] border border-[#eceae7] bg-[#f8f7f6] px-6 py-10 text-center shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:px-12 md:py-12">
             {!isSubscribed ? (
               <>
-                <h2 className="text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[2rem]">Stay updated</h2>
+                <h2 className="text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[2rem]">Fique por dentro</h2>
                 <p className="mx-auto mt-3 max-w-lg text-[0.9375rem] leading-[160%] text-[#525252] md:text-[1rem]">
-                  Product news and research—low volume, easy unsubscribe.
+                  Novidades de produto e pesquisas: poucos e-mails e cancelamento fácil.
                 </p>
                 <form onSubmit={handleSubscribe} className="mx-auto mt-8 flex max-w-lg flex-col gap-3 sm:flex-row">
                   <label htmlFor="article-newsletter-email" className="sr-only">
-                    Email
+                    E-mail
                   </label>
                   <input
                     id="article-newsletter-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email address"
+                    placeholder="Seu endereço de e-mail"
                     required
                     className="flex-1 rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-5 py-3.5 text-[0.9375rem] text-[#10101A] placeholder:text-[#525252] transition-colors focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/10"
                   />
@@ -240,7 +248,7 @@ export default function NewsArticleExperience({ slug }: Props) {
                     type="submit"
                     className="landing-primary-btn inline-flex h-11 shrink-0 items-center justify-center px-8 transition hover:brightness-110"
                   >
-                    Subscribe
+                    Assinar
                   </button>
                 </form>
               </>
@@ -251,8 +259,8 @@ export default function NewsArticleExperience({ slug }: Props) {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h2 className="text-[1.5rem] font-medium text-[#10101A]">You&apos;re subscribed</h2>
-                <p className="mt-2 text-[0.9375rem] text-[#525252]">We&apos;ll keep you posted.</p>
+                <h2 className="text-[1.5rem] font-medium text-[#10101A]">Inscrição confirmada</h2>
+                <p className="mt-2 text-[0.9375rem] text-[#525252]">Manteremos você informado.</p>
               </div>
             )}
           </div>
@@ -263,12 +271,12 @@ export default function NewsArticleExperience({ slug }: Props) {
         <section className="border-t border-[#eceae7] bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 pt-14 md:px-8 md:pt-16 lg:px-6 xl:px-0">
             <div className="mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between md:mb-12">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">More from AiForLawyers</h2>
+              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">Mais da Pequi</h2>
               <Link
                 href="/news"
                 className="inline-flex shrink-0 items-center gap-2 text-[0.9375rem] font-medium text-[#10101A] underline underline-offset-2 transition-opacity hover:opacity-80 sm:mb-1"
               >
-                All news
+                Todas as notícias
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

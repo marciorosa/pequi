@@ -54,7 +54,7 @@ const formatBytes = (bytes: number) => {
 };
 
 const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  new Date(iso).toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', year: 'numeric' });
 
 const FOLDER_COLORS = [
   '#1a1a1a', '#2563eb', '#7c3aed', '#059669', '#dc2626',
@@ -231,12 +231,12 @@ const PasswordModal = ({
           value={pw}
           onChange={(e) => setPw(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && pw && onConfirm(pw)}
-          placeholder="Access Key Required"
+          placeholder="Senha de acesso obrigatória"
           className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-4 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 mb-8 relative z-10 font-medium placeholder:opacity-30"
         />
         <div className="flex gap-4 relative z-10">
           <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-[#e7e5e1] text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#F9F8F6] transition-all duration-300">
-            Cancel
+            Cancelar
           </button>
           <button
             onClick={() => pw && onConfirm(pw)}
@@ -244,7 +244,7 @@ const PasswordModal = ({
             className="flex-1 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30 transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.1)] btn-primary-gradient"
           >
             {loading ? Icons.spinner : null}
-            {loading ? 'Working…' : action}
+            {loading ? 'Processando…' : action}
           </button>
         </div>
       </div>
@@ -281,26 +281,26 @@ const FolderModal = ({
           <div className="scale-125" style={{ color: color }}>{Icons.folder}</div>
         </div>
         <h2 className="text-3xl font-medium text-[#10101A] mb-2 tracking-tight relative z-10">
-          {initial?._id ? 'Edit Repository' : 'Initialize Storage Node'}
+          {initial?._id ? 'Editar pasta' : 'Criar pasta'}
         </h2>
-        <p className="text-[10px] text-[#A0A0A0] font-bold uppercase tracking-[0.4em] mb-10 relative z-10">Secure Document Container</p>
+        <p className="text-[10px] text-[#A0A0A0] font-bold uppercase tracking-[0.4em] mb-10 relative z-10">Contêiner seguro de documentos</p>
  
         <div className="space-y-6 mb-10 relative z-10">
           <input
             autoFocus
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Node Designation (e.g. Case Files 2024)"
+            placeholder="Nome da pasta (ex.: Processos 2024)"
             className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-5 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 font-medium placeholder:opacity-30"
           />
           <input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Analytical Context (optional)"
+            placeholder="Descrição (opcional)"
             className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-5 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 font-medium placeholder:opacity-30"
           />
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-4">Aesthetic Identification</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-4">Cor de identificação</p>
             <div className="flex gap-4 flex-wrap">
               {FOLDER_COLORS.map((c) => (
                 <button
@@ -316,7 +316,7 @@ const FolderModal = ({
  
         <div className="flex gap-4 relative z-10">
           <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-[#e7e5e1] text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#F9F8F6] transition-all duration-300">
-            Cancel
+            Cancelar
           </button>
           <button
             onClick={() => name.trim() && onConfirm({ name: name.trim(), description, color })}
@@ -324,7 +324,7 @@ const FolderModal = ({
             className="flex-1 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30 transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(0,0,0,0.1)] btn-primary-gradient"
           >
             {loading ? Icons.spinner : null}
-            {loading ? 'Working…' : (initial?._id ? 'Synchronize' : 'Authorize Node')}
+            {loading ? 'Processando…' : (initial?._id ? 'Salvar' : 'Criar pasta')}
           </button>
         </div>
       </div>
@@ -356,8 +356,8 @@ const UploadModal = ({
           </button>
         </div>
         
-        <h2 className="text-2xl font-bold text-foreground mb-1">Upload Files</h2>
-        <p className="text-[10px] text-foreground/40 uppercase tracking-[0.3em] mb-8">Add documents to your secure vault</p>
+        <h2 className="text-2xl font-bold text-foreground mb-1">Enviar arquivos</h2>
+        <p className="text-[10px] text-foreground/40 uppercase tracking-[0.3em] mb-8">Adicione documentos ao seu cofre seguro</p>
 
         <div
           className={`relative cursor-pointer rounded-[2rem] border-2 border-dashed p-10 text-center transition-all duration-300 mb-6 ${
@@ -388,8 +388,8 @@ const UploadModal = ({
             }}
           />
           <div>
-            <p className="text-sm font-bold text-foreground mb-1">Click to browse or drag and drop</p>
-            <p className="text-xs text-foreground/40">PDF, DOCX, images, video, audio, text</p>
+            <p className="text-sm font-bold text-foreground mb-1">Clique para procurar ou arraste e solte</p>
+            <p className="text-xs text-foreground/40">PDF, DOCX, imagens, vídeo, áudio, texto</p>
           </div>
         </div>
 
@@ -419,7 +419,7 @@ const UploadModal = ({
 
         <div className="flex gap-3">
           <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-gray-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition">
-            Cancel
+            Cancelar
           </button>
           <button
             onClick={() => selectedFiles.length && onConfirm(selectedFiles)}
@@ -427,7 +427,7 @@ const UploadModal = ({
             className="flex-1 py-4 rounded-2xl text-sm font-bold uppercase tracking-widest disabled:opacity-30 transition flex items-center justify-center gap-2 btn-primary-gradient"
           >
             {loading ? Icons.spinner : null}
-            {loading ? 'Uploading…' : `Upload ${selectedFiles.length} File${selectedFiles.length !== 1 ? 's' : ''}`}
+            {loading ? 'Enviando…' : `Enviar ${selectedFiles.length} ${selectedFiles.length !== 1 ? 'arquivos' : 'arquivo'}`}
           </button>
         </div>
       </div>
@@ -455,7 +455,7 @@ const ChatModal = ({
       setInitializing(true);
       const welcomeMsg: ChatMessage = {
         role: 'user',
-        content: 'Please provide a summary of this document and let me know what I can ask you about it.',
+        content: 'Por favor, faça um resumo deste documento e me diga o que posso perguntar sobre ele.',
         timestamp: new Date().toISOString(),
       };
       setMessages([welcomeMsg]);
@@ -473,7 +473,7 @@ const ChatModal = ({
         };
         setMessages([welcomeMsg, assistantMsg]);
       } catch (e: any) {
-        const msg = e.response?.data?.message || e.message || 'Could not load file for analysis';
+        const msg = e.response?.data?.message || e.message || 'Não foi possível carregar o arquivo para análise';
         if (e.response?.status === 403 || e.response?.status === 402 || msg.toLowerCase().includes('upgrade') || msg.toLowerCase().includes('plan')) {
           onShowUpgrade(true);
         } else {
@@ -500,7 +500,7 @@ const ChatModal = ({
       const assistantMsg: ChatMessage = { role: 'assistant', content: res.response, timestamp: new Date().toISOString() };
       setMessages(prev => [...prev, assistantMsg]);
     } catch (e: any) {
-      const msg = e.response?.data?.message || e.message || 'Failed to get AI response';
+      const msg = e.response?.data?.message || e.message || 'Não foi possível obter a resposta da IA';
       if (e.response?.status === 403 || e.response?.status === 402 || msg.toLowerCase().includes('upgrade') || msg.toLowerCase().includes('plan')) {
         onShowUpgrade(true);
       } else {
@@ -512,14 +512,14 @@ const ChatModal = ({
   };
 
   const handleSave = async () => {
-    if (messages.length < 2) { toast.error('Nothing to save yet'); return; }
+    if (messages.length < 2) { toast.error('Ainda não há nada para salvar'); return; }
     setSaving(true);
     try {
-      const title = `Chat — ${file.originalName} — ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+      const title = `Chat — ${file.originalName} — ${new Date().toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', year: 'numeric' })}`;
       await vaultService.saveChatSession(folderId, file._id, title, messages);
-      toast.success('Chat saved to vault history!');
+      toast.success('Chat salvo no histórico do cofre!');
     } catch (e: any) {
-      const msg = e.response?.data?.message || e.message || 'Failed to save chat';
+      const msg = e.response?.data?.message || e.message || 'Falha ao salvar o chat';
       if (e.response?.status === 403 || e.response?.status === 402 || msg.toLowerCase().includes('upgrade') || msg.toLowerCase().includes('plan')) {
         onShowUpgrade(true);
       } else {
@@ -540,7 +540,7 @@ const ChatModal = ({
               {Icons.sparkles}
             </div>
             <div>
-              <h2 className="text-lg font-bold text-foreground">AI Document Chat</h2>
+              <h2 className="text-lg font-bold text-foreground">Chat de IA sobre o documento</h2>
               <p className="text-[10px] text-foreground/40 uppercase tracking-[0.2em] truncate max-w-[320px]">{file.originalName}</p>
             </div>
           </div>
@@ -551,7 +551,7 @@ const ChatModal = ({
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest disabled:opacity-30 transition btn-primary-gradient"
             >
               {saving ? Icons.spinner : Icons.save}
-              Save Chat
+              Salvar chat
             </button>
             <button onClick={onClose} className="p-2 rounded-xl text-foreground/30 hover:bg-gray-100 transition">{Icons.close}</button>
           </div>
@@ -610,7 +610,7 @@ const ChatModal = ({
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
-              placeholder={initializing ? 'Analyzing document…' : 'Ask anything about this document…'}
+              placeholder={initializing ? 'Analisando documento…' : 'Pergunte qualquer coisa sobre este documento…'}
               disabled={sending || initializing}
               className="flex-1 bg-transparent text-sm text-foreground placeholder-foreground/30 outline-none py-2"
             />
@@ -639,7 +639,7 @@ const ViewChatModal = ({
   useEffect(() => {
     vaultService.getChatSessions(folderId, file._id)
       .then(d => setSessions(d.sessions || []))
-      .catch(() => toast.error('Could not load chat history'))
+      .catch(() => toast.error('Não foi possível carregar o histórico de chats'))
       .finally(() => setLoading(false));
   }, [folderId, file._id]);
 
@@ -652,7 +652,7 @@ const ViewChatModal = ({
               {Icons.history}
             </div>
             <div>
-              <h2 className="text-lg font-bold text-foreground">Chat History</h2>
+              <h2 className="text-lg font-bold text-foreground">Histórico de chats</h2>
               <p className="text-[10px] text-foreground/40 uppercase tracking-[0.2em] truncate max-w-[300px]">{file.originalName}</p>
             </div>
           </div>
@@ -664,8 +664,8 @@ const ViewChatModal = ({
           ) : sessions.length === 0 ? (
             <div className="text-center py-16 text-foreground/20">
               <div className="text-4xl mb-3">💬</div>
-              <p className="font-bold uppercase tracking-widest text-sm">No saved chats yet</p>
-              <p className="text-xs mt-1">Start a chat and click &quot;Save Chat&quot; to save it here</p>
+              <p className="font-bold uppercase tracking-widest text-sm">Nenhum chat salvo ainda</p>
+              <p className="text-xs mt-1">Inicie um chat e clique em &quot;Salvar chat&quot; para salvá-lo aqui</p>
             </div>
           ) : (
             <div className="p-6 space-y-3">
@@ -678,7 +678,7 @@ const ViewChatModal = ({
                     <div className="text-left">
                       <p className="text-sm font-bold text-foreground">{session.title}</p>
                       <p className="text-[10px] text-foreground/40 uppercase tracking-widest mt-0.5">
-                        {formatDate(session.createdAt)} · {session.messages.length} messages
+                        {formatDate(session.createdAt)} · {session.messages.length} mensagens
                       </p>
                     </div>
                     <svg className={`w-4 h-4 text-foreground/30 transition-transform ${open === session._id ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
@@ -755,7 +755,7 @@ export default function VaultPage() {
       const data = await vaultService.getFolders();
       setFolders(data.folders || []);
     } catch (err: any) {
-      const msg = err.response?.data?.message || err.message || 'Could not load vault data';
+      const msg = err.response?.data?.message || err.message || 'Não foi possível carregar os dados do cofre';
       // If it's a 401/network error, show empty state instead of crashing
       if (err.response?.status === 401) {
         setFolders([]);
@@ -788,9 +788,9 @@ export default function VaultPage() {
       const res = await vaultService.createFolder(d);
       setFolders((prev) => [res.folder, ...prev]);
       setShowCreateFolder(false);
-      toast.success('Folder created');
+      toast.success('Pasta criada');
     } catch (e: any) { 
-      const msg = e.response?.data?.message || e.message || 'Failed to create folder';
+      const msg = e.response?.data?.message || e.message || 'Falha ao criar a pasta';
       if (e.response?.status === 403 || e.status === 403 || msg.toLowerCase().includes('upgrade to pro') || msg.toLowerCase().includes('current plan')) {
         setShowUpgradeModal(true);
       } else {
@@ -807,9 +807,9 @@ export default function VaultPage() {
       const res = await vaultService.updateFolder(editFolder._id, d);
       setFolders((prev) => prev.map((f) => f._id === editFolder._id ? res.folder : f));
       setEditFolder(null);
-      toast.success('Folder updated');
+      toast.success('Pasta atualizada');
     } catch (e: any) { 
-      const msg = e.response?.data?.message || 'Failed to update folder';
+      const msg = e.response?.data?.message || 'Falha ao atualizar a pasta';
       toast.error(msg); 
     }
     finally { setActionLoading(false); }
@@ -823,9 +823,9 @@ export default function VaultPage() {
       setFolders((prev) => prev.filter((f) => f._id !== deleteTarget._id));
       if (selectedFolder?._id === deleteTarget._id) setSelectedFolder(null);
       setDeleteTarget(null);
-      toast.success('Folder deleted');
+      toast.success('Pasta excluída');
     } catch (e: any) { 
-      const msg = e.response?.data?.message || 'Failed to delete folder';
+      const msg = e.response?.data?.message || 'Falha ao excluir a pasta';
       toast.error(msg); 
     }
     finally { setActionLoading(false); }
@@ -840,8 +840,8 @@ export default function VaultPage() {
       setFolders((prev) => prev.map((f) => f._id === lockTarget._id ? { ...f, isLocked: true } : f));
       setUnlockedFolders((prev) => { const s = new Set(prev); s.delete(lockTarget._id); return s; });
       setLockTarget(null);
-      toast.success('Folder locked');
-    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to lock'); }
+      toast.success('Pasta bloqueada');
+    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Falha ao bloquear'); }
     finally { setActionLoading(false); }
   };
 
@@ -852,8 +852,8 @@ export default function VaultPage() {
       await vaultService.unlockFolder(unlockTarget._id, password);
       setUnlockedFolders((prev) => new Set([...prev, unlockTarget._id]));
       setUnlockTarget(null);
-      toast.success('Access granted');
-    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Incorrect password'); }
+      toast.success('Acesso liberado');
+    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Senha incorreta'); }
     finally { setActionLoading(false); }
   };
 
@@ -865,8 +865,8 @@ export default function VaultPage() {
       setFolders((prev) => prev.map((f) => f._id === removeLockTarget._id ? { ...f, isLocked: false } : f));
       setUnlockedFolders((prev) => { const s = new Set(prev); s.delete(removeLockTarget._id); return s; });
       setRemoveLockTarget(null);
-      toast.success('Lock removed');
-    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Incorrect password'); }
+      toast.success('Bloqueio removido');
+    } catch (e: unknown) { toast.error((e as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Senha incorreta'); }
     finally { setActionLoading(false); }
   };
 
@@ -886,9 +886,9 @@ export default function VaultPage() {
       const res = await vaultService.uploadFiles(selectedFolder._id, files);
       setFolders((prev) => prev.map((f) => f._id === selectedFolder._id ? res.folder : f));
       setShowUploadModal(false);
-      toast.success(`${files.length} file(s) uploaded`);
+      toast.success(`${files.length} arquivo(s) enviado(s)`);
     } catch (e: any) { 
-      const msg = e.response?.data?.message || e.message || 'Upload failed';
+      const msg = e.response?.data?.message || e.message || 'Falha no envio';
       if (e.response?.status === 403 || e.status === 403 || msg.toLowerCase().includes('upgrade to pro') || msg.toLowerCase().includes('current plan')) {
         setShowUpgradeModal(true);
       } else {
@@ -909,9 +909,9 @@ export default function VaultPage() {
             : f
         )
       );
-      toast.success('File removed');
+      toast.success('Arquivo removido');
     } catch (e: any) { 
-      const msg = e.response?.data?.message || 'Failed to delete file';
+      const msg = e.response?.data?.message || 'Falha ao excluir o arquivo';
       toast.error(msg); 
     }
   };
@@ -925,7 +925,7 @@ export default function VaultPage() {
       a.download = fileName;
       a.target = '_blank';
       a.click();
-    } catch { toast.error('Failed to get download link'); }
+    } catch { toast.error('Falha ao obter o link de download'); }
   };
 
   // ── Computed stats ─────────────────────────────────────────────────────────
@@ -935,7 +935,7 @@ export default function VaultPage() {
 
   // ─── Render ───────────────────────────────────────────────────────────────
   return (
-    <DashboardLayout title="Secure Vault">
+    <DashboardLayout title="Cofre Seguro">
       <div className="space-y-8">
 
         {/* ── Hero ── */}
@@ -952,13 +952,13 @@ export default function VaultPage() {
           </div>
           <div className="relative z-10 max-w-3xl space-y-6">
             <span className="inline-flex px-4 py-1.5 rounded-full bg-black/5 text-[10px] font-bold uppercase tracking-[0.3em] border border-black/10">
-              Encrypted Storage V2.0
+              Armazenamento criptografado V2.0
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-[#10101A]">
-              Secure Document <span className="font-light opacity-60 italic">Vault.</span>
+              Cofre seguro de <span className="font-light opacity-60 italic">documentos.</span>
             </h1>
             <p className="text-lg lg:text-xl text-[#10101A]/40 font-medium leading-relaxed">
-              Military-grade encrypted storage for your most sensitive legal documents. Create folders, upload files to AWS S3, and protect with password-locked access.
+              Armazenamento com criptografia de nível militar para seus documentos jurídicos mais sensíveis. Crie pastas, envie arquivos para o AWS S3 e proteja o acesso com senha.
             </p>
           </div>
         </section>
@@ -966,10 +966,10 @@ export default function VaultPage() {
         {/* ── Stats ── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: 'Total Folders', value: folders.length, icon: Icons.folder },
-            { label: 'Total Files', value: totalFiles, icon: Icons.file },
-            { label: 'Storage Used', value: formatBytes(totalSize), icon: Icons.storage },
-            { label: 'Locked Folders', value: lockedCount, icon: Icons.lock },
+            { label: 'Total de pastas', value: folders.length, icon: Icons.folder },
+            { label: 'Total de arquivos', value: totalFiles, icon: Icons.file },
+            { label: 'Armazenamento usado', value: formatBytes(totalSize), icon: Icons.storage },
+            { label: 'Pastas bloqueadas', value: lockedCount, icon: Icons.lock },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-sm">
               <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground mb-4">
@@ -987,13 +987,13 @@ export default function VaultPage() {
           {/* ── Folder Sidebar ── */}
           <div className="space-y-4">
             <div className="flex items-center justify-between px-1">
-              <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/40">Storage Nodes</h2>
+              <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/40">Pastas</h2>
               <button
                 onClick={() => setShowCreateFolder(true)}
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-white text-[10px] font-bold uppercase tracking-widest transition btn-primary-gradient"
               >
                 {Icons.plus}
-                New Folder
+                Nova pasta
               </button>
             </div>
 
@@ -1008,8 +1008,8 @@ export default function VaultPage() {
                 <div className="w-16 h-16 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground/20 mx-auto">
                   {Icons.folder}
                 </div>
-                <p className="text-sm font-bold text-foreground/30 uppercase tracking-widest">No folders yet</p>
-                <p className="text-xs text-foreground/20">Create your first storage node</p>
+                <p className="text-sm font-bold text-foreground/30 uppercase tracking-widest">Nenhuma pasta ainda</p>
+                <p className="text-xs text-foreground/20">Crie sua primeira pasta</p>
               </div>
             ) : (
               <div className="space-y-3">
@@ -1045,7 +1045,7 @@ export default function VaultPage() {
                             {folder.name}
                           </p>
                           <p className={`text-[10px] uppercase tracking-widest mt-0.5 ${isSelected ? 'text-white/50' : 'text-foreground/30'}`}>
-                            {folder.files.length} file{folder.files.length !== 1 ? 's' : ''} · {formatDate(folder.createdAt)}
+                            {folder.files.length} {folder.files.length !== 1 ? 'arquivos' : 'arquivo'} · {formatDate(folder.createdAt)}
                           </p>
                         </div>
 
@@ -1055,7 +1055,7 @@ export default function VaultPage() {
                           onClick={(e) => e.stopPropagation()}
                         >
                           <button
-                            title="Edit"
+                            title="Editar"
                             onClick={() => setEditFolder(folder)}
                             className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                           >
@@ -1063,7 +1063,7 @@ export default function VaultPage() {
                           </button>
                           {folder.isLocked && isUnlocked ? (
                             <button
-                              title="Remove lock"
+                              title="Remover bloqueio"
                               onClick={() => setRemoveLockTarget(folder)}
                               className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                             >
@@ -1071,7 +1071,7 @@ export default function VaultPage() {
                             </button>
                           ) : !folder.isLocked ? (
                             <button
-                              title="Lock folder"
+                              title="Bloquear pasta"
                               onClick={() => setLockTarget(folder)}
                               className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                             >
@@ -1079,7 +1079,7 @@ export default function VaultPage() {
                             </button>
                           ) : null}
                           <button
-                            title="Delete folder"
+                            title="Excluir pasta"
                             onClick={() => setDeleteTarget(folder)}
                             className="p-2 rounded-xl hover:bg-red-50 text-red-400 transition"
                           >
@@ -1103,8 +1103,8 @@ export default function VaultPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-foreground/20 uppercase tracking-widest">Select a folder</h3>
-                <p className="text-sm text-foreground/15">Choose a storage node from the left panel</p>
+                <h3 className="text-lg font-bold text-foreground/20 uppercase tracking-widest">Selecione uma pasta</h3>
+                <p className="text-sm text-foreground/15">Escolha uma pasta no painel à esquerda</p>
               </div>
             ) : (
               <div className="space-y-5">
@@ -1122,7 +1122,7 @@ export default function VaultPage() {
                     className="flex items-center gap-2 px-6 py-3 rounded-2xl text-white text-[10px] font-bold uppercase tracking-widest disabled:opacity-40 transition btn-primary-gradient"
                   >
                     {uploading ? Icons.spinner : Icons.upload}
-                    {uploading ? 'Uploading…' : 'Upload Files'}
+                    {uploading ? 'Enviando…' : 'Enviar arquivos'}
                   </button>
                 </div>
 
@@ -1144,8 +1144,8 @@ export default function VaultPage() {
                         {Icons.upload}
                       </div>
                       <div>
-                        <p className="text-sm font-bold uppercase tracking-[0.3em] text-foreground/20">Drop files here</p>
-                        <p className="text-xs text-foreground/15 mt-1">or click &quot;Upload Files&quot; above · PDF, DOCX, images, video, audio</p>
+                        <p className="text-sm font-bold uppercase tracking-[0.3em] text-foreground/20">Solte os arquivos aqui</p>
+                        <p className="text-xs text-foreground/15 mt-1">ou clique em &quot;Enviar arquivos&quot; acima · PDF, DOCX, imagens, vídeo, áudio</p>
                       </div>
                     </div>
                   ) : (
@@ -1170,7 +1170,7 @@ export default function VaultPage() {
                           <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition">
                             {/* Chat button */}
                             <button
-                              title="Chat with this file"
+                              title="Conversar sobre este arquivo"
                               onClick={() => setChatFile(file)}
                               className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest hover:opacity-80 transition shadow-sm"
                             >
@@ -1179,7 +1179,7 @@ export default function VaultPage() {
                             </button>
                             {/* View Chat History button */}
                             <button
-                              title="View saved chat history"
+                              title="Ver histórico de chats salvos"
                               onClick={() => setViewChatFile(file)}
                               className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-gray-100 text-foreground/60 text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
                             >
@@ -1190,7 +1190,7 @@ export default function VaultPage() {
                               className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-gray-100 text-foreground text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
                             >
                               {Icons.download}
-                              Download
+                              Baixar
                             </button>
                             <button
                               onClick={() => handleFileDelete(file._id)}
@@ -1204,7 +1204,7 @@ export default function VaultPage() {
 
                       {isDragging && (
                         <div className="absolute inset-0 flex items-center justify-center rounded-[2.5rem] bg-foreground/5 border-2 border-foreground/20">
-                          <p className="text-lg font-bold text-foreground/60 uppercase tracking-widest">Drop to upload</p>
+                          <p className="text-lg font-bold text-foreground/60 uppercase tracking-widest">Solte para enviar</p>
                         </div>
                       )}
                     </div>
@@ -1228,9 +1228,9 @@ export default function VaultPage() {
       )}
       {lockTarget && (
         <PasswordModal
-          title="Lock Folder"
-          subtitle="Set a password to protect this folder"
-          action="Lock Folder"
+          title="Bloquear pasta"
+          subtitle="Defina uma senha para proteger esta pasta"
+          action="Bloquear pasta"
           onConfirm={handleLock}
           onClose={() => setLockTarget(null)}
           loading={actionLoading}
@@ -1238,9 +1238,9 @@ export default function VaultPage() {
       )}
       {unlockTarget && (
         <PasswordModal
-          title="Locked Folder"
-          subtitle={`Enter password to access "${unlockTarget.name}"`}
-          action="Unlock"
+          title="Pasta bloqueada"
+          subtitle={`Digite a senha para acessar "${unlockTarget.name}"`}
+          action="Desbloquear"
           onConfirm={handleUnlock}
           onClose={() => setUnlockTarget(null)}
           loading={actionLoading}
@@ -1248,9 +1248,9 @@ export default function VaultPage() {
       )}
       {removeLockTarget && (
         <PasswordModal
-          title="Remove Lock"
-          subtitle="Confirm password to disable protection"
-          action="Remove Lock"
+          title="Remover bloqueio"
+          subtitle="Confirme a senha para desativar a proteção"
+          action="Remover bloqueio"
           onConfirm={handleRemoveLock}
           onClose={() => setRemoveLockTarget(null)}
           loading={actionLoading}
@@ -1262,16 +1262,16 @@ export default function VaultPage() {
             <div className="w-14 h-14 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center text-red-400 mx-auto mb-6">
               {Icons.warning}
             </div>
-            <h2 className="text-2xl font-bold text-foreground mb-2">Delete Folder</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-2">Excluir pasta</h2>
             <p className="text-sm text-foreground/50 mb-8">
-              This will permanently delete <strong>{deleteTarget.name}</strong> and all {deleteTarget.files.length} file(s) from S3. This cannot be undone.
+              Isso excluirá permanentemente <strong>{deleteTarget.name}</strong> e todos os {deleteTarget.files.length} arquivo(s) do S3. Esta ação não pode ser desfeita.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={() => setDeleteTarget(null)}
                 className="flex-1 py-4 rounded-2xl border border-gray-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition"
               >
-                Cancel
+                Cancelar
               </button>
               <button
                 onClick={handleDeleteFolder}
@@ -1279,7 +1279,7 @@ export default function VaultPage() {
                 className="flex-1 py-4 rounded-2xl bg-red-500 text-white text-sm font-bold uppercase tracking-widest hover:bg-red-600 disabled:opacity-40 transition flex items-center justify-center gap-2"
               >
                 {actionLoading ? Icons.spinner : Icons.trash}
-                Delete
+                Excluir
               </button>
             </div>
           </div>

@@ -37,7 +37,7 @@ export default function ChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello! How can I assist you with your legal questions today?',
+      content: 'Olá! Como posso ajudar você com suas questões jurídicas hoje?',
       timestamp: new Date(),
     }
   ]);
@@ -56,17 +56,17 @@ export default function ChatPage() {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   const startNewChat = useCallback(() => {
-    setMessages([{ id: '1', role: 'assistant', content: 'Hello! How can I assist you with your legal questions today?', timestamp: new Date() }]);
+    setMessages([{ id: '1', role: 'assistant', content: 'Olá! Como posso ajudar você com suas questões jurídicas hoje?', timestamp: new Date() }]);
     setCurrentChatId(null);
     router.push('/dashboard/chat');
   }, [router]);
 
   const suggestedPrompts = [
-    "Draft a standard NDA for a tech startup",
-    "Explain New York commercial lease terminology",
-    "Compliance requirements for GDPR in 2024",
-    "Liability clauses in software service agreements",
-    "IP protection strategies for small businesses"
+    "Redija um acordo de confidencialidade (NDA) padrão para uma startup de tecnologia",
+    "Explique a terminologia de contratos de locação comercial de Nova York",
+    "Requisitos de conformidade com a GDPR em 2024",
+    "Cláusulas de responsabilidade em contratos de prestação de serviços de software",
+    "Estratégias de proteção de propriedade intelectual para pequenas empresas"
   ];
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -144,7 +144,7 @@ export default function ChatPage() {
       } else {
         const newChat: Chat = {
           _id: currentChatId,
-          title: messages[1]?.content.substring(0, 40) || 'New Investigation',
+          title: messages[1]?.content.substring(0, 40) || 'Nova consulta',
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString()
         };
@@ -165,7 +165,7 @@ export default function ChatPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 10 * 1024 * 1024) {
-      alert(`File size exceeds 10MB limit.`);
+      alert(`O arquivo excede o limite de 10 MB.`);
       return;
     }
     setSelectedFile(file);
@@ -213,7 +213,7 @@ export default function ChatPage() {
         else if (selectedFile.type.startsWith('video/')) fileType = 'video';
         else if (selectedFile.type === 'application/pdf') fileType = 'pdf';
         else if (selectedFile.type.startsWith('audio/')) fileType = 'audio';
-        else throw new Error('Unsupported file type');
+        else throw new Error('Tipo de arquivo não suportado');
 
         fileData = {
           type: fileType,
@@ -278,7 +278,7 @@ export default function ChatPage() {
       if (error.response?.status === 403 || error.status === 403) {
         setShowUpgradeModal(true);
       } else {
-        const message = error.response?.data?.message || 'Failed to get AI response. Please try again.';
+        const message = error.response?.data?.message || 'Não foi possível obter a resposta da IA. Tente novamente.';
         toast.error(message, {
           duration: 4000,
           position: 'top-center',
@@ -305,7 +305,7 @@ export default function ChatPage() {
   };
 
   return (
-    <DashboardLayout title="Neural Channels">
+    <DashboardLayout title="Canais Neurais">
       <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-gray-100 shadow-2xl overflow-hidden relative">
         {/* Mobile Sidebar Backdrop */}
         {showSidebar && (
@@ -318,7 +318,7 @@ export default function ChatPage() {
         <aside className={`${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} absolute lg:relative z-40 w-80 h-full bg-[#F9F8F6] border-r border-[#e7e5e1] transition-transform duration-300 font-sans`}>
           <div className="flex flex-col h-full p-6">
             <div className="flex items-center justify-between mb-8 lg:hidden">
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Archive</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Arquivo</span>
               <button 
                 onClick={() => setShowSidebar(false)}
                 className="p-2 -mr-2 text-foreground/40 hover:text-foreground transition-colors"
@@ -329,15 +329,15 @@ export default function ChatPage() {
               </button>
             </div>
             <button onClick={startNewChat} className="group relative w-full py-5 rounded-[1.5rem] font-bold text-[10px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all mb-10 overflow-hidden border border-white/10 btn-primary-gradient">
-              <span className="relative z-10">Initialize Thread</span>
+              <span className="relative z-10">Iniciar conversa</span>
             </button>
             <div className="flex-1 overflow-y-auto space-y-4 h-full pr-2 custom-scrollbar">
-              <h3 className="px-2 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20 mb-6">Discovery Log</h3>
+              <h3 className="px-2 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20 mb-6">Histórico de consultas</h3>
               {recentChats.map(chat => (
                 <div key={chat._id} className={`group flex items-center justify-between p-5 rounded-[1.5rem] cursor-pointer transition-all ${currentChatId === chat._id ? 'bg-white shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-[#e7e5e1] ring-1 ring-black/5' : 'hover:bg-black/5 text-foreground/60'}`} onClick={() => handleChatClick(chat._id)}>
                   <div className="flex flex-col min-w-0">
                     <span className={`text-[13px] font-medium truncate ${currentChatId === chat._id ? 'text-[#10101A]' : ''}`}>{chat.title}</span>
-                    <span className="text-[10px] font-medium opacity-30 mt-1 uppercase tracking-[0.2em]">{new Date(chat.updatedAt).toLocaleDateString()}</span>
+                    <span className="text-[10px] font-medium opacity-30 mt-1 uppercase tracking-[0.2em]">{new Date(chat.updatedAt).toLocaleDateString('pt-BR')}</span>
                   </div>
                   <button onClick={(e) => { e.stopPropagation(); deleteChat(chat._id); }} className="opacity-0 group-hover:opacity-100 p-2 text-red-400 hover:bg-red-50 rounded-xl transition-all">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -356,11 +356,11 @@ export default function ChatPage() {
               </button>
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Node.042</span>
-                <h2 className="text-xl font-light tracking-tight">Active Neural Session</h2>
+                <h2 className="text-xl font-light tracking-tight">Sessão neural ativa</h2>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')} className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all border ${activeToggle === 'internet' ? 'btn-primary-gradient text-white border-transparent shadow-lg' : 'bg-gray-50 text-foreground/40 border-gray-100'}`}>Internet Access</button>
+              <button onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')} className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all border ${activeToggle === 'internet' ? 'btn-primary-gradient text-white border-transparent shadow-lg' : 'bg-gray-50 text-foreground/40 border-gray-100'}`}>Acesso à internet</button>
             </div>
           </header>
 
@@ -368,13 +368,13 @@ export default function ChatPage() {
             {messages.length === 1 && (
               <div className="max-w-2xl mx-auto space-y-12 py-10">
                 <div className="space-y-4 text-center">
-                  <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Neural <span className="font-light italic text-[#525252]">Interface.</span></h1>
-                  <p className="text-[#525252] text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Select a strategic prompt or initiate a forensic analysis thread.</p>
+                  <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Interface <span className="font-light italic text-[#525252]">neural.</span></h1>
+                  <p className="text-[#525252] text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Selecione um prompt estratégico ou inicie uma conversa de análise.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {suggestedPrompts.map((p, i) => (
                     <button key={i} onClick={() => setInput(p)} className="text-left p-6 rounded-[2rem] bg-[#F9F8F6] border border-[#e7e5e1] hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#525252] opacity-30 group-hover:opacity-60 mb-3 block">Neural Prompt</span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#525252] opacity-30 group-hover:opacity-60 mb-3 block">Prompt neural</span>
                       <span className="text-[14px] font-medium leading-relaxed text-[#323232]">{p}</span>
                     </button>
                   ))}
@@ -392,7 +392,7 @@ export default function ChatPage() {
                       {m.fileData.type === 'image' && (
                         <>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="attachment" className="max-w-full h-auto rounded-[1.5rem] border border-[#e7e5e1]" />
+                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="anexo" className="max-w-full h-auto rounded-[1.5rem] border border-[#e7e5e1]" />
                         </>
                       )}
                       {m.fileData.type !== 'image' && (
@@ -416,7 +416,7 @@ export default function ChatPage() {
                     )}
                   </div>
                   <div className={`text-[9px] font-bold uppercase tracking-[0.2em] ${m.role === 'user' ? 'mt-3 text-right text-white/40' : 'mt-6 text-foreground/20'}`}>
-                    {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {new Date(m.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                   </div>
                 </div>
               </div>
@@ -440,7 +440,7 @@ export default function ChatPage() {
               {filePreview && (
                 <div className="relative inline-block group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={filePreview} alt="preview" className="h-32 rounded-[1.5rem] border border-[#e7e5e1] shadow-2xl" />
+                  <img src={filePreview} alt="prévia" className="h-32 rounded-[1.5rem] border border-[#e7e5e1] shadow-2xl" />
                   <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -475,7 +475,7 @@ export default function ChatPage() {
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Initiate analysis..."
+                  placeholder="Inicie a análise..."
                   rows={1}
                   className="w-full bg-white border border-[#e7e5e1] focus:ring-8 focus:ring-black/5 focus:border-black/10 rounded-[2.5rem] py-7 pl-16 pr-24 resize-none text-[#10101A] transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden font-medium text-[1.1rem]"
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(e); } }}
@@ -489,10 +489,10 @@ export default function ChatPage() {
 
               <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/20 flex items-center justify-center gap-4 pt-2">
                 <span>Neural Intake Capacity:</span>
-                <div className="flex items-center gap-1.5 text-blue-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Images</span></div>
-                <div className="flex items-center gap-1.5 text-green-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Videos</span></div>
+                <div className="flex items-center gap-1.5 text-blue-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Imagens</span></div>
+                <div className="flex items-center gap-1.5 text-green-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Vídeos</span></div>
                 <div className="flex items-center gap-1.5 text-red-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>PDFs</span></div>
-                <div className="flex items-center gap-1.5 text-purple-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Audio</span></div>
+                <div className="flex items-center gap-1.5 text-purple-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
               </div>
 
               <style jsx>{`

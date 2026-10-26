@@ -16,12 +16,12 @@ const LawyerProfile: React.FC<LawyerProfileProps> = ({ lawyer }) => {
       <p className="text-white/70 mb-3">{lawyer.description}</p>
       
       <div className="mb-4">
-        <span className="text-white/50 text-sm">Experience: </span>
-        <span className="text-white/90">{lawyer.yearsExperience} years</span>
+        <span className="text-white/50 text-sm">Experiência: </span>
+        <span className="text-white/90">{lawyer.yearsExperience} anos</span>
       </div>
       
       <div className="mt-4">
-        <h3 className="text-white/80 font-medium mb-2">Areas of Expertise</h3>
+        <h3 className="text-white/80 font-medium mb-2">Áreas de atuação</h3>
         <div className="flex flex-wrap gap-2">
           {lawyer.expertise.map((area, index) => (
             <span 
@@ -35,7 +35,7 @@ const LawyerProfile: React.FC<LawyerProfileProps> = ({ lawyer }) => {
       </div>
       
       <div className="mt-4">
-        <h3 className="text-white/80 font-medium mb-2">Background</h3>
+        <h3 className="text-white/80 font-medium mb-2">Formação</h3>
         <p className="text-white/70 text-sm">{lawyer.background}</p>
       </div>
     </div>

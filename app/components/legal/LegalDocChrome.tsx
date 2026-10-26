@@ -20,7 +20,7 @@ export function LegalHero({ eyebrow, title, lastUpdated }: { eyebrow: string; ti
       <div className="relative z-10 mx-auto max-w-[1274px] text-center">
         <p className="mb-4 text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-[#525252]">{eyebrow}</p>
         <h1 className="text-[2.25rem] font-medium leading-[1.15] text-[#10101A] md:text-[3rem] lg:text-[3.25rem]">{title}</h1>
-        <p className="mt-4 text-[1rem] text-[#525252]">Last updated: {lastUpdated}</p>
+        <p className="mt-4 text-[1rem] text-[#525252]">Última atualização: {lastUpdated}</p>
       </div>
     </header>
   );
@@ -31,8 +31,8 @@ export function LegalTOC({ items }: { items: { id: string; title: string }[] }) 
     <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-10 md:py-12">
       <div className="mx-auto flex max-w-[1274px] justify-center px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="w-full max-w-[34rem] rounded-2xl border border-[#eceae7] bg-[#f8f7f6] px-5 py-7 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:max-w-[38rem] md:px-7 md:py-8">
-          <h2 className="mb-5 text-[1.25rem] font-medium text-[#10101A] md:mb-6 md:text-[1.5rem]">Table of contents</h2>
-          <nav className="grid gap-1 sm:grid-cols-2" aria-label="Table of contents">
+          <h2 className="mb-5 text-[1.25rem] font-medium text-[#10101A] md:mb-6 md:text-[1.5rem]">Índice</h2>
+          <nav className="grid gap-1 sm:grid-cols-2" aria-label="Índice">
             {items.map((item, i) => (
               <a
                 key={item.id}
@@ -152,7 +152,7 @@ export function LegalFooterBar({
   return (
     <section className="border-t border-[#eceae7] bg-[#FFFFFF] py-8">
       <div className="mx-auto flex max-w-[1274px] flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between md:px-8 lg:px-6 xl:px-0">
-        <p className="text-[0.8125rem] text-[#525252]">© {new Date().getFullYear()} AiForLawyers, Inc. All rights reserved.</p>
+        <p className="text-[0.8125rem] text-[#525252]">© {new Date().getFullYear()} Pequi, Inc. Todos os direitos reservados.</p>
         <div className="flex flex-wrap items-center gap-6">
           <button
             type="button"

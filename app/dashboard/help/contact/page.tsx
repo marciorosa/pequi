@@ -64,7 +64,7 @@ export default function ContactSupportPage() {
       // Success
       setIsSubmitted(true);
     } catch (err) {
-      setError('An error occurred while submitting your request. Please try again.');
+      setError('Ocorreu um erro ao enviar sua solicitação. Tente novamente.');
       console.error('Error submitting support request:', err);
     } finally {
       setIsSubmitting(false);
@@ -84,13 +84,13 @@ export default function ContactSupportPage() {
   };
 
   return (
-    <DashboardLayout title="Contact Support">
+    <DashboardLayout title="Falar com o suporte">
       <div className="max-w-4xl mx-auto px-6 py-10">
         <div className="mb-12">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-3">Support</p>
-          <h1 className="text-4xl font-light text-foreground mb-4 tracking-tight">Expert Assistance</h1>
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-3">Suporte</p>
+          <h1 className="text-4xl font-light text-foreground mb-4 tracking-tight">Atendimento especializado</h1>
           <p className="text-foreground/50 max-w-2xl text-lg font-light leading-relaxed">
-            Our specialized team is ready to assist you. Submit a request below and we will get back to you within 24 business hours.
+            Nossa equipe especializada está pronta para ajudar. Envie uma solicitação abaixo e retornaremos em até 24 horas úteis.
           </p>
         </div>
 
@@ -101,22 +101,22 @@ export default function ContactSupportPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl font-light text-foreground mb-4 tracking-tight">Request Received</h2>
+            <h2 className="text-3xl font-light text-foreground mb-4 tracking-tight">Solicitação recebida</h2>
             <p className="text-foreground/50 mb-10 max-w-sm mx-auto font-light leading-relaxed">
-              We&apos;ve logged your support ticket. A confirmation has been sent to your email, and an expert will reach out shortly.
+              Registramos seu chamado de suporte. Uma confirmação foi enviada para o seu e-mail, e um especialista entrará em contato em breve.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleReset}
                 className="px-8 py-4 bg-gray-50 hover:bg-gray-100 text-foreground text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all"
               >
-                New Request
+                Nova solicitação
               </button>
               <a
                 href="/dashboard/help"
                 className="px-8 py-4 text-white text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all shadow-lg btn-primary-gradient"
               >
-                Return to Center
+                Voltar à central
               </a>
             </div>
           </div>
@@ -125,10 +125,10 @@ export default function ContactSupportPage() {
             <div className="lg:col-span-2">
               <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-sm">
                 <div className="p-8 border-b border-gray-50 flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-foreground">Submit a Ticket</h2>
+                  <h2 className="text-lg font-semibold text-foreground">Abrir um chamado</h2>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Priority Support Active</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Suporte prioritário ativo</span>
                   </div>
                 </div>
 
@@ -145,7 +145,7 @@ export default function ContactSupportPage() {
                   <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <div className="flex flex-col gap-2">
                       <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
-                        Subject
+                        Assunto
                       </label>
                       <input
                         type="text"
@@ -155,13 +155,13 @@ export default function ContactSupportPage() {
                         onChange={handleInputChange}
                         required
                         className="w-full bg-gray-50/50 border border-gray-100 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-gray-200 transition-all"
-                        placeholder="Brief description of issue"
+                        placeholder="Breve descrição do problema"
                       />
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <label htmlFor="category" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
-                        Category
+                        Categoria
                       </label>
                       <select
                         id="category"
@@ -171,18 +171,18 @@ export default function ContactSupportPage() {
                         required
                         className="w-full bg-gray-50/50 border border-gray-100 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-gray-200 transition-all appearance-none"
                       >
-                        <option value="general">General Inquiry</option>
-                        <option value="technical">Technical Support</option>
-                        <option value="billing">Billing & Subscription</option>
-                        <option value="legal">Legal Questions</option>
-                        <option value="other">Other</option>
+                        <option value="general">Dúvida geral</option>
+                        <option value="technical">Suporte técnico</option>
+                        <option value="billing">Cobrança e assinatura</option>
+                        <option value="legal">Questões jurídicas</option>
+                        <option value="other">Outros</option>
                       </select>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 mb-8">
                     <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
-                      Message
+                      Mensagem
                     </label>
                     <textarea
                       id="message"
@@ -192,13 +192,13 @@ export default function ContactSupportPage() {
                       required
                       rows={6}
                       className="w-full bg-gray-50/50 border border-gray-100 rounded-xl py-4 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-gray-200 transition-all resize-none"
-                      placeholder="Please provide as much detail as possible to help us resolve your issue quickly."
+                      placeholder="Forneça o máximo de detalhes possível para nos ajudar a resolver seu problema rapidamente."
                     ></textarea>
                   </div>
 
                   <div className="mb-10">
                     <label className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1 block mb-3">
-                      Attachments
+                      Anexos
                     </label>
                     <div className="flex flex-wrap items-center gap-4">
                       <label
@@ -208,7 +208,7 @@ export default function ContactSupportPage() {
                         <svg className="w-5 h-5 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
                         </svg>
-                        <span className="text-xs font-semibold uppercase tracking-wider text-foreground/60">Choose Files</span>
+                        <span className="text-xs font-semibold uppercase tracking-wider text-foreground/60">Escolher arquivos</span>
                       </label>
                       <input
                         type="file"
@@ -218,7 +218,7 @@ export default function ContactSupportPage() {
                         className="hidden"
                       />
                       <p className="text-[10px] text-foreground/30 font-bold uppercase tracking-widest">
-                        Max 3 files, 5MB each (PNG, JPG, PDF)
+                        Máximo de 3 arquivos, 5 MB cada (PNG, JPG, PDF)
                       </p>
                     </div>
 
@@ -261,7 +261,7 @@ export default function ContactSupportPage() {
                       onClick={handleReset}
                       className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 hover:text-foreground transition-colors"
                     >
-                      Reset Form
+                      Limpar formulário
                     </button>
                     <button
                       type="submit"
@@ -271,11 +271,11 @@ export default function ContactSupportPage() {
                       {isSubmitting ? (
                         <>
                           <div className="animate-spin rounded-full h-3 w-3 border-2 border-white border-t-transparent"></div>
-                          Sending...
+                          Enviando...
                         </>
                       ) : (
                         <>
-                          Submit Request
+                          Enviar solicitação
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
@@ -289,7 +289,7 @@ export default function ContactSupportPage() {
 
             <div className="lg:col-span-1 space-y-8">
               <div className="bg-white border border-gray-100 rounded-[32px] p-8 shadow-sm">
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-8 px-1">Other Methods</h3>
+                <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-8 px-1">Outros canais</h3>
                 <div className="space-y-8">
                   <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-foreground/40 group-hover:bg-foreground group-hover:text-background transition-all">
@@ -298,7 +298,7 @@ export default function ContactSupportPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-1">Email Support</p>
+                      <p className="text-sm font-semibold mb-1">Suporte por e-mail</p>
                       <a href="mailto:support@AIForLawyers.com" className="text-xs font-medium text-foreground/40 hover:text-foreground transition-colors">
                         support@AIForLawyers.com
                       </a>
@@ -311,8 +311,8 @@ export default function ContactSupportPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-1">Phone Support</p>
-                      <p className="text-xs font-medium text-foreground/40 underline">Priority User Hotline</p>
+                      <p className="text-sm font-semibold mb-1">Suporte por telefone</p>
+                      <p className="text-xs font-medium text-foreground/40 underline">Linha prioritária para usuários</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 group">
@@ -322,19 +322,19 @@ export default function ContactSupportPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-1">Business Hours</p>
-                      <p className="text-xs font-medium text-foreground/40">Mon - Fri, 9AM - 5PM EST</p>
+                      <p className="text-sm font-semibold mb-1">Horário de atendimento</p>
+                      <p className="text-xs font-medium text-foreground/40">Seg. a sex., das 9h às 17h (horário de Nova York)</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-gray-50 border border-gray-100 rounded-[32px] p-8">
-                <h4 className="text-[11px] font-bold uppercase tracking-widest mb-4">Enterprise Tiers</h4>
+                <h4 className="text-[11px] font-bold uppercase tracking-widest mb-4">Planos Enterprise</h4>
                 <p className="text-xs text-foreground/50 leading-relaxed mb-6">
-                  Enterprise accounts receive a dedicated account manager and 1-hour priority response times.
+                  Contas Enterprise contam com um gerente de conta dedicado e tempo de resposta prioritário de 1 hora.
                 </p>
-                <a href="/pricing" className="text-[10px] font-bold uppercase tracking-widest text-foreground hover:underline">View benefits</a>
+                <a href="/pricing" className="text-[10px] font-bold uppercase tracking-widest text-foreground hover:underline">Ver benefícios</a>
               </div>
             </div>
           </div>

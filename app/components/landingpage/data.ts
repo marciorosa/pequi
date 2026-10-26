@@ -19,58 +19,58 @@ export const heroAssets = [
 ];
 
 export const featureCards = [
-  { title: 'Contracts', desc: 'Create, review and compare agreements with structured AI extraction.' },
-  { title: 'Client Workflows', desc: 'Automate intake, legal steps, reminders and approvals in one place.' },
-  { title: 'Private Vault', desc: 'Store and query legal files with enterprise-grade permission controls.' },
-  { title: 'Matter Insights', desc: 'Track trends, deadlines and risk signals across ongoing legal matters.' },
-  { title: 'Smart Templates', desc: 'Use reusable legal templates with clause-level version support.' },
-  { title: 'Case Intelligence', desc: 'Search and summarize legal precedents with citation-aware results.' },
+  { title: 'Contratos', desc: 'Crie, revise e compare contratos com extração estruturada por IA.' },
+  { title: 'Fluxos de clientes', desc: 'Automatize a captação, as etapas jurídicas, os lembretes e as aprovações em um só lugar.' },
+  { title: 'Cofre privado', desc: 'Armazene e consulte arquivos jurídicos com controles de permissão de nível corporativo.' },
+  { title: 'Insights de casos', desc: 'Acompanhe tendências, prazos e sinais de risco nos casos em andamento.' },
+  { title: 'Modelos inteligentes', desc: 'Use modelos jurídicos reutilizáveis com controle de versão por cláusula.' },
+  { title: 'Inteligência de casos', desc: 'Pesquise e resuma precedentes com resultados que trazem as citações.' },
 ];
 
 export const securityStats = [
-  { label: 'Encrypted Docs', value: '100%' },
-  { label: 'Uptime', value: '99.9%' },
-  { label: 'Response Speed', value: '< 2s' },
-  { label: 'Secure Regions', value: '12+' },
+  { label: 'Documentos criptografados', value: '100%' },
+  { label: 'Disponibilidade', value: '99,9%' },
+  { label: 'Tempo de resposta', value: '< 2s' },
+  { label: 'Regiões seguras', value: '12+' },
 ];
 
 export const reasons = [
-  'Draft and review legal content in minutes.',
-  'Stay compliant with built-in security and audit trails.',
-  'Collaborate with teams and clients from one workspace.',
-  'Work faster with AI suggestions and contextual references.',
+  'Redija e revise conteúdo jurídico em minutos.',
+  'Mantenha a conformidade com segurança e trilhas de auditoria integradas.',
+  'Colabore com equipes e clientes em um único espaço de trabalho.',
+  'Trabalhe mais rápido com sugestões de IA e referências contextuais.',
 ];
 
 export const testimonials = [
-  { quote: 'It cut our document review time almost in half.', author: 'Head of Legal Operations' },
-  { quote: 'Our team now handles more matters with the same headcount.', author: 'Managing Partner' },
-  { quote: 'The platform feels tailored for modern legal teams.', author: 'General Counsel' },
+  { quote: 'Reduziu quase pela metade o nosso tempo de revisão de documentos.', author: 'Diretor de Operações Jurídicas' },
+  { quote: 'Nossa equipe agora atende mais casos com o mesmo número de pessoas.', author: 'Sócio-diretor' },
+  { quote: 'A plataforma parece feita sob medida para equipes jurídicas modernas.', author: 'Diretora Jurídica' },
 ];
 
 export const faqs: { question: string; answer: string }[] = [
   {
-    question: 'How does AiForLawyers protect confidential legal data?',
+    question: 'Como o Pequi protege dados jurídicos confidenciais?',
     answer:
-      'We use encryption in transit and at rest, role-based access, audit trails, and deployment options that align with how your firm handles privileged information.',
+      'Usamos criptografia em trânsito e em repouso, acesso baseado em funções, trilhas de auditoria e opções de implantação alinhadas à forma como seu escritório lida com informações sigilosas.',
   },
   {
-    question: 'Can teams collaborate on matters and contracts?',
+    question: 'As equipes podem colaborar em casos e contratos?',
     answer:
-      'Yes. Shared workspaces, commenting, and version history help legal, business, and outside counsel stay aligned without losing control of sensitive documents.',
+      'Sim. Espaços de trabalho compartilhados, comentários e histórico de versões ajudam as equipes jurídicas, as áreas de negócio e os advogados externos a se manterem alinhados sem perder o controle de documentos sensíveis.',
   },
   {
-    question: 'Does the platform support custom legal workflows?',
+    question: 'A plataforma permite fluxos jurídicos personalizados?',
     answer:
-      'You can tailor review stages, approvals, and templates so intake, drafting, and sign-off match your policies—not a one-size-fits-all playbook.',
+      'Você pode adaptar as etapas de revisão, as aprovações e os modelos para que a captação, a redação e a aprovação final sigam suas políticas, e não um roteiro genérico.',
   },
   {
-    question: 'How quickly can we onboard our legal team?',
+    question: 'Em quanto tempo conseguimos implantar a plataforma para nossa equipe jurídica?',
     answer:
-      'Most teams complete core setup in days. We provide guided onboarding and can phase rollout by practice group or region if you prefer.',
+      'A maioria das equipes conclui a configuração principal em poucos dias. Oferecemos onboarding guiado e, se preferir, podemos implantar em fases, por área de atuação ou região.',
   },
   {
-    question: 'Do you offer enterprise support and SLA?',
+    question: 'Vocês oferecem suporte corporativo e SLA?',
     answer:
-      'Enterprise plans include dedicated support channels, response targets, and options for enhanced availability so critical workflows stay covered.',
+      'Os planos Enterprise incluem canais de suporte dedicados, metas de tempo de resposta e opções de disponibilidade ampliada para manter os fluxos críticos cobertos.',
   },
 ];

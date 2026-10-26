@@ -16,53 +16,53 @@ export default function CustomersExperience() {
   const testimonials = [
     {
       quote:
-        'AiForLawyers has revolutionized our practice, saving us hundreds of hours while improving our case outcomes.',
+        'O Pequi revolucionou nossa prática, economizando centenas de horas e melhorando os resultados dos nossos casos.',
       author: 'Sarah Johnson',
-      position: 'Managing partner',
+      position: 'Sócia-diretora',
       firm: 'Johnson & Associates',
       image: '/landingpage/hero/img1.png',
     },
     {
       quote:
-        'The legal insights and document automation have given us a competitive edge in an increasingly challenging market.',
+        'Os insights jurídicos e a automação de documentos nos deram uma vantagem competitiva em um mercado cada vez mais desafiador.',
       author: 'Michael Chen',
-      position: 'Legal director',
+      position: 'Diretor jurídico',
       firm: 'Nexus Corporation',
       image: '/landingpage/hero/img2.png',
     },
     {
-      quote: "We've cut our research time by 70% while maintaining the highest quality standards for our clients.",
+      quote: "Reduzimos nosso tempo de pesquisa em 70%, mantendo os mais altos padrões de qualidade para nossos clientes.",
       author: 'Elena Rodriguez',
-      position: 'Senior counsel',
+      position: 'Consultora jurídica sênior',
       firm: 'Global Legal Partners',
       image: '/landingpage/hero/img3.png',
     },
   ];
 
   const stats = [
-    { value: '5,000+', label: 'Law firms' },
-    { value: '70%', label: 'Avg. time saved' },
-    { value: '99%', label: 'Client satisfaction' },
-    { value: '50M+', label: 'Documents processed' },
+    { value: '5.000+', label: 'Escritórios de advocacia' },
+    { value: '70%', label: 'Tempo médio economizado' },
+    { value: '99%', label: 'Satisfação dos clientes' },
+    { value: '50 mi+', label: 'Documentos processados' },
   ];
 
   const caseStudies = [
     {
-      title: '70% faster case research',
-      description: 'How a leading litigation firm revolutionized their research process.',
-      tag: 'Litigation',
+      title: 'Pesquisa de casos 70% mais rápida',
+      description: 'Como um escritório líder em contencioso revolucionou seu processo de pesquisa.',
+      tag: 'Contencioso',
       image: '/landingpage/features/ai-legal-assistant.png',
     },
     {
-      title: 'Streamlined document review',
-      description: 'Reducing document review time by 85% while improving accuracy.',
+      title: 'Revisão de documentos simplificada',
+      description: 'Redução de 85% no tempo de revisão de documentos, com mais precisão.',
       tag: 'M&A',
       image: '/landingpage/features/global-legal-database.png',
     },
     {
-      title: 'AI-powered contract analysis',
-      description: 'Automated contract analysis that increased productivity across the desk.',
-      tag: 'Corporate',
+      title: 'Análise de contratos com IA',
+      description: 'Análise automatizada de contratos que aumentou a produtividade de toda a equipe.',
+      tag: 'Societário',
       image: '/landingpage/features/workflow-automation.png',
     },
   ];
@@ -82,19 +82,19 @@ export default function CustomersExperience() {
             className="object-cover object-top"
           />
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-              <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Success stories</p>
+              <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Histórias de sucesso</p>
               <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                Our clients succeed
+                Nossos clientes têm sucesso
               </h1>
               <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-                Join law firms and legal departments that are transforming how they work—with outcomes their clients
-                notice.
+                Junte-se aos escritórios e departamentos jurídicos que estão transformando sua forma de trabalhar, com resultados que
+                seus clientes percebem.
               </p>
               <Link
                 href="/contact"
                 className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
               >
-                Become a client
+                Torne-se cliente
               </Link>
           </div>
         </section>
@@ -124,9 +124,9 @@ export default function CustomersExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>What our clients say</h2>
+            <h2 className={sectionHeadingClass}>O que nossos clientes dizem</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Voices from firms that run on AiForLawyers every day.
+              Depoimentos de escritórios que usam o Pequi todos os dias.
             </p>
 
             <div className="mb-8 rounded-[1.875rem] border border-[#eceae7] bg-white p-8 shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:p-12 lg:p-14">
@@ -171,7 +171,7 @@ export default function CustomersExperience() {
                   className={`transition-all rounded-full h-2 ${
                     activeTestimonial === index ? 'w-8 bg-[#1A1A1A]' : 'w-2 bg-[#cfcac3] hover:bg-[#bdb6ac]'
                   }`}
-                  aria-label={`View testimonial ${index + 1}`}
+                  aria-label={`Ver depoimento ${index + 1}`}
                   aria-current={activeTestimonial === index ? 'true' : undefined}
                 />
               ))}
@@ -184,7 +184,7 @@ export default function CustomersExperience() {
         <section className="border-y border-[#eceae7] bg-[#FFFFFF] py-14 md:py-16">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <p className="mb-8 text-center text-[1rem] font-medium leading-[130%] text-[#10101A] md:mb-10 md:text-[1.125rem]">
-              Trusted by world-class legal institutions
+              A escolha de instituições jurídicas de nível mundial
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
               {trustedByLogos.map((logo) => (
@@ -209,9 +209,9 @@ export default function CustomersExperience() {
       <FadeInSection delay={0.12}>
         <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Success stories</h2>
+            <h2 className={sectionHeadingClass}>Histórias de sucesso</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Deeper looks at how teams deploy AiForLawyers across litigation, transactions, and corporate legal.
+              Uma visão aprofundada de como as equipes usam o Pequi em contencioso, transações e direito corporativo.
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -238,7 +238,7 @@ export default function CustomersExperience() {
                       href="/case-studies"
                       className="group/link inline-flex items-center gap-2 text-[0.9375rem] font-medium text-[#10101A] transition-opacity hover:opacity-80"
                     >
-                      Read case study
+                      Ler o caso
                       <svg
                         className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5"
                         fill="none"

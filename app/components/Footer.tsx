@@ -11,52 +11,52 @@ const Footer = () => {
               <div className="h-[30.4px] mb-5 flex items-center transition-opacity duration-300 hover:opacity-85">
                 <Image
                   src="/logo/logo.png"
-                  alt="AIForLawyers"
+                  alt="Pequi"
                   width={160}
                   height={40}
                   className="h-[32px] w-auto"
                 />
               </div>
               <p className="w-full max-w-[27.375rem] text-white/72 text-[0.95rem] font-normal leading-[1.5rem] tracking-[-0.00938rem]">
-                Transforming legal practice with sophisticated AI solutions for the world&apos;s most complex legal
-                challenges.
+                Transformando a prática jurídica com soluções sofisticadas de IA para os desafios jurídicos mais complexos
+                do mundo.
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-10">
               <div>
-                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Products</h4>
+                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Produtos</h4>
                 <ul className="space-y-3 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:translate-x-1 [&_a]:inline-block">
-                  <li><Link href="/assistant">AI Assistants</Link></li>
-                  <li><Link href="/vault">Vault Access</Link></li>
-                  <li><Link href="/knowledge">Knowledge Base</Link></li>
-                  <li><Link href="/workflows">Automations</Link></li>
+                  <li><Link href="/assistant">Assistentes de IA</Link></li>
+                  <li><Link href="/vault">Acesso ao Cofre</Link></li>
+                  <li><Link href="/knowledge">Base de Conhecimento</Link></li>
+                  <li><Link href="/workflows">Automações</Link></li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Platform</h4>
+                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Plataforma</h4>
                 <ul className="space-y-3 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:translate-x-1 [&_a]:inline-block">
-                  <li><Link href="/#hero">Platform</Link></li>
-                  <li><Link href="/#features">Features</Link></li>
-                  <li><Link href="/#why">Why Us</Link></li>
-                  <li><Link href="/#testimonials">Testimonials</Link></li>
-                  <li><Link href="/#faq">FAQ</Link></li>
+                  <li><Link href="/#hero">Plataforma</Link></li>
+                  <li><Link href="/#features">Recursos</Link></li>
+                  <li><Link href="/#why">Por que nós</Link></li>
+                  <li><Link href="/#testimonials">Depoimentos</Link></li>
+                  <li><Link href="/#faq">Perguntas frequentes</Link></li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Company</h4>
+                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Empresa</h4>
                 <ul className="space-y-3 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:translate-x-1 [&_a]:inline-block">
-                  <li><Link href="/customers">Customers</Link></li>
-                  <li><Link href="/security">Security</Link></li>
-                  <li><Link href="/news">News</Link></li>
-                  <li><Link href="/company">About Us</Link></li>
+                  <li><Link href="/customers">Clientes</Link></li>
+                  <li><Link href="/security">Segurança</Link></li>
+                  <li><Link href="/news">Notícias</Link></li>
+                  <li><Link href="/company">Sobre nós</Link></li>
                 </ul>
               </div>
 
               <div>
-                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Connect</h4>
+                <h4 className="mb-5 text-white text-[0.825rem] font-medium leading-[1.25rem] tracking-[0.0875rem] uppercase">Conecte-se</h4>
                 <ul className="space-y-4">
                   <li className="pt-2">
                     <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] transition-all duration-300 hover:text-white hover:-translate-y-0.5">
@@ -88,12 +88,12 @@ const Footer = () => {
 
           <div className="border-t border-white/12 pt-7 mt-2 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/65 text-sm text-center md:text-left">
-              Copyright © {new Date().getFullYear()} AIForLawyers Corporation. All rights reserved.
+              Copyright © {new Date().getFullYear()} Pequi Corporation. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-6 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:-translate-y-0.5 [&_a]:inline-block">
-              <Link href="/terms">Terms of Service</Link>
-              <Link href="/privacy-policy">Privacy Policy</Link>
-              <Link href="/cookies">Cookie Policy</Link>
+              <Link href="/terms">Termos de Serviço</Link>
+              <Link href="/privacy-policy">Política de Privacidade</Link>
+              <Link href="/cookies">Política de Cookies</Link>
             </div>
           </div>
         </div>

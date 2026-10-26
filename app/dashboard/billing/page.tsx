@@ -90,13 +90,13 @@ function BillingContent() {
       name: 'Free',
       price: 0,
       billingPeriod: 'monthly',
-      description: 'Perfect for exploring our AI capabilities',
+      description: 'Ideal para conhecer nossos recursos de IA',
       features: [
-        'Intelligence Search (5 searches)',
-        'AI Legal Chat (5 messages)',
-        'AI Lawyers (Access to 5 personas)',
-        'No Vault/Docs access',
-        'No Workflow Builder'
+        'Pesquisa Inteligente (5 pesquisas)',
+        'Chat Jurídico com IA (5 mensagens)',
+        'Advogados de IA (acesso a 5 personas)',
+        'Sem acesso ao Cofre/Documentos',
+        'Sem Criador de Fluxos'
       ],
       priceId: 'free'
     },
@@ -105,14 +105,14 @@ function BillingContent() {
       name: 'Pro Monthly',
       price: 49,
       billingPeriod: 'monthly',
-      description: 'Ideal for growing law firms and active professionals',
+      description: 'Ideal para escritórios em crescimento e profissionais ativos',
       features: [
-        'Intelligence Search (50 searches)',
-        'AI Legal Chat (50 messages)',
-        'Full AI Lawyers Access (All 50 personas)',
-        'Document Operations (50 ops)',
-        'Secure Vault (50 folders, 500MB)',
-        'Advanced Workflow Builder (5 workflows)'
+        'Pesquisa Inteligente (50 pesquisas)',
+        'Chat Jurídico com IA (50 mensagens)',
+        'Acesso completo aos Advogados de IA (todas as 50 personas)',
+        'Operações com documentos (50 operações)',
+        'Cofre seguro (50 pastas, 500 MB)',
+        'Criador de Fluxos avançado (5 fluxos)'
       ],
       isPopular: true,
       priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_ID_MONTHLY as string
@@ -122,15 +122,15 @@ function BillingContent() {
       name: 'Enterprise',
       price: 0, // Handled as custom string in UI
       billingPeriod: 'monthly',
-      description: 'For large firms requiring unlimited capabilities',
+      description: 'Para grandes escritórios que precisam de recursos ilimitados',
       features: [
-        'Unlimited Intelligence Search',
-        'Unlimited AI Legal Chat',
-        'Unlimited AI Lawyers Access',
-        'Unlimited Document Operations',
-        'Unlimited Vault Storage & Folders',
-        'Unlimited Workflow Builder',
-        'Dedicated Account Manager'
+        'Pesquisa Inteligente ilimitada',
+        'Chat Jurídico com IA ilimitado',
+        'Acesso ilimitado aos Advogados de IA',
+        'Operações com documentos ilimitadas',
+        'Armazenamento e pastas ilimitados no Cofre',
+        'Criador de Fluxos ilimitado',
+        'Gerente de conta dedicado'
       ],
       priceId: 'enterprise'
     }
@@ -142,9 +142,9 @@ function BillingContent() {
     const canceled = searchParams.get('canceled');
 
     if (success) {
-      toast.success('Subscription updated successfully!');
+      toast.success('Assinatura atualizada com sucesso!');
     } else if (canceled) {
-      toast.error('Subscription update canceled.');
+      toast.error('Atualização da assinatura cancelada.');
     }
 
     fetchProfileAndSubscription();
@@ -194,7 +194,7 @@ function BillingContent() {
       setSubscription(response.subscription);
     } catch (error) {
       console.error('Error fetching data:', error);
-      toast.error('Failed to load billing details.');
+      toast.error('Falha ao carregar os dados de cobrança.');
       setCurrentSubscription(null);
     } finally {
       setIsLoading(false);
@@ -207,14 +207,14 @@ function BillingContent() {
       setInvoices(response.invoices);
     } catch (error) {
       console.error('Error fetching invoices:', error);
-      toast.error('Failed to load billing history. Please try again later.');
+      toast.error('Falha ao carregar o histórico de cobrança. Tente novamente mais tarde.');
     }
   };
 
   const handleSubscribe = async (plan: Plan) => {
     try {
       if (plan.id === 'free') {
-        toast.success("You are already on the free plan.");
+        toast.success("Você já está no plano gratuito.");
         return;
       }
       if (plan.id === 'enterprise') {
@@ -223,14 +223,14 @@ function BillingContent() {
       }
 
       if (!stripePromise) {
-        toast.error('Stripe is not properly configured');
+        toast.error('O Stripe não está configurado corretamente');
         return;
       }
 
       setSelectedPlan(plan);
 
       // Show loading state
-      toast.loading('Preparing checkout...');
+      toast.loading('Preparando o checkout...');
 
       const { sessionId } = await stripeService.createCheckoutSession(plan.priceId);
 
@@ -240,7 +240,7 @@ function BillingContent() {
       // Redirect to Stripe Checkout
       const stripe = await stripePromise;
       if (!stripe) {
-        toast.error('Failed to initialize Stripe');
+        toast.error('Falha ao inicializar o Stripe');
         setSelectedPlan(null);
         return;
       }
@@ -248,21 +248,21 @@ function BillingContent() {
       const { error } = await stripe.redirectToCheckout({ sessionId });
       if (error) {
         console.error('Stripe redirect error:', error);
-        toast.error(error.message || 'Failed to redirect to checkout');
+        toast.error(error.message || 'Falha ao redirecionar para o checkout');
         setSelectedPlan(null);
       }
     } catch (error: unknown) {
       const err = error instanceof Error ? error : new Error(String(error));
       console.error('Error subscribing:', err);
       const errMsg = (error as { response?: { data?: { message?: string } } })?.response?.data?.message;
-      toast.error(errMsg || 'Failed to process subscription. Please try again.');
+      toast.error(errMsg || 'Falha ao processar a assinatura. Tente novamente.');
       setSelectedPlan(null);
     }
   };
 
   const handleManageSubscription = async () => {
     try {
-      toast.loading('Loading portal...');
+      toast.loading('Carregando portal...');
       const { url } = await stripeService.createPortalSession();
       toast.dismiss();
       window.location.href = url;
@@ -270,7 +270,7 @@ function BillingContent() {
       const err = error instanceof Error ? error : new Error(String(error));
       console.error('Error opening customer portal:', err);
       const errMsg = (error as { response?: { data?: { message?: string } } })?.response?.data?.message;
-      toast.error(errMsg || 'Failed to open subscription management');
+      toast.error(errMsg || 'Falha ao abrir o gerenciamento da assinatura');
     }
   };
 
@@ -282,7 +282,7 @@ function BillingContent() {
 
   // Format currency
   const formatCurrency = (amount: number): string => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 0
@@ -294,14 +294,14 @@ function BillingContent() {
     if (!date) return 'N/A';
     try {
       const dateObj = typeof date === 'string' ? new Date(date) : date;
-      return new Intl.DateTimeFormat('en-US', {
+      return new Intl.DateTimeFormat('pt-BR', {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
       }).format(dateObj);
     } catch (error) {
       console.error('Error formatting date:', error);
-      return 'Invalid date';
+      return 'Data inválida';
     }
   };
 
@@ -363,7 +363,7 @@ function BillingContent() {
   // Function to handle cancellation
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const _handleCancelSubscription = () => {
-    if (window.confirm('Are you sure you want to cancel your subscription? You will lose access to premium features at the end of your billing period.')) {
+    if (window.confirm('Tem certeza de que deseja cancelar sua assinatura? Você perderá o acesso aos recursos premium ao fim do período de cobrança.')) {
       setCurrentSubscription(prev => {
         if (!prev) return null;
         return {
@@ -378,11 +378,11 @@ function BillingContent() {
   const getInvoiceStatusBadge = (status: Invoice['status']) => {
     switch (status) {
       case 'paid':
-        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700">Paid</span>;
+        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700">Paga</span>;
       case 'pending':
-        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700">Pending</span>;
+        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700">Pendente</span>;
       case 'failed':
-        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-700">Failed</span>;
+        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-700">Falhou</span>;
       default:
         return null;
     }
@@ -423,31 +423,31 @@ function BillingContent() {
 
   return (
     <DashboardLayout
-      title="Billing & Subscription"
+      title="Cobrança e Assinatura"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="border-b border-[#e7e5e1] pb-8 mb-12">
            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Fiscal Architecture</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Arquitetura financeira</span>
             </div>
-            <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Billing & Subscription</h1>
-            <p className="text-[#525252] text-lg max-w-2xl mt-4 font-medium opacity-60">Manage your neural capacity, archival access, and synchronization logs.</p>
+            <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Cobrança e Assinatura</h1>
+            <p className="text-[#525252] text-lg max-w-2xl mt-4 font-medium opacity-60">Gerencie sua capacidade de uso, seu acesso ao arquivo e seu histórico de cobrança.</p>
         </div>
 
         {/* Credit Usage Row */}
         {(profileData as ProfileData)?.apiUsage && (profileData as ProfileData)?.subscription?.limits && (
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-8">
-               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0]">Cycle Consumption</h2>
+               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0]">Consumo no ciclo</h2>
                <div className="h-px flex-1 bg-[#e7e5e1]" />
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
-              {renderMeter("Search", (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
+              {renderMeter("Pesquisas", (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
               {renderMeter("Chat", (profileData as ProfileData).apiUsage!.chatCount, (profileData as ProfileData).subscription!.limits!.chatCount)}
-              {renderMeter("Docs Ops", (profileData as ProfileData).apiUsage!.docsCount, (profileData as ProfileData).subscription!.limits!.docsCount)}
-              {renderMeter("Vault Fol.", (profileData as ProfileData).apiUsage!.vaultFolderCount, (profileData as ProfileData).subscription!.limits!.vaultFolderCount)}
-              {renderMeter("Workflows", (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
+              {renderMeter("Op. de docs", (profileData as ProfileData).apiUsage!.docsCount, (profileData as ProfileData).subscription!.limits!.docsCount)}
+              {renderMeter("Pastas do cofre", (profileData as ProfileData).apiUsage!.vaultFolderCount, (profileData as ProfileData).subscription!.limits!.vaultFolderCount)}
+              {renderMeter("Fluxos", (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
             </div>
           </div>
         )}
@@ -467,31 +467,31 @@ function BillingContent() {
             <>
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-8 relative z-10">
                 <div>
-                  <h2 className="text-3xl font-medium tracking-tight text-[#10101A]">Active Synchronization</h2>
-                  <p className="text-[#525252] font-medium opacity-60 mt-2">Manage your current neural access and billing parameters.</p>
+                  <h2 className="text-3xl font-medium tracking-tight text-[#10101A]">Assinatura ativa</h2>
+                  <p className="text-[#525252] font-medium opacity-60 mt-2">Gerencie seu acesso atual e seus dados de cobrança.</p>
                 </div>
                 <button
                   onClick={handleManageSubscription}
                   className="px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl font-bold text-[11px] uppercase tracking-[0.2em] btn-primary-gradient"
                 >
-                  Manage Session
+                  Gerenciar assinatura
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                 <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Service Tier</h3>
-                  <p className="text-[#10101A] text-2xl font-bold tracking-tight">{currentSubscription.plan}</p>
+                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Plano</h3>
+                  <p className="text-[#10101A] text-2xl font-bold tracking-tight">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[currentSubscription.plan] ?? currentSubscription.plan}</p>
                 </div>
                 <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Authorization Status</h3>
+                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Status</h3>
                   <div className="flex items-center">
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500 mr-3 shadow-[0_0_15px_rgba(34,197,94,0.4)] animate-pulse"></span>
-                    <span className="text-[#10101A] text-2xl font-bold tracking-tight capitalize">{currentSubscription.status}</span>
+                    <span className="text-[#10101A] text-2xl font-bold tracking-tight capitalize">{({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[currentSubscription.status] ?? currentSubscription.status}</span>
                   </div>
                 </div>
                 <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Spectral Renewal</h3>
+                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Próxima renovação</h3>
                   <p className="text-[#10101A] text-2xl font-bold tracking-tight">{formatDate(currentSubscription.nextBillingDate)}</p>
                 </div>
               </div>
@@ -503,8 +503,8 @@ function BillingContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-medium tracking-tight text-[#10101A] mb-4">Discovery Tier Access</h2>
-              <p className="text-[#525252] max-w-lg mx-auto mb-10 font-medium opacity-60">You are currently operating within the discovery perimeter. Upgrade to a Core plan to unlock full architectural capacity.</p>
+              <h2 className="text-3xl font-medium tracking-tight text-[#10101A] mb-4">Acesso ao plano inicial</h2>
+              <p className="text-[#525252] max-w-lg mx-auto mb-10 font-medium opacity-60">No momento, você está usando o plano inicial. Faça upgrade para um plano pago para desbloquear todos os recursos.</p>
             </div>
           )}
         </div>
@@ -520,21 +520,21 @@ function BillingContent() {
               {plan.isPopular && (
                 <div className="absolute top-0 right-0">
                   <div className="bg-black text-white text-[9px] font-bold tracking-[0.3em] px-6 py-3 rounded-bl-2xl uppercase">
-                    Core Intelligence
+                    Mais popular
                   </div>
                 </div>
               )}
 
-              <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-2">{plan.name}</h3>
+              <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
               <div className="mb-8 flex items-baseline">
                 <span className="text-5xl font-bold text-[#10101A] tracking-tighter">
-                  {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Custom' : `${plan.id === 'pro-monthly' ? '49' : plan.price}`}
+                  {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : `${plan.id === 'pro-monthly' ? '49' : plan.price}`}
                 </span>
                 {plan.price !== 0 && (
-                  <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod}</span>
+                  <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
                 )}
                 {plan.price === 0 && plan.id === 'free' && (
-                   <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ forever</span>
+                   <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ para sempre</span>
                 )}
               </div>
 
@@ -569,16 +569,16 @@ function BillingContent() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Synchronizing...
+                    Processando...
                   </div>
                 ) : currentSubscription?.plan === plan.name ? (
-                  'Active Branch'
+                  'Plano atual'
                 ) : plan.id === 'free' ? (
-                  'Current Level'
+                  'Nível atual'
                 ) : plan.id === 'enterprise' ? (
-                  'Request Access'
+                  'Solicitar acesso'
                 ) : (
-                  'Initialize Pro'
+                  'Ativar o Pro'
                 )}
               </button>
             </div>
@@ -588,7 +588,7 @@ function BillingContent() {
         {/* Billing history */}
         <div className="mb-24">
           <div className="flex items-center mb-10">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0] mr-6">Archival Transactions</h2>
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0] mr-6">Histórico de transações</h2>
             <div className="h-px flex-1 bg-[#e7e5e1]"></div>
           </div>
 
@@ -599,19 +599,19 @@ function BillingContent() {
                   <thead className="bg-[#F9F8F6]">
                     <tr>
                       <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
-                        Invoice ID
+                        ID da fatura
                       </th>
                       <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
-                        Timestamp
+                        Data
                       </th>
                       <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
-                        Volume
+                        Valor
                       </th>
                       <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
                         Status
                       </th>
                       <th scope="col" className="px-10 py-6 text-right text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
-                        Action
+                        Ação
                       </th>
                     </tr>
                   </thead>
@@ -629,7 +629,7 @@ function BillingContent() {
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
                            <span className={`px-4 py-1.5 text-[9px] font-bold rounded-full uppercase tracking-widest ${invoice.status === 'paid' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
-                              {invoice.status}
+                              {({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[invoice.status] ?? invoice.status}
                            </span>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap text-right">
@@ -640,7 +640,7 @@ function BillingContent() {
                             <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v12" />
                             </svg>
-                            Manifest
+                            Recibo
                           </a>
                         </td>
                       </tr>
@@ -656,9 +656,9 @@ function BillingContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-[#10101A] text-2xl font-medium tracking-tight mb-4">No Historical Manifests</h3>
+              <h3 className="text-[#10101A] text-2xl font-medium tracking-tight mb-4">Nenhuma fatura no histórico</h3>
               <p className="text-[#A0A0A0] max-w-sm mx-auto font-medium text-sm">
-                Your archive of financial synchronization will be displayed here once operations commence.
+                Seu histórico de cobranças aparecerá aqui assim que houver transações.
               </p>
             </div>
           )}
@@ -666,7 +666,7 @@ function BillingContent() {
 
         {/* FAQ Section */}
         <div className="bg-gray-50 rounded-3xl p-10 mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Perguntas frequentes</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
@@ -674,8 +674,8 @@ function BillingContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-foreground font-bold mb-3">Can I change plans later?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle instantly.</p>
+              <h3 className="text-foreground font-bold mb-3">Posso mudar de plano depois?</h3>
+              <p className="text-foreground/60 text-sm leading-relaxed">Sim, você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações serão refletidas imediatamente no próximo ciclo de cobrança.</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
@@ -683,8 +683,8 @@ function BillingContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h3 className="text-foreground font-bold mb-3">Payment methods?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">We accept all major credit cards including Visa, MasterCard, and American Express, processed securely via Stripe.</p>
+              <h3 className="text-foreground font-bold mb-3">Formas de pagamento?</h3>
+              <p className="text-foreground/60 text-sm leading-relaxed">Aceitamos os principais cartões de crédito, incluindo Visa, Mastercard e American Express, processados com segurança pela Stripe.</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
@@ -692,8 +692,8 @@ function BillingContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-foreground font-bold mb-3">Refund policy?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">We offer a 30-day money-back guarantee. If you&apos;re not satisfied, contact our support team for a hassle-free full refund.</p>
+              <h3 className="text-foreground font-bold mb-3">Política de reembolso?</h3>
+              <p className="text-foreground/60 text-sm leading-relaxed">Oferecemos garantia de reembolso de 30 dias. Se não estiver satisfeito, fale com nossa equipe de suporte para receber o reembolso integral, sem complicações.</p>
             </div>
           </div>
         </div>
@@ -704,7 +704,7 @@ function BillingContent() {
 
 export default function BillingPage() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-foreground font-medium">Loading billing information...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-foreground font-medium">Carregando informações de cobrança...</div>}>
       <BillingContent />
     </Suspense>
   );

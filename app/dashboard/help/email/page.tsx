@@ -21,169 +21,169 @@ export default function EmailSupportPage() {
 
   // Email categories
   const categories = [
-    { id: 'all', name: 'All Topics' },
-    { id: 'account', name: 'Account' },
-    { id: 'billing', name: 'Billing' },
-    { id: 'technical', name: 'Technical' },
-    { id: 'feature', name: 'Requests' },
-    { id: 'legal', name: 'Legal' }
+    { id: 'all', name: 'Todos os temas' },
+    { id: 'account', name: 'Conta' },
+    { id: 'billing', name: 'Cobrança' },
+    { id: 'technical', name: 'Técnico' },
+    { id: 'feature', name: 'Sugestões' },
+    { id: 'legal', name: 'Jurídico' }
   ];
 
   // Email templates
   const emailTemplates: EmailTemplate[] = [
     {
       id: '1',
-      title: 'Account Access Issue',
-      subject: 'Unable to Access My AIForLawyers Account',
-      body: `Hello AIForLawyers Support Team,
+      title: 'Problema de acesso à conta',
+      subject: 'Não consigo acessar minha conta Pequi',
+      body: `Olá, equipe de suporte do Pequi,
 
-I'm having difficulty accessing my account. When I attempt to log in, I receive the following error message: [DESCRIBE ERROR MESSAGE].
+Estou com dificuldade para acessar minha conta. Ao tentar fazer login, recebo a seguinte mensagem de erro: [DESCREVA A MENSAGEM DE ERRO].
 
-My account email is: [YOUR EMAIL]
-I last successfully logged in on: [APPROXIMATE DATE]
+O e-mail da minha conta é: [SEU E-MAIL]
+Meu último login bem-sucedido foi em: [DATA APROXIMADA]
 
-I have already tried:
-- Resetting my password
-- Clearing browser cache and cookies
-- Using a different browser
+Já tentei:
+- Redefinir minha senha
+- Limpar o cache e os cookies do navegador
+- Usar outro navegador
 
-Could you please help me regain access to my account?
+Vocês poderiam me ajudar a recuperar o acesso à minha conta?
 
-Thank you,
-[YOUR NAME]`,
+Obrigado(a),
+[SEU NOME]`,
       category: 'account'
     },
     {
       id: '2',
-      title: 'Billing Inquiry',
-      subject: 'Question About My Recent AIForLawyers Invoice',
-      body: `Hello AIForLawyers Billing Team,
+      title: 'Dúvida sobre cobrança',
+      subject: 'Dúvida sobre minha fatura recente do Pequi',
+      body: `Olá, equipe de cobrança do Pequi,
 
-I have a question regarding my recent invoice #[INVOICE NUMBER] dated [INVOICE DATE].
+Tenho uma dúvida sobre minha fatura recente nº [NÚMERO DA FATURA], emitida em [DATA DA FATURA].
 
-[CHOOSE ONE OR MORE:]
-- I believe I've been charged incorrectly
-- I don't recognize this charge
-- I need a detailed receipt for tax purposes
-- I need to update my payment method
-- I would like to request a refund
+[ESCOLHA UMA OU MAIS OPÇÕES:]
+- Acredito que fui cobrado(a) incorretamente
+- Não reconheço esta cobrança
+- Preciso de um recibo detalhado para fins fiscais
+- Preciso atualizar minha forma de pagamento
+- Gostaria de solicitar um reembolso
 
-Details of my concern:
-[PROVIDE SPECIFIC DETAILS]
+Detalhes da minha solicitação:
+[FORNEÇA DETALHES ESPECÍFICOS]
 
-My account email is: [YOUR EMAIL]
+O e-mail da minha conta é: [SEU E-MAIL]
 
-I would appreciate your assistance in resolving this matter.
+Agradeço desde já a ajuda para resolver esta questão.
 
-Thank you,
-[YOUR NAME]`,
+Obrigado(a),
+[SEU NOME]`,
       category: 'billing'
     },
     {
       id: '3',
-      title: 'Document Generation Error',
-      subject: 'Error When Generating Legal Document',
-      body: `Hello AIForLawyers Technical Support,
+      title: 'Erro na geração de documento',
+      subject: 'Erro ao gerar documento jurídico',
+      body: `Olá, suporte técnico do Pequi,
 
-I encountered an error when trying to generate a [DOCUMENT TYPE] on [DATE/TIME].
+Encontrei um erro ao tentar gerar um(a) [TIPO DE DOCUMENTO] em [DATA/HORA].
 
-Error details:
-- What I was trying to do: [DESCRIPTION]
-- What happened: [ERROR DESCRIPTION]
-- Error message (if any): [ERROR MESSAGE]
-- URL of the page: [PAGE URL]
+Detalhes do erro:
+- O que eu estava tentando fazer: [DESCRIÇÃO]
+- O que aconteceu: [DESCRIÇÃO DO ERRO]
+- Mensagem de erro (se houver): [MENSAGEM DE ERRO]
+- URL da página: [URL DA PÁGINA]
 
-Browser information:
-- Browser: [BROWSER NAME AND VERSION]
-- Operating System: [OS NAME AND VERSION]
+Informações do navegador:
+- Navegador: [NOME E VERSÃO DO NAVEGADOR]
+- Sistema operacional: [NOME E VERSÃO DO SISTEMA]
 
-Screenshots are attached to help illustrate the issue.
+Anexei capturas de tela para ilustrar o problema.
 
-My account email is: [YOUR EMAIL]
+O e-mail da minha conta é: [SEU E-MAIL]
 
-Thank you for your assistance.
+Obrigado(a) pela ajuda.
 
-Regards,
-[YOUR NAME]`,
+Atenciosamente,
+[SEU NOME]`,
       category: 'technical'
     },
     {
       id: '4',
-      title: 'Feature Request',
-      subject: 'Feature Suggestion for AIForLawyers',
-      body: `Hello AIForLawyers Product Team,
+      title: 'Sugestão de recurso',
+      subject: 'Sugestão de recurso para o Pequi',
+      body: `Olá, equipe de produto do Pequi,
 
-I would like to suggest a new feature for the AIForLawyers platform that I believe would enhance the user experience.
+Gostaria de sugerir um novo recurso para a plataforma Pequi que, acredito, melhoraria a experiência dos usuários.
 
-Feature description:
-[DESCRIBE YOUR IDEA IN DETAIL]
+Descrição do recurso:
+[DESCREVA SUA IDEIA EM DETALHES]
 
-Use case:
-[EXPLAIN HOW THIS FEATURE WOULD BE USED]
+Caso de uso:
+[EXPLIQUE COMO ESSE RECURSO SERIA USADO]
 
-Benefits:
-[LIST THE BENEFITS THIS FEATURE WOULD PROVIDE]
+Benefícios:
+[LISTE OS BENEFÍCIOS QUE ESSE RECURSO TRARIA]
 
-Similar features in other products (if applicable):
-[MENTION IF YOU'VE SEEN SIMILAR FEATURES ELSEWHERE]
+Recursos semelhantes em outros produtos (se houver):
+[MENCIONE SE VOCÊ JÁ VIU RECURSOS SEMELHANTES EM OUTROS LUGARES]
 
-My account email is: [YOUR EMAIL]
+O e-mail da minha conta é: [SEU E-MAIL]
 
-I'm happy to provide more information or discuss this further if needed.
+Fico à disposição para fornecer mais informações ou conversar sobre o assunto, se necessário.
 
-Thank you for considering my suggestion.
+Obrigado(a) por considerar minha sugestão.
 
-Best regards,
-[YOUR NAME]`,
+Atenciosamente,
+[SEU NOME]`,
       category: 'feature'
     },
     {
       id: '5',
-      title: 'Legal Advice Question',
-      subject: 'Question About AIForLawyers\'s Legal Advice',
-      body: `Hello AIForLawyers Legal Team,
+      title: 'Dúvida sobre orientação jurídica',
+      subject: 'Dúvida sobre a orientação jurídica do Pequi',
+      body: `Olá, equipe jurídica do Pequi,
 
-I have a question regarding the legal information provided by your platform.
+Tenho uma dúvida sobre as informações jurídicas fornecidas pela plataforma de vocês.
 
-Document/advice in question: [DOCUMENT NAME OR ADVICE DESCRIPTION]
-Date generated: [DATE]
+Documento/orientação em questão: [NOME DO DOCUMENTO OU DESCRIÇÃO DA ORIENTAÇÃO]
+Data de geração: [DATA]
 
-My specific question is:
-[PROVIDE DETAILED QUESTION]
+Minha dúvida específica é:
+[DESCREVA A DÚVIDA EM DETALHES]
 
-I understand that AIForLawyers provides legal information and not legal advice, but I would like clarification on the above matter.
+Entendo que o Pequi fornece informações jurídicas, e não aconselhamento jurídico, mas gostaria de um esclarecimento sobre o assunto acima.
 
-My account email is: [YOUR EMAIL]
+O e-mail da minha conta é: [SEU E-MAIL]
 
-Thank you for your assistance.
+Obrigado(a) pela ajuda.
 
-Regards,
-[YOUR NAME]`,
+Atenciosamente,
+[SEU NOME]`,
       category: 'legal'
     },
     {
       id: '6',
-      title: 'Subscription Cancellation',
-      subject: 'Request to Cancel My AIForLawyers Subscription',
-      body: `Hello AIForLawyers Support Team,
+      title: 'Cancelamento de assinatura',
+      subject: 'Solicitação de cancelamento da minha assinatura do Pequi',
+      body: `Olá, equipe de suporte do Pequi,
 
-I would like to request cancellation of my subscription to AIForLawyers.
+Gostaria de solicitar o cancelamento da minha assinatura do Pequi.
 
-Account email: [YOUR EMAIL]
-Subscription plan: [YOUR PLAN]
-Reason for cancellation: [OPTIONAL: REASON]
+E-mail da conta: [SEU E-MAIL]
+Plano de assinatura: [SEU PLANO]
+Motivo do cancelamento: [OPCIONAL: MOTIVO]
 
-Please confirm when my subscription has been canceled. I understand that:
-- I will have access to the service until the end of my current billing period
-- No further charges will be made after cancellation
-- My data will be retained according to your data retention policy
+Por favor, confirmem quando minha assinatura for cancelada. Estou ciente de que:
+- Terei acesso ao serviço até o fim do período de cobrança atual
+- Nenhuma nova cobrança será feita após o cancelamento
+- Meus dados serão mantidos de acordo com a política de retenção de dados de vocês
 
-If there are any exit surveys or feedback forms, I am willing to provide feedback on my experience.
+Se houver alguma pesquisa de saída ou formulário de feedback, terei prazer em compartilhar minha experiência.
 
-Thank you for your assistance.
+Obrigado(a) pela ajuda.
 
-Regards,
-[YOUR NAME]`,
+Atenciosamente,
+[SEU NOME]`,
       category: 'account'
     }
   ];
@@ -208,13 +208,13 @@ Regards,
   };
 
   return (
-    <DashboardLayout title="Email Support">
+    <DashboardLayout title="Suporte por e-mail">
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="mb-12">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-3">Communication</p>
-          <h1 className="text-4xl font-light text-foreground mb-4 tracking-tight">Email Templates</h1>
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-3">Comunicação</p>
+          <h1 className="text-4xl font-light text-foreground mb-4 tracking-tight">Modelos de e-mail</h1>
           <p className="text-foreground/50 max-w-2xl text-lg font-light leading-relaxed">
-            Expedite your support requests with our optimized email templates. Select a category and customize the pre-formatted text.
+            Agilize suas solicitações de suporte com nossos modelos de e-mail. Selecione uma categoria e personalize o texto pré-formatado.
           </p>
         </div>
 
@@ -226,7 +226,7 @@ Regards,
               <div className="relative group">
                 <input
                   type="text"
-                  placeholder="Search templates..."
+                  placeholder="Pesquisar modelos..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-white border border-gray-100 rounded-xl py-3 px-5 pl-12 text-sm focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all shadow-sm"
@@ -238,7 +238,7 @@ Regards,
 
               {/* Categories */}
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-4 px-1">Categories</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-4 px-1">Categorias</p>
                 <div className="flex flex-wrap gap-2">
                   {categories.map(category => (
                     <button
@@ -257,7 +257,7 @@ Regards,
 
               {/* List */}
               <div className="space-y-3">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-4 px-1">Templates</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-4 px-1">Modelos</p>
                 <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                   {filteredTemplates.map(template => (
                     <button
@@ -275,7 +275,7 @@ Regards,
                     </button>
                   ))}
                   {filteredTemplates.length === 0 && (
-                    <p className="text-center py-10 text-xs text-foreground/30 italic">No templates found</p>
+                    <p className="text-center py-10 text-xs text-foreground/30 italic">Nenhum modelo encontrado</p>
                   )}
                 </div>
               </div>
@@ -288,7 +288,7 @@ Regards,
               <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-sm flex flex-col h-full min-h-[600px]">
                 <div className="p-8 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gray-50/30">
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-1">Template Preview</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-1">Prévia do modelo</p>
                     <h2 className="text-2xl font-light text-foreground tracking-tight">{selectedTemplate.title}</h2>
                   </div>
                   <div className="flex items-center gap-3">
@@ -299,27 +299,27 @@ Regards,
                       <svg className="w-4 h-4 mr-3 text-foreground/40 group-hover:text-foreground transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                       </svg>
-                      <span className="text-[11px] font-bold uppercase tracking-widest">{copied ? 'Copied' : 'Copy Text'}</span>
+                      <span className="text-[11px] font-bold uppercase tracking-widest">{copied ? 'Copiado' : 'Copiar texto'}</span>
                     </button>
                     <a
                       href={`mailto:support@AIForLawyers.com?subject=${encodeURIComponent(selectedTemplate.subject)}&body=${encodeURIComponent(selectedTemplate.body)}`}
                       className="flex items-center px-10 py-3 text-white rounded-xl transition-all shadow-xl shadow-black/10 btn-primary-gradient"
                     >
-                      <span className="text-[11px] font-bold uppercase tracking-widest">Open Client</span>
+                      <span className="text-[11px] font-bold uppercase tracking-widest">Abrir no app de e-mail</span>
                     </a>
                   </div>
                 </div>
 
                 <div className="p-10 flex-1 overflow-y-auto custom-scrollbar bg-white">
                   <div className="mb-10">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Email Subject</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Assunto do e-mail</p>
                     <div className="p-5 bg-gray-50 border border-gray-100 rounded-2xl text-foreground font-medium text-sm">
                       {selectedTemplate.subject}
                     </div>
                   </div>
 
                   <div className="mb-10">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Message Body</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Corpo da mensagem</p>
                     <div className="p-8 bg-gray-50 border border-gray-100 rounded-2xl text-foreground/70 font-light text-sm leading-loose whitespace-pre-line border-dashed">
                       {selectedTemplate.body}
                     </div>
@@ -332,11 +332,11 @@ Regards,
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-2">Instructions</p>
+                      <p className="text-sm font-semibold mb-2">Instruções</p>
                       <ol className="text-xs text-foreground/50 space-y-2 leading-relaxed font-light">
-                        <li>Replace all <span className="font-bold text-foreground/70">[BRACKETS]</span> with your specific details.</li>
-                        <li>Review the content to ensure accuracy before sending.</li>
-                        <li>Attachments should be referenced in the body if applicable.</li>
+                        <li>Substitua todos os <span className="font-bold text-foreground/70">[COLCHETES]</span> pelos seus dados.</li>
+                        <li>Revise o conteúdo antes de enviar para garantir que esteja correto.</li>
+                        <li>Se houver anexos, mencione-os no corpo da mensagem.</li>
                       </ol>
                     </div>
                   </div>
@@ -350,12 +350,12 @@ Regards,
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h2 className="text-2xl font-light text-foreground mb-4">Select Template</h2>
+                  <h2 className="text-2xl font-light text-foreground mb-4">Selecione um modelo</h2>
                   <p className="text-foreground/30 max-w-sm mx-auto mb-10 font-light text-base">
-                    Please choose a topic from the sidebar to customize your support email.
+                    Escolha um tema na barra lateral para personalizar seu e-mail de suporte.
                   </p>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/20">
-                    Priority response for Enterprise accounts
+                    Resposta prioritária para contas Enterprise
                   </p>
                 </div>
               </div>

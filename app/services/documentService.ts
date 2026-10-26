@@ -41,7 +41,7 @@ export const documentService = {
       // Check file size before processing
       const maxSize = 25 * 1024 * 1024; // 25MB
       if (file.size > maxSize) {
-        throw new Error('File size exceeds 25MB limit. Please upload a smaller file.');
+        throw new Error('O arquivo excede o limite de 25 MB. Envie um arquivo menor.');
       }
 
       // Convert the file to base64
@@ -73,7 +73,7 @@ export const documentService = {
         return response.data;
       } catch (error: unknown) {
         if (error instanceof Error && error.name === 'AbortError') {
-          throw new Error('Request timed out. Please try again with a smaller document or contact support.');
+          throw new Error('O tempo da requisição esgotou. Tente novamente com um documento menor ou entre em contato com o suporte.');
         }
         throw error;
       }
@@ -170,7 +170,7 @@ export const documentService = {
     try {
       // Ensure the file is an image
       if (!file.type.startsWith('image/')) {
-        throw new Error('File must be an image');
+        throw new Error('O arquivo deve ser uma imagem');
       }
 
       // Convert file to base64
@@ -240,7 +240,7 @@ export const documentService = {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create advanced document');
+        throw new Error('Falha ao criar o documento avançado');
       }
 
       return await response.json();
@@ -264,7 +264,7 @@ function fileToBase64(file: File): Promise<string> {
         const base64 = reader.result.split(',')[1];
         resolve(base64);
       } else {
-        reject(new Error('Failed to convert file to base64'));
+        reject(new Error('Falha ao converter o arquivo para base64'));
       }
     };
 

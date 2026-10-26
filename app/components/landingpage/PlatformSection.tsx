@@ -5,27 +5,27 @@ import { useState } from 'react';
 import { sectionHeadingClass, sectionSubTextClass } from './sectionStyles';
 import FadeInSection from './FadeInSection';
 
-const platformTabs = ['Search Options', 'Channels', 'AI Assistants', 'Document Registry', 'Vault Access'];
+const platformTabs = ['Opções de pesquisa', 'Canais', 'Assistentes de IA', 'Registro de documentos', 'Acesso ao cofre'];
 const tabImages: Record<string, string> = {
-  'Search Options': '/landingpage/one-legal-platform/search-opt.png',
-  Channels: '/landingpage/one-legal-platform/channels.png',
-  'AI Assistants': '/landingpage/one-legal-platform/ai-assitants.png',
-  'Document Registry': '/landingpage/one-legal-platform/document-regis.png',
-  'Vault Access': '/landingpage/one-legal-platform/vault.png',
+  'Opções de pesquisa': '/landingpage/one-legal-platform/search-opt.png',
+  Canais: '/landingpage/one-legal-platform/channels.png',
+  'Assistentes de IA': '/landingpage/one-legal-platform/ai-assitants.png',
+  'Registro de documentos': '/landingpage/one-legal-platform/document-regis.png',
+  'Acesso ao cofre': '/landingpage/one-legal-platform/vault.png',
 };
 
 export default function PlatformSection() {
-  const [activeTab, setActiveTab] = useState('Channels');
+  const [activeTab, setActiveTab] = useState('Canais');
 
   return (
     <FadeInSection delay={0.08}>
       <section id="platform" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="text-center mb-8 md:mb-10">
-          <h2 className={sectionHeadingClass}>All-in-One Legal Platform</h2>
+          <h2 className={sectionHeadingClass}>Plataforma jurídica completa</h2>
           <p className={`${sectionSubTextClass} mt-4`}>
-            Explore powerful tools designed to simplify legal workflows, automate tasks, and deliver intelligent
-            insights-all in one place.
+            Conheça ferramentas poderosas criadas para simplificar fluxos jurídicos, automatizar tarefas e gerar insights
+            inteligentes, tudo em um só lugar.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function PlatformSection() {
             <div className="relative h-full">
               <Image
                 src={tabImages[activeTab]}
-                alt={`${activeTab} preview`}
+                alt={`Prévia de ${activeTab}`}
                 fill
                 priority
                 className="object-contain"

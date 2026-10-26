@@ -14,148 +14,148 @@ import {
 } from '@/app/components/legal/LegalDocChrome';
 
 const termsOfService = {
-  title: 'Terms of Service',
-  lastUpdated: 'November 15, 2023',
+  title: 'Termos de Serviço',
+  lastUpdated: '15 de novembro de 2023',
   sections: [
     {
       id: 'acceptance',
-      title: 'Acceptance of Terms',
+      title: 'Aceitação dos Termos',
       content:
-        "By accessing or using AIForLawyers's website, services, and applications (collectively, the 'Services'), you agree to be bound by these Terms of Service ('Terms'). If you do not agree to these Terms, you may not access or use the Services. These Terms constitute a binding legal agreement between you and AIForLawyers, Inc.",
+        "Ao acessar ou usar o site, os serviços e os aplicativos do Pequi (em conjunto, os 'Serviços'), você concorda em ficar vinculado a estes Termos de Serviço ('Termos'). Se não concordar com estes Termos, você não poderá acessar nem usar os Serviços. Estes Termos constituem um acordo juridicamente vinculante entre você e a Pequi, Inc.",
       subsections: [
         {
-          title: 'Eligibility',
+          title: 'Elegibilidade',
           content:
-            'You must be at least 18 years old to use our Services. By using our Services, you represent and warrant that you meet all eligibility requirements described in these Terms.',
+            'Você deve ter pelo menos 18 anos para usar nossos Serviços. Ao usar nossos Serviços, você declara e garante que atende a todos os requisitos de elegibilidade descritos nestes Termos.',
         },
         {
-          title: 'Changes to Terms',
+          title: 'Alterações nos Termos',
           content:
-            'We may modify these Terms at any time. By continuing to use our Services after we post modifications, you agree to be bound by the revised Terms.',
+            'Podemos modificar estes Termos a qualquer momento. Ao continuar usando nossos Serviços após a publicação das alterações, você concorda em ficar vinculado aos Termos revisados.',
         },
       ],
     },
     {
       id: 'account',
-      title: 'Your Account',
-      content: 'To use certain features of our Services, you may need to create an account. Here are the terms that apply to your account:',
+      title: 'Sua conta',
+      content: 'Para usar determinados recursos dos nossos Serviços, pode ser necessário criar uma conta. Estes são os termos que se aplicam à sua conta:',
       subsections: [
         {
-          title: 'Account Registration',
+          title: 'Cadastro da conta',
           content:
-            'When you register for an account, you agree to provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.',
+            'Ao se cadastrar, você concorda em fornecer informações precisas, atualizadas e completas. Você é responsável por manter a confidencialidade das credenciais da sua conta e por todas as atividades realizadas nela.',
         },
         {
-          title: 'Account Security',
+          title: 'Segurança da conta',
           content:
-            'You are responsible for maintaining the security of your account. You must immediately notify us of any unauthorized use of your account or any other breach of security.',
+            'Você é responsável por manter a segurança da sua conta. Você deve nos avisar imediatamente sobre qualquer uso não autorizado da sua conta ou qualquer outra violação de segurança.',
         },
         {
-          title: 'Account Termination',
+          title: 'Encerramento da conta',
           content:
-            'We reserve the right to suspend or terminate your account at our sole discretion, without notice, for conduct that we determine to be in violation of these Terms or otherwise harmful to other users, us, or third parties.',
+            'Reservamo-nos o direito de suspender ou encerrar sua conta, a nosso exclusivo critério e sem aviso prévio, por condutas que consideremos violar estes Termos ou que sejam prejudiciais a outros usuários, a nós ou a terceiros.',
         },
       ],
     },
     {
       id: 'services',
-      title: 'Our Services',
+      title: 'Nossos Serviços',
       content:
-        'AIForLawyers provides AI-powered legal tools and services designed to assist with legal research, document generation, contract analysis, and other legal tasks. Our Services are not a substitute for professional legal advice, and we do not provide legal advice or representation.',
+        'O Pequi oferece ferramentas e serviços jurídicos com IA criados para auxiliar em pesquisas jurídicas, geração de documentos, análise de contratos e outras tarefas jurídicas. Nossos Serviços não substituem a orientação jurídica profissional, e não prestamos consultoria nem representação jurídica.',
       subsections: [
         {
-          title: 'Service License',
+          title: 'Licença de uso',
           content:
-            'Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable license to access and use our Services for your legitimate business or personal purposes.',
+            'Sujeito a estes Termos, concedemos a você uma licença limitada, não exclusiva, intransferível e não sublicenciável para acessar e usar nossos Serviços para fins comerciais ou pessoais legítimos.',
         },
         {
-          title: 'Service Limitations',
+          title: 'Limitações dos Serviços',
           content:
-            'The information and documents provided through our Services are not intended to be a substitute for professional legal advice. You should always consult with a qualified attorney for specific advice tailored to your situation.',
+            'As informações e os documentos fornecidos por meio dos nossos Serviços não substituem a orientação jurídica profissional. Consulte sempre um advogado qualificado para obter orientações específicas para a sua situação.',
         },
         {
-          title: 'Service Modifications',
+          title: 'Alterações nos Serviços',
           content:
-            'We reserve the right to modify, suspend, or discontinue any part of our Services at any time, with or without notice to you.',
+            'Reservamo-nos o direito de modificar, suspender ou descontinuar qualquer parte dos nossos Serviços a qualquer momento, com ou sem aviso prévio.',
         },
       ],
     },
     {
       id: 'fees',
-      title: 'Fees and Payment',
-      content: 'Certain features of our Services may require payment of fees. Here are the terms that apply to paid services:',
+      title: 'Tarifas e pagamento',
+      content: 'Alguns recursos dos nossos Serviços podem exigir o pagamento de tarifas. Estes são os termos que se aplicam aos serviços pagos:',
       subsections: [
         {
-          title: 'Subscription Plans',
+          title: 'Planos de assinatura',
           content:
-            'We offer various subscription plans with different features and pricing. We reserve the right to change our prices and subscription plans at any time.',
+            'Oferecemos diversos planos de assinatura com recursos e preços diferentes. Reservamo-nos o direito de alterar nossos preços e planos de assinatura a qualquer momento.',
         },
         {
-          title: 'Payment Processing',
+          title: 'Processamento de pagamentos',
           content:
-            'You agree to pay all fees associated with your use of our Services in accordance with the pricing and payment terms presented to you. All payment obligations are non-cancelable, and fees paid are non-refundable, except as expressly provided in these Terms.',
+            'Você concorda em pagar todas as tarifas associadas ao uso dos nossos Serviços, de acordo com os preços e as condições de pagamento apresentados a você. Todas as obrigações de pagamento são irrevogáveis, e as tarifas pagas não são reembolsáveis, exceto conforme expressamente previsto nestes Termos.',
         },
         {
-          title: 'Subscription Renewal',
+          title: 'Renovação da assinatura',
           content:
-            'Subscriptions automatically renew at the end of each billing period unless you cancel your subscription before the renewal date.',
+            'As assinaturas são renovadas automaticamente ao fim de cada período de cobrança, a menos que você cancele a assinatura antes da data de renovação.',
         },
       ],
     },
     {
       id: 'content',
-      title: 'User Content',
+      title: 'Conteúdo do usuário',
       content:
-        "Our Services may allow you to upload, submit, store, send, or receive content ('User Content'). Here are the applicable terms:",
+        "Nossos Serviços podem permitir que você envie, publique, armazene, transmita ou receba conteúdo ('Conteúdo do Usuário'). Estes são os termos aplicáveis:",
       subsections: [
         {
-          title: 'Content License',
+          title: 'Licença sobre o conteúdo',
           content:
-            'You retain ownership of any intellectual property rights that you hold in your User Content. By uploading User Content, you grant us a worldwide, royalty-free license to use it for the limited purpose of operating and improving our Services.',
+            'Você mantém a titularidade de quaisquer direitos de propriedade intelectual sobre o seu Conteúdo do Usuário. Ao enviar Conteúdo do Usuário, você nos concede uma licença mundial e isenta de royalties para usá-lo com a finalidade limitada de operar e aprimorar nossos Serviços.',
         },
         {
-          title: 'Content Restrictions',
+          title: 'Restrições de conteúdo',
           content:
-            'You may not upload User Content that violates any applicable law, infringes intellectual property rights, contains viruses or malware, is defamatory or obscene, or violates these Terms.',
+            'Você não pode enviar Conteúdo do Usuário que viole a legislação aplicável, infrinja direitos de propriedade intelectual, contenha vírus ou malware, seja difamatório ou obsceno, ou viole estes Termos.',
         },
       ],
     },
     {
       id: 'intellectual-property',
-      title: 'Intellectual Property',
+      title: 'Propriedade intelectual',
       content:
-        'Our Services and all content, features, and functionality thereof are owned by us, our licensors, or other providers and are protected by copyright, trademark, patent, and other intellectual property laws.',
+        'Nossos Serviços e todo o seu conteúdo, recursos e funcionalidades pertencem a nós, a nossos licenciadores ou a outros fornecedores e estão protegidos pelas leis de direitos autorais, marcas, patentes e demais leis de propriedade intelectual.',
       subsections: [
         {
-          title: 'Restrictions',
+          title: 'Restrições',
           content:
-            'You may not reproduce, distribute, modify, create derivative works of, or reverse engineer any part of our Services or Service Content without our express written consent.',
+            'Você não pode reproduzir, distribuir, modificar, criar obras derivadas nem fazer engenharia reversa de qualquer parte dos nossos Serviços ou do Conteúdo dos Serviços sem nosso consentimento expresso e por escrito.',
         },
       ],
     },
     {
       id: 'disclaimer',
-      title: 'Disclaimer of Warranties',
+      title: 'Isenção de garantias',
       content:
-        "OUR SERVICES ARE PROVIDED 'AS IS' AND 'AS AVAILABLE,' WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE EXPLICITLY DISCLAIM ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE MAKE NO WARRANTY THAT OUR SERVICES WILL MEET YOUR REQUIREMENTS OR BE AVAILABLE ON AN UNINTERRUPTED, SECURE, OR ERROR-FREE BASIS.",
+        "NOSSOS SERVIÇOS SÃO FORNECIDOS 'NO ESTADO EM QUE SE ENCONTRAM' E 'CONFORME DISPONÍVEIS', SEM GARANTIAS DE QUALQUER TIPO, EXPRESSAS OU IMPLÍCITAS. ISENTAMO-NOS EXPRESSAMENTE DE QUAISQUER GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA OU NÃO VIOLAÇÃO. NÃO GARANTIMOS QUE NOSSOS SERVIÇOS ATENDERÃO ÀS SUAS NECESSIDADES OU ESTARÃO DISPONÍVEIS DE FORMA ININTERRUPTA, SEGURA OU LIVRE DE ERROS.",
     },
     {
       id: 'limitation',
-      title: 'Limitation of Liability',
+      title: 'Limitação de responsabilidade',
       content:
-        'IN NO EVENT WILL WE OR OUR AFFILIATES BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES. IN NO EVENT WILL OUR AGGREGATE LIABILITY FOR ALL CLAIMS RELATING TO OUR SERVICES EXCEED THE GREATER OF $100 OR THE AMOUNT PAID BY YOU TO US IN THE 12 MONTHS PRECEDING THE EVENT GIVING RISE TO THE LIABILITY.',
+        'EM NENHUMA HIPÓTESE NÓS OU NOSSAS AFILIADAS SEREMOS RESPONSÁVEIS POR QUAISQUER DANOS INDIRETOS, ESPECIAIS, INCIDENTAIS, CONSEQUENCIAIS OU PUNITIVOS. EM NENHUMA HIPÓTESE NOSSA RESPONSABILIDADE TOTAL POR TODAS AS REIVINDICAÇÕES RELACIONADAS AOS NOSSOS SERVIÇOS EXCEDERÁ O MAIOR VALOR ENTRE US$ 100 OU O VALOR PAGO POR VOCÊ A NÓS NOS 12 MESES ANTERIORES AO EVENTO QUE DEU ORIGEM À RESPONSABILIDADE.',
     },
     {
       id: 'governing-law',
-      title: 'Governing Law and Jurisdiction',
+      title: 'Lei aplicável e foro',
       content:
-        'These Terms will be governed by the laws of the State of California without regard to its conflict of laws provisions. The exclusive jurisdiction and venue of any action will be the state and federal courts located in San Francisco County, California.',
+        'Estes Termos serão regidos pelas leis do Estado da Califórnia, independentemente de suas normas sobre conflito de leis. A jurisdição e o foro exclusivos para qualquer ação serão os tribunais estaduais e federais localizados no Condado de San Francisco, Califórnia.',
     },
     {
       id: 'contact',
-      title: 'Contact Us',
+      title: 'Fale conosco',
       content:
-        'If you have any questions about these Terms, please contact us at legal@AIForLawyers.com or write to us at: AIForLawyers, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, USA.',
+        'Se você tiver dúvidas sobre estes Termos, entre em contato pelo e-mail legal@AIForLawyers.com ou escreva para: Pequi, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, EUA.',
     },
   ],
 };
@@ -170,7 +170,7 @@ type Section = {
 export default function TermsPageContent() {
   return (
     <main className="min-h-screen">
-      <LegalHero eyebrow="Legal agreement" title={termsOfService.title} lastUpdated={termsOfService.lastUpdated} />
+      <LegalHero eyebrow="Acordo jurídico" title={termsOfService.title} lastUpdated={termsOfService.lastUpdated} />
       <LegalTOC items={termsOfService.sections.map((s) => ({ id: s.id, title: s.title }))} />
       <LegalMain>
         {termsOfService.sections.map((section: Section, index: number) => (
@@ -186,30 +186,30 @@ export default function TermsPageContent() {
           </div>
         ))}
       </LegalMain>
-      <LegalAcknowledgment ctaHref="/contact" ctaLabel="Contact us with questions">
-        <h2 className="mb-4 text-[1.5rem] font-medium text-[#10101A] md:text-[1.75rem]">Acknowledgment</h2>
+      <LegalAcknowledgment ctaHref="/contact" ctaLabel="Fale conosco em caso de dúvidas">
+        <h2 className="mb-4 text-[1.5rem] font-medium text-[#10101A] md:text-[1.75rem]">Ciência</h2>
         <LegalParagraph className="max-w-2xl mx-auto">
-          By using AIForLawyers&apos;s services, you acknowledge that you have read, understood, and agree to these Terms of Service.
+          Ao usar os serviços do Pequi, você declara que leu, compreendeu e concorda com estes Termos de Serviço.
         </LegalParagraph>
       </LegalAcknowledgment>
       <LegalLinkGrid
-        title="Additional legal documents"
+        title="Outros documentos legais"
         items={[
           {
             href: '/privacy-policy',
-            title: 'Privacy Policy',
-            desc: 'Learn how we collect, use, and protect your personal information.',
-            label: 'Read Privacy Policy',
+            title: 'Política de Privacidade',
+            desc: 'Saiba como coletamos, usamos e protegemos suas informações pessoais.',
+            label: 'Ler a Política de Privacidade',
           },
           {
             href: '/cookies',
-            title: 'Cookie Policy',
-            desc: 'Information about how we use cookies and similar technologies.',
-            label: 'Read Cookie Policy',
+            title: 'Política de Cookies',
+            desc: 'Informações sobre como usamos cookies e tecnologias semelhantes.',
+            label: 'Ler a Política de Cookies',
           },
         ]}
       />
-      <LegalFooterBar printLabel="Print these terms" emailLabel="legal@AIForLawyers.com" emailHref="mailto:legal@AIForLawyers.com" />
+      <LegalFooterBar printLabel="Imprimir estes termos" emailLabel="legal@AIForLawyers.com" emailHref="mailto:legal@AIForLawyers.com" />
     </main>
   );
 }

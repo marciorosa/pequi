@@ -64,14 +64,14 @@ export default function AgreementPage({ params }: Props) {
         const response = await fetch(`/api/documents/${id}`);
 
         if (!response.ok) {
-          throw new Error(`Failed to fetch agreement: ${response.statusText}`);
+          throw new Error(`Falha ao carregar o contrato: ${response.statusText}`);
         }
 
         const data = await response.json();
         setAgreement(data);
       } catch (err) {
         console.error('Error fetching agreement:', err);
-        setError('Failed to load the agreement. It may have expired or been deleted.');
+        setError('Não foi possível carregar o contrato. Ele pode ter expirado ou sido excluído.');
       } finally {
         setIsLoading(false);
       }
@@ -84,7 +84,7 @@ export default function AgreementPage({ params }: Props) {
     return (
       <div className="h-screen flex items-center justify-center bg-gray-50">
         <Spinner size="lg" />
-        <span className="ml-3 text-foreground/60 font-medium">Loading document...</span>
+        <span className="ml-3 text-foreground/60 font-medium">Carregando documento...</span>
       </div>
     );
   }
@@ -96,14 +96,14 @@ export default function AgreementPage({ params }: Props) {
           <svg className="w-12 h-12 text-red-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
-          <div className="font-semibold text-lg mb-1">{error || 'Agreement not found'}</div>
-          <p className="text-red-500/80 text-sm">The document you are looking for is unavailable.</p>
+          <div className="font-semibold text-lg mb-1">{error || 'Contrato não encontrado'}</div>
+          <p className="text-red-500/80 text-sm">O documento que você procura não está disponível.</p>
         </div>
         <button
           onClick={() => router.push('/dashboard/docs')}
           className="px-6 py-2.5 text-white rounded-lg transition-all shadow-md font-medium btn-primary-gradient"
         >
-          Return to Documents
+          Voltar para Documentos
         </button>
       </div>
     );
@@ -122,7 +122,7 @@ export default function AgreementPage({ params }: Props) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </div>
-            Back to Documents
+            Voltar para Documentos
           </button>
 
           <div className="text-foreground/50 text-sm bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">

@@ -55,11 +55,11 @@ export default function NotificationsPage() {
           setNotifications(response.data.notifications);
           setUnreadCount(response.data.meta.unreadCount);
         } else {
-          setError('Failed to fetch notifications');
+          setError('Falha ao carregar as notificações');
         }
       } catch (err) {
         console.error('Error fetching notifications:', err);
-        setError('Failed to fetch notifications. Please try again later.');
+        setError('Falha ao carregar as notificações. Tente novamente mais tarde.');
       } finally {
         setLoading(false);
       }
@@ -75,18 +75,18 @@ export default function NotificationsPage() {
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
     if (diffInSeconds < 60) {
-      return 'Just now';
+      return 'Agora mesmo';
     } else if (diffInSeconds < 3600) {
       const minutes = Math.floor(diffInSeconds / 60);
-      return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ago`;
+      return `há ${minutes} ${minutes === 1 ? 'minuto' : 'minutos'}`;
     } else if (diffInSeconds < 86400) {
       const hours = Math.floor(diffInSeconds / 3600);
-      return `${hours} ${hours === 1 ? 'hour' : 'hours'} ago`;
+      return `há ${hours} ${hours === 1 ? 'hora' : 'horas'}`;
     } else if (diffInSeconds < 604800) {
       const days = Math.floor(diffInSeconds / 86400);
-      return `${days} ${days === 1 ? 'day' : 'days'} ago`;
+      return `há ${days} ${days === 1 ? 'dia' : 'dias'}`;
     } else {
-      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      return date.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric', year: 'numeric' });
     }
   };
 
@@ -193,17 +193,17 @@ export default function NotificationsPage() {
   };
 
   return (
-    <DashboardLayout title="Notifications">
+    <DashboardLayout title="Notificações">
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 border-b border-[#e7e5e1] pb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Neural Log</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Registro neural</span>
             </div>
-            <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Notifications</h1>
+            <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Notificações</h1>
             <p className="text-[#525252] mt-3 font-medium opacity-60">
-              There are {unreadCount} unread transmissions in your archival queue.
+              Há {unreadCount} mensagens não lidas na sua fila de arquivo.
             </p>
           </div>
 
@@ -213,14 +213,14 @@ export default function NotificationsPage() {
               className="px-6 py-3 bg-[#F9F8F6] border border-[#e7e5e1] hover:bg-white hover:shadow-xl text-[#10101A] rounded-2xl transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30"
               disabled={unreadCount === 0}
             >
-              Acknowledge All
+              Marcar todas como lidas
             </button>
             <button
               onClick={clearAllNotifications}
               className="px-6 py-3 rounded-2xl transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30 btn-primary-gradient"
               disabled={notifications.length === 0}
             >
-              Purge Archive
+              Limpar arquivo
             </button>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function NotificationsPage() {
                 : 'bg-white border-[#e7e5e1] text-[#A0A0A0] hover:bg-[#F9F8F6] hover:border-black/10'
                 }`}
             >
-              {tab}
+              {({ all: 'todas', unread: 'não lidas', system: 'sistema', account: 'conta', document: 'documentos', alert: 'alertas' } as Record<string, string>)[tab] ?? tab}
             </button>
           ))}
         </div>
@@ -303,7 +303,7 @@ export default function NotificationsPage() {
                               <button
                                 onClick={() => markAsRead(notification._id)}
                                 className="text-[#A0A0A0] hover:text-black transition-colors duration-300 p-2 bg-[#F9F8F6] rounded-xl hover:shadow-md"
-                                title="Mark as read"
+                                title="Marcar como lida"
                               >
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -313,7 +313,7 @@ export default function NotificationsPage() {
                             <button
                               onClick={() => deleteNotification(notification._id)}
                               className="text-[#A0A0A0] hover:text-[#E84C3D] transition-colors duration-300 p-2 bg-[#F9F8F6] rounded-xl hover:shadow-md"
-                              title="Delete transmission"
+                              title="Excluir mensagem"
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -333,7 +333,7 @@ export default function NotificationsPage() {
                             href={`/dashboard/${notification.type === 'document' ? 'docs' : 'chats'}/${notification.relatedId}`}
                             className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.2em] text-black border-b border-black/10 hover:border-black pb-1 transition-all"
                           >
-                            <span>Open Log</span>
+                            <span>Abrir registro</span>
                             <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
@@ -351,11 +351,11 @@ export default function NotificationsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-3">All Clear!</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-3">Tudo em dia!</h3>
                 <p className="text-foreground/40 max-w-sm mx-auto font-medium">
                   {filter === 'all'
-                    ? "You don't have any notifications at the moment. We'll let you know when something important happens."
-                    : `No ${filter} notifications found matching your current filter.`}
+                    ? "Você não tem notificações no momento. Avisaremos quando algo importante acontecer."
+                    : `Nenhuma notificação do tipo "${({ all: 'todas', unread: 'não lidas', system: 'sistema', account: 'conta', document: 'documentos', alert: 'alertas' } as Record<string, string>)[filter] ?? filter}" encontrada com o filtro atual.`}
                 </p>
               </div>
             )}

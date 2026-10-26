@@ -42,7 +42,7 @@ export const contactApi = {
     const result = await response.json();
     
     if (!response.ok) {
-      throw new Error(result.message || 'Failed to submit contact form');
+      throw new Error(result.message || 'Falha ao enviar o formulário de contato');
     }
 
     return result;
@@ -60,7 +60,7 @@ export const contactApi = {
     const result = await response.json();
     
     if (!response.ok) {
-      throw new Error(result.message || 'Failed to submit career application');
+      throw new Error(result.message || 'Falha ao enviar a candidatura');
     }
 
     return result;

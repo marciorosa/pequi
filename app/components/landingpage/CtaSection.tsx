@@ -12,7 +12,7 @@ export default function CtaSection() {
           <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
             <Image
               src="/landingpage/cta/bg-img.png"
-              alt="CTA background"
+              alt="Imagem de fundo da chamada"
               fill
               className="object-cover"
               priority
@@ -22,17 +22,17 @@ export default function CtaSection() {
 
           <div className="relative z-10 flex h-full items-center p-6 md:p-12 lg:p-14">
             <div className="w-full max-w-[40rem]">
-              <h3 className={`${sectionHeadingClass} text-left text-white max-w-none`}>Get Started Today</h3>
+              <h3 className={`${sectionHeadingClass} text-left text-white max-w-none`}>Comece hoje mesmo</h3>
               <p className="w-full max-w-[39.1975rem] text-white/80 mt-5 text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] leading-[160%]">
-                Streamline your legal workflows, automate research, and unlock powerful insights with AI built for
-                modern legal professionals.
+                Simplifique seus fluxos jurídicos, automatize pesquisas e obtenha insights poderosos com uma IA criada para
+                os profissionais do Direito de hoje.
               </p>
               <div className="mt-8">
                 <Link
                   href="/signup"
                   className="landing-secondary-btn inline-flex justify-center items-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6]"
                 >
-                  Start Your Journey
+                  Comece sua jornada
                 </Link>
               </div>
             </div>

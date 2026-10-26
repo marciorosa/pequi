@@ -11,116 +11,116 @@ export default function ContractTemplatesPage() {
   const contractTemplates = [
     {
       id: 1,
-      title: "Service Agreement Template",
+      title: "Modelo de Contrato de Prestação de Serviços",
       category: "business",
-      description: "Comprehensive service agreement template for professional services, consulting, and contractor relationships.",
+      description: "Modelo completo de contrato de prestação de serviços para serviços profissionais, consultoria e relações com prestadores.",
       pages: 12,
       clauses: 25,
       lastUpdated: "2024-01-15",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Liability protection", "Payment terms", "Scope of work", "Termination clauses"],
-      price: "Free",
+      features: ["Proteção de responsabilidade", "Condições de pagamento", "Escopo do trabalho", "Cláusulas de rescisão"],
+      price: "Grátis",
       popular: true
     },
     {
       id: 2,
-      title: "Non-Disclosure Agreement (NDA)",
+      title: "Acordo de Confidencialidade (NDA)",
       category: "business",
-      description: "Standard NDA template for protecting confidential information in business relationships.",
+      description: "Modelo padrão de NDA para proteger informações confidenciais em relações comerciais.",
       pages: 4,
       clauses: 12,
       lastUpdated: "2024-01-10",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Mutual protection", "Defined confidentiality", "Return obligations", "Duration terms"],
-      price: "Free",
+      features: ["Proteção mútua", "Confidencialidade definida", "Obrigações de devolução", "Prazo de vigência"],
+      price: "Grátis",
       popular: true
     },
     {
       id: 3,
-      title: "Employment Contract",
+      title: "Contrato de Trabalho",
       category: "employment",
-      description: "Complete employment agreement template covering salary, benefits, and company policies.",
+      description: "Modelo completo de contrato de trabalho abrangendo salário, benefícios e políticas da empresa.",
       pages: 8,
       clauses: 18,
       lastUpdated: "2024-01-20",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Compensation structure", "Benefits package", "Performance expectations", "Termination procedures"],
+      features: ["Estrutura de remuneração", "Pacote de benefícios", "Expectativas de desempenho", "Procedimentos de desligamento"],
       price: "Premium",
       popular: false
     },
     {
       id: 4,
-      title: "Commercial Lease Agreement",
+      title: "Contrato de Locação Comercial",
       category: "real-estate",
-      description: "Professional lease agreement for commercial properties including retail and office spaces.",
+      description: "Contrato de locação profissional para imóveis comerciais, incluindo lojas e escritórios.",
       pages: 16,
       clauses: 35,
       lastUpdated: "2024-01-12",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Rent escalation", "Maintenance responsibilities", "Use restrictions", "Assignment rights"],
+      features: ["Reajuste do aluguel", "Responsabilidades de manutenção", "Restrições de uso", "Direito de cessão"],
       price: "Premium",
       popular: false
     },
     {
       id: 5,
-      title: "Partnership Agreement",
+      title: "Contrato de Sociedade",
       category: "business",
-      description: "Comprehensive partnership agreement for business partnerships and joint ventures.",
+      description: "Contrato completo para sociedades empresariais e joint ventures.",
       pages: 20,
       clauses: 40,
       lastUpdated: "2024-01-18",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Profit sharing", "Decision making", "Capital contributions", "Exit strategies"],
+      features: ["Divisão de lucros", "Tomada de decisões", "Aportes de capital", "Estratégias de saída"],
       price: "Premium",
       popular: false
     },
     {
       id: 6,
-      title: "Software License Agreement",
+      title: "Contrato de Licença de Software",
       category: "technology",
-      description: "Technology licensing agreement for software products and SaaS applications.",
+      description: "Contrato de licenciamento de tecnologia para produtos de software e aplicações SaaS.",
       pages: 14,
       clauses: 28,
       lastUpdated: "2024-01-08",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Usage rights", "Support terms", "Data privacy", "Limitation of liability"],
+      features: ["Direitos de uso", "Condições de suporte", "Privacidade de dados", "Limitação de responsabilidade"],
       price: "Premium",
       popular: true
     },
     {
       id: 7,
-      title: "Consulting Agreement",
+      title: "Contrato de Consultoria",
       category: "business",
-      description: "Professional consulting agreement template for independent contractors and consultants.",
+      description: "Modelo de contrato de consultoria profissional para prestadores autônomos e consultores.",
       pages: 10,
       clauses: 22,
       lastUpdated: "2024-01-22",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Deliverables definition", "Payment schedule", "Intellectual property", "Confidentiality"],
-      price: "Free",
+      features: ["Definição de entregas", "Cronograma de pagamentos", "Propriedade intelectual", "Confidencialidade"],
+      price: "Grátis",
       popular: true
     },
     {
       id: 8,
-      title: "Purchase Agreement",
+      title: "Contrato de Compra e Venda",
       category: "business",
-      description: "General purchase agreement for goods and services with standard terms and conditions.",
+      description: "Contrato geral de compra de bens e serviços com termos e condições padrão.",
       pages: 6,
       clauses: 15,
       lastUpdated: "2024-01-14",
       downloadFormat: ["DOCX", "PDF"],
-      features: ["Delivery terms", "Payment conditions", "Quality warranties", "Return policies"],
-      price: "Free",
+      features: ["Condições de entrega", "Condições de pagamento", "Garantias de qualidade", "Políticas de devolução"],
+      price: "Grátis",
       popular: false
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Templates', count: contractTemplates.length },
-    { id: 'business', name: 'Business', count: contractTemplates.filter(t => t.category === 'business').length },
-    { id: 'employment', name: 'Employment', count: contractTemplates.filter(t => t.category === 'employment').length },
-    { id: 'real-estate', name: 'Real Estate', count: contractTemplates.filter(t => t.category === 'real-estate').length },
-    { id: 'technology', name: 'Technology', count: contractTemplates.filter(t => t.category === 'technology').length }
+    { id: 'all', name: 'Todos os modelos', count: contractTemplates.length },
+    { id: 'business', name: 'Empresarial', count: contractTemplates.filter(t => t.category === 'business').length },
+    { id: 'employment', name: 'Trabalhista', count: contractTemplates.filter(t => t.category === 'employment').length },
+    { id: 'real-estate', name: 'Imobiliário', count: contractTemplates.filter(t => t.category === 'real-estate').length },
+    { id: 'technology', name: 'Tecnologia', count: contractTemplates.filter(t => t.category === 'technology').length }
   ];
 
   const filteredTemplates = contractTemplates.filter(template => {
@@ -138,7 +138,7 @@ export default function ContractTemplatesPage() {
         <div className="absolute inset-0">
           <Image 
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2670&auto=format&fit=crop" 
-            alt="Contract Templates" 
+            alt="Modelos de contratos" 
             layout="fill"
             objectFit="cover"
             priority
@@ -147,12 +147,12 @@ export default function ContractTemplatesPage() {
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center max-w-4xl mx-auto px-6">
-            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">Contract Templates</h1>
+            <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-6">Modelos de contratos</h1>
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
-              Professional, legally-reviewed contract templates ready for immediate use
+              Modelos de contratos profissionais, revisados juridicamente e prontos para uso imediato
             </p>
             <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
-              Access All Templates
+              Acessar todos os modelos
             </Link>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function ContractTemplatesPage() {
             <div className="relative flex-1 max-w-md">
               <input
                 type="text"
-                placeholder="Search contract templates..."
+                placeholder="Pesquisar modelos de contratos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full bg-white/10 border border-white/20 text-white placeholder-white/60 px-4 py-3 pl-12 focus:outline-none focus:border-white/40 transition-colors"
@@ -196,8 +196,8 @@ export default function ContractTemplatesPage() {
 
           {/* Results count */}
           <div className="text-white/60 mb-8">
-            Showing {filteredTemplates.length} template{filteredTemplates.length !== 1 ? 's' : ''}
-            {searchTerm && ` for "${searchTerm}"`}
+            Exibindo {filteredTemplates.length} {filteredTemplates.length !== 1 ? 'modelos' : 'modelo'}
+            {searchTerm && ` para "${searchTerm}"`}
           </div>
         </div>
       </section>
@@ -219,9 +219,9 @@ export default function ContractTemplatesPage() {
                     <div className="flex-1">
                       <h3 className="text-xl font-medium mb-2">{template.title}</h3>
                       <div className="flex items-center gap-4 text-sm text-white/60 mb-4">
-                        <span>{template.pages} pages</span>
+                        <span>{template.pages} páginas</span>
                         <span>•</span>
-                        <span>{template.clauses} clauses</span>
+                        <span>{template.clauses} cláusulas</span>
                         <span>•</span>
                         <span className={`font-medium ${template.price === 'Free' ? 'text-green-400' : 'text-yellow-400'}`}>
                           {template.price}
@@ -236,7 +236,7 @@ export default function ContractTemplatesPage() {
 
                   {/* Features */}
                   <div className="mb-8">
-                    <h4 className="text-sm font-medium text-white/90 mb-3">Key Features:</h4>
+                    <h4 className="text-sm font-medium text-white/90 mb-3">Principais características:</h4>
                     <ul className="space-y-2">
                       {template.features.map((feature, index) => (
                         <li key={index} className="flex items-start text-sm text-white/70">
@@ -251,7 +251,7 @@ export default function ContractTemplatesPage() {
 
                   {/* Download formats */}
                   <div className="mb-6">
-                    <div className="text-sm text-white/60 mb-2">Available formats:</div>
+                    <div className="text-sm text-white/60 mb-2">Formatos disponíveis:</div>
                     <div className="flex gap-2">
                       {template.downloadFormat.map((format) => (
                         <span key={format} className="bg-white/10 text-white/80 px-2 py-1 text-xs rounded">
@@ -263,15 +263,15 @@ export default function ContractTemplatesPage() {
 
                   {/* Action button */}
                   <Link
-                    href={template.price === 'Free' ? '#' : '/pricing'}
+                    href={template.price === 'Grátis' ? '#' : '/pricing'}
                     className="block w-full py-3 px-6 text-center font-medium transition-all bg-white text-black hover:bg-white/90"
                   >
-                    {template.price === 'Free' ? 'Download Free' : 'Get Premium'}
+                    {template.price === 'Grátis' ? 'Baixar grátis' : 'Obter Premium'}
                   </Link>
 
                   {/* Last updated */}
                   <div className="text-xs text-white/50 mt-4 text-center">
-                    Updated {new Date(template.lastUpdated).toLocaleDateString()}
+                    Atualizado em {new Date(template.lastUpdated).toLocaleDateString('pt-BR')}
                   </div>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export default function ContractTemplatesPage() {
 
           {filteredTemplates.length === 0 && (
             <div className="text-center py-16">
-              <div className="text-white/60 mb-4">No templates found matching your criteria.</div>
+              <div className="text-white/60 mb-4">Nenhum modelo encontrado com esses critérios.</div>
               <button
                 onClick={() => {
                   setSearchTerm('');
@@ -288,7 +288,7 @@ export default function ContractTemplatesPage() {
                 }}
                 className="text-white hover:text-white/80 transition-colors"
               >
-                Clear filters and show all templates
+                Limpar filtros e mostrar todos os modelos
               </button>
             </div>
           )}
@@ -299,10 +299,10 @@ export default function ContractTemplatesPage() {
       <section className="py-24 px-6 bg-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-light mb-6">Why Choose Our Templates?</h2>
+            <h2 className="text-4xl font-light mb-6">Por que escolher nossos modelos?</h2>
             <div className="w-24 h-1 bg-white/20 mx-auto mb-6"></div>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Our contract templates are created by legal experts and regularly updated to reflect current laws
+              Nossos modelos de contratos são elaborados por especialistas jurídicos e atualizados regularmente de acordo com a legislação vigente
             </p>
           </div>
 
@@ -313,8 +313,8 @@ export default function ContractTemplatesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4">Legally Reviewed</h3>
-              <p className="text-white/70">All templates reviewed by qualified attorneys and updated regularly</p>
+              <h3 className="text-xl font-medium mb-4">Revisados juridicamente</h3>
+              <p className="text-white/70">Todos os modelos são revisados por advogados qualificados e atualizados regularmente</p>
             </div>
             
             <div className="text-center p-8">
@@ -323,8 +323,8 @@ export default function ContractTemplatesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4">Customizable</h3>
-              <p className="text-white/70">Easy to modify and adapt to your specific business needs</p>
+              <h3 className="text-xl font-medium mb-4">Personalizáveis</h3>
+              <p className="text-white/70">Fáceis de modificar e adaptar às necessidades específicas do seu negócio</p>
             </div>
             
             <div className="text-center p-8">
@@ -333,8 +333,8 @@ export default function ContractTemplatesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-4">Instant Download</h3>
-              <p className="text-white/70">Download immediately in multiple formats including Word and PDF</p>
+              <h3 className="text-xl font-medium mb-4">Download imediato</h3>
+              <p className="text-white/70">Baixe imediatamente em vários formatos, incluindo Word e PDF</p>
             </div>
           </div>
         </div>
@@ -343,16 +343,16 @@ export default function ContractTemplatesPage() {
       {/* CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-light mb-8">Ready to Get Started?</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-8">Pronto para começar?</h2>
           <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto">
-            Access our complete library of contract templates and legal resources.
+            Acesse nossa biblioteca completa de modelos de contratos e recursos jurídicos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
-              Start Free Trial
+              Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">
-              View Pricing
+              Ver preços
             </Link>
           </div>
         </div>

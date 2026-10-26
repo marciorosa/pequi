@@ -33,7 +33,7 @@ export default function ChatSupportPage() {
     {
       id: '1',
       type: 'system',
-      content: 'Hello. I\'m the AIForLawyers support concierge. How can I assist you today?',
+      content: 'Olá. Sou o concierge de suporte do Pequi. Como posso ajudar você hoje?',
       timestamp: new Date()
     }
   ]);
@@ -48,18 +48,18 @@ export default function ChatSupportPage() {
   const faqs: FAQ[] = [
     {
       id: '1',
-      question: 'Password Reset',
-      answer: 'To reset your password, navigate to the login portal and select "Forgot Password". We will send revitalization instructions to your registered email.'
+      question: 'Redefinição de senha',
+      answer: 'Para redefinir sua senha, acesse a página de login e selecione "Esqueceu a senha?". Enviaremos as instruções de redefinição para o seu e-mail cadastrado.'
     },
     {
       id: '2',
-      question: 'Subscription Status',
-      answer: 'Subscription details can be managed within the Billing section of your dashboard. You can upgrade, change methods, or terminate your plan from there.'
+      question: 'Status da assinatura',
+      answer: 'Os detalhes da assinatura podem ser gerenciados na seção Assinatura do seu painel. Lá você pode fazer upgrade, alterar a forma de pagamento ou cancelar seu plano.'
     },
     {
       id: '3',
-      question: 'Data Security Protocol',
-      answer: 'AIForLawyers employs military-grade encryption for all documents. Your data is encrypted at rest and during transit using AES-256 and SSL/TLS standards.'
+      question: 'Protocolo de segurança de dados',
+      answer: 'O Pequi utiliza criptografia de nível militar em todos os documentos. Seus dados são criptografados em repouso e em trânsito com os padrões AES-256 e SSL/TLS.'
     }
   ];
 
@@ -143,19 +143,19 @@ export default function ChatSupportPage() {
     const lowerCaseMessage = userMessage.toLowerCase();
     let response = '';
 
-    if (lowerCaseMessage.includes('password') || lowerCaseMessage.includes('login')) {
+    if (lowerCaseMessage.includes('password') || lowerCaseMessage.includes('login') || lowerCaseMessage.includes('senha')) {
       response = faqs[0].answer;
-    } else if (lowerCaseMessage.includes('cancel') || lowerCaseMessage.includes('billing')) {
+    } else if (lowerCaseMessage.includes('cancel') || lowerCaseMessage.includes('billing') || lowerCaseMessage.includes('assinatura') || lowerCaseMessage.includes('cobrança')) {
       response = faqs[1].answer;
-    } else if (lowerCaseMessage.includes('secure') || lowerCaseMessage.includes('encrypt')) {
+    } else if (lowerCaseMessage.includes('secure') || lowerCaseMessage.includes('encrypt') || lowerCaseMessage.includes('segur') || lowerCaseMessage.includes('criptograf')) {
       response = faqs[2].answer;
-    } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
-      response = 'Greetings. I am here to facilitate your experience with AIForLawyers. What can I do for you?';
-    } else if (lowerCaseMessage.includes('human') || lowerCaseMessage.includes('agent')) {
-      response = 'Acknowledged. Transferring you to a senior support representative. Please wait a moment while we establish a secure connection.';
+    } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('olá') || lowerCaseMessage.includes('oi')) {
+      response = 'Olá! Estou aqui para facilitar sua experiência com o Pequi. Como posso ajudar?';
+    } else if (lowerCaseMessage.includes('human') || lowerCaseMessage.includes('agent') || lowerCaseMessage.includes('atendente')) {
+      response = 'Entendido. Vou transferir você para um atendente sênior. Aguarde um momento enquanto estabelecemos uma conexão segura.';
       setTimeout(() => setWaitTime(Math.floor(Math.random() * 5) + 2), 2000);
     } else {
-      response = 'Thank you for your message. I am analyzing your request. For immediate resolution, you might also find answers in our Common Inquiries or search our knowledge base.';
+      response = 'Obrigado pela sua mensagem. Estou analisando sua solicitação. Para uma solução imediata, você também pode encontrar respostas nas Dúvidas frequentes ou pesquisar em nossa base de conhecimento.';
     }
 
     simulateAgentTyping(response);
@@ -163,7 +163,7 @@ export default function ChatSupportPage() {
 
   // Format timestamp
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
   };
 
   // Handle FAQ selection
@@ -184,19 +184,19 @@ export default function ChatSupportPage() {
     setMessages([{
       id: Date.now().toString(),
       type: 'system',
-      content: 'Support session reset. How may I assist you?',
+      content: 'Sessão de suporte reiniciada. Como posso ajudar?',
       timestamp: new Date()
     }]);
   };
 
   return (
-    <DashboardLayout title="Concierge Support">
+    <DashboardLayout title="Suporte Concierge">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-10 h-full flex flex-col">
         <div className="mb-6 md:mb-12 flex-shrink-0">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-2 md:mb-3">Live Assistance</p>
-          <h1 className="text-2xl md:text-4xl font-light text-foreground mb-2 md:mb-4 tracking-tight">Support Concierge</h1>
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-2 md:mb-3">Atendimento ao vivo</p>
+          <h1 className="text-2xl md:text-4xl font-light text-foreground mb-2 md:mb-4 tracking-tight">Concierge de suporte</h1>
           <p className="text-foreground/50 max-w-2xl text-sm md:text-lg font-light leading-relaxed">
-            Connect instantly with our automated concierge or request a priority transfer to a human specialist.
+            Conecte-se na hora com nosso concierge automatizado ou solicite a transferência prioritária para um especialista humano.
           </p>
         </div>
 
@@ -217,16 +217,16 @@ export default function ChatSupportPage() {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">Active Concierge</h2>
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">Concierge ativo</h2>
                   <p className="text-[10px] text-foreground/30 font-bold uppercase tracking-tighter">
-                    {isAgentTyping ? 'Concierge is typing...' : waitTime ? 'Queue Established' : 'System Ready'}
+                    {isAgentTyping ? 'O concierge está digitando...' : waitTime ? 'Na fila de atendimento' : 'Sistema pronto'}
                   </p>
                 </div>
               </div>
               <button
                 onClick={handleNewChat}
                 className="p-3 text-foreground/30 hover:text-foreground hover:bg-white rounded-xl transition-all border border-transparent hover:border-gray-100"
-                title="Reset Session"
+                title="Reiniciar sessão"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -258,7 +258,7 @@ export default function ChatSupportPage() {
                           <div className={`mt-4 pt-4 border-t ${item.type === 'user' ? 'border-background/10' : 'border-gray-100'}`}>
                             {item.file.preview ? (
                               // eslint-disable-next-line @next/next/no-img-element
-                              <img src={item.file.preview} alt="attachment" className="max-w-full h-auto rounded-xl border border-black/5" />
+                              <img src={item.file.preview} alt="anexo" className="max-w-full h-auto rounded-xl border border-black/5" />
                             ) : (
                               <div className={`flex items-center gap-3 p-3 rounded-xl ${item.type === 'user' ? 'bg-background/10' : 'bg-gray-50'}`}>
                                 <svg className="w-5 h-5 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -294,9 +294,9 @@ export default function ChatSupportPage() {
 
               {waitTime !== null && (
                 <div className="px-10 py-8 bg-blue-50/50 border border-blue-100 rounded-3xl text-center space-y-2 animate-in slide-in-from-top duration-500">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Priority Queue Established</p>
-                  <p className="text-xl font-light text-foreground">Agent connection in approx. {waitTime} minutes</p>
-                  <p className="text-xs text-blue-700/50">Your session ID: PR-1005-{Math.floor(Math.random() * 9000) + 1000}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Fila prioritária estabelecida</p>
+                  <p className="text-xl font-light text-foreground">Conexão com um atendente em aprox. {waitTime} minutos</p>
+                  <p className="text-xs text-blue-700/50">ID da sua sessão: PR-1005-{Math.floor(Math.random() * 9000) + 1000}</p>
                 </div>
               )}
 
@@ -311,7 +311,7 @@ export default function ChatSupportPage() {
                   <div className="mb-4 flex items-center gap-3 p-3 bg-gray-50 border border-gray-100 rounded-xl animate-in fade-in slide-in-from-left-2 duration-200">
                     {filePreview ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={filePreview} alt="preview" className="w-10 h-10 object-cover rounded-lg border border-gray-200" />
+                      <img src={filePreview} alt="prévia" className="w-10 h-10 object-cover rounded-lg border border-gray-200" />
                     ) : (
                       <div className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-foreground/20">
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -352,7 +352,7 @@ export default function ChatSupportPage() {
                       handleSubmit(e);
                     }
                   }}
-                  placeholder="Ask concierge..."
+                  placeholder="Pergunte ao concierge..."
                   className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 md:py-5 px-4 md:px-6 pr-24 md:pr-32 text-xs md:text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all resize-none shadow-inner"
                   rows={1}
                   disabled={waitTime !== null}
@@ -362,7 +362,7 @@ export default function ChatSupportPage() {
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     className={`p-2 transition-all rounded-lg ${selectedFile ? 'text-foreground' : 'text-foreground/20 hover:text-foreground'}`}
-                    title="Attach File"
+                    title="Anexar arquivo"
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
@@ -373,7 +373,7 @@ export default function ChatSupportPage() {
                     disabled={!inputValue.trim()}
                     className="px-4 md:px-6 py-2 text-white rounded-xl font-bold uppercase text-[9px] md:text-[10px] tracking-widest disabled:opacity-20 transition-all shadow-lg shadow-black/10 btn-primary-gradient"
                   >
-                    Send
+                    Enviar
                   </button>
                 </div>
               </form>
@@ -383,7 +383,7 @@ export default function ChatSupportPage() {
           {/* Sidebar */}
           <div className="w-full lg:w-80 flex-shrink-0 space-y-4 md:space-y-8 pb-10 lg:pb-0">
             <div className="bg-white border border-gray-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-4 md:mb-8 px-1">Common Inquiries</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-4 md:mb-8 px-1">Dúvidas frequentes</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                 {faqs.map(faq => (
                   <button
@@ -403,9 +403,9 @@ export default function ChatSupportPage() {
             </div>
 
             <div className="bg-gray-50 border border-gray-100 rounded-[32px] p-8">
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Enterprise Tiers</h3>
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Planos Enterprise</h3>
               <p className="text-xs text-foreground/50 leading-relaxed font-light mb-8">
-                Subscribers on Enterprise plans enjoy 24/7 dedicated concierge access and personalized human support.
+                Assinantes dos planos Enterprise contam com concierge dedicado 24 horas por dia, 7 dias por semana, e suporte humano personalizado.
               </p>
               <div className="space-y-4">
                 <a href="/dashboard/help/email" className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-foreground/40 hover:text-foreground transition-all group">
@@ -414,7 +414,7 @@ export default function ChatSupportPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  Email specialized desk
+                  Enviar e-mail para a central especializada
                 </a>
 
               </div>

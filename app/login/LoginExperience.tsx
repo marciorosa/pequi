@@ -27,7 +27,7 @@ function LoginForm() {
     e.preventDefault();
 
     if (!email || !password) {
-      setError('Please enter both email and password');
+      setError('Informe o e-mail e a senha');
       return;
     }
 
@@ -40,7 +40,7 @@ function LoginForm() {
     } catch (err: unknown) {
       setError(
         (err as { response?: { data?: { message?: string } } }).response?.data?.message ||
-          'Login failed. Please check your credentials.'
+          'Falha no login. Verifique suas credenciais.'
       );
     } finally {
       setIsLoading(false);
@@ -60,7 +60,7 @@ function LoginForm() {
 
       <div>
         <label htmlFor="email" className={authLabelClass}>
-          Email address
+          Endereço de e-mail
         </label>
         <input
           id="email"
@@ -71,20 +71,20 @@ function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={authInputClass}
-          placeholder="name@company.com"
+          placeholder="nome@empresa.com.br"
         />
       </div>
 
       <div>
         <div className="flex justify-between gap-3 mb-2">
           <label htmlFor="password" className={`${authLabelClass} mb-0`}>
-            Password
+            Senha
           </label>
           <Link
             href="/forgot-password"
             className="text-[0.8125rem] font-medium text-[#525252] transition-colors hover:text-[#10101A]"
           >
-            Forgot password?
+            Esqueceu a senha?
           </Link>
         </div>
         <input
@@ -108,12 +108,12 @@ function LoginForm() {
           className="h-4 w-4 rounded border-[#e7e5e1] text-[#10101A] focus:ring-[#10101A]/15"
         />
         <label htmlFor="remember_me" className="text-[0.875rem] text-[#525252]">
-          Remember me
+          Lembrar de mim
         </label>
       </div>
 
       <button type="submit" disabled={isLoading} className={authPrimaryButtonClass}>
-        {isLoading ? 'Signing in...' : 'Sign in'}
+        {isLoading ? 'Entrando...' : 'Entrar'}
       </button>
     </form>
   );
@@ -125,10 +125,10 @@ function LoginAside() {
       <div className="overflow-hidden rounded-2xl border border-[#eceae7] bg-white shadow-[0_12px_28px_rgba(16,16,26,0.04)]">
         <div className="border-b border-[#eceae7] bg-[#f8f7f6] px-8 py-6">
           <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#525252]">
-            AIForLawyers Assistant
+            Assistente Pequi
           </p>
           <p className="text-lg font-medium leading-snug text-[#10101A]">
-            How can I analyze risks in this merger agreement?
+            Como posso analisar os riscos deste contrato de fusão?
           </p>
         </div>
         <div className="space-y-5 p-8">
@@ -144,8 +144,8 @@ function LoginAside() {
               </svg>
             </div>
             <div className="rounded-[1rem] rounded-tl-sm border border-[#eceae7] bg-[#f1f0ee] px-4 py-3 text-[0.9375rem] leading-relaxed text-[#525252]">
-              I&apos;ve identified several key risk areas in the merger agreement — regulatory conditions, MAE wording, and
-              post-closing employment terms.
+              Identifiquei várias áreas de risco importantes no contrato de fusão: condições regulatórias, redação da cláusula de MAE e
+              condições trabalhistas pós-fechamento.
             </div>
           </div>
           <div className="flex gap-3">
@@ -160,11 +160,11 @@ function LoginAside() {
               </svg>
             </div>
             <div className="rounded-[1rem] rounded-tl-sm border border-[#eceae7] bg-white px-4 py-3 text-[0.9375rem] leading-relaxed text-[#525252]">
-              Would you like suggested alternative language for those clauses?
+              Deseja sugestões de redação alternativa para essas cláusulas?
             </div>
           </div>
           <p className="pt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">
-            Secure & confidential
+            Seguro e confidencial
           </p>
         </div>
       </div>
@@ -174,15 +174,15 @@ function LoginAside() {
           <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
         </svg>
         <p className="mb-6 text-[1.0625rem] leading-[175%] text-[#525252]">
-          AIForLawyers has transformed our legal department&apos;s efficiency. We&apos;ve reduced contract review time
-          significantly while improving research accuracy.
+          O Pequi transformou a eficiência do nosso departamento jurídico. Reduzimos significativamente o tempo de revisão de contratos
+          e, ao mesmo tempo, melhoramos a precisão das pesquisas.
         </p>
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full border border-[#eceae7] bg-[#f1f0ee]" />
           <div>
             <p className="font-medium text-[#10101A]">Sarah Johnson</p>
             <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
-              General Counsel
+              Diretora Jurídica
             </p>
           </div>
         </div>
@@ -194,22 +194,22 @@ function LoginAside() {
 export default function LoginExperience() {
   return (
     <div className="min-h-screen">
-      <AuthHero eyebrow="Account" title="Welcome back" subtitle="Sign in to continue to your workspace." />
+      <AuthHero eyebrow="Conta" title="Bem-vindo de volta" subtitle="Entre para continuar no seu espaço de trabalho." />
       <AuthPageLayout
         aside={<LoginAside />}
         footer={
           <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
             <p className="text-[0.9375rem] text-[#525252]">
-              Don&apos;t have an account?{' '}
+              Não tem uma conta?{' '}
               <Link href="/signup" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
-                Create account
+                Criar conta
               </Link>
             </p>
           </div>
         }
       >
         <Suspense
-          fallback={<p className="py-8 text-center text-sm text-[#525252]">Loading...</p>}
+          fallback={<p className="py-8 text-center text-sm text-[#525252]">Carregando...</p>}
         >
           <LoginForm />
         </Suspense>

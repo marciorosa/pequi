@@ -57,10 +57,10 @@ export default function ProfilePage() {
     startDate: new Date(),
     nextBillingDate: null,
     features: [
-      'Basic document analysis',
-      'Limited AI chat assistance',
-      'Document storage (100 MB)',
-      'Email support'
+      'Análise básica de documentos',
+      'Assistência limitada no chat de IA',
+      'Armazenamento de documentos (100 MB)',
+      'Suporte por e-mail'
     ]
   });
 
@@ -121,8 +121,8 @@ export default function ProfilePage() {
       }
     } catch (error) {
       console.error('Failed to fetch profile:', error);
-      setError('Failed to load profile data. Please refresh and try again.');
-      toast.error('Failed to load profile data');
+      setError('Falha ao carregar os dados do perfil. Atualize a página e tente novamente.');
+      toast.error('Falha ao carregar os dados do perfil');
     } finally {
       setIsLoading(false);
     }
@@ -152,10 +152,10 @@ export default function ProfilePage() {
       setIsEditing(false);
       setProfileImage(null);
       setImagePreview(null);
-      toast.success('Profile updated successfully');
+      toast.success('Perfil atualizado com sucesso');
     } catch (error) {
       console.error('Failed to update profile:', error);
-      toast.error('Failed to update profile');
+      toast.error('Falha ao atualizar o perfil');
     } finally {
       setIsSaving(false);
     }
@@ -187,7 +187,7 @@ export default function ProfilePage() {
   };
 
   const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString('en-US', {
+    return new Date(date).toLocaleDateString('pt-BR', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -207,7 +207,7 @@ export default function ProfilePage() {
 
       // Check file size (limit to 5MB)
       if (file.size > 5 * 1024 * 1024) {
-        toast.error('Image too large. Please select an image under 5MB.');
+        toast.error('Imagem muito grande. Selecione uma imagem com menos de 5 MB.');
         return;
       }
 
@@ -225,7 +225,7 @@ export default function ProfilePage() {
         reader.readAsDataURL(file);
       } catch (error) {
         console.error('Error processing image:', error);
-        toast.error('Failed to process image');
+        toast.error('Falha ao processar a imagem');
         setIsUploadingImage(false);
       }
     }
@@ -247,22 +247,22 @@ export default function ProfilePage() {
 
     // Validate passwords
     if (!passwords.currentPassword) {
-      setPasswordError('Current password is required');
+      setPasswordError('A senha atual é obrigatória');
       return;
     }
 
     if (!passwords.newPassword) {
-      setPasswordError('New password is required');
+      setPasswordError('A nova senha é obrigatória');
       return;
     }
 
     if (passwords.newPassword.length < 8) {
-      setPasswordError('Password must be at least 8 characters');
+      setPasswordError('A senha deve ter pelo menos 8 caracteres');
       return;
     }
 
     if (passwords.newPassword !== passwords.confirmPassword) {
-      setPasswordError('Passwords do not match');
+      setPasswordError('As senhas não coincidem');
       return;
     }
 
@@ -282,10 +282,10 @@ export default function ProfilePage() {
         confirmPassword: ''
       });
       setIsChangePasswordModalOpen(false);
-      toast.success('Password changed successfully');
+      toast.success('Senha alterada com sucesso');
     } catch (error: unknown) {
       // Handle error message display
-      let errorMessage = 'Failed to change password. Please try again.';
+      let errorMessage = 'Falha ao alterar a senha. Tente novamente.';
 
       const err = error as { isAxiosError?: boolean; response?: { data?: { message?: string } } };
       if (err.isAxiosError && err.response?.data?.message) {
@@ -299,7 +299,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <DashboardLayout title="Profile">
+    <DashboardLayout title="Perfil">
       <div className="max-w-full px-4 sm:px-6 md:px-8 mx-auto">
         {/* Header */}
         <div className="border-b border-[#e7e5e1] pb-8 mb-10">
@@ -307,9 +307,9 @@ export default function ProfilePage() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-4">
                 <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Credential Management</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Gestão de credenciais</span>
               </div>
-              <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Account Profile</h1>
+              <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Perfil da conta</h1>
             </div>
             {!isLoading && !error && !isEditing ? (
               <button
@@ -319,7 +319,7 @@ export default function ProfilePage() {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                 </svg>
-                <span>Edit Profile</span>
+                <span>Editar perfil</span>
               </button>
             ) : isEditing ? (
               <div className="flex gap-3">
@@ -331,7 +331,7 @@ export default function ProfilePage() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  <span>Cancel</span>
+                  <span>Cancelar</span>
                 </button>
                 <button
                   onClick={handleSaveProfile}
@@ -344,14 +344,14 @@ export default function ProfilePage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      <span>Saving...</span>
+                      <span>Salvando...</span>
                     </>
                   ) : (
                     <>
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span>Save Changes</span>
+                      <span>Salvar alterações</span>
                     </>
                   )}
                 </button>
@@ -364,7 +364,7 @@ export default function ProfilePage() {
           // Loading state
           <div className="flex flex-col items-center justify-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mb-4"></div>
-            <p className="text-white/70">Loading your profile...</p>
+            <p className="text-white/70">Carregando seu perfil...</p>
           </div>
         ) : error ? (
           // Error state
@@ -382,7 +382,7 @@ export default function ProfilePage() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              <span>Retry</span>
+              <span>Tentar novamente</span>
             </button>
           </div>
         ) : (
@@ -392,7 +392,7 @@ export default function ProfilePage() {
             {/* Profile Card */}
               <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Forensic Identity</h2>
+                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Identidade</h2>
  
                   <div className="space-y-10">
                     {/* Profile Image and Name */}
@@ -447,9 +447,9 @@ export default function ProfilePage() {
 
                       <div className="space-y-4 flex-1">
                         <div>
-                          <label className="block text-foreground/70 text-sm mb-1.5">Full Name</label>
+                          <label className="block text-foreground/70 text-sm mb-1.5">Nome completo</label>
                           {!isEditing ? (
-                            <div className="text-foreground text-xl font-medium">{profile.fullName || 'Not specified'}</div>
+                            <div className="text-foreground text-xl font-medium">{profile.fullName || 'Não informado'}</div>
                           ) : (
                             <input
                               type="text"
@@ -457,15 +457,15 @@ export default function ProfilePage() {
                               value={editedProfile.fullName}
                               onChange={handleInputChange}
                               className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                              placeholder="Your full name"
+                              placeholder="Seu nome completo"
                             />
                           )}
                         </div>
 
                         <div>
-                          <label className="block text-foreground/70 text-sm mb-1.5">Role</label>
+                          <label className="block text-foreground/70 text-sm mb-1.5">Cargo</label>
                           {!isEditing ? (
-                            <div className="text-foreground/90">{profile.role || 'Not specified'}</div>
+                            <div className="text-foreground/90">{profile.role || 'Não informado'}</div>
                           ) : (
                             <input
                               type="text"
@@ -473,7 +473,7 @@ export default function ProfilePage() {
                               value={editedProfile.role}
                               onChange={handleInputChange}
                               className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                              placeholder="Your role"
+                              placeholder="Seu cargo"
                             />
                           )}
                         </div>
@@ -483,13 +483,13 @@ export default function ProfilePage() {
                     {/* Contact Details */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-foreground/70 text-sm mb-1.5">Email Address</label>
+                        <label className="block text-foreground/70 text-sm mb-1.5">Endereço de e-mail</label>
                         {!isEditing ? (
                           <div className="flex items-center gap-2 text-foreground">
                             <svg className="w-4 h-4 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span>{profile.email || 'Not specified'}</span>
+                            <span>{profile.email || 'Não informado'}</span>
                           </div>
                         ) : (
                           <input
@@ -498,20 +498,20 @@ export default function ProfilePage() {
                             value={profile.email}
                             disabled
                             className="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 text-foreground/60 cursor-not-allowed focus:outline-none transition-shadow duration-200"
-                            placeholder="Your email address"
-                            title="Email cannot be changed"
+                            placeholder="Seu endereço de e-mail"
+                            title="O e-mail não pode ser alterado"
                           />
                         )}
                       </div>
 
                       <div>
-                        <label className="block text-foreground/70 text-sm mb-1.5">Phone Number</label>
+                        <label className="block text-foreground/70 text-sm mb-1.5">Telefone</label>
                         {!isEditing ? (
                           <div className="flex items-center gap-2 text-foreground">
                             <svg className="w-4 h-4 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <span>{profile.phone || 'Not specified'}</span>
+                            <span>{profile.phone || 'Não informado'}</span>
                           </div>
                         ) : (
                           <input
@@ -520,19 +520,19 @@ export default function ProfilePage() {
                             value={editedProfile.phone}
                             onChange={handleInputChange}
                             className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                            placeholder="Your phone number"
+                            placeholder="Seu telefone"
                           />
                         )}
                       </div>
 
                       <div>
-                        <label className="block text-foreground/70 text-sm mb-1.5">Company</label>
+                        <label className="block text-foreground/70 text-sm mb-1.5">Empresa</label>
                         {!isEditing ? (
                           <div className="flex items-center gap-2 text-foreground">
                             <svg className="w-4 h-4 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
-                            <span>{profile.company || 'Not specified'}</span>
+                            <span>{profile.company || 'Não informado'}</span>
                           </div>
                         ) : (
                           <input
@@ -541,7 +541,7 @@ export default function ProfilePage() {
                             value={editedProfile.company}
                             onChange={handleInputChange}
                             className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                            placeholder="Your company"
+                            placeholder="Sua empresa"
                           />
                         )}
                       </div>
@@ -553,17 +553,17 @@ export default function ProfilePage() {
               {/* Security Card */}
               <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Guardrails & Access</h2>
+                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Segurança e acesso</h2>
  
                   <div className="space-y-8">
                     <div>
                       <div className="flex justify-between items-center mb-4">
-                        <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest">Master Key</label>
+                        <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest">Senha</label>
                         <button
                           onClick={() => setIsChangePasswordModalOpen(true)}
                           className="text-[#10101A] font-bold text-[11px] uppercase tracking-widest border-b border-black/10 hover:border-black transition-colors"
                         >
-                          Reset Password
+                          Redefinir senha
                         </button>
                       </div>
                       <div className="flex items-center gap-2">
@@ -577,7 +577,7 @@ export default function ProfilePage() {
                     </div>
  
                     <div>
-                      <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest block mb-4">Account Persistence</label>
+                      <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest block mb-4">Sessão da conta</label>
                       <button
                         onClick={handleLogout}
                         className="w-full h-14 flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 border border-red-100 text-red-600 rounded-2xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em]"
@@ -585,7 +585,7 @@ export default function ProfilePage() {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
-                        <span>Terminate Session</span>
+                        <span>Encerrar sessão</span>
                       </button>
                     </div>
                   </div>
@@ -598,36 +598,36 @@ export default function ProfilePage() {
               <div className="sticky top-24 space-y-6">
                 <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                   <div className="p-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-10">Subscription Service</h2>
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-10">Assinatura</h2>
  
                     <div className={`relative overflow-hidden rounded-[2rem] p-8 mb-8 ${subscription.plan === 'Pro' ? 'bg-[#10101A] text-white shadow-2xl' : 'bg-[#F9F8F6] border border-[#e7e5e1]'
                       }`}>
                       {subscription.plan === 'Pro' && (
                         <div className="absolute top-0 right-0">
                           <div className="bg-white text-black text-[9px] font-bold px-4 py-2 rounded-bl-2xl shadow-xl tracking-[0.2em] uppercase">
-                            Premium Core
+                            Premium
                           </div>
                         </div>
                       )}
  
                       <div className="mb-6">
                         <div className="flex justify-between items-center mb-6">
-                          <div className={`text-2xl font-medium tracking-tight ${subscription.plan === 'Pro' ? 'text-white font-bold' : 'text-foreground'}`}>{subscription.plan} Node</div>
+                          <div className={`text-2xl font-medium tracking-tight ${subscription.plan === 'Pro' ? 'text-white font-bold' : 'text-foreground'}`}>Plano {({ Free: 'Gratuito', Pro: 'Pro' } as Record<string, string>)[subscription.plan] ?? subscription.plan}</div>
                           <div className={`text-[9px] px-3 py-1.5 rounded-full font-bold uppercase tracking-[0.1em] ${subscription.status === 'active' ? 'bg-green-500/10 text-green-500' :
                             subscription.status === 'trial' ? 'bg-blue-500/10 text-blue-500' :
                               'bg-yellow-500/10 text-yellow-500'
                             }`}>
-                            {subscription.status}
+                            {({ active: 'ativa', trial: 'teste', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', inactive: 'inativa' } as Record<string, string>)[subscription.status] ?? subscription.status}
                           </div>
                         </div>
                         <div className={`${subscription.plan === 'Pro' ? 'text-white/40' : 'text-foreground/40'} text-[10px] font-bold uppercase tracking-widest`}>
-                          Member since: {formatDate(subscription.startDate)}
+                          Membro desde: {formatDate(subscription.startDate)}
                         </div>
                       </div>
  
                       {subscription.nextBillingDate && (
                         <div className={`${subscription.plan === 'Pro' ? 'text-white/60' : 'text-foreground/60'} text-xs font-medium mb-6`}>
-                          Next Synchronization: {formatDate(subscription.nextBillingDate)}
+                          Próxima cobrança: {formatDate(subscription.nextBillingDate)}
                         </div>
                       )}
  
@@ -636,7 +636,7 @@ export default function ProfilePage() {
                           onClick={upgradeToPro}
                           className="w-full py-4 px-6 rounded-2xl shadow-xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em] btn-primary-gradient"
                         >
-                          Upgrade for Full Capacity
+                          Faça upgrade para ter acesso completo
                         </button>
                       )}
                     </div>
@@ -658,7 +658,7 @@ export default function ProfilePage() {
                 <div className="bg-[#10101A] text-white rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl" />
                   <div className="p-10 relative z-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 mb-8">System Support</h2>
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 mb-8">Suporte</h2>
                     <div className="space-y-4">
                       <a href="/contact" className="flex items-center gap-4 group">
                         <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
@@ -667,8 +667,8 @@ export default function ProfilePage() {
                           </svg>
                         </div>
                         <div>
-                          <div className="font-medium text-lg tracking-tight">System Oracle</div>
-                          <div className="text-sm text-white/40 font-medium">Resolution in progress...</div>
+                          <div className="font-medium text-lg tracking-tight">Central de ajuda</div>
+                          <div className="text-sm text-white/40 font-medium">Tire suas dúvidas com nossa equipe</div>
                         </div>
                       </a>
                     </div>
@@ -685,7 +685,7 @@ export default function ProfilePage() {
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl border border-gray-100 w-full max-w-md p-6 animate-fade-in shadow-2xl">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-medium text-foreground">Change Password</h3>
+              <h3 className="text-xl font-medium text-foreground">Alterar senha</h3>
               <button
                 onClick={() => setIsChangePasswordModalOpen(false)}
                 className="text-foreground/70 hover:text-foreground transition-colors"
@@ -705,7 +705,7 @@ export default function ProfilePage() {
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div>
                 <label htmlFor="currentPassword" className="block text-foreground/70 text-sm mb-1.5">
-                  Current Password
+                  Senha atual
                 </label>
                 <div className="relative">
                   <input
@@ -715,7 +715,7 @@ export default function ProfilePage() {
                     value={passwords.currentPassword}
                     onChange={handlePasswordChange}
                     className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                    placeholder="Enter your current password"
+                    placeholder="Digite sua senha atual"
                     required
                   />
                 </div>
@@ -723,7 +723,7 @@ export default function ProfilePage() {
 
               <div>
                 <label className="block text-foreground/70 text-sm mb-1.5">
-                  New Password
+                  Nova senha
                 </label>
                 <div className="relative">
                   <input
@@ -733,17 +733,17 @@ export default function ProfilePage() {
                     value={passwords.newPassword}
                     onChange={handlePasswordChange}
                     className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                    placeholder="Enter your new password"
+                    placeholder="Digite sua nova senha"
                     required
                     minLength={8}
                   />
                 </div>
-                <p className="text-foreground/40 text-xs mt-1">Password must be at least 8 characters long</p>
+                <p className="text-foreground/40 text-xs mt-1">A senha deve ter pelo menos 8 caracteres</p>
               </div>
 
               <div>
                 <label className="block text-foreground/70 text-sm mb-1.5">
-                  Confirm New Password
+                  Confirmar nova senha
                 </label>
                 <div className="relative">
                   <input
@@ -753,7 +753,7 @@ export default function ProfilePage() {
                     value={passwords.confirmPassword}
                     onChange={handlePasswordChange}
                     className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
-                    placeholder="Confirm your new password"
+                    placeholder="Confirme sua nova senha"
                     required
                   />
                 </div>
@@ -766,7 +766,7 @@ export default function ProfilePage() {
                   className="px-4 py-2 text-foreground/60 hover:text-foreground bg-gray-50 border border-gray-200 rounded-lg mr-2 transition-colors"
                   disabled={isChangingPassword}
                 >
-                  Cancel
+                  Cancelar
                 </button>
                 <button
                   type="submit"
@@ -779,10 +779,10 @@ export default function ProfilePage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      <span>Saving...</span>
+                      <span>Salvando...</span>
                     </>
                   ) : (
-                    'Save Changes'
+                    'Salvar alterações'
                   )}
                 </button>
               </div>

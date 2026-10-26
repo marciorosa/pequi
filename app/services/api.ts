@@ -12,7 +12,7 @@ const api = axios.create({
     'Content-Type': 'application/json',
   },
   timeout: 60000, // 60 seconds timeout to match backend maxDuration
-  timeoutErrorMessage: 'Request timeout - please try again',
+  timeoutErrorMessage: 'Tempo limite da requisição esgotado (timeout) - tente novamente',
 });
 
 // Add a request interceptor
@@ -203,7 +203,7 @@ export const aiService = {
       console.error('API Error in analyzeDocument:', error);
 
       // Extract error message
-      let errorMessage = 'Failed to analyze document';
+      let errorMessage = 'Falha ao analisar o documento';
 
       // Type guard to safely access properties
       if (axios.isAxiosError(error)) {
@@ -218,7 +218,7 @@ export const aiService = {
         errorMessage = error.message;
       }
 
-      throw new Error(`Document analysis error: ${errorMessage}`);
+      throw new Error(`Erro na análise do documento: ${errorMessage}`);
     }
   },
 
@@ -267,7 +267,7 @@ export const aiService = {
       console.error('API Error in chatWithAssistant:', error);
 
       // Extract the error message from the response if possible
-      let errorMessage = 'Failed to communicate with AI service';
+      let errorMessage = 'Falha na comunicação com o serviço de IA';
       if (axios.isAxiosError(error)) {
         if (error.response?.data?.error) {
           errorMessage = error.response.data.error;
@@ -281,7 +281,7 @@ export const aiService = {
       }
 
       // Rethrow with a clearer message
-      throw new Error(`AI chat error: ${errorMessage}`);
+      throw new Error(`Erro no chat de IA: ${errorMessage}`);
     }
   },
 };

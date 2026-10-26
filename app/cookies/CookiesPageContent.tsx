@@ -14,110 +14,110 @@ import {
 } from '@/app/components/legal/LegalDocChrome';
 
 const cookiePolicy = {
-  title: 'Cookie Policy',
-  lastUpdated: 'October 25, 2023',
+  title: 'Política de Cookies',
+  lastUpdated: '25 de outubro de 2023',
   sections: [
     {
       id: 'introduction',
-      title: 'Introduction',
+      title: 'Introdução',
       content:
-        "This Cookie Policy explains how AIForLawyers, Inc. ('AIForLawyers,' 'we,' 'us,' or 'our') uses cookies and similar technologies on our website and applications. This Cookie Policy should be read together with our Privacy Policy and Terms of Service. By using our services, you consent to our use of cookies as described in this policy.",
+        "Esta Política de Cookies explica como a Pequi, Inc. ('Pequi', 'nós' ou 'nosso') utiliza cookies e tecnologias semelhantes em nosso site e aplicativos. Esta Política de Cookies deve ser lida em conjunto com nossa Política de Privacidade e nossos Termos de Serviço. Ao utilizar nossos serviços, você concorda com o uso de cookies conforme descrito nesta política.",
     },
     {
       id: 'what-are-cookies',
-      title: 'What Are Cookies',
+      title: 'O que são cookies',
       content:
-        'Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners. Cookies enhance your browsing experience by allowing websites to remember your preferences, understand how you use the website, and tailor content to your interests.',
+        'Cookies são pequenos arquivos de texto armazenados no seu dispositivo (computador, tablet ou celular) quando você visita um site. Eles são amplamente utilizados para que os sites funcionem de forma mais eficiente e para fornecer informações aos seus proprietários. Os cookies melhoram sua experiência de navegação ao permitir que os sites lembrem suas preferências, entendam como você os utiliza e adaptem o conteúdo aos seus interesses.',
     },
     {
       id: 'cookie-types',
-      title: 'Types of Cookies We Use',
-      content: 'We use different types of cookies for various purposes:',
+      title: 'Tipos de cookies que utilizamos',
+      content: 'Utilizamos diferentes tipos de cookies para diversas finalidades:',
       subsections: [
         {
-          title: 'Essential Cookies',
+          title: 'Cookies essenciais',
           content:
-            'These cookies are necessary for the operation of our website and services. They enable core functionality such as security, network management, and account access. You may disable these via browser settings, but this may affect functionality.',
+            'Estes cookies são necessários para o funcionamento do nosso site e dos nossos serviços. Eles viabilizam funcionalidades básicas, como segurança, gerenciamento de rede e acesso à conta. Você pode desativá-los nas configurações do navegador, mas isso pode afetar o funcionamento.',
         },
         {
-          title: 'Performance Cookies',
+          title: 'Cookies de desempenho',
           content:
-            'These cookies collect information about how visitors use our website, such as which pages are visited most often. All information these cookies collect is aggregated and anonymous.',
+            'Estes cookies coletam informações sobre como os visitantes usam nosso site, como as páginas mais acessadas. Todas as informações coletadas por esses cookies são agregadas e anônimas.',
         },
         {
-          title: 'Functionality Cookies',
+          title: 'Cookies de funcionalidade',
           content:
-            'These cookies allow our website to remember choices you make (username, language, region) and provide enhanced, more personal features.',
+            'Estes cookies permitem que nosso site lembre as escolhas que você faz (nome de usuário, idioma, região) e ofereça recursos aprimorados e mais personalizados.',
         },
         {
-          title: 'Targeting/Advertising Cookies',
+          title: 'Cookies de segmentação/publicidade',
           content:
-            'These cookies are used to deliver advertisements more relevant to you and your interests, and to limit the number of times you see an advertisement.',
+            'Estes cookies são usados para exibir anúncios mais relevantes para você e seus interesses, além de limitar o número de vezes que você vê um anúncio.',
         },
         {
-          title: 'Third-Party Cookies',
+          title: 'Cookies de terceiros',
           content:
-            'In addition to our own cookies, we may use various third-party cookies to report usage statistics, deliver advertisements, and provide other services.',
+            'Além dos nossos próprios cookies, podemos utilizar diversos cookies de terceiros para gerar estatísticas de uso, exibir anúncios e prestar outros serviços.',
         },
       ],
     },
     {
       id: 'specific-cookies',
-      title: 'Specific Cookies We Use',
-      content: 'Here is a list of the main cookies we use:',
+      title: 'Cookies específicos que utilizamos',
+      content: 'Veja a lista dos principais cookies que utilizamos:',
       cookieTable: [
-        { name: 'auth_session', purpose: 'Maintains your authentication session', duration: 'Session', type: 'Essential' },
-        { name: 'preferences', purpose: 'Stores your preferences and settings', duration: '1 year', type: 'Functionality' },
-        { name: 'analytics_id', purpose: 'Collects anonymous data about site usage', duration: '2 years', type: 'Performance' },
-        { name: 'marketing_id', purpose: 'Used for targeted advertising', duration: '90 days', type: 'Targeting' },
+        { name: 'auth_session', purpose: 'Mantém sua sessão de autenticação', duration: 'Sessão', type: 'Essencial' },
+        { name: 'preferences', purpose: 'Armazena suas preferências e configurações', duration: '1 ano', type: 'Funcionalidade' },
+        { name: 'analytics_id', purpose: 'Coleta dados anônimos sobre o uso do site', duration: '2 anos', type: 'Desempenho' },
+        { name: 'marketing_id', purpose: 'Usado para publicidade segmentada', duration: '90 dias', type: 'Segmentação' },
       ],
     },
     {
       id: 'third-party',
-      title: 'Third-Party Cookies',
+      title: 'Cookies de terceiros',
       content:
-        'Our website uses services from the following third parties, which may place cookies on your device:',
+        'Nosso site utiliza serviços dos seguintes terceiros, que podem armazenar cookies no seu dispositivo:',
       thirdParties: [
-        { name: 'Google Analytics', purpose: 'Website analytics service that tracks and reports website traffic', privacyPolicy: 'https://policies.google.com/privacy' },
-        { name: 'Stripe', purpose: 'Payment processing services', privacyPolicy: 'https://stripe.com/privacy' },
-        { name: 'Intercom', purpose: 'Customer messaging platform', privacyPolicy: 'https://www.intercom.com/legal/privacy' },
-        { name: 'LinkedIn', purpose: 'Social media tracking and advertising', privacyPolicy: 'https://www.linkedin.com/legal/privacy-policy' },
+        { name: 'Google Analytics', purpose: 'Serviço de análise que acompanha e gera relatórios sobre o tráfego do site', privacyPolicy: 'https://policies.google.com/privacy' },
+        { name: 'Stripe', purpose: 'Serviços de processamento de pagamentos', privacyPolicy: 'https://stripe.com/privacy' },
+        { name: 'Intercom', purpose: 'Plataforma de mensagens com clientes', privacyPolicy: 'https://www.intercom.com/legal/privacy' },
+        { name: 'LinkedIn', purpose: 'Rastreamento e publicidade em redes sociais', privacyPolicy: 'https://www.linkedin.com/legal/privacy-policy' },
       ],
     },
     {
       id: 'managing-cookies',
-      title: 'Managing Cookies',
+      title: 'Como gerenciar cookies',
       content:
-        'Most web browsers allow you to manage your cookie preferences. You can set your browser to refuse cookies, or to alert you when cookies are being sent. If you disable cookies, some features of our services may not function properly.',
+        'A maioria dos navegadores permite gerenciar suas preferências de cookies. Você pode configurar o navegador para recusar cookies ou para avisar quando eles forem enviados. Se você desativar os cookies, alguns recursos dos nossos serviços podem não funcionar corretamente.',
       subsections: [
         {
-          title: 'Browser Settings',
+          title: 'Configurações do navegador',
           content:
-            'You can manage cookies through your browser settings. Instructions are available for Google Chrome, Mozilla Firefox, Safari, and Microsoft Edge in their respective help sections.',
+            'Você pode gerenciar cookies nas configurações do seu navegador. As instruções estão disponíveis nas seções de ajuda do Google Chrome, Mozilla Firefox, Safari e Microsoft Edge.',
         },
         {
-          title: 'Cookie Preference Tool',
+          title: 'Ferramenta de preferências de cookies',
           content:
-            "You can also manage your preferences for certain types of cookies using our Cookie Preference Tool, accessible by clicking 'Cookie Settings' below.",
+            "Você também pode gerenciar suas preferências para determinados tipos de cookies usando nossa Ferramenta de Preferências de Cookies, acessível ao clicar em 'Configurações de cookies' abaixo.",
         },
         {
-          title: 'Do Not Track',
+          title: 'Do Not Track (Não rastrear)',
           content:
-            "Some browsers have a 'Do Not Track' feature. At this time, our system does not respond to browser 'Do Not Track' signals.",
+            "Alguns navegadores possuem o recurso 'Do Not Track' (Não rastrear). No momento, nosso sistema não responde aos sinais 'Do Not Track' dos navegadores.",
         },
       ],
     },
     {
       id: 'policy-changes',
-      title: 'Changes to This Cookie Policy',
+      title: 'Alterações nesta Política de Cookies',
       content:
-        "We may update this Cookie Policy from time to time. We will notify you of any material changes by posting the new Cookie Policy on this page and updating the 'Last Updated' date.",
+        "Podemos atualizar esta Política de Cookies periodicamente. Avisaremos sobre quaisquer alterações relevantes publicando a nova Política de Cookies nesta página e atualizando a data de 'Última atualização'.",
     },
     {
       id: 'contact-us',
-      title: 'Contact Us',
+      title: 'Fale conosco',
       content:
-        'If you have any questions about our use of cookies, please contact us at privacy@AIForLawyers.com or write to us at: AIForLawyers, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, USA.',
+        'Se você tiver dúvidas sobre o uso de cookies, entre em contato pelo e-mail privacy@AIForLawyers.com ou escreva para: Pequi, Inc., 123 Legal Avenue, Suite 500, San Francisco, CA 94105, EUA.',
     },
   ],
 };
@@ -136,7 +136,7 @@ export default function CookiesPageContent() {
 
   return (
     <main className="min-h-screen">
-      <LegalHero eyebrow="Transparency" title={cookiePolicy.title} lastUpdated={cookiePolicy.lastUpdated} />
+      <LegalHero eyebrow="Transparência" title={cookiePolicy.title} lastUpdated={cookiePolicy.lastUpdated} />
       <LegalTOC items={cookiePolicy.sections.map((s) => ({ id: s.id, title: s.title }))} />
       <LegalMain>
         {cookiePolicy.sections.map((section: Section, index: number) => (
@@ -153,10 +153,10 @@ export default function CookiesPageContent() {
                 <table className="w-full min-w-[36rem] border-collapse text-sm">
                   <thead>
                     <tr className="border-b border-[#eceae7] bg-[#f8f7f6]">
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Cookie name</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Purpose</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Duration</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Type</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Nome do cookie</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Finalidade</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Duração</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Tipo</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#eceae7]">
@@ -191,7 +191,7 @@ export default function CookiesPageContent() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-[#10101A] hover:underline"
                     >
-                      Privacy policy
+                      Política de privacidade
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
@@ -214,14 +214,14 @@ export default function CookiesPageContent() {
         >
           <div className="w-full max-w-2xl rounded-[2rem] border border-[#eceae7] bg-white p-8 shadow-[0_24px_64px_rgba(16,16,26,0.12)] md:p-10">
             <h2 id="cookie-prefs-title" className="mb-8 text-[1.5rem] font-medium text-[#10101A]">
-              Cookie preferences
+              Preferências de cookies
             </h2>
             <div className="mb-10 space-y-2">
               {[
-                { label: 'Essential Cookies', desc: 'Required for basic website functionality', locked: true, defaultOn: true },
-                { label: 'Performance Cookies', desc: 'Help us improve our website by collecting anonymous data', locked: false, defaultOn: true },
-                { label: 'Functionality Cookies', desc: 'Allow personalization of your experience', locked: false, defaultOn: true },
-                { label: 'Targeting/Advertising Cookies', desc: 'Used to deliver relevant ads based on your interests', locked: false, defaultOn: false },
+                { label: 'Cookies essenciais', desc: 'Necessários para o funcionamento básico do site', locked: true, defaultOn: true },
+                { label: 'Cookies de desempenho', desc: 'Ajudam a melhorar nosso site coletando dados anônimos', locked: false, defaultOn: true },
+                { label: 'Cookies de funcionalidade', desc: 'Permitem personalizar sua experiência', locked: false, defaultOn: true },
+                { label: 'Cookies de segmentação/publicidade', desc: 'Usados para exibir anúncios relevantes com base nos seus interesses', locked: false, defaultOn: false },
               ].map((item) => (
                 <div key={item.label} className="flex items-center justify-between gap-4 border-b border-[#eceae7] py-4 last:border-0">
                   <div>
@@ -245,14 +245,14 @@ export default function CookiesPageContent() {
                 className="rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-6 py-3 text-[0.9375rem] font-medium text-[#10101A] transition-colors hover:bg-[#eceae7]"
                 onClick={() => setShowCookieSettings(false)}
               >
-                Cancel
+                Cancelar
               </button>
               <button
                 type="button"
                 className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                 onClick={() => setShowCookieSettings(false)}
               >
-                Save preferences
+                Salvar preferências
               </button>
             </div>
           </div>
@@ -260,24 +260,24 @@ export default function CookiesPageContent() {
       )}
 
       <LegalLinkGrid
-        title="Additional resources"
+        title="Recursos adicionais"
         items={[
           {
             href: '/privacy-policy',
-            title: 'Privacy Policy',
-            desc: 'Learn how we collect, use, and protect your personal information.',
-            label: 'Read Privacy Policy',
+            title: 'Política de Privacidade',
+            desc: 'Saiba como coletamos, usamos e protegemos suas informações pessoais.',
+            label: 'Ler a Política de Privacidade',
           },
           {
             href: '/terms',
-            title: 'Terms of Service',
-            desc: 'Read the terms that govern your use of our platform.',
-            label: 'Read Terms',
+            title: 'Termos de Serviço',
+            desc: 'Leia os termos que regem o uso da nossa plataforma.',
+            label: 'Ler os Termos',
           },
         ]}
       />
       <LegalFooterBar
-        printLabel="Print this policy"
+        printLabel="Imprimir esta política"
         emailLabel="privacy@AIForLawyers.com"
         emailHref="mailto:privacy@AIForLawyers.com"
         extra={
@@ -295,7 +295,7 @@ export default function CookiesPageContent() {
               />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            Cookie settings
+            Configurações de cookies
           </button>
         }
       />

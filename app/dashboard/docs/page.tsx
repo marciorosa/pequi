@@ -157,8 +157,8 @@ const FileDropZone = ({
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
          </div>
-         <p className="text-[#10101A] text-xl font-medium mb-2 relative z-10 tracking-tight">Initialize Neural Intake</p>
-         <p className="text-[#525252] text-sm opacity-60 relative z-10 font-medium tracking-tight">Drag and drop file or <span className="underline text-black decoration-black/20">browse local archives</span></p>
+         <p className="text-[#10101A] text-xl font-medium mb-2 relative z-10 tracking-tight">Enviar documento</p>
+         <p className="text-[#525252] text-sm opacity-60 relative z-10 font-medium tracking-tight">Arraste e solte o arquivo ou <span className="underline text-black decoration-black/20">procure no seu computador</span></p>
          {label && <div className="text-black/20 text-[10px] font-bold uppercase tracking-[0.3em] mt-8 relative z-10">{label}</div>}
       </div>
    );
@@ -172,41 +172,41 @@ const ContentContainer = ({ children }: { children: React.ReactNode }) => (
 );
 
 const templateOptionsByType: Record<string, string[]> = {
-   "Real Estate Lease": [
-      "Standard Real Estate Lease",
-      "Commercial Lease",
-      "Residential Lease",
-      "Vacation Property Lease"
+   "Locação Imobiliária": [
+      "Locação Imobiliária Padrão",
+      "Locação Comercial",
+      "Locação Residencial",
+      "Locação para Temporada"
    ],
-   "Employment Contract": [
-      "Standard Employment Contract",
-      "Executive Employment Agreement",
-      "Contractor Agreement",
-      "Internship Agreement"
+   "Contrato de Trabalho": [
+      "Contrato de Trabalho Padrão",
+      "Contrato de Trabalho de Executivo",
+      "Contrato com Prestador Autônomo",
+      "Termo de Compromisso de Estágio"
    ],
-   "Non-Disclosure Agreement": [
-      "Standard NDA",
-      "Mutual NDA",
-      "Employee NDA",
-      "Vendor NDA"
+   "Acordo de Confidencialidade": [
+      "NDA Padrão",
+      "NDA Mútuo",
+      "NDA para Funcionários",
+      "NDA para Fornecedores"
    ],
-   "Service Agreement": [
-      "Professional Services",
-      "Consulting Agreement",
-      "Maintenance Contract",
-      "Software as a Service"
+   "Contrato de Prestação de Serviços": [
+      "Serviços Profissionais",
+      "Contrato de Consultoria",
+      "Contrato de Manutenção",
+      "Software como Serviço (SaaS)"
    ],
-   "Partnership Agreement": [
-      "General Partnership",
-      "Limited Partnership",
-      "Joint Venture Agreement",
-      "Silent Partnership"
+   "Contrato de Sociedade": [
+      "Sociedade em Nome Coletivo",
+      "Sociedade em Comandita",
+      "Contrato de Joint Venture",
+      "Sociedade em Conta de Participação"
    ],
-   "Sales Contract": [
-      "Goods Purchase Agreement",
-      "Asset Purchase",
-      "Installment Sale Contract",
-      "International Sales Contract"
+   "Contrato de Compra e Venda": [
+      "Contrato de Compra de Mercadorias",
+      "Compra de Ativos",
+      "Contrato de Venda a Prazo",
+      "Contrato de Compra e Venda Internacional"
    ]
 };
 
@@ -245,15 +245,15 @@ export default function DocumentGenerationPage() {
    const [language, setLanguage] = useState("");
 
    // Pro form state
-   const [documentType, setDocumentType] = useState("Real Estate Lease");
-   const [templateStyle, setTemplateStyle] = useState("Standard Real Estate Lease");
+   const [documentType, setDocumentType] = useState("Locação Imobiliária");
+   const [templateStyle, setTemplateStyle] = useState("Locação Imobiliária Padrão");
    const [referenceDocument, setReferenceDocument] = useState<File | null>(null);
    const [specialRequirements, setSpecialRequirements] = useState("");
    const [templateOptions, setTemplateOptions] = useState([
-      "Standard Real Estate Lease",
-      "Commercial Lease",
-      "Residential Lease",
-      "Vacation Property Lease"
+      "Locação Imobiliária Padrão",
+      "Locação Comercial",
+      "Locação Residencial",
+      "Locação para Temporada"
    ]);
 
    // Template options by document type
@@ -371,7 +371,7 @@ export default function DocumentGenerationPage() {
 
       try {
          // Show loading toast with progress indicator
-         toast.loading('Analyzing document...', {
+         toast.loading('Analisando documento...', {
             id: 'analysis',
             duration: Infinity // Keep toast until we explicitly dismiss it
          });
@@ -397,7 +397,7 @@ export default function DocumentGenerationPage() {
 
          // Dismiss loading toast and show success
          toast.dismiss('analysis');
-         toast.success('Document analysis completed!', {
+         toast.success('Análise do documento concluída!', {
             id: 'analysis-success',
             duration: 5000
          });
@@ -414,7 +414,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to analyze document. Please try again.', {
+            toast.error(message || 'Falha ao analisar o documento. Tente novamente.', {
                id: 'analysis-error',
                duration: 8000
             });
@@ -427,7 +427,7 @@ export default function DocumentGenerationPage() {
    // Handle document comparison
    const handleDocumentComparison = async () => {
       if (!firstDocument || !secondDocument) {
-         toast.error('Please upload both documents for comparison');
+         toast.error('Envie os dois documentos para a comparação');
          return;
       }
 
@@ -435,7 +435,7 @@ export default function DocumentGenerationPage() {
       setComparisonResult(null);
 
       try {
-         toast.loading('Comparing documents...', { id: 'comparison' });
+         toast.loading('Comparando documentos...', { id: 'comparison' });
 
          const result = await documentService.compareDocuments(firstDocument, secondDocument, {
             compareType
@@ -468,7 +468,7 @@ export default function DocumentGenerationPage() {
          setRecentDocuments(updatedDocs);
          localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(updatedDocs));
 
-         toast.success('Document comparison completed!', { id: 'comparison' });
+         toast.success('Comparação de documentos concluída!', { id: 'comparison' });
       } catch (error: any) {
          console.error('Error comparing documents:', error);
          toast.dismiss('comparison');
@@ -482,7 +482,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to compare documents. Please try again.', { id: 'comparison' });
+            toast.error(message || 'Falha ao comparar os documentos. Tente novamente.', { id: 'comparison' });
          }
       } finally {
          setIsProcessing(false);
@@ -525,7 +525,7 @@ export default function DocumentGenerationPage() {
          return summary;
       } catch (error) {
          console.error('Error extracting summary:', error);
-         return 'Summary extraction failed. Please view the full comparison.';
+         return 'Não foi possível extrair o resumo. Veja a comparação completa.';
       }
    };
 
@@ -585,7 +585,7 @@ export default function DocumentGenerationPage() {
 
             changes.push({
                type: 'modification',
-               section: 'Changes',
+               section: 'Alterações',
                content: cleanContent.substring(0, 1000) + (cleanContent.length > 1000 ? '...' : '')
             });
          }
@@ -595,8 +595,8 @@ export default function DocumentGenerationPage() {
          console.error('Error extracting changes:', error);
          return [{
             type: 'error',
-            section: 'Error',
-            content: 'Failed to extract detailed changes. Please see the summary above.'
+            section: 'Erro',
+            content: 'Não foi possível extrair as alterações detalhadas. Veja o resumo acima.'
          }];
       }
    };
@@ -604,7 +604,7 @@ export default function DocumentGenerationPage() {
    // Handle document translation
    const handleDocumentTranslation = async () => {
       if (!documentForTranslation) {
-         toast.error('Please upload a document for translation');
+         toast.error('Envie um documento para tradução');
          return;
       }
 
@@ -612,7 +612,7 @@ export default function DocumentGenerationPage() {
       setTranslationResult(null);
 
       try {
-         toast.loading('Translating document...', { id: 'translation' });
+         toast.loading('Traduzindo documento...', { id: 'translation' });
 
          const result = await documentService.translateDocument(documentForTranslation, {
             sourceLanguage,
@@ -629,7 +629,7 @@ export default function DocumentGenerationPage() {
          // Add to recent documents
          const newDoc = {
             id: Date.now().toString(),
-            title: `Translation: ${documentForTranslation.name} (${sourceLanguage} → ${targetLanguage})`,
+            title: `Tradução: ${documentForTranslation.name} (${sourceLanguage} → ${targetLanguage})`,
             type: 'TRANSLATION',
             timestamp: new Date()
          };
@@ -639,7 +639,7 @@ export default function DocumentGenerationPage() {
          setRecentDocuments(updatedDocs);
          localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(updatedDocs));
 
-         toast.success('Document translation completed!', { id: 'translation' });
+         toast.success('Tradução do documento concluída!', { id: 'translation' });
       } catch (error: any) {
          console.error('Error translating document:', error);
          toast.dismiss('translation');
@@ -653,7 +653,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to translate document. Please try again.', { id: 'translation' });
+            toast.error(message || 'Falha ao traduzir o documento. Tente novamente.', { id: 'translation' });
          }
       } finally {
          setIsProcessing(false);
@@ -668,7 +668,7 @@ export default function DocumentGenerationPage() {
 
       // Validate file is an image
       if (!file.type.startsWith('image/') && file.type !== 'application/pdf') {
-         toast.error('Please upload an image file (JPG, PNG, PDF, etc.)');
+         toast.error('Envie um arquivo de imagem (JPG, PNG, PDF etc.)');
          return;
       }
 
@@ -677,7 +677,7 @@ export default function DocumentGenerationPage() {
       setOcrResult(null);
 
       try {
-         toast.loading('Extracting text from image...', { id: 'ocr' });
+         toast.loading('Extraindo texto da imagem...', { id: 'ocr' });
 
          const result = await documentService.extractTextFromImage(file, {
             preserveLayout: true,
@@ -702,7 +702,7 @@ export default function DocumentGenerationPage() {
          setRecentDocuments(updatedDocs);
          localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(updatedDocs));
 
-         toast.success('Text extraction completed!', { id: 'ocr' });
+         toast.success('Extração de texto concluída!', { id: 'ocr' });
       } catch (error: any) {
          console.error('Error extracting text from image:', error);
          toast.dismiss('ocr');
@@ -716,7 +716,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to extract text. Please try again.', { id: 'ocr' });
+            toast.error(message || 'Falha ao extrair o texto. Tente novamente.', { id: 'ocr' });
          }
       } finally {
          setIsProcessing(false);
@@ -726,7 +726,7 @@ export default function DocumentGenerationPage() {
    // Handle agreement creation (light version)
    const handleCreateAgreementLight = async () => {
       if (!parties || !purpose) {
-         toast.error('Please fill in all required fields');
+         toast.error('Preencha todos os campos obrigatórios');
          return;
       }
 
@@ -734,7 +734,7 @@ export default function DocumentGenerationPage() {
       setAgreementResult(null); // Reset any previous result
 
       try {
-         toast.loading('Creating agreement...', { id: 'create-agreement' });
+         toast.loading('Criando contrato...', { id: 'create-agreement' });
 
          const data = {
             parties,
@@ -748,7 +748,7 @@ export default function DocumentGenerationPage() {
          };
 
          const result = await documentService.createAgreement(data, {
-            title: purpose ? `Agreement: ${purpose.substring(0, 30)}` : 'New Agreement',
+            title: purpose ? `Contrato: ${purpose.substring(0, 30)}` : 'Novo contrato',
             templateType: 'basic'
          });
 
@@ -758,14 +758,14 @@ export default function DocumentGenerationPage() {
          // Add to recent documents
          const newDoc = {
             id: Date.now().toString(),
-            title: result.title || 'New Agreement',
+            title: result.title || 'Novo contrato',
             type: 'DOCX',
             timestamp: new Date()
          };
 
          setRecentDocuments(prev => [newDoc, ...prev.slice(0, 4)]);
 
-         toast.success('Agreement created successfully!', { id: 'create-agreement' });
+         toast.success('Contrato criado com sucesso!', { id: 'create-agreement' });
       } catch (error: any) {
          console.error('Error creating agreement:', error);
          toast.dismiss('create-agreement');
@@ -779,7 +779,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to create agreement. Please try again.', { id: 'create-agreement' });
+            toast.error(message || 'Falha ao criar o contrato. Tente novamente.', { id: 'create-agreement' });
          }
       } finally {
          setIsProcessing(false);
@@ -788,7 +788,7 @@ export default function DocumentGenerationPage() {
 
    // Format date for display
    const formatDate = (date: Date) => {
-      return new Intl.DateTimeFormat('en-US', {
+      return new Intl.DateTimeFormat('pt-BR', {
          month: 'short',
          day: 'numeric',
          year: 'numeric'
@@ -798,17 +798,17 @@ export default function DocumentGenerationPage() {
    const getPageTitle = () => {
       switch (selectedTool) {
          case 'agreement-summary':
-            return 'Document Analysis';
+            return 'Análise de documentos';
          case 'compare-agreements':
-            return 'Document Comparison';
+            return 'Comparação de documentos';
          case 'create-agreement-light':
-            return 'Simple Agreement Creator';
+            return 'Criador de contratos simples';
          case 'document-translation':
-            return 'Document Translation';
+            return 'Tradução de documentos';
          case 'image-to-text':
-            return 'Image to Text Conversion';
+            return 'Conversão de imagem em texto';
          default:
-            return 'Documents';
+            return 'Documentos';
       }
    };
 
@@ -816,7 +816,7 @@ export default function DocumentGenerationPage() {
       const handleToolChange = (tool: DocTool) => {
          // Check if processing
          if (isProcessing) {
-            if (!confirm("A document is currently being processed. Are you sure you want to switch tools?")) {
+            if (!confirm("Um documento está sendo processado. Tem certeza de que deseja trocar de ferramenta?")) {
                return;
             }
          }
@@ -829,7 +829,7 @@ export default function DocumentGenerationPage() {
             (selectedTool === 'create-agreement-pro' && (specialRequirements || referenceDocument)) ||
             (selectedTool === 'image-to-text' && imageForOcr)
          ) {
-            if (!confirm("You have unsaved work. Are you sure you want to switch tools?")) {
+            if (!confirm("Você tem trabalho não salvo. Tem certeza de que deseja trocar de ferramenta?")) {
                return;
             }
          }
@@ -883,8 +883,8 @@ export default function DocumentGenerationPage() {
       return (
          <div className="grid grid-cols-1 gap-3">
             <DocToolButton
-               title="Document Analysis"
-               description="Extract key information from contracts and legal documents"
+               title="Análise de documentos"
+               description="Extraia informações-chave de contratos e documentos jurídicos"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                </svg>}
@@ -893,8 +893,8 @@ export default function DocumentGenerationPage() {
             />
 
             <DocToolButton
-               title="Document Comparison"
-               description="Compare multiple documents to identify differences and similarities"
+               title="Comparação de documentos"
+               description="Compare documentos para identificar diferenças e semelhanças"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                </svg>}
@@ -903,8 +903,8 @@ export default function DocumentGenerationPage() {
             />
 
             <DocToolButton
-               title="Simple Agreement Creator"
-               description="Create basic legal agreements with guided assistance"
+               title="Criador de contratos simples"
+               description="Crie contratos simples com assistência guiada"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                </svg>}
@@ -913,8 +913,8 @@ export default function DocumentGenerationPage() {
             />
 
             <DocToolButton
-               title="Document Translation"
-               description="Translate legal documents while preserving legal terminology"
+               title="Tradução de documentos"
+               description="Traduza documentos jurídicos preservando a terminologia jurídica"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
                </svg>}
@@ -923,8 +923,8 @@ export default function DocumentGenerationPage() {
             />
 
             <DocToolButton
-               title="Professional Document Drafting"
-               description="Create sophisticated legal documents with professional templates"
+               title="Redação profissional de documentos"
+               description="Crie documentos jurídicos sofisticados com modelos profissionais"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                </svg>}
@@ -934,8 +934,8 @@ export default function DocumentGenerationPage() {
             />
 
             <DocToolButton
-               title="Image to Text"
-               description="Extract text from images, scanned documents and photos"
+               title="Imagem em texto"
+               description="Extraia texto de imagens, documentos digitalizados e fotos"
                icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                </svg>}
@@ -950,14 +950,14 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Document Analysis</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Análise de documentos</h2>
                <div className="mb-6">
                   <p className="text-foreground/70 mb-8">
-                     Upload a legal document to analyze its contents and extract key information. Our AI will identify clauses, obligations,
-                     parties, dates, and potential legal issues.
+                     Envie um documento jurídico para analisar seu conteúdo e extrair as informações-chave. Nossa IA identificará cláusulas, obrigações,
+                     partes, datas e possíveis problemas jurídicos.
                   </p>
                   <FileDropZone
-                     label="Supports PDF, DOCX, DOC, TXT (Max 25MB)"
+                     label="Suporta PDF, DOCX, DOC, TXT (máx. 25 MB)"
                      onFilesSelected={handleDocumentAnalysis}
                      accept=".pdf,.docx,.doc,.txt"
                   />
@@ -967,22 +967,22 @@ export default function DocumentGenerationPage() {
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/50">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
-                        <p className="text-foreground/80">Analyzing document...</p>
+                        <p className="text-foreground/80">Analisando documento...</p>
                      </div>
                   </div>
                )}
 
                {!!analysisResult && !isProcessing && (
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/30">
-                     <h3 className="text-foreground text-lg font-medium mb-4">Analysis Results</h3>
+                     <h3 className="text-foreground text-lg font-medium mb-4">Resultados da análise</h3>
 
                      <div className="space-y-6">
                         {/* Document Summary */}
                         <div>
-                           <h4 className="text-foreground/90 font-medium mb-2">Document Summary</h4>
+                           <h4 className="text-foreground/90 font-medium mb-2">Resumo do documento</h4>
                            <div
                               className="text-foreground/70 formatted-content"
-                              dangerouslySetInnerHTML={{ __html: formatAnalysisText((analysisResult as AnalysisResult).text) || "No summary available" }}
+                              dangerouslySetInnerHTML={{ __html: formatAnalysisText((analysisResult as AnalysisResult).text) || "Nenhum resumo disponível" }}
                            />
                         </div>
 
@@ -991,7 +991,7 @@ export default function DocumentGenerationPage() {
                            <button
                               className="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
                               onClick={() => {
-                                 toast.loading('Generating PDF...', { id: 'pdf-generate' });
+                                 toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
                                  try {
                                     // Create a new PDF document
@@ -1003,10 +1003,10 @@ export default function DocumentGenerationPage() {
 
                                     // Set document properties
                                     pdf.setProperties({
-                                       title: 'Document Analysis Report',
-                                       subject: 'Legal Document Analysis',
-                                       author: 'AIForLawyers',
-                                       creator: 'AIForLawyers Document Analysis'
+                                       title: 'Relatório de Análise de Documento',
+                                       subject: 'Análise de Documento Jurídico',
+                                       author: 'Pequi',
+                                       creator: 'Análise de Documentos Pequi'
                                     });
 
                                     // Define margins and dimensions
@@ -1021,7 +1021,7 @@ export default function DocumentGenerationPage() {
                                     pdf.setFontSize(24);
                                     pdf.setTextColor(0, 0, 0);
 
-                                    const title = 'DOCUMENT ANALYSIS REPORT';
+                                    const title = 'RELATÓRIO DE ANÁLISE DE DOCUMENTO';
                                     const titleWidth = pdf.getStringUnitWidth(title) * 24 / pdf.internal.scaleFactor;
                                     const titleX = (pageWidth - titleWidth) / 2;
                                     pdf.text(title, titleX, y);
@@ -1048,7 +1048,7 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`AIForLawyers | Document Analysis | Generated on ${new Date().toLocaleDateString()}`, margin, footerY, { align: 'center' });
+                                       pdf.text(`Pequi | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, footerY, { align: 'center' });
 
                                        return margin;
                                     };
@@ -1057,7 +1057,7 @@ export default function DocumentGenerationPage() {
                                     pdf.setFont("helvetica", "bold");
                                     pdf.setFontSize(18);
                                     pdf.setTextColor(0, 0, 0);
-                                    pdf.text("Document Summary", margin, y);
+                                    pdf.text("Resumo do Documento", margin, y);
                                     y += 8;
 
                                     // Section divider
@@ -1067,7 +1067,7 @@ export default function DocumentGenerationPage() {
                                     y += 10;
 
                                     // Process HTML content
-                                    const processedContent = (analysisResult as AnalysisResult).text || "No summary available";
+                                    const processedContent = (analysisResult as AnalysisResult).text || "Nenhum resumo disponível";
 
                                     // Preprocess the text to handle asterisks before parsing
                                     const preprocessedContent = (() => {
@@ -1308,23 +1308,23 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`AIForLawyers | Document Analysis | Generated on ${new Date().toLocaleDateString()}`, margin, pageHeight - margin);
-                                       pdf.text(`Page ${i} of ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
+                                       pdf.text(`Pequi | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 
                                     // Save the PDF
                                     pdf.save('document-analysis.pdf');
-                                    toast.success('PDF generated successfully!', { id: 'pdf-generate' });
+                                    toast.success('PDF gerado com sucesso!', { id: 'pdf-generate' });
                                  } catch (error) {
                                     console.error('Error generating PDF:', error);
-                                    toast.error('Failed to generate PDF. Please try again.', { id: 'pdf-generate' });
+                                    toast.error('Falha ao gerar o PDF. Tente novamente.', { id: 'pdf-generate' });
                                  }
                               }}
                            >
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download Analysis
+                              Baixar análise
                            </button>
 
                            <button
@@ -1334,7 +1334,7 @@ export default function DocumentGenerationPage() {
                                  localStorage.setItem('AIForLawyers_chatContext', JSON.stringify({
                                     source: 'document_analysis',
                                     content: (analysisResult as AnalysisResult).text,
-                                    documentTitle: (analysisResult as AnalysisResult).title || 'Document Analysis'
+                                    documentTitle: (analysisResult as AnalysisResult).title || 'Análise de documento'
                                  }));
 
                                  // Redirect to the chat page instead of the specific lawyer page
@@ -1344,7 +1344,7 @@ export default function DocumentGenerationPage() {
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                               </svg>
-                              Chat with this Content
+                              Conversar sobre este conteúdo
                            </button>
                         </div>
                      </div>
@@ -1354,7 +1354,7 @@ export default function DocumentGenerationPage() {
 
             {recentDocuments.length > 0 && (
                <ContentContainer>
-                  <h2 className="text-foreground text-xl font-medium mb-6 pb-4 border-b border-gray-100">Recently Analyzed Documents</h2>
+                  <h2 className="text-foreground text-xl font-medium mb-6 pb-4 border-b border-gray-100">Documentos analisados recentemente</h2>
                   <div className="space-y-3">
                      {recentDocuments.map(doc => (
                         <div key={doc.id} className="flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-all bg-white shadow-sm">
@@ -1381,7 +1381,7 @@ export default function DocumentGenerationPage() {
                               </div>
                               <div>
                                  <h3 className="text-foreground text-lg font-medium">{doc.title}</h3>
-                                 <p className="text-foreground/50 text-sm">{doc.type} • {formatDate(doc.timestamp)}</p>
+                                 <p className="text-foreground/50 text-sm">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado' } as Record<string, string>)[doc.type] ?? doc.type} • {formatDate(doc.timestamp)}</p>
                               </div>
                            </div>
                            <button className="text-foreground/70 hover:text-foreground p-2 transition-colors rounded-full hover:bg-gray-100"
@@ -1425,22 +1425,22 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Document Comparison</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Comparação de documentos</h2>
                <div className="mb-6">
                   <p className="text-foreground/70 mb-8">
-                     Compare two legal documents to identify differences, changes, and similarities. This tool helps you track revisions,
-                     negotiate contracts, and ensure all changes are properly reviewed.
+                     Compare dois documentos jurídicos para identificar diferenças, alterações e semelhanças. Esta ferramenta ajuda você a acompanhar revisões,
+                     negociar contratos e garantir que todas as alterações sejam devidamente revisadas.
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                      <div>
-                        <h3 className="text-foreground mb-4 font-medium">First Document</h3>
+                        <h3 className="text-foreground mb-4 font-medium">Primeiro documento</h3>
                         <FileDropZone
-                           label="Original or previous version"
+                           label="Versão original ou anterior"
                            onFilesSelected={(files) => {
                               if (files.length) {
                                  setFirstDocument(files[0]);
-                                 toast.success(`First document uploaded: ${files[0].name}`);
+                                 toast.success(`Primeiro documento enviado: ${files[0].name}`);
                               }
                            }}
                            accept=".pdf,.docx,.doc,.txt"
@@ -1456,13 +1456,13 @@ export default function DocumentGenerationPage() {
                      </div>
 
                      <div>
-                        <h3 className="text-foreground mb-4 font-medium">Second Document</h3>
+                        <h3 className="text-foreground mb-4 font-medium">Segundo documento</h3>
                         <FileDropZone
-                           label="New or modified version"
+                           label="Versão nova ou modificada"
                            onFilesSelected={(files) => {
                               if (files.length) {
                                  setSecondDocument(files[0]);
-                                 toast.success(`Second document uploaded: ${files[0].name}`);
+                                 toast.success(`Segundo documento enviado: ${files[0].name}`);
                               }
                            }}
                            accept=".pdf,.docx,.doc,.txt"
@@ -1479,31 +1479,31 @@ export default function DocumentGenerationPage() {
                   </div>
 
                   <div className="mt-8">
-                     <h3 className="text-foreground mb-4 font-medium">Comparison Options</h3>
+                     <h3 className="text-foreground mb-4 font-medium">Opções de comparação</h3>
                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <button
                            className={`p-3 rounded-lg border ${compareType === 'all' ? 'btn-primary-gradient border-transparent text-white' : 'border-gray-100 bg-gray-50 text-foreground'} text-center shadow-sm transition-all`}
                            onClick={() => setCompareType('all')}
                         >
-                           <span>All Changes</span>
+                           <span>Todas as alterações</span>
                         </button>
                         <button
                            className={`p-3 rounded-lg border ${compareType === 'changes' ? 'btn-primary-gradient border-transparent text-white' : 'border-gray-100 bg-gray-50 text-foreground'} text-center shadow-sm transition-all`}
                            onClick={() => setCompareType('changes')}
                         >
-                           <span>Modifications</span>
+                           <span>Modificações</span>
                         </button>
                         <button
                            className={`p-3 rounded-lg border ${compareType === 'additions' ? 'btn-primary-gradient border-transparent text-white' : 'border-gray-100 bg-gray-50 text-foreground'} text-center shadow-sm transition-all`}
                            onClick={() => setCompareType('additions')}
                         >
-                           <span>Additions</span>
+                           <span>Inclusões</span>
                         </button>
                         <button
                            className={`p-3 rounded-lg border ${compareType === 'removals' ? 'btn-primary-gradient border-transparent text-white' : 'border-gray-100 bg-gray-50 text-foreground'} text-center shadow-sm transition-all`}
                            onClick={() => setCompareType('removals')}
                         >
-                           <span>Removals</span>
+                           <span>Remoções</span>
                         </button>
                      </div>
                   </div>
@@ -1517,7 +1517,7 @@ export default function DocumentGenerationPage() {
                         onClick={handleDocumentComparison}
                         disabled={!firstDocument || !secondDocument}
                      >
-                        Compare Documents
+                        Comparar documentos
                      </button>
                   </div>
                </div>
@@ -1526,26 +1526,26 @@ export default function DocumentGenerationPage() {
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/50">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
-                        <p className="text-foreground/80">Comparing documents...</p>
+                        <p className="text-foreground/80">Comparando documentos...</p>
                      </div>
                   </div>
                )}
 
                {!!comparisonResult && !isProcessing && (
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/30">
-                     <h3 className="text-foreground text-lg font-medium mb-4">Comparison Results</h3>
+                     <h3 className="text-foreground text-lg font-medium mb-4">Resultados da comparação</h3>
 
                      <div className="space-y-6">
                         {/* Document Summary */}
                         <div>
-                           <h4 className="text-foreground/90 font-medium mb-2">Summary of Changes</h4>
+                           <h4 className="text-foreground/90 font-medium mb-2">Resumo das alterações</h4>
                            {(comparisonResult as ComparisonResult).summary ? (
                               <div className="text-foreground/70 space-y-2 whitespace-pre-wrap">
                                  {(comparisonResult as ComparisonResult).summary}
                               </div>
                            ) : (
                               <div className="text-white/70">
-                                 No summary available. Please try comparing the documents again.
+                                 Nenhum resumo disponível. Tente comparar os documentos novamente.
                               </div>
                            )}
                         </div>
@@ -1553,7 +1553,7 @@ export default function DocumentGenerationPage() {
                         {/* Changes */}
                         {(comparisonResult as ComparisonResult).changes && (
                            <div>
-                              <h4 className="text-foreground/90 font-medium mb-2">Detailed Changes</h4>
+                              <h4 className="text-foreground/90 font-medium mb-2">Alterações detalhadas</h4>
                               <div className="mt-4 space-y-4">
                                  {(comparisonResult as ComparisonResult).changes!.map((change: ChangeItem, index: number) => (
                                     <div key={index} className="p-3 rounded-lg bg-white border border-gray-100 shadow-sm">
@@ -1562,8 +1562,8 @@ export default function DocumentGenerationPage() {
                                              change.type === 'removal' ? 'bg-red-900/60 text-red-200' :
                                                 'bg-yellow-900/60 text-yellow-200'
                                              }`}>
-                                             {change.type === 'addition' ? 'Added' :
-                                                change.type === 'removal' ? 'Removed' : 'Modified'}
+                                             {change.type === 'addition' ? 'Incluído' :
+                                                change.type === 'removal' ? 'Removido' : 'Modificado'}
                                           </span>
                                           <span className="text-foreground/60 text-sm">
                                              {change.section && `Section: ${change.section}`}
@@ -1581,7 +1581,7 @@ export default function DocumentGenerationPage() {
                            <button
                               className="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
                               onClick={() => {
-                                 toast.loading('Generating PDF...', { id: 'pdf-generate' });
+                                 toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
                                  try {
                                     // Create a new PDF document
@@ -1593,10 +1593,10 @@ export default function DocumentGenerationPage() {
 
                                     // Set document properties
                                     pdf.setProperties({
-                                       title: 'Document Comparison Report',
-                                       subject: 'Legal Document Comparison',
-                                       author: 'AIForLawyers',
-                                       creator: 'AIForLawyers Document Comparison'
+                                       title: 'Relatório de Comparação de Documentos',
+                                       subject: 'Comparação de Documentos Jurídicos',
+                                       author: 'Pequi',
+                                       creator: 'Comparação de Documentos Pequi'
                                     });
 
                                     // Define margins and dimensions
@@ -1611,7 +1611,7 @@ export default function DocumentGenerationPage() {
                                     pdf.setFontSize(24);
                                     pdf.setTextColor(0, 0, 0);
 
-                                    const title = 'DOCUMENT COMPARISON REPORT';
+                                    const title = 'RELATÓRIO DE COMPARAÇÃO DE DOCUMENTOS';
                                     const titleWidth = pdf.getStringUnitWidth(title) * 24 / pdf.internal.scaleFactor;
                                     const titleX = (pageWidth - titleWidth) / 2;
                                     pdf.text(title, titleX, y);
@@ -1620,7 +1620,7 @@ export default function DocumentGenerationPage() {
                                     // Add documents compared
                                     pdf.setFont("helvetica", "bold");
                                     pdf.setFontSize(14);
-                                    pdf.text("Documents Compared:", margin, y);
+                                    pdf.text("Documentos comparados:", margin, y);
                                     y += 7;
 
                                     pdf.setFont("helvetica", "normal");
@@ -1639,18 +1639,18 @@ export default function DocumentGenerationPage() {
                                     // Add comparison type
                                     pdf.setFont("helvetica", "bold");
                                     pdf.setFontSize(14);
-                                    pdf.text("Comparison Type:", margin, y);
+                                    pdf.text("Tipo de comparação:", margin, y);
                                     y += 7;
 
                                     pdf.setFont("helvetica", "normal");
                                     pdf.setFontSize(12);
-                                    pdf.text(compareType.charAt(0).toUpperCase() + compareType.slice(1), margin + 5, y);
+                                    pdf.text(({ all: 'Todas', changes: 'Modificações', additions: 'Inclusões', removals: 'Remoções' } as Record<string, string>)[compareType] ?? compareType, margin + 5, y);
                                     y += 12;
 
                                     // Add summary section
                                     pdf.setFont("helvetica", "bold");
                                     pdf.setFontSize(16);
-                                    pdf.text("Summary of Changes", margin, y);
+                                    pdf.text("Resumo das Alterações", margin, y);
                                     y += 10;
 
                                     // Add summary content
@@ -1670,7 +1670,7 @@ export default function DocumentGenerationPage() {
                                        pdf.text(lines, margin, y);
                                        y += (lines.length * 5) + 10;
                                     } else {
-                                       pdf.text("No summary available", margin, y);
+                                       pdf.text("Nenhum resumo disponível", margin, y);
                                        y += 10;
                                     }
 
@@ -1685,7 +1685,7 @@ export default function DocumentGenerationPage() {
                                           y = margin;
                                        }
 
-                                       pdf.text("Detailed Changes", margin, y);
+                                       pdf.text("Alterações Detalhadas", margin, y);
                                        y += 10;
 
                                        // Process each change
@@ -1710,8 +1710,8 @@ export default function DocumentGenerationPage() {
                                           }
 
                                           // Create change header with section and type
-                                          const typeText = change.type === 'addition' ? 'ADDED' :
-                                             change.type === 'removal' ? 'REMOVED' : 'MODIFIED';
+                                          const typeText = change.type === 'addition' ? 'INCLUÍDO' :
+                                             change.type === 'removal' ? 'REMOVIDO' : 'MODIFICADO';
 
                                           const headerText = `${index + 1}. ${change.section ? `${change.section} - ` : ''}${typeText}`;
                                           pdf.text(headerText, margin, y);
@@ -1744,23 +1744,23 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`AIForLawyers | Document Comparison | Generated on ${new Date().toLocaleDateString()}`, margin, pageHeight - margin);
-                                       pdf.text(`Page ${i} of ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
+                                       pdf.text(`Pequi | Comparação de Documentos | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 
                                     // Save the PDF
                                     pdf.save('document-comparison.pdf');
-                                    toast.success('PDF generated successfully!', { id: 'pdf-generate' });
+                                    toast.success('PDF gerado com sucesso!', { id: 'pdf-generate' });
                                  } catch (error) {
                                     console.error('Error generating PDF:', error);
-                                    toast.error('Failed to generate PDF. Please try again.', { id: 'pdf-generate' });
+                                    toast.error('Falha ao gerar o PDF. Tente novamente.', { id: 'pdf-generate' });
                                  }
                               }}
                            >
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download Comparison
+                              Baixar comparação
                            </button>
                         </div>
                      </div>
@@ -1775,10 +1775,10 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Simple Agreement Creator</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Criador de contratos simples</h2>
                <p className="text-foreground/70 mb-8">
-                  Create a basic legal agreement by providing key information. This tool helps you draft simple contracts,
-                  agreements, and letters quickly without legal expertise.
+                  Crie um contrato simples informando os dados principais. Esta ferramenta ajuda você a redigir contratos simples,
+                  acordos e cartas rapidamente, sem precisar de conhecimento jurídico.
                </p>
 
                <form onSubmit={(e) => {
@@ -1787,10 +1787,10 @@ export default function DocumentGenerationPage() {
                }} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Parties to the Agreement*</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Partes do contrato*</label>
                         <textarea
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 min-h-[100px]"
-                           placeholder="Enter the names of all parties involved"
+                           placeholder="Informe os nomes de todas as partes envolvidas"
                            value={parties}
                            onChange={(e) => setParties(e.target.value)}
                            required
@@ -1798,10 +1798,10 @@ export default function DocumentGenerationPage() {
                      </div>
 
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Purpose of the Agreement*</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Objeto do contrato*</label>
                         <textarea
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 min-h-[100px]"
-                           placeholder="Describe what this agreement is for"
+                           placeholder="Descreva a finalidade deste contrato"
                            value={purpose}
                            onChange={(e) => setPurpose(e.target.value)}
                            required
@@ -1811,20 +1811,20 @@ export default function DocumentGenerationPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Key Obligations</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Principais obrigações</label>
                         <textarea
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 min-h-[100px]"
-                           placeholder="What must each party do or provide"
+                           placeholder="O que cada parte deve fazer ou fornecer"
                            value={obligations}
                            onChange={(e) => setObligations(e.target.value)}
                         ></textarea>
                      </div>
 
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Consequences</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Consequências</label>
                         <textarea
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 min-h-[100px]"
-                           placeholder="What happens if obligations aren't met"
+                           placeholder="O que acontece se as obrigações não forem cumpridas"
                            value={consequences}
                            onChange={(e) => setConsequences(e.target.value)}
                         ></textarea>
@@ -1833,21 +1833,21 @@ export default function DocumentGenerationPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Important Dates</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Datas importantes</label>
                         <textarea
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
-                           placeholder="Start/end dates, deadlines, etc."
+                           placeholder="Datas de início/término, prazos etc."
                            value={dates}
                            onChange={(e) => setDates(e.target.value)}
                         ></textarea>
                      </div>
 
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Governing Law</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Lei aplicável</label>
                         <input
                            type="text"
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
-                           placeholder="Jurisdiction (e.g., 'State of California')"
+                           placeholder="Jurisdição (ex.: 'República Federativa do Brasil')"
                            value={jurisdiction}
                            onChange={(e) => setJurisdiction(e.target.value)}
                         />
@@ -1856,30 +1856,30 @@ export default function DocumentGenerationPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Signing Method</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Forma de assinatura</label>
                         <select
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
                            value={signingMethod}
                            onChange={(e) => setSigningMethod(e.target.value)}
                         >
-                           <option value="">Select a signing method</option>
-                           <option value="wet-ink">Traditional (printed and signed)</option>
-                           <option value="e-sign">Electronic signature</option>
-                           <option value="both">Both options available</option>
+                           <option value="">Selecione a forma de assinatura</option>
+                           <option value="wet-ink">Tradicional (impresso e assinado)</option>
+                           <option value="e-sign">Assinatura eletrônica</option>
+                           <option value="both">Ambas as opções</option>
                         </select>
                      </div>
 
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Agreement Language</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Linguagem do contrato</label>
                         <select
                            className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
                            value={language}
                            onChange={(e) => setLanguage(e.target.value)}
                         >
-                           <option value="">Default (English)</option>
-                           <option value="simple">Simple English</option>
-                           <option value="legal">Legal terminology</option>
-                           <option value="technical">Technical terminology</option>
+                           <option value="">Padrão</option>
+                           <option value="simple">Linguagem simples</option>
+                           <option value="legal">Terminologia jurídica</option>
+                           <option value="technical">Terminologia técnica</option>
                         </select>
                      </div>
                   </div>
@@ -1893,7 +1893,7 @@ export default function DocumentGenerationPage() {
                            : 'bg-gray-800 hover:bg-gray-900 shadow-md'
                            }`}
                      >
-                        {isProcessing ? 'Creating Agreement...' : 'Create Agreement'}
+                        {isProcessing ? 'Criando contrato...' : 'Criar contrato'}
                      </button>
                   </div>
                </form>
@@ -1901,7 +1901,7 @@ export default function DocumentGenerationPage() {
                {/* Display the generated agreement */}
                {!!agreementResult && !isProcessing && (
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/30">
-                     <h3 className="text-foreground text-lg font-medium mb-4">Generated Agreement</h3>
+                     <h3 className="text-foreground text-lg font-medium mb-4">Contrato gerado</h3>
 
                      <div className="space-y-6">
                         {/* Agreement Content with improved formatting */}
@@ -2019,7 +2019,7 @@ export default function DocumentGenerationPage() {
                            <button
                               className="px-6 py-2 bg-gray-800 hover:bg-gray-900 border border-gray-700 rounded-lg text-white transition-all duration-300 flex items-center shadow-md"
                               onClick={() => {
-                                 toast.loading('Generating PDF...', { id: 'pdf-generate' });
+                                 toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
                                  try {
                                     // Create a new PDF document
@@ -2031,10 +2031,10 @@ export default function DocumentGenerationPage() {
 
                                     // Set document properties
                                     pdf.setProperties({
-                                       title: (agreementResult as AgreementResult).title || 'Legal Agreement',
-                                       subject: 'Legal Agreement Document',
-                                       author: 'AIForLawyers',
-                                       creator: 'AIForLawyers Document Creator'
+                                       title: (agreementResult as AgreementResult).title || 'Contrato Jurídico',
+                                       subject: 'Documento de Contrato Jurídico',
+                                       author: 'Pequi',
+                                       creator: 'Criador de Documentos Pequi'
                                     });
 
                                     // Define margins and dimensions
@@ -2049,7 +2049,7 @@ export default function DocumentGenerationPage() {
                                     pdf.setFontSize(16);
                                     pdf.setTextColor(0, 0, 0);
 
-                                    const title = (agreementResult as AgreementResult).title?.toUpperCase() || 'LEGAL AGREEMENT';
+                                    const title = (agreementResult as AgreementResult).title?.toUpperCase() || 'CONTRATO JURÍDICO';
                                     const titleWidth = pdf.getStringUnitWidth(title) * 16 / pdf.internal.scaleFactor;
                                     const titleX = (pageWidth - titleWidth) / 2;
                                     pdf.text(title, titleX, y);
@@ -2150,24 +2150,24 @@ export default function DocumentGenerationPage() {
                                     y += 5;
                                     pdf.setFont("times", "bold");
                                     pdf.setFontSize(11);
-                                    pdf.text("Signature", margin, y);
-                                    pdf.text("Signature", pageWidth - margin - 70, y);
+                                    pdf.text("Assinatura", margin, y);
+                                    pdf.text("Assinatura", pageWidth - margin - 70, y);
 
                                     y += 15;
                                     pdf.line(margin, y, margin + 70, y);
                                     pdf.line(pageWidth - margin - 70, y, pageWidth - margin, y);
 
                                     y += 5;
-                                    pdf.text("Print Name", margin, y);
-                                    pdf.text("Print Name", pageWidth - margin - 70, y);
+                                    pdf.text("Nome completo", margin, y);
+                                    pdf.text("Nome completo", pageWidth - margin - 70, y);
 
                                     y += 15;
                                     pdf.line(margin, y, margin + 70, y);
                                     pdf.line(pageWidth - margin - 70, y, pageWidth - margin, y);
 
                                     y += 5;
-                                    pdf.text("Date", margin, y);
-                                    pdf.text("Date", pageWidth - margin - 70, y);
+                                    pdf.text("Data", margin, y);
+                                    pdf.text("Data", pageWidth - margin - 70, y);
 
                                     // Add page numbers and footer to all pages
                                     const totalPages = pdf.getNumberOfPages();
@@ -2176,23 +2176,23 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`AIForLawyers | Legal Agreement | Generated on ${new Date().toLocaleDateString()}`, margin, pageHeight - margin);
-                                       pdf.text(`Page ${i} of ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
+                                       pdf.text(`Pequi | Contrato Jurídico | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 
                                     // Save the PDF
-                                    pdf.save(`${(agreementResult as AgreementResult).title || 'legal-agreement'}.pdf`);
-                                    toast.success('PDF generated successfully!', { id: 'pdf-generate' });
+                                    pdf.save(`${(agreementResult as AgreementResult).title || 'contrato-juridico'}.pdf`);
+                                    toast.success('PDF gerado com sucesso!', { id: 'pdf-generate' });
                                  } catch (error) {
                                     console.error('Error generating PDF:', error);
-                                    toast.error('Failed to generate PDF. Please try again.', { id: 'pdf-generate' });
+                                    toast.error('Falha ao gerar o PDF. Tente novamente.', { id: 'pdf-generate' });
                                  }
                               }}
                            >
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download Agreement (PDF)
+                              Baixar contrato (PDF)
                            </button>
                         </div>
                      </div>
@@ -2209,31 +2209,31 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Advanced Document Drafting</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Redação avançada de documentos</h2>
                <p className="text-foreground/70 mb-8">
-                  Create sophisticated legal documents using professional templates, customizable clauses, and jurisdiction-specific language.
-                  Our AI will adapt to your specific requirements and generate a complete, ready-to-use legal document.
+                  Crie documentos jurídicos sofisticados usando modelos profissionais, cláusulas personalizáveis e linguagem específica para cada jurisdição.
+                  Nossa IA se adapta às suas necessidades e gera um documento jurídico completo e pronto para uso.
                </p>
 
                <div className="space-y-8">
                   <div>
-                     <label className="block mb-2 text-sm text-foreground/80 font-medium">Document Type</label>
+                     <label className="block mb-2 text-sm text-foreground/80 font-medium">Tipo de documento</label>
                      <select
                         value={documentType}
                         onChange={(e) => setDocumentType(e.target.value)}
                         className="w-full bg-gray-50 rounded-md border border-gray-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-gray-300"
                      >
-                        <option value="Real Estate Lease">Real Estate Lease</option>
-                        <option value="Employment Contract">Employment Contract</option>
-                        <option value="Non-Disclosure Agreement">Non-Disclosure Agreement</option>
-                        <option value="Service Agreement">Service Agreement</option>
-                        <option value="Partnership Agreement">Partnership Agreement</option>
-                        <option value="Sales Contract">Sales Contract</option>
+                        <option value="Locação Imobiliária">Locação Imobiliária</option>
+                        <option value="Contrato de Trabalho">Contrato de Trabalho</option>
+                        <option value="Acordo de Confidencialidade">Acordo de Confidencialidade</option>
+                        <option value="Contrato de Prestação de Serviços">Contrato de Prestação de Serviços</option>
+                        <option value="Contrato de Sociedade">Contrato de Sociedade</option>
+                        <option value="Contrato de Compra e Venda">Contrato de Compra e Venda</option>
                      </select>
                   </div>
 
                   <div>
-                     <label className="block mb-2 text-sm text-foreground/80 font-medium">Template Style</label>
+                     <label className="block mb-2 text-sm text-foreground/80 font-medium">Estilo do modelo</label>
                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {templateOptions.map((template, index) => (
                            <div key={index} className="relative">
@@ -2258,9 +2258,9 @@ export default function DocumentGenerationPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Upload Reference Document (Optional)</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Enviar documento de referência (opcional)</label>
                         <FileDropZone
-                           label="For style and terminology reference"
+                           label="Para referência de estilo e terminologia"
                            onFilesSelected={(files) => {
                               if (files?.length > 0) {
                                  setReferenceDocument(files[0]);
@@ -2282,11 +2282,11 @@ export default function DocumentGenerationPage() {
                      </div>
 
                      <div>
-                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Special Requirements</label>
+                        <label className="block mb-2 text-sm text-foreground/80 font-medium">Requisitos especiais</label>
                         <textarea
                            value={specialRequirements}
                            onChange={(e) => setSpecialRequirements(e.target.value)}
-                           placeholder="Describe any unique requirements for this document"
+                           placeholder="Descreva quaisquer requisitos específicos para este documento"
                            className="w-full bg-gray-50 rounded-md border border-gray-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-gray-300 placeholder:text-foreground/30 min-h-[120px] resize-none shadow-inner"
                         />
                      </div>
@@ -2299,7 +2299,7 @@ export default function DocumentGenerationPage() {
                      disabled={isProcessing}
                      className={`px-6 py-3 bg-gray-800 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-all ${isProcessing ? 'opacity-70 cursor-not-allowed' : 'hover:bg-gray-900 shadow-md'}`}
                   >
-                     {isProcessing ? 'Creating Document...' : 'Create Professional Document'}
+                     {isProcessing ? 'Criando documento...' : 'Criar documento profissional'}
                   </button>
                </div>
             </ContentContainer>
@@ -2311,22 +2311,22 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Document Translation</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Tradução de documentos</h2>
                <div className="mb-6">
                   <p className="text-foreground/70 mb-8">
-                     Translate legal documents while preserving legal terminology and formatting. Our AI understands legal
-                     context and ensures translations maintain the original legal meaning.
+                     Traduza documentos jurídicos preservando a terminologia e a formatação. Nossa IA entende o contexto
+                     jurídico e garante que as traduções mantenham o sentido jurídico original.
                   </p>
 
                   <div className="grid grid-cols-1 gap-8">
                      <div>
-                        <h3 className="text-foreground mb-4 font-medium">Upload Document</h3>
+                        <h3 className="text-foreground mb-4 font-medium">Enviar documento</h3>
                         <FileDropZone
-                           label="Document to translate"
+                           label="Documento a traduzir"
                            onFilesSelected={(files) => {
                               if (files.length) {
                                  setDocumentForTranslation(files[0]);
-                                 toast.success(`Document uploaded: ${files[0].name}`);
+                                 toast.success(`Documento enviado: ${files[0].name}`);
                               }
                            }}
                            accept=".pdf,.docx,.doc,.txt"
@@ -2343,51 +2343,51 @@ export default function DocumentGenerationPage() {
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                           <label className="block text-foreground/80 font-medium mb-2 text-sm">Source Language</label>
+                           <label className="block text-foreground/80 font-medium mb-2 text-sm">Idioma de origem</label>
                            <select
                               className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
                               value={sourceLanguage}
                               onChange={(e) => setSourceLanguage(e.target.value)}
                            >
-                              <option value="auto">Auto-detect</option>
-                              <option value="english">English</option>
-                              <option value="spanish">Spanish</option>
-                              <option value="french">French</option>
-                              <option value="german">German</option>
-                              <option value="italian">Italian</option>
-                              <option value="portuguese">Portuguese</option>
-                              <option value="chinese">Chinese</option>
-                              <option value="japanese">Japanese</option>
-                              <option value="korean">Korean</option>
-                              <option value="russian">Russian</option>
-                              <option value="arabic">Arabic</option>
+                              <option value="auto">Detectar automaticamente</option>
+                              <option value="english">Inglês</option>
+                              <option value="spanish">Espanhol</option>
+                              <option value="french">Francês</option>
+                              <option value="german">Alemão</option>
+                              <option value="italian">Italiano</option>
+                              <option value="portuguese">Português</option>
+                              <option value="chinese">Chinês</option>
+                              <option value="japanese">Japonês</option>
+                              <option value="korean">Coreano</option>
+                              <option value="russian">Russo</option>
+                              <option value="arabic">Árabe</option>
                            </select>
                         </div>
 
                         <div>
-                           <label className="block text-foreground/80 font-medium mb-2 text-sm">Target Language</label>
+                           <label className="block text-foreground/80 font-medium mb-2 text-sm">Idioma de destino</label>
                            <select
                               className="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200"
                               value={targetLanguage}
                               onChange={(e) => setTargetLanguage(e.target.value)}
                            >
-                              <option value="english">English</option>
-                              <option value="spanish">Spanish</option>
-                              <option value="french">French</option>
-                              <option value="german">German</option>
-                              <option value="italian">Italian</option>
-                              <option value="portuguese">Portuguese</option>
-                              <option value="chinese">Chinese</option>
-                              <option value="japanese">Japanese</option>
-                              <option value="korean">Korean</option>
-                              <option value="russian">Russian</option>
-                              <option value="arabic">Arabic</option>
+                              <option value="english">Inglês</option>
+                              <option value="spanish">Espanhol</option>
+                              <option value="french">Francês</option>
+                              <option value="german">Alemão</option>
+                              <option value="italian">Italiano</option>
+                              <option value="portuguese">Português</option>
+                              <option value="chinese">Chinês</option>
+                              <option value="japanese">Japonês</option>
+                              <option value="korean">Coreano</option>
+                              <option value="russian">Russo</option>
+                              <option value="arabic">Árabe</option>
                            </select>
                         </div>
                      </div>
 
                      <div className="space-y-3">
-                        <h3 className="text-foreground mb-2 font-medium">Translation Options</h3>
+                        <h3 className="text-foreground mb-2 font-medium">Opções de tradução</h3>
 
                         <div className="flex items-center">
                            <input
@@ -2398,7 +2398,7 @@ export default function DocumentGenerationPage() {
                               onChange={() => setPreserveFormatting(!preserveFormatting)}
                            />
                            <label htmlFor="preserveFormatting" className="text-foreground/70">
-                              Preserve document formatting and structure
+                              Preservar a formatação e a estrutura do documento
                            </label>
                         </div>
 
@@ -2411,7 +2411,7 @@ export default function DocumentGenerationPage() {
                               onChange={() => setIncludeLegalGlossary(!includeLegalGlossary)}
                            />
                            <label htmlFor="legalGlossary" className="text-foreground/70">
-                              Include legal terminology glossary
+                              Incluir glossário de terminologia jurídica
                            </label>
                         </div>
                      </div>
@@ -2425,7 +2425,7 @@ export default function DocumentGenerationPage() {
                            onClick={handleDocumentTranslation}
                            disabled={!documentForTranslation}
                         >
-                           Translate Document
+                           Traduzir documento
                         </button>
                      </div>
                   </div>
@@ -2435,20 +2435,20 @@ export default function DocumentGenerationPage() {
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/50">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
-                        <p className="text-foreground/80">Translating document...</p>
+                        <p className="text-foreground/80">Traduzindo documento...</p>
                      </div>
                   </div>
                )}
 
                {!!translationResult && !isProcessing && (
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/30">
-                     <h3 className="text-foreground text-lg font-medium mb-4">Translation Complete</h3>
+                     <h3 className="text-foreground text-lg font-medium mb-4">Tradução concluída</h3>
 
                      <div className="space-y-6">
                         {/* Translation Summary */}
                         <div>
-                           <h4 className="text-foreground/90 font-medium mb-2">Translation Summary</h4>
-                           <p className="text-foreground/70">{(translationResult as TranslationResult).summary || "No summary available"}</p>
+                           <h4 className="text-foreground/90 font-medium mb-2">Resumo da tradução</h4>
+                           <p className="text-foreground/70">{(translationResult as TranslationResult).summary || "Nenhum resumo disponível"}</p>
                         </div>
 
                         {/* Download Translation Button */}
@@ -2457,13 +2457,13 @@ export default function DocumentGenerationPage() {
                               className="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
                               onClick={() => {
                                  // In a real application, this would download the translated file
-                                 toast.success('Downloading translated document');
+                                 toast.success('Baixando documento traduzido');
                               }}
                            >
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download Translated Document
+                              Baixar documento traduzido
                            </button>
 
                            {includeLegalGlossary && (
@@ -2471,13 +2471,13 @@ export default function DocumentGenerationPage() {
                                  className="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
                                  onClick={() => {
                                     // In a real application, this would download the glossary
-                                    toast.success('Downloading legal glossary');
+                                    toast.success('Baixando glossário jurídico');
                                  }}
                               >
                                  <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                  </svg>
-                                 Download Legal Glossary
+                                 Baixar glossário jurídico
                               </button>
                            )}
                         </div>
@@ -2493,18 +2493,18 @@ export default function DocumentGenerationPage() {
       return (
          <div className="space-y-8">
             <ContentContainer>
-               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Image to Text Conversion</h2>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-gray-100">Conversão de imagem em texto</h2>
                <div className="mb-6">
                   <p className="text-foreground/70 mb-8">
-                     Extract text from images, scanned documents, or photos. Our AI can recognize printed and handwritten text,
-                     preserving the layout and formatting where needed.
+                     Extraia texto de imagens, documentos digitalizados ou fotos. Nossa IA reconhece textos impressos e manuscritos,
+                     preservando o layout e a formatação quando necessário.
                   </p>
 
                   <div className="grid grid-cols-1 gap-8">
                      <div>
-                        <h3 className="text-foreground mb-4 font-medium">Upload Image</h3>
+                        <h3 className="text-foreground mb-4 font-medium">Enviar imagem</h3>
                         <FileDropZone
-                           label="Supports JPG, PNG, PDF, TIFF (Max 25MB)"
+                           label="Suporta JPG, PNG, PDF, TIFF (máx. 25 MB)"
                            onFilesSelected={handleImageToText}
                            accept=".jpg,.jpeg,.png,.pdf,.tiff,.tif"
                         />
@@ -2524,19 +2524,19 @@ export default function DocumentGenerationPage() {
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/50">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
-                        <p className="text-foreground/80">Extracting text from image...</p>
+                        <p className="text-foreground/80">Extraindo texto da imagem...</p>
                      </div>
                   </div>
                )}
 
                {!!ocrResult && !isProcessing && (
                   <div className="mt-8 p-6 border border-gray-100 rounded-lg bg-gray-50/30">
-                     <h3 className="text-foreground text-lg font-medium mb-4">Extracted Text</h3>
+                     <h3 className="text-foreground text-lg font-medium mb-4">Texto extraído</h3>
 
                      <div className="space-y-6">
                         {/* Text Content */}
                         <div className="bg-white border border-gray-100 p-4 rounded-lg max-h-96 overflow-y-auto shadow-inner">
-                           <pre className="whitespace-pre-wrap text-foreground/80 font-mono text-sm">{(ocrResult as OcrResult).text || "No text extracted"}</pre>
+                           <pre className="whitespace-pre-wrap text-foreground/80 font-mono text-sm">{(ocrResult as OcrResult).text || "Nenhum texto extraído"}</pre>
                         </div>
 
                         {/* Download Options */}
@@ -2561,20 +2561,20 @@ export default function DocumentGenerationPage() {
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download as TXT
+                              Baixar como TXT
                            </button>
 
                            <button
                               className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-all duration-300 flex items-center"
                               onClick={() => {
                                  // In a real application, this would download a Word document
-                                 toast.success('Downloading as DOCX');
+                                 toast.success('Baixando como DOCX');
                               }}
                            >
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                               </svg>
-                              Download as DOCX
+                              Baixar como DOCX
                            </button>
 
                            <button
@@ -2584,7 +2584,7 @@ export default function DocumentGenerationPage() {
                               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                               </svg>
-                              Copy to Clipboard
+                              Copiar para a área de transferência
                            </button>
                         </div>
                      </div>
@@ -2616,7 +2616,7 @@ export default function DocumentGenerationPage() {
 
    // Format the analysis text to properly handle asterisks and other formatting
    const formatAnalysisText = (text: string | undefined): string => {
-      if (!text) return "No summary available";
+      if (!text) return "Nenhum resumo disponível";
 
       // Process the text line by line to handle all types of asterisks
       const lines = text.split('\n');
@@ -2651,12 +2651,12 @@ export default function DocumentGenerationPage() {
    // Handle advanced agreement creation
    const handleCreateAgreementPro = async () => {
       if (!documentType || !templateStyle) {
-         toast.error('Please select document type and template style');
+         toast.error('Selecione o tipo de documento e o estilo do modelo');
          return;
       }
 
       setIsProcessing(true);
-      toast.loading('Creating your professional document...', { id: 'create-pro' });
+      toast.loading('Criando seu documento profissional...', { id: 'create-pro' });
 
       try {
          // Use document service for advanced document creation with Gemini
@@ -2672,7 +2672,7 @@ export default function DocumentGenerationPage() {
          // Save to document history
          const newDoc = {
             id: Date.now().toString(),
-            title: `${documentType} - Professional`,
+            title: `${documentType} - Profissional`,
             type: 'Advanced Agreement',
             timestamp: new Date()
          };
@@ -2682,7 +2682,7 @@ export default function DocumentGenerationPage() {
          setRecentDocuments(updatedDocs);
          localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(updatedDocs));
 
-         toast.success('Document created successfully!', { id: 'create-pro' });
+         toast.success('Documento criado com sucesso!', { id: 'create-pro' });
 
          // Navigate to document viewer
          router.push(`/dashboard/agreements/${newDoc.id}`);
@@ -2699,7 +2699,7 @@ export default function DocumentGenerationPage() {
          if (isUpgradeRequired) {
             setShowUpgradeModal(true);
          } else {
-            toast.error(message || 'Failed to create document. Please try again.', { id: 'create-pro' });
+            toast.error(message || 'Falha ao criar o documento. Tente novamente.', { id: 'create-pro' });
          }
       } finally {
          setIsProcessing(false);
@@ -2717,7 +2717,7 @@ export default function DocumentGenerationPage() {
                <svg className="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                </svg>
-               GO PRO
+               SEJA PRO
             </button>
          }
       >
@@ -2726,7 +2726,7 @@ export default function DocumentGenerationPage() {
             <button
                onClick={() => setIsHistoryOpen(!isHistoryOpen)}
                className="relative bg-white border border-gray-100 hover:bg-gray-50 rounded-full p-2 transition-all duration-200 shadow-sm"
-               aria-label="View document history"
+               aria-label="Ver histórico de documentos"
             >
                <svg className="w-6 h-6 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -2743,7 +2743,7 @@ export default function DocumentGenerationPage() {
                <div className="absolute right-0 mt-2 w-96 max-h-[70vh] overflow-y-auto bg-white border border-gray-100 rounded-lg shadow-xl z-50">
                   <div className="p-4">
                      <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                        <h3 className="text-foreground font-medium text-lg">Recent Documents</h3>
+                        <h3 className="text-foreground font-medium text-lg">Documentos recentes</h3>
                         <button
                            onClick={() => setIsHistoryOpen(false)}
                            className="text-foreground/60 hover:text-foreground p-1 rounded-full hover:bg-gray-100"
@@ -2785,7 +2785,7 @@ export default function DocumentGenerationPage() {
                                        <div className="flex items-center mt-0.5">
                                           <span className="text-foreground/60 text-xs">{formatDate(doc.timestamp)}</span>
                                           <span className="mx-2 text-foreground/20">•</span>
-                                          <span className="text-foreground/60 text-xs bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">{doc.type}</span>
+                                          <span className="text-foreground/60 text-xs bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado' } as Record<string, string>)[doc.type] ?? doc.type}</span>
                                        </div>
                                     </div>
                                  </div>
@@ -2813,7 +2813,7 @@ export default function DocumentGenerationPage() {
                                        }
                                     }}
                                     className="ml-2 p-2 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-100 text-foreground/70 hover:text-foreground transition-colors"
-                                    aria-label="View document"
+                                    aria-label="Ver documento"
                                  >
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -2828,7 +2828,7 @@ export default function DocumentGenerationPage() {
                            <svg className="w-12 h-12 mx-auto mb-3 text-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                            </svg>
-                           <p>No documents in your history yet</p>
+                           <p>Ainda não há documentos no seu histórico</p>
                         </div>
                      )}
 
@@ -2836,7 +2836,7 @@ export default function DocumentGenerationPage() {
                         <div className="mt-4 pt-3 border-t border-gray-100 flex justify-end">
                            <button
                               onClick={() => {
-                                 if (confirm("Are you sure you want to clear all document history?")) {
+                                 if (confirm("Tem certeza de que deseja limpar todo o histórico de documentos?")) {
                                     localStorage.removeItem('AIForLawyers_documentHistory');
                                     localStorage.removeItem('AIForLawyers_lastAnalysisResult');
                                     localStorage.removeItem('AIForLawyers_lastComparisonResult');
@@ -2844,12 +2844,12 @@ export default function DocumentGenerationPage() {
                                     localStorage.removeItem('AIForLawyers_lastOcrResult');
                                     setRecentDocuments([]);
                                     setIsHistoryOpen(false);
-                                    toast.success('Document history cleared');
+                                    toast.success('Histórico de documentos limpo');
                                  }
                               }}
                               className="text-foreground/50 hover:text-foreground/80 text-xs"
                            >
-                              Clear history
+                              Limpar histórico
                            </button>
                         </div>
                      )}
@@ -2863,7 +2863,7 @@ export default function DocumentGenerationPage() {
                <div className="lg:col-span-1">
                   <div className="sticky top-24">
                      {/* Document Tools */}
-                     <h3 className="text-sm uppercase tracking-wider text-foreground/50 mb-4 font-medium">Document Tools</h3>
+                     <h3 className="text-sm uppercase tracking-wider text-foreground/50 mb-4 font-medium">Ferramentas de documentos</h3>
                      {getDocumentTools()}
                   </div>
                </div>

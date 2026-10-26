@@ -11,7 +11,7 @@ async function handleRequest(method: string, url: string) {
     const token = cookiesObj.get('token')?.value;
 
     if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 });
     }
 
     const headers = {
@@ -35,7 +35,7 @@ async function handleRequest(method: string, url: string) {
 
       default:
         return NextResponse.json(
-          { error: 'Method not allowed' },
+          { error: 'Método não permitido' },
           { status: 405 }
         );
     }
@@ -45,16 +45,16 @@ async function handleRequest(method: string, url: string) {
     const axiosErr = error as { response?: { data?: unknown; status?: number }; message?: string };
     console.error(`Error in ${method} request:`, axiosErr.response?.data || axiosErr.message);
 
-    let errorMessage = 'An error occurred';
+    let errorMessage = 'Ocorreu um erro';
     switch (method) {
       case 'GET':
-        errorMessage = 'Failed to fetch notifications';
+        errorMessage = 'Falha ao carregar as notificações';
         break;
       case 'PUT':
-        errorMessage = 'Failed to mark all notifications as read';
+        errorMessage = 'Falha ao marcar todas as notificações como lidas';
         break;
       case 'DELETE':
-        errorMessage = 'Failed to delete all notifications';
+        errorMessage = 'Falha ao excluir todas as notificações';
         break;
     }
 

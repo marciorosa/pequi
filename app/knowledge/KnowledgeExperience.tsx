@@ -19,8 +19,8 @@ function FeatureIcon({ children }: { children: React.ReactNode }) {
 export default function KnowledgeExperience() {
   const features = [
     {
-      title: 'Comprehensive search',
-      desc: 'Search statutes, case law, regulations, and commentary across jurisdictions—with semantic understanding of your question.',
+      title: 'Pesquisa abrangente',
+      desc: 'Pesquise legislação, jurisprudência, regulamentos e doutrina em diversas jurisdições, com compreensão semântica da sua pergunta.',
       icon: (
         <FeatureIcon>
           <path
@@ -33,8 +33,8 @@ export default function KnowledgeExperience() {
       ),
     },
     {
-      title: 'Accurate citations',
-      desc: 'Insights trace back to primary sources so you can verify, cite, and drill into the authorities that matter.',
+      title: 'Citações precisas',
+      desc: 'Os insights remetem às fontes primárias para que você possa verificar, citar e aprofundar-se nas referências que importam.',
       icon: (
         <FeatureIcon>
           <path
@@ -47,8 +47,8 @@ export default function KnowledgeExperience() {
       ),
     },
     {
-      title: 'Contextual understanding',
-      desc: 'Answers reflect jurisdiction, time period, and practice area—so research fits how the question is actually asked.',
+      title: 'Compreensão contextual',
+      desc: 'As respostas consideram jurisdição, período e área de atuação, para que a pesquisa corresponda à forma como a pergunta é feita.',
       icon: (
         <FeatureIcon>
           <path
@@ -61,8 +61,8 @@ export default function KnowledgeExperience() {
       ),
     },
     {
-      title: 'Instant results',
-      desc: 'Compress hours of research into seconds—without sacrificing the rigor your matters require.',
+      title: 'Resultados instantâneos',
+      desc: 'Transforme horas de pesquisa em segundos, sem abrir mão do rigor que seus casos exigem.',
       icon: (
         <FeatureIcon>
           <path
@@ -75,8 +75,8 @@ export default function KnowledgeExperience() {
       ),
     },
     {
-      title: 'Customizable queries',
-      desc: 'Filter by jurisdiction, court level, document type, date range, and precedential weight.',
+      title: 'Consultas personalizáveis',
+      desc: 'Filtre por jurisdição, instância, tipo de documento, período e força do precedente.',
       icon: (
         <FeatureIcon>
           <path
@@ -89,8 +89,8 @@ export default function KnowledgeExperience() {
       ),
     },
     {
-      title: 'Export & integration',
-      desc: 'Send findings to Word, PDF, or your DMS with consistent formatting and citation styles.',
+      title: 'Exportação e integração',
+      desc: 'Envie os resultados para Word, PDF ou seu sistema de gestão de documentos com formatação e estilos de citação consistentes.',
       icon: (
         <FeatureIcon>
           <path
@@ -107,15 +107,15 @@ export default function KnowledgeExperience() {
   const citations = [
     {
       title: 'California Business and Professions Code § 16600',
-      body: '"Except as provided in this chapter, every contract by which anyone is restrained from engaging in a lawful profession, trade, or business of any kind is to that extent void."',
+      body: '"Salvo o disposto neste capítulo, todo contrato pelo qual alguém seja impedido de exercer profissão, ofício ou negócio lícito de qualquer natureza é nulo nessa medida."',
     },
     {
       title: 'AMN Services, LLC v. Aya Healthcare Services, Inc., 28 Cal. App. 5th 923 (2018)',
-      body: 'The Court of Appeal affirmed that non-solicitation agreements are generally unenforceable in California as they restrain employee mobility.',
+      body: 'O Tribunal de Apelação confirmou que acordos de não aliciamento geralmente são inexequíveis na Califórnia, pois restringem a mobilidade dos empregados.',
     },
     {
       title: 'Edwards v. Arthur Andersen LLP, 44 Cal. 4th 937 (2008)',
-      body: 'The California Supreme Court rejected the "narrow restraint" exception to Section 16600, holding that even narrowly tailored non-compete agreements are invalid in California.',
+      body: 'A Suprema Corte da Califórnia rejeitou a exceção de "restrição limitada" à Seção 16600, entendendo que mesmo acordos de não concorrência de alcance restrito são inválidos na Califórnia.',
     },
   ];
 
@@ -128,7 +128,7 @@ export default function KnowledgeExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
@@ -136,30 +136,30 @@ export default function KnowledgeExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">AiForLawyers</p>
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Pequi</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Knowledge
+                  Conhecimento
                 </h1>
                 <p className="mt-3 max-w-xl text-xl font-medium leading-snug text-[#323232] md:text-2xl">
-                  Rapid research, grounded results
+                  Pesquisa rápida, resultados fundamentados
                 </p>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-                  Answers across legal, regulatory, and tax questions—with citations you can trust from authoritative
-                  sources.
+                  Respostas para questões jurídicas, regulatórias e tributárias, com citações confiáveis de fontes
+                  oficiais.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                   >
-                    Request a demo
+                    Solicitar uma demonstração
                   </Link>
                   <button
                     type="button"
                     onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                   >
-                    See search demo
+                    Ver demonstração da pesquisa
                   </button>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function KnowledgeExperience() {
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/ai-powered-legal-assistant.png"
-                      alt="AI-powered legal intelligence search"
+                      alt="Pesquisa de inteligência jurídica com IA"
                       fill
                       className="object-contain object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -186,9 +186,9 @@ export default function KnowledgeExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Powerful legal research</h2>
+            <h2 className={sectionHeadingClass}>Pesquisa jurídica poderosa</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Everything you need to move from question to supported answer—fast, traceable, and ready for your workflow.
+              Tudo o que você precisa para ir da pergunta à resposta fundamentada: rápido, rastreável e pronto para o seu fluxo de trabalho.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {features.map((f) => (
@@ -208,21 +208,21 @@ export default function KnowledgeExperience() {
       <FadeInSection delay={0.1}>
         <section id="demo" className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Experience knowledge search</h2>
+            <h2 className={sectionHeadingClass}>Experimente a pesquisa de conhecimento</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              A sample query and structured results—illustrative only, not legal advice.
+              Um exemplo de consulta e resultados estruturados, apenas ilustrativo e sem caráter de aconselhamento jurídico.
             </p>
 
             <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(16,16,26,0.06),0_48px_100px_rgba(16,16,26,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(16,16,26,0.08)]">
               <div className="border-b border-[#e7e7ea] p-6 md:p-8">
-                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Enter your legal research query</h3>
+                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Digite sua consulta de pesquisa jurídica</h3>
                 <div className="mb-6 rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] p-5">
                   <p className="text-[0.9375rem] italic leading-[160%] text-[#525252]">
-                    &quot;What are the requirements for enforceability of non-compete clauses in California?&quot;
+                    &quot;Quais são os requisitos para a validade de cláusulas de não concorrência na Califórnia?&quot;
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  {(['Jurisdiction', 'Document Type'] as const).map((label) => (
+                  {(['Jurisdição', 'Tipo de documento'] as const).map((label) => (
                     <div key={label} className="sm:flex-1">
                       <label className="mb-2 block text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
                         {label}
@@ -231,12 +231,12 @@ export default function KnowledgeExperience() {
                         className="w-full rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-4 py-3.5 text-[0.9375rem] text-[#10101A] focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
                         aria-label={label}
                       >
-                        <option>All {label === 'Jurisdiction' ? 'jurisdictions' : 'documents'}</option>
-                        {label === 'Jurisdiction'
-                          ? ['United States (Federal)', 'California', 'New York', 'Delaware'].map((o) => (
+                        <option>{label === 'Jurisdição' ? 'Todas as jurisdições' : 'Todos os documentos'}</option>
+                        {label === 'Jurisdição'
+                          ? ['Estados Unidos (Federal)', 'Califórnia', 'Nova York', 'Delaware'].map((o) => (
                               <option key={o}>{o}</option>
                             ))
-                          : ['Case law', 'Statutes', 'Regulations', 'Secondary sources'].map((o) => (
+                          : ['Jurisprudência', 'Legislação', 'Regulamentos', 'Fontes secundárias'].map((o) => (
                               <option key={o}>{o}</option>
                             ))}
                       </select>
@@ -247,17 +247,17 @@ export default function KnowledgeExperience() {
                   type="button"
                   className="inline-flex items-center justify-center rounded-[0.875rem] bg-[#1A1A1A] px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(16,16,26,0.15)]"
                 >
-                  Search
+                  Pesquisar
                 </button>
               </div>
 
               <div className="bg-[#f1f0ee]/45 p-6 md:p-8">
-                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Research results</h3>
+                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Resultados da pesquisa</h3>
                 <div className="rounded-[1.25rem] border border-[#eceae7] bg-white p-6 md:p-8">
                   <p className="mb-6 text-[0.9375rem] leading-[160%] text-[#525252]">
-                    <span className="font-medium text-[#10101A]">Summary:</span> Non-compete clauses in California are
-                    generally unenforceable except in very limited circumstances. California Business and Professions
-                    Code Section 16600 reflects a strong public policy against restraints on employment.
+                    <span className="font-medium text-[#10101A]">Resumo:</span> Cláusulas de não concorrência na Califórnia
+                    geralmente são inexequíveis, exceto em circunstâncias muito limitadas. A Seção 16600 do California Business and Professions
+                    Code reflete uma forte política pública contra restrições ao exercício profissional.
                   </p>
                   <div className="space-y-6">
                     {citations.map((cite) => (
@@ -282,7 +282,7 @@ export default function KnowledgeExperience() {
                 <div className="md:w-[min(280px,36%)] shrink-0 bg-[#1A1A1A] p-8 md:p-10 flex items-center justify-center min-h-[200px] md:min-h-0">
                   <div className="text-center md:text-left">
                     <p className="text-white text-[1.25rem] md:text-[1.375rem] font-medium leading-snug">
-                      International law firm
+                      Escritório de advocacia internacional
                     </p>
                     <p className="mt-2 text-white/60 text-[0.6875rem] font-medium uppercase tracking-[0.14em]">
                       Global 100
@@ -291,16 +291,16 @@ export default function KnowledgeExperience() {
                 </div>
                 <div className="flex-1 p-8 md:p-10">
                   <h3 className="mb-5 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">
-                    Cut research time by 75%
+                    Tempo de pesquisa reduzido em 75%
                   </h3>
                   <p className="mb-8 text-[1rem] leading-[160%] text-[#525252]">
-                    &quot;AiForLawyers&apos;s Knowledge platform has transformed our research process. Our associates now
-                    complete in minutes what used to take hours. The accuracy of the citations and the depth of analysis
-                    have impressed even our most senior partners.&quot;
+                    &quot;A plataforma Knowledge do Pequi transformou nosso processo de pesquisa. Nossos associados agora
+                    concluem em minutos o que antes levava horas. A precisão das citações e a profundidade das análises
+                    impressionaram até nossos sócios mais experientes.&quot;
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="h-px w-8 shrink-0 bg-[#e7e5e1]" />
-                    <p className="text-[0.9375rem] font-medium text-[#525252]">Managing partner, global law firm</p>
+                    <p className="text-[0.9375rem] font-medium text-[#525252]">Sócio-diretor, escritório de advocacia global</p>
                   </div>
                 </div>
               </div>

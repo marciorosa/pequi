@@ -134,23 +134,23 @@ const Icons = {
 // ─── Node Definitions (Monochrome) ───────────────────────────────────────────
 
 const TRIGGER_NODES = [
-  { type: 'trigger', subtype: 'file_upload', label: 'File Upload' },
-  { type: 'trigger', subtype: 'document_signed', label: 'Doc Signed' },
-  { type: 'trigger', subtype: 'new_client', label: 'New Client' },
+  { type: 'trigger', subtype: 'file_upload', label: 'Envio de arquivo' },
+  { type: 'trigger', subtype: 'document_signed', label: 'Documento assinado' },
+  { type: 'trigger', subtype: 'new_client', label: 'Novo cliente' },
 ];
 
 const ACTION_NODES = [
-  { type: 'action', subtype: 'summarize', label: 'AI Summarize' },
-  { type: 'action', subtype: 'risk_analysis', label: 'Risk Analysis' },
-  { type: 'action', subtype: 'draft_reply', label: 'Draft Reply' },
-  { type: 'action', subtype: 'extract_clauses', label: 'Extract Clauses' },
-  { type: 'action', subtype: 'translate', label: 'Translate' },
+  { type: 'action', subtype: 'summarize', label: 'Resumo com IA' },
+  { type: 'action', subtype: 'risk_analysis', label: 'Análise de riscos' },
+  { type: 'action', subtype: 'draft_reply', label: 'Redigir resposta' },
+  { type: 'action', subtype: 'extract_clauses', label: 'Extrair cláusulas' },
+  { type: 'action', subtype: 'translate', label: 'Traduzir' },
   { type: 'action', subtype: 'checklist', label: 'Compliance' },
 ];
 
 const OUTPUT_NODES = [
-  { type: 'output', subtype: 'save_vault', label: 'Save Vault' },
-  { type: 'output', subtype: 'email_client', label: 'Email Client' },
+  { type: 'output', subtype: 'save_vault', label: 'Salvar no cofre' },
+  { type: 'output', subtype: 'email_client', label: 'Enviar e-mail ao cliente' },
 ];
 
 const IconMap: Record<string, React.ReactNode> = {
@@ -205,7 +205,7 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
           </div>
           <div>
             <span className="inline-block text-[8px] font-bold uppercase tracking-[0.3em] text-[#A0A0A0] mb-1">
-              {data.nodeType as string}
+              {({ trigger: 'gatilho', action: 'ação', output: 'saída' } as Record<string, string>)[data.nodeType as string] ?? (data.nodeType as string)}
             </span>
             <p className="text-[11px] font-bold text-[#10101A] leading-tight tracking-tight">{data.label as string}</p>
           </div>
@@ -232,7 +232,7 @@ export default function WorkflowBuilderPage() {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [activeTab, setActiveTab] = useState<'canvas' | 'library'>('canvas');
-  const [workflowName, setWorkflowName] = useState('New Automation');
+  const [workflowName, setWorkflowName] = useState('Nova automação');
   const [isRunning, setIsRunning] = useState(false);
   const [, setIsSaving] = useState(false);
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
@@ -254,7 +254,7 @@ export default function WorkflowBuilderPage() {
       if (e.response?.status === 403 || e.status === 403) {
         setShowUpgradeModal(true);
       } else {
-        toast.error(e.response?.data?.message || 'Failed to load workflows');
+        toast.error(e.response?.data?.message || 'Falha ao carregar os fluxos');
       }
     } finally {
       setLoading(false);
@@ -318,12 +318,12 @@ export default function WorkflowBuilderPage() {
       data: { ...nodeData, nodeType: nodeData.type },
     };
     setNodes((nds) => [...nds, newNode]);
-    toast.success(`${nodeData.label} added to canvas`);
+    toast.success(`${nodeData.label} adicionado ao canvas`);
   };
 
   const handleRun = async () => {
     if (!activeWorkflowId) {
-      toast.error('Save your workflow before running');
+      toast.error('Salve o fluxo antes de executá-lo');
       return;
     }
 
@@ -334,7 +334,7 @@ export default function WorkflowBuilderPage() {
         simulationFile: testFile,
         fileName: testFile?.name
       });
-      toast.success(testFile ? `Simulation started with ${testFile.name}` : 'Workflow execution started');
+      toast.success(testFile ? `Simulação iniciada com ${testFile.name}` : 'Execução do fluxo iniciada');
 
       // Simulate stopping after a few seconds
       setTimeout(() => setIsRunning(false), 3000);
@@ -342,7 +342,7 @@ export default function WorkflowBuilderPage() {
       if (e.response?.status === 403 || e.status === 403) {
         setShowUpgradeModal(true);
       } else {
-        toast.error(e.response?.data?.message || 'Failed to start workflow');
+        toast.error(e.response?.data?.message || 'Falha ao iniciar o fluxo');
       }
       setIsRunning(false);
     }
@@ -350,7 +350,7 @@ export default function WorkflowBuilderPage() {
 
   const handleSave = async () => {
     if (nodes.length === 0) {
-      toast.error('Add at least one node');
+      toast.error('Adicione pelo menos um nó');
       return;
     }
 
@@ -365,18 +365,18 @@ export default function WorkflowBuilderPage() {
 
       if (activeWorkflowId) {
         await workflowService.updateWorkflow(activeWorkflowId, workflowData);
-        toast.success('Workflow updated');
+        toast.success('Fluxo atualizado');
       } else {
         const res = await workflowService.createWorkflow(workflowData);
         setActiveWorkflowId(res.workflow._id);
-        toast.success('Workflow created');
+        toast.success('Fluxo criado');
       }
       fetchWorkflows();
     } catch (e: any) {
       if (e.response?.status === 403 || e.status === 403) {
         setShowUpgradeModal(true);
       } else {
-        toast.error(e.response?.data?.message || 'Failed to save workflow');
+        toast.error(e.response?.data?.message || 'Falha ao salvar o fluxo');
       }
     } finally {
       setIsSaving(false);
@@ -412,26 +412,26 @@ export default function WorkflowBuilderPage() {
 
   const deleteWorkflow = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!confirm('Are you sure you want to delete this workflow?')) return;
+    if (!confirm('Tem certeza de que deseja excluir este fluxo?')) return;
 
     try {
       await workflowService.deleteWorkflow(id);
-      toast.success('Workflow deleted');
+      toast.success('Fluxo excluído');
       if (activeWorkflowId === id) {
         setNodes([]);
         setEdges([]);
-        setWorkflowName('New Automation');
+        setWorkflowName('Nova automação');
         setActiveWorkflowId(null);
       }
       fetchWorkflows();
     } catch (e: any) {
-      toast.error(e.response?.data?.message || 'Failed to delete workflow');
+      toast.error(e.response?.data?.message || 'Falha ao excluir o fluxo');
     }
   };
 
   return (
     <DashboardLayout
-      title="Automations"
+      title="Automações"
       actions={
         <div className="flex items-center gap-3">
           <div className="flex bg-gray-50 rounded-xl p-0.5 md:p-1 border border-gray-100">
@@ -447,7 +447,7 @@ export default function WorkflowBuilderPage() {
               className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${activeTab === 'library' ? 'btn-primary-gradient shadow-sm' : 'text-foreground/30 hover:text-foreground'
                 }`}
             >
-              Library
+              Biblioteca
             </button>
           </div>
         </div>
@@ -464,7 +464,7 @@ export default function WorkflowBuilderPage() {
                   value={workflowName}
                   onChange={(e) => setWorkflowName(e.target.value)}
                   className="w-full text-sm font-bold text-foreground bg-transparent border-b border-gray-100 pb-2 outline-none focus:border-foreground transition mb-4"
-                  placeholder="Workflow Name"
+                  placeholder="Nome do fluxo"
                 />
                 <div className="flex gap-2">
                   <button
@@ -475,7 +475,7 @@ export default function WorkflowBuilderPage() {
                       }`}
                   >
                     {isRunning ? Icons.stop : Icons.play}
-                    {isRunning ? 'Stop' : 'Run'}
+                    {isRunning ? 'Parar' : 'Executar'}
                   </button>
                   <button
                     onClick={handleSave}
@@ -489,7 +489,7 @@ export default function WorkflowBuilderPage() {
               <div className="flex-1 overflow-y-auto lg:overflow-y-auto space-y-6 md:space-y-6 flex flex-col lg:block">
                 <div className="flex lg:block gap-4 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
                   <div className="flex-shrink-0 lg:w-full">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Triggers</p>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Gatilhos</p>
                     <div className="flex lg:block gap-2">
                       {TRIGGER_NODES.map((n) => (
                         <div
@@ -510,7 +510,7 @@ export default function WorkflowBuilderPage() {
                   </div>
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">AI actions</p>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Ações de IA</p>
                     <div className="flex lg:block gap-2">
                       {ACTION_NODES.map((n) => (
                         <div
@@ -531,7 +531,7 @@ export default function WorkflowBuilderPage() {
                   </div>
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Outputs</p>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Saídas</p>
                     <div className="flex lg:block gap-2">
                       {OUTPUT_NODES.map((n) => (
                         <div
@@ -593,8 +593,8 @@ export default function WorkflowBuilderPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
                     </svg>
                   </div>
-                  <h3 className="text-[10px] font-bold text-[#A0A0A0] uppercase tracking-[0.4em]">Empty Architecture</h3>
-                  <p className="text-[11px] text-[#A0A0A0] mt-3 font-medium opacity-60">Drag and drop components to initialize workflow</p>
+                  <h3 className="text-[10px] font-bold text-[#A0A0A0] uppercase tracking-[0.4em]">Fluxo vazio</h3>
+                  <p className="text-[11px] text-[#A0A0A0] mt-3 font-medium opacity-60">Arraste e solte componentes para iniciar o fluxo</p>
                 </div>
               )}
             </div>
@@ -603,7 +603,7 @@ export default function WorkflowBuilderPage() {
             {selectedNode && (
               <div className="absolute lg:relative inset-x-4 bottom-4 lg:inset-auto lg:w-80 bg-white border border-gray-100 rounded-[2.5rem] p-6 md:p-8 overflow-y-auto animate-in slide-in-from-bottom md:slide-in-from-right duration-500 shadow-2xl lg:shadow-xl lg:ml-2 z-20 max-h-[80%] lg:max-h-full">
                 <div className="flex items-center justify-between mb-6 md:mb-10">
-                  <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">Settings</h3>
+                  <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">Configurações</h3>
                   <button
                     onClick={() => setSelectedNodeId(null)}
                     className="p-2 rounded-xl hover:bg-gray-50 text-foreground/20 transition-colors"
@@ -616,7 +616,7 @@ export default function WorkflowBuilderPage() {
 
                 <div className="space-y-8 relative z-10">
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/40 block mb-4">Designation</label>
+                    <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/40 block mb-4">Nome</label>
                     <input
                       type="text"
                       value={selectedNode.data.label}
@@ -632,7 +632,7 @@ export default function WorkflowBuilderPage() {
                     <div className="space-y-6">
                       <div>
                         <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">
-                          {selectedNode.data.subtype === 'file_upload' ? 'Live Simulation File' : 'Simulate Signed Document'}
+                          {selectedNode.data.subtype === 'file_upload' ? 'Arquivo para simulação' : 'Simular documento assinado'}
                         </label>
                         <div className="relative group">
                           <input
@@ -649,13 +649,13 @@ export default function WorkflowBuilderPage() {
                               {Icons.file}
                             </div>
                             <span className="text-[10px] font-bold text-foreground line-clamp-1 px-4">
-                              {testFile ? testFile.name : 'Select PDF'}
+                              {testFile ? testFile.name : 'Selecionar PDF'}
                             </span>
                           </label>
                         </div>
                         {selectedNode.data.subtype === 'document_signed' && (
                           <p className="text-[9px] text-foreground/30 mt-4 leading-relaxed italic">
-                            * In production, this trigger connects to DocuSign/Hellosign webhooks. For this simulation, select a document to act as the &quot;Signed File&quot;.
+                            * Em produção, este gatilho se conecta aos webhooks do DocuSign/Hellosign. Para esta simulação, selecione um documento que fará o papel do &quot;Arquivo assinado&quot;.
                           </p>
                         )}
                       </div>
@@ -665,14 +665,14 @@ export default function WorkflowBuilderPage() {
                   {/* Summarize Config */}
                   {selectedNode.data.subtype === 'summarize' && (
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Detail Level</label>
+                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Nível de detalhe</label>
                       {['concise', 'balanced', 'extensive'].map(lvl => (
                         <button
                           key={lvl}
                           onClick={() => updateNodeConfig(selectedNode.id, { level: lvl })}
                           className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.level === lvl ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-300'}`}
                         >
-                          {lvl}
+                          {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[lvl] ?? lvl}
                         </button>
                       ))}
                     </div>
@@ -682,20 +682,20 @@ export default function WorkflowBuilderPage() {
                   {selectedNode.data.subtype === 'email_client' && (
                     <div className="space-y-6">
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Recipient</label>
+                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Destinatário</label>
                         <input
                           type="email"
-                          placeholder="client@lawfirm.com"
+                          placeholder="cliente@escritorio.com.br"
                           value={selectedNode.data.config?.recipient || ''}
                           className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { recipient: e.target.value })}
                         />
                       </div>
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Subject</label>
+                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Assunto</label>
                         <input
                           type="text"
-                          placeholder="e.g. Agreement Review"
+                          placeholder="ex.: Revisão de contrato"
                           value={selectedNode.data.config?.subject || ''}
                           className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { subject: e.target.value })}
@@ -713,9 +713,9 @@ export default function WorkflowBuilderPage() {
                             <div className="w-10 h-6 bg-gray-100 rounded-full peer peer-checked:bg-foreground transition-all"></div>
                             <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-4 transition-all shadow-sm"></div>
                           </div>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 group-hover:text-foreground transition-colors">Request Digital Signature</span>
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 group-hover:text-foreground transition-colors">Solicitar assinatura digital</span>
                         </label>
-                        <p className="text-[8px] text-foreground/20 mt-2 uppercase tracking-tight italic">Uses DocuSign for legal validity</p>
+                        <p className="text-[8px] text-foreground/20 mt-2 uppercase tracking-tight italic">Usa o DocuSign para garantir validade jurídica</p>
                       </div>
                     </div>
                   )}
@@ -723,14 +723,14 @@ export default function WorkflowBuilderPage() {
                   {/* Risk Analysis Config */}
                   {selectedNode.data.subtype === 'risk_analysis' && (
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Analysis Depth</label>
+                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Profundidade da análise</label>
                       {['standard', 'deep_scan'].map(depth => (
                         <button
                           key={depth}
                           onClick={() => updateNodeConfig(selectedNode.id, { depth })}
                           className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.depth === depth ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-300'}`}
                         >
-                          {depth.replace('_', ' ')}
+                          {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[depth] ?? depth.replace('_', ' ')}
                         </button>
                       ))}
                     </div>
@@ -740,21 +740,21 @@ export default function WorkflowBuilderPage() {
                   {selectedNode.data.subtype === 'draft_reply' && (
                     <div className="space-y-6">
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Tone</label>
+                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Tom</label>
                         {['formal', 'conciliatory', 'aggressive'].map(tone => (
                           <button
                             key={tone}
                             onClick={() => updateNodeConfig(selectedNode.id, { tone })}
                             className={`w-full text-left px-5 py-3 rounded-2xl border text-[10px] font-bold uppercase tracking-widest mb-2 transition-all ${selectedNode.data.config?.tone === tone ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-200'}`}
                           >
-                            {tone}
+                            {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[tone] ?? tone}
                           </button>
                         ))}
                       </div>
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Context/Purpose</label>
+                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Contexto/finalidade</label>
                         <textarea
-                          placeholder="e.g. Respond to a breach notice"
+                          placeholder="ex.: Responder a uma notificação de inadimplemento"
                           value={selectedNode.data.config?.purpose || ''}
                           className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner h-24 resize-none"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { purpose: e.target.value })}
@@ -770,7 +770,7 @@ export default function WorkflowBuilderPage() {
                       {IconMap[selectedNode.data.subtype as string]}
                     </div>
                     <div>
-                      <p className="text-[8px] font-bold uppercase tracking-widest text-foreground/40">System Node</p>
+                      <p className="text-[8px] font-bold uppercase tracking-widest text-foreground/40">Nó do sistema</p>
                       <p className="text-[10px] font-mono truncate max-w-[120px] text-foreground/20 italic">{selectedNode.id}</p>
                     </div>
                   </div>
@@ -786,13 +786,13 @@ export default function WorkflowBuilderPage() {
             ) : workflows.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <div className="w-20 h-20 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground/10 mb-6 font-bold text-4xl">📄</div>
-                <h2 className="text-2xl font-bold text-foreground mb-2">Library Empty</h2>
-                <p className="text-sm text-foreground/40 max-w-sm mb-10">You haven&apos;t saved any automation workflows yet. Create your first one on the canvas.</p>
+                <h2 className="text-2xl font-bold text-foreground mb-2">Biblioteca vazia</h2>
+                <p className="text-sm text-foreground/40 max-w-sm mb-10">Você ainda não salvou nenhum fluxo de automação. Crie o primeiro no canvas.</p>
                 <button
                   onClick={() => setActiveTab('canvas')}
                   className="px-8 py-4 rounded-[1.5rem] text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl transition btn-primary-gradient"
                 >
-                  Create Workflow
+                  Criar fluxo
                 </button>
               </div>
             ) : (
@@ -818,11 +818,11 @@ export default function WorkflowBuilderPage() {
                     </div>
                     <h4 className="font-bold text-foreground text-lg mb-2">{wf.name}</h4>
                     <div className="flex items-center gap-4 text-[10px] uppercase font-bold tracking-widest text-foreground/20">
-                      <span>{wf.nodes.length} Steps</span>
-                      <span>{wf.runCount} Runs</span>
+                      <span>{wf.nodes.length} etapas</span>
+                      <span>{wf.runCount} execuções</span>
                     </div>
                     <p className="mt-4 text-[10px] font-bold text-foreground/20 uppercase tracking-widest">
-                      Last update: {new Date(wf.updatedAt).toLocaleDateString()}
+                      Última atualização: {new Date(wf.updatedAt).toLocaleDateString('pt-BR')}
                     </p>
                   </div>
                 ))}
@@ -835,8 +835,8 @@ export default function WorkflowBuilderPage() {
       <UpgradeModal
         isOpen={showUpgradeModal}
         onClose={() => setShowUpgradeModal(false)}
-        title="Workflow Builder"
-        description="Craft custom legal automations and AI sequences with our advanced workflow engine. Upgrade to Pro for full access."
+        title="Criador de Fluxos"
+        description="Crie automações jurídicas personalizadas e sequências de IA com nosso motor de fluxos avançado. Faça upgrade para o Pro para ter acesso completo."
       />
 
       <style jsx global>{`

@@ -6,13 +6,13 @@ import { AuthHero } from '@/app/components/auth/AuthPageChrome';
 import { caseStudies, type CaseStudyRecord } from './caseStudiesData';
 
 const FILTERS: { id: string; name: string }[] = [
-  { id: 'all', name: 'All case studies' },
-  { id: 'contract-review', name: 'Contract review' },
+  { id: 'all', name: 'Todos os casos' },
+  { id: 'contract-review', name: 'Revisão de contratos' },
   { id: 'compliance', name: 'Compliance' },
-  { id: 'research', name: 'Legal research' },
+  { id: 'research', name: 'Pesquisa jurídica' },
   { id: 'due-diligence', name: 'Due diligence' },
-  { id: 'contract-management', name: 'Contract management' },
-  { id: 'transactions', name: 'Transactions' },
+  { id: 'contract-management', name: 'Gestão de contratos' },
+  { id: 'transactions', name: 'Transações' },
 ];
 
 function StudyCard({ study }: { study: CaseStudyRecord }) {
@@ -45,7 +45,7 @@ function StudyCard({ study }: { study: CaseStudyRecord }) {
           href={`/case-studies/${study.id}`}
           className="inline-flex items-center gap-2 text-[#111827] text-[0.9375rem] font-medium group/link"
         >
-          Read full case study
+          Ler o caso completo
           <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
@@ -75,19 +75,19 @@ export default function CaseStudiesExperience() {
   return (
     <div className="min-h-screen">
       <AuthHero
-        eyebrow="Outcomes"
-        title="Client success stories"
-        subtitle="Real teams using AIForLawyers to move faster on contracts, compliance, research, and deals."
+        eyebrow="Resultados"
+        title="Histórias de sucesso de clientes"
+        subtitle="Equipes reais usando o Pequi para agilizar contratos, compliance, pesquisas e operações."
       />
 
       <section className="bg-[#F5F5F4] border-b border-gray-200 py-12 md:py-16">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {[
-              { value: '500+', label: 'Success stories', sub: 'Teams with measurable outcomes' },
-              { value: '75%', label: 'Avg. time saved', sub: 'Less manual legal work' },
-              { value: '$50M+', label: 'Client savings', sub: 'Combined annual impact' },
-              { value: '98%', label: 'Satisfaction', sub: 'Would recommend AIForLawyers' },
+              { value: '500+', label: 'Histórias de sucesso', sub: 'Equipes com resultados mensuráveis' },
+              { value: '75%', label: 'Tempo médio economizado', sub: 'Menos trabalho jurídico manual' },
+              { value: 'US$ 50 mi+', label: 'Economia dos clientes', sub: 'Impacto anual combinado' },
+              { value: '98%', label: 'Satisfação', sub: 'Recomendariam o Pequi' },
             ].map((s) => (
               <div
                 key={s.label}
@@ -106,16 +106,16 @@ export default function CaseStudiesExperience() {
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <h2 className="text-[#111827] text-[1.5rem] md:text-[1.75rem] font-medium mb-2">Featured case studies</h2>
+              <h2 className="text-[#111827] text-[1.5rem] md:text-[1.75rem] font-medium mb-2">Casos em destaque</h2>
               <p className="text-[#636977] text-[1rem] max-w-xl leading-relaxed">
-                Filter by use case, then open a story for challenge, solution, and results in full.
+                Filtre por caso de uso e abra uma história para ver o desafio, a solução e os resultados completos.
               </p>
             </div>
             <Link
               href="/contact"
               className="inline-flex justify-center items-center rounded-[0.875rem] bg-[#111827] text-white px-6 py-3.5 text-[0.9375rem] font-medium transition-all hover:bg-[#0f172a] shrink-0"
             >
-              Share your story
+              Compartilhe sua história
             </Link>
           </div>
 
@@ -144,7 +144,7 @@ export default function CaseStudiesExperience() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-[#868589] py-16">No case studies in this category yet.</p>
+            <p className="text-center text-[#868589] py-16">Ainda não há casos nesta categoria.</p>
           )}
         </div>
       </section>

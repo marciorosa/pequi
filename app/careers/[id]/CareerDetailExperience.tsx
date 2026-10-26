@@ -73,7 +73,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
     } catch (err: unknown) {
       const rec = err as Record<string, unknown>;
       console.error('Career application submission error:', err);
-      setError(String(rec.message || 'Something went wrong. Please try again.'));
+      setError(String(rec.message || 'Algo deu errado. Tente novamente.'));
     } finally {
       setIsSubmitting(false);
     }
@@ -96,7 +96,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
       >
         <Image
           src="/landingpage/hero/hero-bgimg.png"
-          alt="Hero background"
+          alt="Imagem de fundo"
           fill
           priority
           className="object-cover object-top"
@@ -104,7 +104,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
         <div className="relative mx-auto w-full max-w-[1274px]">
           <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] text-[#525252]">
             <Link href="/careers" className="transition-colors hover:text-[#10101A]">
-              Careers
+              Carreiras
             </Link>
             <span aria-hidden>/</span>
             <span>{job.departmentLabel}</span>
@@ -143,30 +143,30 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
           <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
             <div className="space-y-10 lg:col-span-2">
               <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-4 text-xl font-medium text-[#10101A]">About this role</h2>
+                <h2 className="mb-4 text-xl font-medium text-[#10101A]">Sobre a vaga</h2>
                 <p className="text-[1rem] leading-[175%] text-[#525252]">{job.description}</p>
               </section>
 
               <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">What you will do</h2>
+                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que você vai fazer</h2>
                 <ul className="space-y-3">{job.responsibilities.map((r, i) => listItem(r, `resp-${i}`))}</ul>
               </section>
 
               <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">What we are looking for</h2>
-                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Required</h3>
+                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que procuramos</h2>
+                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Obrigatório</h3>
                 <ul className="mb-8 space-y-3">{job.requirements.map((r, i) => listItem(r, `req-${i}`))}</ul>
-                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Preferred</h3>
+                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Desejável</h3>
                 <ul className="space-y-3">{job.preferred.map((p, i) => listItem(p, `pref-${i}`))}</ul>
               </section>
 
               <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">What we offer</h2>
+                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que oferecemos</h2>
                 <ul className="grid gap-3 sm:grid-cols-2">{job.benefits.map((b, i) => listItem(b, `ben-${i}`))}</ul>
               </section>
 
               <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">Team & culture</h2>
+                <h2 className="mb-5 text-xl font-medium text-[#10101A]">Equipe e cultura</h2>
                 <p className="mb-4 leading-[175%] text-[#525252]">{job.team}</p>
                 <p className="leading-[175%] text-[#525252]">{job.culture}</p>
               </section>
@@ -174,34 +174,34 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
 
             <div className="space-y-6">
               <div className="landing-surface p-6 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-8 lg:sticky lg:top-28">
-                <h3 className="mb-6 text-lg font-medium text-[#10101A]">Apply</h3>
+                <h3 className="mb-6 text-lg font-medium text-[#10101A]">Candidate-se</h3>
 
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label htmlFor="firstName" className={labelClass}>First name *</label>
+                        <label htmlFor="firstName" className={labelClass}>Nome *</label>
                         <input id="firstName" type="text" name="firstName" required value={applicationData.firstName} onChange={handleInputChange} className={inputClass} />
                       </div>
                       <div>
-                        <label htmlFor="lastName" className={labelClass}>Last name *</label>
+                        <label htmlFor="lastName" className={labelClass}>Sobrenome *</label>
                         <input id="lastName" type="text" name="lastName" required value={applicationData.lastName} onChange={handleInputChange} className={inputClass} />
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="email" className={labelClass}>Email *</label>
+                      <label htmlFor="email" className={labelClass}>E-mail *</label>
                       <input id="email" type="email" name="email" required value={applicationData.email} onChange={handleInputChange} className={inputClass} />
                     </div>
                     <div>
-                      <label htmlFor="phone" className={labelClass}>Phone</label>
+                      <label htmlFor="phone" className={labelClass}>Telefone</label>
                       <input id="phone" type="tel" name="phone" value={applicationData.phone} onChange={handleInputChange} className={inputClass} />
                     </div>
                     <div>
-                      <label htmlFor="location" className={labelClass}>Location</label>
+                      <label htmlFor="location" className={labelClass}>Localização</label>
                       <input id="location" type="text" name="location" value={applicationData.location} onChange={handleInputChange} className={inputClass} />
                     </div>
                     <div>
-                      <label htmlFor="resume" className={labelClass}>Resume * (PDF, DOC)</label>
+                      <label htmlFor="resume" className={labelClass}>Currículo * (PDF, DOC)</label>
                       <input id="resume" type="file" name="resume" required accept=".pdf,.doc,.docx" onChange={handleFileChange} className={`${inputClass} file:mr-3 file:rounded-lg file:border-0 file:bg-white file:px-3 file:py-1.5 file:text-sm file:font-medium`} />
                     </div>
                     <div>
@@ -209,12 +209,12 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                       <input id="linkedIn" type="url" name="linkedIn" value={applicationData.linkedIn} onChange={handleInputChange} className={inputClass} placeholder="https://" />
                     </div>
                     <div>
-                      <label htmlFor="portfolio" className={labelClass}>Portfolio</label>
+                      <label htmlFor="portfolio" className={labelClass}>Portfólio</label>
                       <input id="portfolio" type="url" name="portfolio" value={applicationData.portfolio} onChange={handleInputChange} className={inputClass} />
                     </div>
                     <div>
-                      <label htmlFor="coverLetter" className={labelClass}>Cover letter</label>
-                      <textarea id="coverLetter" name="coverLetter" rows={4} value={applicationData.coverLetter} onChange={handleInputChange} className={`${inputClass} min-h-[100px] resize-none`} placeholder="Why this role?" />
+                      <label htmlFor="coverLetter" className={labelClass}>Carta de apresentação</label>
+                      <textarea id="coverLetter" name="coverLetter" rows={4} value={applicationData.coverLetter} onChange={handleInputChange} className={`${inputClass} min-h-[100px] resize-none`} placeholder="Por que esta vaga?" />
                     </div>
 
                     {error && <div className="rounded-[0.875rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>}
@@ -224,7 +224,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                       disabled={isSubmitting}
                       className="landing-primary-btn flex w-full items-center justify-center py-3.5 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Submit application'}
+                      {isSubmitting ? 'Enviando...' : 'Enviar candidatura'}
                     </button>
                   </form>
                 ) : (
@@ -234,41 +234,41 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h4 className="mb-2 text-lg font-medium text-[#10101A]">Application received</h4>
+                    <h4 className="mb-2 text-lg font-medium text-[#10101A]">Candidatura recebida</h4>
                     <p className="mb-6 text-sm leading-relaxed text-[#525252]">
-                      Thanks for applying to <strong className="text-[#10101A]">{job.title}</strong>. We will review and follow up if there is a fit.
+                      Obrigado por se candidatar à vaga de <strong className="text-[#10101A]">{job.title}</strong>. Vamos analisar seu perfil e entraremos em contato se houver compatibilidade.
                     </p>
                     <button type="button" onClick={() => { setIsSubmitted(false); setError(''); }} className="text-[0.875rem] font-medium text-[#10101A] underline underline-offset-2">
-                      Submit another application
+                      Enviar outra candidatura
                     </button>
                   </div>
                 )}
               </div>
 
               <div className="landing-surface p-6 md:p-8">
-                <h3 className="mb-4 font-medium text-[#10101A]">Job details</h3>
+                <h3 className="mb-4 font-medium text-[#10101A]">Detalhes da vaga</h3>
                 <dl className="space-y-3 text-[0.9375rem]">
                   <div>
-                    <dt className="text-[#525252]">Department</dt>
+                    <dt className="text-[#525252]">Departamento</dt>
                     <dd className="font-medium text-[#10101A]">{job.departmentLabel}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">Experience</dt>
+                    <dt className="text-[#525252]">Experiência</dt>
                     <dd className="font-medium text-[#10101A]">{job.experience}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">Posted</dt>
-                    <dd className="font-medium text-[#10101A]">{new Date(job.posted).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</dd>
+                    <dt className="text-[#525252]">Publicada em</dt>
+                    <dd className="font-medium text-[#10101A]">{new Date(job.posted).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">Job ID</dt>
+                    <dt className="text-[#525252]">ID da vaga</dt>
                     <dd className="font-medium text-[#10101A]">MLA-{jobId}</dd>
                   </div>
                 </dl>
               </div>
 
               <Link href="/careers" className="landing-secondary-btn flex w-full items-center justify-center border-[#e7e5e1] bg-[#f1f0ee] text-[#10101A] transition hover:bg-[#eceae7]">
-                View all careers
+                Ver todas as vagas
               </Link>
             </div>
           </div>

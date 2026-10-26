@@ -10,33 +10,33 @@ export default function PricingPage() {
 
   const faqs = [
     {
-      question: "What's included in the free plan?",
-      answer: "The Free plan gives you access to 5 AI Intelligence searches, 5 Chat queries, and access to 5 basic AI Legal Personas so you can test the waters."
+      question: "O que está incluído no plano gratuito?",
+      answer: "O plano Gratuito dá acesso a 5 pesquisas de Inteligência com IA, 5 consultas no Chat e 5 Personas Jurídicas de IA básicas para você experimentar a plataforma."
     },
     {
-      question: "Can I change plans at any time?",
-      answer: "Yes, you can upgrade to Pro at any time. Changes take effect immediately."
+      question: "Posso mudar de plano a qualquer momento?",
+      answer: "Sim, você pode fazer upgrade para o Pro a qualquer momento. As alterações entram em vigor imediatamente."
     },
     {
-      question: "Is my data secure?",
-      answer: "Absolutely. We use enterprise-grade encryption and secure AWS S3 Vaults to ensure your documents remain private."
+      question: "Meus dados estão seguros?",
+      answer: "Com certeza. Usamos criptografia de nível corporativo e cofres seguros no AWS S3 para garantir que seus documentos permaneçam privados."
     },
     {
-      question: "How do the credits work on the Pro Plan?",
-      answer: "The Pro Plan gives you generous monthly limits (50 searches, 50 chats, 50 document ops, etc.). These limits reset automatically at the beginning of your next billing cycle."
+      question: "Como funcionam os créditos do plano Pro?",
+      answer: "O plano Pro oferece limites mensais generosos (50 pesquisas, 50 chats, 50 operações com documentos etc.). Esses limites são renovados automaticamente no início do próximo ciclo de cobrança."
     },
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards processed securely via Stripe."
+      question: "Quais formas de pagamento vocês aceitam?",
+      answer: "Aceitamos os principais cartões de crédito, processados com segurança pela Stripe."
     },
     {
-      question: "Can I cancel my subscription at any time?",
-      answer: "Yes, you can cancel your subscription from your dashboard at any time. You'll continue to have access until the end of your current billing period."
+      question: "Posso cancelar minha assinatura a qualquer momento?",
+      answer: "Sim, você pode cancelar sua assinatura pelo painel a qualquer momento. Você continuará com acesso até o fim do período de cobrança atual."
     }
   ];
 
   const getPrice = (plan: typeof pricingPlans[0]) => {
-    if (plan.monthlyPrice === null) return "Custom";
+    if (plan.monthlyPrice === null) return "Sob consulta";
     const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
     return `$${price?.toLocaleString()}`;
   };
@@ -56,7 +56,7 @@ export default function PricingPage() {
         {/* Real Background Image like News Page */}
         <Image
           src="/landingpage/hero/hero-bgimg.png"
-          alt="Hero background"
+          alt="Imagem de fundo"
           fill
           priority
           className="z-0 object-cover object-top"
@@ -78,14 +78,14 @@ export default function PricingPage() {
         <div className="container mx-auto max-w-7xl relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
             <div className="w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40">Tier Selection Terminal</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40">Seleção de planos</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Strategic <span className="font-light opacity-60 italic">Investment.</span>
+            Investimento <span className="font-light opacity-60 italic">estratégico.</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            Standardizing legal intelligence. Choose the scale that fits your operational density.
+            Inteligência jurídica padronizada. Escolha a escala ideal para o volume da sua operação.
           </p>
 
           {/* Billing Toggle */}
@@ -98,7 +98,7 @@ export default function PricingPage() {
                   : 'text-foreground/40 hover:text-foreground'
                   }`}
               >
-                Monthly
+                Mensal
               </button>
               <button
                 onClick={() => setBillingPeriod('annual')}
@@ -107,9 +107,9 @@ export default function PricingPage() {
                   : 'text-foreground/40 hover:text-foreground'
                   }`}
               >
-                Annual
+                Anual
                 <span className={`ml-2 text-[9px] px-2 py-0.5 rounded-full ${billingPeriod === 'annual' ? 'bg-white/20 text-white' : 'bg-black/5 text-black'}`}>
-                  SAVE 17%
+                  ECONOMIZE 17%
                 </span>
               </button>
             </div>
@@ -132,7 +132,7 @@ export default function PricingPage() {
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <span className="btn-primary-gradient px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full shadow-xl">
-                      Production Standard
+                      Mais popular
                     </span>
                   </div>
                 )}
@@ -151,13 +151,13 @@ export default function PricingPage() {
                       <span className="text-5xl font-medium tracking-tight">{getPrice(plan)}</span>
                       {plan.monthlyPrice !== null && (
                         <span className="text-sm font-bold text-foreground/20 uppercase tracking-widest whitespace-nowrap">
-                          {billingPeriod === 'monthly' ? '/ Monthly' : '/ Yearly'}
+                          {billingPeriod === 'monthly' ? '/ mês' : '/ ano'}
                         </span>
                       )}
                     </div>
                     {billingPeriod === 'annual' && getSavings(plan) && (
                       <div className="inline-block text-[9px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-md">
-                        Efficiency Gain: {getSavings(plan)}%
+                        Economia de {getSavings(plan)}%
                       </div>
                     )}
                   </div>
@@ -197,11 +197,11 @@ export default function PricingPage() {
           <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-8">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 leading-none mt-0.5">Technical Specs</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 leading-none mt-0.5">Especificações técnicas</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare <span className="font-light opacity-60 italic">Matrix.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="font-light opacity-60 italic">planos.</span></h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
-                Detailed capacity mapping for forensic legal operations.
+                Capacidades detalhadas de cada plano para operações jurídicas.
               </p>
             </div>
           </div>
@@ -211,21 +211,21 @@ export default function PricingPage() {
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-gray-50/50">
-                    <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30 w-1/4">System Capability</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30">Protocol.I (Free)</th>
+                    <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30 w-1/4">Recurso</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30">Protocol.I (Gratuito)</th>
                     <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30">Protocol.X (Pro)</th>
                     <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30 bg-black/5 text-black">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#e7e5e1]">
                   {[
-                    { feature: 'Intelligence Search', starter: '5 queries', pro: '50 queries', enterprise: 'Unlimited' },
-                    { feature: 'AI Legal Chat', starter: '5 messages', pro: '50 messages', enterprise: 'Unlimited' },
-                    { feature: 'AI Lawyers Access', starter: '5 Personas', pro: 'All 50 Personas', enterprise: 'Custom Core' },
-                    { feature: 'Document Operations', starter: '✗', pro: '50 Ops', enterprise: 'Unlimited' },
-                    { feature: 'Vault Folders', starter: '✗', pro: '50 Folders', enterprise: 'Unlimited' },
-                    { feature: 'Vault Storage', starter: '✗', pro: '500 MB', enterprise: 'TB Scale' },
-                    { feature: 'Workflow Builder', starter: '✗', pro: '5 Workflows', enterprise: 'Unlimited' },
+                    { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
+                    { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
+                    { feature: 'Acesso aos Advogados de IA', starter: '5 personas', pro: 'Todas as 50 personas', enterprise: 'Núcleo personalizado' },
+                    { feature: 'Operações com documentos', starter: '✗', pro: '50 operações', enterprise: 'Ilimitado' },
+                    { feature: 'Pastas no Cofre', starter: '✗', pro: '50 pastas', enterprise: 'Ilimitado' },
+                    { feature: 'Armazenamento no Cofre', starter: '✗', pro: '500 MB', enterprise: 'Escala de TB' },
+                    { feature: 'Criador de Fluxos', starter: '✗', pro: '5 fluxos', enterprise: 'Ilimitado' },
                   ].map((row, index) => (
                     <tr key={index} className="hover:bg-gray-50/50 transition-colors group">
                       <td className="py-7 px-10 font-bold text-[13px] uppercase tracking-widest text-[#10101A]">{row.feature}</td>
@@ -245,9 +245,9 @@ export default function PricingPage() {
       <section className="py-32 px-6 landing-gilroy bg-background">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Access <span className="font-light opacity-60 italic">Intelligence.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="font-light opacity-60 italic">frequentes.</span></h2>
             <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
-              Deployment protocols and operational questions simplified.
+              Respostas simples sobre implantação e operação.
             </p>
           </div>
 
@@ -270,17 +270,17 @@ export default function PricingPage() {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
-            Scale Your <span className="font-light opacity-60 italic">Intelligence.</span>
+            Amplie sua <span className="font-light opacity-60 italic">inteligência.</span>
           </h2>
           <p className="text-foreground/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
-            Standardize your legal protocols with AiForLawyers today. No credit card required to start.
+            Padronize seus processos jurídicos com o Pequi hoje mesmo. Não é preciso cartão de crédito para começar.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5 shadow-2xl">
-              Initiate Free Trial
+              Iniciar teste grátis
             </Link>
             <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-[#e7e5e1]">
-              Schedule Forensic Demo
+              Agendar demonstração
             </Link>
           </div>
         </div>

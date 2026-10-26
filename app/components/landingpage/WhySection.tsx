@@ -8,10 +8,10 @@ export default function WhySection() {
       <section id="why" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="landing-surface p-6 md:p-10 lg:p-12">
-          <h3 className={sectionHeadingClass}>Powering the Future of Legal Work</h3>
+          <h3 className={sectionHeadingClass}>Impulsionando o futuro do trabalho jurídico</h3>
           <p className="mt-5 mx-auto w-full max-w-[46rem] text-[#636977] text-center text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] font-normal leading-[160%]">
-            A unified platform designed to simplify complex legal operations, enhance decision-making, and bring speed
-            to every workflow.
+            Uma plataforma unificada criada para simplificar operações jurídicas complexas, aprimorar a tomada de decisões e dar agilidade
+            a cada fluxo de trabalho.
           </p>
 
           <div className="mt-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-6 items-stretch">
@@ -19,7 +19,7 @@ export default function WhySection() {
               <div className="relative rounded-[1.25rem] min-h-[320px] md:min-h-[470px] overflow-hidden">
                 <Image
                   src="/landingpage/futureoflegal/img-left.png"
-                  alt="Powering the future of legal work"
+                  alt="Impulsionando o futuro do trabalho jurídico"
                   fill
                   className="object-cover"
                   priority
@@ -29,23 +29,23 @@ export default function WhySection() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
               <div className="landing-card p-5 md:p-6">
-                <h4 className="text-[#10101A] text-[1.25rem] md:text-[1.35rem] font-medium leading-[1.35]">Smart Legal Infrastructure</h4>
+                <h4 className="text-[#10101A] text-[1.25rem] md:text-[1.35rem] font-medium leading-[1.35]">Infraestrutura jurídica inteligente</h4>
                 <ul className="mt-4 space-y-2.5 text-[#636977] text-[1rem] leading-[1.55rem]">
-                  <li>All-in-one legal platform</li>
-                  <li>Easy case management</li>
-                  <li>Built to scale</li>
-                  <li>Centralized compliance controls</li>
-                  <li>Secure team collaboration</li>
+                  <li>Plataforma jurídica completa</li>
+                  <li>Gestão de casos simplificada</li>
+                  <li>Feita para escalar</li>
+                  <li>Controles de compliance centralizados</li>
+                  <li>Colaboração segura entre equipes</li>
                 </ul>
               </div>
               <div className="landing-card p-5 md:p-6">
-                <h4 className="text-[#10101A] text-[1.25rem] md:text-[1.35rem] font-medium leading-[1.35]">Intelligent Automation</h4>
+                <h4 className="text-[#10101A] text-[1.25rem] md:text-[1.35rem] font-medium leading-[1.35]">Automação inteligente</h4>
                 <ul className="mt-4 space-y-2.5 text-[#636977] text-[1rem] leading-[1.55rem]">
-                  <li>Automate routine tasks</li>
-                  <li>AI-powered insights</li>
-                  <li>Less manual work</li>
-                  <li>Smart document extraction</li>
-                  <li>Automated approval flows</li>
+                  <li>Automatize tarefas rotineiras</li>
+                  <li>Insights gerados por IA</li>
+                  <li>Menos trabalho manual</li>
+                  <li>Extração inteligente de documentos</li>
+                  <li>Fluxos de aprovação automatizados</li>
                 </ul>
               </div>
             </div>
@@ -54,24 +54,24 @@ export default function WhySection() {
           <div className="landing-card mt-6 p-6 md:p-10 lg:p-[48px]">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div>
-                <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">10x Faster</p>
-                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Workflows</p>
-                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Accelerate research and document handling</p>
+                <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">10x mais rápido</p>
+                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Fluxos de trabalho</p>
+                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Acelere pesquisas e o tratamento de documentos</p>
               </div>
               <div>
                 <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">24/7</p>
-                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">AI Support</p>
-                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Continuous assistance whenever you need it</p>
+                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Suporte de IA</p>
+                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Assistência contínua sempre que você precisar</p>
               </div>
               <div>
                 <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">50K+</p>
-                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Cases Managed</p>
-                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Handled efficiently across teams</p>
+                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Casos gerenciados</p>
+                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Conduzidos com eficiência entre equipes</p>
               </div>
               <div>
-                <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">Trusted</p>
-                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">By Professionals</p>
-                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Used by modern legal teams worldwide</p>
+                <p className="text-[#111827] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">Confiança</p>
+                <p className="text-[#636977] text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">De profissionais</p>
+                <p className="mt-2 w-full max-w-[170px] text-[#636977] text-[1rem] font-normal leading-[1.28225rem]">Usada por equipes jurídicas modernas no mundo todo</p>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ export default function AssistantChat() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello, I\'m your personal AI legal assistant. How can I assist you today?',
+      content: 'Olá, sou seu assistente jurídico pessoal com IA. Como posso ajudar você hoje?',
       timestamp: new Date(),
     },
   ]);
@@ -55,7 +55,7 @@ export default function AssistantChat() {
         const authMessage: Message = {
           id: (Date.now() + 1).toString(),
           role: 'assistant',
-          content: 'Please login or sign up to chat with your legal assistant.',
+          content: 'Faça login ou cadastre-se para conversar com seu assistente jurídico.',
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, authMessage]);
@@ -84,7 +84,7 @@ export default function AssistantChat() {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: 'I apologize, but I encountered an error while processing your request. Please try again.',
+        content: 'Desculpe, ocorreu um erro ao processar sua solicitação. Tente novamente.',
         timestamp: new Date(),
       };
 
@@ -99,9 +99,9 @@ export default function AssistantChat() {
       {/* Chat header */}
       <div className="flex items-center justify-between border-b border-[#e7e7ea] px-6 py-5 md:px-8 md:py-6">
         <div>
-          <h3 className="text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">AIForLawyers Assistant</h3>
+          <h3 className="text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Assistente Pequi</h3>
           <p className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
-            Expert counsel AI
+            IA de consultoria especializada
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export default function AssistantChat() {
                 className={`mt-3 text-[0.625rem] font-medium uppercase tracking-[0.12em] ${message.role === 'user' ? 'text-white/45' : 'text-[#525252]'
                   }`}
               >
-                {message.timestamp.toLocaleTimeString([], {
+                {message.timestamp.toLocaleTimeString('pt-BR', {
                   hour: '2-digit',
                   minute: '2-digit',
                 })}
@@ -162,7 +162,7 @@ export default function AssistantChat() {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your legal request..."
+            placeholder="Digite sua solicitação jurídica..."
             className="flex-1 rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] p-4 text-[0.9375rem] text-[#10101A] transition-all placeholder:text-[#525252] focus:border-[#d4d2ce] focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
             disabled={isLoading}
           />
@@ -178,7 +178,7 @@ export default function AssistantChat() {
           </button>
         </div>
         <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
-          Powered by AIForLawyers intelligence
+          Com a inteligência do Pequi
         </p>
       </form>
     </div>

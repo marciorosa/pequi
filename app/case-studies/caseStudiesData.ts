@@ -30,166 +30,166 @@ export type CaseStudyRecord = {
 export const caseStudies: CaseStudyRecord[] = [
   {
     id: 1,
-    title: 'Global law firm reduces contract review time by 75%',
+    title: 'Escritório global reduz em 75% o tempo de revisão de contratos',
     client: 'Baker McKenzie',
-    industry: 'Legal services',
+    industry: 'Serviços jurídicos',
     category: 'contract-review',
     excerpt:
-      "How one of the world's largest law firms transformed their contract review process using AI-powered analysis.",
+      "Como um dos maiores escritórios de advocacia do mundo transformou seu processo de revisão de contratos com análise baseada em IA.",
     accent: 'from-[#1e293b] via-[#0f172a] to-[#020617]',
     metrics: [
-      { label: 'Time saved', value: '75%', description: 'Reduction in contract review time' },
-      { label: 'Accuracy', value: '95%', description: 'Consistent accuracy across reviews' },
-      { label: 'Cost reduction', value: '$2.3M', description: 'Annual savings in review costs' },
+      { label: 'Tempo economizado', value: '75%', description: 'Redução no tempo de revisão de contratos' },
+      { label: 'Precisão', value: '95%', description: 'Precisão consistente em todas as revisões' },
+      { label: 'Redução de custos', value: 'US$ 2,3 mi', description: 'Economia anual em custos de revisão' },
     ],
     challenge:
-      'Manual contract review processes were taking 40+ hours per complex agreement, creating bottlenecks and increasing costs for clients.',
+      'Os processos manuais de revisão levavam mais de 40 horas por contrato complexo, criando gargalos e aumentando os custos para os clientes.',
     solution:
-      "Implemented AIForLawyers's contract analysis tool with custom workflows for different contract types and automated risk flagging.",
+      "Implementou a ferramenta de análise de contratos do Pequi com fluxos personalizados para diferentes tipos de contrato e sinalização automática de riscos.",
     results:
-      'Achieved 75% reduction in review time while maintaining higher accuracy rates and improving client satisfaction scores.',
+      'Alcançou redução de 75% no tempo de revisão, mantendo taxas de precisão mais altas e melhorando os índices de satisfação dos clientes.',
     testimonial: {
       quote:
-        'AIForLawyers has revolutionized our contract review process. What used to take weeks now takes days, and our accuracy has never been better.',
+        'O Pequi revolucionou nosso processo de revisão de contratos. O que levava semanas agora leva dias, e nossa precisão nunca foi tão boa.',
       author: 'Sarah Johnson',
-      position: 'Managing Partner',
+      position: 'Sócia-diretora',
       company: 'Baker McKenzie',
     },
   },
   {
     id: 2,
-    title: 'Corporate legal department streamlines compliance monitoring',
-    client: 'Fortune 500 technology company',
-    industry: 'Technology',
+    title: 'Departamento jurídico corporativo simplifica o monitoramento de compliance',
+    client: 'Empresa de tecnologia da Fortune 500',
+    industry: 'Tecnologia',
     category: 'compliance',
-    excerpt: 'How a major tech company automated regulatory compliance tracking across 15 jurisdictions.',
+    excerpt: 'Como uma grande empresa de tecnologia automatizou o acompanhamento de conformidade regulatória em 15 jurisdições.',
     accent: 'from-[#312e81] via-[#1e1b4b] to-[#0f172a]',
     metrics: [
-      { label: 'Compliance alerts', value: '100%', description: 'Automated regulatory change notifications' },
-      { label: 'Risk reduction', value: '85%', description: 'Decrease in compliance violations' },
-      { label: 'Team efficiency', value: '3x', description: 'Increase in team productivity' },
+      { label: 'Alertas de compliance', value: '100%', description: 'Notificações automáticas de mudanças regulatórias' },
+      { label: 'Redução de riscos', value: '85%', description: 'Queda nas violações de compliance' },
+      { label: 'Eficiência da equipe', value: '3x', description: 'Aumento na produtividade da equipe' },
     ],
     challenge:
-      'Tracking regulatory changes across multiple jurisdictions was manual, time-consuming, and prone to oversight errors.',
+      'Acompanhar mudanças regulatórias em várias jurisdições era um trabalho manual, demorado e sujeito a falhas.',
     solution:
-      "Deployed AIForLawyers's compliance monitoring system with real-time regulatory tracking and automated alert systems.",
+      "Implantou o sistema de monitoramento de compliance do Pequi, com acompanhamento regulatório em tempo real e alertas automáticos.",
     results:
-      'Eliminated manual compliance tracking, reduced violations by 85%, and freed the legal team to focus on strategic initiatives.',
+      'Eliminou o acompanhamento manual de compliance, reduziu as violações em 85% e liberou a equipe jurídica para iniciativas estratégicas.',
     testimonial: {
       quote:
-        'The compliance monitoring capabilities have been game-changing. We now proactively address regulatory changes instead of reacting to them.',
+        'Os recursos de monitoramento de compliance mudaram o jogo. Agora tratamos as mudanças regulatórias de forma proativa, em vez de apenas reagir a elas.',
       author: 'Michael Chen',
-      position: 'General Counsel',
-      company: 'Fortune 500 Technology Company',
+      position: 'Diretor Jurídico',
+      company: 'Empresa de Tecnologia da Fortune 500',
     },
   },
   {
     id: 3,
-    title: 'Mid-size firm increases research efficiency by 400%',
+    title: 'Escritório de médio porte aumenta em 400% a eficiência das pesquisas',
     client: 'Johnson & Associates',
-    industry: 'Legal services',
+    industry: 'Serviços jurídicos',
     category: 'research',
-    excerpt: 'A 50-lawyer firm transformed their legal research process and dramatically improved case outcomes.',
+    excerpt: 'Um escritório com 50 advogados transformou seu processo de pesquisa jurídica e melhorou drasticamente os resultados dos casos.',
     accent: 'from-[#14532d] via-[#052e16] to-[#020617]',
     metrics: [
-      { label: 'Research speed', value: '400%', description: 'Faster research completion' },
-      { label: 'Case wins', value: '35%', description: 'Increase in favorable outcomes' },
-      { label: 'Billable hours', value: '250h', description: 'Additional monthly billable hours' },
+      { label: 'Velocidade de pesquisa', value: '400%', description: 'Pesquisas concluídas mais rapidamente' },
+      { label: 'Casos ganhos', value: '35%', description: 'Aumento de resultados favoráveis' },
+      { label: 'Horas faturáveis', value: '250h', description: 'Horas faturáveis adicionais por mês' },
     ],
     challenge:
-      'Associates were spending 60% of their time on research, limiting capacity for higher-value work and client interaction.',
+      'Os associados gastavam 60% do tempo com pesquisa, limitando a capacidade para trabalhos de maior valor e o contato com os clientes.',
     solution:
-      "Integrated AIForLawyers's knowledge platform with the firm's existing research workflows and trained the team on advanced search techniques.",
+      "Integrou a plataforma de conhecimento do Pequi aos fluxos de pesquisa já existentes no escritório e capacitou a equipe em técnicas avançadas de busca.",
     results:
-      'Research tasks that previously took 8–10 hours now take about 2 hours, allowing lawyers to take on more cases and improve client service.',
+      'Pesquisas que antes levavam de 8 a 10 horas agora levam cerca de 2 horas, permitindo que os advogados assumam mais casos e melhorem o atendimento aos clientes.',
     testimonial: {
       quote:
-        'Our associates now complete research in hours that used to take days. The quality of insights we can provide clients has improved dramatically.',
+        'Nossos associados agora concluem em horas pesquisas que levavam dias. A qualidade dos insights que oferecemos aos clientes melhorou drasticamente.',
       author: 'Elena Rodriguez',
-      position: 'Senior Partner',
+      position: 'Sócia sênior',
       company: 'Johnson & Associates',
     },
   },
   {
     id: 4,
-    title: 'Investment bank automates M&A due diligence',
-    client: 'Global investment bank',
-    industry: 'Financial services',
+    title: 'Banco de investimento automatiza due diligence de M&A',
+    client: 'Banco de investimento global',
+    industry: 'Serviços financeiros',
     category: 'due-diligence',
-    excerpt: 'How a major investment bank reduced M&A due diligence timelines from months to weeks.',
+    excerpt: 'Como um grande banco de investimento reduziu os prazos de due diligence de M&A de meses para semanas.',
     accent: 'from-[#713f12] via-[#422006] to-[#0c0a09]',
     metrics: [
-      { label: 'Timeline reduction', value: '60%', description: 'Faster due diligence completion' },
-      { label: 'Document analysis', value: '10,000+', description: 'Documents processed per deal' },
-      { label: 'Deal velocity', value: '2x', description: 'Increase in deals completed' },
+      { label: 'Redução de prazo', value: '60%', description: 'Due diligence concluída mais rapidamente' },
+      { label: 'Análise de documentos', value: '10.000+', description: 'Documentos processados por operação' },
+      { label: 'Velocidade das operações', value: '2x', description: 'Aumento de operações concluídas' },
     ],
     challenge:
-      "Traditional due diligence processes were taking 3–4 months per deal, limiting the bank's ability to compete in fast-moving markets.",
+      "Os processos tradicionais de due diligence levavam de 3 a 4 meses por operação, limitando a capacidade do banco de competir em mercados dinâmicos.",
     solution:
-      "Implemented AIForLawyers's document analysis suite with custom M&A workflows and automated risk flagging for financial documents.",
+      "Implementou o pacote de análise de documentos do Pequi com fluxos personalizados de M&A e sinalização automática de riscos em documentos financeiros.",
     results:
-      'Reduced due diligence timelines to 4–6 weeks while improving accuracy and enabling the bank to pursue more opportunities.',
+      'Reduziu os prazos de due diligence para 4 a 6 semanas, melhorando a precisão e permitindo que o banco buscasse mais oportunidades.',
     testimonial: {
       quote:
-        "AIForLawyers's due diligence capabilities have given us a significant competitive advantage. We can move faster while maintaining our rigorous standards.",
+        "Os recursos de due diligence do Pequi nos deram uma vantagem competitiva significativa. Conseguimos agir mais rápido mantendo nossos padrões rigorosos.",
       author: 'David Wilson',
-      position: 'Managing Director',
-      company: 'Global Investment Bank',
+      position: 'Diretor-geral',
+      company: 'Banco de Investimento Global',
     },
   },
   {
     id: 5,
-    title: 'Healthcare system streamlines contract management',
-    client: 'National healthcare network',
-    industry: 'Healthcare',
+    title: 'Rede de saúde simplifica a gestão de contratos',
+    client: 'Rede nacional de saúde',
+    industry: 'Saúde',
     category: 'contract-management',
     excerpt:
-      'A healthcare network with 200+ facilities automated vendor contract management and compliance tracking.',
+      'Uma rede de saúde com mais de 200 unidades automatizou a gestão de contratos com fornecedores e o acompanhamento de compliance.',
     accent: 'from-[#0c4a6e] via-[#082f49] to-[#020617]',
     metrics: [
-      { label: 'Contract processing', value: '90%', description: 'Faster contract execution' },
-      { label: 'Compliance rate', value: '99.8%', description: 'Vendor compliance tracking' },
-      { label: 'Cost savings', value: '$5.2M', description: 'Annual procurement savings' },
+      { label: 'Processamento de contratos', value: '90%', description: 'Formalização de contratos mais rápida' },
+      { label: 'Taxa de conformidade', value: '99,8%', description: 'Acompanhamento da conformidade de fornecedores' },
+      { label: 'Economia de custos', value: 'US$ 5,2 mi', description: 'Economia anual em compras' },
     ],
     challenge:
-      'Managing thousands of vendor contracts across multiple facilities with varying compliance requirements was overwhelming the legal team.',
+      'Gerenciar milhares de contratos com fornecedores em várias unidades, com diferentes exigências de compliance, sobrecarregava a equipe jurídica.',
     solution:
-      "Deployed AIForLawyers's contract management platform with automated compliance tracking and vendor performance monitoring.",
+      "Implantou a plataforma de gestão de contratos do Pequi com acompanhamento automático de compliance e monitoramento do desempenho de fornecedores.",
     results:
-      'Streamlined contract processes, improved vendor compliance, and identified significant cost savings opportunities.',
+      'Simplificou os processos contratuais, melhorou a conformidade dos fornecedores e identificou oportunidades significativas de economia.',
     testimonial: {
       quote:
-        'The contract management automation has transformed how we work with vendors. We are more efficient and compliant than ever before.',
+        'A automação da gestão de contratos transformou a forma como trabalhamos com fornecedores. Estamos mais eficientes e em conformidade do que nunca.',
       author: 'Jennifer Park',
-      position: 'Chief Legal Officer',
-      company: 'National Healthcare Network',
+      position: 'Diretora Jurídica',
+      company: 'Rede Nacional de Saúde',
     },
   },
   {
     id: 6,
-    title: 'Real estate firm accelerates transaction closings',
+    title: 'Empresa do setor imobiliário acelera o fechamento de transações',
     client: 'Metropolitan Real Estate Group',
-    industry: 'Real estate',
+    industry: 'Imobiliário',
     category: 'transactions',
     excerpt:
-      'A commercial real estate firm reduced transaction closing times while improving accuracy and client satisfaction.',
+      'Uma empresa de imóveis comerciais reduziu o tempo de fechamento das transações, melhorando a precisão e a satisfação dos clientes.',
     accent: 'from-[#4c1d95] via-[#2e1065] to-[#0f172a]',
     metrics: [
-      { label: 'Closing speed', value: '50%', description: 'Faster transaction closings' },
-      { label: 'Document accuracy', value: '99.5%', description: 'Error-free closing documents' },
-      { label: 'Client satisfaction', value: '96%', description: 'Client satisfaction score' },
+      { label: 'Velocidade de fechamento', value: '50%', description: 'Fechamento de transações mais rápido' },
+      { label: 'Precisão documental', value: '99,5%', description: 'Documentos de fechamento sem erros' },
+      { label: 'Satisfação dos clientes', value: '96%', description: 'Índice de satisfação dos clientes' },
     ],
     challenge:
-      'Complex real estate transactions involved extensive document review and coordination, often leading to delays and client frustration.',
+      'Transações imobiliárias complexas envolviam ampla revisão documental e coordenação, o que frequentemente gerava atrasos e frustração dos clientes.',
     solution:
-      "Integrated AIForLawyers's transaction management tools with automated document generation and compliance checking.",
+      "Integrou as ferramentas de gestão de transações do Pequi com geração automática de documentos e verificação de compliance.",
     results:
-      'Reduced average closing time from 45 to 22 days while eliminating document errors and improving client experience.',
+      'Reduziu o tempo médio de fechamento de 45 para 22 dias, eliminando erros nos documentos e melhorando a experiência do cliente.',
     testimonial: {
       quote:
-        'Our clients are amazed at how quickly we can close transactions now. The accuracy and speed have set us apart from competitors.',
+        'Nossos clientes ficam impressionados com a rapidez com que fechamos transações agora. A precisão e a agilidade nos diferenciaram da concorrência.',
       author: 'Thomas Anderson',
-      position: 'Managing Partner',
+      position: 'Sócia-diretora',
       company: 'Metropolitan Real Estate Group',
     },
   },

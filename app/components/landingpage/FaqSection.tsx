@@ -10,20 +10,20 @@ export default function FaqSection() {
         <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16 lg:items-start">
             <div className="lg:sticky lg:top-28">
-              <h3 className={`${sectionHeadingClass} max-w-none text-left lg:text-left`}>Frequently Asked Questions</h3>
+              <h3 className={`${sectionHeadingClass} max-w-none text-left lg:text-left`}>Perguntas frequentes</h3>
               <p className={`${sectionSubTextClass} mt-4 max-w-none text-left lg:mx-0 lg:text-left`}>
-                Find quick answers about security, onboarding, and how the platform supports your legal operations.
+                Encontre respostas rápidas sobre segurança, implantação e como a plataforma apoia suas operações jurídicas.
               </p>
               <div className="mt-8 rounded-2xl border border-[#e7e7ea] bg-[#fcfcfd] p-5">
-                <p className="text-[0.9rem] font-medium text-[#10101A]">Still have questions?</p>
+                <p className="text-[0.9rem] font-medium text-[#10101A]">Ainda tem dúvidas?</p>
                 <p className="mt-1 text-[0.875rem] leading-[1.45rem] text-[#6d6d78]">
-                  Our team can walk you through enterprise setup, compliance, and onboarding.
+                  Nossa equipe pode orientar você na configuração corporativa, no compliance e na implantação.
                 </p>
                 <Link
                   href="/contact"
                   className="landing-primary-btn mt-4 inline-flex h-10 items-center justify-center px-5 text-[0.9rem] transition hover:brightness-110"
                 >
-                  Contact us
+                  Fale conosco
                 </Link>
               </div>
             </div>

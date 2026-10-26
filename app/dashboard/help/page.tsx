@@ -17,32 +17,32 @@ export default function HelpPage() {
   // Sample FAQs
   const faqs: FAQItem[] = [
     {
-      question: "How do I get started with AIForLawyers?",
-      answer: "To get started, simply log into your account and navigate to the dashboard. From there, you can access our AI chat assistants, document tools, and other features. We recommend starting with a simple question in the chat interface to familiarize yourself with how our AI responds."
+      question: "Como começo a usar o Pequi?",
+      answer: "Para começar, basta entrar na sua conta e acessar o painel. Lá você encontra nossos assistentes de chat com IA, ferramentas de documentos e outros recursos. Recomendamos começar com uma pergunta simples no chat para se familiarizar com a forma como nossa IA responde."
     },
     {
-      question: "What types of legal documents can I create?",
-      answer: "AIForLawyers can help you create various legal documents including contracts, agreements, leases, wills, and more. Navigate to the Docs section in your dashboard to explore all document creation options and templates available to you."
+      question: "Que tipos de documentos jurídicos posso criar?",
+      answer: "O Pequi pode ajudar você a criar diversos documentos jurídicos, incluindo contratos, acordos, contratos de locação, testamentos e muito mais. Acesse a seção Documentos no seu painel para conhecer todas as opções de criação e os modelos disponíveis."
     },
     {
-      question: "How accurate is the legal information provided?",
-      answer: "While our AI is trained on extensive legal knowledge, it&apos;s important to note that the information provided should not be considered as formal legal advice. We recommend having any important legal documents reviewed by a qualified attorney before finalizing them."
+      question: "Qual é a precisão das informações jurídicas fornecidas?",
+      answer: "Embora nossa IA seja treinada com amplo conhecimento jurídico, é importante lembrar que as informações fornecidas não devem ser consideradas aconselhamento jurídico formal. Recomendamos que documentos jurídicos importantes sejam revisados por um advogado qualificado antes de serem finalizados."
     },
     {
-      question: "Can I speak with a real lawyer through the platform?",
-      answer: "Currently, AIForLawyers provides AI-powered legal assistance. For Pro users, we offer referrals to partnered law firms for cases that require human expertise. We&apos;re working on expanding our network of legal professionals for direct consultations in the future."
+      question: "Posso falar com um advogado de verdade pela plataforma?",
+      answer: "Atualmente, o Pequi oferece assistência jurídica com IA. Para usuários Pro, indicamos escritórios parceiros nos casos que exigem atuação humana. Estamos trabalhando para ampliar nossa rede de profissionais do Direito para consultas diretas no futuro."
     },
     {
-      question: "How do I upgrade my subscription?",
-      answer: "To upgrade your subscription, go to the Billing section in your dashboard. There you&apos;ll find information about our different plans and the option to upgrade to Pro for additional features and capabilities."
+      question: "Como faço upgrade da minha assinatura?",
+      answer: "Para fazer upgrade da sua assinatura, acesse a seção Assinatura no seu painel. Lá você encontra informações sobre nossos planos e a opção de fazer upgrade para o Pro, com recursos e funcionalidades adicionais."
     },
     {
-      question: "Is my data secure and confidential?",
-      answer: "Yes, we take data security and confidentiality very seriously. All communications and documents are encrypted, and we adhere to strict privacy policies. We do not share your information with third parties without your explicit consent."
+      question: "Meus dados estão seguros e são confidenciais?",
+      answer: "Sim, levamos a segurança e a confidencialidade dos dados muito a sério. Todas as comunicações e documentos são criptografados, e seguimos políticas de privacidade rigorosas. Não compartilhamos suas informações com terceiros sem o seu consentimento expresso."
     },
     {
-      question: "How do I download or export my documents?",
-      answer: "In the Docs section, you can find all your created documents. Each document has an export option that allows you to download it in various formats including PDF, DOCX, and TXT depending on the document type."
+      question: "Como baixo ou exporto meus documentos?",
+      answer: "Na seção Documentos, você encontra todos os documentos que criou. Cada documento tem uma opção de exportação que permite baixá-lo em vários formatos, incluindo PDF, DOCX e TXT, dependendo do tipo de documento."
     }
   ];
 
@@ -58,16 +58,16 @@ export default function HelpPage() {
   };
 
   return (
-    <DashboardLayout title="Help & Support">
+    <DashboardLayout title="Ajuda e Suporte">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="mb-20 text-center relative">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Knowledge Base</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Base de conhecimento</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-[#10101A] mb-6">How can we help?</h1>
+          <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-[#10101A] mb-6">Como podemos ajudar?</h1>
           <p className="text-[#525252] text-lg font-medium opacity-60">
-            Access the neural archive or contact our legal support specialists.
+            Consulte o arquivo neural ou fale com nossos especialistas de suporte jurídico.
           </p>
  
           {/* Search bar */}
@@ -76,7 +76,7 @@ export default function HelpPage() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search for help topics, guides, or tutorials..."
+                placeholder="Pesquise tópicos de ajuda, guias ou tutoriais..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-white rounded-[2rem] border border-[#e7e5e1] py-6 px-10 pl-16 text-[#10101A] text-lg focus:outline-none focus:ring-4 focus:ring-black/5 transition-all shadow-2xl placeholder:opacity-30 font-medium"
@@ -106,12 +106,12 @@ export default function HelpPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4 relative z-10">Live Assistant</h3>
+            <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4 relative z-10">Assistente ao vivo</h3>
             <p className="text-[#525252] mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Get instant help from our AI legal assistant or real human experts via synchronized channels.
+              Receba ajuda instantânea do nosso assistente jurídico de IA ou de especialistas humanos por canais sincronizados.
             </p>
             <Link href="/dashboard/help/chat" className="inline-flex items-center text-black font-bold text-[10px] uppercase tracking-[0.2em] border-b border-black/10 hover:border-black pb-1 transition-all relative z-10">
-              Initialize Chat
+              Iniciar chat
               <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -132,12 +132,12 @@ export default function HelpPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4 relative z-10">Email Inquiries</h3>
+            <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4 relative z-10">Dúvidas por e-mail</h3>
             <p className="text-[#525252] mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Request asynchronous support. Our typical synchronization interval is under 24 neural hours.
+              Solicite suporte assíncrono. Normalmente respondemos em menos de 24 horas.
             </p>
             <Link href="/dashboard/help/email" className="inline-flex items-center text-black font-bold text-[10px] uppercase tracking-[0.2em] border-b border-black/10 hover:border-black pb-1 transition-all relative z-10">
-              Dispatch Request
+              Enviar solicitação
               <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -148,7 +148,7 @@ export default function HelpPage() {
         {/* FAQs section */}
         <div className="mb-24">
           <div className="flex items-center mb-12">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0] mr-8">Neural Frequency</h2>
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0] mr-8">Perguntas frequentes</h2>
             <div className="h-px flex-1 bg-[#e7e5e1]"></div>
           </div>
  
@@ -188,13 +188,13 @@ export default function HelpPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4">No Spectral Matches</h3>
-                <p className="text-[#A0A0A0] mb-10 max-w-xs mx-auto font-medium">We could not find any archival logs matching &quot;{searchQuery}&quot;.</p>
+                <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-4">Nenhum resultado encontrado</h3>
+                <p className="text-[#A0A0A0] mb-10 max-w-xs mx-auto font-medium">Não encontramos nenhum resultado para &quot;{searchQuery}&quot;.</p>
                 <button
                   onClick={() => setSearchQuery('')}
                   className="px-8 py-4 text-white rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] shadow-xl transition-all btn-primary-gradient"
                 >
-                  Reset Query
+                  Limpar pesquisa
                 </button>
               </div>
             )}
@@ -213,13 +213,13 @@ export default function HelpPage() {
           </div>
  
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Synchronize with an expert.</h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Fale com um especialista.</h2>
             <p className="text-white/60 text-lg mb-12 max-w-lg mx-auto leading-relaxed font-medium">
-              Our neural support frequency is active 24/7. We typically respond within 15 spectral minutes.
+              Nosso suporte funciona 24 horas por dia, 7 dias por semana. Normalmente respondemos em até 15 minutos.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href="/dashboard/help/contact" className="px-10 py-5 text-white font-bold text-[11px] uppercase tracking-[0.2em] rounded-2xl transition-all shadow-xl active:scale-95 btn-primary-gradient">
-                Dispatch Request
+                Enviar solicitação
               </Link>
             </div>
           </div>

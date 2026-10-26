@@ -37,9 +37,9 @@ const interTight = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AIForLawyers - Ultra-Premium Legal Intelligence",
-  description: "Sophisticated AI for elite law firms, corporate legal departments, and legal professionals.",
-  keywords: "AI, legal technology, law, artificial intelligence, legal assistant, legal research, AIForLawyers",
+  title: "Pequi - Inteligência Jurídica Ultra-Premium",
+  description: "IA sofisticada para escritórios de advocacia de elite, departamentos jurídicos corporativos e profissionais do Direito.",
+  keywords: "IA, tecnologia jurídica, direito, inteligência artificial, assistente jurídico, pesquisa jurídica, Pequi",
   icons: {
     icon: "/logo/favicon.png",
     shortcut: "/logo/favicon.png",
@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
+    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground" style={{ 
         ['--font-gilroy' as any]: `var(${interTight.variable})`,
         ['--font-landing' as any]: `var(${interTight.variable})`

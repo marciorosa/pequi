@@ -39,7 +39,7 @@ export default function LawyerDetailPage({ params }: Props) {
       setLawyer(data);
       setMessages([{
         role: 'assistant',
-        content: `Greetings. I am ${data.name}. My neural parameters are tuned for ${data.expertise.join(', ')}. How shall we proceed with your legal discovery?`,
+        content: `Olá. Sou o ${data.name}. Meus parâmetros neurais estão ajustados para ${data.expertise.join(', ')}. Como podemos prosseguir com sua consulta jurídica?`,
         timestamp: new Date()
       }]);
     };
@@ -88,13 +88,13 @@ export default function LawyerDetailPage({ params }: Props) {
   };
 
   return (
-    <DashboardLayout title={lawyer?.name || 'Neural Specialist'}>
+    <DashboardLayout title={lawyer?.name || 'Especialista Neural'}>
       <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-gray-100 shadow-2xl overflow-hidden relative">
         {/* Profile Sidebar */}
         <aside className="hidden lg:flex flex-col w-96 h-full bg-gray-50 border-r border-gray-100 p-10 space-y-12">
           <button onClick={() => router.back()} className="flex items-center gap-2 text-foreground/40 hover:text-foreground transition-all">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Return to Directory</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Voltar ao diretório</span>
           </button>
 
           <div className="space-y-8">
@@ -103,13 +103,13 @@ export default function LawyerDetailPage({ params }: Props) {
             </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tight">{lawyer?.name}</h1>
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/30">Advisory Node Active</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/30">Núcleo de consultoria ativo</p>
             </div>
             <p className="text-[13px] leading-relaxed font-medium text-foreground/40">{lawyer?.description}</p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Specialization Matrix</h3>
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Matriz de especialização</h3>
             <div className="flex flex-wrap gap-2">
               {lawyer?.expertise.map((skill, i) => (
                 <span key={i} className="px-3 py-1.5 rounded-full bg-white border border-gray-100 text-[10px] font-bold uppercase tracking-wider text-foreground/60">{skill}</span>
@@ -122,8 +122,8 @@ export default function LawyerDetailPage({ params }: Props) {
         <main className="flex-1 flex flex-col min-w-0 bg-white">
           <header className="h-20 px-10 border-b border-gray-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
             <div className="flex flex-col">
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Channel Node.0{Math.floor(Math.random() * 100)}</span>
-              <h2 className="text-xl font-light tracking-tight">Active Advisory Session</h2>
+              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Canal Node.0{Math.floor(Math.random() * 100)}</span>
+              <h2 className="text-xl font-light tracking-tight">Sessão de consultoria ativa</h2>
             </div>
             <div className="flex items-center gap-3">
               <button onClick={() => fileInputRefPdf.current?.click()} className="p-3 text-foreground/40 hover:text-foreground hover:bg-gray-50 rounded-xl transition-all">
@@ -150,7 +150,7 @@ export default function LawyerDetailPage({ params }: Props) {
                     )}
                   </div>
                   <div className={`text-[9px] font-bold uppercase tracking-[0.2em] ${m.role === 'user' ? 'mt-3 text-right text-white/40' : 'mt-6 text-foreground/20'}`}>
-                    {new Date(m.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {new Date(m.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                   </div>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function LawyerDetailPage({ params }: Props) {
               <textarea
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Initiate legal discovery..."
+                placeholder="Inicie sua consulta jurídica..."
                 rows={1}
                 className="w-full bg-gray-50/50 border border-gray-100 focus:bg-white focus:ring-4 focus:ring-black/5 focus:border-black/10 rounded-[2rem] py-6 pl-8 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}

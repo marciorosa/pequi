@@ -11,22 +11,22 @@ import {
 
 const offices = [
   {
-    name: 'New York',
+    name: 'Nova York',
     address: '110 Wall Street, New York, NY 10005',
     phone: '+1 (212) 555-1234',
     email: 'newyork@AIForLawyers.com',
-    regionLabel: 'Americas',
+    regionLabel: 'Américas',
   },
   {
     name: 'San Francisco',
     address: '555 Market Street, San Francisco, CA 94105',
     phone: '+1 (415) 555-5678',
     email: 'sanfrancisco@AIForLawyers.com',
-    regionLabel: 'Americas',
+    regionLabel: 'Américas',
   },
   {
-    name: 'London',
-    address: '30 St Mary Axe, London EC3A 8BF, UK',
+    name: 'Londres',
+    address: '30 St Mary Axe, London EC3A 8BF, Reino Unido',
     phone: '+44 20 7123 4567',
     email: 'london@AIForLawyers.com',
     regionLabel: 'EMEA',
@@ -35,8 +35,8 @@ const offices = [
 
 const contactChannels = [
   {
-    title: 'Email us',
-    hint: 'General inquiries',
+    title: 'Envie um e-mail',
+    hint: 'Dúvidas gerais',
     value: 'info@AIForLawyers.com',
     href: 'mailto:info@AIForLawyers.com',
     icon: (
@@ -44,8 +44,8 @@ const contactChannels = [
     ),
   },
   {
-    title: 'Call us',
-    hint: 'Customer service',
+    title: 'Ligue para nós',
+    hint: 'Atendimento ao cliente',
     value: '+1 (800) 555-1234',
     href: 'tel:+18005551234',
     icon: (
@@ -53,9 +53,9 @@ const contactChannels = [
     ),
   },
   {
-    title: 'Live chat',
-    hint: 'Weekdays',
-    value: '9am – 6pm EST',
+    title: 'Chat ao vivo',
+    hint: 'Dias úteis',
+    value: '9h às 18h (horário de Nova York)',
     href: null as string | null,
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
@@ -101,7 +101,7 @@ export default function ContactExperience() {
     } catch (err: unknown) {
       const message = err instanceof Error ? err : new Error(String(err));
       console.error('Contact form submission error:', message);
-      setError(message.message || 'Something went wrong. Please try again.');
+      setError(message.message || 'Algo deu errado. Tente novamente.');
     } finally {
       setIsSubmitting(false);
     }
@@ -112,9 +112,9 @@ export default function ContactExperience() {
   return (
     <div className="min-h-screen">
       <AuthHero
-        eyebrow="We're here to help"
-        title="Contact us"
-        subtitle="Questions about demos, security, or pricing — send a note and we’ll respond quickly."
+        eyebrow="Estamos aqui para ajudar"
+        title="Fale conosco"
+        subtitle="Dúvidas sobre demonstrações, segurança ou preços? Envie uma mensagem e responderemos rapidamente."
       />
 
       <section className="border-b border-[#eceae7] bg-[#FFFFFF]">
@@ -123,11 +123,11 @@ export default function ContactExperience() {
             <div className="lg:col-span-5 space-y-10">
               <div>
                 <h2 className="mb-4 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">
-                  Talk to our team
+                  Fale com a nossa equipe
                 </h2>
                 <p className="text-[1rem] leading-[175%] text-[#525252] md:text-[1.0625rem]">
-                  Share a bit about your firm or legal department and what you want to solve. We’ll route you to the right
-                  person.
+                  Conte um pouco sobre seu escritório ou departamento jurídico e o que você deseja resolver. Vamos direcionar você para a
+                  pessoa certa.
                 </p>
               </div>
 
@@ -169,7 +169,7 @@ export default function ContactExperience() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="name" className={authLabelClass}>
-                          Full name
+                          Nome completo
                         </label>
                         <input
                           id="name"
@@ -179,12 +179,12 @@ export default function ContactExperience() {
                           value={formData.name}
                           onChange={handleChange}
                           className={authInputClass}
-                          placeholder="John Smith"
+                          placeholder="João Silva"
                         />
                       </div>
                       <div>
                         <label htmlFor="email" className={authLabelClass}>
-                          Email
+                          E-mail
                         </label>
                         <input
                           id="email"
@@ -194,7 +194,7 @@ export default function ContactExperience() {
                           value={formData.email}
                           onChange={handleChange}
                           className={authInputClass}
-                          placeholder="john@company.com"
+                          placeholder="joao@empresa.com.br"
                         />
                       </div>
                     </div>
@@ -202,7 +202,7 @@ export default function ContactExperience() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="company" className={authLabelClass}>
-                          Company
+                          Empresa
                         </label>
                         <input
                           id="company"
@@ -211,12 +211,12 @@ export default function ContactExperience() {
                           value={formData.company}
                           onChange={handleChange}
                           className={authInputClass}
-                          placeholder="Company name"
+                          placeholder="Nome da empresa"
                         />
                       </div>
                       <div>
                         <label htmlFor="phone" className={authLabelClass}>
-                          Phone
+                          Telefone
                         </label>
                         <input
                           id="phone"
@@ -225,14 +225,14 @@ export default function ContactExperience() {
                           value={formData.phone}
                           onChange={handleChange}
                           className={authInputClass}
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+55 (11) 91234-5678"
                         />
                       </div>
                     </div>
 
                     <div>
                       <label htmlFor="subject" className={authLabelClass}>
-                        Subject
+                        Assunto
                       </label>
                       <input
                         id="subject"
@@ -242,13 +242,13 @@ export default function ContactExperience() {
                         value={formData.subject}
                         onChange={handleChange}
                         className={authInputClass}
-                        placeholder="How can we help?"
+                        placeholder="Como podemos ajudar?"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="message" className={authLabelClass}>
-                        Message
+                        Mensagem
                       </label>
                       <textarea
                         id="message"
@@ -258,7 +258,7 @@ export default function ContactExperience() {
                         value={formData.message}
                         onChange={handleChange}
                         className={textareaClass}
-                        placeholder="Tell us about your use case, team size, or timeline…"
+                        placeholder="Conte sobre seu caso de uso, o tamanho da equipe ou o prazo…"
                       />
                     </div>
 
@@ -295,10 +295,10 @@ export default function ContactExperience() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             />
                           </svg>
-                          Sending...
+                          Enviando...
                         </span>
                       ) : (
-                        'Send message'
+                        'Enviar mensagem'
                       )}
                     </button>
                   </form>
@@ -309,9 +309,9 @@ export default function ContactExperience() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="mb-3 text-[1.5rem] font-medium text-[#10101A]">Thank you</h3>
+                    <h3 className="mb-3 text-[1.5rem] font-medium text-[#10101A]">Obrigado</h3>
                     <p className="mx-auto mb-8 max-w-md text-[1rem] leading-relaxed text-[#525252]">
-                      Your message is in. We typically reply within one business day.
+                      Recebemos sua mensagem. Normalmente respondemos em até um dia útil.
                     </p>
                     <button
                       type="button"
@@ -328,7 +328,7 @@ export default function ContactExperience() {
                       }}
                       className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                     >
-                      Send another message
+                      Enviar outra mensagem
                     </button>
                   </div>
                 )}
@@ -341,9 +341,9 @@ export default function ContactExperience() {
       <section className="border-b border-[#eceae7] bg-white py-14 md:py-16">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="mb-10 md:mb-12">
-            <h2 className="mb-3 text-[1.5rem] font-medium text-[#10101A] md:text-[1.75rem]">Our offices</h2>
+            <h2 className="mb-3 text-[1.5rem] font-medium text-[#10101A] md:text-[1.75rem]">Nossos escritórios</h2>
             <p className="max-w-2xl text-[1rem] leading-relaxed text-[#525252]">
-              Teams across major legal and technology hubs — same platform, local support.
+              Equipes nos principais polos jurídicos e de tecnologia: a mesma plataforma, com suporte local.
             </p>
           </div>
 
@@ -404,13 +404,13 @@ export default function ContactExperience() {
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="gap-8 rounded-[1.875rem] border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.05)] md:flex md:items-center md:justify-between md:p-10">
             <div>
-              <h3 className="mb-2 text-lg font-medium text-[#10101A]">Global presence</h3>
+              <h3 className="mb-2 text-lg font-medium text-[#10101A]">Presença global</h3>
               <p className="max-w-xl text-[0.9375rem] leading-relaxed text-[#525252]">
-                New York, San Francisco, and London — coordinated product and success coverage across time zones.
+                Nova York, San Francisco e Londres: cobertura coordenada de produto e sucesso do cliente em diferentes fusos horários.
               </p>
             </div>
             <div className="mt-6 md:mt-0 flex flex-wrap gap-3 shrink-0">
-              {['New York', 'San Francisco', 'London'].map((city) => (
+              {['Nova York', 'San Francisco', 'Londres'].map((city) => (
                 <span
                   key={city}
                   className="inline-flex items-center rounded-full border border-[#e7e5e1] bg-white px-4 py-2 text-[0.8125rem] font-medium text-[#10101A]"

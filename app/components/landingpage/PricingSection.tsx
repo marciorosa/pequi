@@ -10,7 +10,7 @@ export default function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
 
   const getPrice = (plan: typeof pricingPlans[0]) => {
-    if (plan.monthlyPrice === null) return 'Custom';
+    if (plan.monthlyPrice === null) return 'Sob consulta';
     const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
     return `$${price?.toLocaleString()}`;
   };
@@ -26,9 +26,9 @@ export default function PricingSection() {
       <section id="pricing" className="bg-[#F9F2FA] scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
           <div className="mx-auto max-w-[840px] text-center">
-            <h3 className={sectionHeadingClass}>Simple Pricing for Legal Teams</h3>
+            <h3 className={sectionHeadingClass}>Preços simples para equipes jurídicas</h3>
             <p className={`${sectionSubTextClass} mt-4`}>
-              Choose the right plan for your workflow and scale confidently as your team grows.
+              Escolha o plano ideal para o seu fluxo de trabalho e cresça com segurança junto com sua equipe.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function PricingSection() {
                 }`}
                 type="button"
               >
-                Monthly
+                Mensal
               </button>
               <button
                 onClick={() => setBillingPeriod('annual')}
@@ -50,11 +50,11 @@ export default function PricingSection() {
                 }`}
                 type="button"
               >
-                Annual
+                Anual
               </button>
             </div>
             <p className="text-[0.8rem] font-medium uppercase tracking-[0.08em] text-[#6a6272]">
-              Annual billing saves up to 17%
+              No plano anual, economize até 17%
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default function PricingSection() {
               >
                 {plan.popular && (
                   <span className="absolute -top-3 left-6 inline-flex h-7 items-center rounded-full bg-white px-3 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#10101A]">
-                    Most Popular
+                    Mais popular
                   </span>
                 )}
                 <div className="mb-7">
@@ -82,7 +82,7 @@ export default function PricingSection() {
                     <span className="text-[2.5rem] leading-none font-semibold">{getPrice(plan)}</span>
                     {plan.monthlyPrice !== null && (
                       <span className={`mb-1 text-sm ${plan.popular ? 'text-white/70' : 'text-[#696977]'}`}>
-                        /{billingPeriod === 'monthly' ? 'mo' : 'yr'}
+                        /{billingPeriod === 'monthly' ? 'mês' : 'ano'}
                       </span>
                     )}
                   </div>
@@ -92,7 +92,7 @@ export default function PricingSection() {
                         plan.popular ? 'bg-white/15 text-white' : 'bg-[#efe8f6] text-[#5d4b73]'
                       }`}
                     >
-                      Save {getSavings(plan)}% annually
+                      Economize {getSavings(plan)}% no plano anual
                     </p>
                   )}
                 </div>

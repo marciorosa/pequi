@@ -12,32 +12,32 @@ type HeroSectionProps = {
 export default function HeroSection({ activePreview, onPreviewChange }: HeroSectionProps) {
   const featureCards = [
     {
-      title: 'Channels',
-      copy: 'Keep legal collaboration in sync across teams and systems.',
+      title: 'Canais',
+      copy: 'Mantenha a colaboração jurídica sincronizada entre equipes e sistemas.',
       icon: '/landingpage/hero/channels.svg',
       preview: '/landingpage/intro/channels-img.png',
     },
     {
-      title: 'AI Assistants',
-      copy: 'Get context-aware drafting, review, and legal research support.',
+      title: 'Assistentes de IA',
+      copy: 'Tenha apoio contextualizado em redação, revisão e pesquisa jurídica.',
       icon: '/landingpage/hero/ai-assistants.svg',
       preview: '/landingpage/intro/ai-assistant-img.png',
     },
     {
-      title: 'Document Registry',
-      copy: 'Track versions, status, and approvals in one searchable record.',
+      title: 'Registro de Documentos',
+      copy: 'Acompanhe versões, status e aprovações em um único registro pesquisável.',
       icon: '/landingpage/hero/document-registory.svg',
       preview: '/landingpage/intro/document-img.png',
     },
     {
-      title: 'Vault Access',
-      copy: 'Secure sensitive files with role-based permissions and controls.',
+      title: 'Acesso ao Cofre',
+      copy: 'Proteja arquivos sensíveis com permissões e controles baseados em funções.',
       icon: '/landingpage/hero/vault-access.svg',
       preview: '/landingpage/intro/valut-img.png',
     },
     {
-      title: 'Automations',
-      copy: 'Automate repetitive legal workflows to improve speed and accuracy.',
+      title: 'Automações',
+      copy: 'Automatize fluxos jurídicos repetitivos para ganhar agilidade e precisão.',
       icon: '/landingpage/hero/automation.svg',
       preview: '/landingpage/intro/automation-img.png',
     },
@@ -51,34 +51,34 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
       >
         <Image
           src="/landingpage/hero/hero-bgimg.png"
-          alt="Hero background"
+          alt="Imagem de fundo"
           fill
           priority
           className="object-cover object-top"
         />
         <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
           <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">
-            5-Star Reviewed on Google
+            Avaliação 5 estrelas no Google
           </p>
           <h1 className="mt-5 max-w-[700px] text-center font-medium text-[#10101A] text-[2.7rem] leading-[1.08] tracking-[-0.08rem] sm:text-[4.13188rem] sm:leading-[4.54513rem] sm:tracking-[-0.16525rem]">
-            Transforming Legal Intelligence
+            Transformando a inteligência jurídica
           </h1>
           <p className="mt-4 max-w-[620px] text-center text-[1rem] font-normal leading-[1.5rem] text-[#525252]">
-            Engineering elite AI platforms for the world&apos;s most sophisticated legal practitioners seeking
-            uncompromising precision and performance.
+            Desenvolvemos plataformas de IA de elite para os profissionais do Direito mais exigentes do mundo, que buscam
+            precisão e desempenho sem concessões.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
               className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
             >
-              Request Demo
+              Solicitar demonstração
             </Link>
             <Link
               href="/#features"
               className="landing-secondary-btn transition hover:bg-[#eceae7]"
             >
-              Explore Features
+              Conhecer os recursos
             </Link>
           </div>
 
@@ -95,7 +95,7 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
                 <div className="inline-flex w-full items-center justify-start">
                   <Image
                     src={card.icon}
-                    alt={`${card.title} icon`}
+                    alt={`Ícone de ${card.title}`}
                     width={40}
                     height={40}
                     className="h-10 w-10 object-contain opacity-95"

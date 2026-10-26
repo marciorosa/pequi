@@ -42,22 +42,22 @@ function ResetPasswordForm() {
     e.preventDefault();
 
     if (!formData.email || !formData.token) {
-      setError('Invalid reset link. Please request a new password reset.');
+      setError('Link de redefinição inválido. Solicite uma nova redefinição de senha.');
       return;
     }
 
     if (!formData.newPassword) {
-      setError('Please enter a new password');
+      setError('Informe uma nova senha');
       return;
     }
 
     if (formData.newPassword.length < 8) {
-      setError('Password must be at least 8 characters long');
+      setError('A senha deve ter pelo menos 8 caracteres');
       return;
     }
 
     if (formData.newPassword !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError('As senhas não coincidem');
       return;
     }
 
@@ -77,7 +77,7 @@ function ResetPasswordForm() {
     } catch (err: unknown) {
       setError(
         (err as { response?: { data?: { message?: string } } }).response?.data?.message ||
-          'Failed to reset password. Please try again.'
+          'Não foi possível redefinir a senha. Tente novamente.'
       );
     } finally {
       setIsLoading(false);
@@ -95,7 +95,7 @@ function ResetPasswordForm() {
               clipRule="evenodd"
             />
           </svg>
-          Password updated. Redirecting to sign in...
+          Senha atualizada. Redirecionando para o login...
         </div>
       ) : (
         <>
@@ -117,7 +117,7 @@ function ResetPasswordForm() {
 
           <div>
             <label htmlFor="newPassword" className={authLabelClass}>
-              New password
+              Nova senha
             </label>
             <input
               id="newPassword"
@@ -129,12 +129,12 @@ function ResetPasswordForm() {
               className={authInputClass}
               placeholder="••••••••"
             />
-            <p className="mt-1.5 text-[0.8125rem] text-[#525252]">At least 8 characters.</p>
+            <p className="mt-1.5 text-[0.8125rem] text-[#525252]">No mínimo 8 caracteres.</p>
           </div>
 
           <div>
             <label htmlFor="confirmPassword" className={authLabelClass}>
-              Confirm password
+              Confirmar senha
             </label>
             <input
               id="confirmPassword"
@@ -149,14 +149,14 @@ function ResetPasswordForm() {
           </div>
 
           <button type="submit" disabled={isLoading} className={authPrimaryButtonClass}>
-            {isLoading ? 'Updating...' : 'Update password'}
+            {isLoading ? 'Atualizando...' : 'Atualizar senha'}
           </button>
         </>
       )}
 
       <div className="text-center pt-2">
         <Link href="/login" className="text-[0.9375rem] font-medium text-[#525252] hover:text-[#10101A] hover:underline">
-          Back to sign in
+          Voltar para o login
         </Link>
       </div>
     </form>
@@ -166,19 +166,19 @@ function ResetPasswordForm() {
 function ResetAside() {
   return (
     <div className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-      <h2 className="mb-4 text-[1.25rem] font-medium text-[#10101A]">Strong passwords</h2>
+      <h2 className="mb-4 text-[1.25rem] font-medium text-[#10101A]">Senhas fortes</h2>
       <ul className="space-y-3 text-[0.9375rem] leading-relaxed text-[#525252]">
         <li className="flex gap-2">
           <span className="font-medium text-[#10101A]">•</span>
-          Use a long, unique passphrase you haven&apos;t used elsewhere.
+          Use uma frase-senha longa e exclusiva, que você não tenha usado em outro lugar.
         </li>
         <li className="flex gap-2">
           <span className="font-medium text-[#10101A]">•</span>
-          Mix letters, numbers, and symbols when your policy allows.
+          Combine letras, números e símbolos quando a política permitir.
         </li>
         <li className="flex gap-2">
           <span className="font-medium text-[#10101A]">•</span>
-          Store credentials in a trusted password manager.
+          Guarde suas credenciais em um gerenciador de senhas confiável.
         </li>
       </ul>
     </div>
@@ -189,24 +189,24 @@ export default function ResetPasswordExperience() {
   return (
     <div className="min-h-screen">
       <AuthHero
-        eyebrow="Security"
-        title="Set a new password"
-        subtitle="Choose a strong password to protect your account and client data."
+        eyebrow="Segurança"
+        title="Defina uma nova senha"
+        subtitle="Escolha uma senha forte para proteger sua conta e os dados dos seus clientes."
       />
       <AuthPageLayout
         aside={<ResetAside />}
         footer={
           <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
             <p className="text-[0.9375rem] text-[#525252]">
-              Don&apos;t have an account?{' '}
+              Não tem uma conta?{' '}
               <Link href="/signup" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
-                Create account
+                Criar conta
               </Link>
             </p>
           </div>
         }
       >
-        <Suspense fallback={<p className="py-8 text-center text-sm text-[#525252]">Loading...</p>}>
+        <Suspense fallback={<p className="py-8 text-center text-sm text-[#525252]">Carregando...</p>}>
           <ResetPasswordForm />
         </Suspense>
       </AuthPageLayout>

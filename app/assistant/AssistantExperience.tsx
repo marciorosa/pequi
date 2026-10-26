@@ -9,8 +9,8 @@ import { sectionHeadingClass, sectionSubTextClass } from '../components/landingp
 export default function AssistantExperience() {
   const features = [
     {
-      title: 'Natural Language Interface',
-      desc: 'Describe what you need in plain language—no complex prompts. Communicate as you would with a senior associate.',
+      title: 'Interface em linguagem natural',
+      desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. Comunique-se como faria com um associado sênior.',
       icon: (
         <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -23,8 +23,8 @@ export default function AssistantExperience() {
       ),
     },
     {
-      title: 'Document Generation',
-      desc: 'Draft high-quality legal documents in seconds. Edit and refine while keeping your firm’s standards.',
+      title: 'Geração de documentos',
+      desc: 'Redija documentos jurídicos de alta qualidade em segundos. Edite e refine mantendo os padrões do seu escritório.',
       icon: (
         <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -37,8 +37,8 @@ export default function AssistantExperience() {
       ),
     },
     {
-      title: 'Legal Research',
-      desc: 'Surface case law, statutes, and precedents with accurate citations from authoritative sources.',
+      title: 'Pesquisa jurídica',
+      desc: 'Encontre jurisprudência, legislação e precedentes com citações precisas de fontes confiáveis.',
       icon: (
         <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -61,7 +61,7 @@ export default function AssistantExperience() {
         >
           <Image
             src="/landingpage/hero/hero-bgimg.png"
-            alt="Hero background"
+            alt="Imagem de fundo"
             fill
             priority
             className="object-cover object-top"
@@ -69,27 +69,27 @@ export default function AssistantExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">AI Assistant</p>
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Assistente de IA</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Your personal legal assistant
+                  Seu assistente jurídico pessoal
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-[#525252]">
-                  Delegate complex tasks in natural language. Built for sophisticated legal work—with the same precision
-                  you expect from your team.
+                  Delegue tarefas complexas em linguagem natural. Feito para o trabalho jurídico sofisticado, com a mesma precisão
+                  que você espera da sua equipe.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
                   >
-                    Request a demo
+                    Solicitar uma demonstração
                   </Link>
                   <button
                     type="button"
                     onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
                   >
-                    Try the chat
+                    Experimente o chat
                   </button>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function AssistantExperience() {
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/ai-legal-assistant.png"
-                      alt="AI legal assistant preview"
+                      alt="Prévia do assistente jurídico com IA"
                       fill
                       className="object-contain object-center"
                       sizes="(max-width: 1024px) 100vw, 50vw"
@@ -116,10 +116,10 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.1}>
         <section className="scroll-mt-24 bg-[#FFFFFF] px-4 py-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
-            <h2 className={sectionHeadingClass}>Tailored to your expertise</h2>
+            <h2 className={sectionHeadingClass}>Sob medida para a sua especialidade</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
-              Capabilities designed for how modern legal teams work—clear answers, fast drafts, and research you can
-              trust.
+              Recursos pensados para o jeito como as equipes jurídicas modernas trabalham: respostas claras, minutas rápidas e pesquisas
+              confiáveis.
             </p>
 
             <div className="grid gap-4 md:grid-cols-3 md:gap-5">
@@ -143,9 +143,9 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.12}>
         <section id="demo" className="scroll-mt-24 bg-[#FFFFFF] px-4 pb-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
-            <h2 className={sectionHeadingClass}>Talk to your assistant</h2>
+            <h2 className={sectionHeadingClass}>Converse com seu assistente</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
-              Ask a question below—see how AiForLawyers responds in context, with the tone of a trusted legal co-pilot.
+              Faça uma pergunta abaixo e veja como o Pequi responde em contexto, com o tom de um copiloto jurídico de confiança.
             </p>
 
             <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(16,16,26,0.06),0_48px_100px_rgba(16,16,26,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(16,16,26,0.08)]">
@@ -164,9 +164,9 @@ export default function AssistantExperience() {
                   <div className="rounded-[1.5rem] border border-[#eceae7] bg-white p-4 shadow-[0_16px_36px_rgba(16,16,26,0.06)] sm:p-5">
                     <div className="space-y-3">
                       {[
-                        'Simple Agreement Creator',
-                        'Simple Agreement Creator',
-                        'Document Comparison',
+                        'Criador de contratos simples',
+                        'Criador de contratos simples',
+                        'Comparação de documentos',
                       ].map((item, index) => (
                         <div
                           key={`${item}-${index}`}
@@ -180,25 +180,25 @@ export default function AssistantExperience() {
                       ))}
                     </div>
                     <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-[0.875rem] bg-[#0f172a] px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
-                      Document Registry
+                      Registro de documentos
                     </div>
                   </div>
                 </div>
 
                 <div className="order-1 lg:order-2">
-                  <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Ecosystem</p>
+                  <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Ecossistema</p>
                   <h2 className="text-left text-[2rem] font-medium leading-[1.1] tracking-[-0.06rem] text-[#10101A] md:text-[2.5rem] md:tracking-[-0.08rem] lg:text-[3rem] lg:tracking-[-0.1rem]">
-                    Microsoft Word integration
+                    Integração com o Microsoft Word
                   </h2>
                   <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
-                    Supercharge Word with our add-in—turn your familiar workspace into a drafting environment with AI
-                    support where you already work.
+                    Potencialize o Word com nosso suplemento: transforme seu ambiente de trabalho habitual em um espaço de redação com
+                    suporte de IA, onde você já trabalha.
                   </p>
                   <ul className="mt-8 space-y-3 text-base leading-[160%] text-[#525252] md:text-lg">
                     {[
-                      'Draft and edit without leaving Word',
-                      'Real-time suggestions and improvements',
-                      'Fits your existing workflows and matter systems',
+                      'Redija e edite sem sair do Word',
+                      'Sugestões e melhorias em tempo real',
+                      'Integra-se aos seus fluxos de trabalho e sistemas de gestão de processos',
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span className="mt-0.5 shrink-0 text-[#10101A]" aria-hidden>

@@ -23,10 +23,10 @@ const Navbar = () => {
   const pathname = usePathname();
   const isLandingPage = pathname === '/' || pathname === '' || pathname === null;
   const desktopLinks = [
-    { label: 'Customers', href: '/customers' },
-    { label: 'Company', href: '/company' },
-    { label: 'Security', href: '/security' },
-    { label: 'News', href: '/news' },
+    { label: 'Clientes', href: '/customers' },
+    { label: 'Empresa', href: '/company' },
+    { label: 'Segurança', href: '/security' },
+    { label: 'Notícias', href: '/news' },
   ];
 
   const toggleMobileMenu = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
           >
             <Image
               src="/logo/logo.png"
-              alt="AIForLawyers"
+              alt="Pequi"
               width={140}
               height={38}
               className="h-[30px] w-auto"
@@ -61,7 +61,7 @@ const Navbar = () => {
                 onClick={toggleProductsDropdown}
                 className="flex items-center gap-1.5 transition hover:text-[#1d1c23]"
               >
-                Products
+                Produtos
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`h-3.5 w-3.5 transition-transform ${productsDropdownOpen ? 'rotate-180' : ''}`}
@@ -81,28 +81,28 @@ const Navbar = () => {
                       onClick={() => setProductsDropdownOpen(false)}
                       className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
                     >
-                      AI Assistants
+                      Assistentes de IA
                     </Link>
                     <Link
                       href="/vault"
                       onClick={() => setProductsDropdownOpen(false)}
                       className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
                     >
-                      Vault Access
+                      Acesso ao Cofre
                     </Link>
                     <Link
                       href="/knowledge"
                       onClick={() => setProductsDropdownOpen(false)}
                       className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
                     >
-                      Knowledge Base
+                      Base de Conhecimento
                     </Link>
                     <Link
                       href="/workflows"
                       onClick={() => setProductsDropdownOpen(false)}
                       className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
                     >
-                      Automations
+                      Automações
                     </Link>
                   </div>
                 </div>
@@ -127,14 +127,14 @@ const Navbar = () => {
                   href="/dashboard"
                   className="inline-flex h-8 items-center justify-center rounded-full border border-[#e0ddd8] px-4 text-[0.82rem] font-medium text-[#474550] transition hover:bg-[#f3f1ee]"
                 >
-                  Dashboard
+                  Painel
                 </Link>
               ) : (
                 <Link
                   href="/login"
                   className="inline-flex h-8 items-center justify-center rounded-full border border-[#e0ddd8] bg-[#f4f2ef] px-4 text-[0.82rem] font-medium text-[#474550] transition hover:bg-[#efedea]"
                 >
-                  Sign In
+                  Entrar
                 </Link>
               )
             )}
@@ -142,7 +142,7 @@ const Navbar = () => {
               href="/contact"
               className="landing-primary-btn inline-flex h-8 items-center justify-center px-4 transition hover:brightness-110"
             >
-              Request Demo
+              Solicitar demonstração
             </Link>
           </div>
 
@@ -172,7 +172,7 @@ const Navbar = () => {
                   onClick={toggleProductsDropdown}
                   className="flex items-center justify-between py-2 font-medium text-foreground/90 transition-colors hover:text-foreground focus:outline-none"
                 >
-                  Products
+                  Produtos
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={`ml-2 h-4 w-4 transition-transform duration-300 ${productsDropdownOpen ? 'rotate-180' : ''}`}
@@ -187,10 +187,10 @@ const Navbar = () => {
                 {/* Mobile Products Dropdown */}
                 {productsDropdownOpen && (
                   <div className="animate-fadeIn mb-2 ml-1 space-y-2 border-l-2 border-gray-100 py-2 pl-4">
-                    <Link href="/assistant" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">AI Assistants</Link>
-                    <Link href="/vault" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Vault Access</Link>
-                    <Link href="/knowledge" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Knowledge Base</Link>
-                    <Link href="/workflows" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Automations</Link>
+                    <Link href="/assistant" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Assistentes de IA</Link>
+                    <Link href="/vault" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Acesso ao Cofre</Link>
+                    <Link href="/knowledge" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Base de Conhecimento</Link>
+                    <Link href="/workflows" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Automações</Link>
                   </div>
                 )}
               </div>
@@ -211,13 +211,13 @@ const Navbar = () => {
                   href={isAuthenticated ? '/dashboard' : '/login'}
                   className="inline-flex h-10 items-center justify-center rounded-xl border border-[#111827]/25 px-5 text-sm text-[#111827] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f9fafb]"
                 >
-                  {isAuthenticated ? 'Dashboard' : 'Sign In'}
+                  {isAuthenticated ? 'Painel' : 'Entrar'}
                 </Link>
                 <Link
                   href="/contact"
                   className="landing-primary-btn inline-flex h-10 items-center justify-center px-6 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
                 >
-                  Request Demo
+                  Solicitar demonstração
                 </Link>
               </div>
             </div>

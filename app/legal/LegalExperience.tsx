@@ -7,160 +7,160 @@ import { sectionHeadingClass, sectionSubTextClass } from '@/app/components/landi
 
 const legalDocuments = {
   terms: {
-    title: 'Terms of Service',
-    lastUpdated: 'November 15, 2023',
+    title: 'Termos de Serviço',
+    lastUpdated: '15 de novembro de 2023',
     sections: [
       {
-        heading: '1. Introduction',
+        heading: '1. Introdução',
         content:
-          "These Terms of Service ('Terms') govern your access to and use of AiForLawyers's website, services, and applications (collectively, the 'Services'). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Services.",
+          "Estes Termos de Serviço ('Termos') regem seu acesso e uso do site, dos serviços e dos aplicativos da Pequi (em conjunto, os 'Serviços'). Ao acessar ou usar nossos Serviços, você concorda em ficar vinculado a estes Termos. Se não concordar com estes Termos, você não poderá acessar nem usar os Serviços.",
       },
       {
-        heading: '2. Using our Services',
+        heading: '2. Uso dos nossos Serviços',
         content:
-          'You may use our Services only as permitted by these Terms and any applicable laws. Our Services evolve constantly, and we may change, suspend, or discontinue any aspect of our Services at any time, including the availability of any feature or content.',
+          'Você pode usar nossos Serviços somente conforme permitido por estes Termos e pelas leis aplicáveis. Nossos Serviços evoluem constantemente, e podemos alterar, suspender ou descontinuar qualquer aspecto deles a qualquer momento, incluindo a disponibilidade de qualquer recurso ou conteúdo.',
       },
       {
-        heading: '3. Your AiForLawyers Account',
+        heading: '3. Sua conta Pequi',
         content:
-          'To use certain features of our Services, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.',
+          'Para usar determinados recursos dos nossos Serviços, pode ser necessário criar uma conta. Você é responsável por manter a confidencialidade das credenciais da sua conta e por todas as atividades realizadas nela.',
       },
       {
-        heading: '4. Privacy',
+        heading: '4. Privacidade',
         content:
-          'Our Privacy Policy explains how we collect, use, and protect your information when you use our Services. By using our Services, you agree to the terms of our Privacy Policy.',
+          'Nossa Política de Privacidade explica como coletamos, usamos e protegemos suas informações quando você usa nossos Serviços. Ao usar nossos Serviços, você concorda com os termos da nossa Política de Privacidade.',
       },
       {
-        heading: '5. Intellectual Property',
+        heading: '5. Propriedade intelectual',
         content:
-          'Our Services, including all text, graphics, images, logos, software, and other content, are owned by or licensed to AiForLawyers and are protected by copyright, trademark, and other intellectual property laws.',
+          'Nossos Serviços, incluindo todos os textos, gráficos, imagens, logotipos, softwares e demais conteúdos, pertencem à Pequi ou são licenciados a ela e estão protegidos pelas leis de direitos autorais, de marcas e demais leis de propriedade intelectual.',
       },
     ],
   },
   privacy: {
-    title: 'Privacy Policy',
-    lastUpdated: 'November 10, 2023',
+    title: 'Política de Privacidade',
+    lastUpdated: '10 de novembro de 2023',
     sections: [
       {
-        heading: '1. Information We Collect',
+        heading: '1. Informações que coletamos',
         content:
-          'We collect information that you provide directly to us, such as when you create an account, use our Services, or communicate with us. This information may include your name, email address, and any other information you choose to provide.',
+          'Coletamos as informações que você nos fornece diretamente, por exemplo, ao criar uma conta, usar nossos Serviços ou se comunicar conosco. Essas informações podem incluir seu nome, endereço de e-mail e quaisquer outras informações que você decida fornecer.',
       },
       {
-        heading: '2. How We Use Your Information',
+        heading: '2. Como usamos suas informações',
         content:
-          'We use the information we collect to provide, maintain, and improve our Services; to communicate with you; to protect our Services and users; and to comply with legal obligations.',
+          'Usamos as informações coletadas para fornecer, manter e aprimorar nossos Serviços; para nos comunicarmos com você; para proteger nossos Serviços e usuários; e para cumprir obrigações legais.',
       },
       {
-        heading: '3. Data Security',
+        heading: '3. Segurança dos dados',
         content:
-          'We implement appropriate technical and organizational measures to protect the security of your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure.',
+          'Adotamos medidas técnicas e organizacionais adequadas para proteger a segurança das suas informações pessoais. No entanto, nenhum método de transmissão pela Internet ou de armazenamento eletrônico é 100% seguro.',
       },
       {
-        heading: '4. Your Rights',
+        heading: '4. Seus direitos',
         content:
-          'Depending on your location, you may have certain rights regarding your personal information, such as the right to access, correct, delete, or restrict our use of your information. Contact us at privacy@AiForLawyers.com.',
+          'Dependendo da sua localização, você pode ter determinados direitos sobre suas informações pessoais, como o direito de acessar, corrigir, excluir ou restringir o uso das suas informações. Entre em contato pelo e-mail privacy@AiForLawyers.com.',
       },
       {
-        heading: '5. Changes to This Privacy Policy',
+        heading: '5. Alterações nesta Política de Privacidade',
         content:
-          'We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.',
+          'Podemos atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou por outros motivos operacionais, legais ou regulatórios.',
       },
     ],
   },
   cookies: {
-    title: 'Cookie Policy',
-    lastUpdated: 'October 25, 2023',
+    title: 'Política de Cookies',
+    lastUpdated: '25 de outubro de 2023',
     sections: [
       {
-        heading: '1. What Are Cookies',
+        heading: '1. O que são cookies',
         content:
-          'Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners.',
+          'Cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita um site. Eles são amplamente utilizados para que os sites funcionem de forma mais eficiente e para fornecer informações aos seus proprietários.',
       },
       {
-        heading: '2. How We Use Cookies',
+        heading: '2. Como usamos cookies',
         content:
-          'We use cookies to understand how you interact with our Services, remember your preferences, and improve your experience. This includes essential cookies, performance cookies, and targeting cookies.',
+          'Usamos cookies para entender como você interage com nossos Serviços, lembrar suas preferências e melhorar sua experiência. Isso inclui cookies essenciais, de desempenho e de segmentação.',
       },
       {
-        heading: '3. Your Cookie Choices',
+        heading: '3. Suas escolhas sobre cookies',
         content:
-          'You can manage cookies through your browser settings. Most browsers allow you to refuse or accept cookies, delete cookies, or be notified when a cookie is being sent.',
+          'Você pode gerenciar cookies nas configurações do seu navegador. A maioria dos navegadores permite recusar ou aceitar cookies, excluí-los ou ser avisado quando um cookie for enviado.',
       },
       {
-        heading: '4. Third-Party Cookies',
+        heading: '4. Cookies de terceiros',
         content:
-          'Our Services may use third-party services that set their own cookies. We do not have control over these cookies. Please refer to the respective privacy policies of these third parties.',
+          'Nossos Serviços podem utilizar serviços de terceiros que definem seus próprios cookies. Não temos controle sobre esses cookies. Consulte as respectivas políticas de privacidade desses terceiros.',
       },
       {
-        heading: '5. Changes to This Cookie Policy',
+        heading: '5. Alterações nesta Política de Cookies',
         content:
-          'We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.',
+          'Podemos atualizar esta Política de Cookies periodicamente para refletir mudanças em nossas práticas ou por outros motivos operacionais, legais ou regulatórios.',
       },
     ],
   },
   compliance: {
-    title: 'Compliance Information',
-    lastUpdated: 'November 5, 2023',
+    title: 'Informações de compliance',
+    lastUpdated: '5 de novembro de 2023',
     sections: [
       {
-        heading: '1. General Data Protection Regulation (GDPR)',
+        heading: '1. Regulamento Geral de Proteção de Dados (GDPR)',
         content:
-          'We are committed to complying with the GDPR. We process personal data lawfully, transparently, and for specific purposes. We implement appropriate technical and organizational measures to ensure data security.',
+          'Temos o compromisso de cumprir o GDPR. Tratamos dados pessoais de forma lícita, transparente e para finalidades específicas. Adotamos medidas técnicas e organizacionais adequadas para garantir a segurança dos dados.',
       },
       {
         heading: '2. California Consumer Privacy Act (CCPA)',
         content:
-          'In accordance with the CCPA, California residents have the right to know what personal information we collect, request deletion of their personal information, and opt-out of the sale of their personal information.',
+          'De acordo com a CCPA, os residentes da Califórnia têm o direito de saber quais informações pessoais coletamos, solicitar a exclusão dessas informações e optar por não permitir a venda de suas informações pessoais.',
       },
       {
         heading: '3. HIPAA',
         content:
-          'For certain legal services related to healthcare, we may be subject to HIPAA requirements. We implement appropriate safeguards to protect the privacy and security of protected health information (PHI).',
+          'Em determinados serviços jurídicos relacionados à área da saúde, podemos estar sujeitos aos requisitos da HIPAA. Adotamos salvaguardas adequadas para proteger a privacidade e a segurança das informações de saúde protegidas (PHI).',
       },
       {
-        heading: '4. Security Measures',
+        heading: '4. Medidas de segurança',
         content:
-          'We implement industry-standard security measures to protect your data, including encryption, access controls, regular security assessments, and employee training.',
+          'Adotamos medidas de segurança padrão do setor para proteger seus dados, incluindo criptografia, controles de acesso, avaliações periódicas de segurança e treinamento de funcionários.',
       },
       {
-        heading: '5. Reporting Security Concerns',
+        heading: '5. Como relatar problemas de segurança',
         content:
-          'If you believe you have discovered a security vulnerability in our Services, please report it to security@AiForLawyers.com. We appreciate your help in making our Services more secure.',
+          'Se você acredita ter descoberto uma vulnerabilidade de segurança em nossos Serviços, informe pelo e-mail security@AiForLawyers.com. Agradecemos sua ajuda para tornar nossos Serviços mais seguros.',
       },
     ],
   },
 };
 
 const tabs = [
-  { key: 'terms', label: 'Terms of Service' },
-  { key: 'privacy', label: 'Privacy Policy' },
-  { key: 'cookies', label: 'Cookie Policy' },
+  { key: 'terms', label: 'Termos de Serviço' },
+  { key: 'privacy', label: 'Política de Privacidade' },
+  { key: 'cookies', label: 'Política de Cookies' },
   { key: 'compliance', label: 'Compliance' },
 ] as const;
 
-const certifications = ['SOC 2 Type II', 'GDPR Compliant', 'HIPAA Compliant', 'ISO 27001'];
+const certifications = ['SOC 2 Tipo II', 'GDPR (em conformidade)', 'HIPAA (em conformidade)', 'ISO 27001'];
 
 const faqs = [
   {
-    question: 'How does AiForLawyers handle data security?',
+    question: 'Como a Pequi cuida da segurança dos dados?',
     answer:
-      'We implement industry-standard security measures including encryption, access controls, and regular security assessments. All data is encrypted both in transit and at rest, and we maintain SOC 2 Type II certification.',
+      'Adotamos medidas de segurança padrão do setor, incluindo criptografia, controles de acesso e avaliações periódicas de segurança. Todos os dados são criptografados em trânsito e em repouso, e mantemos a certificação SOC 2 Tipo II.',
   },
   {
-    question: 'Is AiForLawyers GDPR compliant?',
+    question: 'A Pequi está em conformidade com o GDPR?',
     answer:
-      'Yes, we are fully GDPR compliant. We process personal data lawfully, transparently, and for specific purposes. We implement appropriate technical and organizational measures to ensure data security.',
+      'Sim, estamos totalmente em conformidade com o GDPR. Tratamos dados pessoais de forma lícita, transparente e para finalidades específicas. Adotamos medidas técnicas e organizacionais adequadas para garantir a segurança dos dados.',
   },
   {
-    question: 'How do I request a copy of my data?',
+    question: 'Como solicito uma cópia dos meus dados?',
     answer:
-      'You can request a copy of your data by contacting our Data Protection Officer at privacy@AiForLawyers.com. We will process your request within 30 days in accordance with applicable data protection laws.',
+      'Você pode solicitar uma cópia dos seus dados entrando em contato com nosso Encarregado de Proteção de Dados pelo e-mail privacy@AiForLawyers.com. Atenderemos sua solicitação em até 30 dias, de acordo com as leis de proteção de dados aplicáveis.',
   },
   {
-    question: 'Does AiForLawyers share my data with third parties?',
+    question: 'A Pequi compartilha meus dados com terceiros?',
     answer:
-      'We only share your data with third parties as described in our Privacy Policy. This may include service providers who help us deliver our services, with appropriate data protection agreements in place.',
+      'Compartilhamos seus dados com terceiros somente conforme descrito em nossa Política de Privacidade. Isso pode incluir prestadores de serviços que nos ajudam a fornecer nossos serviços, com acordos adequados de proteção de dados.',
   },
 ];
 
@@ -171,9 +171,9 @@ export default function LegalExperience() {
   return (
     <div className="min-h-screen">
       <AuthHero
-        eyebrow="Transparency"
-        title="Legal information"
-        subtitle="Our commitment to clear policies, compliance, and security standards."
+        eyebrow="Transparência"
+        title="Informações legais"
+        subtitle="Nosso compromisso com políticas claras, compliance e padrões de segurança."
       />
 
       <section className="bg-[#F5F5F4] py-12 md:py-16 border-b border-gray-200">
@@ -199,7 +199,7 @@ export default function LegalExperience() {
             <div className="mb-8 pb-6 border-b border-gray-200">
               <h2 className="text-[#111827] text-[1.75rem] font-medium mb-2">{activeDoc.title}</h2>
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-[#868589]">
-                Last updated: {activeDoc.lastUpdated}
+                Última atualização: {activeDoc.lastUpdated}
               </p>
             </div>
             <div className="space-y-8">
@@ -212,9 +212,9 @@ export default function LegalExperience() {
             </div>
             <div className="mt-10 pt-7 border-t border-gray-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <p className="text-[#636977] text-[0.9375rem]">
-                Questions about these documents?{' '}
+                Dúvidas sobre estes documentos?{' '}
                 <Link href="/contact" className="text-[#111827] font-medium hover:underline">
-                  Contact us
+                  Fale conosco
                 </Link>
               </p>
               <button
@@ -230,7 +230,7 @@ export default function LegalExperience() {
                     d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
                   />
                 </svg>
-                Print document
+                Imprimir documento
               </button>
             </div>
           </div>
@@ -239,8 +239,8 @@ export default function LegalExperience() {
 
       <section className="bg-white py-12 md:py-16 border-b border-gray-200">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h2 className={sectionHeadingClass}>Our certifications</h2>
-          <p className={`${sectionSubTextClass} mt-3 mb-10`}>Validated standards that support enterprise legal workflows.</p>
+          <h2 className={sectionHeadingClass}>Nossas certificações</h2>
+          <p className={`${sectionSubTextClass} mt-3 mb-10`}>Padrões validados que sustentam fluxos jurídicos corporativos.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {certifications.map((cert) => (
               <div
@@ -251,7 +251,7 @@ export default function LegalExperience() {
                   {cert.split(' ')[0]}
                 </div>
                 <h3 className="text-[#111827] text-[0.9375rem] font-medium">{cert}</h3>
-                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#868589] mt-1">Certified</p>
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#868589] mt-1">Certificado</p>
               </div>
             ))}
           </div>
@@ -260,7 +260,7 @@ export default function LegalExperience() {
 
       <section className="bg-[#F5F5F4] py-12 md:py-16">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h2 className={sectionHeadingClass}>Frequently asked questions</h2>
+          <h2 className={sectionHeadingClass}>Perguntas frequentes</h2>
           <div className="grid md:grid-cols-2 gap-4 mt-10">
             {faqs.map((faq) => (
               <div key={faq.question} className="rounded-[1.25rem] border border-gray-200 bg-white p-6">
@@ -271,15 +271,15 @@ export default function LegalExperience() {
           </div>
 
           <div className="mt-12 rounded-[1.875rem] border border-gray-200 bg-[#111827] text-white p-8 md:p-10 text-center">
-            <h3 className="text-[1.5rem] md:text-[1.75rem] font-medium mb-3">Still have questions?</h3>
+            <h3 className="text-[1.5rem] md:text-[1.75rem] font-medium mb-3">Ainda tem dúvidas?</h3>
             <p className="text-white/75 text-[1rem] max-w-2xl mx-auto mb-8">
-              Our legal team can help with questions about terms, privacy, or compliance.
+              Nossa equipe jurídica pode ajudar com dúvidas sobre termos, privacidade ou compliance.
             </p>
             <Link
               href="/contact"
               className="inline-flex rounded-[0.875rem] bg-white text-[#111827] px-8 py-3.5 text-[0.9375rem] font-medium hover:bg-[#f3f4f6] transition-colors"
             >
-              Contact legal team
+              Falar com a equipe jurídica
             </Link>
           </div>
         </div>

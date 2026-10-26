@@ -4,39 +4,39 @@ import { sectionHeadingClass, sectionSubTextClass } from './sectionStyles';
 const capabilities = [
   {
     icon: '↔',
-    title: 'AI Assistants',
+    title: 'Assistentes de IA',
     description:
-      'Connect with specialized legal assistants for drafting, review, compliance checks, and faster decision support.',
+      'Conecte-se a assistentes jurídicos especializados em redação, revisão, verificações de compliance e apoio a decisões mais rápidas.',
   },
   {
     icon: '✳',
-    title: 'Knowledge Intelligence',
+    title: 'Inteligência de Conhecimento',
     description:
-      'Get instant insights from legal precedents, regulations, and internal documents with context-aware retrieval.',
+      'Obtenha insights instantâneos de precedentes, normas e documentos internos com buscas contextualizadas.',
   },
   {
     icon: '⇄',
-    title: 'Document Registry',
+    title: 'Registro de Documentos',
     description:
-      'Create and manage legal documents in seconds, track versions, and keep every matter aligned and auditable.',
+      'Crie e gerencie documentos jurídicos em segundos, acompanhe versões e mantenha cada caso alinhado e auditável.',
   },
   {
     icon: '⌘',
-    title: 'Channels Hub',
+    title: 'Central de Canais',
     description:
-      'Sync your legal workflows across teams, clients, and systems so collaboration happens in one secure place.',
+      'Sincronize seus fluxos jurídicos entre equipes, clientes e sistemas para que a colaboração aconteça em um único lugar seguro.',
   },
   {
     icon: '▤',
-    title: 'Performance Dashboard',
+    title: 'Painel de Desempenho',
     description:
-      'Monitor matter progress, response speed, and legal operations with real-time analytics in one unified view.',
+      'Acompanhe o andamento dos casos, o tempo de resposta e as operações jurídicas com análises em tempo real em uma visão unificada.',
   },
   {
     icon: '◉',
-    title: 'Vault & Security',
+    title: 'Cofre e Segurança',
     description:
-      'Store sensitive legal files in an encrypted vault with role-based permissions and enterprise-grade controls.',
+      'Guarde arquivos jurídicos sensíveis em um cofre criptografado, com permissões baseadas em funções e controles de nível corporativo.',
   },
 ];
 
@@ -45,9 +45,9 @@ export default function PlatformCapabilitiesSection() {
     <FadeInSection delay={0.17}>
       <section id="platform-capabilities" className="scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h3 className={sectionHeadingClass}>Discover what AIForLawyers can do</h3>
+          <h3 className={sectionHeadingClass}>Descubra o que o Pequi pode fazer</h3>
           <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[38rem]`}>
-            Simplify legal operations with intelligent automation, secure collaboration, and complete workflow control.
+            Simplifique as operações jurídicas com automação inteligente, colaboração segura e controle total dos fluxos de trabalho.
           </p>
 
           <div className="overflow-hidden rounded-[1.25rem] border border-[#e7e7ea] bg-white">

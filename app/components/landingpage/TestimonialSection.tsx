@@ -5,39 +5,39 @@ import Image from 'next/image';
 const testimonialCards = [
   {
     quote:
-      'Before using AiForLawyers, I barely got any callbacks. After optimizing keywords and rewriting my resume with the AI, I started receiving interview invitations within a week. The process was fast, simple, and surprisingly accurate.',
+      'Antes de usar o Pequi, eu quase não recebia retornos. Depois de otimizar as palavras-chave e reescrever meu currículo com a IA, comecei a receber convites para entrevistas em uma semana. O processo foi rápido, simples e surpreendentemente preciso.',
     author: 'Nantaraya',
-    role: 'Marketing Specialist',
+    role: 'Especialista em Marketing',
     image: '/landingpage/hero/img1.png',
     size: 'large',
   },
   {
     quote:
-      'I was skeptical at first, but AiForLawyers transformed my legal workflow. The AI recommendations helped me highlight my strengths, and I secured a legal role just days after applying.',
+      'No começo eu estava cético, mas o Pequi transformou meu fluxo de trabalho jurídico. As recomendações da IA me ajudaram a destacar meus pontos fortes, e consegui uma vaga na área jurídica poucos dias depois de me candidatar.',
     author: 'Jamal',
-    role: 'Software Engineer',
+    role: 'Engenheiro de Software',
     image: '/landingpage/hero/img2.png',
     size: 'large',
   },
   {
     quote:
-      'The real-time feedback feature in AiForLawyers helped me spot weak legal clauses and improve them instantly. I rewrote my draft in under 20 minutes, and it looked way more professional and structured than before.',
+      'O recurso de feedback em tempo real do Pequi me ajudou a identificar cláusulas frágeis e melhorá-las na hora. Reescrevi minha minuta em menos de 20 minutos, e ela ficou muito mais profissional e estruturada.',
     author: 'Daniel',
-    role: 'UI Designer',
+    role: 'Designer de UI',
     image: '/landingpage/hero/img3.png',
     size: 'small',
   },
   {
     quote:
-      'I only shared my GitHub and portfolio links, and AiForLawyers turned them into clean, well-written legal profile sections. It saved me hours of writing and helped me explain my work much better.',
+      'Compartilhei apenas os links do meu GitHub e do meu portfólio, e o Pequi os transformou em seções de perfil jurídico claras e bem escritas. Economizei horas de escrita e consegui explicar meu trabalho muito melhor.',
     author: 'Kenji',
-    role: 'UI Designer',
+    role: 'Designer de UI',
     image: '/landingpage/hero/img4.png',
     size: 'small',
   },
   {
     quote:
-      'As a fresh graduate, I had no idea how to write a strong legal resume. AiForLawyers guided me step by step and helped me highlight my skills even with limited experience.',
+      'Recém-formada, eu não fazia ideia de como escrever um bom currículo jurídico. O Pequi me guiou passo a passo e me ajudou a destacar minhas habilidades, mesmo com pouca experiência.',
     author: 'Aaliyah',
     role: 'Marketing',
     image: '/landingpage/hero/img5.png',
@@ -53,9 +53,9 @@ export default function TestimonialSection() {
     <FadeInSection delay={0.16}>
       <section id="testimonials" className="bg-[#EBFAF8] scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
-        <h3 className={sectionHeadingClass}>What our Users Think</h3>
+        <h3 className={sectionHeadingClass}>O que nossos usuários dizem</h3>
         <p className={`${sectionSubTextClass} mt-4 mb-10`}>
-          Real feedback from lawyers, teams, and firms using AI to transform their legal workflows.
+          Opiniões reais de advogados, equipes e escritórios que usam IA para transformar seus fluxos de trabalho jurídicos.
         </p>
         <div className="space-y-4">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">

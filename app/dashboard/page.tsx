@@ -27,11 +27,11 @@ export default function DashboardPage() {
   const [followUpPrompts, setFollowUpPrompts] = useState<string[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [searchSuggestions] = useState<string[]>([
-    "Contract interpretation under New York law",
-    "Non-disclosure agreement template analysis",
-    "Employment termination legal requirements",
-    "Liability in software licensing agreements",
-    "Recent case law on patent infringement"
+    "Interpretação de contratos segundo a lei de Nova York",
+    "Análise de modelo de acordo de confidencialidade",
+    "Requisitos legais para rescisão do contrato de trabalho",
+    "Responsabilidade em contratos de licenciamento de software",
+    "Jurisprudência recente sobre violação de patentes"
   ]);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const router = useRouter();
@@ -92,13 +92,13 @@ export default function DashboardPage() {
     const fileDownload = document.createElement('a');
     document.body.appendChild(fileDownload);
     fileDownload.href = source;
-    fileDownload.download = 'AIForLawyers_Draft.doc';
+    fileDownload.download = 'Pequi_Minuta.doc';
     fileDownload.click();
     document.body.removeChild(fileDownload);
   };
 
   return (
-    <DashboardLayout title="Intelligence Search">
+    <DashboardLayout title="Pesquisa Inteligente">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Two-Panel Hero Section */}
         <div className="flex flex-col lg:flex-row rounded-[3rem] overflow-hidden shadow-2xl border border-[#e7e5e1] min-h-[600px] bg-white">
@@ -119,15 +119,15 @@ export default function DashboardPage() {
             <div className="relative z-10 space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 animate-in fade-in slide-in-from-top-4 duration-1000">
                 <div className="w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 text-nowrap">Sovereign Core Active</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 text-nowrap">Núcleo soberano ativo</span>
               </div>
               
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-[#10101A]">
-                  Strategic <span className="font-light opacity-60 italic">Intelligence Hub</span>
+                  Central de <span className="font-light opacity-60 italic">Inteligência Estratégica</span>
                 </h2>
                 <p className="text-lg text-[#10101A]/60 font-medium leading-relaxed max-w-sm">
-                  Autonomous legal research across cross-border jurisdictions with real-time precedence mapping.
+                  Pesquisa jurídica autônoma em diversas jurisdições, com mapeamento de precedentes em tempo real.
                 </p>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function DashboardPage() {
             <div className="relative z-10 pt-12">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#10101A]/30">Neural Activity Stream</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#10101A]/30">Fluxo de atividade neural</span>
                   <div className="flex gap-1">
                     <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
                     <div className="w-1 h-1 rounded-full bg-green-500/40" />
@@ -144,9 +144,9 @@ export default function DashboardPage() {
                 
                 <div className="space-y-2">
                   {[
-                    { label: 'Criminal Precedence Mapping', time: '12s ago', icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-                    { label: 'Corporate Liability Audit', time: '45s ago', icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' },
-                    { label: 'Cross-Border Discovery', time: '2m ago', icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' }
+                    { label: 'Mapeamento de precedentes criminais', time: 'há 12s', icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+                    { label: 'Auditoria de responsabilidade corporativa', time: 'há 45s', icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' },
+                    { label: 'Descoberta transfronteiriça', time: 'há 2 min', icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-white/40 border border-[#e7e5e1] backdrop-blur-xl group hover:bg-white/60 transition-all cursor-default">
                       <div className="flex items-center gap-3">
@@ -169,8 +169,8 @@ export default function DashboardPage() {
           <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-white">
             <div className="max-w-md w-full mx-auto space-y-10">
               <div className="space-y-2">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Operational Terminal</h3>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#10101A]">What can I analyze for you?</h2>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Terminal operacional</h3>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#10101A]">O que posso analisar para você?</h2>
               </div>
 
               <form onSubmit={handleSearch} className="relative group">
@@ -181,7 +181,7 @@ export default function DashboardPage() {
                 </div>
                 <input
                   type="text"
-                  placeholder="Case ID, Clause, or Query..."
+                  placeholder="Nº do processo, cláusula ou consulta..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-[#F9F8F6] border border-[#e7e5e1] text-[#10101A] placeholder-[#10101A]/30 py-5 pl-14 pr-16 rounded-2xl focus:outline-none focus:ring-4 focus:ring-black/5 transition-all duration-300 font-medium"
@@ -206,7 +206,7 @@ export default function DashboardPage() {
 
               {!hasSearched && (
                 <div className="space-y-4">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Rapid Access</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Acesso rápido</p>
                   <div className="flex flex-wrap gap-2">
                     {searchSuggestions.slice(0, 4).map((suggestion, index) => (
                       <button
@@ -238,8 +238,8 @@ export default function DashboardPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Synthesized Opinion</h3>
-                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Neural Network Output v4.2</p>
+                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Parecer sintetizado</h3>
+                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Resultado da rede neural v4.2</p>
                     </div>
                   </div>
                   <div
@@ -251,7 +251,7 @@ export default function DashboardPage() {
  
               {searchResults.length > 0 && (
                 <div className="space-y-4">
-                  <h3 className="px-6 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Source Citations</h3>
+                  <h3 className="px-6 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Fontes citadas</h3>
                   {searchResults.map((result) => (
                     <div key={result.id} className="group bg-white hover:bg-[#F9F8F6] border border-[#e7e5e1] rounded-[2rem] p-8 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer">
                       <div className="flex justify-between items-start mb-4">
@@ -260,14 +260,14 @@ export default function DashboardPage() {
                           <h4 className="text-xl font-medium text-[#10101A] group-hover:text-black transition-colors tracking-tight">{result.title}</h4>
                         </div>
                         <div className="px-3 py-1.5 rounded-full bg-foreground/5 text-[10px] font-bold text-foreground/40 border border-foreground/5">
-                          {Math.round(result.relevance * 100)}% Relevancy
+                          {Math.round(result.relevance * 100)}% de relevância
                         </div>
                       </div>
                       <p className="text-[1rem] text-[#525252] leading-relaxed line-clamp-2 font-medium">
                         {result.summary}
                       </p>
                       <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#10101A]">View Analysis</span>
+                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#10101A]">Ver análise</span>
                         <svg className="w-3 h-3 text-[#10101A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                       </div>
                     </div>
@@ -280,7 +280,7 @@ export default function DashboardPage() {
             <div className="space-y-8">
               {followUpPrompts.length > 0 && (
                 <div className="bg-[#F9F8F6] rounded-[2.5rem] p-8 border border-[#e7e5e1]">
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30 mb-8 font-sans">Strategic Discovery</h3>
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30 mb-8 font-sans">Aprofundamento estratégico</h3>
                   <div className="space-y-3">
                     {followUpPrompts.map((prompt, index) => (
                       <button
@@ -301,9 +301,9 @@ export default function DashboardPage() {
  
               <div className="bg-hero-gradient text-[#10101A] rounded-[2.5rem] p-10 shadow-2xl overflow-hidden relative border border-black/5">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-black/5 rounded-full -mr-24 -mt-24 blur-3xl" />
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#10101A]/30 mb-8 relative z-10">Intelligence Agent</h3>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#10101A]/30 mb-8 relative z-10">Agente de inteligência</h3>
                 <p className="text-[1rem] font-medium text-[#10101A]/60 leading-relaxed mb-10 relative z-10">
-                  Translate this legal research into a professional draft or request a deeper forensic analysis.
+                  Transforme esta pesquisa jurídica em uma minuta profissional ou solicite uma análise pericial mais aprofundada.
                 </p>
                 <div className="space-y-4 relative z-10">
                   <button 
@@ -311,13 +311,13 @@ export default function DashboardPage() {
                     disabled={!enhancedQuery}
                     className="w-full py-5 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all disabled:opacity-50 disabled:cursor-not-allowed btn-primary-gradient"
                   >
-                    Draft Agreement
+                    Redigir contrato
                   </button>
                   <button 
                     className="w-full py-5 bg-black/5 hover:bg-black/10 text-[#10101A] border border-black/10 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] transition-all" 
                     onClick={() => router.push('/dashboard/chat')}
                   >
-                    Consult Assistant
+                    Consultar assistente
                   </button>
                 </div>
               </div>

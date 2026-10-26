@@ -9,20 +9,20 @@ import { toast } from 'react-hot-toast';
 
 // Category mapping for organization
 const categories = {
-  'Criminal Law': ['criminal'],
-  'Civil Law': ['civil', 'personal-injury'],
-  'Corporate & Business Law': ['corporate', 'mergers'],
-  'Family Law': ['family'],
-  'Immigration Law': ['immigration'],
-  'Property Law': ['real-estate'],
-  'Intellectual Property': ['intellectual-property'],
-  'Tax & Finance': ['tax', 'bankruptcy'],
-  'Other Specializations': ['military', 'estate-planning', 'healthcare', 'environmental', 'technology', 'entertainment', 'civil-rights', 'employment']
+  'Direito Penal': ['criminal'],
+  'Direito Civil': ['civil', 'personal-injury'],
+  'Direito Societário e Empresarial': ['corporate', 'mergers'],
+  'Direito de Família': ['family'],
+  'Direito Migratório': ['immigration'],
+  'Direito Imobiliário': ['real-estate'],
+  'Propriedade Intelectual': ['intellectual-property'],
+  'Tributário e Financeiro': ['tax', 'bankruptcy'],
+  'Outras especializações': ['military', 'estate-planning', 'healthcare', 'environmental', 'technology', 'entertainment', 'civil-rights', 'employment']
 };
 
 export default function LawyersPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [lawyersList, setLawyersList] = useState<LawyerData[]>([]);
   const [userPlan, setUserPlan] = useState<string>('Free');
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function LawyersPage() {
       lawyer.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       lawyer.expertise.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    if (selectedCategory === 'All') {
+    if (selectedCategory === 'Todas') {
       return matchesSearch;
     }
 
@@ -68,27 +68,27 @@ export default function LawyersPage() {
   });
 
   // Get unique categories from lawyers
-  const uniqueCategories = ['All', ...Object.keys(categories)];
+  const uniqueCategories = ['Todas', ...Object.keys(categories)];
 
   const handleLawyerClick = (e: React.MouseEvent, index: number) => {
     if (userPlan === 'Free' && index >= 5) {
       e.preventDefault();
-      toast.error("Unlock all 50 AI Legal Specialists by upgrading to Pro!");
+      toast.error("Desbloqueie todos os 50 especialistas jurídicos de IA fazendo upgrade para o Pro!");
       router.push('/dashboard/billing');
     }
   };
 
   return (
-    <DashboardLayout title="AiForLawyers">
+    <DashboardLayout title="Pequi">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40 text-nowrap">Specialized Intelligence Nodes</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40 text-nowrap">Núcleos de inteligência especializada</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-[#10101A] mb-6">AI Legal Specialists</h1>
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-[#10101A] mb-6">Especialistas jurídicos de IA</h1>
           <p className="text-lg text-[#525252] font-medium opacity-60 leading-relaxed">
-            Connect with forensic-grade AI agents trained on global legal protocols and private case archives.
+            Conecte-se a agentes de IA de nível pericial treinados com protocolos jurídicos globais e acervos privados de casos.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function LawyersPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for a specialized agent..."
+                placeholder="Pesquise um agente especializado..."
                 className="w-full bg-white border border-[#e7e5e1] hover:border-black/20 focus:outline-none focus:ring-8 focus:ring-black/5 focus:border-black/10 rounded-2xl px-6 py-4 transition-all duration-300 placeholder-foreground/20 text-[#10101A] font-medium pr-14 shadow-sm"
               />
               <div className="absolute right-5 top-1/2 transform -translate-y-1/2 text-foreground/20 group-focus-within:text-black transition-colors">
@@ -144,7 +144,7 @@ export default function LawyersPage() {
                     <svg className="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                    GATEKEEPER
+                    BLOQUEADO
                   </div>
                 )}
  
@@ -180,8 +180,8 @@ export default function LawyersPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
             </div>
-            <h3 className="text-xl font-medium text-foreground mb-2">No lawyers found</h3>
-            <p className="text-foreground/60">Try adjusting your search or filter criteria</p>
+            <h3 className="text-xl font-medium text-foreground mb-2">Nenhum advogado encontrado</h3>
+            <p className="text-foreground/60">Tente ajustar sua pesquisa ou os critérios de filtro</p>
           </div>
         )}
       </div>

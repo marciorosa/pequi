@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const file = searchParams.get('file');
   
   if (!file) {
-    return NextResponse.json({ error: 'File parameter is required' }, { status: 400 });
+    return NextResponse.json({ error: 'O parâmetro de arquivo é obrigatório' }, { status: 400 });
   }
 
   // Security: Only allow downloads from specific directories
@@ -22,14 +22,14 @@ export async function GET(request: NextRequest) {
   const isAllowedPath = allowedPaths.some(allowedPath => file.startsWith(allowedPath));
   
   if (!isAllowedPath) {
-    return NextResponse.json({ error: 'Access denied' }, { status: 403 });
+    return NextResponse.json({ error: 'Acesso negado' }, { status: 403 });
   }
 
   try {
     const filePath = join(process.cwd(), 'public', file);
     
     if (!existsSync(filePath)) {
-      return NextResponse.json({ error: 'File not found' }, { status: 404 });
+      return NextResponse.json({ error: 'Arquivo não encontrado' }, { status: 404 });
     }
 
     const fileBuffer = await readFile(filePath);
@@ -61,6 +61,6 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error('Download error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: 'Erro interno do servidor' }, { status: 500 });
   }
 }
