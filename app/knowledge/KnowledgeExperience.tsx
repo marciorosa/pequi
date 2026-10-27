@@ -159,7 +159,7 @@ export default function KnowledgeExperience() {
                     onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
-                    Ver demonstração da pesquisa
+                    Ver demonstração
                   </button>
                 </div>
               </div>
