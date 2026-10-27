@@ -58,10 +58,10 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
         />
         <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
           <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">
-            Avaliação 5 estrelas no Google
+           Teste grátis
           </p>
           <h1 className="mt-5 max-w-[700px] text-center font-medium text-ink text-[2.7rem] leading-[1.08] tracking-[-0.08rem] sm:text-[4.13188rem] sm:leading-[4.54513rem] sm:tracking-[-0.16525rem]">
-            Transformando a inteligência jurídica
+            Sua inteligência jurídica acessível
           </h1>
           <p className="mt-4 max-w-[620px] text-center text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
             Desenvolvemos plataformas de IA de elite para os profissionais do Direito mais exigentes do mundo, que buscam
