@@ -65,15 +65,15 @@ export default function FeaturesSection() {
           </article>
 
           <article className="landing-card lg:col-span-4 p-4 md:p-5">
-            <div className="rounded-[0.9rem] border border-castanha-150 bg-[linear-gradient(160deg,#171825_0%,#23253b_100%)] p-5 text-white">
+            <div className="rounded-[0.9rem] border border-castanha-150 bg-[linear-gradient(160deg,var(--cerrado-950)_0%,var(--cerrado-800)_100%)] p-5 text-white">
               <p className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white/75">Recurso em destaque</p>
               <h4 className="mt-2 text-[1.2rem] font-medium leading-snug">Assistente Jurídico com IA</h4>
               <ul className="mt-5 space-y-2.5 text-[0.92rem] leading-relaxed text-white/85">
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Faça perguntas jurídicas em linguagem simples.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Receba apoio contextualizado na redação e resumos.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Alertas de risco por cláusula, com sugestões de próximos passos.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Confira referências com seu acervo de documentos instantaneamente.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-white">▶</span><span>Prepare respostas prontas para o cliente com tom jurídico consistente.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-pequi-400">▶</span><span>Faça perguntas jurídicas em linguagem simples.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-pequi-400">▶</span><span>Receba apoio contextualizado na redação e resumos.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-pequi-400">▶</span><span>Alertas de risco por cláusula, com sugestões de próximos passos.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-pequi-400">▶</span><span>Confira referências com seu acervo de documentos instantaneamente.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-pequi-400">▶</span><span>Prepare respostas prontas para o cliente com tom jurídico consistente.</span></li>
               </ul>
               <div className="mt-5 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-[0.8rem] text-white/80 transition-all duration-300 hover:border-white/30 hover:bg-white/15">
                 Pronto para contratos, compliance e preparação de casos.

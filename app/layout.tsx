@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lexend_Deca, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter, Lexend_Deca, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import DashboardAwareLayout from "./components/DashboardAwareLayout";
@@ -17,6 +17,14 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: '--font-playfair',
   display: 'swap',
+});
+
+// Fonte dos títulos (h1, h2, h3): serifada moderna e calorosa
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: '--font-fraunces',
+  display: 'swap',
+  axes: ['opsz'],
 });
 
 const lexendDeca = Lexend_Deca({
@@ -53,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
+    <html lang="pt-BR" className={`${inter.variable} ${fraunces.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground" style={{ 
         ['--font-gilroy' as any]: `var(${interTight.variable})`,
         ['--font-landing' as any]: `var(${interTight.variable})`
