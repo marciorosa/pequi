@@ -173,8 +173,7 @@ export default function CompanyExperience() {
                   contratos e compliance funcionam na prática.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Com escritórios em Nova York, San Francisco e Londres, atendemos advogados autônomos, grandes escritórios e equipes jurídicas
-                  de empresas da Fortune 500 no mundo todo.
+                  Com escritórios em Brasilia, São Paulo e Campinas, temos uma equipe pronta para oferecer a melhor IA para proteger seu patrimônio e seu direto.
                 </p>
               </div>
               <div className="relative">
