@@ -27,8 +27,8 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: 'Pro',
     description: 'Ideal para escritórios em crescimento e profissionais ativos.',
-    monthlyPrice: 49,
-    annualPrice: 490,
+    monthlyPrice: 399,
+    annualPrice: 3999,
     features: [
       'Pesquisa Inteligente (50 pesquisas)',
       'Chat Jurídico com IA (50 mensagens)',

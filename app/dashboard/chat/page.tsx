@@ -278,7 +278,7 @@ export default function ChatPage() {
       if (error.response?.status === 403 || error.status === 403) {
         setShowUpgradeModal(true);
       } else {
-        const message = error.response?.data?.message || 'Não foi possível obter a resposta da IA. Tente novamente.';
+        const message = error.response?.data?.message || error.message || 'Não foi possível obter a resposta da IA. Tente novamente.';
         toast.error(message, {
           duration: 4000,
           position: 'top-center',

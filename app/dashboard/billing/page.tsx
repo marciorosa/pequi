@@ -103,7 +103,7 @@ function BillingContent() {
     {
       id: 'pro-monthly',
       name: 'Pro Monthly',
-      price: 49,
+      price: 399,
       billingPeriod: 'monthly',
       description: 'Ideal para escritórios em crescimento e profissionais ativos',
       features: [
@@ -528,7 +528,7 @@ function BillingContent() {
               <h3 className="text-2xl font-medium tracking-tight text-ink mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
               <div className="mb-8 flex items-baseline">
                 <span className="text-5xl font-bold text-ink tracking-tighter">
-                  {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : `${plan.id === 'pro-monthly' ? '49' : plan.price}`}
+                  {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : `${plan.id === 'pro-monthly' ? '399' : plan.price}`}
                 </span>
                 {plan.price !== 0 && (
                   <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>

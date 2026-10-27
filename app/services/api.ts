@@ -280,8 +280,14 @@ export const aiService = {
         errorMessage = error.message;
       }
 
-      // Rethrow with a clearer message
-      throw new Error(`Erro no chat de IA: ${errorMessage}`);
+      // Rethrow with a clearer message, keeping the HTTP response so the page
+      // can react to the status (e.g. 403 -> upgrade modal) and show the server message
+      const wrapped: any = new Error(`Erro no chat de IA: ${errorMessage}`);
+      if (axios.isAxiosError(error)) {
+        wrapped.response = error.response;
+        wrapped.status = error.response?.status;
+      }
+      throw wrapped;
     }
   },
 };
