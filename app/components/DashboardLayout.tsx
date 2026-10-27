@@ -82,17 +82,17 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
             <p className="px-4 text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] mb-4">Principal</p>
             <div className="space-y-1.5">
               <MobileNavItem href="/dashboard" label="Pesquisa" exact icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>} />
-              <MobileNavItem href="/dashboard/chat" label="Canais" icon={<Image src="landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />} />
-              <MobileNavItem href="/dashboard/lawyers" label="Assistentes" icon={<Image src="landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/chat" label="Canais" icon={<Image src="/landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/lawyers" label="Assistentes" icon={<Image src="/landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />} />
             </div>
           </div>
 
           <div>
             <p className="px-4 text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] mb-4">Recursos</p>
             <div className="space-y-1.5">
-              <MobileNavItem href="/dashboard/docs" label="Registro" icon={<Image src="landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />} />
-              <MobileNavItem href="/dashboard/vault" label="Cofre" icon={<Image src="landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />} />
-              <MobileNavItem href="/dashboard/workflow-builder" label="Fluxos" icon={<Image src="landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/docs" label="Registro" icon={<Image src="/landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/vault" label="Cofre" icon={<Image src="/landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/workflow-builder" label="Fluxos" icon={<Image src="/landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />} />
             </div>
           </div>
         </div>
@@ -184,28 +184,28 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           <DockItem
             href="/dashboard/chat"
             label="Canais"
-            icon={<Image src="landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />}
+            icon={<Image src="/landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />}
           />
           <DockItem
             href="/dashboard/lawyers"
             label="Assistentes"
-            icon={<Image src="landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />}
+            icon={<Image src="/landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />}
           />
           <div className="w-px h-8 bg-[#e7e5e1] mx-1" />
           <DockItem
             href="/dashboard/docs"
             label="Registro"
-            icon={<Image src="landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />}
+            icon={<Image src="/landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />}
           />
           <DockItem
             href="/dashboard/vault"
             label="Cofre"
-            icon={<Image src="landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />}
+            icon={<Image src="/landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />}
           />
           <DockItem
             href="/dashboard/workflow-builder"
             label="Fluxos"
-            icon={<Image src="landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />}
+            icon={<Image src="/landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />}
           />
           <div className="w-px h-8 bg-[#e7e5e1] mx-1" />
           <DockItem
