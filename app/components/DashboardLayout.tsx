@@ -72,7 +72,7 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
             </div>
             <div className="flex flex-col">
               <span className="text-foreground font-bold text-[15px] tracking-tight leading-none uppercase">Pequi</span>
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">Enterprise</span>
+              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
             </div>
           </Link>
         </div>
@@ -128,7 +128,7 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
             </div>
             <div className="flex flex-col hidden lg:flex">
               <span className="text-foreground font-bold text-[15px] tracking-tight leading-none uppercase">Pequi</span>
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">Enterprise</span>
+              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
             </div>
           </Link>
 

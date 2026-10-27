@@ -229,7 +229,7 @@ export default function NewsExperience() {
                     href="/contact"
                     className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
-                    Contato para a imprensa
+                    Contato imprensa
                   </Link>
                 </div>
               </div>
