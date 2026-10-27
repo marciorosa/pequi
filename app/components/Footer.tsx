@@ -88,7 +88,7 @@ const Footer = () => {
 
           <div className="border-t border-white/12 pt-7 mt-2 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/65 text-sm text-center md:text-left">
-              Copyright © {new Date().getFullYear()} Pequi Corporation. Todos os direitos reservados.
+              Copyright © {new Date().getFullYear()} Pequi. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-6 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:-translate-y-0.5 [&_a]:inline-block">
               <Link href="/terms">Termos de Serviço</Link>
