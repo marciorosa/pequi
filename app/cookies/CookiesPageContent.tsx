@@ -249,7 +249,7 @@ export default function CookiesPageContent() {
               </button>
               <button
                 type="button"
-                className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+                className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                 onClick={() => setShowCookieSettings(false)}
               >
                 Salvar preferências

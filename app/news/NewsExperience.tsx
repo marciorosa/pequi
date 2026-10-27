@@ -193,7 +193,7 @@ export default function NewsExperience() {
                 />
                 <button
                   type="submit"
-                  className="landing-primary-btn inline-flex h-11 shrink-0 items-center justify-center px-8 transition hover:brightness-110"
+                  className="landing-primary-btn inline-flex h-11 shrink-0 items-center justify-center px-8 transition"
                 >
                   Assinar
                 </button>
@@ -221,7 +221,7 @@ export default function NewsExperience() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href="/press-kit"
-                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                   >
                     Ver kit de imprensa
                   </Link>

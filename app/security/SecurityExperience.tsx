@@ -129,7 +129,7 @@ export default function SecurityExperience() {
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
-                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                   >
                     Fale com a equipe de segurança
                   </Link>
@@ -274,7 +274,7 @@ export default function SecurityExperience() {
               </p>
               <Link
                 href="/contact"
-                className="landing-primary-btn mx-auto mt-8 inline-flex h-11 items-center justify-center gap-2 px-6 transition hover:brightness-110"
+                className="landing-primary-btn mx-auto mt-8 inline-flex h-11 items-center justify-center gap-2 px-6 transition"
               >
                 <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path

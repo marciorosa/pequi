@@ -21,7 +21,7 @@ export default function FaqSection() {
                 </p>
                 <Link
                   href="/contact"
-                  className="landing-primary-btn mt-4 inline-flex h-10 items-center justify-center px-5 text-[0.9rem] transition hover:brightness-110"
+                  className="landing-primary-btn mt-4 inline-flex h-10 items-center justify-center px-5 text-[0.9rem] transition"
                 >
                   Fale conosco
                 </Link>

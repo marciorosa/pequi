@@ -312,22 +312,25 @@
 }
 
 .btn-primary-gradient {
-  background: linear-gradient(189deg, var(--pequi-300) 10%, var(--pequi-500) 55%, var(--pequi-600) 100%) !important;
-  box-shadow: 0 1px 2px 0 rgba(60, 45, 10, 0.08) !important;
+  background: var(--pequi-500) !important;
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
   color: var(--pq-on-brand) !important;
   font-weight: 500;
-  transition: all 250ms ease !important;
+  letter-spacing: -0.005em;
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 120ms ease !important;
 }
 
 .btn-primary-gradient:hover {
-  transform: translateY(-1px) !important;
-  filter: brightness(1.03) !important;
-  box-shadow: 0 2px 6px 0 rgba(60, 45, 10, 0.10) !important;
+  background: color-mix(in srgb, var(--pequi-500) 80%, var(--pequi-700)) !important;
 }
 
 .btn-primary-gradient:active {
-  transform: translateY(0) !important;
-  scale: 0.98 !important;
+  transform: scale(0.98) !important;
+}
+
+.btn-primary-gradient:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), 0 0 0 3px var(--pequi-200) !important;
 }
 
 /* Chat page animations and styling */
@@ -649,25 +652,31 @@ details[open] .faqMinus {
 }
 
 .landing-primary-btn {
-  border-radius: 29.51363rem;
-  background: linear-gradient(189deg, var(--pequi-300) 10%, var(--pequi-500) 55%, var(--pequi-600) 100%);
-  box-shadow: 0 1px 2px 0 rgba(60, 45, 10, 0.08);
+  border-radius: 999px;
+  background: var(--pequi-500);
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   color: var(--pq-on-brand);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.65275rem;
-  letter-spacing: -0.01181rem;
-  text-transform: capitalize;
-  transition: transform 250ms ease, filter 250ms ease, box-shadow 250ms ease;
+  line-height: 1.5rem;
+  letter-spacing: -0.005em;
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 120ms ease;
 }
 
 .landing-primary-btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-  box-shadow: 0 2px 6px 0 rgba(60, 45, 10, 0.10);
+  background: color-mix(in srgb, var(--pequi-500) 80%, var(--pequi-700));
+}
+
+.landing-primary-btn:active {
+  transform: scale(0.98);
+}
+
+.landing-primary-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), 0 0 0 3px var(--pequi-200);
 }
 
 .landing-secondary-btn {

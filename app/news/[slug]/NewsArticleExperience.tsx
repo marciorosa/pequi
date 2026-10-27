@@ -26,7 +26,7 @@ function ArticleNotFound() {
       </p>
       <Link
         href="/news"
-        className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+        className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition"
       >
         Voltar para notícias
       </Link>
@@ -246,7 +246,7 @@ export default function NewsArticleExperience({ slug }: Props) {
                   />
                   <button
                     type="submit"
-                    className="landing-primary-btn inline-flex h-11 shrink-0 items-center justify-center px-8 transition hover:brightness-110"
+                    className="landing-primary-btn inline-flex h-11 shrink-0 items-center justify-center px-8 transition"
                   >
                     Assinar
                   </button>

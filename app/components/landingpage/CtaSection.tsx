@@ -30,7 +30,7 @@ export default function CtaSection() {
               <div className="mt-8">
                 <Link
                   href="/signup"
-                  className="landing-primary-btn inline-flex justify-center items-center px-7 py-2.5 transition-all duration-300 hover:-translate-y-0.5"
+                  className="landing-primary-btn inline-flex justify-center items-center px-7 py-2.5 transition-all duration-300"
                 >
                   Comece sua jornada
                 </Link>

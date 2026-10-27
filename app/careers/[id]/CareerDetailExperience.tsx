@@ -222,7 +222,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="landing-primary-btn flex w-full items-center justify-center py-3.5 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="landing-primary-btn flex w-full items-center justify-center py-3.5 transition disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       {isSubmitting ? 'Enviando...' : 'Enviar candidatura'}
                     </button>

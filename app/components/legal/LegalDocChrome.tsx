@@ -128,7 +128,7 @@ export function LegalAcknowledgment({ children, ctaHref, ctaLabel }: { children:
           {children}
           <Link
             href={ctaHref}
-            className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-8 transition hover:brightness-110"
+            className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-8 transition"
           >
             {ctaLabel}
           </Link>

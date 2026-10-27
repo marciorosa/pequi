@@ -70,7 +70,7 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+              className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
             >
               Solicitar demonstração
             </Link>

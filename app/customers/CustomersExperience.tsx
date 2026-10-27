@@ -92,7 +92,7 @@ export default function CustomersExperience() {
               </p>
               <Link
                 href="/contact"
-                className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition hover:brightness-110"
+                className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition"
               >
                 Torne-se cliente
               </Link>
