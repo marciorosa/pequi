@@ -19,16 +19,16 @@ const heroAvatars = [
 export default function CompanyExperience() {
   const executives = [
     {
-      name: 'Michael Chen',
+      name: 'Marcio Rosa',
       position: 'Diretor executivo (CEO)',
       bio: 'Ex-líder de estratégia em legal tech; focado em entregar IA de nível corporativo sem abrir mão da confiança.',
       image: heroAvatars[0],
     },
     {
-      name: 'Sarah Johnson',
-      position: 'Diretora de produto (CPO)',
-      bio: 'Cria fluxos de trabalho que os advogados realmente adotam, unindo prática jurídica, design e avaliação de modelos.',
-      image: heroAvatars[1],
+      name: 'Hélio Lourenço',
+      position: 'Diretor de produto (CPO)',
+      bio: 'GTM corporativo para softwares jurídicos e de compliance; trabalha lado a lado com diretores jurídicos e equipes de inovação.',
+      image: heroAvatars[3],
     },
     {
       name: 'David Wilson',
@@ -39,8 +39,8 @@ export default function CompanyExperience() {
     {
       name: 'Elena Rodriguez',
       position: 'Diretora de receita (CRO)',
-      bio: 'GTM corporativo para softwares jurídicos e de compliance; trabalha lado a lado com diretores jurídicos e equipes de inovação.',
-      image: heroAvatars[3],
+      bio: 'Cria fluxos de trabalho que os advogados realmente adotam, unindo prática jurídica, design e avaliação de modelos.',
+      image: heroAvatars[1],
     },
   ];
 
