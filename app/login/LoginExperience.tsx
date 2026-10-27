@@ -82,7 +82,7 @@ function LoginForm() {
           </label>
           <Link
             href="/forgot-password"
-            className="text-[0.8125rem] font-medium text-[#525252] transition-colors hover:text-[#10101A]"
+            className="text-[0.8125rem] font-medium text-castanha-600 transition-colors hover:text-ink"
           >
             Esqueceu a senha?
           </Link>
@@ -105,9 +105,9 @@ function LoginForm() {
           id="remember_me"
           name="remember_me"
           type="checkbox"
-          className="h-4 w-4 rounded border-[#e7e5e1] text-[#10101A] focus:ring-[#10101A]/15"
+          className="h-4 w-4 rounded border-castanha-200 text-ink focus:ring-pequi-500/60"
         />
-        <label htmlFor="remember_me" className="text-[0.875rem] text-[#525252]">
+        <label htmlFor="remember_me" className="text-[0.875rem] text-castanha-600">
           Lembrar de mim
         </label>
       </div>
@@ -122,18 +122,18 @@ function LoginForm() {
 function LoginAside() {
   return (
     <>
-      <div className="overflow-hidden rounded-2xl border border-[#eceae7] bg-white shadow-[0_12px_28px_rgba(16,16,26,0.04)]">
-        <div className="border-b border-[#eceae7] bg-[#f8f7f6] px-8 py-6">
-          <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#525252]">
+      <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+        <div className="border-b border-castanha-150 bg-castanha-50 px-8 py-6">
+          <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">
             Assistente Pequi
           </p>
-          <p className="text-lg font-medium leading-snug text-[#10101A]">
+          <p className="text-lg font-medium leading-snug text-ink">
             Como posso analisar os riscos deste contrato de fusão?
           </p>
         </div>
         <div className="space-y-5 p-8">
           <div className="flex gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#10101A] text-white">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cerrado-900 text-white">
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
                 <path
                   strokeLinecap="round"
@@ -143,13 +143,13 @@ function LoginAside() {
                 />
               </svg>
             </div>
-            <div className="rounded-[1rem] rounded-tl-sm border border-[#eceae7] bg-[#f1f0ee] px-4 py-3 text-[0.9375rem] leading-relaxed text-[#525252]">
+            <div className="rounded-[1rem] rounded-tl-sm border border-castanha-150 bg-castanha-100 px-4 py-3 text-[0.9375rem] leading-relaxed text-castanha-600">
               Identifiquei várias áreas de risco importantes no contrato de fusão: condições regulatórias, redação da cláusula de MAE e
               condições trabalhistas pós-fechamento.
             </div>
           </div>
           <div className="flex gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#10101A] text-white">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cerrado-900 text-white">
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
                 <path
                   strokeLinecap="round"
@@ -159,29 +159,29 @@ function LoginAside() {
                 />
               </svg>
             </div>
-            <div className="rounded-[1rem] rounded-tl-sm border border-[#eceae7] bg-white px-4 py-3 text-[0.9375rem] leading-relaxed text-[#525252]">
+            <div className="rounded-[1rem] rounded-tl-sm border border-castanha-150 bg-white px-4 py-3 text-[0.9375rem] leading-relaxed text-castanha-600">
               Deseja sugestões de redação alternativa para essas cláusulas?
             </div>
           </div>
-          <p className="pt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">
+          <p className="pt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">
             Seguro e confidencial
           </p>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)]">
-        <svg className="mb-4 h-8 w-8 text-[#10101A]/20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+        <svg className="mb-4 h-8 w-8 text-ink/20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
           <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
         </svg>
-        <p className="mb-6 text-[1.0625rem] leading-[175%] text-[#525252]">
+        <p className="mb-6 text-[1.0625rem] leading-[175%] text-castanha-600">
           O Pequi transformou a eficiência do nosso departamento jurídico. Reduzimos significativamente o tempo de revisão de contratos
           e, ao mesmo tempo, melhoramos a precisão das pesquisas.
         </p>
         <div className="flex items-center gap-4">
-          <div className="h-12 w-12 rounded-full border border-[#eceae7] bg-[#f1f0ee]" />
+          <div className="h-12 w-12 rounded-full border border-castanha-150 bg-castanha-100" />
           <div>
-            <p className="font-medium text-[#10101A]">Sarah Johnson</p>
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
+            <p className="font-medium text-ink">Sarah Johnson</p>
+            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
               Diretora Jurídica
             </p>
           </div>
@@ -198,10 +198,10 @@ export default function LoginExperience() {
       <AuthPageLayout
         aside={<LoginAside />}
         footer={
-          <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
-            <p className="text-[0.9375rem] text-[#525252]">
+          <div className="mt-8 border-t border-castanha-150 pt-8 text-center">
+            <p className="text-[0.9375rem] text-castanha-600">
               Não tem uma conta?{' '}
-              <Link href="/signup" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
+              <Link href="/signup" className="font-medium text-ink underline-offset-2 hover:underline">
                 Criar conta
               </Link>
             </p>
@@ -209,7 +209,7 @@ export default function LoginExperience() {
         }
       >
         <Suspense
-          fallback={<p className="py-8 text-center text-sm text-[#525252]">Carregando...</p>}
+          fallback={<p className="py-8 text-center text-sm text-castanha-600">Carregando...</p>}
         >
           <LoginForm />
         </Suspense>

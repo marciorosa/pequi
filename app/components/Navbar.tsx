@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6">
       <div className={`mx-auto w-full max-w-[1274px] ${gilroyNav.className}`}>
-        <div className="relative flex items-center justify-between rounded-full border border-[#e8e5df] bg-white/90 px-5 py-2.5 shadow-[0_10px_30px_rgba(24,24,34,0.08)] backdrop-blur-lg sm:px-6">
+        <div className="relative flex items-center justify-between rounded-full border border-castanha-150 bg-white/90 px-5 py-2.5 shadow-[0_10px_30px_rgba(31,42,23,0.08)] backdrop-blur-lg sm:px-6">
           <Link
             href={isLandingPage ? '/#hero' : '/'}
             className="flex items-center"
@@ -55,11 +55,11 @@ const Navbar = () => {
             />
           </Link>
 
-          <div className="hidden items-center gap-7 text-[0.87rem] font-medium text-[#373540] xl:flex">
+          <div className="hidden items-center gap-7 text-[0.87rem] font-medium text-castanha-800 xl:flex">
             <div className="relative group">
               <button
                 onClick={toggleProductsDropdown}
-                className="flex items-center gap-1.5 transition hover:text-[#1d1c23]"
+                className="flex items-center gap-1.5 transition hover:text-ink"
               >
                 Produtos
                 <svg
@@ -74,33 +74,33 @@ const Navbar = () => {
               </button>
 
               {productsDropdownOpen && (
-                <div className="absolute left-[-0.75rem] top-full z-50 mt-4 w-52 overflow-hidden rounded-2xl border border-[#ece9e3] bg-white/95 shadow-[0_18px_35px_rgba(0,0,0,0.08)] backdrop-blur">
-                  <div className="py-2 text-[#111827]">
+                <div className="absolute left-[-0.75rem] top-full z-50 mt-4 w-52 overflow-hidden rounded-2xl border border-castanha-150 bg-white/95 shadow-[0_18px_35px_rgba(0,0,0,0.08)] backdrop-blur">
+                  <div className="py-2 text-ink">
                     <Link
                       href="/assistant"
                       onClick={() => setProductsDropdownOpen(false)}
-                      className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
+                      className="block px-5 py-2.5 text-sm text-ink/70 transition hover:bg-castanha-100 hover:text-ink"
                     >
                       Assistentes de IA
                     </Link>
                     <Link
                       href="/vault"
                       onClick={() => setProductsDropdownOpen(false)}
-                      className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
+                      className="block px-5 py-2.5 text-sm text-ink/70 transition hover:bg-castanha-100 hover:text-ink"
                     >
                       Acesso ao Cofre
                     </Link>
                     <Link
                       href="/knowledge"
                       onClick={() => setProductsDropdownOpen(false)}
-                      className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
+                      className="block px-5 py-2.5 text-sm text-ink/70 transition hover:bg-castanha-100 hover:text-ink"
                     >
                       Base de Conhecimento
                     </Link>
                     <Link
                       href="/workflows"
                       onClick={() => setProductsDropdownOpen(false)}
-                      className="block px-5 py-2.5 text-sm text-[#111827]/70 transition hover:bg-[#f5f4f2] hover:text-[#111827]"
+                      className="block px-5 py-2.5 text-sm text-ink/70 transition hover:bg-castanha-100 hover:text-ink"
                     >
                       Automações
                     </Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-[#1d1c23]"
+                className="transition hover:text-ink"
               >
                 {item.label}
               </Link>
@@ -125,14 +125,14 @@ const Navbar = () => {
               isAuthenticated ? (
                 <Link
                   href="/dashboard"
-                  className="inline-flex h-8 items-center justify-center rounded-full border border-[#e0ddd8] px-4 text-[0.82rem] font-medium text-[#474550] transition hover:bg-[#f3f1ee]"
+                  className="inline-flex h-8 items-center justify-center rounded-full border border-castanha-300 px-4 text-[0.82rem] font-medium text-castanha-800 transition hover:bg-castanha-100"
                 >
                   Painel
                 </Link>
               ) : (
                 <Link
                   href="/login"
-                  className="inline-flex h-8 items-center justify-center rounded-full border border-[#e0ddd8] bg-[#f4f2ef] px-4 text-[0.82rem] font-medium text-[#474550] transition hover:bg-[#efedea]"
+                  className="inline-flex h-8 items-center justify-center rounded-full border border-castanha-300 bg-castanha-50 px-4 text-[0.82rem] font-medium text-castanha-800 transition hover:bg-castanha-100"
                 >
                   Entrar
                 </Link>
@@ -149,7 +149,7 @@ const Navbar = () => {
           <div className="flex items-center xl:hidden">
             <button
               onClick={toggleMobileMenu}
-              className="text-[#111827] transition-transform duration-300 hover:scale-110 focus:outline-none"
+              className="text-ink transition-transform duration-300 hover:scale-110 focus:outline-none"
             >
               {mobileMenuOpen ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -165,7 +165,7 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="absolute left-0 right-0 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-2xl border border-[#ece9e4] bg-white/95 p-4 pb-4 shadow-xl backdrop-blur xl:hidden">
+          <div className="absolute left-0 right-0 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-2xl border border-castanha-150 bg-white/95 p-4 pb-4 shadow-xl backdrop-blur xl:hidden">
             <div className="flex flex-col space-y-3">
               <div className="flex flex-col">
                 <button
@@ -186,7 +186,7 @@ const Navbar = () => {
 
                 {/* Mobile Products Dropdown */}
                 {productsDropdownOpen && (
-                  <div className="animate-fadeIn mb-2 ml-1 space-y-2 border-l-2 border-gray-100 py-2 pl-4">
+                  <div className="animate-fadeIn mb-2 ml-1 space-y-2 border-l-2 border-castanha-100 py-2 pl-4">
                     <Link href="/assistant" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Assistentes de IA</Link>
                     <Link href="/vault" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Acesso ao Cofre</Link>
                     <Link href="/knowledge" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-foreground/70 transition-colors hover:text-foreground">Base de Conhecimento</Link>
@@ -206,10 +206,10 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <div className="pt-4 border-t border-gray-200 flex items-center gap-3">
+              <div className="pt-4 border-t border-castanha-200 flex items-center gap-3">
                 <Link
                   href={isAuthenticated ? '/dashboard' : '/login'}
-                  className="inline-flex h-10 items-center justify-center rounded-xl border border-[#111827]/25 px-5 text-sm text-[#111827] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f9fafb]"
+                  className="inline-flex h-10 items-center justify-center rounded-xl border border-cerrado-900/25 px-5 text-sm text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-castanha-50"
                 >
                   {isAuthenticated ? 'Painel' : 'Entrar'}
                 </Link>

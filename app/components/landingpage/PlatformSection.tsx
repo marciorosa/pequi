@@ -37,8 +37,8 @@ export default function PlatformSection() {
               onClick={() => setActiveTab(tab)}
               className={`inline-flex h-11 md:h-[3.4375rem] justify-center items-center rounded-[0.625rem] text-[0.875rem] md:text-[1rem] lg:text-[1.1rem] leading-none transition-colors ${
                 tab === activeTab
-                  ? 'px-4 md:px-[2.25rem] gap-2 md:gap-[0.875rem] border border-[#14171B] bg-[#111827] text-white shadow-sm'
-                  : 'px-4 md:px-[1.625rem] gap-2 md:gap-[0.625rem] bg-white text-[#636977] hover:bg-[#edeef0] hover:text-[#111827]'
+                  ? 'px-4 md:px-[2.25rem] gap-2 md:gap-[0.875rem] border border-cerrado-900 bg-cerrado-900 text-white shadow-sm'
+                  : 'px-4 md:px-[1.625rem] gap-2 md:gap-[0.625rem] bg-white text-castanha-600 hover:bg-castanha-100 hover:text-ink'
               }`}
             >
               {tab}
@@ -46,8 +46,8 @@ export default function PlatformSection() {
           ))}
         </div>
 
-        <div className="rounded-[1.7rem] bg-[#F5F5F4] overflow-hidden">
-          <div className="rounded-[1.3rem] bg-[#F5F5F4] h-[260px] sm:h-[360px] md:h-[560px] overflow-hidden">
+        <div className="rounded-[1.7rem] bg-castanha-100 overflow-hidden">
+          <div className="rounded-[1.3rem] bg-castanha-100 h-[260px] sm:h-[360px] md:h-[560px] overflow-hidden">
             <div className="relative h-full">
               <Image
                 src={tabImages[activeTab]}

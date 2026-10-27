@@ -76,9 +76,9 @@ export default function PricingPage() {
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
-            <div className="w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40">Seleção de planos</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
+            <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Seleção de planos</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -90,7 +90,7 @@ export default function PricingPage() {
 
           {/* Billing Toggle */}
           <div className="flex justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <div className="bg-white/50 backdrop-blur-xl border border-black/5 rounded-full p-1.5 flex shadow-sm">
+            <div className="bg-white/50 backdrop-blur-xl border border-cerrado-900/5 rounded-full p-1.5 flex shadow-sm">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 ${billingPeriod === 'monthly'
@@ -108,7 +108,7 @@ export default function PricingPage() {
                   }`}
               >
                 Anual
-                <span className={`ml-2 text-[9px] px-2 py-0.5 rounded-full ${billingPeriod === 'annual' ? 'bg-white/20 text-white' : 'bg-black/5 text-black'}`}>
+                <span className={`ml-2 text-[9px] px-2 py-0.5 rounded-full ${billingPeriod === 'annual' ? 'bg-white/20 text-white' : 'bg-cerrado-950/5 text-ink'}`}>
                   ECONOMIZE 17%
                 </span>
               </button>
@@ -126,7 +126,7 @@ export default function PricingPage() {
                 key={index}
                 className={`group relative bg-white border ${plan.popular
                   ? 'border-foreground shadow-2xl scale-[1.03] lg:scale-105 z-10'
-                  : 'border-[#e7e5e1] shadow-sm'
+                  : 'border-castanha-200 shadow-sm'
                   } p-12 hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] flex flex-col min-h-[700px]`}
               >
                 {plan.popular && (
@@ -140,13 +140,13 @@ export default function PricingPage() {
                 <div className="mb-12">
                   <div className="flex justify-between items-start mb-6">
                     <h3 className="text-3xl font-medium tracking-tight">{plan.name}</h3>
-                    <div className="w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-black/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    <div className="w-10 h-10 rounded-xl bg-cerrado-950/5 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
                   </div>
                   <p className="text-foreground/50 text-base leading-relaxed h-12 mb-10">{plan.description}</p>
 
-                  <div className="pt-8 border-t border-[#e7e5e1]">
+                  <div className="pt-8 border-t border-castanha-200">
                     <div className="flex items-baseline gap-1 mb-2">
                       <span className="text-5xl font-medium tracking-tight">{getPrice(plan)}</span>
                       {plan.monthlyPrice !== null && (
@@ -156,7 +156,7 @@ export default function PricingPage() {
                       )}
                     </div>
                     {billingPeriod === 'annual' && getSavings(plan) && (
-                      <div className="inline-block text-[9px] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded-md">
+                      <div className="inline-block text-[9px] font-bold uppercase tracking-widest text-cerrado-500 bg-cerrado-50 px-2 py-0.5 rounded-md">
                         Economia de {getSavings(plan)}%
                       </div>
                     )}
@@ -166,8 +166,8 @@ export default function PricingPage() {
                 <ul className="space-y-5 mb-12 flex-1 pt-4">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <div className="w-4 h-4 rounded-full bg-black/5 flex items-center justify-center mt-1 mr-4 flex-shrink-0 group-hover:bg-black/10 transition-colors">
-                        <svg className="w-2.5 h-2.5 text-black/40 group-hover:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                      <div className="w-4 h-4 rounded-full bg-cerrado-950/5 flex items-center justify-center mt-1 mr-4 flex-shrink-0 group-hover:bg-cerrado-950/10 transition-colors">
+                        <svg className="w-2.5 h-2.5 text-ink/40 group-hover:text-ink transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
@@ -180,7 +180,7 @@ export default function PricingPage() {
                   href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
                   className={`block w-full py-5 rounded-2xl text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 text-center ${plan.popular
                     ? 'btn-primary-gradient shadow-xl hover:scale-[1.02]'
-                    : 'bg-white text-foreground border border-[#e7e5e1] hover:border-black shadow-sm'
+                    : 'bg-white text-foreground border border-castanha-200 hover:border-cerrado-900 shadow-sm'
                     }`}
                 >
                   {plan.ctaText}
@@ -192,12 +192,12 @@ export default function PricingPage() {
       </section>
 
       {/* Comparison Grid */}
-      <section className="py-32 px-6 bg-[#FDFDFB] landing-gilroy">
+      <section className="py-32 px-6 bg-castanha-25 landing-gilroy">
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-8">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 leading-none mt-0.5">Especificações técnicas</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 leading-none mt-0.5">Especificações técnicas</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="font-light opacity-60 italic">planos.</span></h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
@@ -206,18 +206,18 @@ export default function PricingPage() {
             </div>
           </div>
 
-          <div className="bg-white border border-[#e7e5e1] rounded-[3rem] overflow-hidden shadow-sm">
+          <div className="bg-white border border-castanha-200 rounded-[3rem] overflow-hidden shadow-sm">
             <div className="overflow-x-auto overflow-y-hidden">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-gray-50/50">
-                    <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30 w-1/4">Recurso</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30">Protocol.I (Gratuito)</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30">Protocol.X (Pro)</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-[#10101A]/30 bg-black/5 text-black">Enterprise</th>
+                  <tr className="bg-castanha-50/50">
+                    <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-ink/30 w-1/4">Recurso</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Protocol.I (Gratuito)</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Protocol.X (Pro)</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30 bg-cerrado-950/5 text-ink">Enterprise</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#e7e5e1]">
+                <tbody className="divide-y divide-castanha-200">
                   {[
                     { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
                     { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
@@ -227,11 +227,11 @@ export default function PricingPage() {
                     { feature: 'Armazenamento no Cofre', starter: '✗', pro: '500 MB', enterprise: 'Escala de TB' },
                     { feature: 'Criador de Fluxos', starter: '✗', pro: '5 fluxos', enterprise: 'Ilimitado' },
                   ].map((row, index) => (
-                    <tr key={index} className="hover:bg-gray-50/50 transition-colors group">
-                      <td className="py-7 px-10 font-bold text-[13px] uppercase tracking-widest text-[#10101A]">{row.feature}</td>
+                    <tr key={index} className="hover:bg-castanha-50/50 transition-colors group">
+                      <td className="py-7 px-10 font-bold text-[13px] uppercase tracking-widest text-ink">{row.feature}</td>
                       <td className="py-7 px-10 text-center text-foreground/50 text-[14px] font-medium">{row.starter}</td>
                       <td className="py-7 px-10 text-center text-foreground/50 text-[14px] font-medium">{row.pro}</td>
-                      <td className="py-7 px-10 text-center text-[#10101A] text-[14px] font-bold bg-black/[0.02]">{row.enterprise}</td>
+                      <td className="py-7 px-10 text-center text-ink text-[14px] font-bold bg-cerrado-900/[0.02]">{row.enterprise}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -253,9 +253,9 @@ export default function PricingPage() {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="group bg-white border border-[#e7e5e1] p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
+              <div key={index} className="group bg-white border border-castanha-200 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-black/10 transition-colors group-hover:bg-black" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/10 transition-colors group-hover:bg-cerrado-900" />
                   <h3 className="text-lg font-bold tracking-tight">{faq.question}</h3>
                 </div>
                 <p className="text-foreground/60 leading-relaxed pl-5.5 font-medium text-[0.95rem]">{faq.answer}</p>
@@ -266,8 +266,8 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-40 px-6 relative overflow-hidden border-t border-[#e7e5e1] landing-gilroy bg-background">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
+      <section className="py-40 px-6 relative overflow-hidden border-t border-castanha-200 landing-gilroy bg-background">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cerrado-950/10 to-transparent" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
             Amplie sua <span className="font-light opacity-60 italic">inteligência.</span>
@@ -279,7 +279,7 @@ export default function PricingPage() {
             <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5 shadow-2xl">
               Iniciar teste grátis
             </Link>
-            <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-[#e7e5e1]">
+            <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-castanha-200">
               Agendar demonstração
             </Link>
           </div>

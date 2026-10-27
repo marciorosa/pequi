@@ -378,9 +378,9 @@ function BillingContent() {
   const getInvoiceStatusBadge = (status: Invoice['status']) => {
     switch (status) {
       case 'paid':
-        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-700">Paga</span>;
+        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-cerrado-100 text-cerrado-700">Paga</span>;
       case 'pending':
-        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-700">Pendente</span>;
+        return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-pequi-100 text-pequi-800">Pendente</span>;
       case 'failed':
         return <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-700">Falhou</span>;
       default:
@@ -391,14 +391,14 @@ function BillingContent() {
   // Render usage meter
   const renderMeter = (title: string, current: number, limit: number) => {
     const percent = limit === 0 ? 100 : Math.min(100, (current / limit) * 100);
-    const strokeColor = percent > 90 ? '#E84C3D' : '#10101A';
+    const strokeColor = percent > 90 ? '#C2462B' : '#1F2A17';
 
     return (
-      <div className="bg-white p-6 rounded-[2rem] border border-[#e7e5e1] shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center group hover:shadow-xl transition-all duration-500">
-        <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#A0A0A0] mb-6">{title}</h4>
+      <div className="bg-white p-6 rounded-[2rem] border border-castanha-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center group hover:shadow-xl transition-all duration-500">
+        <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-castanha-400 mb-6">{title}</h4>
         <div className="relative w-24 h-24 flex items-center justify-center">
           <svg className="w-full h-full transform -rotate-90">
-            <circle cx="48" cy="48" r="40" stroke="#F0F0F0" strokeWidth="6" fill="transparent" />
+            <circle cx="48" cy="48" r="40" stroke="#F2E9D2" strokeWidth="6" fill="transparent" />
             <circle
               cx="48"
               cy="48"
@@ -413,8 +413,8 @@ function BillingContent() {
             />
           </svg>
           <div className="absolute flex flex-col items-center">
-            <span className="text-xl font-bold text-[#10101A] tracking-tighter">{limit === Infinity ? '∞' : current}</span>
-            <span className="text-[9px] font-bold text-[#A0A0A0] uppercase tracking-widest mt-0.5">/ {limit === Infinity ? '∞' : limit}</span>
+            <span className="text-xl font-bold text-ink tracking-tighter">{limit === Infinity ? '∞' : current}</span>
+            <span className="text-[9px] font-bold text-castanha-400 uppercase tracking-widest mt-0.5">/ {limit === Infinity ? '∞' : limit}</span>
           </div>
         </div>
       </div>
@@ -426,21 +426,21 @@ function BillingContent() {
       title="Cobrança e Assinatura"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="border-b border-[#e7e5e1] pb-8 mb-12">
-           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Arquitetura financeira</span>
+        <div className="border-b border-castanha-200 pb-8 mb-12">
+           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Arquitetura financeira</span>
             </div>
-            <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Cobrança e Assinatura</h1>
-            <p className="text-[#525252] text-lg max-w-2xl mt-4 font-medium opacity-60">Gerencie sua capacidade de uso, seu acesso ao arquivo e seu histórico de cobrança.</p>
+            <h1 className="text-4xl font-medium tracking-tight text-ink">Cobrança e Assinatura</h1>
+            <p className="text-castanha-600 text-lg max-w-2xl mt-4 font-medium opacity-60">Gerencie sua capacidade de uso, seu acesso ao arquivo e seu histórico de cobrança.</p>
         </div>
 
         {/* Credit Usage Row */}
         {(profileData as ProfileData)?.apiUsage && (profileData as ProfileData)?.subscription?.limits && (
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-8">
-               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0]">Consumo no ciclo</h2>
-               <div className="h-px flex-1 bg-[#e7e5e1]" />
+               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400">Consumo no ciclo</h2>
+               <div className="h-px flex-1 bg-castanha-200" />
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
               {renderMeter("Pesquisas", (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
@@ -453,7 +453,7 @@ function BillingContent() {
         )}
 
         {/* Current subscription */}
-        <div className="bg-white rounded-[2.5rem] p-12 mb-16 border border-[#e7e5e1] shadow-2xl relative overflow-hidden">
+        <div className="bg-white rounded-[2.5rem] p-12 mb-16 border border-castanha-200 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
             <svg width="200" height="200" viewBox="0 0 100 100">
               <pattern id="grid-billing" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -467,8 +467,8 @@ function BillingContent() {
             <>
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-8 relative z-10">
                 <div>
-                  <h2 className="text-3xl font-medium tracking-tight text-[#10101A]">Assinatura ativa</h2>
-                  <p className="text-[#525252] font-medium opacity-60 mt-2">Gerencie seu acesso atual e seus dados de cobrança.</p>
+                  <h2 className="text-3xl font-medium tracking-tight text-ink">Assinatura ativa</h2>
+                  <p className="text-castanha-600 font-medium opacity-60 mt-2">Gerencie seu acesso atual e seus dados de cobrança.</p>
                 </div>
                 <button
                   onClick={handleManageSubscription}
@@ -479,32 +479,32 @@ function BillingContent() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-                <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Plano</h3>
-                  <p className="text-[#10101A] text-2xl font-bold tracking-tight">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[currentSubscription.plan] ?? currentSubscription.plan}</p>
+                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
+                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Plano</h3>
+                  <p className="text-ink text-2xl font-bold tracking-tight">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[currentSubscription.plan] ?? currentSubscription.plan}</p>
                 </div>
-                <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Status</h3>
+                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
+                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Status</h3>
                   <div className="flex items-center">
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 mr-3 shadow-[0_0_15px_rgba(34,197,94,0.4)] animate-pulse"></span>
-                    <span className="text-[#10101A] text-2xl font-bold tracking-tight capitalize">{({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[currentSubscription.status] ?? currentSubscription.status}</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-cerrado-500 mr-3 shadow-[0_0_15px_rgba(89,130,60,0.4)] animate-pulse"></span>
+                    <span className="text-ink text-2xl font-bold tracking-tight capitalize">{({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[currentSubscription.status] ?? currentSubscription.status}</span>
                   </div>
                 </div>
-                <div className="p-8 bg-[#F9F8F6] rounded-[2rem] border border-[#e7e5e1]">
-                  <h3 className="text-[#A0A0A0] text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Próxima renovação</h3>
-                  <p className="text-[#10101A] text-2xl font-bold tracking-tight">{formatDate(currentSubscription.nextBillingDate)}</p>
+                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
+                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Próxima renovação</h3>
+                  <p className="text-ink text-2xl font-bold tracking-tight">{formatDate(currentSubscription.nextBillingDate)}</p>
                 </div>
               </div>
             </>
           ) : (
             <div className="text-center py-12 relative z-10">
-              <div className="w-24 h-24 bg-black/5 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-black/5">
-                <svg className="w-12 h-12 text-black/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-24 h-24 bg-cerrado-950/5 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-cerrado-900/5">
+                <svg className="w-12 h-12 text-ink/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-medium tracking-tight text-[#10101A] mb-4">Acesso ao plano inicial</h2>
-              <p className="text-[#525252] max-w-lg mx-auto mb-10 font-medium opacity-60">No momento, você está usando o plano inicial. Faça upgrade para um plano pago para desbloquear todos os recursos.</p>
+              <h2 className="text-3xl font-medium tracking-tight text-ink mb-4">Acesso ao plano inicial</h2>
+              <p className="text-castanha-600 max-w-lg mx-auto mb-10 font-medium opacity-60">No momento, você está usando o plano inicial. Faça upgrade para um plano pago para desbloquear todos os recursos.</p>
             </div>
           )}
         </div>
@@ -514,38 +514,38 @@ function BillingContent() {
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative bg-white rounded-[2.5rem] overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl hover:scale-[1.01] flex flex-col h-full ${plan.isPopular ? 'border-black shadow-2xl' : 'border-[#e7e5e1] shadow-lg'
+              className={`relative bg-white rounded-[2.5rem] overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl hover:scale-[1.01] flex flex-col h-full ${plan.isPopular ? 'border-cerrado-900 shadow-2xl' : 'border-castanha-200 shadow-lg'
                 } p-10`}
             >
               {plan.isPopular && (
                 <div className="absolute top-0 right-0">
-                  <div className="bg-black text-white text-[9px] font-bold tracking-[0.3em] px-6 py-3 rounded-bl-2xl uppercase">
+                  <div className="bg-cerrado-900 text-white text-[9px] font-bold tracking-[0.3em] px-6 py-3 rounded-bl-2xl uppercase">
                     Mais popular
                   </div>
                 </div>
               )}
 
-              <h3 className="text-2xl font-medium tracking-tight text-[#10101A] mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
+              <h3 className="text-2xl font-medium tracking-tight text-ink mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
               <div className="mb-8 flex items-baseline">
-                <span className="text-5xl font-bold text-[#10101A] tracking-tighter">
+                <span className="text-5xl font-bold text-ink tracking-tighter">
                   {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : `${plan.id === 'pro-monthly' ? '49' : plan.price}`}
                 </span>
                 {plan.price !== 0 && (
-                  <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
+                  <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
                 )}
                 {plan.price === 0 && plan.id === 'free' && (
-                   <span className="text-[#A0A0A0] ml-2 text-sm font-bold uppercase tracking-widest">/ para sempre</span>
+                   <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ para sempre</span>
                 )}
               </div>
 
-              <p className="text-[#525252] mb-10 leading-relaxed font-medium opacity-60 text-sm h-12 overflow-hidden">{plan.description}</p>
+              <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 text-sm h-12 overflow-hidden">{plan.description}</p>
 
-              <div className="w-full h-px bg-[#e7e5e1] mb-10"></div>
+              <div className="w-full h-px bg-castanha-200 mb-10"></div>
 
               <ul className="space-y-5 mb-12 flex-grow">
                 {plan.features.map((feature, index) => (
-                  <li key={index} className="flex items-start text-[#10101A]">
-                    <div className="mt-1 mr-4 bg-black text-white rounded-full p-1 border border-white/10 scale-90">
+                  <li key={index} className="flex items-start text-ink">
+                    <div className="mt-1 mr-4 bg-cerrado-900 text-white rounded-full p-1 border border-white/10 scale-90">
                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
                       </svg>
@@ -560,7 +560,7 @@ function BillingContent() {
                 disabled={isLoading || selectedPlan?.id === plan.id || currentSubscription?.plan === plan.name}
                 className={`w-full py-5 px-6 mt-auto rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-500 transform active:scale-95 ${plan.isPopular || plan.id === 'pro-monthly'
                   ? 'btn-primary-gradient shadow-xl'
-                  : 'bg-white border-2 border-[#e7e5e1] hover:border-black text-black'
+                  : 'bg-white border-2 border-castanha-200 hover:border-cerrado-900 text-ink'
                   } disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 {selectedPlan?.id === plan.id ? (
@@ -588,54 +588,54 @@ function BillingContent() {
         {/* Billing history */}
         <div className="mb-24">
           <div className="flex items-center mb-10">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#A0A0A0] mr-6">Histórico de transações</h2>
-            <div className="h-px flex-1 bg-[#e7e5e1]"></div>
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400 mr-6">Histórico de transações</h2>
+            <div className="h-px flex-1 bg-castanha-200"></div>
           </div>
 
           {invoices.length > 0 ? (
-            <div className="bg-white rounded-[2.5rem] border border-[#e7e5e1] shadow-xl overflow-hidden">
+            <div className="bg-white rounded-[2.5rem] border border-castanha-200 shadow-xl overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-[#e7e5e1]">
-                  <thead className="bg-[#F9F8F6]">
+                <table className="min-w-full divide-y divide-castanha-200">
+                  <thead className="bg-castanha-50">
                     <tr>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
+                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
                         ID da fatura
                       </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
+                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
                         Data
                       </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
+                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
                         Valor
                       </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
+                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
                         Status
                       </th>
-                      <th scope="col" className="px-10 py-6 text-right text-[9px] font-bold text-[#A0A0A0] uppercase tracking-[0.3em]">
+                      <th scope="col" className="px-10 py-6 text-right text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
                         Ação
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#e7e5e1]">
+                  <tbody className="divide-y divide-castanha-200">
                     {invoices.map(invoice => (
-                      <tr key={invoice.id} className="hover:bg-[#F9F8F6] transition-all duration-300 group">
+                      <tr key={invoice.id} className="hover:bg-castanha-50 transition-all duration-300 group">
                         <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm font-bold text-[#10101A] group-hover:text-black tracking-tight">{invoice.id}</div>
+                          <div className="text-sm font-bold text-ink group-hover:text-ink tracking-tight">{invoice.id}</div>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm text-[#525252] font-medium opacity-60">{formatDate(invoice.date)}</div>
+                          <div className="text-sm text-castanha-600 font-medium opacity-60">{formatDate(invoice.date)}</div>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm font-bold text-[#10101A]">{formatCurrency(invoice.amount)}</div>
+                          <div className="text-sm font-bold text-ink">{formatCurrency(invoice.amount)}</div>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
-                           <span className={`px-4 py-1.5 text-[9px] font-bold rounded-full uppercase tracking-widest ${invoice.status === 'paid' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                           <span className={`px-4 py-1.5 text-[9px] font-bold rounded-full uppercase tracking-widest ${invoice.status === 'paid' ? 'bg-cerrado-500/10 text-cerrado-500' : 'bg-red-500/10 text-red-500'}`}>
                               {({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[invoice.status] ?? invoice.status}
                            </span>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap text-right">
                           <a
                             href={invoice.downloadUrl}
-                            className="inline-flex items-center text-black hover:scale-105 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border-b border-black/10 hover:border-black"
+                            className="inline-flex items-center text-ink hover:scale-105 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border-b border-cerrado-900/10 hover:border-cerrado-900"
                           >
                             <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v12" />
@@ -650,14 +650,14 @@ function BillingContent() {
               </div>
             </div>
           ) : (
-            <div className="text-center py-24 bg-white border border-[#e7e5e1] rounded-[2.5rem] shadow-lg">
-              <div className="w-20 h-20 bg-[#F9F8F6] rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 border border-[#e7e5e1]">
-                <svg className="w-10 h-10 text-black/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
+            <div className="text-center py-24 bg-white border border-castanha-200 rounded-[2.5rem] shadow-lg">
+              <div className="w-20 h-20 bg-castanha-50 rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 border border-castanha-200">
+                <svg className="w-10 h-10 text-ink/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-[#10101A] text-2xl font-medium tracking-tight mb-4">Nenhuma fatura no histórico</h3>
-              <p className="text-[#A0A0A0] max-w-sm mx-auto font-medium text-sm">
+              <h3 className="text-ink text-2xl font-medium tracking-tight mb-4">Nenhuma fatura no histórico</h3>
+              <p className="text-castanha-400 max-w-sm mx-auto font-medium text-sm">
                 Seu histórico de cobranças aparecerá aqui assim que houver transações.
               </p>
             </div>
@@ -665,11 +665,11 @@ function BillingContent() {
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-gray-50 rounded-3xl p-10 mb-12">
+        <div className="bg-castanha-50 rounded-3xl p-10 mb-12">
           <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Perguntas frequentes</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
+              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -678,7 +678,7 @@ function BillingContent() {
               <p className="text-foreground/60 text-sm leading-relaxed">Sim, você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações serão refletidas imediatamente no próximo ciclo de cobrança.</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
+              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                 </svg>
@@ -687,7 +687,7 @@ function BillingContent() {
               <p className="text-foreground/60 text-sm leading-relaxed">Aceitamos os principais cartões de crédito, incluindo Visa, Mastercard e American Express, processados com segurança pela Stripe.</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-gray-400">
+              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

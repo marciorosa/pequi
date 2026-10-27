@@ -146,18 +146,18 @@ export default function LegalGuidesPage() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Beginner': return 'text-green-400';
-      case 'Intermediate': return 'text-yellow-400';
+      case 'Beginner': return 'text-cerrado-400';
+      case 'Intermediate': return 'text-pequi-400';
       case 'Advanced': return 'text-red-400';
       default: return 'text-white/60';
     }
   };
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-cerrado-900 text-white min-h-screen">
       {/* Header */}
       <header className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cerrado-950/60 to-cerrado-950"></div>
         <div className="absolute inset-0">
           <Image 
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop" 
@@ -174,7 +174,7 @@ export default function LegalGuidesPage() {
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
               Guias jurídicos completos escritos por advogados especialistas para ajudar você com temas jurídicos complexos
             </p>
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Acessar todos os guias
             </Link>
           </div>
@@ -203,9 +203,9 @@ export default function LegalGuidesPage() {
                     objectFit="cover"
                     className="transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-cerrado-950/80 to-transparent"></div>
                   <div className="absolute top-4 right-4">
-                    <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-black/60`}>
+                    <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-cerrado-950/60`}>
                       {({ Beginner: 'Iniciante', Intermediate: 'Intermediário', Advanced: 'Avançado' } as Record<string, string>)[guide.difficulty] ?? guide.difficulty}
                     </span>
                   </div>
@@ -260,7 +260,7 @@ export default function LegalGuidesPage() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-4 py-2 rounded-full text-sm transition-all ${
                     activeCategory === category.id
-                      ? 'bg-white text-black'
+                      ? 'bg-white text-ink'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                   }`}
                 >
@@ -294,13 +294,13 @@ export default function LegalGuidesPage() {
                       className="transition-transform duration-500 hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-black/60`}>
+                      <span className={`px-2 py-1 text-xs font-medium rounded ${getDifficultyColor(guide.difficulty)} bg-cerrado-950/60`}>
                         {({ Beginner: 'Iniciante', Intermediate: 'Intermediário', Advanced: 'Avançado' } as Record<string, string>)[guide.difficulty] ?? guide.difficulty}
                       </span>
                     </div>
                     {guide.downloadable && (
                       <div className="absolute top-4 right-4">
-                        <span className="px-2 py-1 text-xs font-medium rounded bg-green-600 text-white">
+                        <span className="px-2 py-1 text-xs font-medium rounded bg-cerrado-600 text-white">
                           Disponível para download
                         </span>
                       </div>
@@ -311,7 +311,7 @@ export default function LegalGuidesPage() {
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-2xl font-medium">{guide.title}</h3>
                       {guide.featured && (
-                        <span className="bg-white text-black px-3 py-1 text-sm font-medium">
+                        <span className="bg-white text-ink px-3 py-1 text-sm font-medium">
                           Destaque
                         </span>
                       )}
@@ -357,7 +357,7 @@ export default function LegalGuidesPage() {
                     <div className="flex gap-4">
                       <Link
                         href={`/resources/guides/${guide.id}`}
-                        className="bg-white text-black px-6 py-3 font-medium transition-all hover:bg-white/90"
+                        className="bg-white text-ink px-6 py-3 font-medium transition-all hover:bg-white/90"
                       >
                         Ler guia
                       </Link>
@@ -429,7 +429,7 @@ export default function LegalGuidesPage() {
             Acesse nossa biblioteca completa de guias jurídicos e obtenha o conhecimento necessário para tomar decisões fundamentadas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">

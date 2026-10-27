@@ -7,9 +7,9 @@ export default function LogosSection() {
 
   return (
     <FadeInSection delay={0.05}>
-      <section className="py-8 md:py-10 border-y border-gray-100">
+      <section className="py-8 md:py-10 border-y border-castanha-100">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8">
-        <p className="text-[#111827] text-center text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] font-medium leading-[130%] capitalize mb-6">
+        <p className="text-ink text-center text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] font-medium leading-[130%] capitalize mb-6">
           A escolha de instituições jurídicas e financeiras de nível mundial
         </p>
         <div className="relative overflow-hidden">

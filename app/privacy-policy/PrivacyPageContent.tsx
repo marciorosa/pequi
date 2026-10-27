@@ -162,8 +162,8 @@ export default function PrivacyPageContent() {
             {section.bulletPoints && (
               <ul className="mb-6 list-none space-y-2.5 pl-0 sm:pl-12">
                 {section.bulletPoints.map((point) => (
-                  <li key={point} className="flex gap-3 text-[0.9375rem] leading-[175%] text-[#525252] md:text-[1rem]">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#10101A]" aria-hidden />
+                  <li key={point} className="flex gap-3 text-[0.9375rem] leading-[175%] text-castanha-600 md:text-[1rem]">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cerrado-900" aria-hidden />
                     {point}
                   </li>
                 ))}

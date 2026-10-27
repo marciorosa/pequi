@@ -152,17 +152,17 @@ export default function ComplianceChecklistsPage() {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'High': return 'text-red-400 bg-red-900/20';
-      case 'Medium': return 'text-yellow-400 bg-yellow-900/20';
-      case 'Low': return 'text-green-400 bg-green-900/20';
+      case 'Medium': return 'text-pequi-400 bg-pequi-900/20';
+      case 'Low': return 'text-cerrado-400 bg-cerrado-900/20';
       default: return 'text-white/60 bg-white/10';
     }
   };
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-cerrado-900 text-white min-h-screen">
       {/* Header */}
       <header className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cerrado-950/60 to-cerrado-950"></div>
         <div className="absolute inset-0">
           <Image 
             src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2670&auto=format&fit=crop" 
@@ -179,7 +179,7 @@ export default function ComplianceChecklistsPage() {
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
               Checklists completos de compliance para ajudar você a cumprir as exigências regulatórias e evitar penalidades
             </p>
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Acessar checklists
             </Link>
           </div>
@@ -240,7 +240,7 @@ export default function ComplianceChecklistsPage() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-4 py-2 rounded-full text-sm transition-all ${
                     activeCategory === category.id
-                      ? 'bg-white text-black'
+                      ? 'bg-white text-ink'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                   }`}
                 >
@@ -281,7 +281,7 @@ export default function ComplianceChecklistsPage() {
                         Prioridade {({ High: 'alta', Medium: 'média', Low: 'baixa' } as Record<string, string>)[checklist.priority] ?? checklist.priority}
                       </span>
                       {checklist.interactive && (
-                        <span className="px-2 py-1 text-xs font-medium rounded bg-blue-900/20 text-blue-400">
+                        <span className="px-2 py-1 text-xs font-medium rounded bg-cerrado-900/20 text-cerrado-400">
                           Interativo
                         </span>
                       )}
@@ -335,7 +335,7 @@ export default function ComplianceChecklistsPage() {
                   <div className="flex gap-4">
                     <Link
                       href={`/resources/compliance/${checklist.id}`}
-                      className="flex-1 bg-white text-black px-6 py-3 font-medium text-center transition-all hover:bg-white/90"
+                      className="flex-1 bg-white text-ink px-6 py-3 font-medium text-center transition-all hover:bg-white/90"
                     >
                       {checklist.interactive ? 'Iniciar versão interativa' : 'Ver checklist'}
                     </Link>
@@ -426,7 +426,7 @@ export default function ComplianceChecklistsPage() {
             Acesse nossos checklists completos de compliance e reduza seu risco regulatório com orientação especializada.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">

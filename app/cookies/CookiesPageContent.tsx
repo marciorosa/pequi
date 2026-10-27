@@ -149,24 +149,24 @@ export default function CookiesPageContent() {
               </LegalSubsection>
             ))}
             {section.cookieTable && (
-              <div className="mb-8 ml-0 overflow-x-auto rounded-2xl border border-[#eceae7] bg-white shadow-[0_12px_28px_rgba(16,16,26,0.04)] sm:ml-12">
+              <div className="mb-8 ml-0 overflow-x-auto rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(31,42,23,0.04)] sm:ml-12">
                 <table className="w-full min-w-[36rem] border-collapse text-sm">
                   <thead>
-                    <tr className="border-b border-[#eceae7] bg-[#f8f7f6]">
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Nome do cookie</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Finalidade</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Duração</th>
-                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#525252]">Tipo</th>
+                    <tr className="border-b border-castanha-150 bg-castanha-50">
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Nome do cookie</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Finalidade</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Duração</th>
+                      <th className="px-5 py-3.5 text-left text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Tipo</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#eceae7]">
+                  <tbody className="divide-y divide-castanha-150">
                     {section.cookieTable.map((cookie) => (
-                      <tr key={cookie.name} className="transition-colors hover:bg-[#f8f7f6]/80">
-                        <td className="px-5 py-4 font-medium text-[#10101A]">{cookie.name}</td>
-                        <td className="px-5 py-4 text-[#525252]">{cookie.purpose}</td>
-                        <td className="px-5 py-4 text-[#525252]">{cookie.duration}</td>
+                      <tr key={cookie.name} className="transition-colors hover:bg-castanha-50/80">
+                        <td className="px-5 py-4 font-medium text-ink">{cookie.name}</td>
+                        <td className="px-5 py-4 text-castanha-600">{cookie.purpose}</td>
+                        <td className="px-5 py-4 text-castanha-600">{cookie.duration}</td>
                         <td className="px-5 py-4">
-                          <span className="inline-block rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
+                          <span className="inline-block rounded-full border border-castanha-200 bg-castanha-100 px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
                             {cookie.type}
                           </span>
                         </td>
@@ -181,15 +181,15 @@ export default function CookiesPageContent() {
                 {section.thirdParties.map((party) => (
                   <div
                     key={party.name}
-                    className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-6 transition-all duration-300 hover:border-[#d4d2ce] hover:shadow-[0_12px_28px_rgba(16,16,26,0.06)]"
+                    className="rounded-2xl border border-castanha-150 bg-castanha-50 p-6 transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)]"
                   >
-                    <h3 className="mb-2 text-[1.0625rem] font-medium text-[#10101A]">{party.name}</h3>
-                    <p className="mb-3 text-[0.9375rem] leading-[160%] text-[#525252]">{party.purpose}</p>
+                    <h3 className="mb-2 text-[1.0625rem] font-medium text-ink">{party.name}</h3>
+                    <p className="mb-3 text-[0.9375rem] leading-[160%] text-castanha-600">{party.purpose}</p>
                     <a
                       href={party.privacyPolicy}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-[#10101A] hover:underline"
+                      className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-ink hover:underline"
                     >
                       Política de privacidade
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -207,13 +207,13 @@ export default function CookiesPageContent() {
 
       {showCookieSettings && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[#10101A]/25 p-4 backdrop-blur-sm md:p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-cerrado-900/25 p-4 backdrop-blur-sm md:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby="cookie-prefs-title"
         >
-          <div className="w-full max-w-2xl rounded-[2rem] border border-[#eceae7] bg-white p-8 shadow-[0_24px_64px_rgba(16,16,26,0.12)] md:p-10">
-            <h2 id="cookie-prefs-title" className="mb-8 text-[1.5rem] font-medium text-[#10101A]">
+          <div className="w-full max-w-2xl rounded-[2rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(31,42,23,0.12)] md:p-10">
+            <h2 id="cookie-prefs-title" className="mb-8 text-[1.5rem] font-medium text-ink">
               Preferências de cookies
             </h2>
             <div className="mb-10 space-y-2">
@@ -223,13 +223,13 @@ export default function CookiesPageContent() {
                 { label: 'Cookies de funcionalidade', desc: 'Permitem personalizar sua experiência', locked: false, defaultOn: true },
                 { label: 'Cookies de segmentação/publicidade', desc: 'Usados para exibir anúncios relevantes com base nos seus interesses', locked: false, defaultOn: false },
               ].map((item) => (
-                <div key={item.label} className="flex items-center justify-between gap-4 border-b border-[#eceae7] py-4 last:border-0">
+                <div key={item.label} className="flex items-center justify-between gap-4 border-b border-castanha-150 py-4 last:border-0">
                   <div>
-                    <h3 className="mb-1 text-[1rem] font-medium text-[#10101A]">{item.label}</h3>
-                    <p className="text-[0.9375rem] leading-[150%] text-[#525252]">{item.desc}</p>
+                    <h3 className="mb-1 text-[1rem] font-medium text-ink">{item.label}</h3>
+                    <p className="text-[0.9375rem] leading-[150%] text-castanha-600">{item.desc}</p>
                   </div>
                   <div
-                    className={`relative inline-flex h-6 w-12 shrink-0 rounded-full transition-colors ${item.defaultOn ? 'bg-[#10101A]' : 'bg-[#e7e5e1]'} ${item.locked ? 'opacity-60' : ''}`}
+                    className={`relative inline-flex h-6 w-12 shrink-0 rounded-full transition-colors ${item.defaultOn ? 'bg-cerrado-900' : 'bg-castanha-200'} ${item.locked ? 'opacity-60' : ''}`}
                     aria-hidden
                   >
                     <span
@@ -242,7 +242,7 @@ export default function CookiesPageContent() {
             <div className="flex flex-col justify-end gap-3 sm:flex-row">
               <button
                 type="button"
-                className="rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-6 py-3 text-[0.9375rem] font-medium text-[#10101A] transition-colors hover:bg-[#eceae7]"
+                className="rounded-[0.875rem] border border-castanha-200 bg-castanha-100 px-6 py-3 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-castanha-150"
                 onClick={() => setShowCookieSettings(false)}
               >
                 Cancelar
@@ -284,7 +284,7 @@ export default function CookiesPageContent() {
           <button
             type="button"
             onClick={() => setShowCookieSettings(true)}
-            className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-[#525252] transition-colors hover:text-[#10101A]"
+            className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-castanha-600 transition-colors hover:text-ink"
           >
             <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path

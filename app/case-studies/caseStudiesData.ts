@@ -36,7 +36,7 @@ export const caseStudies: CaseStudyRecord[] = [
     category: 'contract-review',
     excerpt:
       "Como um dos maiores escritórios de advocacia do mundo transformou seu processo de revisão de contratos com análise baseada em IA.",
-    accent: 'from-[#1e293b] via-[#0f172a] to-[#020617]',
+    accent: 'from-cerrado-900 via-cerrado-900 to-cerrado-950',
     metrics: [
       { label: 'Tempo economizado', value: '75%', description: 'Redução no tempo de revisão de contratos' },
       { label: 'Precisão', value: '95%', description: 'Precisão consistente em todas as revisões' },
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudyRecord[] = [
     industry: 'Tecnologia',
     category: 'compliance',
     excerpt: 'Como uma grande empresa de tecnologia automatizou o acompanhamento de conformidade regulatória em 15 jurisdições.',
-    accent: 'from-[#312e81] via-[#1e1b4b] to-[#0f172a]',
+    accent: 'from-terra-700 via-terra-800 to-cerrado-950',
     metrics: [
       { label: 'Alertas de compliance', value: '100%', description: 'Notificações automáticas de mudanças regulatórias' },
       { label: 'Redução de riscos', value: '85%', description: 'Queda nas violações de compliance' },
@@ -90,7 +90,7 @@ export const caseStudies: CaseStudyRecord[] = [
     industry: 'Serviços jurídicos',
     category: 'research',
     excerpt: 'Um escritório com 50 advogados transformou seu processo de pesquisa jurídica e melhorou drasticamente os resultados dos casos.',
-    accent: 'from-[#14532d] via-[#052e16] to-[#020617]',
+    accent: 'from-cerrado-700 via-cerrado-900 to-cerrado-950',
     metrics: [
       { label: 'Velocidade de pesquisa', value: '400%', description: 'Pesquisas concluídas mais rapidamente' },
       { label: 'Casos ganhos', value: '35%', description: 'Aumento de resultados favoráveis' },
@@ -117,7 +117,7 @@ export const caseStudies: CaseStudyRecord[] = [
     industry: 'Serviços financeiros',
     category: 'due-diligence',
     excerpt: 'Como um grande banco de investimento reduziu os prazos de due diligence de M&A de meses para semanas.',
-    accent: 'from-[#713f12] via-[#422006] to-[#0c0a09]',
+    accent: 'from-pequi-800 via-pequi-900 to-terra-900',
     metrics: [
       { label: 'Redução de prazo', value: '60%', description: 'Due diligence concluída mais rapidamente' },
       { label: 'Análise de documentos', value: '10.000+', description: 'Documentos processados por operação' },
@@ -145,7 +145,7 @@ export const caseStudies: CaseStudyRecord[] = [
     category: 'contract-management',
     excerpt:
       'Uma rede de saúde com mais de 200 unidades automatizou a gestão de contratos com fornecedores e o acompanhamento de compliance.',
-    accent: 'from-[#0c4a6e] via-[#082f49] to-[#020617]',
+    accent: 'from-cerrado-600 via-cerrado-800 to-cerrado-950',
     metrics: [
       { label: 'Processamento de contratos', value: '90%', description: 'Formalização de contratos mais rápida' },
       { label: 'Taxa de conformidade', value: '99,8%', description: 'Acompanhamento da conformidade de fornecedores' },
@@ -173,7 +173,7 @@ export const caseStudies: CaseStudyRecord[] = [
     category: 'transactions',
     excerpt:
       'Uma empresa de imóveis comerciais reduziu o tempo de fechamento das transações, melhorando a precisão e a satisfação dos clientes.',
-    accent: 'from-[#4c1d95] via-[#2e1065] to-[#0f172a]',
+    accent: 'from-terra-600 via-terra-800 to-cerrado-950',
     metrics: [
       { label: 'Velocidade de fechamento', value: '50%', description: 'Fechamento de transações mais rápido' },
       { label: 'Precisão documental', value: '99,5%', description: 'Documentos de fechamento sem erros' },

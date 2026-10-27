@@ -87,7 +87,7 @@ function ResetPasswordForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       {isSuccess ? (
-        <div className="rounded-[0.875rem] border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 flex items-start gap-2">
+        <div className="rounded-[0.875rem] border border-cerrado-200 bg-cerrado-50 px-4 py-3 text-sm text-cerrado-800 flex items-start gap-2">
           <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
             <path
               fillRule="evenodd"
@@ -129,7 +129,7 @@ function ResetPasswordForm() {
               className={authInputClass}
               placeholder="••••••••"
             />
-            <p className="mt-1.5 text-[0.8125rem] text-[#525252]">No mínimo 8 caracteres.</p>
+            <p className="mt-1.5 text-[0.8125rem] text-castanha-600">No mínimo 8 caracteres.</p>
           </div>
 
           <div>
@@ -155,7 +155,7 @@ function ResetPasswordForm() {
       )}
 
       <div className="text-center pt-2">
-        <Link href="/login" className="text-[0.9375rem] font-medium text-[#525252] hover:text-[#10101A] hover:underline">
+        <Link href="/login" className="text-[0.9375rem] font-medium text-castanha-600 hover:text-ink hover:underline">
           Voltar para o login
         </Link>
       </div>
@@ -165,19 +165,19 @@ function ResetPasswordForm() {
 
 function ResetAside() {
   return (
-    <div className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-      <h2 className="mb-4 text-[1.25rem] font-medium text-[#10101A]">Senhas fortes</h2>
-      <ul className="space-y-3 text-[0.9375rem] leading-relaxed text-[#525252]">
+    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+      <h2 className="mb-4 text-[1.25rem] font-medium text-ink">Senhas fortes</h2>
+      <ul className="space-y-3 text-[0.9375rem] leading-relaxed text-castanha-600">
         <li className="flex gap-2">
-          <span className="font-medium text-[#10101A]">•</span>
+          <span className="font-medium text-ink">•</span>
           Use uma frase-senha longa e exclusiva, que você não tenha usado em outro lugar.
         </li>
         <li className="flex gap-2">
-          <span className="font-medium text-[#10101A]">•</span>
+          <span className="font-medium text-ink">•</span>
           Combine letras, números e símbolos quando a política permitir.
         </li>
         <li className="flex gap-2">
-          <span className="font-medium text-[#10101A]">•</span>
+          <span className="font-medium text-ink">•</span>
           Guarde suas credenciais em um gerenciador de senhas confiável.
         </li>
       </ul>
@@ -196,17 +196,17 @@ export default function ResetPasswordExperience() {
       <AuthPageLayout
         aside={<ResetAside />}
         footer={
-          <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
-            <p className="text-[0.9375rem] text-[#525252]">
+          <div className="mt-8 border-t border-castanha-150 pt-8 text-center">
+            <p className="text-[0.9375rem] text-castanha-600">
               Não tem uma conta?{' '}
-              <Link href="/signup" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
+              <Link href="/signup" className="font-medium text-ink underline-offset-2 hover:underline">
                 Criar conta
               </Link>
             </p>
           </div>
         }
       >
-        <Suspense fallback={<p className="py-8 text-center text-sm text-[#525252]">Carregando...</p>}>
+        <Suspense fallback={<p className="py-8 text-center text-sm text-castanha-600">Carregando...</p>}>
           <ResetPasswordForm />
         </Suspense>
       </AuthPageLayout>

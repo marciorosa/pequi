@@ -8,7 +8,7 @@ export default function CtaSection() {
     <FadeInSection delay={0.18}>
       <section>
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-        <div className="relative overflow-hidden rounded-[2rem] text-white min-h-[280px] md:min-h-[340px] border border-[#1d2d4b]/50">
+        <div className="relative overflow-hidden rounded-[2rem] text-white min-h-[280px] md:min-h-[340px] border border-cerrado-700/50">
           <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
             <Image
               src="/landingpage/cta/bg-img.png"
@@ -18,7 +18,7 @@ export default function CtaSection() {
               priority
             />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,14,33,0.92)_0%,rgba(9,20,50,0.86)_52%,rgba(10,20,51,0.6)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,29,14,0.93)_0%,rgba(30,46,22,0.86)_52%,rgba(42,64,30,0.55)_100%)]" />
 
           <div className="relative z-10 flex h-full items-center p-6 md:p-12 lg:p-14">
             <div className="w-full max-w-[40rem]">
@@ -30,7 +30,7 @@ export default function CtaSection() {
               <div className="mt-8">
                 <Link
                   href="/signup"
-                  className="landing-secondary-btn inline-flex justify-center items-center transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f3f4f6]"
+                  className="landing-primary-btn inline-flex justify-center items-center px-7 py-2.5 transition-all duration-300 hover:-translate-y-0.5"
                 >
                   Comece sua jornada
                 </Link>

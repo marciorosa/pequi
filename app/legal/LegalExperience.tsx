@@ -176,7 +176,7 @@ export default function LegalExperience() {
         subtitle="Nosso compromisso com políticas claras, compliance e padrões de segurança."
       />
 
-      <section className="bg-[#F5F5F4] py-12 md:py-16 border-b border-gray-200">
+      <section className="bg-castanha-100 py-12 md:py-16 border-b border-castanha-200">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {tabs.map((tab) => (
@@ -186,8 +186,8 @@ export default function LegalExperience() {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-2.5 rounded-full text-[0.875rem] font-medium transition-all border ${
                   activeTab === tab.key
-                    ? 'bg-[#111827] text-white border-[#111827]'
-                    : 'bg-white text-[#636977] border-gray-200 hover:border-gray-300 hover:text-[#111827]'
+                    ? 'bg-cerrado-900 text-white border-cerrado-900'
+                    : 'bg-white text-castanha-600 border-castanha-200 hover:border-castanha-300 hover:text-ink'
                 }`}
               >
                 {tab.label}
@@ -195,32 +195,32 @@ export default function LegalExperience() {
             ))}
           </div>
 
-          <div className="max-w-[48rem] mx-auto rounded-[1.875rem] border border-gray-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(17,24,39,0.06)]">
-            <div className="mb-8 pb-6 border-b border-gray-200">
-              <h2 className="text-[#111827] text-[1.75rem] font-medium mb-2">{activeDoc.title}</h2>
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-[#868589]">
+          <div className="max-w-[48rem] mx-auto rounded-[1.875rem] border border-castanha-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(31,42,23,0.06)]">
+            <div className="mb-8 pb-6 border-b border-castanha-200">
+              <h2 className="text-ink text-[1.75rem] font-medium mb-2">{activeDoc.title}</h2>
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-castanha-500">
                 Última atualização: {activeDoc.lastUpdated}
               </p>
             </div>
             <div className="space-y-8">
               {activeDoc.sections.map((section) => (
                 <div key={section.heading}>
-                  <h3 className="text-[#111827] text-[1.125rem] font-medium mb-2">{section.heading}</h3>
-                  <p className="text-[#636977] text-[0.9375rem] leading-[175%]">{section.content}</p>
+                  <h3 className="text-ink text-[1.125rem] font-medium mb-2">{section.heading}</h3>
+                  <p className="text-castanha-600 text-[0.9375rem] leading-[175%]">{section.content}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-10 pt-7 border-t border-gray-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <p className="text-[#636977] text-[0.9375rem]">
+            <div className="mt-10 pt-7 border-t border-castanha-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <p className="text-castanha-600 text-[0.9375rem]">
                 Dúvidas sobre estes documentos?{' '}
-                <Link href="/contact" className="text-[#111827] font-medium hover:underline">
+                <Link href="/contact" className="text-ink font-medium hover:underline">
                   Fale conosco
                 </Link>
               </p>
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="inline-flex items-center gap-2 text-[#868589] hover:text-[#111827] transition-colors text-[0.875rem] font-medium"
+                className="inline-flex items-center gap-2 text-castanha-500 hover:text-ink transition-colors text-[0.875rem] font-medium"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path
@@ -237,7 +237,7 @@ export default function LegalExperience() {
         </div>
       </section>
 
-      <section className="bg-white py-12 md:py-16 border-b border-gray-200">
+      <section className="bg-white py-12 md:py-16 border-b border-castanha-200">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <h2 className={sectionHeadingClass}>Nossas certificações</h2>
           <p className={`${sectionSubTextClass} mt-3 mb-10`}>Padrões validados que sustentam fluxos jurídicos corporativos.</p>
@@ -245,39 +245,39 @@ export default function LegalExperience() {
             {certifications.map((cert) => (
               <div
                 key={cert}
-                className="rounded-[1.25rem] border border-gray-200 bg-[#F5F5F4]/40 p-6 text-center hover:border-gray-300 transition-colors"
+                className="rounded-[1.25rem] border border-castanha-200 bg-castanha-100/40 p-6 text-center hover:border-castanha-300 transition-colors"
               >
-                <div className="w-14 h-14 rounded-xl bg-[#111827] text-white flex items-center justify-center mx-auto mb-4 text-sm font-semibold">
+                <div className="w-14 h-14 rounded-xl bg-cerrado-900 text-white flex items-center justify-center mx-auto mb-4 text-sm font-semibold">
                   {cert.split(' ')[0]}
                 </div>
-                <h3 className="text-[#111827] text-[0.9375rem] font-medium">{cert}</h3>
-                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#868589] mt-1">Certificado</p>
+                <h3 className="text-ink text-[0.9375rem] font-medium">{cert}</h3>
+                <p className="text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-castanha-500 mt-1">Certificado</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F5F5F4] py-12 md:py-16">
+      <section className="bg-castanha-100 py-12 md:py-16">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <h2 className={sectionHeadingClass}>Perguntas frequentes</h2>
           <div className="grid md:grid-cols-2 gap-4 mt-10">
             {faqs.map((faq) => (
-              <div key={faq.question} className="rounded-[1.25rem] border border-gray-200 bg-white p-6">
-                <h3 className="text-[#111827] text-[1rem] font-medium mb-3">{faq.question}</h3>
-                <p className="text-[#636977] text-[0.9375rem] leading-[170%]">{faq.answer}</p>
+              <div key={faq.question} className="rounded-[1.25rem] border border-castanha-200 bg-white p-6">
+                <h3 className="text-ink text-[1rem] font-medium mb-3">{faq.question}</h3>
+                <p className="text-castanha-600 text-[0.9375rem] leading-[170%]">{faq.answer}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 rounded-[1.875rem] border border-gray-200 bg-[#111827] text-white p-8 md:p-10 text-center">
+          <div className="mt-12 rounded-[1.875rem] border border-castanha-200 bg-cerrado-900 text-white p-8 md:p-10 text-center">
             <h3 className="text-[1.5rem] md:text-[1.75rem] font-medium mb-3">Ainda tem dúvidas?</h3>
             <p className="text-white/75 text-[1rem] max-w-2xl mx-auto mb-8">
               Nossa equipe jurídica pode ajudar com dúvidas sobre termos, privacidade ou compliance.
             </p>
             <Link
               href="/contact"
-              className="inline-flex rounded-[0.875rem] bg-white text-[#111827] px-8 py-3.5 text-[0.9375rem] font-medium hover:bg-[#f3f4f6] transition-colors"
+              className="inline-flex rounded-[0.875rem] bg-white text-ink px-8 py-3.5 text-[0.9375rem] font-medium hover:bg-castanha-100 transition-colors"
             >
               Falar com a equipe jurídica
             </Link>

@@ -14,7 +14,7 @@ const landingInterTight = localFont({
 
 export default function CookiesPage() {
   return (
-    <div className={`${landingInterTight.variable} landing-gilroy bg-[#FFFFFF] text-foreground`}>
+    <div className={`${landingInterTight.variable} landing-gilroy bg-white text-foreground`}>
       <CookiesPageContent />
     </div>
   );

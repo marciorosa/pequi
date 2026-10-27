@@ -7,7 +7,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
 
 const tabIds = ['contract', 'litigation', 'compliance'] as const;
 type WorkflowTab = (typeof tabIds)[number];
@@ -177,11 +177,11 @@ export default function WorkflowsExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Pequi</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Pequi</p>
+                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
                   Fluxos de trabalho com IA
                 </h1>
-                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                   Automatize processos jurídicos de ponta a ponta: encaminhamentos, documentos, assinaturas e trilhas de auditoria em um só lugar.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -194,7 +194,7 @@ export default function WorkflowsExperience() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('templates')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
+                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
                     Ver modelos
                   </button>
@@ -202,7 +202,7 @@ export default function WorkflowsExperience() {
               </div>
 
               <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-[#eceae7] p-5 sm:p-6">
+                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
@@ -221,7 +221,7 @@ export default function WorkflowsExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.08}>
-        <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Transforme suas operações jurídicas</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -231,13 +231,13 @@ export default function WorkflowsExperience() {
               {benefits.map((b) => (
                 <div key={b.title} className={featureCardClass}>
                   <div className="inline-flex w-full items-center justify-start">
-                    <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                       {b.icon}
                     </svg>
                   </div>
                   <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{b.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-[#323232]">{b.description}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{b.title}</h3>
+                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{b.description}</p>
                   </div>
                 </div>
               ))}
@@ -247,7 +247,7 @@ export default function WorkflowsExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Como funciona</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-12 md:mb-14`}>
@@ -256,16 +256,16 @@ export default function WorkflowsExperience() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 relative">
               {steps.map((step, idx) => (
                 <div key={step.num} className="text-center relative">
-                  <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#e7e5e1] bg-[#f1f0ee] text-[1.25rem] font-medium text-[#10101A]">
+                  <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-castanha-200 bg-castanha-100 text-[1.25rem] font-medium text-ink">
                     {step.num}
                   </div>
                   {idx < steps.length - 1 && (
-                    <div className="absolute left-[calc(50%+1.75rem)] top-7 hidden h-px w-[calc(100%-3.5rem)] bg-[#e7e5e1] lg:block">
-                      <span className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#d4d2ce]" />
+                    <div className="absolute left-[calc(50%+1.75rem)] top-7 hidden h-px w-[calc(100%-3.5rem)] bg-castanha-200 lg:block">
+                      <span className="absolute right-0 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-castanha-300" />
                     </div>
                   )}
-                  <h3 className="mb-2 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">{step.title}</h3>
-                  <p className="mx-auto max-w-[220px] text-[0.9375rem] leading-[160%] text-[#525252]">{step.desc}</p>
+                  <h3 className="mb-2 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">{step.title}</h3>
+                  <p className="mx-auto max-w-[220px] text-[0.9375rem] leading-[160%] text-castanha-600">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -274,12 +274,12 @@ export default function WorkflowsExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section id="templates" className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section id="templates" className="bg-white pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="flex flex-col items-center text-center mb-10 md:mb-12">
-              <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-5 py-2">
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" aria-hidden />
-                <span className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
+              <div className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-castanha-200 bg-castanha-100 px-5 py-2">
+                <span className="w-2 h-2 rounded-full bg-pequi-500 animate-pulse" aria-hidden />
+                <span className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
                   Novos modelos em breve
                 </span>
               </div>
@@ -297,8 +297,8 @@ export default function WorkflowsExperience() {
                   onClick={() => setActiveTab(tab)}
                   className={`inline-flex h-11 md:h-[3.4375rem] justify-center items-center rounded-[0.625rem] text-[0.875rem] md:text-[1rem] leading-none transition-colors px-5 md:px-[1.75rem] ${
                     activeTab === tab
-                      ? 'border border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-[0_6px_16px_rgba(16,16,26,0.12)]'
-                      : 'bg-[#f1f0ee] text-[#525252] border border-[#e7e5e1] hover:bg-[#eceae7] hover:text-[#10101A]'
+                      ? 'border border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(31,42,23,0.12)]'
+                      : 'bg-castanha-100 text-castanha-600 border border-castanha-200 hover:bg-castanha-150 hover:text-ink'
                   }`}
                 >
                   {tabLabels[tab]}
@@ -310,9 +310,9 @@ export default function WorkflowsExperience() {
               {workflowTemplates[activeTab].map((workflow) => (
                 <article
                   key={workflow.name}
-                  className="group overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(16,16,26,0.08)]"
+                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden border-b border-[#f0efed] bg-[#f1f0ee]">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-castanha-150 bg-castanha-100">
                     <Image
                       src={workflow.image}
                       alt=""
@@ -322,9 +322,9 @@ export default function WorkflowsExperience() {
                     />
                   </div>
                   <div className="p-6 md:p-8">
-                    <h3 className="mb-3 text-[1.25rem] font-medium leading-tight text-[#10101A]">{workflow.name}</h3>
-                    <p className="mb-6 text-[0.9375rem] leading-[160%] text-[#525252]">{workflow.description}</p>
-                    <div className="flex flex-col gap-3 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-[#525252] sm:flex-row sm:items-center sm:justify-between">
+                    <h3 className="mb-3 text-[1.25rem] font-medium leading-tight text-ink">{workflow.name}</h3>
+                    <p className="mb-6 text-[0.9375rem] leading-[160%] text-castanha-600">{workflow.description}</p>
+                    <div className="flex flex-col gap-3 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600 sm:flex-row sm:items-center sm:justify-between">
                       <span className="inline-flex items-center gap-2">
                         <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                           <path
@@ -357,7 +357,7 @@ export default function WorkflowsExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.14}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Integrações sem complicação</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -367,9 +367,9 @@ export default function WorkflowsExperience() {
               {integrations.map((name) => (
                 <div
                   key={name}
-                  className="flex min-h-[5.5rem] items-center justify-center rounded-[1.25rem] border border-[#e7e5e1] bg-[#f1f0ee] px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(16,16,26,0.05)]"
+                  className="flex min-h-[5.5rem] items-center justify-center rounded-[1.25rem] border border-castanha-200 bg-castanha-100 px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(31,42,23,0.05)]"
                 >
-                  <span className="text-[0.9375rem] font-medium text-[#525252]">{name}</span>
+                  <span className="text-[0.9375rem] font-medium text-castanha-600">{name}</span>
                 </div>
               ))}
             </div>
@@ -378,23 +378,23 @@ export default function WorkflowsExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.16}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
+        <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white shadow-[0_24px_64px_rgba(16,16,26,0.06)]">
+            <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
               <div className="grid lg:grid-cols-2 gap-0 lg:gap-0">
                 <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-                  <p className="mb-4 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">
+                  <p className="mb-4 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">
                     História de sucesso
                   </p>
-                  <h2 className="mb-6 text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">
+                  <h2 className="mb-6 text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem]">
                     De 12 dias para 2 dias
                   </h2>
-                  <p className="mb-8 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                  <p className="mb-8 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                     &quot;Antes do Pequi, nosso processo de revisão de contratos levava em média 12 dias. Com fluxos
                     automatizados, reduzimos para cerca de dois dias, melhorando a consistência e o compliance.&quot;
                   </p>
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-[#e7e5e1] bg-[#f1f0ee]">
+                    <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-castanha-200 bg-castanha-100">
                       <Image
                         src="/landingpage/hero/img1.png"
                         alt=""
@@ -404,13 +404,13 @@ export default function WorkflowsExperience() {
                       />
                     </div>
                     <div>
-                      <p className="text-[0.9375rem] font-medium text-[#10101A]">John Anderson</p>
-                      <p className="text-[0.8125rem] text-[#525252]">Diretor jurídico, empresa de tecnologia da Fortune 500</p>
+                      <p className="text-[0.9375rem] font-medium text-ink">John Anderson</p>
+                      <p className="text-[0.8125rem] text-castanha-600">Diretor jurídico, empresa de tecnologia da Fortune 500</p>
                     </div>
                   </div>
                   <Link
                     href="/customers"
-                    className="inline-flex w-fit items-center gap-2 rounded-[0.875rem] border border-[#e7e5e1] px-6 py-3 text-[0.9375rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
+                    className="inline-flex w-fit items-center gap-2 rounded-[0.875rem] border border-castanha-200 px-6 py-3 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-castanha-25"
                   >
                     Ver mais casos de sucesso
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -418,8 +418,8 @@ export default function WorkflowsExperience() {
                     </svg>
                   </Link>
                 </div>
-                <div className="relative flex min-h-[280px] items-center border-t border-[#e7e5e1] bg-[#f1f0ee] p-6 lg:min-h-0 lg:border-l lg:border-t-0 md:p-8 lg:p-10">
-                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-[#e7e5e1] bg-white">
+                <div className="relative flex min-h-[280px] items-center border-t border-castanha-200 bg-castanha-100 p-6 lg:min-h-0 lg:border-l lg:border-t-0 md:p-8 lg:p-10">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
                       alt="Visualização do fluxo de trabalho da equipe"

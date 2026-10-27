@@ -26,7 +26,7 @@ export default async function CaseStudyDetailPage({ params }: { params: Promise<
   if (!study) notFound();
 
   return (
-    <div className={`${landingGilroy.variable} landing-gilroy bg-[#F5F5F4] text-foreground`}>
+    <div className={`${landingGilroy.variable} landing-gilroy bg-castanha-100 text-foreground`}>
       <CaseStudyDetailExperience study={study} />
       <div className="mt-16 lg:mt-[130px]">
         <CtaSection />

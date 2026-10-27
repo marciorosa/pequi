@@ -12,7 +12,7 @@ export default function AssistantExperience() {
       title: 'Interface em linguagem natural',
       desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. Comunique-se como faria com um associado sênior.',
       icon: (
-        <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -26,7 +26,7 @@ export default function AssistantExperience() {
       title: 'Geração de documentos',
       desc: 'Redija documentos jurídicos de alta qualidade em segundos. Edite e refine mantendo os padrões do seu escritório.',
       icon: (
-        <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -40,7 +40,7 @@ export default function AssistantExperience() {
       title: 'Pesquisa jurídica',
       desc: 'Encontre jurisprudência, legislação e precedentes com citações precisas de fontes confiáveis.',
       icon: (
-        <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -69,11 +69,11 @@ export default function AssistantExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Assistente de IA</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Assistente de IA</p>
+                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
                   Seu assistente jurídico pessoal
                 </h1>
-                <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-[#525252]">
+                <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
                   Delegue tarefas complexas em linguagem natural. Feito para o trabalho jurídico sofisticado, com a mesma precisão
                   que você espera da sua equipe.
                 </p>
@@ -87,7 +87,7 @@ export default function AssistantExperience() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
+                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
                     Experimente o chat
                   </button>
@@ -95,7 +95,7 @@ export default function AssistantExperience() {
               </div>
 
               <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-[#eceae7] p-5 sm:p-6">
+                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/ai-legal-assistant.png"
@@ -114,7 +114,7 @@ export default function AssistantExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section className="scroll-mt-24 bg-[#FFFFFF] px-4 py-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:py-[5.5rem]">
+        <section className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
             <h2 className={sectionHeadingClass}>Sob medida para a sua especialidade</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
@@ -126,12 +126,12 @@ export default function AssistantExperience() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]"
+                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]"
                 >
                   <div className="inline-flex w-full items-center justify-start">{feature.icon}</div>
                   <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{feature.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-[#323232]">{feature.desc}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{feature.title}</h3>
+                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{feature.desc}</p>
                   </div>
                 </div>
               ))}
@@ -141,14 +141,14 @@ export default function AssistantExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section id="demo" className="scroll-mt-24 bg-[#FFFFFF] px-4 pb-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:pb-[5.5rem]">
+        <section id="demo" className="scroll-mt-24 bg-white px-4 pb-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
             <h2 className={sectionHeadingClass}>Converse com seu assistente</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
               Faça uma pergunta abaixo e veja como o Pequi responde em contexto, com o tom de um copiloto jurídico de confiança.
             </p>
 
-            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(16,16,26,0.06),0_48px_100px_rgba(16,16,26,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(16,16,26,0.08)]">
+            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
               <AssistantChat />
             </div>
           </div>
@@ -156,12 +156,12 @@ export default function AssistantExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.14}>
-        <section className="bg-[#FFFFFF] px-4 pb-16 sm:px-6 lg:px-8 lg:pb-[7rem]">
+        <section className="bg-white px-4 pb-16 sm:px-6 lg:px-8 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px]">
-            <div className="rounded-[2rem] border border-[#eceae7] bg-[#f8f7f6] p-5 sm:p-7 lg:p-10">
+            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 p-5 sm:p-7 lg:p-10">
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div className="relative order-2 lg:order-1">
-                  <div className="rounded-[1.5rem] border border-[#eceae7] bg-white p-4 shadow-[0_16px_36px_rgba(16,16,26,0.06)] sm:p-5">
+                  <div className="rounded-[1.5rem] border border-castanha-150 bg-white p-4 shadow-[0_16px_36px_rgba(31,42,23,0.06)] sm:p-5">
                     <div className="space-y-3">
                       {[
                         'Criador de contratos simples',
@@ -170,38 +170,38 @@ export default function AssistantExperience() {
                       ].map((item, index) => (
                         <div
                           key={`${item}-${index}`}
-                          className="flex items-center gap-3 rounded-[0.875rem] border border-[#f0efed] bg-[#fbfbfa] px-4 py-4 text-[1rem] font-normal leading-[1.4rem] text-[#323232]"
+                          className="flex items-center gap-3 rounded-[0.875rem] border border-castanha-150 bg-castanha-25 px-4 py-4 text-[1rem] font-normal leading-[1.4rem] text-castanha-800"
                         >
-                          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-[#eceae7] bg-white text-[#636977]">
+                          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-castanha-150 bg-white text-castanha-600">
                             {index === 0 ? '◉' : index === 1 ? '▢' : '⎈'}
                           </span>
                           <span>{item}</span>
                         </div>
                       ))}
                     </div>
-                    <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-[0.875rem] bg-[#0f172a] px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
+                    <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-[0.875rem] bg-cerrado-900 px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
                       Registro de documentos
                     </div>
                   </div>
                 </div>
 
                 <div className="order-1 lg:order-2">
-                  <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Ecossistema</p>
-                  <h2 className="text-left text-[2rem] font-medium leading-[1.1] tracking-[-0.06rem] text-[#10101A] md:text-[2.5rem] md:tracking-[-0.08rem] lg:text-[3rem] lg:tracking-[-0.1rem]">
+                  <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Ecossistema</p>
+                  <h2 className="text-left text-[2rem] font-medium leading-[1.1] tracking-[-0.06rem] text-ink md:text-[2.5rem] md:tracking-[-0.08rem] lg:text-[3rem] lg:tracking-[-0.1rem]">
                     Integração com o Microsoft Word
                   </h2>
-                  <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+                  <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                     Potencialize o Word com nosso suplemento: transforme seu ambiente de trabalho habitual em um espaço de redação com
                     suporte de IA, onde você já trabalha.
                   </p>
-                  <ul className="mt-8 space-y-3 text-base leading-[160%] text-[#525252] md:text-lg">
+                  <ul className="mt-8 space-y-3 text-base leading-[160%] text-castanha-600 md:text-lg">
                     {[
                       'Redija e edite sem sair do Word',
                       'Sugestões e melhorias em tempo real',
                       'Integra-se aos seus fluxos de trabalho e sistemas de gestão de processos',
                     ].map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <span className="mt-0.5 shrink-0 text-[#10101A]" aria-hidden>
+                        <span className="mt-0.5 shrink-0 text-ink" aria-hidden>
                           ▶
                         </span>
                         <span>{item}</span>

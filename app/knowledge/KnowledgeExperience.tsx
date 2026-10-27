@@ -6,11 +6,11 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
 
 function FeatureIcon({ children }: { children: React.ReactNode }) {
   return (
-    <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
       {children}
     </svg>
   );
@@ -136,14 +136,14 @@ export default function KnowledgeExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Pequi</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Pequi</p>
+                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
                   Conhecimento
                 </h1>
-                <p className="mt-3 max-w-xl text-xl font-medium leading-snug text-[#323232] md:text-2xl">
+                <p className="mt-3 max-w-xl text-xl font-medium leading-snug text-castanha-800 md:text-2xl">
                   Pesquisa rápida, resultados fundamentados
                 </p>
-                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                   Respostas para questões jurídicas, regulatórias e tributárias, com citações confiáveis de fontes
                   oficiais.
                 </p>
@@ -157,7 +157,7 @@ export default function KnowledgeExperience() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
+                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
                     Ver demonstração da pesquisa
                   </button>
@@ -165,7 +165,7 @@ export default function KnowledgeExperience() {
               </div>
 
               <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-[#eceae7] p-5 sm:p-6">
+                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/ai-powered-legal-assistant.png"
@@ -184,7 +184,7 @@ export default function KnowledgeExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.08}>
-        <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Pesquisa jurídica poderosa</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -195,8 +195,8 @@ export default function KnowledgeExperience() {
                 <div key={f.title} className={featureCardClass}>
                   <div className="inline-flex w-full items-center justify-start">{f.icon}</div>
                   <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{f.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-[#323232]">{f.desc}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{f.title}</h3>
+                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -206,29 +206,29 @@ export default function KnowledgeExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section id="demo" className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section id="demo" className="bg-white pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Experimente a pesquisa de conhecimento</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
               Um exemplo de consulta e resultados estruturados, apenas ilustrativo e sem caráter de aconselhamento jurídico.
             </p>
 
-            <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(16,16,26,0.06),0_48px_100px_rgba(16,16,26,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(16,16,26,0.08)]">
-              <div className="border-b border-[#e7e7ea] p-6 md:p-8">
-                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Digite sua consulta de pesquisa jurídica</h3>
-                <div className="mb-6 rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] p-5">
-                  <p className="text-[0.9375rem] italic leading-[160%] text-[#525252]">
+            <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
+              <div className="border-b border-castanha-200 p-6 md:p-8">
+                <h3 className="mb-4 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Digite sua consulta de pesquisa jurídica</h3>
+                <div className="mb-6 rounded-[0.875rem] border border-castanha-200 bg-castanha-100 p-5">
+                  <p className="text-[0.9375rem] italic leading-[160%] text-castanha-600">
                     &quot;Quais são os requisitos para a validade de cláusulas de não concorrência na Califórnia?&quot;
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 mb-6">
                   {(['Jurisdição', 'Tipo de documento'] as const).map((label) => (
                     <div key={label} className="sm:flex-1">
-                      <label className="mb-2 block text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+                      <label className="mb-2 block text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                         {label}
                       </label>
                       <select
-                        className="w-full rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-4 py-3.5 text-[0.9375rem] text-[#10101A] focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
+                        className="w-full rounded-[0.875rem] border border-castanha-200 bg-castanha-100 px-4 py-3.5 text-[0.9375rem] text-ink focus:border-castanha-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
                         aria-label={label}
                       >
                         <option>{label === 'Jurisdição' ? 'Todas as jurisdições' : 'Todos os documentos'}</option>
@@ -245,25 +245,25 @@ export default function KnowledgeExperience() {
                 </div>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-[0.875rem] bg-[#1A1A1A] px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(16,16,26,0.15)]"
+                  className="inline-flex items-center justify-center rounded-[0.875rem] bg-cerrado-800 px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(31,42,23,0.15)]"
                 >
                   Pesquisar
                 </button>
               </div>
 
-              <div className="bg-[#f1f0ee]/45 p-6 md:p-8">
-                <h3 className="mb-4 text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Resultados da pesquisa</h3>
-                <div className="rounded-[1.25rem] border border-[#eceae7] bg-white p-6 md:p-8">
-                  <p className="mb-6 text-[0.9375rem] leading-[160%] text-[#525252]">
-                    <span className="font-medium text-[#10101A]">Resumo:</span> Cláusulas de não concorrência na Califórnia
+              <div className="bg-castanha-100/45 p-6 md:p-8">
+                <h3 className="mb-4 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Resultados da pesquisa</h3>
+                <div className="rounded-[1.25rem] border border-castanha-150 bg-white p-6 md:p-8">
+                  <p className="mb-6 text-[0.9375rem] leading-[160%] text-castanha-600">
+                    <span className="font-medium text-ink">Resumo:</span> Cláusulas de não concorrência na Califórnia
                     geralmente são inexequíveis, exceto em circunstâncias muito limitadas. A Seção 16600 do California Business and Professions
                     Code reflete uma forte política pública contra restrições ao exercício profissional.
                   </p>
                   <div className="space-y-6">
                     {citations.map((cite) => (
-                      <div key={cite.title} className="border-l-2 border-[#10101A]/18 py-1 pl-5">
-                        <p className="mb-2 text-[0.9375rem] font-medium text-[#10101A]">{cite.title}</p>
-                        <p className="text-[0.9375rem] leading-[160%] text-[#525252]">{cite.body}</p>
+                      <div key={cite.title} className="border-l-2 border-cerrado-900/18 py-1 pl-5">
+                        <p className="mb-2 text-[0.9375rem] font-medium text-ink">{cite.title}</p>
+                        <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{cite.body}</p>
                       </div>
                     ))}
                   </div>
@@ -275,11 +275,11 @@ export default function KnowledgeExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
+        <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="mx-auto max-w-4xl overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white shadow-[0_24px_64px_rgba(16,16,26,0.06)]">
+            <div className="mx-auto max-w-4xl overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
               <div className="md:flex">
-                <div className="md:w-[min(280px,36%)] shrink-0 bg-[#1A1A1A] p-8 md:p-10 flex items-center justify-center min-h-[200px] md:min-h-0">
+                <div className="md:w-[min(280px,36%)] shrink-0 bg-cerrado-800 p-8 md:p-10 flex items-center justify-center min-h-[200px] md:min-h-0">
                   <div className="text-center md:text-left">
                     <p className="text-white text-[1.25rem] md:text-[1.375rem] font-medium leading-snug">
                       Escritório de advocacia internacional
@@ -290,17 +290,17 @@ export default function KnowledgeExperience() {
                   </div>
                 </div>
                 <div className="flex-1 p-8 md:p-10">
-                  <h3 className="mb-5 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">
+                  <h3 className="mb-5 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">
                     Tempo de pesquisa reduzido em 75%
                   </h3>
-                  <p className="mb-8 text-[1rem] leading-[160%] text-[#525252]">
+                  <p className="mb-8 text-[1rem] leading-[160%] text-castanha-600">
                     &quot;A plataforma Knowledge do Pequi transformou nosso processo de pesquisa. Nossos associados agora
                     concluem em minutos o que antes levava horas. A precisão das citações e a profundidade das análises
                     impressionaram até nossos sócios mais experientes.&quot;
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="h-px w-8 shrink-0 bg-[#e7e5e1]" />
-                    <p className="text-[0.9375rem] font-medium text-[#525252]">Sócio-diretor, escritório de advocacia global</p>
+                    <div className="h-px w-8 shrink-0 bg-castanha-200" />
+                    <p className="text-[0.9375rem] font-medium text-castanha-600">Sócio-diretor, escritório de advocacia global</p>
                   </div>
                 </div>
               </div>

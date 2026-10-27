@@ -13,6 +13,6 @@ const landingInterTight = localFont({
 
 export default function NewsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`${landingInterTight.variable} landing-gilroy bg-[#FFFFFF] text-foreground`}>{children}</div>
+    <div className={`${landingInterTight.variable} landing-gilroy bg-white text-foreground`}>{children}</div>
   );
 }

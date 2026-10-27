@@ -131,10 +131,10 @@ export default function ContractTemplatesPage() {
   });
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-cerrado-900 text-white min-h-screen">
       {/* Header */}
       <header className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cerrado-950/60 to-cerrado-950"></div>
         <div className="absolute inset-0">
           <Image 
             src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2670&auto=format&fit=crop" 
@@ -151,7 +151,7 @@ export default function ContractTemplatesPage() {
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
               Modelos de contratos profissionais, revisados juridicamente e prontos para uso imediato
             </p>
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Acessar todos os modelos
             </Link>
           </div>
@@ -184,7 +184,7 @@ export default function ContractTemplatesPage() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-4 py-2 rounded-full text-sm transition-all ${
                     activeCategory === category.id
-                      ? 'bg-white text-black'
+                      ? 'bg-white text-ink'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                   }`}
                 >
@@ -209,7 +209,7 @@ export default function ContractTemplatesPage() {
             {filteredTemplates.map((template) => (
               <div key={template.id} className="bg-white/5 border border-white/10 group hover:bg-white/10 transition-all duration-300 relative">
                 {template.popular && (
-                  <div className="absolute -top-3 left-6 bg-white text-black px-3 py-1 text-sm font-medium">
+                  <div className="absolute -top-3 left-6 bg-white text-ink px-3 py-1 text-sm font-medium">
                     Popular
                   </div>
                 )}
@@ -223,7 +223,7 @@ export default function ContractTemplatesPage() {
                         <span>•</span>
                         <span>{template.clauses} cláusulas</span>
                         <span>•</span>
-                        <span className={`font-medium ${template.price === 'Free' ? 'text-green-400' : 'text-yellow-400'}`}>
+                        <span className={`font-medium ${template.price === 'Free' ? 'text-cerrado-400' : 'text-pequi-400'}`}>
                           {template.price}
                         </span>
                       </div>
@@ -240,7 +240,7 @@ export default function ContractTemplatesPage() {
                     <ul className="space-y-2">
                       {template.features.map((feature, index) => (
                         <li key={index} className="flex items-start text-sm text-white/70">
-                          <svg className="w-4 h-4 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-cerrado-400 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           {feature}
@@ -264,7 +264,7 @@ export default function ContractTemplatesPage() {
                   {/* Action button */}
                   <Link
                     href={template.price === 'Grátis' ? '#' : '/pricing'}
-                    className="block w-full py-3 px-6 text-center font-medium transition-all bg-white text-black hover:bg-white/90"
+                    className="block w-full py-3 px-6 text-center font-medium transition-all bg-white text-ink hover:bg-white/90"
                   >
                     {template.price === 'Grátis' ? 'Baixar grátis' : 'Obter Premium'}
                   </Link>
@@ -348,7 +348,7 @@ export default function ContractTemplatesPage() {
             Acesse nossa biblioteca completa de modelos de contratos e recursos jurídicos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">

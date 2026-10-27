@@ -132,10 +132,10 @@ export default function LegalGlossaryPage() {
   }, [filteredTerms]);
 
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="bg-cerrado-900 text-white min-h-screen">
       {/* Header */}
       <header className="relative h-[50vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cerrado-950/60 to-cerrado-950"></div>
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2558&auto=format&fit=crop"
@@ -152,7 +152,7 @@ export default function LegalGlossaryPage() {
             <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
               Definições completas de termos e conceitos jurídicos para ajudar você a entender o Direito
             </p>
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Acessar o glossário completo
             </Link>
           </div>
@@ -181,7 +181,7 @@ export default function LegalGlossaryPage() {
             <button
               onClick={() => setActiveLetter('all')}
               className={`px-3 py-2 text-sm transition-all ${activeLetter === 'all'
-                  ? 'bg-white text-black'
+                  ? 'bg-white text-ink'
                   : 'bg-white/10 text-white hover:bg-white/20'
                 }`}
             >
@@ -192,7 +192,7 @@ export default function LegalGlossaryPage() {
                 key={letter}
                 onClick={() => setActiveLetter(letter)}
                 className={`px-3 py-2 text-sm transition-all ${activeLetter === letter
-                    ? 'bg-white text-black'
+                    ? 'bg-white text-ink'
                     : 'bg-white/10 text-white hover:bg-white/20'
                   }`}
               >
@@ -208,7 +208,7 @@ export default function LegalGlossaryPage() {
                 key={category.id}
                 onClick={() => setActiveFilter(category.id)}
                 className={`px-4 py-2 rounded-full text-sm transition-all ${activeFilter === category.id
-                    ? 'bg-white text-black'
+                    ? 'bg-white text-ink'
                     : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                   }`}
               >
@@ -353,7 +353,7 @@ export default function LegalGlossaryPage() {
             Amplie seu vocabulário jurídico com nosso glossário completo e definições selecionadas por especialistas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" className="bg-white text-black px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
+            <Link href="/signup" className="bg-white text-ink px-8 py-4 text-lg font-medium transition-all hover:bg-white/90">
               Iniciar teste grátis
             </Link>
             <Link href="/pricing" className="bg-white/10 text-white px-8 py-4 text-lg font-medium border border-white/20 transition-all hover:bg-white/20">

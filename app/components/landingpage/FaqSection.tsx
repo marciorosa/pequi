@@ -14,9 +14,9 @@ export default function FaqSection() {
               <p className={`${sectionSubTextClass} mt-4 max-w-none text-left lg:mx-0 lg:text-left`}>
                 Encontre respostas rápidas sobre segurança, implantação e como a plataforma apoia suas operações jurídicas.
               </p>
-              <div className="mt-8 rounded-2xl border border-[#e7e7ea] bg-[#fcfcfd] p-5">
-                <p className="text-[0.9rem] font-medium text-[#10101A]">Ainda tem dúvidas?</p>
-                <p className="mt-1 text-[0.875rem] leading-[1.45rem] text-[#6d6d78]">
+              <div className="mt-8 rounded-2xl border border-castanha-200 bg-castanha-25 p-5">
+                <p className="text-[0.9rem] font-medium text-ink">Ainda tem dúvidas?</p>
+                <p className="mt-1 text-[0.875rem] leading-[1.45rem] text-castanha-600">
                   Nossa equipe pode orientar você na configuração corporativa, no compliance e na implantação.
                 </p>
                 <Link
@@ -28,25 +28,25 @@ export default function FaqSection() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-[#e7e7ea] bg-white">
+            <div className="overflow-hidden rounded-2xl border border-castanha-200 bg-white">
               {faqs.map((faq, idx) => (
                 <details
                   key={faq.question}
                   open={idx === 0}
-                  className="group border-b border-[#ececf0] last:border-b-0 [&_summary::-webkit-details-marker]:hidden"
+                  className="group border-b border-castanha-100 last:border-b-0 [&_summary::-webkit-details-marker]:hidden"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 transition-colors hover:bg-[#fafafb] md:px-6 md:py-5">
-                    <span className="text-left text-[1rem] font-medium leading-[1.45] text-[#10101A] md:text-[1.0625rem]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 transition-colors hover:bg-castanha-25 md:px-6 md:py-5">
+                    <span className="text-left text-[1rem] font-medium leading-[1.45] text-ink md:text-[1.0625rem]">
                       {faq.question}
                     </span>
-                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#e4e4e8] bg-[#f8f8fa] text-[#4a4a55] transition group-open:rotate-180 group-open:border-[#10101A] group-open:bg-[#10101A] group-open:text-white">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-castanha-150 bg-castanha-25 text-castanha-700 transition group-open:rotate-180 group-open:border-cerrado-900 group-open:bg-cerrado-900 group-open:text-white">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
                     </span>
                   </summary>
-                  <div className="border-t border-[#f0f0f3] bg-[#fcfcfd] px-5 pb-5 pt-4 md:px-6">
-                    <p className="text-[0.95rem] font-normal leading-[1.55rem] text-[#5c5c68]">{faq.answer}</p>
+                  <div className="border-t border-castanha-150 bg-castanha-25 px-5 pb-5 pt-4 md:px-6">
+                    <p className="text-[0.95rem] font-normal leading-[1.55rem] text-castanha-600">{faq.answer}</p>
                   </div>
                 </details>
               ))}

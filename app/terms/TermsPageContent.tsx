@@ -187,7 +187,7 @@ export default function TermsPageContent() {
         ))}
       </LegalMain>
       <LegalAcknowledgment ctaHref="/contact" ctaLabel="Fale conosco em caso de dúvidas">
-        <h2 className="mb-4 text-[1.5rem] font-medium text-[#10101A] md:text-[1.75rem]">Ciência</h2>
+        <h2 className="mb-4 text-[1.5rem] font-medium text-ink md:text-[1.75rem]">Ciência</h2>
         <LegalParagraph className="max-w-2xl mx-auto">
           Ao usar os serviços do Pequi, você declara que leu, compreendeu e concorda com estes Termos de Serviço.
         </LegalParagraph>

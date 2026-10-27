@@ -3,7 +3,7 @@ import LoginExperience from './LoginExperience';
 
 export default function LoginPage() {
   return (
-    <div className="landing-gilroy bg-[#FFFFFF] text-foreground">
+    <div className="landing-gilroy bg-white text-foreground">
       <LoginExperience />
     </div>
   );

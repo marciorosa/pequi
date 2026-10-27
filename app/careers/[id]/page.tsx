@@ -24,7 +24,7 @@ export default async function CareerJobPage({ params }: { params: Promise<{ id: 
   if (!job) notFound();
 
   return (
-    <div className={`${landingInterTight.variable} landing-gilroy bg-[#FFFFFF] text-foreground`}>
+    <div className={`${landingInterTight.variable} landing-gilroy bg-white text-foreground`}>
       <CareerDetailExperience job={job} jobId={id} />
     </div>
   );

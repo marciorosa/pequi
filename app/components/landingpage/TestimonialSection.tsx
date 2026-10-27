@@ -51,7 +51,7 @@ export default function TestimonialSection() {
 
   return (
     <FadeInSection delay={0.16}>
-      <section id="testimonials" className="bg-[#EBFAF8] scroll-mt-24 md:scroll-mt-28">
+      <section id="testimonials" className="bg-cerrado-50 scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
         <h3 className={sectionHeadingClass}>O que nossos usuários dizem</h3>
         <p className={`${sectionSubTextClass} mt-4 mb-10`}>
@@ -61,11 +61,11 @@ export default function TestimonialSection() {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             {topCards.map((item) => (
               <article key={item.author} className="landing-card p-6 md:p-7 min-h-[17.5rem]">
-                <p className="text-[4rem] leading-none font-medium text-[#d0d0d3]">&ldquo;</p>
-                <p className="mt-3 text-[#1f2025] text-[1.02rem] font-normal leading-[1.45rem]">{item.quote}</p>
+                <p className="text-[4rem] leading-none font-medium text-castanha-300">&ldquo;</p>
+                <p className="mt-3 text-ink text-[1.02rem] font-normal leading-[1.45rem]">{item.quote}</p>
                 <div className="mt-7 flex items-center gap-3">
                   <Image src={item.image} alt={item.author} width={34} height={34} className="h-[34px] w-[34px] rounded-full object-cover" />
-                  <p className="text-[#111827] text-[1rem] font-normal leading-[1.35rem]">
+                  <p className="text-ink text-[1rem] font-normal leading-[1.35rem]">
                     {item.author}, {item.role}
                   </p>
                 </div>
@@ -76,10 +76,10 @@ export default function TestimonialSection() {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             {bottomCards.map((item) => (
               <article key={item.author} className="landing-card p-5 md:p-6 min-h-[15.5rem]">
-                <p className="text-[#1f2025] text-[1.02rem] font-normal leading-[1.45rem]">{item.quote}</p>
+                <p className="text-ink text-[1.02rem] font-normal leading-[1.45rem]">{item.quote}</p>
                 <div className="mt-6 flex items-center gap-3">
                   <Image src={item.image} alt={item.author} width={34} height={34} className="h-[34px] w-[34px] rounded-full object-cover" />
-                  <p className="text-[#111827] text-[1rem] font-normal leading-[1.35rem]">
+                  <p className="text-ink text-[1rem] font-normal leading-[1.35rem]">
                     {item.author}, {item.role}
                   </p>
                 </div>

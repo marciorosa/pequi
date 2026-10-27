@@ -7,7 +7,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
 
 const tabs = [
   { id: 'all' as const, label: 'Todos' },
@@ -44,7 +44,7 @@ export default function VaultExperience() {
       title: 'Armazenamento seguro de documentos',
       description: 'Criptografia e controles de acesso garantem que arquivos jurídicos sensíveis fiquem disponíveis apenas para usuários autorizados.',
       icon: (
-        <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -58,7 +58,7 @@ export default function VaultExperience() {
       title: 'Análise com IA',
       description: 'Identifique riscos, termos-chave e resumos em grandes volumes de documentos dos casos.',
       icon: (
-        <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -72,7 +72,7 @@ export default function VaultExperience() {
       title: 'Fluxos de assinatura eletrônica',
       description: 'Leve automaticamente os contratos assinados para as pastas certas do cofre a partir dos seus fluxos de assinatura.',
       icon: (
-        <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -86,7 +86,7 @@ export default function VaultExperience() {
       title: 'Colaboração e permissões',
       description: 'Compartilhe com equipes e clientes usando funções granulares, sem perder a rastreabilidade.',
       icon: (
-        <svg className="w-7 h-7 text-[#111827]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -122,11 +122,11 @@ export default function VaultExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Inteligência segura</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Inteligência segura</p>
+                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
                   Cofre Pequi
                 </h1>
-                <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-[#525252]">
+                <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
                   Armazenamento e gestão inteligentes de documentos jurídicos, com IA que ajuda você a encontrar, revisar e controlar
                   o que importa.
                 </p>
@@ -140,7 +140,7 @@ export default function VaultExperience() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
+                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                   >
                     Demonstração do explorador
                   </button>
@@ -148,7 +148,7 @@ export default function VaultExperience() {
               </div>
 
               <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-[#eceae7] p-5 sm:p-6">
+                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
                   <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
                     <Image
                       src="/landingpage/features/secure-document-vault.png"
@@ -167,7 +167,7 @@ export default function VaultExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.08}>
-        <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Feito para o trabalho jurídico sensível</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -181,8 +181,8 @@ export default function VaultExperience() {
                     {feature.icon}
                   </div>
                   <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{feature.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-[#323232]">{feature.description}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{feature.title}</h3>
+                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -192,14 +192,14 @@ export default function VaultExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section id="explorer" className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
+        <section id="explorer" className="bg-white pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
               <div className="text-center lg:text-left">
-                <h2 className="text-[#10101A] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
+                <h2 className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
                   Explorador interativo do cofre
                 </h2>
-                <p className="mt-4 text-[#525252] text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
+                <p className="mt-4 text-castanha-600 text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
                   Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que as equipes navegam em um cofre real.
                 </p>
               </div>
@@ -211,8 +211,8 @@ export default function VaultExperience() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`inline-flex h-11 md:h-[3.4375rem] justify-center items-center rounded-[0.625rem] text-[0.875rem] md:text-[1rem] leading-none transition-colors px-4 md:px-[1.625rem] ${
                       activeTab === tab.id
-                        ? 'border border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-[0_6px_16px_rgba(16,16,26,0.12)]'
-                        : 'bg-[#f1f0ee] text-[#525252] border border-[#e7e5e1] hover:bg-[#eceae7] hover:text-[#10101A]'
+                        ? 'border border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(31,42,23,0.12)]'
+                        : 'bg-castanha-100 text-castanha-600 border border-castanha-200 hover:bg-castanha-150 hover:text-ink'
                     }`}
                   >
                     {tab.label}
@@ -221,11 +221,11 @@ export default function VaultExperience() {
               </div>
             </div>
 
-            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(16,16,26,0.06),0_48px_100px_rgba(16,16,26,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(16,16,26,0.08)]">
-              <div className="bg-white p-5 md:p-6 border-b border-[#e7e7ea] flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
+            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
+              <div className="bg-white p-5 md:p-6 border-b border-castanha-200 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
                 <div className="relative w-full md:max-w-md">
                   <svg
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#525252]"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-castanha-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -238,12 +238,12 @@ export default function VaultExperience() {
                     placeholder="Pesquisar no cofre..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] py-3.5 pl-12 pr-4 text-[0.9375rem] text-[#10101A] placeholder:text-[#525252] transition-all focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
+                    className="w-full rounded-[0.875rem] border border-castanha-200 bg-castanha-100 py-3.5 pl-12 pr-4 text-[0.9375rem] text-ink placeholder:text-castanha-600 transition-all focus:border-castanha-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
                   />
                 </div>
                 <button
                   type="button"
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-[0.875rem] bg-[#1A1A1A] px-6 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(16,16,26,0.15)]"
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-[0.875rem] bg-cerrado-800 px-6 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(31,42,23,0.15)]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -255,29 +255,29 @@ export default function VaultExperience() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left min-w-[640px]">
                   <thead>
-                    <tr className="border-b border-[#e7e7ea] bg-[#f1f0ee]/75">
-                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+                    <tr className="border-b border-castanha-200 bg-castanha-100/75">
+                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                         Nome
                       </th>
-                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                         Tipo
                       </th>
-                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                         Modificado em
                       </th>
-                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+                      <th className="px-5 md:px-8 py-4 text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                         Status
                       </th>
                       <th className="px-5 md:px-8 py-4" aria-hidden />
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#f0efed]">
+                  <tbody className="divide-y divide-castanha-150">
                     {filteredDocuments.map((doc) => (
-                      <tr key={doc.id} className="group transition-colors hover:bg-[#fcfcfd]">
+                      <tr key={doc.id} className="group transition-colors hover:bg-castanha-25">
                         <td className="px-5 md:px-8 py-4 md:py-5">
                           <div className="flex items-center gap-3 md:gap-4">
-                            <div className="w-10 h-10 shrink-0 rounded-xl border border-[#e7e5e1] bg-[#f1f0ee] flex items-center justify-center transition-colors group-hover:bg-white">
-                              <svg className="w-5 h-5 text-[#525252]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                            <div className="w-10 h-10 shrink-0 rounded-xl border border-castanha-200 bg-castanha-100 flex items-center justify-center transition-colors group-hover:bg-white">
+                              <svg className="w-5 h-5 text-castanha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                                 <path
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -287,27 +287,27 @@ export default function VaultExperience() {
                               </svg>
                             </div>
                             <div className="min-w-0">
-                              <p className="truncate text-[0.9375rem] font-medium text-[#10101A]">{doc.name}</p>
-                              <p className="text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-[#525252]">{doc.size}</p>
+                              <p className="truncate text-[0.9375rem] font-medium text-ink">{doc.name}</p>
+                              <p className="text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">{doc.size}</p>
                             </div>
                           </div>
                         </td>
                         <td className="px-5 md:px-8 py-4 md:py-5">
-                          <span className="inline-block rounded-md border border-[#e7e5e1] bg-[#f1f0ee] px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-[#525252]">
+                          <span className="inline-block rounded-md border border-castanha-200 bg-castanha-100 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-castanha-600">
                             {({ contract: 'Contrato', court: 'Judicial', corporate: 'Societário' } as Record<string, string>)[doc.type] ?? doc.type}
                           </span>
                         </td>
                         <td className="px-5 md:px-8 py-4 md:py-5">
-                          <p className="text-[0.875rem] text-[#525252]">{doc.lastModified}</p>
+                          <p className="text-[0.875rem] text-castanha-600">{doc.lastModified}</p>
                         </td>
                         <td className="px-5 md:px-8 py-4 md:py-5">
                           <div className="flex items-center gap-2">
                             <span
                               className={`w-2 h-2 rounded-full shrink-0 ${
-                                doc.status === 'verified' || doc.status === 'e-sign valid' ? 'bg-emerald-500' : 'bg-amber-500'
+                                doc.status === 'verified' || doc.status === 'e-sign valid' ? 'bg-cerrado-500' : 'bg-pequi-500'
                               }`}
                             />
-                            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-[#525252]">
+                            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-castanha-600">
                               {({ 'e-sign valid': 'assinatura válida', verified: 'verificado', pending: 'pendente' } as Record<string, string>)[doc.status] ?? doc.status}
                             </span>
                           </div>
@@ -315,10 +315,10 @@ export default function VaultExperience() {
                         <td className="px-5 md:px-8 py-4 md:py-5 text-right">
                           <button
                             type="button"
-                            className="p-2 rounded-lg border border-transparent opacity-0 transition-all hover:border-[#e7e5e1] hover:bg-white group-hover:opacity-100"
+                            className="p-2 rounded-lg border border-transparent opacity-0 transition-all hover:border-castanha-200 hover:bg-white group-hover:opacity-100"
                             aria-label="Mais ações"
                           >
-                            <svg className="w-4 h-4 text-[#525252]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                            <svg className="w-4 h-4 text-castanha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                               <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -333,20 +333,20 @@ export default function VaultExperience() {
                   </tbody>
                 </table>
               </div>
-              <div className="flex flex-col items-center justify-between gap-4 border-t border-[#e7e7ea] bg-[#f1f0ee]/55 p-5 md:p-6 sm:flex-row">
-                <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#525252]">
+              <div className="flex flex-col items-center justify-between gap-4 border-t border-castanha-200 bg-castanha-100/55 p-5 md:p-6 sm:flex-row">
+                <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-castanha-600">
                   Exibindo {filteredDocuments.length} arquivos
                 </p>
                 <div className="flex gap-2">
                   <button
                     type="button"
-                    className="rounded-[0.625rem] border border-[#e7e5e1] bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
+                    className="rounded-[0.625rem] border border-castanha-200 bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-ink transition-colors hover:bg-castanha-25"
                   >
                     Anterior
                   </button>
                   <button
                     type="button"
-                    className="rounded-[0.625rem] border border-[#e7e5e1] bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-[#10101A] transition-colors hover:bg-[#fcfcfd]"
+                    className="rounded-[0.625rem] border border-castanha-200 bg-white px-4 py-2.5 text-[0.8125rem] font-medium text-ink transition-colors hover:bg-castanha-25"
                   >
                     Próxima
                   </button>
@@ -358,29 +358,29 @@ export default function VaultExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
+        <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Arquitetura</p>
-                <h2 className="text-[#10101A] text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Arquitetura</p>
+                <h2 className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
                   Nuvem jurídica reforçada
                 </h2>
-                <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+                <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                   Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade,
                   disponibilidade e auditabilidade em escala corporativa.
                 </p>
                 <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
                   {securityPoints.map((point) => (
                     <div key={point.title}>
-                      <h4 className="mb-1.5 text-[1rem] font-medium text-[#10101A]">{point.title}</h4>
-                      <p className="text-[0.9375rem] leading-[160%] text-[#525252]">{point.desc}</p>
+                      <h4 className="mb-1.5 text-[1rem] font-medium text-ink">{point.title}</h4>
+                      <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{point.desc}</p>
                     </div>
                   ))}
                 </div>
                 <Link
                   href="/security"
-                  className="mt-10 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-[#10101A] transition-opacity hover:opacity-80"
+                  className="mt-10 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-80"
                 >
                   Ver visão geral de segurança
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -390,8 +390,8 @@ export default function VaultExperience() {
               </div>
 
               <div className="relative">
-                <div className="overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white p-3 shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:p-4">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-[#f1f0ee]">
+                <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-3 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-4">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-castanha-100">
                     <Image
                       src="/landingpage/one-legal-platform/vault.png"
                       alt="Acesso ao cofre na plataforma jurídica"
@@ -401,7 +401,7 @@ export default function VaultExperience() {
                     />
                   </div>
                 </div>
-                <div className="absolute -bottom-4 -right-2 hidden max-w-[200px] rounded-[1.25rem] bg-[#1A1A1A] p-5 text-white shadow-[0_20px_40px_rgba(16,16,26,0.2)] md:-bottom-5 md:-right-4 md:p-6 sm:block">
+                <div className="absolute -bottom-4 -right-2 hidden max-w-[200px] rounded-[1.25rem] bg-cerrado-800 p-5 text-white shadow-[0_20px_40px_rgba(31,42,23,0.2)] md:-bottom-5 md:-right-4 md:p-6 sm:block">
                   <svg className="w-7 h-7 mb-3 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path
                       strokeLinecap="round"

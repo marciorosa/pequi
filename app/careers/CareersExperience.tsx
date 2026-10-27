@@ -49,38 +49,38 @@ const benefits = [
 ];
 
 const cultureTiles = [
-  { label: 'Colaboração', surface: 'from-[#f1f0ee] to-[#e8e4df]' },
-  { label: 'Trabalho focado', surface: 'from-[#efeeec] to-[#e5e2dc]' },
-  { label: 'Visitas a clientes', surface: 'from-[#f4f2ef] to-[#ebe7e1]' },
-  { label: 'Rituais de equipe', surface: 'from-[#f0eeeb] to-[#e6e3dd]' },
+  { label: 'Colaboração', surface: 'from-castanha-100 to-castanha-150' },
+  { label: 'Trabalho focado', surface: 'from-castanha-100 to-castanha-200' },
+  { label: 'Visitas a clientes', surface: 'from-castanha-50 to-castanha-150' },
+  { label: 'Rituais de equipe', surface: 'from-castanha-150 to-castanha-150' },
 ];
 
 function JobRow({ job }: { job: CareerJobFull }) {
   return (
-    <article className="landing-surface shadow-[0_12px_28px_rgba(16,16,26,0.04)] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(16,16,26,0.07)] p-6 md:p-8">
+    <article className="landing-surface shadow-[0_12px_28px_rgba(31,42,23,0.04)] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(31,42,23,0.07)] p-6 md:p-8">
       <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
-          <h3 className="mb-2 text-xl font-medium text-[#10101A]">{job.title}</h3>
-          <p className="text-[0.9375rem] leading-relaxed text-[#525252]">{job.description}</p>
+          <h3 className="mb-2 text-xl font-medium text-ink">{job.title}</h3>
+          <p className="text-[0.9375rem] leading-relaxed text-castanha-600">{job.description}</p>
         </div>
         <div className="flex shrink-0 flex-wrap gap-2">
-          <span className="rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
+          <span className="rounded-full border border-castanha-200 bg-castanha-100 px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
             {job.location}
           </span>
-          <span className="rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
+          <span className="rounded-full border border-castanha-200 bg-castanha-100 px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
             {job.type}
           </span>
-          <span className="rounded-full border border-[#e7e5e1] bg-[#f1f0ee] px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] capitalize text-[#525252]">
+          <span className="rounded-full border border-castanha-200 bg-castanha-100 px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] capitalize text-castanha-600">
             {job.departmentLabel}
           </span>
         </div>
       </div>
       <div className="mb-6">
-        <h4 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[#525252]">Requisitos</h4>
+        <h4 className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">Requisitos</h4>
         <ul className="space-y-2">
           {job.requirements.map((req) => (
-            <li key={req} className="flex gap-3 text-[0.9375rem] text-[#525252]">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#cfcac3]" aria-hidden />
+            <li key={req} className="flex gap-3 text-[0.9375rem] text-castanha-600">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-castanha-300" aria-hidden />
               {req}
             </li>
           ))}
@@ -88,7 +88,7 @@ function JobRow({ job }: { job: CareerJobFull }) {
       </div>
       <Link
         href={`/careers/${job.id}`}
-        className="inline-flex items-center justify-center rounded-[0.875rem] bg-[#1A1A1A] px-6 py-3 text-[0.9375rem] font-medium text-white transition-all hover:brightness-110"
+        className="inline-flex items-center justify-center rounded-[0.875rem] bg-cerrado-800 px-6 py-3 text-[0.9375rem] font-medium text-white transition-all hover:brightness-110"
       >
         Ver vaga e candidatar-se
       </Link>
@@ -119,11 +119,11 @@ export default function CareersExperience() {
             className="object-cover object-top"
           />
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Carreiras na Pequi</p>
-            <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Carreiras na Pequi</p>
+            <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-ink sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
               Junte-se à nossa missão
             </h1>
-            <p className="mt-5 max-w-xl text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+            <p className="mt-5 max-w-xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
               Ajude a transformar o trabalho jurídico com IA responsável: construa produtos, modelos e confiança com a gente.
             </p>
           </div>
@@ -131,33 +131,33 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.06}>
-        <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
+        <section className="border-b border-castanha-150 bg-white py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Nosso propósito</p>
-                <h2 className="text-left text-[2rem] font-medium leading-[1.1] text-[#10101A] md:text-[2.5rem]">
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Nosso propósito</p>
+                <h2 className="text-left text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem]">
                   Por que estamos aqui
                 </h2>
-                <p className="mt-4 text-[1rem] leading-[175%] text-[#525252] md:text-[1.0625rem]">
+                <p className="mt-4 text-[1rem] leading-[175%] text-castanha-600 md:text-[1.0625rem]">
                   Automatizamos o trabalho jurídico rotineiro e trazemos insights melhores para que as equipes possam se concentrar em análise, estratégia e
                   clientes. Se você gosta de entregar software sério em uma área séria, vai se encaixar aqui.
                 </p>
-                <p className="mt-4 text-[1rem] leading-[175%] text-[#525252] md:text-[1.0625rem]">
+                <p className="mt-4 text-[1rem] leading-[175%] text-castanha-600 md:text-[1.0625rem]">
                   Contratamos pela excelência técnica, gentileza e honestidade intelectual, em engenharia, produto, design, jurídico e
                   go-to-market.
                 </p>
               </div>
-              <div className="overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white shadow-[0_24px_64px_rgba(16,16,26,0.06)]">
-                <div className="relative h-48 border-b border-[#eceae7] bg-gradient-to-br from-[#f1f0ee] via-[#ebe8e3] to-[#e0ddd6]">
+              <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
+                <div className="relative h-48 border-b border-castanha-150 bg-gradient-to-br from-castanha-100 via-castanha-150 to-castanha-200">
                   <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_50%)]" aria-hidden />
                   <div className="relative flex h-full items-end p-8">
-                    <p className="max-w-sm text-lg font-medium text-[#10101A]">Construa o futuro da inteligência jurídica.</p>
+                    <p className="max-w-sm text-lg font-medium text-ink">Construa o futuro da inteligência jurídica.</p>
                   </div>
                 </div>
-                <div className="space-y-4 p-8 text-[0.9375rem] leading-relaxed text-[#525252]">
+                <div className="space-y-4 p-8 text-[0.9375rem] leading-relaxed text-castanha-600">
                   <p>Squads multidisciplinares. Muita autonomia. Problemas claros que valem a pena resolver.</p>
-                  <Link href="#openings" className="inline-flex font-medium text-[#10101A] hover:underline">
+                  <Link href="#openings" className="inline-flex font-medium text-ink hover:underline">
                     Ir para as vagas abertas →
                   </Link>
                 </div>
@@ -168,7 +168,7 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.08}>
-        <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
+        <section className="border-b border-castanha-150 bg-white py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={`${sectionHeadingClass} text-center`}>Nossos valores</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center md:mb-12`}>
@@ -178,15 +178,15 @@ export default function CareersExperience() {
               {values.map((v) => (
                 <div
                   key={v.title}
-                  className="rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 p-6 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(16,16,26,0.06)]"
+                  className="rounded-2xl border border-castanha-150 bg-castanha-100/85 p-6 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)]"
                 >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e7e5e1] bg-white text-[#323232]">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-castanha-200 bg-white text-castanha-800">
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                       {v.icon}
                     </svg>
                   </div>
-                  <h3 className="mb-2 text-lg font-medium text-[#323232]">{v.title}</h3>
-                  <p className="text-[0.875rem] leading-relaxed text-[#323232]">{v.description}</p>
+                  <h3 className="mb-2 text-lg font-medium text-castanha-800">{v.title}</h3>
+                  <p className="text-[0.875rem] leading-relaxed text-castanha-800">{v.description}</p>
                 </div>
               ))}
             </div>
@@ -195,7 +195,7 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
+        <section className="border-b border-castanha-150 bg-white py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={`${sectionHeadingClass} text-center`}>A vida na Pequi</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center`}>
@@ -205,7 +205,7 @@ export default function CareersExperience() {
               {cultureTiles.map((t) => (
                 <div
                   key={t.label}
-                  className={`flex aspect-[4/3] items-end rounded-[1.25rem] border border-[#eceae7] bg-gradient-to-br p-5 font-medium text-[#10101A] shadow-[0_8px_24px_rgba(16,16,26,0.05)] ${t.surface}`}
+                  className={`flex aspect-[4/3] items-end rounded-[1.25rem] border border-castanha-150 bg-gradient-to-br p-5 font-medium text-ink shadow-[0_8px_24px_rgba(31,42,23,0.05)] ${t.surface}`}
                 >
                   <span className="text-[0.9375rem]">{t.label}</span>
                 </div>
@@ -216,7 +216,7 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section className="border-b border-[#eceae7] bg-[#FFFFFF] py-12 md:py-16">
+        <section className="border-b border-castanha-150 bg-white py-12 md:py-16">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={`${sectionHeadingClass} text-center`}>Benefícios e vantagens</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-10 max-w-2xl text-center md:mb-12`}>
@@ -226,11 +226,11 @@ export default function CareersExperience() {
               {benefits.map((b) => (
                 <div
                   key={b.title}
-                  className="rounded-[1.25rem] border border-[#e7e5e1] bg-[#f1f0ee]/80 p-6 transition-colors hover:border-[#d4d2ce]"
+                  className="rounded-[1.25rem] border border-castanha-200 bg-castanha-100/80 p-6 transition-colors hover:border-castanha-300"
                 >
-                  <div className="mb-4 h-px w-8 bg-[#10101A]/15" aria-hidden />
-                  <h3 className="mb-2 font-medium text-[#10101A]">{b.title}</h3>
-                  <p className="text-[0.875rem] leading-relaxed text-[#525252]">{b.description}</p>
+                  <div className="mb-4 h-px w-8 bg-cerrado-900/15" aria-hidden />
+                  <h3 className="mb-2 font-medium text-ink">{b.title}</h3>
+                  <p className="text-[0.875rem] leading-relaxed text-castanha-600">{b.description}</p>
                 </div>
               ))}
             </div>
@@ -239,7 +239,7 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.14}>
-        <section id="openings" className="scroll-mt-24 bg-[#FFFFFF] py-12 md:py-16 md:scroll-mt-28">
+        <section id="openings" className="scroll-mt-24 bg-white py-12 md:py-16 md:scroll-mt-28">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={`${sectionHeadingClass} text-center`}>Vagas abertas</h2>
             <p className={`${sectionSubTextClass} mx-auto mt-3 mb-8 max-w-2xl text-center`}>
@@ -254,8 +254,8 @@ export default function CareersExperience() {
                   onClick={() => setActiveTab(tab)}
                   className={`rounded-full border px-4 py-2.5 text-[0.875rem] font-medium transition-all ${
                     activeTab === tab
-                      ? 'border-[#1A1A1A] bg-[#1A1A1A] text-white shadow-[0_6px_16px_rgba(16,16,26,0.12)]'
-                      : 'border-[#e7e5e1] bg-[#f1f0ee] text-[#525252] hover:border-[#d4d2ce] hover:text-[#10101A]'
+                      ? 'border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(31,42,23,0.12)]'
+                      : 'border-castanha-200 bg-castanha-100 text-castanha-600 hover:border-castanha-300 hover:text-ink'
                   }`}
                 >
                   {tab === 'all' ? 'Todas as equipes' : ({ engineering: 'Engenharia', product: 'Produto', design: 'Design', legal: 'Jurídico', sales: 'Vendas' } as Record<string, string>)[tab]}
@@ -267,10 +267,10 @@ export default function CareersExperience() {
               {filtered.length > 0 ? (
                 filtered.map((job) => <JobRow key={job.id} job={job} />)
               ) : (
-                <div className="rounded-[1.25rem] border border-[#eceae7] bg-white p-12 text-center shadow-[0_12px_28px_rgba(16,16,26,0.04)]">
-                  <p className="mb-2 text-[#525252]">Não há vagas abertas nesta equipe no momento.</p>
-                  <p className="text-sm text-[#525252]">
-                    <Link href="/contact" className="font-medium text-[#10101A] hover:underline">
+                <div className="rounded-[1.25rem] border border-castanha-150 bg-white p-12 text-center shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+                  <p className="mb-2 text-castanha-600">Não há vagas abertas nesta equipe no momento.</p>
+                  <p className="text-sm text-castanha-600">
+                    <Link href="/contact" className="font-medium text-ink hover:underline">
                       Fale conosco
                     </Link>{' '}
                     sobre oportunidades futuras.
@@ -283,10 +283,10 @@ export default function CareersExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.16}>
-        <section className="border-t border-[#eceae7] bg-[#f8f7f6] py-12 md:py-14">
+        <section className="border-t border-castanha-150 bg-castanha-50 py-12 md:py-14">
           <div className="mx-auto max-w-[48rem] px-4 text-center">
-            <h2 className="mb-4 text-xl font-medium text-[#10101A] md:text-2xl">Empresa com igualdade de oportunidades</h2>
-            <p className="text-[0.9375rem] leading-relaxed text-[#525252]">
+            <h2 className="mb-4 text-xl font-medium text-ink md:text-2xl">Empresa com igualdade de oportunidades</h2>
+            <p className="text-[0.9375rem] leading-relaxed text-castanha-600">
               A Pequi é uma empresa que oferece igualdade de oportunidades. Recebemos candidatos qualificados independentemente de raça, religião,
               cor, origem nacional, gênero, orientação sexual, idade, deficiência, condição de veterano ou outras características
               protegidas.

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="landing-gilroy relative z-10 mt-16 lg:mt-[130px] bg-[#10101A] pb-10">
+    <footer className="landing-gilroy relative z-10 mt-16 lg:mt-[130px] bg-cerrado-900 pb-10">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="relative overflow-hidden rounded-[30px] text-white p-[60px]">
           <div className="grid lg:grid-cols-[1.7fr_2.3fr] gap-10 mb-12">

@@ -38,22 +38,22 @@ function SignupAside() {
   ];
 
   return (
-    <div className="rounded-2xl border border-[#eceae7] bg-[#f8f7f6] p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-[#10101A] md:text-[1.75rem]">Feito para equipes jurídicas modernas</h2>
-      <p className="mb-10 text-[1rem] leading-relaxed text-[#525252]">
+    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">Feito para equipes jurídicas modernas</h2>
+      <p className="mb-10 text-[1rem] leading-relaxed text-castanha-600">
         Junte-se aos profissionais que usam o Pequi para trabalhar mais rápido sem abrir mão do rigor.
       </p>
       <ul className="space-y-8">
         {items.map((item) => (
           <li key={item.title} className="flex gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.875rem] border border-[#eceae7] bg-white text-[#10101A]">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.875rem] border border-castanha-150 bg-white text-ink">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
                 {item.icon}
               </svg>
             </div>
             <div>
-              <h3 className="mb-1 text-[1.0625rem] font-medium text-[#10101A]">{item.title}</h3>
-              <p className="text-[0.9375rem] leading-[160%] text-[#525252]">{item.body}</p>
+              <h3 className="mb-1 text-[1.0625rem] font-medium text-ink">{item.title}</h3>
+              <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{item.body}</p>
             </div>
           </li>
         ))}
@@ -66,10 +66,10 @@ function SignupAside() {
         ].map((s) => (
           <div
             key={s.l}
-            className="rounded-xl border border-[#eceae7] bg-white px-3 py-4 text-center"
+            className="rounded-xl border border-castanha-150 bg-white px-3 py-4 text-center"
           >
-            <div className="text-xl font-medium text-[#10101A]">{s.n}</div>
-            <div className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-[#525252]">
+            <div className="text-xl font-medium text-ink">{s.n}</div>
+            <div className="mt-1 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
               {s.l}
             </div>
           </div>
@@ -138,10 +138,10 @@ export default function SignupExperience() {
       <AuthPageLayout
         aside={<SignupAside />}
         footer={
-          <div className="mt-8 border-t border-[#eceae7] pt-8 text-center">
-            <p className="text-[0.9375rem] text-[#525252]">
+          <div className="mt-8 border-t border-castanha-150 pt-8 text-center">
+            <p className="text-[0.9375rem] text-castanha-600">
               Já tem uma conta?{' '}
-              <Link href="/login" className="font-medium text-[#10101A] underline-offset-2 hover:underline">
+              <Link href="/login" className="font-medium text-ink underline-offset-2 hover:underline">
                 Entrar
               </Link>
             </p>

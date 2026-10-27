@@ -19,7 +19,7 @@ export default function IntroSection({ imageSrc = '/landingpage/intro/ai-assista
         />
       </div>
       <div className="relative z-10 mx-auto mt-4 max-w-[1274px] sm:mt-6 lg:mt-20">
-        <div className="relative overflow-hidden rounded-[1.25rem] ring-4 ring-white/95 sm:rounded-[1.5rem] [box-shadow:0_0_0_1px_rgba(255,255,255,0.98),0_24px_64px_rgba(16,16,26,0.08),0_48px_100px_rgba(16,16,26,0.05)]">
+        <div className="relative overflow-hidden rounded-[1.25rem] ring-4 ring-white/95 sm:rounded-[1.5rem] [box-shadow:0_0_0_1px_rgba(255,255,255,0.98),0_24px_64px_rgba(31,42,23,0.08),0_48px_100px_rgba(31,42,23,0.05)]">
           <Image
             src={imageSrc}
             alt="Painel do Pequi Enterprise com especialistas jurídicos de IA, pesquisa e cartões de especialidades"

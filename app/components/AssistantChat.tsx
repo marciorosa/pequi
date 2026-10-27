@@ -97,23 +97,23 @@ export default function AssistantChat() {
   return (
     <div className="flex min-h-[520px] h-[min(700px,78vh)] flex-1 flex-col overflow-hidden bg-white">
       {/* Chat header */}
-      <div className="flex items-center justify-between border-b border-[#e7e7ea] px-6 py-5 md:px-8 md:py-6">
+      <div className="flex items-center justify-between border-b border-castanha-200 px-6 py-5 md:px-8 md:py-6">
         <div>
-          <h3 className="text-[1.125rem] font-medium text-[#10101A] md:text-[1.25rem]">Assistente Pequi</h3>
-          <p className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
+          <h3 className="text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Assistente Pequi</h3>
+          <p className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
             IA de consultoria especializada
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-600" />
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#525252]">Online</span>
+          <span className="h-2 w-2 animate-pulse rounded-full bg-cerrado-600" />
+          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-castanha-600">Online</span>
         </div>
       </div>
 
       {/* Messages */}
       <div
         ref={messagesContainerRef}
-        className="flex-1 space-y-6 overflow-y-auto bg-[#f1f0ee]/40 p-6 md:space-y-8 md:p-8"
+        className="flex-1 space-y-6 overflow-y-auto bg-castanha-100/40 p-6 md:space-y-8 md:p-8"
       >
         {messages.map((message) => (
           <div
@@ -123,13 +123,13 @@ export default function AssistantChat() {
           >
             <div
               className={`max-w-[85%] rounded-2xl p-5 md:max-w-[80%] md:p-6 ${message.role === 'user'
-                ? 'rounded-tr-md bg-[#1A1A1A] text-white shadow-[0_12px_28px_rgba(16,16,26,0.12)]'
-                : 'rounded-tl-md border border-[#eceae7] bg-white text-[#10101A] shadow-[0_2px_12px_rgba(16,16,26,0.04)]'
+                ? 'rounded-tr-md bg-cerrado-800 text-white shadow-[0_12px_28px_rgba(31,42,23,0.12)]'
+                : 'rounded-tl-md border border-castanha-150 bg-white text-ink shadow-[0_2px_12px_rgba(31,42,23,0.04)]'
                 }`}
             >
               <p className="whitespace-pre-wrap text-[0.9375rem] leading-[160%]">{message.content}</p>
               <div
-                className={`mt-3 text-[0.625rem] font-medium uppercase tracking-[0.12em] ${message.role === 'user' ? 'text-white/45' : 'text-[#525252]'
+                className={`mt-3 text-[0.625rem] font-medium uppercase tracking-[0.12em] ${message.role === 'user' ? 'text-white/45' : 'text-castanha-600'
                   }`}
               >
                 {message.timestamp.toLocaleTimeString('pt-BR', {
@@ -143,11 +143,11 @@ export default function AssistantChat() {
 
         {isLoading && (
           <div className="flex justify-start">
-            <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-[#eceae7] bg-white p-5 shadow-[0_2px_12px_rgba(16,16,26,0.04)] md:max-w-[80%] md:p-6">
+            <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-castanha-150 bg-white p-5 shadow-[0_2px_12px_rgba(31,42,23,0.04)] md:max-w-[80%] md:p-6">
               <div className="flex items-center space-x-1">
-                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#10101A]/25" />
-                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#10101A]/25 delay-75" />
-                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#10101A]/25 delay-150" />
+                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-cerrado-900/25" />
+                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-cerrado-900/25 delay-75" />
+                <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-cerrado-900/25 delay-150" />
               </div>
             </div>
           </div>
@@ -156,20 +156,20 @@ export default function AssistantChat() {
       </div>
 
       {/* Input */}
-      <form onSubmit={handleSendMessage} className="border-t border-[#e7e7ea] bg-white p-6 md:p-8">
+      <form onSubmit={handleSendMessage} className="border-t border-castanha-200 bg-white p-6 md:p-8">
         <div className="flex items-center gap-3">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Digite sua solicitação jurídica..."
-            className="flex-1 rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] p-4 text-[0.9375rem] text-[#10101A] transition-all placeholder:text-[#525252] focus:border-[#d4d2ce] focus:outline-none focus:ring-2 focus:ring-[#10101A]/8"
+            className="flex-1 rounded-[0.875rem] border border-castanha-200 bg-castanha-100 p-4 text-[0.9375rem] text-ink transition-all placeholder:text-castanha-600 focus:border-castanha-300 focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
             disabled={isLoading}
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className={`rounded-[0.875rem] bg-[#1A1A1A] p-4 text-white shadow-[0_10px_24px_rgba(16,16,26,0.15)] transition-all hover:brightness-110 ${isLoading || !input.trim() ? 'cursor-not-allowed opacity-50' : ''
+            className={`rounded-[0.875rem] bg-cerrado-800 p-4 text-white shadow-[0_10px_24px_rgba(31,42,23,0.15)] transition-all hover:brightness-110 ${isLoading || !input.trim() ? 'cursor-not-allowed opacity-50' : ''
               }`}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,7 +177,7 @@ export default function AssistantChat() {
             </svg>
           </button>
         </div>
-        <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-[#525252]">
+        <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
           Com a inteligência do Pequi
         </p>
       </form>

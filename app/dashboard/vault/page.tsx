@@ -193,7 +193,7 @@ const getFileIcon = (mime: string) => {
 const Modal = ({ children, onClose }: { children: React.ReactNode; onClose: () => void }) => (
   <div
     className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-    style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)' }} // Blurred Backdrop
+    style={{ background: 'rgba(19,29,14,0.7)', backdropFilter: 'blur(8px)' }} // Blurred Backdrop
     onClick={onClose}
   >
     <div onClick={(e) => e.stopPropagation()}>{children}</div>
@@ -220,11 +220,11 @@ const PasswordModal = ({
           </svg>
         </div>
         
-        <div className="w-16 h-16 rounded-2xl bg-[#F9F8F6] border border-[#e7e5e1] flex items-center justify-center text-black mb-8 relative z-10">
+        <div className="w-16 h-16 rounded-2xl bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink mb-8 relative z-10">
           <div className="scale-125">{Icons.lock}</div>
         </div>
-        <h2 className="text-3xl font-medium text-[#10101A] mb-2 tracking-tight relative z-10">{title}</h2>
-        <p className="text-[10px] text-[#A0A0A0] font-bold uppercase tracking-[0.4em] mb-10 relative z-10">{subtitle}</p>
+        <h2 className="text-3xl font-medium text-ink mb-2 tracking-tight relative z-10">{title}</h2>
+        <p className="text-[10px] text-castanha-400 font-bold uppercase tracking-[0.4em] mb-10 relative z-10">{subtitle}</p>
         <input
           autoFocus
           type="password"
@@ -232,10 +232,10 @@ const PasswordModal = ({
           onChange={(e) => setPw(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && pw && onConfirm(pw)}
           placeholder="Senha de acesso obrigatória"
-          className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-4 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 mb-8 relative z-10 font-medium placeholder:opacity-30"
+          className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-4 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 mb-8 relative z-10 font-medium placeholder:opacity-30"
         />
         <div className="flex gap-4 relative z-10">
-          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-[#e7e5e1] text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#F9F8F6] transition-all duration-300">
+          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-castanha-200 text-castanha-400 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-castanha-50 transition-all duration-300">
             Cancelar
           </button>
           <button
@@ -277,13 +277,13 @@ const FolderModal = ({
           </svg>
         </div>
  
-        <div className="w-16 h-16 rounded-2xl bg-[#F9F8F6] border border-[#e7e5e1] flex items-center justify-center text-black mb-8 relative z-10">
+        <div className="w-16 h-16 rounded-2xl bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink mb-8 relative z-10">
           <div className="scale-125" style={{ color: color }}>{Icons.folder}</div>
         </div>
-        <h2 className="text-3xl font-medium text-[#10101A] mb-2 tracking-tight relative z-10">
+        <h2 className="text-3xl font-medium text-ink mb-2 tracking-tight relative z-10">
           {initial?._id ? 'Editar pasta' : 'Criar pasta'}
         </h2>
-        <p className="text-[10px] text-[#A0A0A0] font-bold uppercase tracking-[0.4em] mb-10 relative z-10">Contêiner seguro de documentos</p>
+        <p className="text-[10px] text-castanha-400 font-bold uppercase tracking-[0.4em] mb-10 relative z-10">Contêiner seguro de documentos</p>
  
         <div className="space-y-6 mb-10 relative z-10">
           <input
@@ -291,22 +291,22 @@ const FolderModal = ({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nome da pasta (ex.: Processos 2024)"
-            className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-5 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 font-medium placeholder:opacity-30"
+            className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 font-medium placeholder:opacity-30"
           />
           <input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Descrição (opcional)"
-            className="w-full border border-[#e7e5e1] bg-[#F9F8F6] rounded-2xl px-6 py-5 text-[#10101A] focus:outline-none focus:ring-4 focus:ring-black/5 font-medium placeholder:opacity-30"
+            className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 font-medium placeholder:opacity-30"
           />
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-4">Cor de identificação</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-4">Cor de identificação</p>
             <div className="flex gap-4 flex-wrap">
               {FOLDER_COLORS.map((c) => (
                 <button
                   key={c}
                   onClick={() => setColor(c)}
-                  className={`w-9 h-9 rounded-full transition-all duration-300 ${color === c ? 'scale-110 shadow-lg ring-2 ring-black/10' : 'hover:scale-105 opacity-60 hover:opacity-100'}`}
+                  className={`w-9 h-9 rounded-full transition-all duration-300 ${color === c ? 'scale-110 shadow-lg ring-2 ring-pequi-500/10' : 'hover:scale-105 opacity-60 hover:opacity-100'}`}
                   style={{ background: c }}
                 />
               ))}
@@ -315,7 +315,7 @@ const FolderModal = ({
         </div>
  
         <div className="flex gap-4 relative z-10">
-          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-[#e7e5e1] text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#F9F8F6] transition-all duration-300">
+          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-castanha-200 text-castanha-400 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-castanha-50 transition-all duration-300">
             Cancelar
           </button>
           <button
@@ -348,10 +348,10 @@ const UploadModal = ({
     <Modal onClose={onClose}>
       <div className="bg-white rounded-[2rem] p-10 w-full max-w-lg shadow-2xl">
         <div className="flex items-center justify-between mb-6">
-          <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground">
+          <div className="w-14 h-14 rounded-2xl bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground">
             {Icons.upload}
           </div>
-          <button onClick={onClose} className="p-2 text-foreground/30 hover:bg-gray-100 rounded-xl transition">
+          <button onClick={onClose} className="p-2 text-foreground/30 hover:bg-castanha-100 rounded-xl transition">
             {Icons.close}
           </button>
         </div>
@@ -361,7 +361,7 @@ const UploadModal = ({
 
         <div
           className={`relative cursor-pointer rounded-[2rem] border-2 border-dashed p-10 text-center transition-all duration-300 mb-6 ${
-            isDragging ? 'border-foreground bg-foreground/5' : 'border-gray-100 bg-gray-50 hover:bg-gray-100'
+            isDragging ? 'border-foreground bg-foreground/5' : 'border-castanha-100 bg-castanha-50 hover:bg-castanha-100'
           }`}
           onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
           onDragLeave={() => setIsDragging(false)}
@@ -396,9 +396,9 @@ const UploadModal = ({
         {selectedFiles.length > 0 && (
           <div className="max-h-40 overflow-y-auto mb-6 space-y-2 pr-2 custom-scrollbar">
             {selectedFiles.map((f, i) => (
-              <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-100">
+              <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-castanha-50 border border-castanha-100">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="w-8 h-8 rounded-lg bg-white shadow-sm border border-gray-100 flex items-center justify-center text-foreground/40 flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-white shadow-sm border border-castanha-100 flex items-center justify-center text-foreground/40 flex-shrink-0">
                     {Icons.file}
                   </div>
                   <div className="truncate min-w-0">
@@ -418,7 +418,7 @@ const UploadModal = ({
         )}
 
         <div className="flex gap-3">
-          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-gray-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition">
+          <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-castanha-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-castanha-50 transition">
             Cancelar
           </button>
           <button
@@ -534,9 +534,9 @@ const ChatModal = ({
     <Modal onClose={onClose}>
       <div className="bg-white rounded-[2rem] shadow-2xl w-full flex flex-col" style={{ width: 'min(90vw, 760px)', height: 'min(90vh, 680px)' }}>
         {/* Header */}
-        <div className="flex items-center justify-between px-8 pt-8 pb-5 border-b border-gray-100">
+        <div className="flex items-center justify-between px-8 pt-8 pb-5 border-b border-castanha-100">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white shadow-lg">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pequi-400 to-pequi-600 flex items-center justify-center text-ink shadow-lg">
               {Icons.sparkles}
             </div>
             <div>
@@ -553,35 +553,35 @@ const ChatModal = ({
               {saving ? Icons.spinner : Icons.save}
               Salvar chat
             </button>
-            <button onClick={onClose} className="p-2 rounded-xl text-foreground/30 hover:bg-gray-100 transition">{Icons.close}</button>
+            <button onClick={onClose} className="p-2 rounded-xl text-foreground/30 hover:bg-castanha-100 transition">{Icons.close}</button>
           </div>
         </div>
 
         {/* Messages */}
         <div className="flex-1 overflow-y-auto px-8 py-5 space-y-4">
           {initializing && (
-            <div className="flex items-center gap-3 p-5 rounded-2xl bg-gradient-to-r from-violet-50 to-indigo-50 border border-violet-100">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white animate-pulse">
+            <div className="flex items-center gap-3 p-5 rounded-2xl bg-gradient-to-r from-pequi-50 to-pequi-50 border border-pequi-100">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pequi-400 to-pequi-600 flex items-center justify-center text-ink animate-pulse">
                 {Icons.sparkles}
               </div>
               <div className="space-y-1.5">
-                <div className="h-3 w-48 bg-violet-200 rounded animate-pulse" />
-                <div className="h-3 w-64 bg-violet-100 rounded animate-pulse" />
-                <div className="h-3 w-40 bg-violet-100 rounded animate-pulse" />
+                <div className="h-3 w-48 bg-pequi-200 rounded animate-pulse" />
+                <div className="h-3 w-64 bg-pequi-100 rounded animate-pulse" />
+                <div className="h-3 w-40 bg-pequi-100 rounded animate-pulse" />
               </div>
             </div>
           )}
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.role === 'assistant' && (
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white mr-3 mt-1 flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pequi-400 to-pequi-600 flex items-center justify-center text-ink mr-3 mt-1 flex-shrink-0">
                   {Icons.sparkles}
                 </div>
               )}
               <div
                 className={`max-w-[78%] px-5 py-3.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
                   ? 'btn-primary-gradient rounded-tr-none'
-                  : 'bg-gray-50 border border-gray-100 text-foreground rounded-tl-none'
+                  : 'bg-castanha-50 border border-castanha-100 text-foreground rounded-tl-none'
                   }`}
                 dangerouslySetInnerHTML={{ __html: msg.content }}
               />
@@ -589,13 +589,13 @@ const ChatModal = ({
           ))}
           {sending && (
             <div className="flex justify-start">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white mr-3">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pequi-400 to-pequi-600 flex items-center justify-center text-ink mr-3">
                 {Icons.sparkles}
               </div>
-              <div className="px-5 py-3.5 rounded-2xl bg-gray-50 border border-gray-100 flex gap-1.5 items-center">
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-2 h-2 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '300ms' }} />
+              <div className="px-5 py-3.5 rounded-2xl bg-castanha-50 border border-castanha-100 flex gap-1.5 items-center">
+                <span className="w-2 h-2 rounded-full bg-pequi-500 animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-2 h-2 rounded-full bg-pequi-500 animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-2 h-2 rounded-full bg-pequi-500 animate-bounce" style={{ animationDelay: '300ms' }} />
               </div>
             </div>
           )}
@@ -603,8 +603,8 @@ const ChatModal = ({
         </div>
 
         {/* Input */}
-        <div className="px-8 pb-8 pt-4 border-t border-gray-100">
-          <div className="flex items-center gap-3 bg-gray-50 rounded-2xl border border-gray-100 px-4 pr-2 py-2">
+        <div className="px-8 pb-8 pt-4 border-t border-castanha-100">
+          <div className="flex items-center gap-3 bg-castanha-50 rounded-2xl border border-castanha-100 px-4 pr-2 py-2">
             <input
               type="text"
               value={input}
@@ -646,9 +646,9 @@ const ViewChatModal = ({
   return (
     <Modal onClose={onClose}>
       <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden" style={{ width: 'min(90vw, 680px)', maxHeight: '80vh' }}>
-        <div className="flex items-center justify-between px-8 pt-8 pb-5 border-b border-gray-100">
+        <div className="flex items-center justify-between px-8 pt-8 pb-5 border-b border-castanha-100">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-gray-900 flex items-center justify-center text-white">
+            <div className="w-12 h-12 rounded-2xl bg-cerrado-900 flex items-center justify-center text-white">
               {Icons.history}
             </div>
             <div>
@@ -656,7 +656,7 @@ const ViewChatModal = ({
               <p className="text-[10px] text-foreground/40 uppercase tracking-[0.2em] truncate max-w-[300px]">{file.originalName}</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 rounded-xl text-foreground/30 hover:bg-gray-100 transition">{Icons.close}</button>
+          <button onClick={onClose} className="p-2 rounded-xl text-foreground/30 hover:bg-castanha-100 transition">{Icons.close}</button>
         </div>
         <div className="overflow-y-auto" style={{ maxHeight: 'calc(80vh - 100px)' }}>
           {loading ? (
@@ -670,9 +670,9 @@ const ViewChatModal = ({
           ) : (
             <div className="p-6 space-y-3">
               {sessions.map(session => (
-                <div key={session._id} className="border border-gray-100 rounded-2xl overflow-hidden">
+                <div key={session._id} className="border border-castanha-100 rounded-2xl overflow-hidden">
                   <button
-                    className="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition"
+                    className="w-full flex items-center justify-between px-6 py-4 hover:bg-castanha-50 transition"
                     onClick={() => setOpen(open === session._id ? null : session._id)}
                   >
                     <div className="text-left">
@@ -684,13 +684,13 @@ const ViewChatModal = ({
                     <svg className={`w-4 h-4 text-foreground/30 transition-transform ${open === session._id ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
                   </button>
                   {open === session._id && (
-                    <div className="px-6 pb-5 space-y-3 border-t border-gray-50 pt-4 bg-gray-50/50">
+                    <div className="px-6 pb-5 space-y-3 border-t border-castanha-50 pt-4 bg-castanha-50/50">
                       {session.messages.map((msg, i) => (
                         <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                           <div
                             className={`max-w-[80%] px-4 py-3 rounded-xl text-xs leading-relaxed ${msg.role === 'user'
                               ? 'bg-foreground text-white rounded-tr-none'
-                              : 'bg-white border border-gray-100 text-foreground rounded-tl-none'
+                              : 'bg-white border border-castanha-100 text-foreground rounded-tl-none'
                               }`}
                             dangerouslySetInnerHTML={{ __html: msg.content }}
                           />
@@ -939,7 +939,7 @@ export default function VaultPage() {
       <div className="space-y-8">
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden rounded-[3rem] bg-[#F9F8F6] p-12 lg:p-20 text-[#10101A] shadow-2xl border border-[#e7e5e1]">
+        <section className="relative overflow-hidden rounded-[3rem] bg-castanha-50 p-12 lg:p-20 text-ink shadow-2xl border border-castanha-200">
           <div
             className="absolute inset-0 opacity-40 pointer-events-none bg-cover bg-center"
             style={{ backgroundImage: 'url("/landingpage/hero/hero-bgimg.png")' }}
@@ -951,13 +951,13 @@ export default function VaultPage() {
             </svg>
           </div>
           <div className="relative z-10 max-w-3xl space-y-6">
-            <span className="inline-flex px-4 py-1.5 rounded-full bg-black/5 text-[10px] font-bold uppercase tracking-[0.3em] border border-black/10">
+            <span className="inline-flex px-4 py-1.5 rounded-full bg-cerrado-950/5 text-[10px] font-bold uppercase tracking-[0.3em] border border-cerrado-900/10">
               Armazenamento criptografado V2.0
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-[#10101A]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-ink">
               Cofre seguro de <span className="font-light opacity-60 italic">documentos.</span>
             </h1>
-            <p className="text-lg lg:text-xl text-[#10101A]/40 font-medium leading-relaxed">
+            <p className="text-lg lg:text-xl text-ink/40 font-medium leading-relaxed">
               Armazenamento com criptografia de nível militar para seus documentos jurídicos mais sensíveis. Crie pastas, envie arquivos para o AWS S3 e proteja o acesso com senha.
             </p>
           </div>
@@ -971,8 +971,8 @@ export default function VaultPage() {
             { label: 'Armazenamento usado', value: formatBytes(totalSize), icon: Icons.storage },
             { label: 'Pastas bloqueadas', value: lockedCount, icon: Icons.lock },
           ].map((s) => (
-            <div key={s.label} className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-sm">
-              <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground mb-4">
+            <div key={s.label} className="bg-white rounded-[2rem] p-6 border border-castanha-100 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground mb-4">
                 {s.icon}
               </div>
               <div className="text-2xl font-bold text-foreground">{s.value}</div>
@@ -1000,12 +1000,12 @@ export default function VaultPage() {
             {loading ? (
               <div className="space-y-3">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-24 bg-white rounded-[2rem] border border-gray-100 animate-pulse" />
+                  <div key={i} className="h-24 bg-white rounded-[2rem] border border-castanha-100 animate-pulse" />
                 ))}
               </div>
             ) : folders.length === 0 ? (
-              <div className="bg-white rounded-[2rem] p-12 border border-dashed border-gray-200 text-center space-y-3">
-                <div className="w-16 h-16 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground/20 mx-auto">
+              <div className="bg-white rounded-[2rem] p-12 border border-dashed border-castanha-200 text-center space-y-3">
+                <div className="w-16 h-16 rounded-2xl bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground/20 mx-auto">
                   {Icons.folder}
                 </div>
                 <p className="text-sm font-bold text-foreground/30 uppercase tracking-widest">Nenhuma pasta ainda</p>
@@ -1022,7 +1022,7 @@ export default function VaultPage() {
                         onClick={() => tryOpenFolder(folder)}
                         className={`group relative cursor-pointer rounded-[2rem] p-5 border transition-all duration-300 ${isSelected
                           ? 'btn-primary-gradient text-white shadow-2xl border-transparent'
-                          : 'bg-white border-gray-100 hover:border-gray-200 hover:shadow-md'
+                          : 'bg-white border-castanha-100 hover:border-castanha-200 hover:shadow-md'
                           }`}
                       >
                       {/* Colour accent bar */}
@@ -1057,7 +1057,7 @@ export default function VaultPage() {
                           <button
                             title="Editar"
                             onClick={() => setEditFolder(folder)}
-                            className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
+                            className={`p-2 rounded-xl hover:bg-cerrado-950/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                           >
                             {Icons.pencil}
                           </button>
@@ -1065,7 +1065,7 @@ export default function VaultPage() {
                             <button
                               title="Remover bloqueio"
                               onClick={() => setRemoveLockTarget(folder)}
-                              className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
+                              className={`p-2 rounded-xl hover:bg-cerrado-950/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                             >
                               {Icons.lockOpen}
                             </button>
@@ -1073,7 +1073,7 @@ export default function VaultPage() {
                             <button
                               title="Bloquear pasta"
                               onClick={() => setLockTarget(folder)}
-                              className={`p-2 rounded-xl hover:bg-black/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
+                              className={`p-2 rounded-xl hover:bg-cerrado-950/10 transition ${isSelected ? 'text-white/70' : 'text-foreground/40'}`}
                             >
                               {Icons.lock}
                             </button>
@@ -1097,8 +1097,8 @@ export default function VaultPage() {
           {/* ── File Panel ── */}
           <div>
             {!selectedFolder ? (
-              <div className="bg-white rounded-[3rem] border border-dashed border-gray-200 p-20 text-center space-y-4">
-                <div className="w-20 h-20 rounded-[2rem] bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground/10 mx-auto">
+              <div className="bg-white rounded-[3rem] border border-dashed border-castanha-200 p-20 text-center space-y-4">
+                <div className="w-20 h-20 rounded-[2rem] bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground/10 mx-auto">
                   <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                   </svg>
@@ -1128,7 +1128,7 @@ export default function VaultPage() {
 
                 {/* Drop zone + file list */}
                 <div
-                  className={`relative rounded-[2.5rem] border-2 border-dashed transition-all duration-300 min-h-[400px] ${isDragging ? 'border-foreground bg-foreground/5' : 'border-gray-100 bg-white'
+                  className={`relative rounded-[2.5rem] border-2 border-dashed transition-all duration-300 min-h-[400px] ${isDragging ? 'border-foreground bg-foreground/5' : 'border-castanha-100 bg-white'
                     }`}
                   onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
                   onDragLeave={() => setIsDragging(false)}
@@ -1140,7 +1140,7 @@ export default function VaultPage() {
                 >
                   {selectedFolder.files.length === 0 ? (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-10 space-y-5">
-                      <div className="w-20 h-20 rounded-[2rem] bg-gray-50 border border-gray-100 shadow-xl flex items-center justify-center text-foreground/20 group-hover:scale-110 transition-all">
+                      <div className="w-20 h-20 rounded-[2rem] bg-castanha-50 border border-castanha-100 shadow-xl flex items-center justify-center text-foreground/20 group-hover:scale-110 transition-all">
                         {Icons.upload}
                       </div>
                       <div>
@@ -1153,10 +1153,10 @@ export default function VaultPage() {
                       {selectedFolder.files.map((file) => (
                         <div
                           key={file._id}
-                          className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition group"
+                          className="flex items-center gap-4 p-4 rounded-2xl bg-castanha-50 hover:bg-castanha-100 transition group"
                         >
                           {/* File type icon */}
-                          <div className="w-11 h-11 rounded-xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-foreground/50 flex-shrink-0">
+                          <div className="w-11 h-11 rounded-xl bg-white shadow-sm border border-castanha-100 flex items-center justify-center text-foreground/50 flex-shrink-0">
                             {getFileIcon(file.mimeType)}
                           </div>
 
@@ -1172,7 +1172,7 @@ export default function VaultPage() {
                             <button
                               title="Conversar sobre este arquivo"
                               onClick={() => setChatFile(file)}
-                              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-[10px] font-bold uppercase tracking-widest hover:opacity-80 transition shadow-sm"
+                              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-pequi-400 to-pequi-600 text-ink text-[10px] font-bold uppercase tracking-widest hover:opacity-80 transition shadow-sm"
                             >
                               {Icons.chat}
                               Chat
@@ -1181,13 +1181,13 @@ export default function VaultPage() {
                             <button
                               title="Ver histórico de chats salvos"
                               onClick={() => setViewChatFile(file)}
-                              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-gray-100 text-foreground/60 text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
+                              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-castanha-100 text-foreground/60 text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
                             >
                               {Icons.history}
                             </button>
                             <button
                               onClick={() => handleDownload(file)}
-                              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-gray-100 text-foreground text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
+                              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-castanha-100 text-foreground text-[10px] font-bold uppercase tracking-widest hover:shadow-md transition"
                             >
                               {Icons.download}
                               Baixar
@@ -1269,7 +1269,7 @@ export default function VaultPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setDeleteTarget(null)}
-                className="flex-1 py-4 rounded-2xl border border-gray-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition"
+                className="flex-1 py-4 rounded-2xl border border-castanha-100 text-foreground/50 text-sm font-bold uppercase tracking-widest hover:bg-castanha-50 transition"
               >
                 Cancelar
               </button>

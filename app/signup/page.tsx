@@ -3,7 +3,7 @@ import SignupExperience from './SignupExperience';
 
 export default function SignupPage() {
   return (
-    <div className="landing-gilroy bg-[#FFFFFF] text-foreground">
+    <div className="landing-gilroy bg-white text-foreground">
       <SignupExperience />
     </div>
   );

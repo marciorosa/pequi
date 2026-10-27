@@ -16,7 +16,7 @@ const landingGilroy = localFont({
 
 export default function LegalPage() {
   return (
-    <div className={`${landingGilroy.variable} landing-gilroy bg-[#F5F5F4] text-foreground`}>
+    <div className={`${landingGilroy.variable} landing-gilroy bg-castanha-100 text-foreground`}>
       <LegalExperience />
       <div className="mt-16 lg:mt-[130px]">
         <CtaSection />

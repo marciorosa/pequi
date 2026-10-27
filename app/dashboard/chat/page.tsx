@@ -306,16 +306,16 @@ export default function ChatPage() {
 
   return (
     <DashboardLayout title="Canais Neurais">
-      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-gray-100 shadow-2xl overflow-hidden relative">
+      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Mobile Sidebar Backdrop */}
         {showSidebar && (
           <div 
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden"
+            className="fixed inset-0 bg-cerrado-950/20 backdrop-blur-sm z-30 lg:hidden"
             onClick={() => setShowSidebar(false)}
           />
         )}
 
-        <aside className={`${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} absolute lg:relative z-40 w-80 h-full bg-[#F9F8F6] border-r border-[#e7e5e1] transition-transform duration-300 font-sans`}>
+        <aside className={`${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} absolute lg:relative z-40 w-80 h-full bg-castanha-50 border-r border-castanha-200 transition-transform duration-300 font-sans`}>
           <div className="flex flex-col h-full p-6">
             <div className="flex items-center justify-between mb-8 lg:hidden">
               <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Arquivo</span>
@@ -334,9 +334,9 @@ export default function ChatPage() {
             <div className="flex-1 overflow-y-auto space-y-4 h-full pr-2 custom-scrollbar">
               <h3 className="px-2 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20 mb-6">Histórico de consultas</h3>
               {recentChats.map(chat => (
-                <div key={chat._id} className={`group flex items-center justify-between p-5 rounded-[1.5rem] cursor-pointer transition-all ${currentChatId === chat._id ? 'bg-white shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-[#e7e5e1] ring-1 ring-black/5' : 'hover:bg-black/5 text-foreground/60'}`} onClick={() => handleChatClick(chat._id)}>
+                <div key={chat._id} className={`group flex items-center justify-between p-5 rounded-[1.5rem] cursor-pointer transition-all ${currentChatId === chat._id ? 'bg-white shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-castanha-200 ring-1 ring-pequi-500/5' : 'hover:bg-cerrado-950/5 text-foreground/60'}`} onClick={() => handleChatClick(chat._id)}>
                   <div className="flex flex-col min-w-0">
-                    <span className={`text-[13px] font-medium truncate ${currentChatId === chat._id ? 'text-[#10101A]' : ''}`}>{chat.title}</span>
+                    <span className={`text-[13px] font-medium truncate ${currentChatId === chat._id ? 'text-ink' : ''}`}>{chat.title}</span>
                     <span className="text-[10px] font-medium opacity-30 mt-1 uppercase tracking-[0.2em]">{new Date(chat.updatedAt).toLocaleDateString('pt-BR')}</span>
                   </div>
                   <button onClick={(e) => { e.stopPropagation(); deleteChat(chat._id); }} className="opacity-0 group-hover:opacity-100 p-2 text-red-400 hover:bg-red-50 rounded-xl transition-all">
@@ -349,7 +349,7 @@ export default function ChatPage() {
         </aside>
 
         <main className="flex-1 flex flex-col min-w-0 relative bg-white">
-          <header className="h-20 px-8 border-b border-gray-50 flex items-center justify-between">
+          <header className="h-20 px-8 border-b border-castanha-50 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button onClick={() => setShowSidebar(!showSidebar)} className="lg:hidden p-2 text-foreground/40 hover:text-foreground">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -360,7 +360,7 @@ export default function ChatPage() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')} className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all border ${activeToggle === 'internet' ? 'btn-primary-gradient text-white border-transparent shadow-lg' : 'bg-gray-50 text-foreground/40 border-gray-100'}`}>Acesso à internet</button>
+              <button onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')} className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all border ${activeToggle === 'internet' ? 'btn-primary-gradient text-white border-transparent shadow-lg' : 'bg-castanha-50 text-foreground/40 border-castanha-100'}`}>Acesso à internet</button>
             </div>
           </header>
 
@@ -368,14 +368,14 @@ export default function ChatPage() {
             {messages.length === 1 && (
               <div className="max-w-2xl mx-auto space-y-12 py-10">
                 <div className="space-y-4 text-center">
-                  <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Interface <span className="font-light italic text-[#525252]">neural.</span></h1>
-                  <p className="text-[#525252] text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Selecione um prompt estratégico ou inicie uma conversa de análise.</p>
+                  <h1 className="text-4xl font-medium tracking-tight text-ink">Interface <span className="font-light italic text-castanha-600">neural.</span></h1>
+                  <p className="text-castanha-600 text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Selecione um prompt estratégico ou inicie uma conversa de análise.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {suggestedPrompts.map((p, i) => (
-                    <button key={i} onClick={() => setInput(p)} className="text-left p-6 rounded-[2rem] bg-[#F9F8F6] border border-[#e7e5e1] hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#525252] opacity-30 group-hover:opacity-60 mb-3 block">Prompt neural</span>
-                      <span className="text-[14px] font-medium leading-relaxed text-[#323232]">{p}</span>
+                    <button key={i} onClick={() => setInput(p)} className="text-left p-6 rounded-[2rem] bg-castanha-50 border border-castanha-200 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 opacity-30 group-hover:opacity-60 mb-3 block">Prompt neural</span>
+                      <span className="text-[14px] font-medium leading-relaxed text-castanha-800">{p}</span>
                     </button>
                   ))}
                 </div>
@@ -386,17 +386,17 @@ export default function ChatPage() {
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
                 <div className={`max-w-[85%] ${m.role === 'user'
                   ? 'rounded-[1.5rem] py-4 px-6 btn-primary-gradient text-white shadow-[0_12px_24px_rgba(0,0,0,0.12)] border border-white/5'
-                  : 'rounded-[2.5rem] p-8 bg-white border border-[#e7e5e1] text-[#323232] shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
+                  : 'rounded-[2.5rem] p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
                   {m.fileData && (
                     <div className="mb-4">
                       {m.fileData.type === 'image' && (
                         <>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="anexo" className="max-w-full h-auto rounded-[1.5rem] border border-[#e7e5e1]" />
+                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="anexo" className="max-w-full h-auto rounded-[1.5rem] border border-castanha-200" />
                         </>
                       )}
                       {m.fileData.type !== 'image' && (
-                        <div className={`p-4 rounded-2xl border flex items-center gap-3 ${m.role === 'user' ? 'bg-white/10 border-white/10' : 'bg-[#F9F8F6] border-[#e7e5e1]'}`}>
+                        <div className={`p-4 rounded-2xl border flex items-center gap-3 ${m.role === 'user' ? 'bg-white/10 border-white/10' : 'bg-castanha-50 border-castanha-200'}`}>
                           <svg className={`w-5 h-5 ${m.role === 'user' ? 'text-white/40' : 'text-foreground/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                           </svg>
@@ -423,7 +423,7 @@ export default function ChatPage() {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gray-50 border border-gray-100 rounded-[2rem] px-8 py-6">
+                <div className="bg-castanha-50 border border-castanha-100 rounded-[2rem] px-8 py-6">
                   <div className="flex space-x-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce" />
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-100" />
@@ -435,13 +435,13 @@ export default function ChatPage() {
             <div ref={messagesEndRef} />
           </div>
 
-          <footer className="p-8 bg-[#F9F8F6]/80 backdrop-blur-3xl border-t border-[#e7e5e1]">
+          <footer className="p-8 bg-castanha-50/80 backdrop-blur-3xl border-t border-castanha-200">
             <div className="max-w-4xl mx-auto space-y-6">
               {filePreview && (
                 <div className="relative inline-block group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={filePreview} alt="prévia" className="h-32 rounded-[1.5rem] border border-[#e7e5e1] shadow-2xl" />
-                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                  <img src={filePreview} alt="prévia" className="h-32 rounded-[1.5rem] border border-castanha-200 shadow-2xl" />
+                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-7 h-7 bg-cerrado-900 text-white rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -449,14 +449,14 @@ export default function ChatPage() {
                 </div>
               )}
               {selectedFile && !filePreview && (
-                <div className="relative inline-flex items-center gap-4 p-5 bg-white rounded-[1.5rem] border border-[#e7e5e1] group shadow-xl">
-                  <div className="w-10 h-10 rounded-xl bg-[#F9F8F6] flex items-center justify-center">
+                <div className="relative inline-flex items-center gap-4 p-5 bg-white rounded-[1.5rem] border border-castanha-200 group shadow-xl">
+                  <div className="w-10 h-10 rounded-xl bg-castanha-50 flex items-center justify-center">
                     <svg className="w-5 h-5 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                     </svg>
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{selectedFile.name}</span>
-                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-6 h-6 bg-black text-white rounded-full flex items-center justify-center shadow-md">
+                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-6 h-6 bg-cerrado-900 text-white rounded-full flex items-center justify-center shadow-md">
                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -466,7 +466,7 @@ export default function ChatPage() {
  
               <form onSubmit={handleSendMessage} className="relative group">
                 <input type="file" ref={fileInputRef} onChange={handleFileSelect} className="hidden" accept="image/*,video/*,application/pdf,audio/*" />
-                <button type="button" onClick={() => fileInputRef.current?.click()} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground/20 hover:text-black transition-all">
+                <button type="button" onClick={() => fileInputRef.current?.click()} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground/20 hover:text-ink transition-all">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                   </svg>
@@ -477,7 +477,7 @@ export default function ChatPage() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Inicie a análise..."
                   rows={1}
-                  className="w-full bg-white border border-[#e7e5e1] focus:ring-8 focus:ring-black/5 focus:border-black/10 rounded-[2.5rem] py-7 pl-16 pr-24 resize-none text-[#10101A] transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden font-medium text-[1.1rem]"
+                  className="w-full bg-white border border-castanha-200 focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2.5rem] py-7 pl-16 pr-24 resize-none text-ink transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden font-medium text-[1.1rem]"
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(e); } }}
                 />
                 <button type="submit" disabled={isLoading || isProcessingFile || (!input.trim() && !selectedFile)} className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center text-white rounded-full transition-all shadow-2xl disabled:opacity-10 group-disabled:scale-100 btn-primary-gradient">
@@ -488,11 +488,11 @@ export default function ChatPage() {
               </form>
 
               <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/20 flex items-center justify-center gap-4 pt-2">
-                <span>Neural Intake Capacity:</span>
-                <div className="flex items-center gap-1.5 text-blue-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Imagens</span></div>
-                <div className="flex items-center gap-1.5 text-green-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Vídeos</span></div>
+                <span>Formatos aceitos:</span>
+                <div className="flex items-center gap-1.5 text-pequi-600/70"><div className="w-1 h-1 rounded-full bg-current" /><span>Imagens</span></div>
+                <div className="flex items-center gap-1.5 text-cerrado-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Vídeos</span></div>
                 <div className="flex items-center gap-1.5 text-red-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>PDFs</span></div>
-                <div className="flex items-center gap-1.5 text-purple-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
+                <div className="flex items-center gap-1.5 text-terra-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
               </div>
 
               <style jsx>{`

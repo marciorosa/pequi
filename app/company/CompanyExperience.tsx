@@ -6,7 +6,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[200px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)] md:px-6 md:py-8 lg:p-[40px]';
+  'flex min-h-[200px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)] md:px-6 md:py-8 lg:p-[40px]';
 
 const heroAvatars = [
   '/landingpage/hero/img1.png',
@@ -137,11 +137,11 @@ export default function CompanyExperience() {
             className="object-cover object-top"
           />
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Sobre a Pequi</p>
-            <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Sobre a Pequi</p>
+            <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-ink sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
               Transformando a prática jurídica
             </h1>
-            <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+            <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
               Desenvolvemos IA que respeita a advocacia, para que escritórios e departamentos jurídicos avancem mais rápido sem abrir mão
               do discernimento ou da governança.
             </p>
@@ -156,30 +156,30 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.06}>
-        <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem]">
+        <section className="bg-white py-16 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Quem somos</p>
-                <h2 className="text-[2rem] font-medium leading-[1.1] text-[#10101A] md:text-[2.5rem] lg:text-[3rem]">
+                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Quem somos</p>
+                <h2 className="text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem] lg:text-[3rem]">
                   Sobre a Pequi
                 </h2>
-                <p className="mt-5 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                   Fundada em 2020, a Pequi está na interseção entre a prática jurídica e a IA aplicada, entregando ferramentas de pesquisa,
                   redação e fluxos de trabalho que as equipes podem implantar com salvaguardas claras.
                 </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                   Advogados, pesquisadores e criadores de produto trabalham lado a lado para que o produto reflita como processos,
                   contratos e compliance funcionam na prática.
                 </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                   Com escritórios em Nova York, San Francisco e Londres, atendemos advogados autônomos, grandes escritórios e equipes jurídicas
                   de empresas da Fortune 500 no mundo todo.
                 </p>
               </div>
               <div className="relative">
-                <div className="overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white p-3 shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:p-4">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-[#f1f0ee]">
+                <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-3 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-4">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-castanha-100">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
                       alt=""
@@ -196,12 +196,12 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.08}>
-        <section className="border-t border-[#eceae7] bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
             <div className="grid gap-5 md:grid-cols-2">
               <div className={featureCardClass}>
                 <div className="mb-6 inline-flex w-full items-center justify-start">
-                  <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -211,14 +211,14 @@ export default function CompanyExperience() {
                   </svg>
                 </div>
                 <div className="mt-auto">
-                  <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-[#323232] md:text-[1.75rem]">Nossa missão</h3>
-                  <p className="text-[1rem] leading-[160%] text-[#323232] md:text-[1.0625rem]">
+                  <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-castanha-800 md:text-[1.75rem]">Nossa missão</h3>
+                  <p className="text-[1rem] leading-[160%] text-castanha-800 md:text-[1.0625rem]">
                     Capacitar profissionais do Direito com IA que aumenta a agilidade e a consistência, mantendo as pessoas no comando
                     da estratégia, da ética e do aconselhamento aos clientes.
                   </p>
                 </div>
               </div>
-              <div className="rounded-2xl border border-[#1A1A1A] bg-[#1A1A1A] p-6 text-white shadow-[0_20px_40px_rgba(16,16,26,0.18)] transition-all duration-300 hover:-translate-y-0.5 md:p-8 lg:p-[40px]">
+              <div className="rounded-2xl border border-cerrado-800 bg-cerrado-800 p-6 text-white shadow-[0_20px_40px_rgba(31,42,23,0.18)] transition-all duration-300 hover:-translate-y-0.5 md:p-8 lg:p-[40px]">
                 <div className="mb-6 inline-flex w-full items-center justify-start">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10">
                   <svg className="h-7 w-7 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -249,7 +249,7 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Nossos valores essenciais</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -259,13 +259,13 @@ export default function CompanyExperience() {
               {values.map((value) => (
                 <div key={value.title} className={featureCardClass}>
                   <div className="mb-6 inline-flex w-full items-center justify-start">
-                    <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                       {value.icon}
                     </svg>
                   </div>
                   <div className="mt-auto">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{value.title}</h3>
-                    <p className="mt-2 text-[1rem] leading-[1.4rem] text-[#323232]">{value.description}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{value.title}</h3>
+                    <p className="mt-2 text-[1rem] leading-[1.4rem] text-castanha-800">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -275,7 +275,7 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section className="border-t border-[#eceae7] bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
             <h2 className={sectionHeadingClass}>Liderança</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -285,9 +285,9 @@ export default function CompanyExperience() {
               {executives.map((executive) => (
                 <article
                   key={executive.name}
-                  className="group overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(16,16,26,0.08)]"
+                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]"
                 >
-                  <div className="relative aspect-square overflow-hidden border-b border-[#f0efed] bg-[#f1f0ee]">
+                  <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
                     <Image
                       src={executive.image}
                       alt=""
@@ -297,11 +297,11 @@ export default function CompanyExperience() {
                     />
                   </div>
                   <div className="p-6 md:p-7">
-                    <h3 className="text-[1.125rem] font-medium text-[#10101A]">{executive.name}</h3>
-                    <p className="mb-3 mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-[#525252]">
+                    <h3 className="text-[1.125rem] font-medium text-ink">{executive.name}</h3>
+                    <p className="mb-3 mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">
                       {executive.position}
                     </p>
-                    <p className="text-[0.9375rem] leading-[160%] text-[#525252]">{executive.bio}</p>
+                    <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{executive.bio}</p>
                   </div>
                 </article>
               ))}
@@ -311,7 +311,7 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.14}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Apoiada por investidores de referência</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -321,9 +321,9 @@ export default function CompanyExperience() {
               {investors.map((investor) => (
                 <article
                   key={investor.name}
-                  className="group overflow-hidden rounded-[1.875rem] border border-[#eceae7] bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(16,16,26,0.08)]"
+                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]"
                 >
-                  <div className="relative aspect-square overflow-hidden border-b border-[#f0efed] bg-[#f1f0ee]">
+                  <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
                     <Image
                       src={investor.image}
                       alt=""
@@ -333,9 +333,9 @@ export default function CompanyExperience() {
                     />
                   </div>
                   <div className="p-6 md:p-7">
-                    <h3 className="text-[1.0625rem] font-medium text-[#10101A]">{investor.name}</h3>
-                    <p className="mt-1 text-[0.875rem] text-[#525252]">{investor.designation}</p>
-                    <p className="mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-[#525252]">
+                    <h3 className="text-[1.0625rem] font-medium text-ink">{investor.name}</h3>
+                    <p className="mt-1 text-[0.875rem] text-castanha-600">{investor.designation}</p>
+                    <p className="mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">
                       {investor.firm}
                     </p>
                   </div>
@@ -347,11 +347,11 @@ export default function CompanyExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.16}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
+        <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-[2rem] border border-[#eceae7] bg-[#f8f7f6] px-6 py-12 text-center shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:px-12 md:py-14">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem]">Junte-se à nossa missão</h2>
-              <p className="mx-auto mt-4 max-w-xl text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:px-12 md:py-14">
+              <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem]">Junte-se à nossa missão</h2>
+              <p className="mx-auto mt-4 max-w-xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                 Contratamos pela excelência, curiosidade e respeito pela profissão jurídica. Veja as vagas abertas ou entre em contato.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -363,7 +363,7 @@ export default function CompanyExperience() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-[#eceae7]"
+                  className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
                 >
                   Fale conosco
                 </Link>

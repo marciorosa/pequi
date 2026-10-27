@@ -13,7 +13,7 @@ import {
 
 export default function Home() {
   return (
-    <main className="landing-gilroy bg-[#FFFFFF] text-foreground">
+    <main className="landing-gilroy bg-white text-foreground">
       <HomeHeroIntroInteractive />
       <LogosSection />
       <div className="mt-[130px] space-y-16 lg:space-y-[130px]">

@@ -18,7 +18,7 @@ export default function ChatRedirect() {
   }, [chatId, router]);
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-black text-white">
+    <div className="flex h-screen w-full items-center justify-center bg-cerrado-900 text-white">
       <div className="flex flex-col items-center">
         <div className="flex space-x-2 mb-4">
           <div className="w-3 h-3 rounded-full bg-white/70 animate-pulse"></div>

@@ -6,10 +6,10 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
 
 const certCardClass =
-  'rounded-2xl border border-[#eceae7] bg-white p-6 text-center shadow-[0_12px_28px_rgba(16,16,26,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(16,16,26,0.06)] md:p-8';
+  'rounded-2xl border border-castanha-150 bg-white p-6 text-center shadow-[0_12px_28px_rgba(31,42,23,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)] md:p-8';
 
 export default function SecurityExperience() {
   const securityFeatures = [
@@ -118,11 +118,11 @@ export default function SecurityExperience() {
           <div className="relative z-10 mx-auto w-full max-w-[1274px]">
             <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
               <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-[#525252]">Proteção de dados</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-[#10101A] text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
+                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Proteção de dados</p>
+                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
                   Segurança de nível corporativo
                 </h1>
-                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-[#525252] md:text-[1.125rem] lg:text-[1.25rem]">
+                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                   Dados jurídicos exigem mais do que um compliance protocolar. Nossa plataforma foi criada para que confidencialidade, integridade
                   e disponibilidade estejam no centro da sua forma de trabalhar.
                 </p>
@@ -137,8 +137,8 @@ export default function SecurityExperience() {
               </div>
 
               <div className="relative min-h-[280px] w-full sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-[#eceae7] p-5 sm:p-6">
-                  <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl bg-[#10101A] sm:min-h-[280px] lg:min-h-[300px]">
+                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
+                  <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl bg-cerrado-900 sm:min-h-[280px] lg:min-h-[300px]">
                     <div className="absolute inset-3 sm:inset-4 md:inset-5">
                       <div className="relative h-full min-h-[160px] w-full">
                         <Image
@@ -160,28 +160,28 @@ export default function SecurityExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.06}>
-        <section className="bg-[#FFFFFF] py-16 lg:py-[5.5rem]">
+        <section className="bg-white py-16 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-[#525252]">
+                <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-castanha-600">
                   Nosso compromisso
                 </p>
-                <h2 className="text-[2rem] font-medium leading-[1.1] text-[#10101A] md:text-[2.5rem] lg:text-[3rem]">
+                <h2 className="text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem] lg:text-[3rem]">
                   A segurança dos seus dados é nossa prioridade
                 </h2>
-                <p className="mt-5 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                   Você lida com informações sensíveis de clientes todos os dias. O Pequi foi arquitetado com a segurança como princípio
                   de design, da criptografia e do controle de acesso à forma como operamos nosso ambiente de produção.
                 </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                   Nossas equipes de segurança e engenharia monitoram, corrigem e testam continuamente para que as proteções acompanhem
                   os riscos reais.
                 </p>
-                <ul className="mt-8 space-y-3 text-[1rem] leading-[160%] text-[#525252]">
+                <ul className="mt-8 space-y-3 text-[1rem] leading-[160%] text-castanha-600">
                   {checkItems.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 shrink-0 text-[#10101A]" aria-hidden>
+                      <span className="mt-0.5 shrink-0 text-ink" aria-hidden>
                         ▶
                       </span>
                       <span>{item}</span>
@@ -190,8 +190,8 @@ export default function SecurityExperience() {
                 </ul>
               </div>
               <div className="relative">
-                <div className="overflow-hidden rounded-2xl border border-[#eceae7] bg-[#efeeec]/85 p-3 backdrop-blur-sm md:p-4">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-[#10101A]">
+                <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-castanha-100/85 p-3 backdrop-blur-sm md:p-4">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-cerrado-900">
                     <div className="absolute inset-4 md:inset-6">
                       <div className="relative h-full w-full">
                         <Image
@@ -214,7 +214,7 @@ export default function SecurityExperience() {
       <FadeInSection delay={0.08}>
         <section
           id="features"
-          className="border-t border-[#eceae7] bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]"
+          className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]"
         >
           <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
             <h2 className={sectionHeadingClass}>Recursos de segurança corporativa</h2>
@@ -225,13 +225,13 @@ export default function SecurityExperience() {
               {securityFeatures.map((feature) => (
                 <div key={feature.title} className={featureCardClass}>
                   <div className="inline-flex w-full items-center justify-start">
-                    <svg className="h-10 w-10 text-[#323232]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                       {feature.icon}
                     </svg>
                   </div>
                   <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-[#323232]">{feature.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-[#323232]">{feature.description}</p>
+                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{feature.title}</h3>
+                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -241,7 +241,7 @@ export default function SecurityExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.1}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[5.5rem]">
+        <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>Compliance e certificações</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
@@ -250,10 +250,10 @@ export default function SecurityExperience() {
             <div className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4">
               {certifications.map((cert) => (
                 <div key={cert.name} className={certCardClass}>
-                  <div className="mb-4 inline-flex min-h-[3.25rem] items-center justify-center rounded-xl bg-[#10101A] px-4 text-[0.9375rem] font-medium text-white md:text-[1rem]">
+                  <div className="mb-4 inline-flex min-h-[3.25rem] items-center justify-center rounded-xl bg-cerrado-900 px-4 text-[0.9375rem] font-medium text-white md:text-[1rem]">
                     {cert.name}
                   </div>
-                  <p className="text-[0.8125rem] leading-[150%] text-[#525252] md:text-[0.875rem]">{cert.description}</p>
+                  <p className="text-[0.8125rem] leading-[150%] text-castanha-600 md:text-[0.875rem]">{cert.description}</p>
                 </div>
               ))}
             </div>
@@ -262,13 +262,13 @@ export default function SecurityExperience() {
       </FadeInSection>
 
       <FadeInSection delay={0.12}>
-        <section className="bg-[#FFFFFF] pb-16 lg:pb-[7rem]">
+        <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-[2rem] border border-[#eceae7] bg-[#f8f7f6] px-6 py-12 text-center shadow-[0_24px_64px_rgba(16,16,26,0.06)] md:px-12 md:py-14">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-[#10101A] md:text-[2.25rem] lg:text-[2.5rem]">
+            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:px-12 md:py-14">
+              <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem] lg:text-[2.5rem]">
                 Visão geral de segurança e whitepaper
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-[1rem] leading-[160%] text-[#525252] md:text-[1.125rem]">
+              <p className="mx-auto mt-4 max-w-2xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                 Solicite nosso pacote completo de segurança, com diagramas de arquitetura, mapeamento de controles e detalhes sobre como tratamos
                 incidentes e suboperadores.
               </p>

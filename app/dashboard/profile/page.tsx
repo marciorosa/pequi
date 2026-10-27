@@ -302,14 +302,14 @@ export default function ProfilePage() {
     <DashboardLayout title="Perfil">
       <div className="max-w-full px-4 sm:px-6 md:px-8 mx-auto">
         {/* Header */}
-        <div className="border-b border-[#e7e5e1] pb-8 mb-10">
+        <div className="border-b border-castanha-200 pb-8 mb-10">
           <div className="flex justify-between items-end">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 mb-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-black/40 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-black/40">Gestão de credenciais</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
+                <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Gestão de credenciais</span>
               </div>
-              <h1 className="text-4xl font-medium tracking-tight text-[#10101A]">Perfil da conta</h1>
+              <h1 className="text-4xl font-medium tracking-tight text-ink">Perfil da conta</h1>
             </div>
             {!isLoading && !error && !isEditing ? (
               <button
@@ -325,7 +325,7 @@ export default function ProfilePage() {
               <div className="flex gap-3">
                 <button
                   onClick={handleCancelEdit}
-                  className="flex items-center gap-2 bg-white border border-[#e7e5e1] hover:bg-[#F9F8F6] text-[#525252] px-6 py-3 rounded-2xl transition-all duration-300 hover:scale-[1.02] font-bold text-[11px] uppercase tracking-[0.2em]"
+                  className="flex items-center gap-2 bg-white border border-castanha-200 hover:bg-castanha-50 text-castanha-600 px-6 py-3 rounded-2xl transition-all duration-300 hover:scale-[1.02] font-bold text-[11px] uppercase tracking-[0.2em]"
                   disabled={isSaving}
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -390,18 +390,18 @@ export default function ProfilePage() {
             {/* Left Column - Personal Info */}
             <div className="w-full lg:w-2/3 space-y-6">
             {/* Profile Card */}
-              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Identidade</h2>
+                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-8">Identidade</h2>
  
                   <div className="space-y-10">
                     {/* Profile Image and Name */}
                     <div className="flex flex-col sm:flex-row gap-10 items-center sm:items-start mb-12">
                       <div className="relative group">
-                        <div className={`w-32 h-32 rounded-[2rem] overflow-hidden flex items-center justify-center bg-[#F9F8F6] border border-[#e7e5e1] transition-all duration-500 ${isEditing ? 'ring-8 ring-black/5' : ''}`}>
+                        <div className={`w-32 h-32 rounded-[2rem] overflow-hidden flex items-center justify-center bg-castanha-50 border border-castanha-200 transition-all duration-500 ${isEditing ? 'ring-8 ring-pequi-500/5' : ''}`}>
                           {isUploadingImage ? (
-                            <div className="flex items-center justify-center w-full h-full bg-black/5">
-                              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-black"></div>
+                            <div className="flex items-center justify-center w-full h-full bg-cerrado-950/5">
+                              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cerrado-900"></div>
                             </div>
                           ) : imagePreview ? (
                             <Image
@@ -420,14 +420,14 @@ export default function ProfilePage() {
                               className="object-cover w-full h-full"
                             />
                           ) : (
-                            <div className="text-4xl font-light text-[#10101A]/20">
+                            <div className="text-4xl font-light text-ink/20">
                               {profile.fullName.charAt(0) || 'U'}
                             </div>
                           )}
                         </div>
  
                         {isEditing && !isUploadingImage && (
-                          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 rounded-[2rem] flex items-center justify-center transition-all duration-300">
+                          <div className="absolute inset-0 bg-cerrado-950/60 opacity-0 group-hover:opacity-100 rounded-[2rem] flex items-center justify-center transition-all duration-300">
                             <label htmlFor="profile-image" className="text-white bg-white/20 rounded-full p-3 hover:bg-white/40 transition-all duration-200 cursor-pointer scale-90 group-hover:scale-100">
                               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -456,7 +456,7 @@ export default function ProfilePage() {
                               name="fullName"
                               value={editedProfile.fullName}
                               onChange={handleInputChange}
-                              className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                              className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                               placeholder="Seu nome completo"
                             />
                           )}
@@ -472,7 +472,7 @@ export default function ProfilePage() {
                               name="role"
                               value={editedProfile.role}
                               onChange={handleInputChange}
-                              className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                              className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                               placeholder="Seu cargo"
                             />
                           )}
@@ -497,7 +497,7 @@ export default function ProfilePage() {
                             name="email"
                             value={profile.email}
                             disabled
-                            className="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 text-foreground/60 cursor-not-allowed focus:outline-none transition-shadow duration-200"
+                            className="w-full bg-castanha-100 border border-castanha-200 rounded-lg px-4 py-3 text-foreground/60 cursor-not-allowed focus:outline-none transition-shadow duration-200"
                             placeholder="Seu endereço de e-mail"
                             title="O e-mail não pode ser alterado"
                           />
@@ -519,7 +519,7 @@ export default function ProfilePage() {
                             name="phone"
                             value={editedProfile.phone}
                             onChange={handleInputChange}
-                            className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                            className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                             placeholder="Seu telefone"
                           />
                         )}
@@ -540,7 +540,7 @@ export default function ProfilePage() {
                             name="company"
                             value={editedProfile.company}
                             onChange={handleInputChange}
-                            className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                            className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                             placeholder="Sua empresa"
                           />
                         )}
@@ -551,23 +551,23 @@ export default function ProfilePage() {
               </div>
 
               {/* Security Card */}
-              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-8">Segurança e acesso</h2>
+                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-8">Segurança e acesso</h2>
  
                   <div className="space-y-8">
                     <div>
                       <div className="flex justify-between items-center mb-4">
-                        <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest">Senha</label>
+                        <label className="text-castanha-600 text-[11px] font-bold uppercase tracking-widest">Senha</label>
                         <button
                           onClick={() => setIsChangePasswordModalOpen(true)}
-                          className="text-[#10101A] font-bold text-[11px] uppercase tracking-widest border-b border-black/10 hover:border-black transition-colors"
+                          className="text-ink font-bold text-[11px] uppercase tracking-widest border-b border-cerrado-900/10 hover:border-cerrado-900 transition-colors"
                         >
                           Redefinir senha
                         </button>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="w-full h-14 bg-[#F9F8F6] rounded-2xl border border-[#e7e5e1] flex items-center px-6">
+                        <div className="w-full h-14 bg-castanha-50 rounded-2xl border border-castanha-200 flex items-center px-6">
                           <svg className="w-5 h-5 text-foreground/20 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                           </svg>
@@ -577,7 +577,7 @@ export default function ProfilePage() {
                     </div>
  
                     <div>
-                      <label className="text-[#525252] text-[11px] font-bold uppercase tracking-widest block mb-4">Sessão da conta</label>
+                      <label className="text-castanha-600 text-[11px] font-bold uppercase tracking-widest block mb-4">Sessão da conta</label>
                       <button
                         onClick={handleLogout}
                         className="w-full h-14 flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 border border-red-100 text-red-600 rounded-2xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em]"
@@ -596,15 +596,15 @@ export default function ProfilePage() {
             {/* Right Column - Subscription */}
             <div className="w-full lg:w-1/3">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#e7e5e1] shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+                <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                   <div className="p-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#A0A0A0] mb-10">Assinatura</h2>
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-10">Assinatura</h2>
  
-                    <div className={`relative overflow-hidden rounded-[2rem] p-8 mb-8 ${subscription.plan === 'Pro' ? 'bg-[#10101A] text-white shadow-2xl' : 'bg-[#F9F8F6] border border-[#e7e5e1]'
+                    <div className={`relative overflow-hidden rounded-[2rem] p-8 mb-8 ${subscription.plan === 'Pro' ? 'bg-cerrado-900 text-white shadow-2xl' : 'bg-castanha-50 border border-castanha-200'
                       }`}>
                       {subscription.plan === 'Pro' && (
                         <div className="absolute top-0 right-0">
-                          <div className="bg-white text-black text-[9px] font-bold px-4 py-2 rounded-bl-2xl shadow-xl tracking-[0.2em] uppercase">
+                          <div className="bg-white text-ink text-[9px] font-bold px-4 py-2 rounded-bl-2xl shadow-xl tracking-[0.2em] uppercase">
                             Premium
                           </div>
                         </div>
@@ -613,9 +613,9 @@ export default function ProfilePage() {
                       <div className="mb-6">
                         <div className="flex justify-between items-center mb-6">
                           <div className={`text-2xl font-medium tracking-tight ${subscription.plan === 'Pro' ? 'text-white font-bold' : 'text-foreground'}`}>Plano {({ Free: 'Gratuito', Pro: 'Pro' } as Record<string, string>)[subscription.plan] ?? subscription.plan}</div>
-                          <div className={`text-[9px] px-3 py-1.5 rounded-full font-bold uppercase tracking-[0.1em] ${subscription.status === 'active' ? 'bg-green-500/10 text-green-500' :
-                            subscription.status === 'trial' ? 'bg-blue-500/10 text-blue-500' :
-                              'bg-yellow-500/10 text-yellow-500'
+                          <div className={`text-[9px] px-3 py-1.5 rounded-full font-bold uppercase tracking-[0.1em] ${subscription.status === 'active' ? 'bg-cerrado-500/10 text-cerrado-500' :
+                            subscription.status === 'trial' ? 'bg-cerrado-500/10 text-cerrado-500' :
+                              'bg-pequi-600/10 text-pequi-600'
                             }`}>
                             {({ active: 'ativa', trial: 'teste', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', inactive: 'inativa' } as Record<string, string>)[subscription.status] ?? subscription.status}
                           </div>
@@ -642,10 +642,10 @@ export default function ProfilePage() {
                     </div>
  
                     <div className="space-y-3">
-                      <div className="text-[#10101A] font-bold text-[11px] uppercase tracking-[0.15em] mb-4">Neural Capacity:</div>
+                      <div className="text-ink font-bold text-[11px] uppercase tracking-[0.15em] mb-4">Neural Capacity:</div>
                       {subscription.features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-3 text-[#525252] text-[0.95rem] font-medium opacity-70">
-                          <svg className="w-4 h-4 text-black flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                        <div key={index} className="flex items-center gap-3 text-castanha-600 text-[0.95rem] font-medium opacity-70">
+                          <svg className="w-4 h-4 text-ink flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{feature}</span>
@@ -655,13 +655,13 @@ export default function ProfilePage() {
                   </div>
                 </div>
  
-                <div className="bg-[#10101A] text-white rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl relative">
+                <div className="bg-cerrado-900 text-white rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl relative">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl" />
                   <div className="p-10 relative z-10">
                     <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 mb-8">Suporte</h2>
                     <div className="space-y-4">
                       <a href="/contact" className="flex items-center gap-4 group">
-                        <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-500">
+                        <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-ink transition-all duration-500">
                           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                           </svg>
@@ -682,8 +682,8 @@ export default function ProfilePage() {
 
       {/* Change Password Modal */}
       {isChangePasswordModalOpen && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl border border-gray-100 w-full max-w-md p-6 animate-fade-in shadow-2xl">
+        <div className="fixed inset-0 bg-cerrado-950/70 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl border border-castanha-100 w-full max-w-md p-6 animate-fade-in shadow-2xl">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-medium text-foreground">Alterar senha</h3>
               <button
@@ -714,7 +714,7 @@ export default function ProfilePage() {
                     name="currentPassword"
                     value={passwords.currentPassword}
                     onChange={handlePasswordChange}
-                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                    className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                     placeholder="Digite sua senha atual"
                     required
                   />
@@ -732,7 +732,7 @@ export default function ProfilePage() {
                     name="newPassword"
                     value={passwords.newPassword}
                     onChange={handlePasswordChange}
-                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                    className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                     placeholder="Digite sua nova senha"
                     required
                     minLength={8}
@@ -752,7 +752,7 @@ export default function ProfilePage() {
                     name="confirmPassword"
                     value={passwords.confirmPassword}
                     onChange={handlePasswordChange}
-                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-gray-200 transition-shadow duration-200"
+                    className="w-full bg-white border border-castanha-200 rounded-lg px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 transition-shadow duration-200"
                     placeholder="Confirme sua nova senha"
                     required
                   />
@@ -763,7 +763,7 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setIsChangePasswordModalOpen(false)}
-                  className="px-4 py-2 text-foreground/60 hover:text-foreground bg-gray-50 border border-gray-200 rounded-lg mr-2 transition-colors"
+                  className="px-4 py-2 text-foreground/60 hover:text-foreground bg-castanha-50 border border-castanha-200 rounded-lg mr-2 transition-colors"
                   disabled={isChangingPassword}
                 >
                   Cancelar

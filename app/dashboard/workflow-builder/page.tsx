@@ -178,7 +178,7 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
 
   return (
     <div
-      className={`bg-white border transition-all duration-300 ${selected ? 'border-black ring-4 ring-black/5 shadow-2xl scale-[1.02]' : 'border-[#e7e5e1] shadow-[0_4px_15px_rgba(0,0,0,0.02)]'} rounded-3xl min-w-[200px] overflow-visible relative`}
+      className={`bg-white border transition-all duration-300 ${selected ? 'border-cerrado-900 ring-4 ring-pequi-500/5 shadow-2xl scale-[1.02]' : 'border-castanha-200 shadow-[0_4px_15px_rgba(0,0,0,0.02)]'} rounded-3xl min-w-[200px] overflow-visible relative`}
     >
       <div className="absolute top-0 right-0 p-4 opacity-[0.03] pointer-events-none">
         <svg width="60" height="60" viewBox="0 0 100 100">
@@ -193,21 +193,21 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
         <Handle
           type="target"
           position={Position.Left}
-          className="!w-3 !h-3 !bg-[#10101A] !border-[3px] !border-white !-left-1.5"
+          className="!w-3 !h-3 !bg-cerrado-900 !border-[3px] !border-white !-left-1.5"
           style={{ zIndex: 10 }}
         />
       )}
 
       <div className="p-5 relative z-10">
         <div className="flex items-center gap-4">
-          <div className="w-11 h-11 rounded-2xl bg-[#F9F8F6] border border-[#e7e5e1] flex items-center justify-center text-[#10101A] flex-shrink-0 scale-90 group-hover:scale-100 transition-transform">
+          <div className="w-11 h-11 rounded-2xl bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink flex-shrink-0 scale-90 group-hover:scale-100 transition-transform">
             {IconMap[data.subtype as string] || Icons.sparkles}
           </div>
           <div>
-            <span className="inline-block text-[8px] font-bold uppercase tracking-[0.3em] text-[#A0A0A0] mb-1">
+            <span className="inline-block text-[8px] font-bold uppercase tracking-[0.3em] text-castanha-400 mb-1">
               {({ trigger: 'gatilho', action: 'ação', output: 'saída' } as Record<string, string>)[data.nodeType as string] ?? (data.nodeType as string)}
             </span>
-            <p className="text-[11px] font-bold text-[#10101A] leading-tight tracking-tight">{data.label as string}</p>
+            <p className="text-[11px] font-bold text-ink leading-tight tracking-tight">{data.label as string}</p>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
         <Handle
           type="source"
           position={Position.Right}
-          className="!w-3 !h-3 !bg-[#10101A] !border-[3px] !border-white !-right-1.5"
+          className="!w-3 !h-3 !bg-cerrado-900 !border-[3px] !border-white !-right-1.5"
           style={{ zIndex: 10 }}
         />
       )}
@@ -434,7 +434,7 @@ export default function WorkflowBuilderPage() {
       title="Automações"
       actions={
         <div className="flex items-center gap-3">
-          <div className="flex bg-gray-50 rounded-xl p-0.5 md:p-1 border border-gray-100">
+          <div className="flex bg-castanha-50 rounded-xl p-0.5 md:p-1 border border-castanha-100">
             <button
               onClick={() => setActiveTab('canvas')}
               className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${activeTab === 'canvas' ? 'btn-primary-gradient shadow-sm' : 'text-foreground/30 hover:text-foreground'
@@ -457,13 +457,13 @@ export default function WorkflowBuilderPage() {
         {activeTab === 'canvas' ? (
           <div className="flex flex-col lg:flex-1 lg:flex-row gap-4 lg:gap-6 overflow-hidden h-full">
             {/* Sidebar Palette */}
-            <aside className="w-full lg:w-64 bg-white border border-gray-100 rounded-3xl p-4 md:p-6 flex flex-col shadow-sm max-h-[300px] lg:max-h-full flex-shrink-0 lg:overflow-hidden">
+            <aside className="w-full lg:w-64 bg-white border border-castanha-100 rounded-3xl p-4 md:p-6 flex flex-col shadow-sm max-h-[300px] lg:max-h-full flex-shrink-0 lg:overflow-hidden">
               <div className="mb-6">
                 <input
                   type="text"
                   value={workflowName}
                   onChange={(e) => setWorkflowName(e.target.value)}
-                  className="w-full text-sm font-bold text-foreground bg-transparent border-b border-gray-100 pb-2 outline-none focus:border-foreground transition mb-4"
+                  className="w-full text-sm font-bold text-foreground bg-transparent border-b border-castanha-100 pb-2 outline-none focus:border-foreground transition mb-4"
                   placeholder="Nome do fluxo"
                 />
                 <div className="flex gap-2">
@@ -479,7 +479,7 @@ export default function WorkflowBuilderPage() {
                   </button>
                   <button
                     onClick={handleSave}
-                    className="p-2.5 md:p-3 rounded-2xl border border-gray-100 text-foreground/40 hover:text-foreground hover:bg-gray-50 transition"
+                    className="p-2.5 md:p-3 rounded-2xl border border-castanha-100 text-foreground/40 hover:text-foreground hover:bg-castanha-50 transition"
                   >
                     {Icons.save}
                   </button>
@@ -500,7 +500,7 @@ export default function WorkflowBuilderPage() {
                             e.dataTransfer.effectAllowed = 'move';
                           }}
                           onClick={() => addNodeToCenter(n)}
-                          className="flex items-center gap-3 p-2.5 md:p-3 bg-gray-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-gray-200 transition min-w-[120px] lg:min-w-0"
+                          className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
                           <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
@@ -521,7 +521,7 @@ export default function WorkflowBuilderPage() {
                             e.dataTransfer.effectAllowed = 'move';
                           }}
                           onClick={() => addNodeToCenter(n)}
-                          className="flex items-center gap-3 p-2.5 md:p-3 bg-gray-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-gray-200 transition min-w-[120px] lg:min-w-0"
+                          className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
                           <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
@@ -542,7 +542,7 @@ export default function WorkflowBuilderPage() {
                             e.dataTransfer.effectAllowed = 'move';
                           }}
                           onClick={() => addNodeToCenter(n)}
-                          className="flex items-center gap-3 p-2.5 md:p-3 bg-gray-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-gray-200 transition min-w-[120px] lg:min-w-0"
+                          className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
                           <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
@@ -555,7 +555,7 @@ export default function WorkflowBuilderPage() {
             </aside>
 
             {/* Main Canvas */}
-            <div className="flex-1 bg-white border border-[#e7e5e1] rounded-[2.5rem] overflow-hidden relative shadow-2xl" ref={reactFlowWrapper}>
+            <div className="flex-1 bg-white border border-castanha-200 rounded-[2.5rem] overflow-hidden relative shadow-2xl" ref={reactFlowWrapper}>
               <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -575,12 +575,12 @@ export default function WorkflowBuilderPage() {
                 }}
               >
                 <Background variant={BackgroundVariant.Dots} gap={32} size={1} color="#e7e5e1" />
-                <Controls showInteractive={false} className="bg-white border-[#e7e5e1] shadow-2xl rounded-2xl overflow-hidden" />
+                <Controls showInteractive={false} className="bg-white border-castanha-200 shadow-2xl rounded-2xl overflow-hidden" />
               </ReactFlow>
 
               {nodes.length === 0 && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <div className="w-20 h-20 rounded-[2rem] bg-[#F9F8F6] border border-[#e7e5e1] flex items-center justify-center text-black/10 mb-8 relative">
+                  <div className="w-20 h-20 rounded-[2rem] bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink/10 mb-8 relative">
                     <div className="absolute inset-0 opacity-[0.05]">
                       <svg width="100%" height="100%">
                         <pattern id="grid-empty" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -593,20 +593,20 @@ export default function WorkflowBuilderPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
                     </svg>
                   </div>
-                  <h3 className="text-[10px] font-bold text-[#A0A0A0] uppercase tracking-[0.4em]">Fluxo vazio</h3>
-                  <p className="text-[11px] text-[#A0A0A0] mt-3 font-medium opacity-60">Arraste e solte componentes para iniciar o fluxo</p>
+                  <h3 className="text-[10px] font-bold text-castanha-400 uppercase tracking-[0.4em]">Fluxo vazio</h3>
+                  <p className="text-[11px] text-castanha-400 mt-3 font-medium opacity-60">Arraste e solte componentes para iniciar o fluxo</p>
                 </div>
               )}
             </div>
 
             {/* Node Settings Drawer */}
             {selectedNode && (
-              <div className="absolute lg:relative inset-x-4 bottom-4 lg:inset-auto lg:w-80 bg-white border border-gray-100 rounded-[2.5rem] p-6 md:p-8 overflow-y-auto animate-in slide-in-from-bottom md:slide-in-from-right duration-500 shadow-2xl lg:shadow-xl lg:ml-2 z-20 max-h-[80%] lg:max-h-full">
+              <div className="absolute lg:relative inset-x-4 bottom-4 lg:inset-auto lg:w-80 bg-white border border-castanha-100 rounded-[2.5rem] p-6 md:p-8 overflow-y-auto animate-in slide-in-from-bottom md:slide-in-from-right duration-500 shadow-2xl lg:shadow-xl lg:ml-2 z-20 max-h-[80%] lg:max-h-full">
                 <div className="flex items-center justify-between mb-6 md:mb-10">
                   <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">Configurações</h3>
                   <button
                     onClick={() => setSelectedNodeId(null)}
-                    className="p-2 rounded-xl hover:bg-gray-50 text-foreground/20 transition-colors"
+                    className="p-2 rounded-xl hover:bg-castanha-50 text-foreground/20 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -620,7 +620,7 @@ export default function WorkflowBuilderPage() {
                     <input
                       type="text"
                       value={selectedNode.data.label}
-                      className="w-full bg-[#F9F8F6] border border-[#e7e5e1] rounded-2xl px-6 py-5 text-[11px] font-bold text-[#10101A] outline-none focus:border-black/10 focus:bg-white transition-all shadow-inner placeholder:opacity-30"
+                      className="w-full bg-castanha-50 border border-castanha-200 rounded-2xl px-6 py-5 text-[11px] font-bold text-ink outline-none focus:border-cerrado-900/10 focus:bg-white transition-all shadow-inner placeholder:opacity-30"
                       onChange={(e) => {
                         setNodes(nds => nds.map(n => n.id === selectedNodeId ? { ...n, data: { ...n.data, label: e.target.value } } : n))
                       }}
@@ -643,9 +643,9 @@ export default function WorkflowBuilderPage() {
                           />
                           <label
                             htmlFor="trigger-file-upload"
-                            className="flex flex-col items-center justify-center border-2 border-dashed border-gray-100 rounded-[2rem] p-8 hover:bg-gray-50 hover:border-gray-200 transition-all cursor-pointer"
+                            className="flex flex-col items-center justify-center border-2 border-dashed border-castanha-100 rounded-[2rem] p-8 hover:bg-castanha-50 hover:border-castanha-200 transition-all cursor-pointer"
                           >
-                            <div className="w-12 h-12 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-foreground/20 mb-3 group-hover:scale-110 transition-transform">
+                            <div className="w-12 h-12 rounded-2xl bg-white border border-castanha-100 flex items-center justify-center text-foreground/20 mb-3 group-hover:scale-110 transition-transform">
                               {Icons.file}
                             </div>
                             <span className="text-[10px] font-bold text-foreground line-clamp-1 px-4">
@@ -670,7 +670,7 @@ export default function WorkflowBuilderPage() {
                         <button
                           key={lvl}
                           onClick={() => updateNodeConfig(selectedNode.id, { level: lvl })}
-                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.level === lvl ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-300'}`}
+                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.level === lvl ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
                         >
                           {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[lvl] ?? lvl}
                         </button>
@@ -687,7 +687,7 @@ export default function WorkflowBuilderPage() {
                           type="email"
                           placeholder="cliente@escritorio.com.br"
                           value={selectedNode.data.config?.recipient || ''}
-                          className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { recipient: e.target.value })}
                         />
                       </div>
@@ -697,7 +697,7 @@ export default function WorkflowBuilderPage() {
                           type="text"
                           placeholder="ex.: Revisão de contrato"
                           value={selectedNode.data.config?.subject || ''}
-                          className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { subject: e.target.value })}
                         />
                       </div>
@@ -710,7 +710,7 @@ export default function WorkflowBuilderPage() {
                               checked={selectedNode.data.config?.useDocuSign || false}
                               onChange={(e) => updateNodeConfig(selectedNode.id, { useDocuSign: e.target.checked })}
                             />
-                            <div className="w-10 h-6 bg-gray-100 rounded-full peer peer-checked:bg-foreground transition-all"></div>
+                            <div className="w-10 h-6 bg-castanha-100 rounded-full peer peer-checked:bg-foreground transition-all"></div>
                             <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-4 transition-all shadow-sm"></div>
                           </div>
                           <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 group-hover:text-foreground transition-colors">Solicitar assinatura digital</span>
@@ -728,7 +728,7 @@ export default function WorkflowBuilderPage() {
                         <button
                           key={depth}
                           onClick={() => updateNodeConfig(selectedNode.id, { depth })}
-                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.depth === depth ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-300'}`}
+                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.depth === depth ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
                         >
                           {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[depth] ?? depth.replace('_', ' ')}
                         </button>
@@ -745,7 +745,7 @@ export default function WorkflowBuilderPage() {
                           <button
                             key={tone}
                             onClick={() => updateNodeConfig(selectedNode.id, { tone })}
-                            className={`w-full text-left px-5 py-3 rounded-2xl border text-[10px] font-bold uppercase tracking-widest mb-2 transition-all ${selectedNode.data.config?.tone === tone ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-200'}`}
+                            className={`w-full text-left px-5 py-3 rounded-2xl border text-[10px] font-bold uppercase tracking-widest mb-2 transition-all ${selectedNode.data.config?.tone === tone ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-200'}`}
                           >
                             {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[tone] ?? tone}
                           </button>
@@ -756,7 +756,7 @@ export default function WorkflowBuilderPage() {
                         <textarea
                           placeholder="ex.: Responder a uma notificação de inadimplemento"
                           value={selectedNode.data.config?.purpose || ''}
-                          className="w-full bg-gray-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner h-24 resize-none"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner h-24 resize-none"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { purpose: e.target.value })}
                         />
                       </div>
@@ -764,9 +764,9 @@ export default function WorkflowBuilderPage() {
                   )}
                 </div>
 
-                <div className="mt-20 pt-10 border-t border-gray-50">
+                <div className="mt-20 pt-10 border-t border-castanha-50">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-foreground/20">
+                    <div className="w-12 h-12 rounded-2xl bg-castanha-50 flex items-center justify-center text-foreground/20">
                       {IconMap[selectedNode.data.subtype as string]}
                     </div>
                     <div>
@@ -785,7 +785,7 @@ export default function WorkflowBuilderPage() {
               <div className="flex justify-center py-20">{Icons.plus}</div> // Spinner placeholder
             ) : workflows.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
-                <div className="w-20 h-20 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex items-center justify-center text-foreground/10 mb-6 font-bold text-4xl">📄</div>
+                <div className="w-20 h-20 rounded-[2.5rem] bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground/10 mb-6 font-bold text-4xl">📄</div>
                 <h2 className="text-2xl font-bold text-foreground mb-2">Biblioteca vazia</h2>
                 <p className="text-sm text-foreground/40 max-w-sm mb-10">Você ainda não salvou nenhum fluxo de automação. Crie o primeiro no canvas.</p>
                 <button
@@ -801,10 +801,10 @@ export default function WorkflowBuilderPage() {
                   <div
                     key={wf._id}
                     onClick={() => loadWorkflow(wf)}
-                    className="bg-white border border-gray-100 p-6 rounded-[2.5rem] hover:shadow-xl hover:border-foreground/10 transition cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
+                    className="bg-white border border-castanha-100 p-6 rounded-[2.5rem] hover:shadow-xl hover:border-foreground/10 transition cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
                   >
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-foreground/40 font-bold group-hover:bg-foreground group-hover:text-white transition-all duration-300">
+                      <div className="w-12 h-12 rounded-2xl bg-castanha-50 flex items-center justify-center text-foreground/40 font-bold group-hover:bg-foreground group-hover:text-white transition-all duration-300">
                         {Icons.sparkles}
                       </div>
                       <button

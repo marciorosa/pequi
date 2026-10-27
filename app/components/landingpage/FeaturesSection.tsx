@@ -39,13 +39,13 @@ export default function FeaturesSection() {
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
           <article className="landing-card lg:col-span-8 p-4 md:p-5">
-            <div className="rounded-[0.9rem] border border-[#ececf2] bg-[linear-gradient(180deg,#ffffff_0%,#f9f9fc_100%)] p-4 md:p-6">
+            <div className="rounded-[0.9rem] border border-castanha-150 bg-[linear-gradient(180deg,#ffffff_0%,#f9f9fc_100%)] p-4 md:p-6">
               <div className="mx-auto max-w-[760px]">
-                <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-xl border border-[#e1e4ef] bg-[#f8f7f6] px-4 py-2 shadow-[0_8px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)]">
-                  <span className="h-4 w-4 rounded bg-[#b5a7ff]" />
-                  <span className="text-[0.92rem] font-medium tracking-[0.01em] text-[#10101A]">Prévia do espaço de trabalho jurídico com IA</span>
+                <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-xl border border-castanha-200 bg-castanha-50 px-4 py-2 shadow-[0_8px_16px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.1)]">
+                  <span className="h-4 w-4 rounded bg-pequi-200" />
+                  <span className="text-[0.92rem] font-medium tracking-[0.01em] text-ink">Prévia do espaço de trabalho jurídico com IA</span>
                 </div>
-                <div className="relative mx-auto h-[250px] w-full overflow-hidden rounded-2xl border border-[#e1e4ef] bg-[#f1f0ee]">
+                <div className="relative mx-auto h-[250px] w-full overflow-hidden rounded-2xl border border-castanha-200 bg-castanha-100">
                   <Image
                     src="/landingpage/features/workflow-automation.png"
                     alt="Prévia do fluxo de trabalho com IA jurídica"
@@ -54,9 +54,9 @@ export default function FeaturesSection() {
                     sizes="(max-width: 1024px) 100vw, 760px"
                   />
                 </div>
-                <div className="mt-4 rounded-xl border border-[#e1e4ef] bg-white px-4 py-3 md:px-5 md:py-4">
-                  <h4 className="text-[1.05rem] font-medium leading-tight text-[#10101A]">Motor de fluxos com IA</h4>
-                  <p className="mt-1.5 text-[0.9rem] leading-[1.35rem] text-[#525252]">
+                <div className="mt-4 rounded-xl border border-castanha-200 bg-white px-4 py-3 md:px-5 md:py-4">
+                  <h4 className="text-[1.05rem] font-medium leading-tight text-ink">Motor de fluxos com IA</h4>
+                  <p className="mt-1.5 text-[0.9rem] leading-[1.35rem] text-castanha-600">
                     Acione ações em documentos, verificações de compliance e etapas de entrega em um único fluxo jurídico estruturado.
                   </p>
                 </div>
@@ -65,7 +65,7 @@ export default function FeaturesSection() {
           </article>
 
           <article className="landing-card lg:col-span-4 p-4 md:p-5">
-            <div className="rounded-[0.9rem] border border-[#ececf2] bg-[linear-gradient(160deg,#171825_0%,#23253b_100%)] p-5 text-white">
+            <div className="rounded-[0.9rem] border border-castanha-150 bg-[linear-gradient(160deg,#171825_0%,#23253b_100%)] p-5 text-white">
               <p className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-white/75">Recurso em destaque</p>
               <h4 className="mt-2 text-[1.2rem] font-medium leading-snug">Assistente Jurídico com IA</h4>
               <ul className="mt-5 space-y-2.5 text-[0.92rem] leading-relaxed text-white/85">
@@ -83,9 +83,9 @@ export default function FeaturesSection() {
 
           {featureItems.slice(0, 3).map((item, idx) => (
             <article key={item.title} className="landing-card lg:col-span-4 p-4 md:p-5">
-              <div className="overflow-hidden rounded-[0.9rem] border border-[#ececf2] bg-white">
-                <div className="relative h-[220px] border-b border-[#e1e4ef] bg-white p-3">
-                  <div className="relative h-full w-full overflow-hidden rounded-xl border border-[#e1e4ef] bg-white">
+              <div className="overflow-hidden rounded-[0.9rem] border border-castanha-150 bg-white">
+                <div className="relative h-[220px] border-b border-castanha-200 bg-white p-3">
+                  <div className="relative h-full w-full overflow-hidden rounded-xl border border-castanha-200 bg-white">
                     <Image
                       src={featureImages[idx]}
                       alt={`Prévia de ${item.title}`}
@@ -98,8 +98,8 @@ export default function FeaturesSection() {
                 <div
                   className={`bg-white px-4 md:px-5 ${idx === 1 ? 'py-3 md:py-4' : 'py-4 md:py-5'}`}
                 >
-                  <h4 className="text-[1.12rem] font-medium leading-tight text-[#10101A]">{item.title}</h4>
-                  <p className="mt-1.5 text-[0.9rem] leading-[1.35rem] text-[#525252]">{item.description}</p>
+                  <h4 className="text-[1.12rem] font-medium leading-tight text-ink">{item.title}</h4>
+                  <p className="mt-1.5 text-[0.9rem] leading-[1.35rem] text-castanha-600">{item.description}</p>
                 </div>
               </div>
             </article>

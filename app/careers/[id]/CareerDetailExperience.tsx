@@ -9,8 +9,8 @@ import type { CareerJobFull } from '../careersData';
 type Props = { job: CareerJobFull; jobId: string };
 
 const inputClass =
-  'w-full rounded-[0.875rem] border border-[#e7e5e1] bg-[#f1f0ee] px-4 py-3.5 text-[#10101A] placeholder:text-[#525252] transition-all focus:border-[#d4d2ce] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#10101A]/8';
-const labelClass = 'mb-2 block text-[0.8125rem] font-medium text-[#525252]';
+  'w-full rounded-[0.875rem] border border-castanha-200 bg-castanha-100 px-4 py-3.5 text-ink placeholder:text-castanha-600 transition-all focus:border-castanha-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pequi-500/32';
+const labelClass = 'mb-2 block text-[0.8125rem] font-medium text-castanha-600';
 
 export default function CareerDetailExperience({ job, jobId }: Props) {
   const [applicationData, setApplicationData] = useState({
@@ -80,8 +80,8 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
   };
 
   const listItem = (text: string, key: string) => (
-    <li key={key} className="flex gap-3 text-[0.9375rem] leading-relaxed text-[#525252] md:text-[1rem]">
-      <span className="mt-0.5 shrink-0 text-[#10101A]" aria-hidden>
+    <li key={key} className="flex gap-3 text-[0.9375rem] leading-relaxed text-castanha-600 md:text-[1rem]">
+      <span className="mt-0.5 shrink-0 text-ink" aria-hidden>
         ?
       </span>
       {text}
@@ -102,19 +102,19 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
           className="object-cover object-top"
         />
         <div className="relative mx-auto w-full max-w-[1274px]">
-          <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] text-[#525252]">
-            <Link href="/careers" className="transition-colors hover:text-[#10101A]">
+          <nav className="mb-6 flex flex-wrap items-center gap-2 text-[0.8125rem] text-castanha-600">
+            <Link href="/careers" className="transition-colors hover:text-ink">
               Carreiras
             </Link>
             <span aria-hidden>/</span>
             <span>{job.departmentLabel}</span>
             <span aria-hidden>/</span>
-            <span className="font-medium text-[#10101A]">{job.title}</span>
+            <span className="font-medium text-ink">{job.title}</span>
           </nav>
-          <h1 className="max-w-4xl text-[1.95rem] font-medium leading-tight text-[#10101A] md:text-[2.5rem] lg:text-[2.75rem]">
+          <h1 className="max-w-4xl text-[1.95rem] font-medium leading-tight text-ink md:text-[2.5rem] lg:text-[2.75rem]">
             {job.title}
           </h1>
-          <div className="mt-6 flex flex-wrap gap-4 text-[0.9375rem] text-[#525252]">
+          <div className="mt-6 flex flex-wrap gap-4 text-[0.9375rem] text-castanha-600">
             <span className="inline-flex items-center gap-2">
               <svg className="h-4 w-4 shrink-0 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -138,43 +138,43 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
         </div>
       </header>
 
-      <div className="bg-[#FFFFFF] py-10 md:py-14">
+      <div className="bg-white py-10 md:py-14">
         <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
             <div className="space-y-10 lg:col-span-2">
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-4 text-xl font-medium text-[#10101A]">Sobre a vaga</h2>
-                <p className="text-[1rem] leading-[175%] text-[#525252]">{job.description}</p>
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+                <h2 className="mb-4 text-xl font-medium text-ink">Sobre a vaga</h2>
+                <p className="text-[1rem] leading-[175%] text-castanha-600">{job.description}</p>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que você vai fazer</h2>
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+                <h2 className="mb-5 text-xl font-medium text-ink">O que você vai fazer</h2>
                 <ul className="space-y-3">{job.responsibilities.map((r, i) => listItem(r, `resp-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que procuramos</h2>
-                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Obrigatório</h3>
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+                <h2 className="mb-5 text-xl font-medium text-ink">O que procuramos</h2>
+                <h3 className="mb-3 text-[0.9375rem] font-medium text-ink">Obrigatório</h3>
                 <ul className="mb-8 space-y-3">{job.requirements.map((r, i) => listItem(r, `req-${i}`))}</ul>
-                <h3 className="mb-3 text-[0.9375rem] font-medium text-[#10101A]">Desejável</h3>
+                <h3 className="mb-3 text-[0.9375rem] font-medium text-ink">Desejável</h3>
                 <ul className="space-y-3">{job.preferred.map((p, i) => listItem(p, `pref-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">O que oferecemos</h2>
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+                <h2 className="mb-5 text-xl font-medium text-ink">O que oferecemos</h2>
                 <ul className="grid gap-3 sm:grid-cols-2">{job.benefits.map((b, i) => listItem(b, `ben-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-10">
-                <h2 className="mb-5 text-xl font-medium text-[#10101A]">Equipe e cultura</h2>
-                <p className="mb-4 leading-[175%] text-[#525252]">{job.team}</p>
-                <p className="leading-[175%] text-[#525252]">{job.culture}</p>
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+                <h2 className="mb-5 text-xl font-medium text-ink">Equipe e cultura</h2>
+                <p className="mb-4 leading-[175%] text-castanha-600">{job.team}</p>
+                <p className="leading-[175%] text-castanha-600">{job.culture}</p>
               </section>
             </div>
 
             <div className="space-y-6">
-              <div className="landing-surface p-6 shadow-[0_12px_28px_rgba(16,16,26,0.04)] md:p-8 lg:sticky lg:top-28">
-                <h3 className="mb-6 text-lg font-medium text-[#10101A]">Candidate-se</h3>
+              <div className="landing-surface p-6 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-8 lg:sticky lg:top-28">
+                <h3 className="mb-6 text-lg font-medium text-ink">Candidate-se</h3>
 
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -229,16 +229,16 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                   </form>
                 ) : (
                   <div className="py-6 text-center">
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50">
-                      <svg className="h-7 w-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-cerrado-200 bg-cerrado-50">
+                      <svg className="h-7 w-7 text-cerrado-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h4 className="mb-2 text-lg font-medium text-[#10101A]">Candidatura recebida</h4>
-                    <p className="mb-6 text-sm leading-relaxed text-[#525252]">
-                      Obrigado por se candidatar à vaga de <strong className="text-[#10101A]">{job.title}</strong>. Vamos analisar seu perfil e entraremos em contato se houver compatibilidade.
+                    <h4 className="mb-2 text-lg font-medium text-ink">Candidatura recebida</h4>
+                    <p className="mb-6 text-sm leading-relaxed text-castanha-600">
+                      Obrigado por se candidatar à vaga de <strong className="text-ink">{job.title}</strong>. Vamos analisar seu perfil e entraremos em contato se houver compatibilidade.
                     </p>
-                    <button type="button" onClick={() => { setIsSubmitted(false); setError(''); }} className="text-[0.875rem] font-medium text-[#10101A] underline underline-offset-2">
+                    <button type="button" onClick={() => { setIsSubmitted(false); setError(''); }} className="text-[0.875rem] font-medium text-ink underline underline-offset-2">
                       Enviar outra candidatura
                     </button>
                   </div>
@@ -246,28 +246,28 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
               </div>
 
               <div className="landing-surface p-6 md:p-8">
-                <h3 className="mb-4 font-medium text-[#10101A]">Detalhes da vaga</h3>
+                <h3 className="mb-4 font-medium text-ink">Detalhes da vaga</h3>
                 <dl className="space-y-3 text-[0.9375rem]">
                   <div>
-                    <dt className="text-[#525252]">Departamento</dt>
-                    <dd className="font-medium text-[#10101A]">{job.departmentLabel}</dd>
+                    <dt className="text-castanha-600">Departamento</dt>
+                    <dd className="font-medium text-ink">{job.departmentLabel}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">Experiência</dt>
-                    <dd className="font-medium text-[#10101A]">{job.experience}</dd>
+                    <dt className="text-castanha-600">Experiência</dt>
+                    <dd className="font-medium text-ink">{job.experience}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">Publicada em</dt>
-                    <dd className="font-medium text-[#10101A]">{new Date(job.posted).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}</dd>
+                    <dt className="text-castanha-600">Publicada em</dt>
+                    <dd className="font-medium text-ink">{new Date(job.posted).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}</dd>
                   </div>
                   <div>
-                    <dt className="text-[#525252]">ID da vaga</dt>
-                    <dd className="font-medium text-[#10101A]">MLA-{jobId}</dd>
+                    <dt className="text-castanha-600">ID da vaga</dt>
+                    <dd className="font-medium text-ink">MLA-{jobId}</dd>
                   </div>
                 </dl>
               </div>
 
-              <Link href="/careers" className="landing-secondary-btn flex w-full items-center justify-center border-[#e7e5e1] bg-[#f1f0ee] text-[#10101A] transition hover:bg-[#eceae7]">
+              <Link href="/careers" className="landing-secondary-btn flex w-full items-center justify-center border-castanha-200 bg-castanha-100 text-ink transition hover:bg-castanha-150">
                 Ver todas as vagas
               </Link>
             </div>

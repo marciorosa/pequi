@@ -229,7 +229,7 @@ Atenciosamente,
                   placeholder="Pesquisar modelos..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white border border-gray-100 rounded-xl py-3 px-5 pl-12 text-sm focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all shadow-sm"
+                  className="w-full bg-white border border-castanha-100 rounded-xl py-3 px-5 pl-12 text-sm focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all shadow-sm"
                 />
                 <svg className="w-4 h-4 text-foreground/20 absolute left-4 top-3.5 group-hover:text-foreground/40 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -246,7 +246,7 @@ Atenciosamente,
                       onClick={() => setSelectedCategory(category.id)}
                       className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-all border ${selectedCategory === category.id
                           ? 'text-white border-transparent shadow-lg shadow-black/5 btn-primary-gradient'
-                          : 'bg-white text-foreground/40 border-gray-100 hover:border-gray-200'
+                          : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-200'
                         }`}
                     >
                       {category.name}
@@ -265,7 +265,7 @@ Atenciosamente,
                       onClick={() => setSelectedTemplate(template)}
                       className={`w-full text-left p-4 rounded-xl transition-all border ${selectedTemplate?.id === template.id
                           ? 'bg-white border-foreground shadow-lg shadow-black/5'
-                          : 'bg-white border-gray-100 hover:border-gray-200 shadow-sm'
+                          : 'bg-white border-castanha-100 hover:border-castanha-200 shadow-sm'
                         }`}
                     >
                       <h4 className={`text-xs font-bold uppercase tracking-wider mb-1 ${selectedTemplate?.id === template.id ? 'text-foreground' : 'text-foreground/70'}`}>
@@ -285,8 +285,8 @@ Atenciosamente,
           {/* Right Column: Template Preview */}
           <div className="flex-1 animate-in fade-in slide-in-from-right-4 duration-700">
             {selectedTemplate ? (
-              <div className="bg-white border border-gray-100 rounded-[32px] overflow-hidden shadow-sm flex flex-col h-full min-h-[600px]">
-                <div className="p-8 border-b border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gray-50/30">
+              <div className="bg-white border border-castanha-100 rounded-[32px] overflow-hidden shadow-sm flex flex-col h-full min-h-[600px]">
+                <div className="p-8 border-b border-castanha-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-castanha-50/30">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-1">Prévia do modelo</p>
                     <h2 className="text-2xl font-light text-foreground tracking-tight">{selectedTemplate.title}</h2>
@@ -294,7 +294,7 @@ Atenciosamente,
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => copyToClipboard(`Subject: ${selectedTemplate.subject}\n\n${selectedTemplate.body}`)}
-                      className="group flex items-center px-6 py-3 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-all shadow-sm"
+                      className="group flex items-center px-6 py-3 bg-white border border-castanha-100 rounded-xl hover:border-castanha-200 transition-all shadow-sm"
                     >
                       <svg className="w-4 h-4 mr-3 text-foreground/40 group-hover:text-foreground transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
@@ -313,20 +313,20 @@ Atenciosamente,
                 <div className="p-10 flex-1 overflow-y-auto custom-scrollbar bg-white">
                   <div className="mb-10">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Assunto do e-mail</p>
-                    <div className="p-5 bg-gray-50 border border-gray-100 rounded-2xl text-foreground font-medium text-sm">
+                    <div className="p-5 bg-castanha-50 border border-castanha-100 rounded-2xl text-foreground font-medium text-sm">
                       {selectedTemplate.subject}
                     </div>
                   </div>
 
                   <div className="mb-10">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-3">Corpo da mensagem</p>
-                    <div className="p-8 bg-gray-50 border border-gray-100 rounded-2xl text-foreground/70 font-light text-sm leading-loose whitespace-pre-line border-dashed">
+                    <div className="p-8 bg-castanha-50 border border-castanha-100 rounded-2xl text-foreground/70 font-light text-sm leading-loose whitespace-pre-line border-dashed">
                       {selectedTemplate.body}
                     </div>
                   </div>
 
-                  <div className="p-8 bg-gray-50/50 border border-gray-50 rounded-2xl flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 text-foreground/20">
+                  <div className="p-8 bg-castanha-50/50 border border-castanha-50 rounded-2xl flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-white border border-castanha-100 flex items-center justify-center flex-shrink-0 text-foreground/20">
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -343,9 +343,9 @@ Atenciosamente,
                 </div>
               </div>
             ) : (
-              <div className="bg-white border border-gray-100 rounded-[32px] h-full min-h-[600px] flex items-center justify-center p-20 text-center shadow-sm">
+              <div className="bg-white border border-castanha-100 rounded-[32px] h-full min-h-[600px] flex items-center justify-center p-20 text-center shadow-sm">
                 <div>
-                  <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-10 border border-gray-100/50">
+                  <div className="w-24 h-24 bg-castanha-50 rounded-full flex items-center justify-center mx-auto mb-10 border border-castanha-100/50">
                     <svg className="w-10 h-10 text-foreground/10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>

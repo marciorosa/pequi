@@ -50,18 +50,18 @@ export default function PlatformCapabilitiesSection() {
             Simplifique as operações jurídicas com automação inteligente, colaboração segura e controle total dos fluxos de trabalho.
           </p>
 
-          <div className="overflow-hidden rounded-[1.25rem] border border-[#e7e7ea] bg-white">
+          <div className="overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {capabilities.map((item, idx) => (
                 <article
                   key={item.title}
-                  className={`p-8 ${idx % 3 !== 2 ? 'lg:border-r lg:border-[#e7e7ea]' : ''} ${idx < 3 ? 'border-b border-[#e7e7ea]' : ''} ${idx % 2 === 0 ? 'md:border-r md:border-[#e7e7ea] lg:border-r' : ''}`}
+                  className={`p-8 ${idx % 3 !== 2 ? 'lg:border-r lg:border-castanha-200' : ''} ${idx < 3 ? 'border-b border-castanha-200' : ''} ${idx % 2 === 0 ? 'md:border-r md:border-castanha-200 lg:border-r' : ''}`}
                 >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#e8e8ed] bg-[#fbfbfd] text-[#1a1a23] text-[1.05rem] shadow-[0_6px_14px_rgba(0,0,0,0.05)]">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-castanha-100 bg-castanha-25 text-ink text-[1.05rem] shadow-[0_6px_14px_rgba(0,0,0,0.05)]">
                     {item.icon}
                   </div>
-                  <h4 className="mt-5 text-[#10101A] text-[1.75rem] font-medium leading-[1.2]">{item.title}</h4>
-                  <p className="mt-3 text-[#5f5f6b] text-[1rem] leading-[1.55rem]">{item.description}</p>
+                  <h4 className="mt-5 text-ink text-[1.75rem] font-medium leading-[1.2]">{item.title}</h4>
+                  <p className="mt-3 text-castanha-600 text-[1rem] leading-[1.55rem]">{item.description}</p>
                 </article>
               ))}
             </div>

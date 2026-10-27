@@ -89,16 +89,16 @@ export default function LawyerDetailPage({ params }: Props) {
 
   return (
     <DashboardLayout title={lawyer?.name || 'Especialista Neural'}>
-      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-gray-100 shadow-2xl overflow-hidden relative">
+      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Profile Sidebar */}
-        <aside className="hidden lg:flex flex-col w-96 h-full bg-gray-50 border-r border-gray-100 p-10 space-y-12">
+        <aside className="hidden lg:flex flex-col w-96 h-full bg-castanha-50 border-r border-castanha-100 p-10 space-y-12">
           <button onClick={() => router.back()} className="flex items-center gap-2 text-foreground/40 hover:text-foreground transition-all">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Voltar ao diretório</span>
           </button>
 
           <div className="space-y-8">
-            <div className="w-24 h-24 rounded-3xl bg-white border border-gray-100 shadow-2xl flex items-center justify-center text-foreground">
+            <div className="w-24 h-24 rounded-3xl bg-white border border-castanha-100 shadow-2xl flex items-center justify-center text-foreground">
               <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>
             </div>
             <div className="space-y-2">
@@ -112,7 +112,7 @@ export default function LawyerDetailPage({ params }: Props) {
             <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Matriz de especialização</h3>
             <div className="flex flex-wrap gap-2">
               {lawyer?.expertise.map((skill, i) => (
-                <span key={i} className="px-3 py-1.5 rounded-full bg-white border border-gray-100 text-[10px] font-bold uppercase tracking-wider text-foreground/60">{skill}</span>
+                <span key={i} className="px-3 py-1.5 rounded-full bg-white border border-castanha-100 text-[10px] font-bold uppercase tracking-wider text-foreground/60">{skill}</span>
               ))}
             </div>
           </div>
@@ -120,13 +120,13 @@ export default function LawyerDetailPage({ params }: Props) {
 
         {/* Chat Main Area */}
         <main className="flex-1 flex flex-col min-w-0 bg-white">
-          <header className="h-20 px-10 border-b border-gray-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
+          <header className="h-20 px-10 border-b border-castanha-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
             <div className="flex flex-col">
               <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Canal Node.0{Math.floor(Math.random() * 100)}</span>
               <h2 className="text-xl font-light tracking-tight">Sessão de consultoria ativa</h2>
             </div>
             <div className="flex items-center gap-3">
-              <button onClick={() => fileInputRefPdf.current?.click()} className="p-3 text-foreground/40 hover:text-foreground hover:bg-gray-50 rounded-xl transition-all">
+              <button onClick={() => fileInputRefPdf.current?.click()} className="p-3 text-foreground/40 hover:text-foreground hover:bg-castanha-50 rounded-xl transition-all">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>
               </button>
               <input type="file" ref={fileInputRefPdf} className="hidden" accept=".pdf" onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0], 'pdf')} />
@@ -138,7 +138,7 @@ export default function LawyerDetailPage({ params }: Props) {
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
                 <div className={`max-w-[85%] ${m.role === 'user' 
                   ? 'rounded-[1.5rem] py-4 px-6 btn-primary-gradient text-white shadow-[0_12px_24px_rgba(0,0,0,0.12)] border border-white/5' 
-                  : 'rounded-[2.5rem] p-8 bg-white border border-[#e7e5e1] text-[#323232] shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
+                  : 'rounded-[2.5rem] p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
                   <div className={`prose prose-sm max-w-none font-medium leading-[1.6] text-[1.05rem] ${m.role === 'user' ? 'prose-invert' : 'prose-gray'}`}>
                     {m.role === 'assistant' ? (
                       <div 
@@ -157,7 +157,7 @@ export default function LawyerDetailPage({ params }: Props) {
             ))}
             {isTyping && (
               <div className="flex justify-start">
-                <div className="bg-gray-50 border border-gray-100 rounded-[2rem] px-8 py-6">
+                <div className="bg-castanha-50 border border-castanha-100 rounded-[2rem] px-8 py-6">
                   <div className="flex space-x-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce" />
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-100" />
@@ -176,7 +176,7 @@ export default function LawyerDetailPage({ params }: Props) {
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Inicie sua consulta jurídica..."
                 rows={1}
-                className="w-full bg-gray-50/50 border border-gray-100 focus:bg-white focus:ring-4 focus:ring-black/5 focus:border-black/10 rounded-[2rem] py-6 pl-8 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
+                className="w-full bg-castanha-50/50 border border-castanha-100 focus:bg-white focus:ring-4 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2rem] py-6 pl-8 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
                 style={{ height: '76px' }}
               />

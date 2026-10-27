@@ -101,7 +101,7 @@ export default function DashboardPage() {
     <DashboardLayout title="Pesquisa Inteligente">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Two-Panel Hero Section */}
-        <div className="flex flex-col lg:flex-row rounded-[3rem] overflow-hidden shadow-2xl border border-[#e7e5e1] min-h-[600px] bg-white">
+        <div className="flex flex-col lg:flex-row rounded-[3rem] overflow-hidden shadow-2xl border border-castanha-200 min-h-[600px] bg-white">
           {/* Left Panel: High-Density Intelligence Banner */}
           <div className="lg:w-1/2 p-12 md:p-20 bg-hero-gradient relative flex flex-col justify-between overflow-hidden">
             {/* Architectural Grid Background */}
@@ -117,16 +117,16 @@ export default function DashboardPage() {
             </div>
 
             <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/5 border border-black/5 animate-in fade-in slide-in-from-top-4 duration-1000">
-                <div className="w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-black/40 text-nowrap">Núcleo soberano ativo</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 animate-in fade-in slide-in-from-top-4 duration-1000">
+                <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 text-nowrap">Núcleo soberano ativo</span>
               </div>
               
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-[#10101A]">
+                <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-ink">
                   Central de <span className="font-light opacity-60 italic">Inteligência Estratégica</span>
                 </h2>
-                <p className="text-lg text-[#10101A]/60 font-medium leading-relaxed max-w-sm">
+                <p className="text-lg text-ink/60 font-medium leading-relaxed max-w-sm">
                   Pesquisa jurídica autônoma em diversas jurisdições, com mapeamento de precedentes em tempo real.
                 </p>
               </div>
@@ -135,10 +135,10 @@ export default function DashboardPage() {
             <div className="relative z-10 pt-12">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#10101A]/30">Fluxo de atividade neural</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/30">Fluxo de atividade neural</span>
                   <div className="flex gap-1">
-                    <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-                    <div className="w-1 h-1 rounded-full bg-green-500/40" />
+                    <div className="w-1 h-1 rounded-full bg-cerrado-500 animate-pulse" />
+                    <div className="w-1 h-1 rounded-full bg-cerrado-500/40" />
                   </div>
                 </div>
                 
@@ -148,16 +148,16 @@ export default function DashboardPage() {
                     { label: 'Auditoria de responsabilidade corporativa', time: 'há 45s', icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' },
                     { label: 'Descoberta transfronteiriça', time: 'há 2 min', icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' }
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-white/40 border border-[#e7e5e1] backdrop-blur-xl group hover:bg-white/60 transition-all cursor-default">
+                    <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-white/40 border border-castanha-200 backdrop-blur-xl group hover:bg-white/60 transition-all cursor-default">
                       <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-lg bg-black/5 flex items-center justify-center">
-                          <svg className="w-3.5 h-3.5 text-black/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <div className="w-6 h-6 rounded-lg bg-cerrado-950/5 flex items-center justify-center">
+                          <svg className="w-3.5 h-3.5 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                           </svg>
                         </div>
-                        <span className="text-[11px] font-bold text-[#10101A]/70 uppercase tracking-wider">{item.label}</span>
+                        <span className="text-[11px] font-bold text-ink/70 uppercase tracking-wider">{item.label}</span>
                       </div>
-                      <span className="text-[9px] font-bold text-black/20 uppercase tracking-widest">{item.time}</span>
+                      <span className="text-[9px] font-bold text-ink/20 uppercase tracking-widest">{item.time}</span>
                     </div>
                   ))}
                 </div>
@@ -170,12 +170,12 @@ export default function DashboardPage() {
             <div className="max-w-md w-full mx-auto space-y-10">
               <div className="space-y-2">
                 <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Terminal operacional</h3>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-[#10101A]">O que posso analisar para você?</h2>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-ink">O que posso analisar para você?</h2>
               </div>
 
               <form onSubmit={handleSearch} className="relative group">
                 <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-black/20 transition-colors group-focus-within:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 text-ink/20 transition-colors group-focus-within:text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -184,7 +184,7 @@ export default function DashboardPage() {
                   placeholder="Nº do processo, cláusula ou consulta..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-[#F9F8F6] border border-[#e7e5e1] text-[#10101A] placeholder-[#10101A]/30 py-5 pl-14 pr-16 rounded-2xl focus:outline-none focus:ring-4 focus:ring-black/5 transition-all duration-300 font-medium"
+                  className="w-full bg-castanha-50 border border-castanha-200 text-ink placeholder-ink/30 py-5 pl-14 pr-16 rounded-2xl focus:outline-none focus:ring-4 focus:ring-pequi-500/5 transition-all duration-300 font-medium"
                 />
                 <button
                   type="submit"
@@ -212,7 +212,7 @@ export default function DashboardPage() {
                       <button
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className="px-4 py-2 text-[10px] font-bold uppercase tracking-widest bg-[#F9F8F6] hover:bg-black/5 border border-[#e7e5e1] rounded-full text-black/40 hover:text-[#10101A] transition-all duration-300"
+                        className="px-4 py-2 text-[10px] font-bold uppercase tracking-widest bg-castanha-50 hover:bg-cerrado-950/5 border border-castanha-200 rounded-full text-ink/40 hover:text-ink transition-all duration-300"
                       >
                         {suggestion}
                       </button>
@@ -230,9 +230,9 @@ export default function DashboardPage() {
             {/* Main Results Column */}
             <div className="lg:col-span-2 space-y-8">
               {enhancedQuery && (
-                <div className="bg-white border border-[#e7e5e1] rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+                <div className="bg-white border border-castanha-200 rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                   <div className="flex items-center gap-4 mb-10">
-                    <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center shadow-lg shadow-black/10">
+                    <div className="w-10 h-10 rounded-xl bg-cerrado-900 flex items-center justify-center shadow-lg shadow-black/10">
                       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
@@ -243,7 +243,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <div
-                    className="legal-search-result prose prose-gray max-w-none text-[#323232] leading-relaxed font-medium text-[1.1rem]"
+                    className="legal-search-result prose prose-gray max-w-none text-castanha-800 leading-relaxed font-medium text-[1.1rem]"
                     dangerouslySetInnerHTML={{ __html: enhancedQuery }}
                   />
                 </div>
@@ -253,22 +253,22 @@ export default function DashboardPage() {
                 <div className="space-y-4">
                   <h3 className="px-6 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Fontes citadas</h3>
                   {searchResults.map((result) => (
-                    <div key={result.id} className="group bg-white hover:bg-[#F9F8F6] border border-[#e7e5e1] rounded-[2rem] p-8 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer">
+                    <div key={result.id} className="group bg-white hover:bg-castanha-50 border border-castanha-200 rounded-[2rem] p-8 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer">
                       <div className="flex justify-between items-start mb-4">
                         <div className="flex-1">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#525252] mb-2 block">{result.type} • {result.year}</span>
-                          <h4 className="text-xl font-medium text-[#10101A] group-hover:text-black transition-colors tracking-tight">{result.title}</h4>
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 mb-2 block">{result.type} • {result.year}</span>
+                          <h4 className="text-xl font-medium text-ink group-hover:text-ink transition-colors tracking-tight">{result.title}</h4>
                         </div>
                         <div className="px-3 py-1.5 rounded-full bg-foreground/5 text-[10px] font-bold text-foreground/40 border border-foreground/5">
                           {Math.round(result.relevance * 100)}% de relevância
                         </div>
                       </div>
-                      <p className="text-[1rem] text-[#525252] leading-relaxed line-clamp-2 font-medium">
+                      <p className="text-[1rem] text-castanha-600 leading-relaxed line-clamp-2 font-medium">
                         {result.summary}
                       </p>
                       <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#10101A]">Ver análise</span>
-                        <svg className="w-3 h-3 text-[#10101A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink">Ver análise</span>
+                        <svg className="w-3 h-3 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                       </div>
                     </div>
                   ))}
@@ -279,14 +279,14 @@ export default function DashboardPage() {
             {/* Sidebar Column */}
             <div className="space-y-8">
               {followUpPrompts.length > 0 && (
-                <div className="bg-[#F9F8F6] rounded-[2.5rem] p-8 border border-[#e7e5e1]">
+                <div className="bg-castanha-50 rounded-[2.5rem] p-8 border border-castanha-200">
                   <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30 mb-8 font-sans">Aprofundamento estratégico</h3>
                   <div className="space-y-3">
                     {followUpPrompts.map((prompt, index) => (
                       <button
                         key={index}
                         onClick={() => handleFollowUpClick(prompt)}
-                        className="w-full text-left px-6 py-5 bg-white border border-[#e7e5e1] rounded-2xl transition-all duration-300 shadow-sm text-[0.95rem] group hover:btn-primary-gradient"
+                        className="w-full text-left px-6 py-5 bg-white border border-castanha-200 rounded-2xl transition-all duration-300 shadow-sm text-[0.95rem] group hover:btn-primary-gradient"
                         disabled={isSearching}
                       >
                         <div className="flex items-center justify-between">
@@ -299,10 +299,10 @@ export default function DashboardPage() {
                 </div>
               )}
  
-              <div className="bg-hero-gradient text-[#10101A] rounded-[2.5rem] p-10 shadow-2xl overflow-hidden relative border border-black/5">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-black/5 rounded-full -mr-24 -mt-24 blur-3xl" />
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#10101A]/30 mb-8 relative z-10">Agente de inteligência</h3>
-                <p className="text-[1rem] font-medium text-[#10101A]/60 leading-relaxed mb-10 relative z-10">
+              <div className="bg-hero-gradient text-ink rounded-[2.5rem] p-10 shadow-2xl overflow-hidden relative border border-cerrado-900/5">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-cerrado-950/5 rounded-full -mr-24 -mt-24 blur-3xl" />
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/30 mb-8 relative z-10">Agente de inteligência</h3>
+                <p className="text-[1rem] font-medium text-ink/60 leading-relaxed mb-10 relative z-10">
                   Transforme esta pesquisa jurídica em uma minuta profissional ou solicite uma análise pericial mais aprofundada.
                 </p>
                 <div className="space-y-4 relative z-10">
@@ -314,7 +314,7 @@ export default function DashboardPage() {
                     Redigir contrato
                   </button>
                   <button 
-                    className="w-full py-5 bg-black/5 hover:bg-black/10 text-[#10101A] border border-black/10 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] transition-all" 
+                    className="w-full py-5 bg-cerrado-950/5 hover:bg-cerrado-950/10 text-ink border border-cerrado-900/10 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] transition-all" 
                     onClick={() => router.push('/dashboard/chat')}
                   >
                     Consultar assistente

@@ -82,7 +82,7 @@ export default function AgreementPage({ params }: Props) {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center bg-gray-50">
+      <div className="h-screen flex items-center justify-center bg-castanha-50">
         <Spinner size="lg" />
         <span className="ml-3 text-foreground/60 font-medium">Carregando documento...</span>
       </div>
@@ -91,7 +91,7 @@ export default function AgreementPage({ params }: Props) {
 
   if (error || !agreement) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center bg-gray-50">
+      <div className="h-screen flex flex-col items-center justify-center bg-castanha-50">
         <div className="bg-red-50 border border-red-100 text-red-600 rounded-xl p-6 mb-6 max-w-lg text-center shadow-sm">
           <svg className="w-12 h-12 text-red-300 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -110,14 +110,14 @@ export default function AgreementPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen bg-castanha-50 py-8 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="mb-8 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <button
             onClick={() => router.push('/dashboard/docs')}
             className="text-foreground/60 hover:text-foreground flex items-center gap-2 transition-colors font-medium group"
           >
-            <div className="bg-white p-2 rounded-full border border-gray-200 shadow-sm group-hover:border-gray-300 transition-all">
+            <div className="bg-white p-2 rounded-full border border-castanha-200 shadow-sm group-hover:border-castanha-300 transition-all">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
@@ -125,7 +125,7 @@ export default function AgreementPage({ params }: Props) {
             Voltar para Documentos
           </button>
 
-          <div className="text-foreground/50 text-sm bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
+          <div className="text-foreground/50 text-sm bg-white px-4 py-2 rounded-full border border-castanha-100 shadow-sm">
             <span className="font-medium text-foreground/70 mr-1">Created:</span> {new Date(agreement.createdAt).toLocaleString()}
           </div>
         </div>
@@ -133,11 +133,11 @@ export default function AgreementPage({ params }: Props) {
         {agreement.documentType && agreement.templateStyle && (
           <div className="mb-8 flex items-center gap-3 text-xs">
             <span className="px-3 py-1.5 text-white rounded-full font-medium shadow-sm btn-primary-gradient">{agreement.documentType}</span>
-            <span className="px-3 py-1.5 bg-white border border-gray-200 text-foreground/70 rounded-full font-medium shadow-sm">{agreement.templateStyle}</span>
+            <span className="px-3 py-1.5 bg-white border border-castanha-200 text-foreground/70 rounded-full font-medium shadow-sm">{agreement.templateStyle}</span>
           </div>
         )}
 
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-xl border border-castanha-100 overflow-hidden">
           <AgreementFormatter agreement={agreement} />
         </div>
       </div>

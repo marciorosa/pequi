@@ -14,7 +14,7 @@ const landingInterTight = localFont({
 
 export default function CareersPage() {
   return (
-    <div className={`${landingInterTight.variable} landing-gilroy bg-[#FFFFFF] text-foreground`}>
+    <div className={`${landingInterTight.variable} landing-gilroy bg-white text-foreground`}>
       <CareersExperience />
     </div>
   );

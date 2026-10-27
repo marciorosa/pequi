@@ -63,10 +63,10 @@ const AnimatedBackground = () => {
       </div>
 
       {/* Decorative lines */}
-      <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-r from-transparent via-black/5 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-px bg-gradient-to-r from-transparent via-black/5 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-px h-1/2 bg-gradient-to-b from-transparent via-black/5 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-px h-1/2 bg-gradient-to-b from-transparent via-black/5 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-r from-transparent via-cerrado-950/5 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-px bg-gradient-to-r from-transparent via-cerrado-950/5 to-transparent"></div>
+      <div className="absolute top-0 right-0 w-px h-1/2 bg-gradient-to-b from-transparent via-cerrado-950/5 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-px h-1/2 bg-gradient-to-b from-transparent via-cerrado-950/5 to-transparent"></div>
     </>
   );
 };

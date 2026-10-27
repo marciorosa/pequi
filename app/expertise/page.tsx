@@ -89,7 +89,7 @@ export default function ExpertisePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-cerrado-900 text-white">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-20"></div>
@@ -200,7 +200,7 @@ export default function ExpertisePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               href="/contact"
-              className="bg-white hover:bg-white/90 text-black px-8 py-3 transition-all duration-300"
+              className="bg-white hover:bg-white/90 text-ink px-8 py-3 transition-all duration-300"
             >
               Agendar uma demonstração
             </Link>

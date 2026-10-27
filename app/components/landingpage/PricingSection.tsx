@@ -23,7 +23,7 @@ export default function PricingSection() {
 
   return (
     <FadeInSection delay={0.15}>
-      <section id="pricing" className="bg-[#F9F2FA] scroll-mt-24 md:scroll-mt-28">
+      <section id="pricing" className="bg-pequi-50 scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
           <div className="mx-auto max-w-[840px] text-center">
             <h3 className={sectionHeadingClass}>Preços simples para equipes jurídicas</h3>
@@ -32,12 +32,12 @@ export default function PricingSection() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 mb-10 flex w-fit flex-col items-center gap-3 rounded-2xl border border-[#e7e7ea] bg-white px-4 py-3 shadow-[0_8px_24px_rgba(16,16,26,0.06)] sm:flex-row sm:rounded-full sm:px-3 sm:py-2">
-            <div className="inline-flex rounded-full border border-[#e5e5ea] bg-[#f6f6f8] p-1">
+          <div className="mx-auto mt-10 mb-10 flex w-fit flex-col items-center gap-3 rounded-2xl border border-castanha-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(31,42,23,0.06)] sm:flex-row sm:rounded-full sm:px-3 sm:py-2">
+            <div className="inline-flex rounded-full border border-castanha-150 bg-castanha-25 p-1">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition ${
-                  billingPeriod === 'monthly' ? 'bg-[#10101A] text-white' : 'text-[#5f5f6b]'
+                  billingPeriod === 'monthly' ? 'bg-cerrado-900 text-white' : 'text-castanha-600'
                 }`}
                 type="button"
               >
@@ -46,14 +46,14 @@ export default function PricingSection() {
               <button
                 onClick={() => setBillingPeriod('annual')}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition ${
-                  billingPeriod === 'annual' ? 'bg-[#10101A] text-white' : 'text-[#5f5f6b]'
+                  billingPeriod === 'annual' ? 'bg-cerrado-900 text-white' : 'text-castanha-600'
                 }`}
                 type="button"
               >
                 Anual
               </button>
             </div>
-            <p className="text-[0.8rem] font-medium uppercase tracking-[0.08em] text-[#6a6272]">
+            <p className="text-[0.8rem] font-medium uppercase tracking-[0.08em] text-castanha-600">
               No plano anual, economize até 17%
             </p>
           </div>
@@ -64,24 +64,24 @@ export default function PricingSection() {
                 key={plan.name}
                 className={`relative flex h-full flex-col rounded-[1.5rem] border p-6 md:p-8 transition ${
                   plan.popular
-                    ? 'border-[#10101A] bg-[#10101A] text-white shadow-[0_24px_50px_rgba(16,16,26,0.22)]'
-                    : 'border-[#e7e7ea] bg-[#fcfcfd] text-[#10101A] shadow-[0_10px_28px_rgba(16,16,26,0.07)]'
+                    ? 'border-cerrado-900 bg-cerrado-900 text-white shadow-[0_24px_50px_rgba(31,42,23,0.22)]'
+                    : 'border-castanha-200 bg-castanha-25 text-ink shadow-[0_10px_28px_rgba(31,42,23,0.07)]'
                 }`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-3 left-6 inline-flex h-7 items-center rounded-full bg-white px-3 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-[#10101A]">
+                  <span className="absolute -top-3 left-6 inline-flex h-7 items-center rounded-full bg-white px-3 text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-ink">
                     Mais popular
                   </span>
                 )}
                 <div className="mb-7">
-                  <p className={`text-[0.85rem] font-medium uppercase tracking-[0.08em] ${plan.popular ? 'text-white/80' : 'text-[#696977]'}`}>
+                  <p className={`text-[0.85rem] font-medium uppercase tracking-[0.08em] ${plan.popular ? 'text-white/80' : 'text-castanha-600'}`}>
                     {plan.name}
                   </p>
-                  <p className={`mt-2 text-sm ${plan.popular ? 'text-white/80' : 'text-[#696977]'}`}>{plan.description}</p>
+                  <p className={`mt-2 text-sm ${plan.popular ? 'text-white/80' : 'text-castanha-600'}`}>{plan.description}</p>
                   <div className="mt-6 flex items-end gap-2">
                     <span className="text-[2.5rem] leading-none font-semibold">{getPrice(plan)}</span>
                     {plan.monthlyPrice !== null && (
-                      <span className={`mb-1 text-sm ${plan.popular ? 'text-white/70' : 'text-[#696977]'}`}>
+                      <span className={`mb-1 text-sm ${plan.popular ? 'text-white/70' : 'text-castanha-600'}`}>
                         /{billingPeriod === 'monthly' ? 'mês' : 'ano'}
                       </span>
                     )}
@@ -89,7 +89,7 @@ export default function PricingSection() {
                   {billingPeriod === 'annual' && getSavings(plan) && (
                     <p
                       className={`mt-3 inline-flex w-fit items-center rounded-full px-3 py-1 text-xs font-medium ${
-                        plan.popular ? 'bg-white/15 text-white' : 'bg-[#efe8f6] text-[#5d4b73]'
+                        plan.popular ? 'bg-white/15 text-white' : 'bg-pequi-50 text-castanha-600'
                       }`}
                     >
                       Economize {getSavings(plan)}% no plano anual
@@ -102,7 +102,7 @@ export default function PricingSection() {
                     <li key={feature} className="flex items-start gap-2.5">
                       <span
                         className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                          plan.popular ? 'bg-white/15 text-white' : 'bg-[#edeaf3] text-[#10101A]'
+                          plan.popular ? 'bg-white/15 text-white' : 'bg-castanha-100 text-ink'
                         }`}
                       >
                         <svg className="h-3 w-3" viewBox="0 0 16 16" fill="none" aria-hidden>
@@ -115,7 +115,7 @@ export default function PricingSection() {
                           />
                         </svg>
                       </span>
-                      <span className={`text-[0.95rem] leading-[1.45rem] ${plan.popular ? 'text-white/88' : 'text-[#4d4d58]'}`}>
+                      <span className={`text-[0.95rem] leading-[1.45rem] ${plan.popular ? 'text-white/88' : 'text-castanha-700'}`}>
                         {feature}
                       </span>
                     </li>

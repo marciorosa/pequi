@@ -726,110 +726,14 @@ details[open] .faqMinus {
 }
 
 /* ==========================================================================
-   Ponte de cores
+   Como usar a paleta nos componentes
    --------------------------------------------------------------------------
-   Os componentes usam cores fixas nas classes (ex.: text-[#10101A],
-   border-[#e7e5e1]). As regras abaixo — geradas a partir das classes usadas
-   em app/ — levam essas cores para a paleta Pequi sem precisar editar cada
-   componente. Ficam fora de @layer de propósito, para valer sobre os
-   utilitários do Tailwind. Ao criar componentes novos, prefira as classes da
-   paleta (bg-pequi-500, text-ink, border-castanha-200…).
+   Use as classes da paleta em vez de cores fixas (hex):
+     texto principal ........ text-ink
+     texto secundário ....... text-castanha-600   (suave: castanha-500/400)
+     bordas ................. border-castanha-200 (suave: castanha-150)
+     fundos claros .......... bg-white, bg-castanha-25/50/100
+     áreas escuras .......... bg-cerrado-900 / bg-cerrado-950
+     destaque da marca ...... bg-pequi-500 com text-ink (nunca texto branco)
+     sucesso ................ cerrado-500/600 · atenção: pequi-600 · erro: red
    ========================================================================== */
-.bg-\[\#0f172a\] { background-color: var(--pq-deep); }
-.bg-\[\#0f172a\]\/50 { background-color: color-mix(in oklab, var(--pq-deep) 50%, transparent); }
-.bg-\[\#10101A\] { background-color: var(--pq-deep); }
-.bg-\[\#10101A\]\/15 { background-color: color-mix(in oklab, var(--pq-deep) 15%, transparent); }
-.bg-\[\#10101A\]\/25 { background-color: color-mix(in oklab, var(--pq-deep) 25%, transparent); }
-.bg-\[\#111827\] { background-color: var(--pq-deep); }
-.bg-\[\#1A1A1A\] { background-color: var(--pq-deep-soft); }
-.bg-\[\#F5F5F4\] { background-color: var(--pq-muted); }
-.bg-\[\#F5F5F4\]\/40 { background-color: color-mix(in oklab, var(--pq-muted) 40%, transparent); }
-.bg-\[\#F5F5F4\]\/80 { background-color: color-mix(in oklab, var(--pq-muted) 80%, transparent); }
-.bg-\[\#F9F8F6\] { background-color: var(--pq-surface-sunken); }
-.bg-\[\#F9F8F6\]\/80 { background-color: color-mix(in oklab, var(--pq-surface-sunken) 80%, transparent); }
-.bg-\[\#FDFDFB\] { background-color: var(--pq-surface-raised); }
-.bg-\[\#FFFFFF\] { background-color: var(--pq-surface); }
-.bg-\[\#d4d2ce\] { background-color: var(--pq-border-strong); }
-.bg-\[\#e7e5e1\] { background-color: var(--pq-border); }
-.bg-\[\#eceae7\] { background-color: var(--pq-border-soft); }
-.bg-\[\#efeeec\]\/85 { background-color: color-mix(in oklab, var(--pq-muted-strong) 85%, transparent); }
-.bg-\[\#f1f0ee\] { background-color: var(--pq-muted); }
-.bg-\[\#f1f0ee\]\/40 { background-color: color-mix(in oklab, var(--pq-muted) 40%, transparent); }
-.bg-\[\#f1f0ee\]\/45 { background-color: color-mix(in oklab, var(--pq-muted) 45%, transparent); }
-.bg-\[\#f1f0ee\]\/55 { background-color: color-mix(in oklab, var(--pq-muted) 55%, transparent); }
-.bg-\[\#f1f0ee\]\/65 { background-color: color-mix(in oklab, var(--pq-muted) 65%, transparent); }
-.bg-\[\#f1f0ee\]\/75 { background-color: color-mix(in oklab, var(--pq-muted) 75%, transparent); }
-.bg-\[\#f1f0ee\]\/80 { background-color: color-mix(in oklab, var(--pq-muted) 80%, transparent); }
-.bg-\[\#f8f7f6\] { background-color: var(--pq-surface-sunken); }
-.bg-\[\#fcfcfd\] { background-color: var(--pq-surface-raised); }
-.border-\[\#10101A\] { border-color: var(--pq-ink); }
-.border-\[\#10101A\]\/18 { border-color: color-mix(in oklab, var(--pq-ink) 18%, transparent); }
-.border-\[\#111827\] { border-color: var(--pq-ink); }
-.border-\[\#111827\]\/25 { border-color: color-mix(in oklab, var(--pq-ink) 25%, transparent); }
-.border-\[\#1A1A1A\] { border-color: var(--pq-ink-soft); }
-.border-\[\#d4d2ce\] { border-color: var(--pq-border-strong); }
-.border-\[\#e1e4ef\] { border-color: var(--pq-border); }
-.border-\[\#e7e5e1\] { border-color: var(--pq-border); }
-.border-\[\#e7e7ea\] { border-color: var(--pq-border); }
-.border-\[\#eceae7\] { border-color: var(--pq-border-soft); }
-.border-\[\#ececf2\] { border-color: var(--pq-border-soft); }
-.border-\[\#f0efed\] { border-color: var(--pq-border-soft); }
-.divide-\[\#e7e5e1\] > :not(:last-child) { border-color: var(--pq-border); }
-.divide-\[\#eceae7\] > :not(:last-child) { border-color: var(--pq-border-soft); }
-.divide-\[\#f0efed\] > :not(:last-child) { border-color: var(--pq-border-soft); }
-.focus-visible\:ring-\[\#10101A\]\/15:focus-visible { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 60%, transparent); }
-.focus\:border-\[\#d4d2ce\]:focus { border-color: var(--pq-border-strong); }
-.focus\:ring-\[\#10101A\]\/10:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 40%, transparent); }
-.focus\:ring-\[\#10101A\]\/15:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 60%, transparent); }
-.focus\:ring-\[\#10101A\]\/8:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 32%, transparent); }
-.from-\[\#efeeec\] { --tw-gradient-from: var(--pq-muted-strong); }
-.from-\[\#f1f0ee\] { --tw-gradient-from: var(--pq-muted); }
-.group[open] .group-open\:bg-\[\#10101A\] { background-color: var(--pq-deep); }
-.group[open] .group-open\:border-\[\#10101A\] { border-color: var(--pq-ink); }
-.hover\:bg-\[\#0f172a\]:hover { background-color: var(--pq-deep); }
-.hover\:bg-\[\#F9F8F6\]:hover { background-color: var(--pq-surface-sunken); }
-.hover\:bg-\[\#eceae7\]:hover { background-color: var(--pq-border-soft); }
-.hover\:bg-\[\#edeef0\]:hover { background-color: var(--pq-muted-strong); }
-.hover\:bg-\[\#efedea\]:hover { background-color: var(--pq-muted-strong); }
-.hover\:bg-\[\#f3f1ee\]:hover { background-color: var(--pq-muted-strong); }
-.hover\:bg-\[\#f3f4f6\]:hover { background-color: var(--pq-muted); }
-.hover\:bg-\[\#f5f4f2\]:hover { background-color: var(--pq-muted); }
-.hover\:bg-\[\#f8f7f6\]:hover { background-color: var(--pq-surface-sunken); }
-.hover\:bg-\[\#f8f7f6\]\/80:hover { background-color: color-mix(in oklab, var(--pq-surface-sunken) 80%, transparent); }
-.hover\:bg-\[\#f9fafb\]:hover { background-color: var(--pq-surface-sunken); }
-.hover\:bg-\[\#fafafb\]:hover { background-color: var(--pq-surface-raised); }
-.hover\:bg-\[\#fcfcfd\]:hover { background-color: var(--pq-surface-raised); }
-.hover\:border-\[\#d4d2ce\]:hover { border-color: var(--pq-border-strong); }
-.hover\:border-\[\#e7e5e1\]:hover { border-color: var(--pq-border); }
-.hover\:border-\[\#eceae7\]:hover { border-color: var(--pq-border-soft); }
-.hover\:text-\[\#10101A\]:hover { color: var(--pq-ink); }
-.hover\:text-\[\#111827\]:hover { color: var(--pq-ink); }
-.hover\:text-\[\#1d1c23\]:hover { color: var(--pq-ink); }
-.placeholder\:text-\[\#525252\]::placeholder { color: var(--pq-text-muted); }
-.text-\[\#10101A\] { color: var(--pq-ink); }
-.text-\[\#10101A\]\/12 { color: color-mix(in oklab, var(--pq-ink) 12%, transparent); }
-.text-\[\#10101A\]\/20 { color: color-mix(in oklab, var(--pq-ink) 20%, transparent); }
-.text-\[\#10101A\]\/30 { color: color-mix(in oklab, var(--pq-ink) 30%, transparent); }
-.text-\[\#10101A\]\/40 { color: color-mix(in oklab, var(--pq-ink) 40%, transparent); }
-.text-\[\#10101A\]\/60 { color: color-mix(in oklab, var(--pq-ink) 60%, transparent); }
-.text-\[\#10101A\]\/70 { color: color-mix(in oklab, var(--pq-ink) 70%, transparent); }
-.text-\[\#111827\] { color: var(--pq-ink); }
-.text-\[\#111827\]\/15 { color: color-mix(in oklab, var(--pq-ink) 15%, transparent); }
-.text-\[\#111827\]\/70 { color: color-mix(in oklab, var(--pq-ink) 70%, transparent); }
-.text-\[\#1f2025\] { color: var(--pq-ink); }
-.text-\[\#323232\] { color: var(--pq-text-strong); }
-.text-\[\#474550\] { color: var(--pq-text-strong); }
-.text-\[\#525252\] { color: var(--pq-text-muted); }
-.text-\[\#5f5f6b\] { color: var(--pq-text-muted); }
-.text-\[\#636977\] { color: var(--pq-text-muted); }
-.text-\[\#696977\] { color: var(--pq-text-muted); }
-.text-\[\#868589\] { color: var(--pq-text-subtle); }
-.text-\[\#A0A0A0\] { color: var(--pq-text-faint); }
-.to-\[\#0f172a\] { --tw-gradient-to: var(--pq-deep); }
-.via-\[\#0f172a\] { --tw-gradient-via: var(--pq-deep); }
-@media (width >= 48rem) {
-  .md\:border-\[\#e7e7ea\] { border-color: var(--pq-border); }
-}
-@media (width >= 64rem) {
-  .lg\:border-\[\#e7e7ea\] { border-color: var(--pq-border); }
-}
