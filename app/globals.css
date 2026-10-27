@@ -1,17 +1,110 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Paleta Pequi
+   --------------------------------------------------------------------------
+   Inspirada no pequi, fruto do Cerrado: a polpa amarelo-ouro (cor da marca
+   #F7BE09), a casca verde, o caroço e a terra vermelha do Cerrado, e o creme
+   da castanha. Cada família vai de 50 (mais claro) a 900/950 (mais escuro).
+   ========================================================================== */
 :root {
-  --background: #FFFFFF;
-  --foreground: #10101A;
-  --accent: #10101A;
-  --primary: #10101A;
-  --secondary: #525252;
-  --muted: #f1f0ee;
-  --border: #e7e5e1;
-  --card: #FFFFFF;
-  --card-foreground: #323232;
-  --input: #fcfcfd;
-  --ring: #10101A;
+  /* Polpa — amarelo-ouro da marca */
+  --pequi-50: #FFF9E5;
+  --pequi-100: #FEF0C0;
+  --pequi-200: #FDE28A;
+  --pequi-300: #FBD24E;
+  --pequi-400: #F9C72A;
+  --pequi-500: #F7BE09; /* cor da marca */
+  --pequi-600: #D9A100;
+  --pequi-700: #B07F04;
+  --pequi-800: #87610A;
+  --pequi-900: #5C430C;
+
+  /* Casca — verde do Cerrado */
+  --cerrado-50: #F3F6EE;
+  --cerrado-100: #E2EBD6;
+  --cerrado-200: #C4D7AE;
+  --cerrado-300: #9EBC81;
+  --cerrado-400: #779F59;
+  --cerrado-500: #59823C;
+  --cerrado-600: #45672E;
+  --cerrado-700: #365125;
+  --cerrado-800: #2A401E;
+  --cerrado-900: #1E2E16;
+  --cerrado-950: #131D0E;
+
+  /* Caroço e terra do Cerrado */
+  --terra-50: #FAF4EE;
+  --terra-100: #F2E4D6;
+  --terra-200: #E3C6AA;
+  --terra-300: #D0A076;
+  --terra-400: #B97B4C;
+  --terra-500: #9C5F33;
+  --terra-600: #7E4A28;
+  --terra-700: #623A22;
+  --terra-800: #472B1B;
+  --terra-900: #2F1D13;
+
+  /* Castanha — neutros quentes (fundos, bordas e textos) */
+  --castanha-0: #FFFFFF;
+  --castanha-25: #FFFDF8;
+  --castanha-50: #FCF8EE;
+  --castanha-100: #F7F0DF;
+  --castanha-150: #F2E9D2;
+  --castanha-200: #ECE2C8;
+  --castanha-300: #DCCDA8;
+  --castanha-400: #B3A684;
+  --castanha-500: #8A8270;
+  --castanha-600: #66614F;
+  --castanha-700: #4A4738;
+  --castanha-800: #34362A;
+
+  /* Estados */
+  --pq-success: #59823C;
+  --pq-warning: #D9A100;
+  --pq-danger: #C2462B;
+  --pq-info: #3F7A8C;
+
+  /* --------------------------------------------------------------------
+     Tokens de uso (o que os componentes consomem)
+     -------------------------------------------------------------------- */
+  --pq-ink: #1F2A17;              /* texto principal: verde quase preto */
+  --pq-ink-soft: #2D3A23;
+  --pq-text-strong: var(--castanha-800);
+  --pq-text-muted: var(--castanha-600);
+  --pq-text-subtle: var(--castanha-500);
+  --pq-text-faint: var(--castanha-400);
+
+  --pq-surface: var(--castanha-0);       /* cartões */
+  --pq-surface-raised: var(--castanha-25);
+  --pq-surface-sunken: var(--castanha-50);
+  --pq-muted: var(--castanha-100);
+  --pq-muted-strong: var(--castanha-150);
+
+  --pq-border-soft: #EFE7D2;
+  --pq-border: var(--castanha-200);
+  --pq-border-strong: var(--castanha-300);
+
+  --pq-deep: var(--cerrado-900);         /* seções e botões escuros */
+  --pq-deep-soft: var(--cerrado-800);
+
+  --pq-brand: var(--pequi-500);
+  --pq-brand-hover: var(--pequi-400);
+  --pq-brand-strong: var(--pequi-600);
+  --pq-on-brand: var(--pq-ink);          /* texto sobre o amarelo (contraste AA) */
+
+  /* Variáveis já usadas pelo app */
+  --background: var(--castanha-25);
+  --foreground: var(--pq-ink);
+  --accent: var(--pequi-500);
+  --primary: var(--cerrado-900);
+  --secondary: var(--castanha-600);
+  --muted: var(--castanha-100);
+  --border: var(--castanha-200);
+  --card: var(--castanha-0);
+  --card-foreground: var(--castanha-800);
+  --input: var(--castanha-25);
+  --ring: var(--pequi-500);
   --font-gilroy: var(--font-inter-tight);
   --font-landing: var(--font-inter-tight);
   --font-heading: var(--font-gilroy);
@@ -29,6 +122,57 @@
   --color-card-foreground: var(--card-foreground);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  /* Paleta disponível como classes: bg-pequi-500, text-cerrado-800, border-castanha-200… */
+  --color-pequi-50: var(--pequi-50);
+  --color-pequi-100: var(--pequi-100);
+  --color-pequi-200: var(--pequi-200);
+  --color-pequi-300: var(--pequi-300);
+  --color-pequi-400: var(--pequi-400);
+  --color-pequi-500: var(--pequi-500);
+  --color-pequi-600: var(--pequi-600);
+  --color-pequi-700: var(--pequi-700);
+  --color-pequi-800: var(--pequi-800);
+  --color-pequi-900: var(--pequi-900);
+  --color-cerrado-50: var(--cerrado-50);
+  --color-cerrado-100: var(--cerrado-100);
+  --color-cerrado-200: var(--cerrado-200);
+  --color-cerrado-300: var(--cerrado-300);
+  --color-cerrado-400: var(--cerrado-400);
+  --color-cerrado-500: var(--cerrado-500);
+  --color-cerrado-600: var(--cerrado-600);
+  --color-cerrado-700: var(--cerrado-700);
+  --color-cerrado-800: var(--cerrado-800);
+  --color-cerrado-900: var(--cerrado-900);
+  --color-cerrado-950: var(--cerrado-950);
+  --color-terra-50: var(--terra-50);
+  --color-terra-100: var(--terra-100);
+  --color-terra-200: var(--terra-200);
+  --color-terra-300: var(--terra-300);
+  --color-terra-400: var(--terra-400);
+  --color-terra-500: var(--terra-500);
+  --color-terra-600: var(--terra-600);
+  --color-terra-700: var(--terra-700);
+  --color-terra-800: var(--terra-800);
+  --color-terra-900: var(--terra-900);
+  --color-castanha-25: var(--castanha-25);
+  --color-castanha-50: var(--castanha-50);
+  --color-castanha-100: var(--castanha-100);
+  --color-castanha-150: var(--castanha-150);
+  --color-castanha-200: var(--castanha-200);
+  --color-castanha-300: var(--castanha-300);
+  --color-castanha-400: var(--castanha-400);
+  --color-castanha-500: var(--castanha-500);
+  --color-castanha-600: var(--castanha-600);
+  --color-castanha-700: var(--castanha-700);
+  --color-castanha-800: var(--castanha-800);
+  --color-brand: var(--pq-brand);
+  --color-ink: var(--pq-ink);
+  --color-success: var(--pq-success);
+  --color-warning: var(--pq-warning);
+  --color-danger: var(--pq-danger);
+  --color-info: var(--pq-info);
+
   --font-sans: var(--font-gilroy), var(--font-lexend-deca), system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
@@ -64,6 +208,17 @@
     scroll-behavior: smooth;
   }
 
+  /* Seleção de texto e foco no tom da marca */
+  ::selection {
+    background: var(--pequi-200);
+    color: var(--pq-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--pequi-500);
+    outline-offset: 2px;
+  }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
@@ -75,8 +230,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
+    background: var(--castanha-300);
     border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--pequi-600);
   }
 
   /* Reset browser default link colors */
@@ -147,16 +306,17 @@
 }
 
 .btn-primary-gradient {
-  background: linear-gradient(189deg, #1A1A1A 16.84%, #636363 97.72%) !important;
-  box-shadow: 0 3.778px 11.333px 0 rgba(0, 0, 0, 0.18), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset !important;
-  color: #FFFFFF !important;
+  background: linear-gradient(189deg, var(--pequi-300) 10%, var(--pequi-500) 55%, var(--pequi-600) 100%) !important;
+  box-shadow: 0 4px 12px 0 rgba(176, 127, 4, 0.28), 0 -2px 2px 0 rgba(135, 97, 10, 0.45) inset !important;
+  color: var(--pq-on-brand) !important;
+  font-weight: 600;
   transition: all 250ms ease !important;
 }
 
 .btn-primary-gradient:hover {
   transform: translateY(-2px) !important;
-  filter: brightness(1.1) !important;
-  box-shadow: 0 10px 24px rgba(16, 16, 26, 0.2), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset !important;
+  filter: brightness(1.04) saturate(1.05) !important;
+  box-shadow: 0 10px 24px rgba(176, 127, 4, 0.32), 0 -2px 2px 0 rgba(135, 97, 10, 0.45) inset !important;
 }
 
 .btn-primary-gradient:active {
@@ -182,7 +342,7 @@
 }
 
 .shadow-glow {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 15px rgba(247, 190, 9, 0.12);
 }
 
 /* Custom scrollbar styling */
@@ -350,11 +510,11 @@
 }
 
 .formatted-content a {
-  @apply text-blue-300 underline;
+  @apply text-pequi-300 underline;
 }
 
 .formatted-content blockquote {
-  @apply border-l-4 border-white/20 pl-4 italic my-3;
+  @apply border-l-4 border-pequi-400/50 pl-4 italic my-3;
 }
 
 .formatted-content code {
@@ -408,11 +568,11 @@
 }
 
 .formatted-content a {
-  @apply text-blue-300 underline;
+  @apply text-pequi-300 underline;
 }
 
 .formatted-content blockquote {
-  @apply border-l-4 border-border pl-3 italic my-3;
+  @apply border-l-4 border-pequi-400 pl-3 italic my-3;
 }
 
 .formatted-content code {
@@ -472,9 +632,9 @@ details[open] .faqMinus {
 
 .landing-primary-btn {
   border-radius: 29.51363rem;
-  background: linear-gradient(189deg, #1A1A1A 16.84%, #636363 97.72%);
-  box-shadow: 0 3.778px 11.333px 0 rgba(0, 0, 0, 0.18), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset;
-  color: #FFF;
+  background: linear-gradient(189deg, var(--pequi-300) 10%, var(--pequi-500) 55%, var(--pequi-600) 100%);
+  box-shadow: 0 4px 12px 0 rgba(176, 127, 4, 0.28), 0 -2px 2px 0 rgba(135, 97, 10, 0.45) inset;
+  color: var(--pq-on-brand);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
   font-size: 1rem;
@@ -488,8 +648,8 @@ details[open] .faqMinus {
 
 .landing-primary-btn:hover {
   transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 10px 24px rgba(16, 16, 26, 0.2), 0 -1.889px 1.889px 0 rgba(0, 0, 0, 0.86) inset;
+  filter: brightness(1.04) saturate(1.05);
+  box-shadow: 0 10px 24px rgba(176, 127, 4, 0.32), 0 -2px 2px 0 rgba(135, 97, 10, 0.45) inset;
 }
 
 .landing-secondary-btn {
@@ -503,9 +663,9 @@ details[open] .faqMinus {
   gap: 0;
   flex-shrink: 0;
   border-radius: 29.51363rem;
-  border: 1px solid #e7e5e1;
-  background: #f1f0ee;
-  color: #10101A;
+  border: 1px solid var(--cerrado-200);
+  background: var(--cerrado-50);
+  color: var(--cerrado-900);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
   font-size: 1rem;
@@ -518,19 +678,158 @@ details[open] .faqMinus {
 
 .landing-secondary-btn:hover {
   transform: translateY(-2px);
-  background: #eceae7;
-  border-color: #d4d2ce;
-  box-shadow: 0 8px 20px rgba(16, 16, 26, 0.08);
+  background: var(--cerrado-100);
+  border-color: var(--cerrado-300);
+  box-shadow: 0 8px 20px rgba(42, 64, 30, 0.12);
 }
 
 .landing-surface {
-  border: 1px solid #e7e7ea;
-  background: #fff;
+  border: 1px solid var(--pq-border);
+  background: var(--pq-surface);
   border-radius: 2rem;
 }
 
 .landing-card {
-  border: 1px solid #e7e7ea;
-  background: #fcfcfd;
+  border: 1px solid var(--pq-border);
+  background: var(--pq-surface-raised);
   border-radius: 1.25rem;
+}
+
+/* ==========================================================================
+   Utilitários da marca
+   ========================================================================== */
+.text-gradient-pequi {
+  background: linear-gradient(120deg, var(--pequi-600), var(--pequi-400) 45%, var(--cerrado-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-pequi-glow {
+  background:
+    radial-gradient(60% 50% at 20% 0%, rgba(247, 190, 9, 0.18), transparent 70%),
+    radial-gradient(50% 45% at 90% 10%, rgba(89, 130, 60, 0.14), transparent 70%),
+    var(--background);
+}
+
+.bg-cerrado-deep {
+  background:
+    radial-gradient(70% 60% at 15% 0%, rgba(247, 190, 9, 0.14), transparent 65%),
+    linear-gradient(180deg, var(--cerrado-900), var(--cerrado-950));
+  color: var(--castanha-25);
+}
+
+.badge-pequi {
+  background: var(--pequi-100);
+  color: var(--pequi-900);
+  border: 1px solid var(--pequi-300);
+}
+
+/* ==========================================================================
+   Ponte de cores
+   --------------------------------------------------------------------------
+   Os componentes usam cores fixas nas classes (ex.: text-[#10101A],
+   border-[#e7e5e1]). As regras abaixo — geradas a partir das classes usadas
+   em app/ — levam essas cores para a paleta Pequi sem precisar editar cada
+   componente. Ficam fora de @layer de propósito, para valer sobre os
+   utilitários do Tailwind. Ao criar componentes novos, prefira as classes da
+   paleta (bg-pequi-500, text-ink, border-castanha-200…).
+   ========================================================================== */
+.bg-\[\#0f172a\] { background-color: var(--pq-deep); }
+.bg-\[\#0f172a\]\/50 { background-color: color-mix(in oklab, var(--pq-deep) 50%, transparent); }
+.bg-\[\#10101A\] { background-color: var(--pq-deep); }
+.bg-\[\#10101A\]\/15 { background-color: color-mix(in oklab, var(--pq-deep) 15%, transparent); }
+.bg-\[\#10101A\]\/25 { background-color: color-mix(in oklab, var(--pq-deep) 25%, transparent); }
+.bg-\[\#111827\] { background-color: var(--pq-deep); }
+.bg-\[\#1A1A1A\] { background-color: var(--pq-deep-soft); }
+.bg-\[\#F5F5F4\] { background-color: var(--pq-muted); }
+.bg-\[\#F5F5F4\]\/40 { background-color: color-mix(in oklab, var(--pq-muted) 40%, transparent); }
+.bg-\[\#F5F5F4\]\/80 { background-color: color-mix(in oklab, var(--pq-muted) 80%, transparent); }
+.bg-\[\#F9F8F6\] { background-color: var(--pq-surface-sunken); }
+.bg-\[\#F9F8F6\]\/80 { background-color: color-mix(in oklab, var(--pq-surface-sunken) 80%, transparent); }
+.bg-\[\#FDFDFB\] { background-color: var(--pq-surface-raised); }
+.bg-\[\#FFFFFF\] { background-color: var(--pq-surface); }
+.bg-\[\#d4d2ce\] { background-color: var(--pq-border-strong); }
+.bg-\[\#e7e5e1\] { background-color: var(--pq-border); }
+.bg-\[\#eceae7\] { background-color: var(--pq-border-soft); }
+.bg-\[\#efeeec\]\/85 { background-color: color-mix(in oklab, var(--pq-muted-strong) 85%, transparent); }
+.bg-\[\#f1f0ee\] { background-color: var(--pq-muted); }
+.bg-\[\#f1f0ee\]\/40 { background-color: color-mix(in oklab, var(--pq-muted) 40%, transparent); }
+.bg-\[\#f1f0ee\]\/45 { background-color: color-mix(in oklab, var(--pq-muted) 45%, transparent); }
+.bg-\[\#f1f0ee\]\/55 { background-color: color-mix(in oklab, var(--pq-muted) 55%, transparent); }
+.bg-\[\#f1f0ee\]\/65 { background-color: color-mix(in oklab, var(--pq-muted) 65%, transparent); }
+.bg-\[\#f1f0ee\]\/75 { background-color: color-mix(in oklab, var(--pq-muted) 75%, transparent); }
+.bg-\[\#f1f0ee\]\/80 { background-color: color-mix(in oklab, var(--pq-muted) 80%, transparent); }
+.bg-\[\#f8f7f6\] { background-color: var(--pq-surface-sunken); }
+.bg-\[\#fcfcfd\] { background-color: var(--pq-surface-raised); }
+.border-\[\#10101A\] { border-color: var(--pq-ink); }
+.border-\[\#10101A\]\/18 { border-color: color-mix(in oklab, var(--pq-ink) 18%, transparent); }
+.border-\[\#111827\] { border-color: var(--pq-ink); }
+.border-\[\#111827\]\/25 { border-color: color-mix(in oklab, var(--pq-ink) 25%, transparent); }
+.border-\[\#1A1A1A\] { border-color: var(--pq-ink-soft); }
+.border-\[\#d4d2ce\] { border-color: var(--pq-border-strong); }
+.border-\[\#e1e4ef\] { border-color: var(--pq-border); }
+.border-\[\#e7e5e1\] { border-color: var(--pq-border); }
+.border-\[\#e7e7ea\] { border-color: var(--pq-border); }
+.border-\[\#eceae7\] { border-color: var(--pq-border-soft); }
+.border-\[\#ececf2\] { border-color: var(--pq-border-soft); }
+.border-\[\#f0efed\] { border-color: var(--pq-border-soft); }
+.divide-\[\#e7e5e1\] > :not(:last-child) { border-color: var(--pq-border); }
+.divide-\[\#eceae7\] > :not(:last-child) { border-color: var(--pq-border-soft); }
+.divide-\[\#f0efed\] > :not(:last-child) { border-color: var(--pq-border-soft); }
+.focus-visible\:ring-\[\#10101A\]\/15:focus-visible { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 60%, transparent); }
+.focus\:border-\[\#d4d2ce\]:focus { border-color: var(--pq-border-strong); }
+.focus\:ring-\[\#10101A\]\/10:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 40%, transparent); }
+.focus\:ring-\[\#10101A\]\/15:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 60%, transparent); }
+.focus\:ring-\[\#10101A\]\/8:focus { --tw-ring-color: color-mix(in oklab, var(--pq-brand) 32%, transparent); }
+.from-\[\#efeeec\] { --tw-gradient-from: var(--pq-muted-strong); }
+.from-\[\#f1f0ee\] { --tw-gradient-from: var(--pq-muted); }
+.group[open] .group-open\:bg-\[\#10101A\] { background-color: var(--pq-deep); }
+.group[open] .group-open\:border-\[\#10101A\] { border-color: var(--pq-ink); }
+.hover\:bg-\[\#0f172a\]:hover { background-color: var(--pq-deep); }
+.hover\:bg-\[\#F9F8F6\]:hover { background-color: var(--pq-surface-sunken); }
+.hover\:bg-\[\#eceae7\]:hover { background-color: var(--pq-border-soft); }
+.hover\:bg-\[\#edeef0\]:hover { background-color: var(--pq-muted-strong); }
+.hover\:bg-\[\#efedea\]:hover { background-color: var(--pq-muted-strong); }
+.hover\:bg-\[\#f3f1ee\]:hover { background-color: var(--pq-muted-strong); }
+.hover\:bg-\[\#f3f4f6\]:hover { background-color: var(--pq-muted); }
+.hover\:bg-\[\#f5f4f2\]:hover { background-color: var(--pq-muted); }
+.hover\:bg-\[\#f8f7f6\]:hover { background-color: var(--pq-surface-sunken); }
+.hover\:bg-\[\#f8f7f6\]\/80:hover { background-color: color-mix(in oklab, var(--pq-surface-sunken) 80%, transparent); }
+.hover\:bg-\[\#f9fafb\]:hover { background-color: var(--pq-surface-sunken); }
+.hover\:bg-\[\#fafafb\]:hover { background-color: var(--pq-surface-raised); }
+.hover\:bg-\[\#fcfcfd\]:hover { background-color: var(--pq-surface-raised); }
+.hover\:border-\[\#d4d2ce\]:hover { border-color: var(--pq-border-strong); }
+.hover\:border-\[\#e7e5e1\]:hover { border-color: var(--pq-border); }
+.hover\:border-\[\#eceae7\]:hover { border-color: var(--pq-border-soft); }
+.hover\:text-\[\#10101A\]:hover { color: var(--pq-ink); }
+.hover\:text-\[\#111827\]:hover { color: var(--pq-ink); }
+.hover\:text-\[\#1d1c23\]:hover { color: var(--pq-ink); }
+.placeholder\:text-\[\#525252\]::placeholder { color: var(--pq-text-muted); }
+.text-\[\#10101A\] { color: var(--pq-ink); }
+.text-\[\#10101A\]\/12 { color: color-mix(in oklab, var(--pq-ink) 12%, transparent); }
+.text-\[\#10101A\]\/20 { color: color-mix(in oklab, var(--pq-ink) 20%, transparent); }
+.text-\[\#10101A\]\/30 { color: color-mix(in oklab, var(--pq-ink) 30%, transparent); }
+.text-\[\#10101A\]\/40 { color: color-mix(in oklab, var(--pq-ink) 40%, transparent); }
+.text-\[\#10101A\]\/60 { color: color-mix(in oklab, var(--pq-ink) 60%, transparent); }
+.text-\[\#10101A\]\/70 { color: color-mix(in oklab, var(--pq-ink) 70%, transparent); }
+.text-\[\#111827\] { color: var(--pq-ink); }
+.text-\[\#111827\]\/15 { color: color-mix(in oklab, var(--pq-ink) 15%, transparent); }
+.text-\[\#111827\]\/70 { color: color-mix(in oklab, var(--pq-ink) 70%, transparent); }
+.text-\[\#1f2025\] { color: var(--pq-ink); }
+.text-\[\#323232\] { color: var(--pq-text-strong); }
+.text-\[\#474550\] { color: var(--pq-text-strong); }
+.text-\[\#525252\] { color: var(--pq-text-muted); }
+.text-\[\#5f5f6b\] { color: var(--pq-text-muted); }
+.text-\[\#636977\] { color: var(--pq-text-muted); }
+.text-\[\#696977\] { color: var(--pq-text-muted); }
+.text-\[\#868589\] { color: var(--pq-text-subtle); }
+.text-\[\#A0A0A0\] { color: var(--pq-text-faint); }
+.to-\[\#0f172a\] { --tw-gradient-to: var(--pq-deep); }
+.via-\[\#0f172a\] { --tw-gradient-via: var(--pq-deep); }
+@media (width >= 48rem) {
+  .md\:border-\[\#e7e7ea\] { border-color: var(--pq-border); }
+}
+@media (width >= 64rem) {
+  .lg\:border-\[\#e7e7ea\] { border-color: var(--pq-border); }
 }
