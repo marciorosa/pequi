@@ -311,13 +311,18 @@ export default function WorkflowBuilderPage() {
   );
 
   const addNodeToCenter = (nodeData: any) => {
-    const newNode: Node = {
-      id: `node_${Date.now()}`,
-      type: 'workflowNode',
-      position: { x: 250, y: 150 }, // Default central-ish position
-      data: { ...nodeData, nodeType: nodeData.type },
-    };
-    setNodes((nds) => [...nds, newNode]);
+    setNodes((nds) => {
+      // Posiciona o novo nó abaixo do mais baixo do canvas, para não encavalar
+      const NODE_SPACING_Y = 140;
+      const lowestY = nds.length ? Math.max(...nds.map((nd) => nd.position.y)) : null;
+      const newNode: Node = {
+        id: `node_${Date.now()}`,
+        type: 'workflowNode',
+        position: { x: 250, y: lowestY === null ? 80 : lowestY + NODE_SPACING_Y },
+        data: { ...nodeData, nodeType: nodeData.type },
+      };
+      return [...nds, newNode];
+    });
     toast.success(`${nodeData.label} adicionado ao canvas`);
   };
 
@@ -490,7 +495,7 @@ export default function WorkflowBuilderPage() {
                 <div className="flex lg:block gap-4 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
                   <div className="flex-shrink-0 lg:w-full">
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Gatilhos</p>
-                    <div className="flex lg:block gap-2">
+                    <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {TRIGGER_NODES.map((n) => (
                         <div
                           key={n.subtype}
@@ -511,7 +516,7 @@ export default function WorkflowBuilderPage() {
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Ações de IA</p>
-                    <div className="flex lg:block gap-2">
+                    <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {ACTION_NODES.map((n) => (
                         <div
                           key={n.subtype}
@@ -532,7 +537,7 @@ export default function WorkflowBuilderPage() {
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Saídas</p>
-                    <div className="flex lg:block gap-2">
+                    <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {OUTPUT_NODES.map((n) => (
                         <div
                           key={n.subtype}
