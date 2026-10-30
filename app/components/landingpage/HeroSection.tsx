@@ -58,14 +58,14 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
         />
         <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
           <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">
-           Teste grátis
+           Experimente sem compromisso
           </p>
           <h1 className="mt-5 max-w-[700px] text-center font-medium text-ink text-[2.7rem] leading-[1.08] tracking-[-0.08rem] sm:text-[4.13188rem] sm:leading-[4.54513rem] sm:tracking-[-0.16525rem]">
             Sua inteligência jurídica acessível
           </h1>
           <p className="mt-4 max-w-[620px] text-center text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-            Como o pequi, o Direito tem espinhos escondidos: nossa IA mostra onde estão e ajuda você a
-            entender seus direitos sem sustos.
+            O Direito, como o pequi, esconde surpresas dolorosas por dentro. Nossa inteligência artificial
+            revela onde estão os espinhos e traduz o juridiquês para proteger você.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
