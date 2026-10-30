@@ -30,7 +30,7 @@ export default function DashboardPage() {
     "Interpretação de contratos segundo a lei de Nova York",
     "Análise de modelo de acordo de confidencialidade",
     "Requisitos legais para rescisão do contrato de trabalho",
-    "Responsabilidade em contratos de licenciamento de software",
+    "Responsabilidade em contratos de licenciamento",
     "Jurisprudência recente sobre violação de patentes"
   ]);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
