@@ -16,7 +16,7 @@ function SignupAside() {
   const items = [
     {
       title: 'Análise inteligente de documentos',
-      body: 'Revise contratos e peças mais rápido com insights de riscos e cláusulas assistidos por IA.',
+      body: 'Revise contratos e documentos mais rápido com alertas de riscos e cláusulas assistidos por IA.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
       ),
@@ -30,7 +30,7 @@ function SignupAside() {
     },
     {
       title: 'Espaço de trabalho sempre disponível',
-      body: 'Redija, resuma e colabore com salvaguardas criadas para equipes jurídicas.',
+      body: 'Redija, resuma e compartilhe com salvaguardas criadas para proteger você.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
       ),
@@ -39,9 +39,9 @@ function SignupAside() {
 
   return (
     <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
-      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">Feito para equipes jurídicas modernas</h2>
+      <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">Feito para pessoas como você</h2>
       <p className="mb-10 text-[1rem] leading-relaxed text-castanha-600">
-        Junte-se aos profissionais que usam o Pequi para trabalhar mais rápido sem abrir mão do rigor.
+        Junte-se às pessoas que usam o Pequi para entender seus direitos sem abrir mão do rigor.
       </p>
       <ul className="space-y-8">
         {items.map((item) => (
@@ -61,7 +61,7 @@ function SignupAside() {
       <div className="mt-10 grid grid-cols-3 gap-3">
         {[
           { n: '73%', l: 'Tempo economizado' },
-          { n: '95%', l: 'Confiança das equipes' },
+          { n: '95%', l: 'Confiança dos clientes' },
           { n: '24/7', l: 'Acesso' },
         ].map((s) => (
           <div
@@ -133,7 +133,7 @@ export default function SignupExperience() {
       <AuthHero
         eyebrow="Comece agora"
         title="Crie sua conta"
-        subtitle="Junte-se ao Pequi e comece a trabalhar com uma IA criada para fluxos jurídicos."
+        subtitle="Junte-se ao Pequi e comece a cuidar dos seus direitos com nossa IA jurídica."
       />
       <AuthPageLayout
         aside={<SignupAside />}

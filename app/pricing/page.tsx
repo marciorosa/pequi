@@ -82,10 +82,10 @@ export default function PricingPage() {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Investimento <span className="font-light opacity-60 italic">estratégico.</span>
+            Investimento <span className="font-light opacity-60 italic">consciente.</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            Inteligência jurídica padronizada. Escolha a escala ideal para o volume da sua operação.
+            Inteligência jurídica acessível. Escolha o plano ideal para o tamanho da sua necessidade.
           </p>
 
           {/* Billing Toggle */}
@@ -201,7 +201,7 @@ export default function PricingPage() {
               </div>
               <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="font-light opacity-60 italic">planos.</span></h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
-                Capacidades detalhadas de cada plano para operações jurídicas.
+                Recursos detalhados de cada plano para suas necessidades.
               </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function PricingPage() {
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="font-light opacity-60 italic">frequentes.</span></h2>
             <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
-              Respostas simples sobre implantação e operação.
+              Respostas simples sobre planos e pagamentos.
             </p>
           </div>
 
@@ -273,14 +273,14 @@ export default function PricingPage() {
             Amplie sua <span className="font-light opacity-60 italic">inteligência.</span>
           </h2>
           <p className="text-foreground/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
-            Padronize seus processos jurídicos com o Pequi hoje mesmo. Não é preciso cartão de crédito para começar.
+            Organize seus assuntos jurídicos com o Pequi hoje mesmo. Não é preciso cartão de crédito para começar.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5 shadow-2xl">
               Iniciar teste grátis
             </Link>
             <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-castanha-200">
-              Agendar demonstração
+              Tirar dúvidas
             </Link>
           </div>
         </div>

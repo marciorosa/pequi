@@ -152,11 +152,6 @@ export default function PressKitPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-12 text-center">
-                <Link href="/news" className="inline-block bg-foreground text-background px-8 py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-cerrado-950/90 transition-all">
-                  Ver todos os comunicados
-                </Link>
-              </div>
             </div>
           )}
 

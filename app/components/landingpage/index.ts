@@ -3,7 +3,6 @@ export { default as IntroSection } from './IntroSection';
 export { default as HomeHeroIntroInteractive } from './HomeHeroIntroInteractive';
 export { default as FaqSection } from './FaqSection';
 export { default as LogosSection } from './LogosSection';
-export { default as PlatformSection } from './PlatformSection';
 export { default as FeaturesSection } from './FeaturesSection';
 export { default as SecurityStrip } from './SecurityStrip';
 export { default as WhySection } from './WhySection';

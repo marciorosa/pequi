@@ -42,7 +42,7 @@ export default function VaultExperience() {
   const features = [
     {
       title: 'Armazenamento seguro de documentos',
-      description: 'Criptografia e controles de acesso garantem que arquivos jurídicos sensíveis fiquem disponíveis apenas para usuários autorizados.',
+      description: 'Criptografia e controles de acesso garantem que documentos sensíveis fiquem disponíveis apenas para quem você autorizar.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -56,7 +56,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Análise com IA',
-      description: 'Identifique riscos, termos-chave e resumos em grandes volumes de documentos dos casos.',
+      description: 'Identifique riscos, termos-chave e resumos nos documentos e contratos do seu caso.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -84,7 +84,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Colaboração e permissões',
-      description: 'Compartilhe com equipes e clientes usando funções granulares, sem perder a rastreabilidade.',
+      description: 'Compartilhe com familiares e advogados escolhendo quem acessa, sem perder o controle.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -100,7 +100,7 @@ export default function VaultExperience() {
 
   const securityPoints = [
     { title: 'Criptografia AES-256', desc: 'Dados protegidos em repouso e em trânsito.' },
-    { title: 'SOC 2 Tipo II', desc: 'Práticas de segurança de nível corporativo.' },
+    { title: 'SOC 2 Tipo II', desc: 'Práticas de segurança de nível profissional.' },
     { title: 'Alinhado à GDPR/LGPD', desc: 'Controles criados para as exigências globais de privacidade.' },
     { title: 'Acesso baseado em funções', desc: 'Gestão detalhada de permissões.' },
   ];
@@ -169,10 +169,10 @@ export default function VaultExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Feito para o trabalho jurídico sensível</h2>
+            <h2 className={sectionHeadingClass}>Feito para seus documentos mais sensíveis</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Um único cofre para contratos, processos e registros societários, com os controles e a inteligência que as equipes modernas
-              esperam.
+              Um único cofre para contratos, processos e documentos pessoais, com os controles e a inteligência que você espera de
+              verdade.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {features.map((feature) => (
@@ -200,7 +200,7 @@ export default function VaultExperience() {
                   Explorador interativo do cofre
                 </h2>
                 <p className="mt-4 text-castanha-600 text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
-                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que as equipes navegam em um cofre real.
+                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que você vai navegar no seu cofre real.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center lg:justify-end gap-2 md:gap-3">
@@ -360,7 +360,7 @@ export default function VaultExperience() {
       <FadeInSection delay={0.12}>
         <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
               <div>
                 <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Arquitetura</p>
                 <h2 className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
@@ -368,7 +368,7 @@ export default function VaultExperience() {
                 </h2>
                 <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
                   Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade,
-                  disponibilidade e auditabilidade em escala corporativa.
+                  disponibilidade e auditabilidade para sua tranquilidade.
                 </p>
                 <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
                   {securityPoints.map((point) => (
@@ -387,31 +387,6 @@ export default function VaultExperience() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-              </div>
-
-              <div className="relative">
-                <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-3 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-4">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-castanha-100">
-                    <Image
-                      src="/landingpage/one-legal-platform/vault.png"
-                      alt="Acesso ao cofre na plataforma jurídica"
-                      fill
-                      className="object-contain p-4 md:p-6"
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-2 hidden max-w-[200px] rounded-[1.25rem] bg-cerrado-800 p-5 text-white shadow-[0_20px_40px_rgba(31,42,23,0.2)] md:-bottom-5 md:-right-4 md:p-6 sm:block">
-                  <svg className="w-7 h-7 mb-3 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.25}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                  <p className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] leading-snug">Criptografia de ponta a ponta</p>
-                </div>
               </div>
             </div>
           </div>

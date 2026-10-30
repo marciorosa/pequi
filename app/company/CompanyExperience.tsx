@@ -74,7 +74,7 @@ export default function CompanyExperience() {
   const values = [
     {
       title: 'Inovação',
-      description: 'Expandimos os limites da tecnologia jurídica sem perder de vista a prática do dia a dia.',
+      description: 'Usamos tecnologia jurídica de ponta sem perder de vista a rotina real de cada pessoa atendida.',
       icon: (
         <path
           strokeLinecap="round"
@@ -110,7 +110,7 @@ export default function CompanyExperience() {
     },
     {
       title: 'Foco no cliente',
-      description: 'Vencemos quando as equipes jurídicas alcançam resultados melhores; nosso roadmap é guiado por esse padrão.',
+      description: 'Vencemos quando cada pessoa resolve melhor seu problema; nosso produto é guiado por esse padrão.',
       icon: (
         <path
           strokeLinecap="round"
@@ -139,11 +139,11 @@ export default function CompanyExperience() {
           <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
             <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Sobre a Pequi</p>
             <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-ink sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-              Transformando a prática jurídica
+              Direito sem tantos espinhos
             </h1>
             <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-              Desenvolvemos IA que respeita a advocacia, para que escritórios e departamentos jurídicos avancem mais rápido sem abrir mão
-              do discernimento ou da governança.
+              Desenvolvemos IA que respeita a advocacia, para que pessoas e pequenos negócios entendam seus direitos sem abrir mão
+              do discernimento ou da segurança.
             </p>
             <Link
               href="/careers"
@@ -165,15 +165,15 @@ export default function CompanyExperience() {
                   Sobre a Pequi
                 </h2>
                 <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Fundada em 2020, a Pequi está na interseção entre a prática jurídica e a IA aplicada, entregando ferramentas de pesquisa,
-                  redação e fluxos de trabalho que as equipes podem implantar com salvaguardas claras.
+                  Fundada em 2020, a Pequi leva o nome do fruto do Cerrado: casca dura, polpa valiosa e espinhos escondidos, como
+                  o Direito. Nossa IA ajuda a chegar ao que importa sem se ferir.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Advogados, pesquisadores e criadores de produto trabalham lado a lado para que o produto reflita como processos,
-                  contratos e compliance funcionam na prática.
+                  Advogados, pesquisadores e criadores de produto trabalham lado a lado para que cada resposta reflita como aluguéis,
+                  contratos e direitos funcionam na prática.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Com escritórios em Brasilia, São Paulo e Campinas, temos uma equipe pronta para oferecer a melhor IA para proteger seu patrimônio e seu direto.
+                  Com escritórios em Brasilia, São Paulo e Campinas, temos uma equipe pronta para oferecer a melhor IA para proteger seu patrimônio e seu direito.
                 </p>
               </div>
               <div className="relative">
@@ -212,8 +212,8 @@ export default function CompanyExperience() {
                 <div className="mt-auto">
                   <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-castanha-800 md:text-[1.75rem]">Nossa missão</h3>
                   <p className="text-[1rem] leading-[160%] text-castanha-800 md:text-[1.0625rem]">
-                    Capacitar profissionais do Direito com IA que aumenta a agilidade e a consistência, mantendo as pessoas no comando
-                    da estratégia, da ética e do aconselhamento aos clientes.
+                    Dar a cada pessoa acesso ao Direito com uma IA que traz clareza e segurança, mantendo você no
+                    comando das decisões sobre sua vida, dinheiro e família.
                   </p>
                 </div>
               </div>
@@ -238,8 +238,8 @@ export default function CompanyExperience() {
                 </div>
                 <h3 className="mb-4 text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">Nossa visão</h3>
                 <p className="text-[1rem] leading-[160%] text-white/80 md:text-[1.0625rem]">
-                  Um mundo em que a IA e o conhecimento jurídico se fortalecem mutuamente, tornando o trabalho jurídico sofisticado mais escalável
-                  e mais acessível onde ele mais importa.
+                  Um mundo em que a IA e o conhecimento jurídico se fortalecem mutuamente, tornando os direitos das pessoas mais claros
+                  e mais acessíveis onde eles mais importam.
                 </p>
               </div>
             </div>

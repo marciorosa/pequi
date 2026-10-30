@@ -12,12 +12,12 @@ export default function FaqSection() {
             <div className="lg:sticky lg:top-28">
               <h3 className={`${sectionHeadingClass} max-w-none text-left lg:text-left`}>Perguntas frequentes</h3>
               <p className={`${sectionSubTextClass} mt-4 max-w-none text-left lg:mx-0 lg:text-left`}>
-                Encontre respostas rápidas sobre segurança, implantação e como a plataforma apoia suas operações jurídicas.
+                Encontre respostas rápidas sobre segurança, planos e como o Pequi ajuda nas questões jurídicas.
               </p>
               <div className="mt-8 rounded-2xl border border-castanha-200 bg-castanha-25 p-5">
                 <p className="text-[0.9rem] font-medium text-ink">Ainda tem dúvidas?</p>
                 <p className="mt-1 text-[0.875rem] leading-[1.45rem] text-castanha-600">
-                  Nossa equipe pode orientar você na configuração corporativa, no compliance e na implantação.
+                  Nossa equipe pode orientar você na sua conta, nos planos e no uso.
                 </p>
                 <Link
                   href="/contact"

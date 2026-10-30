@@ -36,7 +36,7 @@ export const authPrimaryButtonClass =
 export function AuthTrustBadges() {
   return (
     <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600 lg:justify-start">
-      {['Alinhado ao SOC 2', 'Em conformidade com a GDPR/LGPD', 'Segurança corporativa'].map((label) => (
+      {['Alinhado ao SOC 2', 'Em conformidade com a GDPR/LGPD', 'Segurança reforçada'].map((label) => (
         <div key={label} className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cerrado-900" aria-hidden />
           {label}

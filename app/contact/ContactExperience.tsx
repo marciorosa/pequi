@@ -114,7 +114,7 @@ export default function ContactExperience() {
       <AuthHero
         eyebrow="Estamos aqui para ajudar"
         title="Fale conosco"
-        subtitle="Dúvidas sobre demonstrações, segurança ou preços? Envie uma mensagem e responderemos rapidamente."
+        subtitle="Dúvidas sobre recursos, segurança ou preços? Envie uma mensagem e responderemos rapidamente."
       />
 
       <section className="border-b border-castanha-150 bg-white">
@@ -126,7 +126,7 @@ export default function ContactExperience() {
                   Fale com a nossa equipe
                 </h2>
                 <p className="text-[1rem] leading-[175%] text-castanha-600 md:text-[1.0625rem]">
-                  Conte um pouco sobre seu escritório ou departamento jurídico e o que você deseja resolver. Vamos direcionar você para a
+                  Conte um pouco sobre você ou seu pequeno negócio e o que você deseja resolver. Vamos direcionar você para a
                   pessoa certa.
                 </p>
               </div>
@@ -211,7 +211,7 @@ export default function ContactExperience() {
                           value={formData.company}
                           onChange={handleChange}
                           className={authInputClass}
-                          placeholder="Nome da empresa"
+                          placeholder="Opcional, se houver"
                         />
                       </div>
                       <div>
@@ -258,7 +258,7 @@ export default function ContactExperience() {
                         value={formData.message}
                         onChange={handleChange}
                         className={textareaClass}
-                        placeholder="Conte sobre seu caso de uso, o tamanho da equipe ou o prazo…"
+                        placeholder="Conte sobre sua situação, o que já aconteceu até aqui ou o prazo…"
                       />
                     </div>
 
@@ -343,7 +343,7 @@ export default function ContactExperience() {
           <div className="mb-10 md:mb-12">
             <h2 className="mb-3 text-[1.5rem] font-medium text-ink md:text-[1.75rem]">Nossos escritórios</h2>
             <p className="max-w-2xl text-[1rem] leading-relaxed text-castanha-600">
-              Equipes nos principais polos jurídicos e de tecnologia: a mesma plataforma, com suporte local.
+              Equipes em Brasília, São Paulo e Campinas: a mesma plataforma, com suporte bem próximo.
             </p>
           </div>
 

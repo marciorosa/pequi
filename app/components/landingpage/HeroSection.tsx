@@ -13,31 +13,31 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
   const featureCards = [
     {
       title: 'Canais',
-      copy: 'Mantenha a colaboração jurídica sincronizada entre equipes e sistemas.',
+      copy: 'Reúna conversas e arquivos do caso em um lugar.',
       icon: '/landingpage/hero/channels.svg',
       preview: '/landingpage/intro/channels-img.png',
     },
     {
       title: 'Assistentes de IA',
-      copy: 'Tenha apoio contextualizado em redação, revisão e pesquisa jurídica.',
+      copy: 'Tire dúvidas jurídicas e entenda documentos em linguagem simples.',
       icon: '/landingpage/hero/ai-assistants.svg',
       preview: '/landingpage/intro/ai-assistant-img.png',
     },
     {
       title: 'Registro de Documentos',
-      copy: 'Acompanhe versões, status e aprovações em um único registro pesquisável.',
+      copy: 'Guarde contratos, recibos e comprovantes em um único lugar pesquisável.',
       icon: '/landingpage/hero/document-registory.svg',
       preview: '/landingpage/intro/document-img.png',
     },
     {
       title: 'Acesso ao Cofre',
-      copy: 'Proteja arquivos sensíveis com permissões e controles baseados em funções.',
+      copy: 'Proteja documentos pessoais com criptografia e controle de quem acessa.',
       icon: '/landingpage/hero/vault-access.svg',
       preview: '/landingpage/intro/valut-img.png',
     },
     {
       title: 'Automações',
-      copy: 'Automatize fluxos jurídicos repetitivos para ganhar agilidade e precisão.',
+      copy: 'Organize lembretes e burocracias com a ajuda da IA.',
       icon: '/landingpage/hero/automation.svg',
       preview: '/landingpage/intro/automation-img.png',
     },
@@ -64,15 +64,15 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
             Sua inteligência jurídica acessível
           </h1>
           <p className="mt-4 max-w-[620px] text-center text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-            Desenvolvemos plataformas de IA de elite para os profissionais do Direito mais exigentes do mundo, que buscam
-            precisão e desempenho sem concessões.
+            Como o pequi, o Direito tem espinhos escondidos: nossa IA mostra onde estão e ajuda você a
+            entender seus direitos sem sustos.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
               className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
             >
-              Solicitar demonstração
+              Fale conosco
             </Link>
             <Link
               href="/#features"

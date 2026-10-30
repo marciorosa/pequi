@@ -19,7 +19,7 @@ const gilroyNav = localFont({
 const productLinks = [
   {
     label: 'Assistentes de IA',
-    description: 'Pesquisa, redação e análise jurídica',
+    description: 'Dúvidas, textos e análises jurídicas',
     href: '/assistant',
     icon: 'M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.83L3 20l1.4-3.72A7.6 7.6 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
   },
@@ -31,13 +31,13 @@ const productLinks = [
   },
   {
     label: 'Base de Conhecimento',
-    description: 'O saber do escritório em um só lugar',
+    description: 'Leis e decisões explicadas em um só lugar',
     href: '/knowledge',
     icon: 'M12 6.25v13m0-13C10.83 5.48 9.25 5 7.5 5S4.17 5.48 3 6.25v13C4.17 18.48 5.75 18 7.5 18s3.33.48 4.5 1.25m0-13C13.17 5.48 14.75 5 16.5 5s3.33.48 4.5 1.25v13C19.83 18.48 18.25 18 16.5 18s-3.33.48-4.5 1.25',
   },
   {
     label: 'Automações',
-    description: 'Fluxos jurídicos sem esforço manual',
+    description: 'Burocracias jurídicas sem esforço manual',
     href: '/workflows',
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
   },
@@ -67,7 +67,6 @@ const Navbar = () => {
     { label: 'Clientes', href: '/customers' },
     { label: 'Empresa', href: '/company' },
     { label: 'Segurança', href: '/security' },
-    { label: 'Notícias', href: '/news' },
   ];
   const isActive = (href: string) => pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
   const productActive = productLinks.some((item) => isActive(item.href));
@@ -234,7 +233,7 @@ const Navbar = () => {
               href="/contact"
               className="landing-primary-btn group/demo inline-flex h-10 items-center justify-center gap-2 pl-5 pr-2"
             >
-              Solicitar demonstração
+              Fale conosco
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink text-pequi-300 transition-transform duration-200 group-hover/demo:translate-x-0.5">
                 <ArrowIcon className="h-3.5 w-3.5" />
               </span>
@@ -329,7 +328,7 @@ const Navbar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="landing-primary-btn inline-flex h-11 flex-1 items-center justify-center gap-2 px-6"
                 >
-                  Solicitar demonstração
+                  Fale conosco
                   <ArrowIcon className="h-4 w-4" />
                 </Link>
               </div>

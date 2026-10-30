@@ -6,37 +6,37 @@ const capabilities = [
     icon: '↔',
     title: 'Assistentes de IA',
     description:
-      'Conecte-se a assistentes jurídicos especializados em redação, revisão, verificações de compliance e apoio a decisões mais rápidas.',
+      'Conecte-se a assistentes jurídicos especializados em consumo, trabalho, família, moradia e contratos para decidir com mais tranquilidade.',
   },
   {
     icon: '✳',
     title: 'Inteligência de Conhecimento',
     description:
-      'Obtenha insights instantâneos de precedentes, normas e documentos internos com buscas contextualizadas.',
+      'Encontre explicações instantâneas sobre leis, decisões e seus documentos com buscas simples.',
   },
   {
     icon: '⇄',
     title: 'Registro de Documentos',
     description:
-      'Crie e gerencie documentos jurídicos em segundos, acompanhe versões e mantenha cada caso alinhado e auditável.',
+      'Crie e guarde documentos jurídicos em segundos, acompanhe versões e mantenha cada caso seu sempre organizado.',
   },
   {
     icon: '⌘',
     title: 'Central de Canais',
     description:
-      'Sincronize seus fluxos jurídicos entre equipes, clientes e sistemas para que a colaboração aconteça em um único lugar seguro.',
+      'Reúna conversas, arquivos e anotações sobre seus assuntos jurídicos para que tudo fique guardado em um único lugar seguro.',
   },
   {
     icon: '▤',
     title: 'Painel de Desempenho',
     description:
-      'Acompanhe o andamento dos casos, o tempo de resposta e as operações jurídicas com análises em tempo real em uma visão unificada.',
+      'Acompanhe o andamento dos seus casos, os próximos passos e as pendências importantes com informações atualizadas em uma tela só para você.',
   },
   {
     icon: '◉',
     title: 'Cofre e Segurança',
     description:
-      'Guarde arquivos jurídicos sensíveis em um cofre criptografado, com permissões baseadas em funções e controles de nível corporativo.',
+      'Guarde documentos pessoais sensíveis em um cofre criptografado, com permissões definidas por você e controles de segurança reforçados.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function PlatformCapabilitiesSection() {
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <h3 className={sectionHeadingClass}>Descubra o que o Pequi pode fazer</h3>
           <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[38rem]`}>
-            Simplifique as operações jurídicas com automação inteligente, colaboração segura e controle total dos fluxos de trabalho.
+            Simplifique sua vida jurídica com automação inteligente, documentos seguros e controle total de cada etapa importante.
           </p>
 
           <div className="overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">

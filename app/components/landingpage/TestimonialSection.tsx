@@ -55,7 +55,7 @@ export default function TestimonialSection() {
       <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
         <h3 className={sectionHeadingClass}>O que nossos usuários dizem</h3>
         <p className={`${sectionSubTextClass} mt-4 mb-10`}>
-          Opiniões reais de advogados, equipes e escritórios que usam IA para transformar seus fluxos de trabalho jurídicos.
+          Opiniões de pessoas que usam IA para entender seus direitos, contratos e documentos do dia a dia.
         </p>
         <div className="space-y-4">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">

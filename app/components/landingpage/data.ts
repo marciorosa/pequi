@@ -9,15 +9,6 @@ export const trustedByLogos = [
   { src: '/landingpage/trustedby/whitecase.png', alt: 'White & Case' },
 ];
 
-export const heroAssets = [
-  '/landingpage/hero/overlap-automations.png',
-  '/landingpage/hero/overlap-vaultaccess.png',
-  '/landingpage/hero/overlap-aiassistants.png',
-  '/landingpage/hero/overlap-document-registry.png',
-  '/landingpage/hero/overlap-searchoptions.png',
-  '/landingpage/hero/overlap-channels.png',
-];
-
 export const featureCards = [
   { title: 'Contratos', desc: 'Crie, revise e compare contratos com extração estruturada por IA.' },
   { title: 'Fluxos de clientes', desc: 'Automatize a captação, as etapas jurídicas, os lembretes e as aprovações em um só lugar.' },
@@ -49,28 +40,28 @@ export const testimonials = [
 
 export const faqs: { question: string; answer: string }[] = [
   {
-    question: 'Como o Pequi protege dados jurídicos confidenciais?',
+    question: 'Como o Pequi protege meus dados pessoais?',
     answer:
-      'Usamos criptografia em trânsito e em repouso, acesso baseado em funções, trilhas de auditoria e opções de implantação alinhadas à forma como seu escritório lida com informações sigilosas.',
+      'Usamos criptografia em trânsito e em repouso, acesso controlado por você, registros de atividade e cuidados alinhados à forma como a LGPD trata informações pessoais e dados sigilosos.',
   },
   {
-    question: 'As equipes podem colaborar em casos e contratos?',
+    question: 'Posso compartilhar casos e contratos com meu advogado?',
     answer:
-      'Sim. Espaços de trabalho compartilhados, comentários e histórico de versões ajudam as equipes jurídicas, as áreas de negócio e os advogados externos a se manterem alinhados sem perder o controle de documentos sensíveis.',
+      'Sim. Espaços de trabalho compartilhados, comentários e histórico de versões ajudam você, sua família, seu negócio e o seu advogado de confiança a manterem tudo alinhado sem perder o controle de documentos sensíveis.',
   },
   {
-    question: 'A plataforma permite fluxos jurídicos personalizados?',
+    question: 'A IA substitui o meu advogado?',
     answer:
-      'Você pode adaptar as etapas de revisão, as aprovações e os modelos para que a captação, a redação e a aprovação final sigam suas políticas, e não um roteiro genérico.',
+      'Não. O Pequi ajuda você a entender sua situação e se preparar melhor, mas casos complexos, prazos e ações judiciais sempre pedem um bom advogado de confiança ao seu lado.',
   },
   {
-    question: 'Em quanto tempo conseguimos implantar a plataforma para nossa equipe jurídica?',
+    question: 'Em quanto tempo eu já consigo começar a usar o Pequi?',
     answer:
-      'A maioria das equipes conclui a configuração principal em poucos dias. Oferecemos onboarding guiado e, se preferir, podemos implantar em fases, por área de atuação ou região.',
+      'Basta criar sua conta gratuita para começar em poucos minutos. Oferecemos primeiros passos guiados e, se preferir, nossa equipe ajuda por e-mail, telefone ou chat ao vivo.',
   },
   {
-    question: 'Vocês oferecem suporte corporativo e SLA?',
+    question: 'Vocês oferecem suporte para pessoas físicas?',
     answer:
-      'Os planos Enterprise incluem canais de suporte dedicados, metas de tempo de resposta e opções de disponibilidade ampliada para manter os fluxos críticos cobertos.',
+      'Sim. Qualquer pessoa pode falar com a nossa equipe por e-mail e telefone, e normalmente respondemos em até um dia útil às suas mensagens.',
   },
 ];

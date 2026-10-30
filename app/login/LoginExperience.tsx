@@ -128,7 +128,7 @@ function LoginAside() {
             Assistente Pequi
           </p>
           <p className="text-lg font-medium leading-snug text-ink">
-            Como posso analisar os riscos deste contrato de fusão?
+            Como posso analisar os riscos deste contrato de aluguel?
           </p>
         </div>
         <div className="space-y-5 p-8">
@@ -144,8 +144,8 @@ function LoginAside() {
               </svg>
             </div>
             <div className="rounded-[1rem] rounded-tl-sm border border-castanha-150 bg-castanha-100 px-4 py-3 text-[0.9375rem] leading-relaxed text-castanha-600">
-              Identifiquei várias áreas de risco importantes no contrato de fusão: condições regulatórias, redação da cláusula de MAE e
-              condições trabalhistas pós-fechamento.
+              Identifiquei várias áreas de risco importantes no contrato de aluguel: multa rescisória, redação da cláusula de reajuste e
+              devolução do imóvel.
             </div>
           </div>
           <div className="flex gap-3">

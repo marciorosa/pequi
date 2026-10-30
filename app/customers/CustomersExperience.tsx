@@ -87,8 +87,8 @@ export default function CustomersExperience() {
                 Nossos clientes têm sucesso
               </h1>
               <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                Junte-se aos escritórios e departamentos jurídicos que estão transformando sua forma de trabalhar, com resultados que
-                seus clientes percebem.
+                Junte-se às pessoas e pequenos negócios que estão transformando sua relação com o Direito, com resultados
+                que fazem diferença.
               </p>
               <Link
                 href="/contact"
@@ -126,7 +126,7 @@ export default function CustomersExperience() {
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
             <h2 className={sectionHeadingClass}>O que nossos clientes dizem</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Depoimentos de escritórios que usam o Pequi todos os dias.
+              Depoimentos de clientes que usam o Pequi todos os dias.
             </p>
 
             <div className="mb-8 rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-12 lg:p-14">

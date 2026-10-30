@@ -45,8 +45,8 @@ const interTight = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pequi - Inteligência Jurídica Ultra-Premium",
-  description: "IA sofisticada para escritórios de advocacia de elite, departamentos jurídicos corporativos e profissionais do Direito.",
+  title: "Pequi - Inteligência Jurídica Acessível",
+  description: "IA jurídica para pessoas, famílias e pequenos negócios entenderem seus direitos e contratos sem juridiquês.",
   keywords: "IA, tecnologia jurídica, direito, inteligência artificial, assistente jurídico, pesquisa jurídica, Pequi",
   icons: {
     icon: "/logo/favicon.png",

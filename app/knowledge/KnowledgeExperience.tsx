@@ -20,7 +20,7 @@ export default function KnowledgeExperience() {
   const features = [
     {
       title: 'Pesquisa abrangente',
-      desc: 'Pesquise legislação, jurisprudência, regulamentos e doutrina em diversas jurisdições, com compreensão semântica da sua pergunta.',
+      desc: 'Pesquise leis, decisões, regulamentos e explicações em diversas jurisdições, com compreensão real da sua pergunta.',
       icon: (
         <FeatureIcon>
           <path
@@ -34,7 +34,7 @@ export default function KnowledgeExperience() {
     },
     {
       title: 'Citações precisas',
-      desc: 'Os insights remetem às fontes primárias para que você possa verificar, citar e aprofundar-se nas referências que importam.',
+      desc: 'As respostas remetem às fontes primárias para que você possa verificar, citar e aprofundar-se nas referências que importam.',
       icon: (
         <FeatureIcon>
           <path
@@ -144,7 +144,7 @@ export default function KnowledgeExperience() {
                   Pesquisa rápida, resultados fundamentados
                 </p>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Respostas para questões jurídicas, regulatórias e tributárias, com citações confiáveis de fontes
+                  Respostas sobre consumo, trabalho, família e moradia, com citações confiáveis de fontes
                   oficiais.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -152,7 +152,7 @@ export default function KnowledgeExperience() {
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                   >
-                    Solicitar uma demonstração
+                    Tirar minhas dúvidas
                   </Link>
                   <button
                     type="button"
@@ -186,9 +186,9 @@ export default function KnowledgeExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Pesquisa jurídica poderosa</h2>
+            <h2 className={sectionHeadingClass}>Pesquisa jurídica descomplicada</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Tudo o que você precisa para ir da pergunta à resposta fundamentada: rápido, rastreável e pronto para o seu fluxo de trabalho.
+              Tudo o que você precisa para ir da pergunta à resposta fundamentada: rápido, rastreável e pronto para o seu dia a dia.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {features.map((f) => (

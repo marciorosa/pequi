@@ -26,7 +26,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Pro',
-    description: 'Ideal para escritórios em crescimento e profissionais ativos.',
+    description: 'Ideal para quem lida com questões jurídicas frequentes.',
     monthlyPrice: 399,
     annualPrice: 3999,
     features: [
@@ -42,7 +42,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Enterprise',
-    description: 'Para grandes escritórios que precisam de recursos ilimitados.',
+    description: 'Para pequenos negócios que precisam de recursos ilimitados.',
     monthlyPrice: null,
     annualPrice: null,
     features: [

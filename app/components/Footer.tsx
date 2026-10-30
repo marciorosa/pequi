@@ -18,8 +18,8 @@ const Footer = () => {
                 />
               </div>
               <p className="w-full max-w-[27.375rem] text-white/72 text-[0.95rem] font-normal leading-[1.5rem] tracking-[-0.00938rem]">
-                Transformando a prática jurídica com soluções sofisticadas de IA para os desafios jurídicos mais complexos
-                do mundo.
+                Como no pequi, o Direito tem espinhos por dentro: nossa IA ajuda você a evitá-los
+                com segurança.
               </p>
             </div>
 
@@ -50,7 +50,6 @@ const Footer = () => {
                 <ul className="space-y-3 text-white/65 text-[0.92rem] font-normal leading-[1.25rem] tracking-[-0.00938rem] [&_a]:transition-all [&_a]:duration-300 [&_a:hover]:text-white [&_a:hover]:translate-x-1 [&_a]:inline-block">
                   <li><Link href="/customers">Clientes</Link></li>
                   <li><Link href="/security">Segurança</Link></li>
-                  <li><Link href="/news">Notícias</Link></li>
                   <li><Link href="/company">Sobre nós</Link></li>
                 </ul>
               </div>

@@ -10,7 +10,7 @@ export default function AssistantExperience() {
   const features = [
     {
       title: 'Interface em linguagem natural',
-      desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. Comunique-se como faria com um associado sênior.',
+      desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. Comunique-se como faria com um amigo experiente.',
       icon: (
         <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -24,7 +24,7 @@ export default function AssistantExperience() {
     },
     {
       title: 'Geração de documentos',
-      desc: 'Redija documentos jurídicos de alta qualidade em segundos. Edite e refine mantendo os padrões do seu escritório.',
+      desc: 'Redija documentos jurídicos de alta qualidade em segundos. Edite e refine até ficar bem do seu jeito.',
       icon: (
         <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -74,15 +74,15 @@ export default function AssistantExperience() {
                   Seu assistente jurídico pessoal
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-                  Delegue tarefas complexas em linguagem natural. Feito para o trabalho jurídico sofisticado, com a mesma precisão
-                  que você espera da sua equipe.
+                  Resolva dúvidas jurídicas em linguagem natural. Feito para quem não é advogado, com a clareza que
+                  você espera de um bom especialista.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                   >
-                    Solicitar uma demonstração
+                    Tirar minhas dúvidas
                   </Link>
                   <button
                     type="button"
@@ -116,9 +116,9 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.1}>
         <section className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
-            <h2 className={sectionHeadingClass}>Sob medida para a sua especialidade</h2>
+            <h2 className={sectionHeadingClass}>Sob medida para a sua realidade</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
-              Recursos pensados para o jeito como as equipes jurídicas modernas trabalham: respostas claras, minutas rápidas e pesquisas
+              Recursos pensados para o jeito como as pessoas resolvem problemas reais: respostas claras, textos rápidos e pesquisas
               confiáveis.
             </p>
 

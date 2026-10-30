@@ -26,9 +26,9 @@ export default function PricingSection() {
       <section id="pricing" className="bg-pequi-50 scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
           <div className="mx-auto max-w-[840px] text-center">
-            <h3 className={sectionHeadingClass}>Preços simples para equipes jurídicas</h3>
+            <h3 className={sectionHeadingClass}>Preços simples para cada necessidade</h3>
             <p className={`${sectionSubTextClass} mt-4`}>
-              Escolha o plano ideal para o seu fluxo de trabalho e cresça com segurança junto com sua equipe.
+              Escolha o plano ideal para o seu momento e cuide dos seus direitos com mais segurança e tranquilidade.
             </p>
           </div>
 
