@@ -180,7 +180,7 @@ export default function AssistantExperience() {
                       ))}
                     </div>
                     <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-[0.875rem] bg-cerrado-900 px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
-                      Registro de documentos
+                      Assinatura de documento
                     </div>
                   </div>
                 </div>
