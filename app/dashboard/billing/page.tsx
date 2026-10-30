@@ -254,8 +254,9 @@ function BillingContent() {
     } catch (error: unknown) {
       const err = error instanceof Error ? error : new Error(String(error));
       console.error('Error subscribing:', err);
+      toast.dismiss();
       const errMsg = (error as { response?: { data?: { message?: string } } })?.response?.data?.message;
-      toast.error(errMsg || 'Falha ao processar a assinatura. Tente novamente.');
+      toast.error(errMsg || err.message || 'Falha ao processar a assinatura. Tente novamente.');
       setSelectedPlan(null);
     }
   };

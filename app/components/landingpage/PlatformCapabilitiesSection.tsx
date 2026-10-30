@@ -16,9 +16,9 @@ const capabilities = [
   },
   {
     icon: '⇄',
-    title: 'Registro de Documentos',
+    title: 'Assinatura de Documento',
     description:
-      'Crie e guarde documentos jurídicos em segundos, acompanhe versões e mantenha cada caso seu sempre organizado.',
+      'Crie documentos jurídicos em segundos, envie para assinatura pela DocuSign e mantenha cada caso sempre organizado.',
   },
   {
     icon: '⌘',

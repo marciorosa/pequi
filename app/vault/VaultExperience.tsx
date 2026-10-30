@@ -70,7 +70,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Fluxos de assinatura eletrônica',
-      description: 'Leve automaticamente os contratos assinados para as pastas certas do cofre a partir dos seus fluxos de assinatura.',
+      description: 'Leve automaticamente os contratos assinados para as pastas certas do cofre a partir dos seus fluxos na DocuSign.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path

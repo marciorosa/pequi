@@ -19,7 +19,7 @@ export default function WorkflowsExperience() {
     },
     {
       title: 'Sincronização de assinaturas digitais',
-      description: 'Envie, acompanhe e arquive automaticamente no cofre os contratos assinados.',
+      description: 'Envie pela DocuSign, acompanhe e arquive no cofre cada contrato.',
       icon: (
         <path
           strokeLinecap="round"

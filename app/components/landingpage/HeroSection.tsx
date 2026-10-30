@@ -24,8 +24,8 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
       preview: '/landingpage/intro/ai-assistant-img.png',
     },
     {
-      title: 'Registro de Documentos',
-      copy: 'Guarde contratos, recibos e comprovantes em um único lugar pesquisável.',
+      title: 'Assinatura de Documento',
+      copy: 'Envie e acompanhe assinaturas de contratos com segurança pela DocuSign.',
       icon: '/landingpage/hero/document-registory.svg',
       preview: '/landingpage/intro/document-img.png',
     },
