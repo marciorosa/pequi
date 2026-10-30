@@ -1909,7 +1909,7 @@ export default function DocumentGenerationPage() {
                            <style jsx global>{`
                     .legal-document {
                       color: rgba(30, 46, 22, 0.9);
-                      font-family: 'Times New Roman', Times, serif;
+                      font-family: var(--font-sans);
                       line-height: 1.6;
                     }
                     .legal-document h1 {

@@ -468,6 +468,16 @@
   animation-delay: 200ms;
 }
 
+/* Conversas e documentos gerados usam a fonte do sistema, inclusive nos títulos */
+.prose :is(h1, h2, h3, h4, h5, h6),
+.formatted-content :is(h1, h2, h3, h4, h5, h6),
+.legal-search-result :is(h1, h2, h3, h4, h5, h6),
+.legal-document :is(h1, h2, h3, h4, h5, h6),
+.agreement-document :is(h1, h2, h3, h4, h5, h6),
+.generated-content :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-sans);
+}
+
 /* Styling for formatted chat content */
 .formatted-content {
   @apply text-foreground/90;

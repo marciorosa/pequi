@@ -233,7 +233,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
 
       <style jsx global>{`
         .agreement-document {
-          font-family: 'Times New Roman', Times, serif;
+          font-family: var(--font-sans);
           line-height: 1.6;
           color: #333;
         }

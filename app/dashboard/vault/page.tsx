@@ -579,7 +579,7 @@ const ChatModal = ({
                 </div>
               )}
               <div
-                className={`max-w-[78%] px-5 py-3.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
+                className={`generated-content max-w-[78%] px-5 py-3.5 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
                   ? 'btn-primary-gradient rounded-tr-none'
                   : 'bg-castanha-50 border border-castanha-100 text-foreground rounded-tl-none'
                   }`}
@@ -688,7 +688,7 @@ const ViewChatModal = ({
                       {session.messages.map((msg, i) => (
                         <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                           <div
-                            className={`max-w-[80%] px-4 py-3 rounded-xl text-xs leading-relaxed ${msg.role === 'user'
+                            className={`generated-content max-w-[80%] px-4 py-3 rounded-xl text-xs leading-relaxed ${msg.role === 'user'
                               ? 'bg-foreground text-white rounded-tr-none'
                               : 'bg-white border border-castanha-100 text-foreground rounded-tl-none'
                               }`}
