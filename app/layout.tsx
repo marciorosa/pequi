@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, Lexend_Deca, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import DashboardAwareLayout from "./components/DashboardAwareLayout";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -66,6 +67,20 @@ export default function RootLayout({
         ['--font-gilroy' as any]: `var(${interTight.variable})`,
         ['--font-landing' as any]: `var(${interTight.variable})`
       }}>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TP6TNKTK39"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-TP6TNKTK39');
+          `}
+        </Script>
         <AuthProvider>
           <DashboardAwareLayout>{children}</DashboardAwareLayout>
           <Toaster
