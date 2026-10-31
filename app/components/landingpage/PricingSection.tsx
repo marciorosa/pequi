@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import FadeInSection from './FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from './sectionStyles';
-import { pricingPlans } from '../../pricing/pricingData';
+import { formatPlanPrice, pricingPlans } from '../../pricing/pricingData';
 
 export default function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
@@ -12,7 +12,7 @@ export default function PricingSection() {
   const getPrice = (plan: typeof pricingPlans[0]) => {
     if (plan.monthlyPrice === null) return 'Sob consulta';
     const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
-    return `$${price?.toLocaleString()}`;
+    return formatPlanPrice(price ?? 0);
   };
 
   const getSavings = (plan: typeof pricingPlans[0]) => {

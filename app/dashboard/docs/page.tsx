@@ -328,9 +328,17 @@ export default function DocumentGenerationPage() {
          try {
             const history = await documentService.getDocumentHistory();
             if (history && history.length > 0) {
-               // Update state and localStorage
-               setRecentDocuments(history);
-               localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(history));
+               const savedDocs: DocHistoryItem[] = history.map((doc: Record<string, unknown>) => ({
+                  ...doc,
+                  timestamp: new Date(doc.timestamp as string)
+               }));
+               const savedIds = new Set(savedDocs.map(doc => doc.id));
+
+               // Analyses and translations live only in this browser, so keep them alongside the saved documents
+               setRecentDocuments(prev =>
+                  [...savedDocs, ...prev.filter(doc => !savedIds.has(doc.id))]
+                     .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+               );
             }
          } catch (error) {
             console.error('Error fetching document history:', error);
@@ -757,9 +765,9 @@ export default function DocumentGenerationPage() {
 
          // Add to recent documents
          const newDoc = {
-            id: Date.now().toString(),
+            id: result.id,
             title: result.title || 'Novo contrato',
-            type: 'DOCX',
+            type: 'Agreement',
             timestamp: new Date()
          };
 
@@ -1381,13 +1389,15 @@ export default function DocumentGenerationPage() {
                               </div>
                               <div>
                                  <h3 className="text-foreground text-lg font-medium">{doc.title}</h3>
-                                 <p className="text-foreground/50 text-sm">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado' } as Record<string, string>)[doc.type] ?? doc.type} • {formatDate(doc.timestamp)}</p>
+                                 <p className="text-foreground/50 text-sm">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado', Agreement: 'Contrato' } as Record<string, string>)[doc.type] ?? doc.type} • {formatDate(doc.timestamp)}</p>
                               </div>
                            </div>
                            <button className="text-foreground/70 hover:text-foreground p-2 transition-colors rounded-full hover:bg-castanha-100"
                               onClick={() => {
                                  // Set the appropriate tool and load the result
-                                 if (doc.type === 'PDF' || doc.type === 'DOCX' || doc.type === 'DOC' || doc.type === 'TXT') {
+                                 if (doc.type === 'Agreement' || doc.type === 'Advanced Agreement') {
+                                    router.push(`/dashboard/agreements/${doc.id}`);
+                                 } else if (doc.type === 'PDF' || doc.type === 'DOCX' || doc.type === 'DOC' || doc.type === 'TXT') {
                                     setSelectedTool('agreement-summary');
                                     // Attempt to load from localStorage
                                     const savedResult = localStorage.getItem('AIForLawyers_lastAnalysisResult');
@@ -2266,7 +2276,7 @@ export default function DocumentGenerationPage() {
                                  setReferenceDocument(files[0]);
                               }
                            }}
-                           accept=".pdf,.doc,.docx,.txt"
+                           accept=".pdf,.txt"
                         />
                         {referenceDocument && (
                            <div className="mt-2 text-sm text-foreground/70 flex items-center">
@@ -2669,23 +2679,10 @@ export default function DocumentGenerationPage() {
 
          setAgreementResult(result);
 
-         // Save to document history
-         const newDoc = {
-            id: Date.now().toString(),
-            title: `${documentType} - Profissional`,
-            type: 'Advanced Agreement',
-            timestamp: new Date()
-         };
-
-         // Update recent documents and persist to localStorage
-         const updatedDocs = [newDoc, ...recentDocuments.slice(0, 4)];
-         setRecentDocuments(updatedDocs);
-         localStorage.setItem('AIForLawyers_documentHistory', JSON.stringify(updatedDocs));
-
          toast.success('Documento criado com sucesso!', { id: 'create-pro' });
 
          // Navigate to document viewer
-         router.push(`/dashboard/agreements/${newDoc.id}`);
+         router.push(`/dashboard/agreements/${result.id}`);
       } catch (error: any) {
          console.error('Error creating professional document:', error);
          toast.dismiss('create-pro');
@@ -2785,7 +2782,7 @@ export default function DocumentGenerationPage() {
                                        <div className="flex items-center mt-0.5">
                                           <span className="text-foreground/60 text-xs">{formatDate(doc.timestamp)}</span>
                                           <span className="mx-2 text-foreground/20">•</span>
-                                          <span className="text-foreground/60 text-xs bg-castanha-50 px-2 py-0.5 rounded-full border border-castanha-100">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado' } as Record<string, string>)[doc.type] ?? doc.type}</span>
+                                          <span className="text-foreground/60 text-xs bg-castanha-50 px-2 py-0.5 rounded-full border border-castanha-100">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado', Agreement: 'Contrato' } as Record<string, string>)[doc.type] ?? doc.type}</span>
                                        </div>
                                     </div>
                                  </div>
@@ -2794,7 +2791,9 @@ export default function DocumentGenerationPage() {
                                     onClick={() => {
                                        setIsHistoryOpen(false);
                                        // Set the appropriate tool and load the result
-                                       if (doc.type === 'PDF' || doc.type === 'DOCX' || doc.type === 'DOC' || doc.type === 'TXT') {
+                                       if (doc.type === 'Agreement' || doc.type === 'Advanced Agreement') {
+                                          router.push(`/dashboard/agreements/${doc.id}`);
+                                       } else if (doc.type === 'PDF' || doc.type === 'DOCX' || doc.type === 'DOC' || doc.type === 'TXT') {
                                           setSelectedTool('agreement-summary');
                                           const savedResult = localStorage.getItem('AIForLawyers_lastAnalysisResult');
                                           if (savedResult) setAnalysisResult(JSON.parse(savedResult));
@@ -2835,8 +2834,15 @@ export default function DocumentGenerationPage() {
                      {recentDocuments.length > 0 && (
                         <div className="mt-4 pt-3 border-t border-castanha-100 flex justify-end">
                            <button
-                              onClick={() => {
-                                 if (confirm("Tem certeza de que deseja limpar todo o histórico de documentos?")) {
+                              onClick={async () => {
+                                 if (confirm("Tem certeza de que deseja limpar todo o histórico? Os contratos salvos serão excluídos definitivamente.")) {
+                                    try {
+                                       await documentService.clearDocuments();
+                                    } catch (error) {
+                                       console.error('Error clearing documents:', error);
+                                       toast.error('Não foi possível limpar o histórico. Tente novamente.');
+                                       return;
+                                    }
                                     localStorage.removeItem('AIForLawyers_documentHistory');
                                     localStorage.removeItem('AIForLawyers_lastAnalysisResult');
                                     localStorage.removeItem('AIForLawyers_lastComparisonResult');

@@ -9,23 +9,15 @@ import UpgradeModal from '../components/UpgradeModal';
 // Add custom CSS styles for the enhanced query display
 import './enhanced-query.css';
 
-interface SearchResult {
-  id: string;
-  title: string;
-  type: string;
-  year: number;
-  relevance: number;
-  summary: string;
-  formattedContent?: string;
-}
+const SEARCH_ERROR_MESSAGE = 'Não foi possível concluir a pesquisa. Tente novamente em instantes; esta tentativa não consumiu sua cota.';
 
 export default function DashboardPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [enhancedQuery, setEnhancedQuery] = useState<string | null>(null);
   const [followUpPrompts, setFollowUpPrompts] = useState<string[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
   const [searchSuggestions] = useState<string[]>([
     "Interpretação de contratos segundo a lei de Nova York",
     "Análise de modelo de acordo de confidencialidade",
@@ -44,12 +36,14 @@ export default function DashboardPage() {
 
     setIsSearching(true);
     setHasSearched(true);
+    setSearchError(null);
+    setEnhancedQuery(null);
+    setFollowUpPrompts([]);
 
     try {
       const response = await aiService.searchLegalDatabase(queryToSearch);
 
       if (response.success) {
-        setSearchResults(response.results);
         setEnhancedQuery(response.enhancedQuery);
         setFollowUpPrompts(response.followUpPrompts || []);
 
@@ -57,16 +51,16 @@ export default function DashboardPage() {
           setSearchQuery(customQuery);
         }
       } else {
-        setSearchResults([]);
-        setFollowUpPrompts([]);
+        setSearchError(SEARCH_ERROR_MESSAGE);
       }
     } catch (error: any) {
       console.error('Error searching:', error);
-      if (error.response?.status === 403 || error.status === 403) {
+      const status = error.response?.status || error.status;
+      if (status === 403) {
         setShowUpgradeModal(true);
+      } else {
+        setSearchError(status === 422 ? error.response.data.message : SEARCH_ERROR_MESSAGE);
       }
-      setSearchResults([]);
-      setFollowUpPrompts([]);
     } finally {
       setIsSearching(false);
     }
@@ -181,7 +175,7 @@ export default function DashboardPage() {
                 </div>
                 <input
                   type="text"
-                  placeholder="Nº do processo, cláusula ou consulta..."
+                  placeholder="Cláusula, direito ou dúvida jurídica..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-castanha-50 border border-castanha-200 text-ink placeholder-ink/30 py-5 pl-14 pr-16 rounded-2xl focus:outline-none focus:ring-4 focus:ring-pequi-500/5 transition-all duration-300 font-medium"
@@ -229,6 +223,12 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
             {/* Main Results Column */}
             <div className="lg:col-span-2 space-y-8">
+              {searchError && (
+                <div role="alert" className="bg-red-50 border border-red-100 text-red-600 rounded-2xl p-6 font-medium">
+                  {searchError}
+                </div>
+              )}
+
               {enhancedQuery && (
                 <div className="bg-white border border-castanha-200 rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
                   <div className="flex items-center gap-4 mb-10">
@@ -249,31 +249,6 @@ export default function DashboardPage() {
                 </div>
               )}
  
-              {searchResults.length > 0 && (
-                <div className="space-y-4">
-                  <h3 className="px-6 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Fontes citadas</h3>
-                  {searchResults.map((result) => (
-                    <div key={result.id} className="group bg-white hover:bg-castanha-50 border border-castanha-200 rounded-[2rem] p-8 transition-all duration-300 shadow-sm hover:shadow-xl cursor-pointer">
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="flex-1">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 mb-2 block">{result.type} • {result.year}</span>
-                          <h4 className="text-xl font-medium text-ink group-hover:text-ink transition-colors tracking-tight">{result.title}</h4>
-                        </div>
-                        <div className="px-3 py-1.5 rounded-full bg-foreground/5 text-[10px] font-bold text-foreground/40 border border-foreground/5">
-                          {Math.round(result.relevance * 100)}% de relevância
-                        </div>
-                      </div>
-                      <p className="text-[1rem] text-castanha-600 leading-relaxed line-clamp-2 font-medium">
-                        {result.summary}
-                      </p>
-                      <div className="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-ink">Ver análise</span>
-                        <svg className="w-3 h-3 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Sidebar Column */}

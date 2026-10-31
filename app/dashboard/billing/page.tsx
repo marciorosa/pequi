@@ -6,6 +6,7 @@ import DashboardLayout from '../../components/DashboardLayout';
 import { stripeService } from '../../services/api';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-hot-toast';
+import { formatPlanPrice } from '../../pricing/pricingData';
 
 // Initialize Stripe
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -44,6 +45,7 @@ interface Invoice {
   id: string;
   date: Date;
   amount: number;
+  currency?: string;
   status: 'paid' | 'pending' | 'failed';
   downloadUrl: string;
 }
@@ -282,10 +284,10 @@ function BillingContent() {
   };
 
   // Format currency
-  const formatCurrency = (amount: number): string => {
+  const formatCurrency = (amount: number, currency = 'brl'): string => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
-      currency: 'USD',
+      currency: currency.toUpperCase(),
       minimumFractionDigits: 0
     }).format(amount);
   };
@@ -529,7 +531,7 @@ function BillingContent() {
               <h3 className="text-2xl font-medium tracking-tight text-ink mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
               <div className="mb-8 flex items-baseline">
                 <span className="text-5xl font-bold text-ink tracking-tighter">
-                  {plan.price === 0 && plan.id === 'free' ? '0' : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : `${plan.id === 'pro-monthly' ? '399' : plan.price}`}
+                  {plan.price === 0 && plan.id === 'free' ? formatPlanPrice(0) : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : formatPlanPrice(plan.id === 'pro-monthly' ? 399 : plan.price)}
                 </span>
                 {plan.price !== 0 && (
                   <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
@@ -626,7 +628,7 @@ function BillingContent() {
                           <div className="text-sm text-castanha-600 font-medium opacity-60">{formatDate(invoice.date)}</div>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm font-bold text-ink">{formatCurrency(invoice.amount)}</div>
+                          <div className="text-sm font-bold text-ink">{formatCurrency(invoice.amount, invoice.currency)}</div>
                         </td>
                         <td className="px-10 py-6 whitespace-nowrap">
                            <span className={`px-4 py-1.5 text-[9px] font-bold rounded-full uppercase tracking-widest ${invoice.status === 'paid' ? 'bg-cerrado-500/10 text-cerrado-500' : 'bg-red-500/10 text-red-500'}`}>

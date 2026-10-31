@@ -205,7 +205,7 @@ export const documentService = {
       const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
       if (!token) return [];
       const response = await api.get('/documents/history');
-      return response.data;
+      return response.data.data;
     } catch (error: unknown) {
       // Silently return empty on 401 (not yet authenticated) or network errors
       if ((error as { response?: { status?: number } })?.response?.status !== 401) {
@@ -216,34 +216,47 @@ export const documentService = {
   },
 
   /**
+   * Load a saved document
+   */
+  getDocument: async (id: string) => {
+    const response = await api.get(`/documents/${id}`);
+    return response.data.data;
+  },
+
+  /**
+   * Delete all of the user's saved documents
+   */
+  clearDocuments: async () => {
+    await api.delete('/documents');
+  },
+
+  /**
    * Create an advanced document using Gemini AI
    */
   createAdvancedDocument: async (options: AdvancedDocumentOptions) => {
     try {
-      // Prepare form data for the API
-      const formData = new FormData();
-      formData.append('documentType', options.documentType);
-      formData.append('templateStyle', options.templateStyle);
+      const { referenceDocument, ...fields } = options;
+      const payload: Record<string, unknown> = { ...fields };
 
-      if (options.specialRequirements) {
-        formData.append('specialRequirements', options.specialRequirements);
-      }
+      if (referenceDocument) {
+        const maxSize = 10 * 1024 * 1024; // 10MB
+        if (referenceDocument.size > maxSize) {
+          throw new Error('O documento de referência excede o limite de 10 MB.');
+        }
 
-      if (options.referenceDocument) {
-        formData.append('referenceDocument', options.referenceDocument);
+        if (referenceDocument.name.toLowerCase().endsWith('.txt')) {
+          payload.referenceDocumentText = await referenceDocument.text();
+        } else {
+          payload.referenceDocumentFile = {
+            data: await fileToBase64(referenceDocument),
+            mimeType: referenceDocument.type || 'application/pdf'
+          };
+        }
       }
 
       // Call the API endpoint
-      const response = await fetch('/api/documents/create-advanced', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Falha ao criar o documento avançado');
-      }
-
-      return await response.json();
+      const response = await api.post('/ai/create-document', payload);
+      return response.data;
     } catch (error: unknown) {
       console.error('Error creating advanced document:', error);
       throw error;

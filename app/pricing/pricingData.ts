@@ -8,6 +8,14 @@ export type PricingPlan = {
   ctaText: string;
 };
 
+const priceFormatter = new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+  maximumFractionDigits: 0,
+});
+
+export const formatPlanPrice = (price: number) => priceFormatter.format(price);
+
 export const pricingPlans: PricingPlan[] = [
   {
     name: 'Gratuito',

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { pricingPlans } from './pricingData';
+import { formatPlanPrice, pricingPlans } from './pricingData';
 
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
@@ -38,7 +38,7 @@ export default function PricingPage() {
   const getPrice = (plan: typeof pricingPlans[0]) => {
     if (plan.monthlyPrice === null) return "Sob consulta";
     const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.annualPrice;
-    return `$${price?.toLocaleString()}`;
+    return formatPlanPrice(price ?? 0);
   };
 
   const getSavings = (plan: typeof pricingPlans[0]) => {

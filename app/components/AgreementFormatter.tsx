@@ -19,25 +19,26 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
       // Handle different asterisk scenarios
 
       // Check if line only contains asterisks (possibly with whitespace)
-      if (/^\s*\*+\s*$/.test(line)) {
+      if (/^\s*(\*+|-{3,})\s*$/.test(line)) {
         return ''; // Remove the line completely
       }
 
-      // Remove asterisks at beginning of lines (section markers)
-      let processedLine = line.replace(/^\s*\*+\s*/, '');
-
-      // Process mid-line asterisks for emphasis/formatting - convert to proper HTML
-      processedLine = processedLine.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>'); // Bold
+      // Process asterisks for emphasis/formatting - convert to proper HTML
+      let processedLine = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>'); // Bold
       processedLine = processedLine.replace(/\*([^*\n]+)\*/g, '<strong>$1</strong>');  // Also bold
 
-      return processedLine;
+      // Remove leftover asterisks and markdown hashes at beginning of lines (section markers)
+      return processedLine.replace(/^\s*(\*+\s*|#{1,6}\s+)/, '');
     }).filter(line => line !== null && line !== undefined);
 
     // Join the lines back and handle placeholder text
     const formattedContent = processedLines.join('\n')
       .replace(/\[([^\]]+)\]/g, '<span class="placeholder-input">________________</span><span class="placeholder-text">$1</span>'); // Convert placeholders to fillable lines
 
-    return formattedContent;
+    // Plain text needs its line breaks preserved; generated HTML already has its own
+    return /<\/?(p|div|h[1-6]|ul|ol|li|br)\b/i.test(content)
+      ? formattedContent
+      : formattedContent.replace(/\n/g, '<br />');
   };
 
   const downloadAsPDF = async () => {
@@ -46,18 +47,23 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
 
     try {
       // For PDF generation, create a clean version without HTML tags
-      const cleanContent = agreement.content.split('\n').map(line => {
+      const plainContent = agreement.content
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(p|div|h[1-6]|li)>/gi, '\n')
+        .replace(/<[^>]+>/g, '');
+
+      const cleanContent = plainContent.split('\n').map(line => {
         // Skip lines with only asterisks
-        if (/^\s*\*+\s*$/.test(line)) {
+        if (/^\s*(\*+|-{3,})\s*$/.test(line)) {
           return '';
         }
 
-        // Remove asterisks at beginning and end of lines
-        let processedLine = line.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
-
         // Remove emphasis asterisks
-        processedLine = processedLine.replace(/\*\*([^*]+)\*\*/g, '$1');
+        let processedLine = line.replace(/\*\*([^*]+)\*\*/g, '$1');
         processedLine = processedLine.replace(/\*([^*\n]+)\*/g, '$1');
+
+        // Remove leftover asterisks and markdown hashes at beginning, and asterisks at end of lines
+        processedLine = processedLine.replace(/^\s*(\*+\s*|#{1,6}\s+)/, '').replace(/\s*\*+\s*$/, '');
 
         // Replace placeholders with fillable lines
         processedLine = processedLine.replace(/\[([^\]]+)\]/g, '________________');

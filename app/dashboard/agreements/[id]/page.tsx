@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AgreementFormatter from '@/app/components/AgreementFormatter';
 import { Spinner } from '@/app/components/ui/spinner';
+import documentService from '@/app/services/documentService';
 
 interface AgreementData {
   id: string;
@@ -42,33 +43,7 @@ export default function AgreementPage({ params }: Props) {
       setError(null);
 
       try {
-        // First try to get from localStorage
-        const savedHistory = localStorage.getItem('AIForLawyers_documentHistory');
-        const history = savedHistory ? JSON.parse(savedHistory) : [];
-
-        // Find the agreement in recent docs
-        const recentDoc = history.find((doc: { id: string }) => doc.id === id);
-
-        if (recentDoc) {
-          // Try to load saved agreement result
-          const savedResult = localStorage.getItem('AIForLawyers_lastAgreementResult');
-          if (savedResult) {
-            const agreementResult = JSON.parse(savedResult);
-            setAgreement(agreementResult);
-            setIsLoading(false);
-            return;
-          }
-        }
-
-        // If not found in localStorage, try to fetch from API
-        const response = await fetch(`/api/documents/${id}`);
-
-        if (!response.ok) {
-          throw new Error(`Falha ao carregar o contrato: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        setAgreement(data);
+        setAgreement(await documentService.getDocument(id));
       } catch (err) {
         console.error('Error fetching agreement:', err);
         setError('Não foi possível carregar o contrato. Ele pode ter expirado ou sido excluído.');
@@ -126,7 +101,7 @@ export default function AgreementPage({ params }: Props) {
           </button>
 
           <div className="text-foreground/50 text-sm bg-white px-4 py-2 rounded-full border border-castanha-100 shadow-sm">
-            <span className="font-medium text-foreground/70 mr-1">Created:</span> {new Date(agreement.createdAt).toLocaleString()}
+            <span className="font-medium text-foreground/70 mr-1">Criado em:</span> {new Date(agreement.createdAt).toLocaleString('pt-BR')}
           </div>
         </div>
 
