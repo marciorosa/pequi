@@ -199,7 +199,7 @@ export default function NotificationsPage() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Registro neural</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Notificações</span>
             </div>
             <h1 className="text-4xl font-medium tracking-tight text-ink">Notificações</h1>
             <p className="text-castanha-600 mt-3 font-medium opacity-60">

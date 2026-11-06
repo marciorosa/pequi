@@ -11,7 +11,7 @@ export default function PricingPage() {
   const faqs = [
     {
       question: "O que está incluído no plano gratuito?",
-      answer: "O plano Gratuito dá acesso a 5 pesquisas de Inteligência com IA, 5 consultas no Chat e 5 Personas Jurídicas de IA básicas para você experimentar a plataforma."
+      answer: "O plano Gratuito dá acesso a 5 pesquisas de Inteligência com IA, 5 mensagens no Chat e 5 Assistentes de IA (Penal, Civil, Empresarial, Família e Migração) para você experimentar a plataforma. Essas quantidades não renovam."
     },
     {
       question: "Posso mudar de plano a qualquer momento?",
@@ -19,15 +19,15 @@ export default function PricingPage() {
     },
     {
       question: "Meus dados estão seguros?",
-      answer: "Com certeza. Usamos criptografia de nível corporativo e cofres seguros no AWS S3 para garantir que seus documentos permaneçam privados."
+      answer: "A comunicação usa conexão criptografada (HTTPS) e os arquivos do Cofre ficam na AWS (Amazon S3), com acesso restrito à sua conta."
     },
     {
       question: "Como funcionam os créditos do plano Pro?",
-      answer: "O plano Pro oferece limites mensais generosos (50 pesquisas, 50 chats, 50 operações com documentos etc.). Esses limites são renovados automaticamente no início do próximo ciclo de cobrança."
+      answer: "O plano Pro oferece 50 pesquisas, 50 mensagens e 50 operações com documentos por ciclo de cobrança. Esses limites são renovados automaticamente no início do próximo ciclo de cobrança."
     },
     {
       question: "Quais formas de pagamento vocês aceitam?",
-      answer: "Aceitamos os principais cartões de crédito, processados com segurança pela Stripe."
+      answer: "No momento, aceitamos apenas cartão de crédito, processado pela Stripe."
     },
     {
       question: "Posso cancelar minha assinatura a qualquer momento?",
@@ -212,8 +212,8 @@ export default function PricingPage() {
                 <thead>
                   <tr className="bg-castanha-50/50">
                     <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-ink/30 w-1/4">Recurso</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Protocol.I (Gratuito)</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Protocol.X (Pro)</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Gratuito</th>
+                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Pro</th>
                     <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30 bg-cerrado-950/5 text-ink">Enterprise</th>
                   </tr>
                 </thead>
@@ -221,7 +221,7 @@ export default function PricingPage() {
                   {[
                     { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
                     { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
-                    { feature: 'Acesso aos Advogados de IA', starter: '5 personas', pro: 'Todas as 50 personas', enterprise: 'Núcleo personalizado' },
+                    { feature: 'Assistentes de IA', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
                     { feature: 'Operações com documentos', starter: '✗', pro: '50 operações', enterprise: 'Ilimitado' },
                     { feature: 'Pastas no Cofre', starter: '✗', pro: '50 pastas', enterprise: 'Ilimitado' },
                     { feature: 'Armazenamento no Cofre', starter: '✗', pro: '500 MB', enterprise: 'Escala de TB' },

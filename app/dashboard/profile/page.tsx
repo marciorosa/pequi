@@ -57,10 +57,11 @@ export default function ProfilePage() {
     startDate: new Date(),
     nextBillingDate: null,
     features: [
-      'Análise básica de documentos',
-      'Assistência limitada no chat de IA',
-      'Armazenamento de documentos (100 MB)',
-      'Suporte por e-mail'
+      'Pesquisa inteligente (5 pesquisas)',
+      'Chat jurídico com IA (5 mensagens)',
+      'Assistentes de IA (5 áreas liberadas)',
+      'Sem acesso ao Cofre e às operações com documentos',
+      'Sem criador de fluxos'
     ]
   });
 
@@ -103,7 +104,8 @@ export default function ProfilePage() {
           fullName: response.user.name || user.name || '',
           email: response.user.email || user.email || '',
           company: response.user.company || '',
-          role: response.user.role || '',
+          // "Cargo" do Perfil; o campo role do servidor é a permissão da conta e não aparece aqui
+          role: response.user.jobTitle || '',
           phone: response.user.phone || '',
           image: response.user.image || '',
         });
@@ -113,7 +115,7 @@ export default function ProfilePage() {
           setSubscription({
             plan: response.subscription.plan || 'Free',
             status: response.subscription.status || 'active',
-            startDate: new Date(response.subscription.startDate || Date.now()),
+            startDate: new Date(response.user.memberSince || response.subscription.startDate || Date.now()),
             nextBillingDate: response.subscription.nextBillingDate ? new Date(response.subscription.nextBillingDate) : null,
             features: response.subscription.features || subscription.features
           });
@@ -135,7 +137,7 @@ export default function ProfilePage() {
       const profileData: Record<string, unknown> = {
         fullName: editedProfile.fullName,
         company: editedProfile.company,
-        role: editedProfile.role,
+        jobTitle: editedProfile.role,
         phone: editedProfile.phone,
       };
 
@@ -642,7 +644,7 @@ export default function ProfilePage() {
                     </div>
  
                     <div className="space-y-3">
-                      <div className="text-ink font-bold text-[11px] uppercase tracking-[0.15em] mb-4">Neural Capacity:</div>
+                      <div className="text-ink font-bold text-[11px] uppercase tracking-[0.15em] mb-4">Recursos do plano:</div>
                       {subscription.features.map((feature, index) => (
                         <div key={index} className="flex items-center gap-3 text-castanha-600 text-[0.95rem] font-medium opacity-70">
                           <svg className="w-4 h-4 text-ink flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

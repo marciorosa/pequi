@@ -103,7 +103,7 @@ export default function ContactSupportPage() {
             </div>
             <h2 className="text-3xl font-light text-foreground mb-4 tracking-tight">Solicitação recebida</h2>
             <p className="text-foreground/50 mb-10 max-w-sm mx-auto font-light leading-relaxed">
-              Registramos seu chamado de suporte. Uma confirmação foi enviada para o seu e-mail, e um especialista entrará em contato em breve.
+              Registramos seu chamado de suporte. Uma confirmação foi enviada para o seu e-mail, e nossa equipe responderá em até 24 horas úteis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -323,7 +323,7 @@ export default function ContactSupportPage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold mb-1">Horário de atendimento</p>
-                      <p className="text-xs font-medium text-foreground/40">Seg. a sex., das 9h às 17h (horário de Nova York)</p>
+                      <p className="text-xs font-medium text-foreground/40">Seg. a sex., das 9h às 18h (horário de Brasília)</p>
                     </div>
                   </div>
                 </div>

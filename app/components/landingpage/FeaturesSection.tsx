@@ -5,15 +5,15 @@ import FadeInSection from './FadeInSection';
 const featureItems = [
   {
     title: 'Pesquisa de Inteligência Jurídica com IA',
-    description: 'Pergunte como você fala, busque pelo número do processo ou descreva sua situação para encontrar respostas claras na hora.',
+    description: 'Pergunte como você fala ou descreva sua situação para receber explicações claras sobre as leis brasileiras.',
   },
   {
     title: 'Assistente Jurídico com IA',
     description: 'Seu apoio inteligente para questões do cotidiano: faça perguntas, envie documentos e receba explicações claras.',
   },
   {
-    title: 'Acesso a Base Jurídica Global',
-    description: 'Resuma contratos, converta fotos em texto, traduza documentos e encontre decisões em segundos.',
+    title: 'Ferramentas de documentos',
+    description: 'Resuma contratos, converta fotos em texto e traduza documentos com ajuda da IA.',
   },
   {
     title: 'Acesso ao Cofre Seguro de Documentos',

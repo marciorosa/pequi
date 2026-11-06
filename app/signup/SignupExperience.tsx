@@ -60,9 +60,9 @@ function SignupAside() {
       </ul>
       <div className="mt-10 grid grid-cols-3 gap-3">
         {[
-          { n: '73%', l: 'Tempo economizado' },
-          { n: '95%', l: 'Confiança dos clientes' },
-          { n: '24/7', l: 'Acesso' },
+          { n: 'Grátis', l: 'Para começar' },
+          { n: '30', l: 'Áreas do Direito' },
+          { n: '24/7', l: 'Acesso à IA' },
         ].map((s) => (
           <div
             key={s.l}

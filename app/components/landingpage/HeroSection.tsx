@@ -12,7 +12,7 @@ type HeroSectionProps = {
 export default function HeroSection({ activePreview, onPreviewChange }: HeroSectionProps) {
   const featureCards = [
     {
-      title: 'Canais',
+      title: 'Chat',
       copy: 'Reúna conversas e arquivos do caso em um lugar.',
       icon: '/landingpage/hero/channels.svg',
       preview: '/landingpage/intro/channels-img.png',
@@ -24,8 +24,8 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
       preview: '/landingpage/intro/ai-assistant-img.png',
     },
     {
-      title: 'Assinatura de Documento',
-      copy: 'Envie e acompanhe assinaturas de contratos com segurança pela DocuSign.',
+      title: 'Documentos',
+      copy: 'Crie, analise e organize documentos e contratos simples com ajuda da IA.',
       icon: '/landingpage/hero/document-registory.svg',
       preview: '/landingpage/intro/document-img.png',
     },

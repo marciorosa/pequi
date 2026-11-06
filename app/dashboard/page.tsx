@@ -19,11 +19,11 @@ export default function DashboardPage() {
   const [hasSearched, setHasSearched] = useState(false);
   const [searchError, setSearchError] = useState<string | null>(null);
   const [searchSuggestions] = useState<string[]>([
-    "Interpretação de contratos segundo a lei de Nova York",
-    "Análise de modelo de acordo de confidencialidade",
-    "Requisitos legais para rescisão do contrato de trabalho",
-    "Responsabilidade em contratos de licenciamento",
-    "Jurisprudência recente sobre violação de patentes"
+    "Direitos do consumidor em compras pela internet (CDC)",
+    "Verbas da rescisão do contrato de trabalho (CLT)",
+    "Plano de saúde negou cobertura: o que diz a lei",
+    "Como a LGPD protege meus dados pessoais",
+    "Direitos do inquilino no fim do aluguel"
   ]);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const router = useRouter();
@@ -113,48 +113,25 @@ export default function DashboardPage() {
             <div className="relative z-10 space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 animate-in fade-in slide-in-from-top-4 duration-1000">
                 <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 text-nowrap">Núcleo soberano ativo</span>
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 text-nowrap">Pesquisa com IA</span>
               </div>
               
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-ink">
-                  Central de <span className="font-light opacity-60 italic">Inteligência Estratégica</span>
+                  Pesquisa <span className="font-light opacity-60 italic">jurídica com IA</span>
                 </h2>
                 <p className="text-lg text-ink/60 font-medium leading-relaxed max-w-sm">
-                  Pesquisa jurídica autônoma em diversas jurisdições, com mapeamento de precedentes em tempo real.
+                  Tire dúvidas sobre as leis brasileiras em linguagem simples. A pesquisa não consulta processos nem bases de jurisprudência.
                 </p>
               </div>
             </div>
 
             <div className="relative z-10 pt-12">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/30">Fluxo de atividade neural</span>
-                  <div className="flex gap-1">
-                    <div className="w-1 h-1 rounded-full bg-cerrado-500 animate-pulse" />
-                    <div className="w-1 h-1 rounded-full bg-cerrado-500/40" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  {[
-                    { label: 'Mapeamento de precedentes criminais', time: 'há 12s', icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-                    { label: 'Auditoria de responsabilidade corporativa', time: 'há 45s', icon: 'M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z' },
-                    { label: 'Descoberta transfronteiriça', time: 'há 2 min', icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z' }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-white/40 border border-castanha-200 backdrop-blur-xl group hover:bg-white/60 transition-all cursor-default">
-                      <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-lg bg-cerrado-950/5 flex items-center justify-center">
-                          <svg className="w-3.5 h-3.5 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                          </svg>
-                        </div>
-                        <span className="text-[11px] font-bold text-ink/70 uppercase tracking-wider">{item.label}</span>
-                      </div>
-                      <span className="text-[9px] font-bold text-ink/20 uppercase tracking-widest">{item.time}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="p-5 rounded-2xl bg-white/60 border border-castanha-200 space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Importante</span>
+                <p className="text-sm font-medium text-ink/70 leading-relaxed">
+                  As respostas são geradas por inteligência artificial e têm caráter apenas informativo. O Pequi não é um escritório de advocacia e não presta consultoria jurídica. Para avaliar o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+                </p>
               </div>
             </div>
           </div>
@@ -163,8 +140,8 @@ export default function DashboardPage() {
           <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-white">
             <div className="max-w-md w-full mx-auto space-y-10">
               <div className="space-y-2">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Terminal operacional</h3>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-ink">O que posso analisar para você?</h2>
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Pesquisa</h3>
+                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-ink">Qual é a sua dúvida?</h2>
               </div>
 
               <form onSubmit={handleSearch} className="relative group">
@@ -238,8 +215,8 @@ export default function DashboardPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Parecer sintetizado</h3>
-                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Resultado da rede neural v4.2</p>
+                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Resposta da IA</h3>
+                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Gerada por inteligência artificial · conteúdo informativo</p>
                     </div>
                   </div>
                   <div

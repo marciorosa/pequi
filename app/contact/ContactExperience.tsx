@@ -404,13 +404,13 @@ export default function ContactExperience() {
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="gap-8 rounded-[1.875rem] border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.05)] md:flex md:items-center md:justify-between md:p-10">
             <div>
-              <h3 className="mb-2 text-lg font-medium text-ink">Presença global</h3>
+              <h3 className="mb-2 text-lg font-medium text-ink">Atendimento no Brasil</h3>
               <p className="max-w-xl text-[0.9375rem] leading-relaxed text-castanha-600">
-                Nova York, San Francisco e Londres: cobertura coordenada de produto e sucesso do cliente em diferentes fusos horários.
+                Atendimento 100% online, em português, de segunda a sexta, no horário de Brasília.
               </p>
             </div>
             <div className="mt-6 md:mt-0 flex flex-wrap gap-3 shrink-0">
-              {['Nova York', 'San Francisco', 'Londres'].map((city) => (
+              {['Online', 'Em português', 'Horário de Brasília'].map((city) => (
                 <span
                   key={city}
                   className="inline-flex items-center rounded-full border border-castanha-200 bg-white px-4 py-2 text-[0.8125rem] font-medium text-ink"

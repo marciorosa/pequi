@@ -14,8 +14,8 @@ const certCardClass =
 export default function SecurityExperience() {
   const securityFeatures = [
     {
-      title: 'Criptografia de ponta a ponta',
-      description: 'Dados criptografados em trânsito e em repouso com o padrão de mercado AES-256.',
+      title: 'Conexão criptografada',
+      description: 'A comunicação entre o seu navegador e a plataforma usa HTTPS.',
       icon: (
         <path
           strokeLinecap="round"
@@ -26,8 +26,8 @@ export default function SecurityExperience() {
       ),
     },
     {
-      title: 'SOC 2 Tipo II',
-      description: 'Infraestrutura e controles revisados por auditorias independentes rigorosas.',
+      title: 'Senhas protegidas',
+      description: 'As senhas são guardadas com hash (bcrypt), nunca em texto puro.',
       icon: (
         <path
           strokeLinecap="round"
@@ -38,8 +38,8 @@ export default function SecurityExperience() {
       ),
     },
     {
-      title: 'Autenticação multifator',
-      description: 'Controles de acesso robustos, além de senhas, para contas e ações administrativas.',
+      title: 'Pastas com senha',
+      description: 'No Cofre, você pode proteger pastas sensíveis com uma senha própria.',
       icon: (
         <path
           strokeLinecap="round"
@@ -50,8 +50,8 @@ export default function SecurityExperience() {
       ),
     },
     {
-      title: 'Detecção de ameaças',
-      description: 'Monitoramento contínuo e alertas para identificar acessos incomuns e padrões de abuso.',
+      title: 'Sessões com prazo',
+      description: 'O acesso usa tokens de sessão que expiram e precisam ser renovados com novo login.',
       icon: (
         <path
           strokeLinecap="round"
@@ -62,8 +62,8 @@ export default function SecurityExperience() {
       ),
     },
     {
-      title: 'Isolamento de dados',
-      description: 'Separação lógica para que os dados de clientes e casos fiquem restritos aos ambientes corretos.',
+      title: 'Acesso individual',
+      description: 'Cada conta consulta apenas os próprios documentos, conversas e arquivos.',
       icon: (
         <path
           strokeLinecap="round"
@@ -74,8 +74,8 @@ export default function SecurityExperience() {
       ),
     },
     {
-      title: 'Testes de segurança',
-      description: 'Testes de invasão e avaliações periódicas realizados por empresas independentes.',
+      title: 'Armazenamento em nuvem',
+      description: 'Os arquivos do Cofre ficam na AWS (Amazon S3), com acesso restrito à sua conta.',
       icon: (
         <path
           strokeLinecap="round"
@@ -88,16 +88,16 @@ export default function SecurityExperience() {
   ];
 
   const certifications = [
-    { name: 'GDPR', description: 'Alinhamento à proteção de dados da UE' },
-    { name: 'HIPAA', description: 'Requisitos de privacidade na área da saúde' },
-    { name: 'SOC 2', description: 'Segurança e disponibilidade' },
-    { name: 'ISO 27001', description: 'Gestão da segurança da informação' },
+    { name: 'LGPD', description: 'Seus direitos como titular estão na Política de Privacidade' },
+    { name: 'Exclusão', description: 'Você pode apagar documentos e pastas a qualquer momento' },
+    { name: 'Sem venda', description: 'Não vendemos seus dados pessoais' },
+    { name: 'Contato', description: 'Dúvidas sobre dados: fale com a equipe pelo formulário' },
   ];
 
   const checkItems = [
-    'Monitoramento de segurança e resposta a incidentes 24 horas por dia, 7 dias por semana',
-    'Alta disponibilidade com infraestrutura redundante',
-    'Auditorias externas e testes de invasão',
+    'Conexão criptografada (HTTPS) em todo o site',
+    'Senhas guardadas com hash, nunca em texto puro',
+    'Cada conta acessa apenas os próprios dados',
   ];
 
   return (
@@ -175,8 +175,7 @@ export default function SecurityExperience() {
                   de design, da criptografia e do controle de acesso à forma como operamos nosso ambiente de produção.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Nossas equipes de segurança e engenharia monitoram, corrigem e testam continuamente para que as proteções acompanhem
-                  os riscos reais.
+                  Revisamos e atualizamos as proteções da plataforma conforme ela evolui.
                 </p>
                 <ul className="mt-8 space-y-3 text-[1rem] leading-[160%] text-castanha-600">
                   {checkItems.map((item) => (
@@ -243,9 +242,9 @@ export default function SecurityExperience() {
       <FadeInSection delay={0.1}>
         <section className="bg-white pb-16 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Compliance e certificações</h2>
+            <h2 className={sectionHeadingClass}>Privacidade e seus dados</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Normas e programas com os quais estamos alinhados; detalhes disponíveis mediante NDA para clientes corporativos.
+              O Pequi ainda não possui certificações de segurança. Veja abaixo como tratamos seus dados.
             </p>
             <div className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4">
               {certifications.map((cert) => (

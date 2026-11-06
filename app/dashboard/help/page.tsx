@@ -30,15 +30,15 @@ export default function HelpPage() {
     },
     {
       question: "Posso falar com um advogado de verdade pela plataforma?",
-      answer: "Atualmente, o Pequi oferece assistência jurídica com IA. Para usuários Pro, indicamos escritórios parceiros nos casos que exigem atuação humana. Estamos trabalhando para ampliar nossa rede de profissionais do Direito para consultas diretas no futuro."
+      answer: "Não. O Pequi é uma ferramenta de inteligência artificial com conteúdo informativo e não presta serviços de advocacia, nem indica advogados ou escritórios. Se o seu caso precisar de um profissional, procure um advogado de sua confiança inscrito na OAB, a Defensoria Pública ou o serviço de assistência jurídica da OAB do seu estado."
     },
     {
       question: "Como faço upgrade da minha assinatura?",
-      answer: "Para fazer upgrade da sua assinatura, acesse a seção Assinatura no seu painel. Lá você encontra informações sobre nossos planos e a opção de fazer upgrade para o Pro, com recursos e funcionalidades adicionais."
+      answer: "Para fazer upgrade da sua assinatura, acesse a seção Plano no seu painel. Lá você encontra informações sobre nossos planos e a opção de fazer upgrade para o Pro, com recursos e funcionalidades adicionais."
     },
     {
       question: "Meus dados estão seguros e são confidenciais?",
-      answer: "Sim, levamos a segurança e a confidencialidade dos dados muito a sério. Todas as comunicações e documentos são criptografados, e seguimos políticas de privacidade rigorosas. Não compartilhamos suas informações com terceiros sem o seu consentimento expresso."
+      answer: "Sim, levamos a segurança e a confidencialidade dos dados muito a sério. As comunicações com a plataforma usam conexão criptografada (HTTPS), e o tratamento dos seus dados segue a nossa Política de Privacidade. Não compartilhamos suas informações com terceiros sem o seu consentimento expresso."
     },
     {
       question: "Como baixo ou exporto meus documentos?",
@@ -67,7 +67,7 @@ export default function HelpPage() {
           </div>
           <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-ink mb-6">Como podemos ajudar?</h1>
           <p className="text-castanha-600 text-lg font-medium opacity-60">
-            Consulte o arquivo neural ou fale com nossos especialistas de suporte jurídico.
+            Consulte as dúvidas frequentes ou fale com a nossa equipe de suporte.
           </p>
  
           {/* Search bar */}
@@ -108,7 +108,7 @@ export default function HelpPage() {
             </div>
             <h3 className="text-2xl font-medium tracking-tight text-ink mb-4 relative z-10">Assistente ao vivo</h3>
             <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Receba ajuda instantânea do nosso assistente jurídico de IA ou de especialistas humanos por canais sincronizados.
+              Respostas automáticas para dúvidas comuns sobre a plataforma. Para falar com a equipe, use o formulário de contato.
             </p>
             <Link href="/dashboard/help/chat" className="inline-flex items-center text-ink font-bold text-[10px] uppercase tracking-[0.2em] border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all relative z-10">
               Iniciar chat
@@ -134,7 +134,7 @@ export default function HelpPage() {
             </div>
             <h3 className="text-2xl font-medium tracking-tight text-ink mb-4 relative z-10">Dúvidas por e-mail</h3>
             <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Solicite suporte assíncrono. Normalmente respondemos em menos de 24 horas.
+              Solicite suporte assíncrono. Respondemos em até 24 horas úteis.
             </p>
             <Link href="/dashboard/help/email" className="inline-flex items-center text-ink font-bold text-[10px] uppercase tracking-[0.2em] border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all relative z-10">
               Enviar solicitação
@@ -213,9 +213,9 @@ export default function HelpPage() {
           </div>
  
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Fale com um especialista.</h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Fale com a nossa equipe.</h2>
             <p className="text-white/60 text-lg mb-12 max-w-lg mx-auto leading-relaxed font-medium">
-              Nosso suporte funciona 24 horas por dia, 7 dias por semana. Normalmente respondemos em até 15 minutos.
+              Respondemos em até 24 horas úteis, de segunda a sexta-feira (horário de Brasília).
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href="/dashboard/help/contact" className="px-10 py-5 text-white font-bold text-[11px] uppercase tracking-[0.2em] rounded-2xl transition-all shadow-xl active:scale-95 btn-primary-gradient">

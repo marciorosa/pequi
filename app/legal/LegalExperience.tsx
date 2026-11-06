@@ -104,27 +104,22 @@ const legalDocuments = {
     lastUpdated: '5 de novembro de 2023',
     sections: [
       {
-        heading: '1. Regulamento Geral de Proteção de Dados (GDPR)',
+        heading: '1. Lei Geral de Proteção de Dados (LGPD)',
         content:
-          'Temos o compromisso de cumprir o GDPR. Tratamos dados pessoais de forma lícita, transparente e para finalidades específicas. Adotamos medidas técnicas e organizacionais adequadas para garantir a segurança dos dados.',
+          'O tratamento de dados pessoais pelo Pequi segue a Lei 13.709/2018 (LGPD). As finalidades, as bases legais e os direitos do titular estão descritos na Política de Privacidade.',
       },
       {
-        heading: '2. California Consumer Privacy Act (CCPA)',
+        heading: '2. Natureza do serviço',
         content:
-          'De acordo com a CCPA, os residentes da Califórnia têm o direito de saber quais informações pessoais coletamos, solicitar a exclusão dessas informações e optar por não permitir a venda de suas informações pessoais.',
+          'O Pequi é uma ferramenta de inteligência artificial com conteúdo informativo. Não é escritório de advocacia, não presta consultoria jurídica e não indica advogados.',
       },
       {
-        heading: '3. HIPAA',
+        heading: '3. Medidas de segurança',
         content:
-          'Em determinados serviços jurídicos relacionados à área da saúde, podemos estar sujeitos aos requisitos da HIPAA. Adotamos salvaguardas adequadas para proteger a privacidade e a segurança das informações de saúde protegidas (PHI).',
+          'Usamos conexão criptografada (HTTPS), senhas guardadas com hash e controle de acesso que restringe cada conta aos próprios dados. O Pequi ainda não possui certificações de segurança.',
       },
       {
-        heading: '4. Medidas de segurança',
-        content:
-          'Adotamos medidas de segurança padrão do setor para proteger seus dados, incluindo criptografia, controles de acesso, avaliações periódicas de segurança e treinamento de funcionários.',
-      },
-      {
-        heading: '5. Como relatar problemas de segurança',
+        heading: '4. Como relatar problemas de segurança',
         content:
           'Se você acredita ter descoberto uma vulnerabilidade de segurança em nossos Serviços, informe pelo e-mail security@AiForLawyers.com. Agradecemos sua ajuda para tornar nossos Serviços mais seguros.',
       },
@@ -139,18 +134,19 @@ const tabs = [
   { key: 'compliance', label: 'Compliance' },
 ] as const;
 
-const certifications = ['SOC 2 Tipo II', 'GDPR (em conformidade)', 'HIPAA (em conformidade)', 'ISO 27001'];
+// O Pequi ainda não possui certificações de segurança; não liste selos sem comprovação
+const certifications = ['Conexão criptografada (HTTPS)', 'Senhas com hash', 'Acesso individual aos dados'];
 
 const faqs = [
   {
     question: 'Como a Pequi cuida da segurança dos dados?',
     answer:
-      'Adotamos medidas de segurança padrão do setor, incluindo criptografia, controles de acesso e avaliações periódicas de segurança. Todos os dados são criptografados em trânsito e em repouso, e mantemos a certificação SOC 2 Tipo II.',
+      'A comunicação com a plataforma usa conexão criptografada (HTTPS), as senhas são guardadas com hash e cada conta acessa apenas os próprios dados. O Pequi ainda não possui certificações de segurança.',
   },
   {
-    question: 'A Pequi está em conformidade com o GDPR?',
+    question: 'Como a Pequi trata meus dados pessoais?',
     answer:
-      'Sim, estamos totalmente em conformidade com o GDPR. Tratamos dados pessoais de forma lícita, transparente e para finalidades específicas. Adotamos medidas técnicas e organizacionais adequadas para garantir a segurança dos dados.',
+      'O tratamento dos seus dados pessoais segue a Lei Geral de Proteção de Dados (LGPD) e está descrito na nossa Política de Privacidade, onde você encontra seus direitos como titular e como exercê-los.',
   },
   {
     question: 'Como solicito uma cópia dos meus dados?',
@@ -239,8 +235,8 @@ export default function LegalExperience() {
 
       <section className="bg-white py-12 md:py-16 border-b border-castanha-200">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h2 className={sectionHeadingClass}>Nossas certificações</h2>
-          <p className={`${sectionSubTextClass} mt-3 mb-10`}>Padrões validados que sustentam fluxos jurídicos corporativos.</p>
+          <h2 className={sectionHeadingClass}>Como protegemos seus dados</h2>
+          <p className={`${sectionSubTextClass} mt-3 mb-10`}>O Pequi ainda não possui certificações de segurança. Estas são as proteções em uso.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {certifications.map((cert) => (
               <div

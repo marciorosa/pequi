@@ -37,7 +37,7 @@ export default function ChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Olá! Como posso ajudar você com suas questões jurídicas hoje?',
+      content: 'Olá! Sou o assistente de IA do Pequi. Posso explicar temas jurídicos em linguagem simples. Lembre que não sou advogado: minhas respostas são informativas e não substituem a análise do seu caso por um profissional.',
       timestamp: new Date(),
     }
   ]);
@@ -62,11 +62,11 @@ export default function ChatPage() {
   }, [router]);
 
   const suggestedPrompts = [
-    "Redija um acordo de confidencialidade (NDA) padrão para uma startup de tecnologia",
-    "Explique a terminologia de contratos de locação comercial de Nova York",
-    "Requisitos de conformidade com a GDPR em 2024",
-    "Cláusulas de responsabilidade em contratos de prestação de serviços de software",
-    "Estratégias de proteção de propriedade intelectual para pequenas empresas"
+    "Comprei um produto com defeito: quais são meus direitos pelo CDC?",
+    "Quais verbas recebo se for demitido sem justa causa (CLT)?",
+    "O plano de saúde negou meu tratamento. O que diz a lei?",
+    "Como a LGPD protege os dados pessoais dos clientes da minha empresa?",
+    "Quais cuidados tomar ao alugar um imóvel comercial?"
   ];
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -305,7 +305,7 @@ export default function ChatPage() {
   };
 
   return (
-    <DashboardLayout title="Canais Neurais">
+    <DashboardLayout title="Chat">
       <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Mobile Sidebar Backdrop */}
         {showSidebar && (
@@ -355,8 +355,8 @@ export default function ChatPage() {
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
               </button>
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Node.042</span>
-                <h2 className="text-xl font-light tracking-tight">Sessão neural ativa</h2>
+                <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Chat com IA</span>
+                <h2 className="text-xl font-light tracking-tight">Nova conversa</h2>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -368,13 +368,13 @@ export default function ChatPage() {
             {messages.length === 1 && (
               <div className="max-w-2xl mx-auto space-y-12 py-10">
                 <div className="space-y-4 text-center">
-                  <h1 className="text-4xl font-medium tracking-tight text-ink">Interface <span className="font-light italic text-castanha-600">neural.</span></h1>
-                  <p className="text-castanha-600 text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Selecione um prompt estratégico ou inicie uma conversa de análise.</p>
+                  <h1 className="text-4xl font-medium tracking-tight text-ink">Chat <span className="font-light italic text-castanha-600">jurídico.</span></h1>
+                  <p className="text-castanha-600 text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Escolha uma sugestão ou escreva sua dúvida.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {suggestedPrompts.map((p, i) => (
                     <button key={i} onClick={() => setInput(p)} className="text-left p-6 rounded-[2rem] bg-castanha-50 border border-castanha-200 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 opacity-30 group-hover:opacity-60 mb-3 block">Prompt neural</span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 opacity-30 group-hover:opacity-60 mb-3 block">Sugestão</span>
                       <span className="text-[14px] font-medium leading-relaxed text-castanha-800">{p}</span>
                     </button>
                   ))}
@@ -475,7 +475,7 @@ export default function ChatPage() {
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Inicie a análise..."
+                  placeholder="Escreva sua dúvida..."
                   rows={1}
                   className="w-full bg-white border border-castanha-200 focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2.5rem] py-7 pl-16 pr-24 resize-none text-ink transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden font-medium text-[1.1rem]"
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(e); } }}
@@ -494,6 +494,9 @@ export default function ChatPage() {
                 <div className="flex items-center gap-1.5 text-red-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>PDFs</span></div>
                 <div className="flex items-center gap-1.5 text-terra-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
               </div>
+              <p className="text-[11px] font-medium text-foreground/40 text-center leading-relaxed pt-1">
+                Respostas geradas por IA, com caráter informativo. O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+              </p>
 
               <style jsx>{`
                     textarea::-webkit-scrollbar {

@@ -69,8 +69,8 @@ export default function VaultExperience() {
       ),
     },
     {
-      title: 'Fluxos de assinatura eletrônica',
-      description: 'Leve automaticamente os contratos assinados para as pastas certas do cofre a partir dos seus fluxos na DocuSign.',
+      title: 'Integração com os fluxos',
+      description: 'Os fluxos de trabalho podem salvar documentos diretamente nas pastas do cofre.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -99,9 +99,9 @@ export default function VaultExperience() {
   ];
 
   const securityPoints = [
-    { title: 'Criptografia AES-256', desc: 'Dados protegidos em repouso e em trânsito.' },
-    { title: 'SOC 2 Tipo II', desc: 'Práticas de segurança de nível profissional.' },
-    { title: 'Alinhado à GDPR/LGPD', desc: 'Controles criados para as exigências globais de privacidade.' },
+    { title: 'Conexão criptografada', desc: 'Os dados trafegam por HTTPS.' },
+    { title: 'Pastas com senha', desc: 'Proteja pastas sensíveis com uma senha própria.' },
+    { title: 'Acesso restrito', desc: 'Cada pessoa vê apenas os próprios arquivos.' },
     { title: 'Acesso baseado em funções', desc: 'Gestão detalhada de permissões.' },
   ];
 

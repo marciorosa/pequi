@@ -64,7 +64,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const isLandingPage = pathname === '/' || pathname === '' || pathname === null;
   const desktopLinks = [
-    { label: 'Clientes', href: '/customers' },
     { label: 'Empresa', href: '/company' },
     { label: 'Segurança', href: '/security' },
   ];

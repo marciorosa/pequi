@@ -18,8 +18,8 @@ export default function WorkflowsExperience() {
       ),
     },
     {
-      title: 'Sincronização de assinaturas digitais',
-      description: 'Envie pela DocuSign, acompanhe e arquive no cofre cada contrato.',
+      title: 'Arquivamento no cofre',
+      description: 'Salve automaticamente no cofre os documentos gerados pelos seus fluxos.',
       icon: (
         <path
           strokeLinecap="round"
@@ -56,7 +56,6 @@ export default function WorkflowsExperience() {
   ];
 
   const integrations = [
-    'DocuSign',
     'Google Gemini AI',
     'AWS S3',
     'Banco de dados vetorial',

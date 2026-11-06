@@ -122,7 +122,7 @@ export const authService = {
     fullName?: string;
     email?: string;
     company?: string;
-    role?: string;
+    jobTitle?: string;
     phone?: string;
     image?: string | File;
   }) => {
