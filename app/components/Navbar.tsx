@@ -1,43 +1,21 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import PequiWordmark from './PequiWordmark';
 
-const productLinks = [
-  {
-    label: 'Assistentes de IA',
-    description: 'Dúvidas, textos e análises jurídicas',
-    href: '/assistant',
-    icon: 'M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4-.83L3 20l1.4-3.72A7.6 7.6 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
-  },
-  {
-    label: 'Acesso ao Cofre',
-    description: 'Documentos seguros e organizados',
-    href: '/vault',
-    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
-  },
-  {
-    label: 'Base de Conhecimento',
-    description: 'Leis e decisões explicadas em um só lugar',
-    href: '/knowledge',
-    icon: 'M12 6.25v13m0-13C10.83 5.48 9.25 5 7.5 5S4.17 5.48 3 6.25v13C4.17 18.48 5.75 18 7.5 18s3.33.48 4.5 1.25m0-13C13.17 5.48 14.75 5 16.5 5s3.33.48 4.5 1.25v13C19.83 18.48 18.25 18 16.5 18s-3.33.48-4.5 1.25',
-  },
-  {
-    label: 'Automações',
-    description: 'Burocracias jurídicas sem esforço manual',
-    href: '/workflows',
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-  },
+// Menu no formato do da Lucia. Os produtos ficam listados direto no menu,
+// depois de "Empresa" (sem a lista suspensa "Produtos"). "Segurança" saiu do
+// menu e continua no rodapé.
+const navLinks = [
+  { label: 'Empresa', href: '/company' },
+  { label: 'Assistentes de IA', href: '/assistant' },
+  { label: 'Acesso ao Cofre', href: '/vault' },
+  { label: 'Base de Conhecimento', href: '/knowledge' },
+  { label: 'Automações', href: '/workflows' },
 ];
-
-const ProductIcon = ({ d }: { d: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-    <path strokeLinecap="round" strokeLinejoin="round" d={d} />
-  </svg>
-);
 
 const ArrowUpRightIcon = ({ className = '' }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -53,18 +31,11 @@ const ArrowIcon = ({ className = '' }: { className?: string }) => (
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { isAuthenticated, isLoading } = useAuth();
   const pathname = usePathname();
   const isLandingPage = pathname === '/' || pathname === '' || pathname === null;
-  const desktopLinks = [
-    { label: 'Empresa', href: '/company' },
-    { label: 'Segurança', href: '/security' },
-  ];
   const isActive = (href: string) => pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
-  const productActive = productLinks.some((item) => isActive(item.href));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -75,29 +46,10 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setProductsDropdownOpen(false);
   }, [pathname]);
 
-  const openProducts = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setProductsDropdownOpen(true);
-  };
-
-  const closeProductsSoon = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setProductsDropdownOpen(false), 120);
-  };
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const toggleProductsDropdown = () => {
-    setProductsDropdownOpen(!productsDropdownOpen);
-  };
-
   const navLinkClass = (active: boolean) =>
-    `relative inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 transition-colors duration-200 ${
+    `relative inline-flex h-9 items-center whitespace-nowrap rounded-full px-3.5 transition-colors duration-200 ${
       active
         ? 'bg-white text-ink shadow-[0_0_0_1px_var(--castanha-200)]'
         : 'text-castanha-600 hover:bg-pequi-500/10 hover:text-pequi-600'
@@ -105,9 +57,9 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed left-0 right-0 top-0 z-50 px-3 sm:px-6 transition-[padding] duration-300 ${scrolled ? 'pt-2' : 'pt-3 sm:pt-4'}`}>
-      <div className="landing-gilroy mx-auto w-full max-w-6xl">
+      <div className="landing-gilroy relative mx-auto w-full max-w-6xl">
         <div
-          className={`relative flex h-[68px] items-center justify-between gap-2 rounded-[1.7rem] border px-4 backdrop-blur-xl transition-all duration-300 sm:px-5 ${
+          className={`relative flex h-[68px] items-center justify-between gap-3 rounded-[1.7rem] border px-4 backdrop-blur-xl transition-all duration-300 sm:px-5 ${
             scrolled
               ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(36,37,33,0.08)]'
               : 'border-castanha-200/80 bg-white/90 shadow-[0_8px_35px_rgba(36,37,33,0.04)]'
@@ -116,101 +68,27 @@ const Navbar = () => {
           <Link
             href={isLandingPage ? '/#hero' : '/'}
             aria-label="Página inicial do Pequi"
-            className="flex items-center"
+            className="flex shrink-0 items-center"
           >
             <PequiWordmark />
           </Link>
 
-          <div className="hidden items-center gap-0.5 rounded-full bg-castanha-50 px-2 py-1 text-[0.875rem] font-medium lg:flex">
-            <div
-              className="relative"
-              onMouseEnter={openProducts}
-              onMouseLeave={closeProductsSoon}
-            >
-              <button
-                onClick={toggleProductsDropdown}
-                aria-expanded={productsDropdownOpen}
-                className={navLinkClass(productActive || productsDropdownOpen)}
-              >
-                Produtos
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {productsDropdownOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-[30rem] -translate-x-1/2 pt-3">
-                  <div className="animate-fadeIn overflow-hidden rounded-3xl border border-castanha-150 bg-white shadow-[0_24px_60px_rgba(36,37,33,0.14)]">
-                    <div className="grid grid-cols-2 gap-1 p-2">
-                      {productLinks.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={() => setProductsDropdownOpen(false)}
-                          className={`group/item flex items-start gap-3 rounded-2xl p-3 transition-colors ${
-                            isActive(item.href) ? 'bg-pequi-50' : 'hover:bg-castanha-50'
-                          }`}
-                        >
-                          <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-pequi-50 text-pequi-600 transition-colors group-hover/item:bg-pequi-500 group-hover/item:text-white">
-                            <ProductIcon d={item.icon} />
-                          </span>
-                          <span className="flex flex-col">
-                            <span className="text-[0.9rem] font-medium text-ink">{item.label}</span>
-                            <span className="mt-0.5 text-[0.78rem] font-normal leading-snug text-castanha-500">{item.description}</span>
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                    <Link
-                      href="/contact"
-                      onClick={() => setProductsDropdownOpen(false)}
-                      className="group/cta flex items-center justify-between border-t border-castanha-150 bg-cerrado-900 px-5 py-3.5 text-[0.85rem] text-white transition-colors hover:bg-cerrado-800"
-                    >
-                      <span>
-                        <span className="font-medium text-pequi-300">Novo no Pequi?</span>{' '}
-                        <span className="text-white/80">Veja a plataforma em ação.</span>
-                      </span>
-                      <ArrowIcon className="h-4 w-4 text-pequi-300 transition-transform group-hover/cta:translate-x-1" />
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {desktopLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={navLinkClass(isActive(item.href))}
-              >
+          <div className="hidden items-center gap-0.5 rounded-full bg-castanha-50 px-1.5 py-1 text-[0.9rem] font-medium xl:flex">
+            {navLinks.map((item) => (
+              <Link key={item.href} href={item.href} className={navLinkClass(isActive(item.href))}>
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden shrink-0 items-center gap-1 xl:flex">
             {!isLoading && (
-              isAuthenticated ? (
-                <Link
-                  href="/dashboard"
-                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-[0.88rem] font-medium text-castanha-800 transition hover:bg-castanha-100 hover:text-ink"
-                >
-                  Painel
-                </Link>
-              ) : (
-                <Link
-                  href="/login"
-                  className="inline-flex h-10 items-center justify-center rounded-full px-4 text-[0.88rem] font-medium text-castanha-800 transition hover:bg-castanha-100 hover:text-ink"
-                >
-                  Entrar
-                </Link>
-              )
+              <Link
+                href={isAuthenticated ? '/dashboard' : '/login'}
+                className="inline-flex h-10 items-center justify-center rounded-full px-4 text-[0.9rem] font-medium text-castanha-600 transition hover:bg-castanha-100 hover:text-ink"
+              >
+                {isAuthenticated ? 'Painel' : 'Entrar'}
+              </Link>
             )}
             <Link
               href="/contact"
@@ -221,10 +99,11 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="flex items-center lg:hidden">
+          <div className="flex items-center xl:hidden">
             <button
-              onClick={toggleMobileMenu}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={mobileMenuOpen}
               className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors focus:outline-none ${
                 mobileMenuOpen ? 'bg-castanha-100 text-ink' : 'text-castanha-600 hover:bg-castanha-100 hover:text-ink'
               }`}
@@ -243,47 +122,9 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="animate-fadeIn absolute left-4 right-4 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] sm:left-6 sm:right-6 lg:hidden">
+          <div className="animate-fadeIn absolute left-0 right-0 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] xl:hidden">
             <div className="flex flex-col">
-              <button
-                onClick={toggleProductsDropdown}
-                className="flex items-center justify-between rounded-2xl px-3 py-3 font-medium text-ink transition-colors hover:bg-castanha-50 focus:outline-none"
-              >
-                Produtos
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`ml-2 h-4 w-4 transition-transform duration-300 ${productsDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {/* Mobile Products Dropdown */}
-              {productsDropdownOpen && (
-                <div className="animate-fadeIn mb-1 grid gap-1 px-1">
-                  {productLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-3 rounded-2xl px-2 py-2 transition-colors hover:bg-castanha-50"
-                    >
-                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-pequi-50 text-pequi-600">
-                        <ProductIcon d={item.icon} />
-                      </span>
-                      <span className="flex flex-col">
-                        <span className="text-[0.9rem] text-ink">{item.label}</span>
-                        <span className="text-[0.75rem] text-castanha-500">{item.description}</span>
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-
-              {desktopLinks.map((item) => (
+              {navLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
