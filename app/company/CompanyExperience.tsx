@@ -6,7 +6,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[200px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)] md:px-6 md:py-8 lg:p-[40px]';
+  'flex min-h-[200px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)] md:px-6 md:py-8 lg:p-[40px]';
 
 const heroAvatars = [
   '/landingpage/hero/img1.png',
@@ -177,7 +177,7 @@ export default function CompanyExperience() {
                 </p>
               </div>
               <div className="relative">
-                <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-3 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-4">
+                <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-3 shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:p-4">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-castanha-100">
                     <Image
                       src="/landingpage/features/workflow-automation.png"
@@ -217,7 +217,7 @@ export default function CompanyExperience() {
                   </p>
                 </div>
               </div>
-              <div className="rounded-2xl border border-cerrado-800 bg-cerrado-800 p-6 text-white shadow-[0_20px_40px_rgba(31,42,23,0.18)] transition-all duration-300 hover:-translate-y-0.5 md:p-8 lg:p-[40px]">
+              <div className="rounded-2xl border border-cerrado-800 bg-cerrado-800 p-6 text-white shadow-[0_20px_40px_rgba(36,37,33,0.18)] transition-all duration-300 hover:-translate-y-0.5 md:p-8 lg:p-[40px]">
                 <div className="mb-6 inline-flex w-full items-center justify-start">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10">
                   <svg className="h-7 w-7 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -284,7 +284,7 @@ export default function CompanyExperience() {
               {executives.map((executive) => (
                 <article
                   key={executive.name}
-                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]"
+                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]"
                 >
                   <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
                     <Image
@@ -320,7 +320,7 @@ export default function CompanyExperience() {
               {investors.map((investor) => (
                 <article
                   key={investor.name}
-                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]"
+                  className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]"
                 >
                   <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
                     <Image
@@ -348,7 +348,7 @@ export default function CompanyExperience() {
       <FadeInSection delay={0.16}>
         <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:px-12 md:py-14">
+            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:px-12 md:py-14">
               <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem]">Junte-se à nossa missão</h2>
               <p className="mx-auto mt-4 max-w-xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
                 Contratamos pela excelência, curiosidade e respeito pela profissão jurídica. Veja as vagas abertas ou entre em contato.

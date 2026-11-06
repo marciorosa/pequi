@@ -165,7 +165,7 @@ function ResetPasswordForm() {
 
 function ResetAside() {
   return (
-    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
       <h2 className="mb-4 text-[1.25rem] font-medium text-ink">Senhas fortes</h2>
       <ul className="space-y-3 text-[0.9375rem] leading-relaxed text-castanha-600">
         <li className="flex gap-2">

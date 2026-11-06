@@ -30,7 +30,7 @@ export function LegalTOC({ items }: { items: { id: string; title: string }[] }) 
   return (
     <section className="border-b border-castanha-150 bg-white py-10 md:py-12">
       <div className="mx-auto flex max-w-[1274px] justify-center px-4 md:px-8 lg:px-6 xl:px-0">
-        <div className="w-full max-w-[34rem] rounded-2xl border border-castanha-150 bg-castanha-50 px-5 py-7 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:max-w-[38rem] md:px-7 md:py-8">
+        <div className="w-full max-w-[34rem] rounded-2xl border border-castanha-150 bg-castanha-50 px-5 py-7 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:max-w-[38rem] md:px-7 md:py-8">
           <h2 className="mb-5 text-[1.25rem] font-medium text-ink md:mb-6 md:text-[1.5rem]">Índice</h2>
           <nav className="grid gap-1 sm:grid-cols-2" aria-label="Índice">
             {items.map((item, i) => (
@@ -102,7 +102,7 @@ export function LegalLinkGrid({
             <Link
               key={item.href}
               href={item.href}
-              className="group rounded-2xl border border-castanha-150 bg-castanha-50 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)] md:p-7"
+              className="group rounded-2xl border border-castanha-150 bg-castanha-50 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(36,37,33,0.06)] md:p-7"
             >
               <h3 className="mb-2 text-[1.0625rem] font-medium text-ink">{item.title}</h3>
               <p className="mb-4 text-[0.9375rem] leading-[160%] text-castanha-600">{item.desc}</p>
@@ -124,7 +124,7 @@ export function LegalAcknowledgment({ children, ctaHref, ctaLabel }: { children:
   return (
     <section className="border-t border-castanha-150 bg-white py-12 md:py-16">
       <div className="mx-auto max-w-[48rem] px-4 md:px-8 lg:px-6 xl:px-0">
-        <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 p-8 text-center shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-10">
+        <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 p-8 text-center shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:p-10">
           {children}
           <Link
             href={ctaHref}

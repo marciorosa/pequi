@@ -38,7 +38,7 @@ function SignupAside() {
   ];
 
   return (
-    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+    <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
       <h2 className="mb-3 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">Feito para pessoas como você</h2>
       <p className="mb-10 text-[1rem] leading-relaxed text-castanha-600">
         Junte-se às pessoas que usam o Pequi para entender seus direitos sem abrir mão do rigor.

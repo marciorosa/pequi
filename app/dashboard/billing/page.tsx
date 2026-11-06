@@ -397,7 +397,7 @@ function BillingContent() {
   const renderMeter = (title: string, current: number, rawLimit: number | null) => {
     const limit = rawLimit === null || rawLimit === undefined ? Infinity : rawLimit;
     const percent = limit === Infinity ? 0 : limit === 0 ? 100 : Math.min(100, (current / limit) * 100);
-    const strokeColor = percent > 90 ? '#C2462B' : '#1F2A17';
+    const strokeColor = percent > 90 ? '#C2462B' : '#242521';
 
     return (
       <div className="bg-white p-6 rounded-[2rem] border border-castanha-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center group hover:shadow-xl transition-all duration-500">

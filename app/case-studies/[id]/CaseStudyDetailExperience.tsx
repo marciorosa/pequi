@@ -9,7 +9,7 @@ function RelatedCard({ s }: { s: CaseStudyRecord }) {
   return (
     <Link
       href={`/case-studies/${s.id}`}
-      className="group rounded-[1.25rem] border border-castanha-200 bg-white overflow-hidden transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)] flex flex-col"
+      className="group rounded-[1.25rem] border border-castanha-200 bg-white overflow-hidden transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(36,37,33,0.06)] flex flex-col"
     >
       <div className={`h-28 bg-gradient-to-br ${s.accent} shrink-0`} />
       <div className="p-5">
@@ -59,7 +59,7 @@ export default function CaseStudyDetailExperience({ study }: Props) {
             {study.metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-[1.25rem] border border-castanha-200 bg-white px-5 py-6 text-center shadow-[0_8px_24px_rgba(31,42,23,0.04)]"
+                className="rounded-[1.25rem] border border-castanha-200 bg-white px-5 py-6 text-center shadow-[0_8px_24px_rgba(36,37,33,0.04)]"
               >
                 <div className="text-ink text-2xl md:text-3xl font-semibold mb-1">{m.value}</div>
                 <div className="text-ink text-[0.875rem] font-medium mb-1">{m.label}</div>
@@ -89,7 +89,7 @@ export default function CaseStudyDetailExperience({ study }: Props) {
 
       <section className="bg-castanha-100 py-12 md:py-16 border-y border-castanha-200">
         <div className="max-w-[48rem] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <div className="rounded-[1.875rem] border border-castanha-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(31,42,23,0.06)]">
+          <div className="rounded-[1.875rem] border border-castanha-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(36,37,33,0.06)]">
             <svg className="h-10 w-10 text-ink/15 mb-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
               <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
             </svg>

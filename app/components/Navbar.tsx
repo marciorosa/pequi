@@ -113,8 +113,8 @@ const Navbar = () => {
         <div
           className={`relative flex items-center justify-between rounded-full border px-3 py-2 pl-5 backdrop-blur-xl transition-all duration-300 sm:pl-6 ${
             scrolled
-              ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(31,42,23,0.10)]'
-              : 'border-white/70 bg-white/80 shadow-[0_6px_20px_rgba(31,42,23,0.06)]'
+              ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(36,37,33,0.10)]'
+              : 'border-white/70 bg-white/80 shadow-[0_6px_20px_rgba(36,37,33,0.06)]'
           }`}
         >
           {/* Fio dourado sutil na base da barra */}
@@ -162,7 +162,7 @@ const Navbar = () => {
 
               {productsDropdownOpen && (
                 <div className="absolute left-1/2 top-full z-50 w-[30rem] -translate-x-1/2 pt-3">
-                  <div className="animate-fadeIn overflow-hidden rounded-3xl border border-castanha-150 bg-white shadow-[0_24px_60px_rgba(31,42,23,0.14)]">
+                  <div className="animate-fadeIn overflow-hidden rounded-3xl border border-castanha-150 bg-white shadow-[0_24px_60px_rgba(36,37,33,0.14)]">
                     <div className="grid grid-cols-2 gap-1 p-2">
                       {productLinks.map((item) => (
                         <Link
@@ -261,7 +261,7 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="animate-fadeIn absolute left-4 right-4 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(31,42,23,0.14)] sm:left-6 sm:right-6 xl:hidden">
+          <div className="animate-fadeIn absolute left-4 right-4 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] sm:left-6 sm:right-6 xl:hidden">
             <div className="flex flex-col">
               <button
                 onClick={toggleProductsDropdown}

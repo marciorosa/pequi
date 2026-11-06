@@ -6,7 +6,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]';
 
 export default function WorkflowsExperience() {
   const benefits = [
@@ -189,7 +189,7 @@ export default function WorkflowsExperience() {
               {integrations.map((name) => (
                 <div
                   key={name}
-                  className="flex min-h-[5.5rem] items-center justify-center rounded-[1.25rem] border border-castanha-200 bg-castanha-100 px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(31,42,23,0.05)]"
+                  className="flex min-h-[5.5rem] items-center justify-center rounded-[1.25rem] border border-castanha-200 bg-castanha-100 px-4 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(36,37,33,0.05)]"
                 >
                   <span className="text-[0.9375rem] font-medium text-castanha-600">{name}</span>
                 </div>
@@ -202,7 +202,7 @@ export default function WorkflowsExperience() {
       <FadeInSection delay={0.16}>
         <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
+            <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(36,37,33,0.06)]">
               <div className="grid lg:grid-cols-2 gap-0 lg:gap-0">
                 <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
                   <p className="mb-4 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">

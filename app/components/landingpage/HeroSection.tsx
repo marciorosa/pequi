@@ -88,8 +88,8 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
                 key={card.title}
                 type="button"
                 onClick={() => onPreviewChange?.(card.preview)}
-                className={`flex h-[240.8px] flex-col rounded-2xl border px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_16px_32px_rgba(31,42,23,0.08)] ${
-                  activePreview === card.preview ? 'border-castanha-300 bg-white shadow-[0_12px_28px_rgba(31,42,23,0.08)]' : 'border-castanha-150 bg-castanha-100/85'
+                className={`flex h-[240.8px] flex-col rounded-2xl border px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_16px_32px_rgba(36,37,33,0.08)] ${
+                  activePreview === card.preview ? 'border-castanha-300 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.08)]' : 'border-castanha-150 bg-castanha-100/85'
                 }`}
               >
                 <div className="inline-flex w-full items-center justify-start">

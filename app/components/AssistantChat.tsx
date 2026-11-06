@@ -123,8 +123,8 @@ export default function AssistantChat() {
           >
             <div
               className={`max-w-[85%] rounded-2xl p-5 md:max-w-[80%] md:p-6 ${message.role === 'user'
-                ? 'rounded-tr-md bg-cerrado-800 text-white shadow-[0_12px_28px_rgba(31,42,23,0.12)]'
-                : 'rounded-tl-md border border-castanha-150 bg-white text-ink shadow-[0_2px_12px_rgba(31,42,23,0.04)]'
+                ? 'rounded-tr-md bg-cerrado-800 text-white shadow-[0_12px_28px_rgba(36,37,33,0.12)]'
+                : 'rounded-tl-md border border-castanha-150 bg-white text-ink shadow-[0_2px_12px_rgba(36,37,33,0.04)]'
                 }`}
             >
               <p className="whitespace-pre-wrap text-[0.9375rem] leading-[160%]">{message.content}</p>
@@ -143,7 +143,7 @@ export default function AssistantChat() {
 
         {isLoading && (
           <div className="flex justify-start">
-            <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-castanha-150 bg-white p-5 shadow-[0_2px_12px_rgba(31,42,23,0.04)] md:max-w-[80%] md:p-6">
+            <div className="max-w-[85%] rounded-2xl rounded-tl-md border border-castanha-150 bg-white p-5 shadow-[0_2px_12px_rgba(36,37,33,0.04)] md:max-w-[80%] md:p-6">
               <div className="flex items-center space-x-1">
                 <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-cerrado-900/25" />
                 <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-cerrado-900/25 delay-75" />
@@ -169,7 +169,7 @@ export default function AssistantChat() {
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className={`rounded-[0.875rem] bg-cerrado-800 p-4 text-white shadow-[0_10px_24px_rgba(31,42,23,0.15)] transition-all hover:brightness-110 ${isLoading || !input.trim() ? 'cursor-not-allowed opacity-50' : ''
+            className={`rounded-[0.875rem] bg-cerrado-800 p-4 text-white shadow-[0_10px_24px_rgba(36,37,33,0.15)] transition-all hover:brightness-110 ${isLoading || !input.trim() ? 'cursor-not-allowed opacity-50' : ''
               }`}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

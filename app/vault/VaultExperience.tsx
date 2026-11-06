@@ -7,7 +7,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]';
 
 const tabs = [
   { id: 'all' as const, label: 'Todos' },
@@ -211,7 +211,7 @@ export default function VaultExperience() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`inline-flex h-11 md:h-[3.4375rem] justify-center items-center rounded-[0.625rem] text-[0.875rem] md:text-[1rem] leading-none transition-colors px-4 md:px-[1.625rem] ${
                       activeTab === tab.id
-                        ? 'border border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(31,42,23,0.12)]'
+                        ? 'border border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(36,37,33,0.12)]'
                         : 'bg-castanha-100 text-castanha-600 border border-castanha-200 hover:bg-castanha-150 hover:text-ink'
                     }`}
                   >
@@ -221,7 +221,7 @@ export default function VaultExperience() {
               </div>
             </div>
 
-            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
+            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">
               <div className="bg-white p-5 md:p-6 border-b border-castanha-200 flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
                 <div className="relative w-full md:max-w-md">
                   <svg
@@ -243,7 +243,7 @@ export default function VaultExperience() {
                 </div>
                 <button
                   type="button"
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-[0.875rem] bg-cerrado-800 px-6 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(31,42,23,0.15)]"
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-[0.875rem] bg-cerrado-800 px-6 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(36,37,33,0.15)]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />

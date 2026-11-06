@@ -60,7 +60,7 @@ export function AuthPageLayout({
       <div className="mx-auto max-w-[1274px] px-4 py-10 md:px-8 md:py-14 lg:px-6 xl:px-0">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-castanha-150 bg-white p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+            <div className="rounded-2xl border border-castanha-150 bg-white p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
               {children}
               {footer}
             </div>

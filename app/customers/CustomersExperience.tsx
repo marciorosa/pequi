@@ -8,7 +8,7 @@ import { sectionHeadingClass, sectionSubTextClass } from '../components/landingp
 import { trustedByLogos } from '../components/landingpage/data';
 
 const caseCardClass =
-  'group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]';
+  'group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]';
 
 export default function CustomersExperience() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -129,7 +129,7 @@ export default function CustomersExperience() {
               Depoimentos de clientes que usam o Pequi todos os dias.
             </p>
 
-            <div className="mb-8 rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:p-12 lg:p-14">
+            <div className="mb-8 rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:p-12 lg:p-14">
               <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
                 <div className="mx-auto h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-castanha-200 shadow-sm md:h-28 md:w-28 lg:mx-0">
                   <Image
@@ -190,7 +190,7 @@ export default function CustomersExperience() {
               {trustedByLogos.map((logo) => (
                 <div
                   key={logo.src}
-                  className="flex h-[4.5rem] items-center justify-center rounded-[1rem] border border-castanha-200 bg-castanha-100 px-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(31,42,23,0.05)] md:h-[5rem]"
+                  className="flex h-[4.5rem] items-center justify-center rounded-[1rem] border border-castanha-200 bg-castanha-100 px-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(36,37,33,0.05)] md:h-[5rem]"
                 >
                   <Image
                     src={logo.src}
