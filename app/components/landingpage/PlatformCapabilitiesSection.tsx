@@ -45,7 +45,7 @@ export default function PlatformCapabilitiesSection() {
     <FadeInSection delay={0.17}>
       <section id="platform-capabilities" className="scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h3 className={sectionHeadingClass}>Descubra o que o Pequi pode fazer</h3>
+          <h3 className={sectionHeadingClass}>Descubra o que o Pequi <span className="pq-accent text-[1.1em]">pode fazer</span></h3>
           <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[38rem]`}>
             Simplifique sua vida jurídica com automação inteligente, documentos seguros e controle total de cada etapa importante.
           </p>

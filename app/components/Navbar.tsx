@@ -1,20 +1,10 @@
 'use client';
 
-import localFont from 'next/font/local';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
-
-const gilroyNav = localFont({
-  src: [
-    { path: '../../public/fonts/InterTight-Regular.ttf', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/InterTight-Medium.ttf', weight: '500', style: 'normal' },
-    { path: '../../public/fonts/InterTight-SemiBold.ttf', weight: '600', style: 'normal' },
-  ],
-  display: 'swap',
-});
+import PequiWordmark from './PequiWordmark';
 
 const productLinks = [
   {
@@ -46,6 +36,12 @@ const productLinks = [
 const ProductIcon = ({ d }: { d: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
     <path strokeLinecap="round" strokeLinejoin="round" d={d} />
+  </svg>
+);
+
+const ArrowUpRightIcon = ({ className = '' }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M8 7h9v9" />
   </svg>
 );
 
@@ -103,41 +99,29 @@ const Navbar = () => {
   const navLinkClass = (active: boolean) =>
     `relative inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 transition-colors duration-200 ${
       active
-        ? 'bg-pequi-100 text-ink'
-        : 'text-castanha-800 hover:bg-castanha-100 hover:text-ink'
+        ? 'bg-white text-ink shadow-[0_0_0_1px_var(--castanha-200)]'
+        : 'text-castanha-600 hover:bg-pequi-500/10 hover:text-pequi-600'
     }`;
 
   return (
-    <nav className={`fixed left-0 right-0 top-0 z-50 px-4 sm:px-6 transition-[padding] duration-300 ${scrolled ? 'pt-2' : 'pt-4'}`}>
-      <div className={`mx-auto w-full max-w-[1274px] ${gilroyNav.className}`}>
+    <nav className={`fixed left-0 right-0 top-0 z-50 px-3 sm:px-6 transition-[padding] duration-300 ${scrolled ? 'pt-2' : 'pt-3 sm:pt-4'}`}>
+      <div className="landing-gilroy mx-auto w-full max-w-6xl">
         <div
-          className={`relative flex items-center justify-between rounded-full border px-3 py-2 pl-5 backdrop-blur-xl transition-all duration-300 sm:pl-6 ${
+          className={`relative flex h-[68px] items-center justify-between gap-2 rounded-[1.7rem] border px-4 backdrop-blur-xl transition-all duration-300 sm:px-5 ${
             scrolled
-              ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(36,37,33,0.10)]'
-              : 'border-white/70 bg-white/80 shadow-[0_6px_20px_rgba(36,37,33,0.06)]'
+              ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(36,37,33,0.08)]'
+              : 'border-castanha-200/80 bg-white/90 shadow-[0_8px_35px_rgba(36,37,33,0.04)]'
           }`}
         >
-          {/* Fio dourado sutil na base da barra */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-x-10 -bottom-px h-px bg-gradient-to-r from-transparent via-pequi-400/70 to-transparent"
-          />
-
           <Link
             href={isLandingPage ? '/#hero' : '/'}
+            aria-label="Página inicial do Pequi"
             className="flex items-center"
           >
-            <Image
-              src="/logo/logo.png"
-              alt="Pequi"
-              width={140}
-              height={38}
-              className="h-[30px] w-auto"
-              priority
-            />
+            <PequiWordmark />
           </Link>
 
-          <div className="hidden items-center gap-1 text-[0.9rem] font-medium xl:flex">
+          <div className="hidden items-center gap-0.5 rounded-full bg-castanha-50 px-2 py-1 text-[0.875rem] font-medium lg:flex">
             <div
               className="relative"
               onMouseEnter={openProducts}
@@ -173,7 +157,7 @@ const Navbar = () => {
                             isActive(item.href) ? 'bg-pequi-50' : 'hover:bg-castanha-50'
                           }`}
                         >
-                          <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-pequi-100 text-cerrado-800 transition-colors group-hover/item:bg-pequi-500 group-hover/item:text-ink">
+                          <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-pequi-50 text-pequi-600 transition-colors group-hover/item:bg-pequi-500 group-hover/item:text-white">
                             <ProductIcon d={item.icon} />
                           </span>
                           <span className="flex flex-col">
@@ -210,7 +194,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden items-center gap-2 xl:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {!isLoading && (
               isAuthenticated ? (
                 <Link
@@ -230,21 +214,19 @@ const Navbar = () => {
             )}
             <Link
               href="/contact"
-              className="landing-primary-btn group/demo inline-flex h-10 items-center justify-center gap-2 pl-5 pr-2"
+              className="landing-primary-btn group/demo inline-flex h-10 items-center justify-center gap-2 px-4"
             >
               Fale conosco
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink text-pequi-300 transition-transform duration-200 group-hover/demo:translate-x-0.5">
-                <ArrowIcon className="h-3.5 w-3.5" />
-              </span>
+              <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-200 group-hover/demo:-translate-y-0.5 group-hover/demo:translate-x-0.5" />
             </Link>
           </div>
 
-          <div className="flex items-center pr-2 xl:hidden">
+          <div className="flex items-center lg:hidden">
             <button
               onClick={toggleMobileMenu}
               aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors focus:outline-none ${
-                mobileMenuOpen ? 'bg-pequi-500 text-ink' : 'bg-castanha-100 text-ink hover:bg-pequi-100'
+              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors focus:outline-none ${
+                mobileMenuOpen ? 'bg-castanha-100 text-ink' : 'text-castanha-600 hover:bg-castanha-100 hover:text-ink'
               }`}
             >
               {mobileMenuOpen ? (
@@ -261,7 +243,7 @@ const Navbar = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="animate-fadeIn absolute left-4 right-4 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] sm:left-6 sm:right-6 xl:hidden">
+          <div className="animate-fadeIn absolute left-4 right-4 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] sm:left-6 sm:right-6 lg:hidden">
             <div className="flex flex-col">
               <button
                 onClick={toggleProductsDropdown}
@@ -289,7 +271,7 @@ const Navbar = () => {
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center gap-3 rounded-2xl px-2 py-2 transition-colors hover:bg-castanha-50"
                     >
-                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-pequi-100 text-cerrado-800">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-pequi-50 text-pequi-600">
                         <ProductIcon d={item.icon} />
                       </span>
                       <span className="flex flex-col">
@@ -307,7 +289,7 @@ const Navbar = () => {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`rounded-2xl px-3 py-3 transition-colors ${
-                    isActive(item.href) ? 'bg-pequi-100 font-medium text-ink' : 'text-ink/85 hover:bg-castanha-50 hover:text-ink'
+                    isActive(item.href) ? 'bg-castanha-100 font-medium text-ink' : 'text-ink/85 hover:bg-castanha-50 hover:text-ink'
                   }`}
                 >
                   {item.label}

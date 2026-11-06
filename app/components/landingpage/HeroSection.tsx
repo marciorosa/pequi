@@ -47,49 +47,48 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
     <FadeInSection>
       <section
         id="hero"
-        className="relative -mt-20 overflow-hidden px-4 pb-12 pt-[12rem] sm:px-6 sm:pt-[13rem] lg:px-8 lg:pb-16 lg:pt-[12rem]"
+        className="pq-hero-glow relative -mt-20 overflow-hidden px-4 pb-12 pt-[10.5rem] sm:px-6 sm:pt-[11.5rem] lg:px-8 lg:pb-16"
       >
-        <Image
-          src="/landingpage/hero/hero-bgimg.png"
-          alt="Imagem de fundo"
-          fill
-          priority
-          className="object-cover object-top"
-        />
-        <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-          <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">
-           Experimente sem compromisso
-          </p>
-          <h1 className="mt-5 max-w-[700px] text-center font-medium text-ink text-[2.7rem] leading-[1.08] tracking-[-0.08rem] sm:text-[4.13188rem] sm:leading-[4.54513rem] sm:tracking-[-0.16525rem]">
-            Sua inteligência jurídica acessível
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+          <p className="pq-eyebrow">Experimente sem compromisso</p>
+          <h1 className="mt-6 max-w-[860px] text-center text-ink text-[clamp(2.7rem,6.2vw,5.4rem)] font-semibold leading-[1.02] tracking-[-0.06em]">
+            Sua inteligência jurídica
+            <br />
+            <span className="pq-accent text-[1.12em] leading-[0.9]">acessível.</span>
           </h1>
-          <p className="mt-4 max-w-[620px] text-center text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
+          <p className="mt-6 max-w-[600px] text-center text-base leading-relaxed text-castanha-600 sm:text-lg">
             O Direito, como o pequi, esconde surpresas dolorosas por dentro. Nossa inteligência artificial
             revela onde estão os espinhos e traduz o juridiquês para proteger você.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
+              className="landing-primary-btn group/cta inline-flex h-12 items-center justify-center gap-2 px-6 transition"
             >
               Fale conosco
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform group-hover/cta:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+              </svg>
             </Link>
             <Link
               href="/#features"
-              className="landing-secondary-btn transition hover:bg-castanha-150"
+              className="landing-secondary-btn !h-12 !w-auto !px-6 transition"
             >
               Conhecer os recursos
             </Link>
           </div>
+          <p className="mt-4 text-xs text-castanha-500">
+            Chat · Assistentes de IA · Documentos · Cofre · Automações
+          </p>
 
-          <div className="mt-14 grid w-full grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-12 grid w-full grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {featureCards.map((card, index) => (
               <button
                 key={card.title}
                 type="button"
                 onClick={() => onPreviewChange?.(card.preview)}
-                className={`flex h-[240.8px] flex-col rounded-2xl border px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_16px_32px_rgba(36,37,33,0.08)] ${
-                  activePreview === card.preview ? 'border-castanha-300 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.08)]' : 'border-castanha-150 bg-castanha-100/85'
+                className={`pq-card flex h-[220px] flex-col px-5 py-5 text-left hover:-translate-y-0.5 ${
+                  activePreview === card.preview ? '!shadow-[0_0_0_2px_var(--pequi-500),0_12px_28px_-14px_rgba(250,90,80,0.45)]' : ''
                 }`}
               >
                 <div className="inline-flex w-full items-center justify-start">
@@ -103,8 +102,8 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
                   />
                 </div>
                 <div className="mt-auto">
-                  <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{card.title}</h3>
-                  <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{card.copy}</p>
+                  <h3 className="text-[1.1rem] font-semibold leading-snug tracking-[-0.03em] text-ink">{card.title}</h3>
+                  <p className="mt-2 text-[0.92rem] leading-[1.45] text-castanha-600">{card.copy}</p>
                 </div>
               </button>
             ))}

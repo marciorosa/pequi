@@ -10,7 +10,7 @@ export default function FaqSection() {
         <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16 lg:items-start">
             <div className="lg:sticky lg:top-28">
-              <h3 className={`${sectionHeadingClass} max-w-none text-left lg:text-left`}>Perguntas frequentes</h3>
+              <h3 className={`${sectionHeadingClass} max-w-none text-left lg:text-left`}>Perguntas <span className="pq-accent text-[1.1em]">frequentes</span></h3>
               <p className={`${sectionSubTextClass} mt-4 max-w-none text-left lg:mx-0 lg:text-left`}>
                 Encontre respostas rápidas sobre segurança, planos e como o Pequi ajuda nas questões jurídicas.
               </p>
