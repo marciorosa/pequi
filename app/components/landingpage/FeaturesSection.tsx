@@ -32,7 +32,7 @@ export default function FeaturesSection() {
     <FadeInSection delay={0.1}>
       <section id="features" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-        <h3 className={sectionHeadingClass}>Recursos da IA jurídica</h3>
+        <h3 className={sectionHeadingClass}>Recursos da IA <span className="pq-accent text-[1.1em]">jurídica</span></h3>
         <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[760px]`}>
           Decida melhor com ferramentas feitas para quem não é advogado, textos claros e respostas mais seguras.
         </p>

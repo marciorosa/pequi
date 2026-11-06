@@ -108,9 +108,10 @@
   --card-foreground: var(--castanha-800);
   --input: var(--castanha-25);
   --ring: var(--pequi-500);
-  --font-gilroy: var(--font-inter-tight);
-  --font-landing: var(--font-inter-tight);
-  --font-heading: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-gilroy: var(--font-manrope);
+  --font-landing: var(--font-manrope);
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
+  --font-accent: var(--font-instrument-serif), Georgia, serif;
 }
 
 @theme inline {
@@ -193,9 +194,8 @@
   h2,
   h3 {
     font-family: var(--font-heading);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    font-optical-sizing: auto;
+    font-weight: 600;
+    letter-spacing: -0.035em;
   }
 
   h4,
@@ -649,13 +649,13 @@ details[open] .faqMinus {
   font-family: var(--font-landing), system-ui, sans-serif !important;
 }
 
-/* Títulos da landing usam a fonte de títulos (Fraunces) */
+/* Títulos da landing: Manrope firme e compacta, como na Lucia */
 .landing-gilroy h1,
 .landing-gilroy h2,
 .landing-gilroy h3 {
   font-family: var(--font-heading) !important;
-  font-optical-sizing: auto;
-  letter-spacing: -0.015em;
+  font-weight: 600;
+  letter-spacing: -0.045em;
 }
 
 .landing-gilroy h1 span,
@@ -673,9 +673,9 @@ details[open] .faqMinus {
   font-family: var(--font-landing), system-ui, sans-serif;
   font-size: 0.95rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5rem;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   transition: background-color 180ms ease, box-shadow 180ms ease, transform 120ms ease;
 }
 
@@ -702,25 +702,83 @@ details[open] .faqMinus {
   align-items: center;
   gap: 0;
   flex-shrink: 0;
-  border-radius: 29.51363rem;
-  border: 1px solid var(--cerrado-200);
-  background: var(--cerrado-50);
-  color: var(--cerrado-900);
+  border-radius: 999px;
+  border: 0;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--castanha-200), 0 4px 14px -8px rgba(44, 37, 21, 0.1);
+  color: var(--pq-ink);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 1.65275rem;
-  letter-spacing: -0.01181rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: -0.01em;
   transition: transform 250ms ease, background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 
 .landing-secondary-btn:hover {
-  transform: translateY(-2px);
-  background: var(--cerrado-100);
-  border-color: var(--cerrado-300);
-  box-shadow: 0 8px 20px rgba(36, 37, 33, 0.12);
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--castanha-300), 0 8px 24px -12px rgba(44, 37, 21, 0.18);
+}
+
+/* --------------------------------------------------------------------
+   Esquema M&C (Lucia + AdCraft)
+   -------------------------------------------------------------------- */
+
+/* Palavra de destaque em itálico serifado (AdCraft) */
+.pq-accent,
+.landing-gilroy .pq-accent {
+  font-family: var(--font-accent) !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--pequi-500);
+}
+
+/* Etiqueta pequena acima dos títulos: "● Texto" */
+.pq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--castanha-200);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--castanha-600);
+}
+.pq-eyebrow::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--pequi-500);
+}
+
+/* Fundo do topo: papel creme com brilho coral suave (Lucia) */
+.pq-hero-glow {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 38%, rgba(250, 90, 80, 0.09), transparent 70%),
+    var(--background);
+}
+
+/* Cartão padrão: branco, borda fina, sombra leve */
+.pq-card {
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--castanha-200), 0 4px 14px -8px rgba(44, 37, 21, 0.1);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.pq-card:hover {
+  box-shadow: 0 0 0 1px var(--castanha-300), 0 8px 24px -12px rgba(44, 37, 21, 0.18);
+}
+
+/* Rodapé claro e quente (Lucia) */
+.pq-footer {
+  color: #3a3d35;
+  background: #efece4;
 }
 
 .landing-surface {

@@ -12,7 +12,7 @@ export default function CtaSection() {
 
           <div className="relative z-10 flex h-full items-center p-6 md:p-12 lg:p-14">
             <div className="w-full max-w-[40rem]">
-              <h3 className={`${sectionHeadingClass} text-left text-white max-w-none`}>Comece hoje mesmo</h3>
+              <h3 className={`${sectionHeadingClass} text-left text-white max-w-none`}>Comece <span className="pq-accent text-[1.1em]">hoje mesmo</span></h3>
               <p className="w-full max-w-[39.1975rem] text-white/80 mt-5 text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] leading-[160%]">
                 Entenda seus direitos, revise seus contratos e resolva dúvidas do dia a dia com uma
                 IA criada para gente como você.

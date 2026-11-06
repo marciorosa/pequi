@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { PequiMark } from './PequiWordmark';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
@@ -68,10 +69,10 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
         <div className="h-24 flex items-center px-8 border-b border-castanha-200 mb-6">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-              <Image src="/logo/favicon.png" alt="Pequi" width={28} height={40} className="h-7 w-auto" />
+              <PequiMark className="h-9 w-9" />
             </div>
             <div className="flex flex-col">
-              <span className="text-foreground font-bold text-[15px] tracking-tight leading-none uppercase">Pequi</span>
+              <span className="text-foreground font-semibold text-[17px] tracking-[-0.04em] leading-none">Pequi</span>
               <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
             </div>
           </Link>
@@ -124,10 +125,10 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           
           <Link href="/" className="flex items-center gap-3 hidden sm:flex lg:mr-4">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-              <Image src="/logo/favicon.png" alt="Pequi" width={28} height={40} className="h-7 w-auto" />
+              <PequiMark className="h-9 w-9" />
             </div>
             <div className="flex flex-col hidden lg:flex">
-              <span className="text-foreground font-bold text-[15px] tracking-tight leading-none uppercase">Pequi</span>
+              <span className="text-foreground font-semibold text-[17px] tracking-[-0.04em] leading-none">Pequi</span>
               <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
             </div>
           </Link>

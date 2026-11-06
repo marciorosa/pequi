@@ -8,7 +8,7 @@ export default function WhySection() {
       <section id="why" className="scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
         <div className="landing-surface p-6 md:p-10 lg:p-12">
-          <h3 className={sectionHeadingClass}>Levando o Direito para mais pessoas</h3>
+          <h3 className={sectionHeadingClass}>Levando o Direito <span className="pq-accent text-[1.1em]">para mais pessoas</span></h3>
           <p className="mt-5 mx-auto w-full max-w-[46rem] text-castanha-600 text-center text-[1rem] md:text-[1.125rem] lg:text-[1.25rem] font-normal leading-[160%]">
             Uma plataforma única criada para traduzir todo o juridiquês, descascar o problema com cuidado e dar mais
             segurança a cada decisão sua.

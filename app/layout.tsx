@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Lexend_Deca, Playfair_Display } from "next/font/google";
+import { Fraunces, Inter, Instrument_Serif, Lexend_Deca, Manrope, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
@@ -20,7 +20,23 @@ const playfair = Playfair_Display({
   display: 'swap',
 });
 
-// Fonte dos títulos (h1, h2, h3): serifada moderna e calorosa
+// Esquema M&C (igual à Lucia): Manrope em todo o site, com destaques em
+// Instrument Serif itálico (referência AdCraft). Fraunces fica carregada só
+// para não quebrar estilos antigos que ainda a citem.
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: '--font-manrope',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: '--font-instrument-serif',
+  display: 'swap',
+});
+
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: '--font-fraunces',
@@ -62,10 +78,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${fraunces.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
+    <html lang="pt-BR" className={`${manrope.variable} ${instrumentSerif.variable} ${inter.variable} ${fraunces.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground" style={{ 
-        ['--font-gilroy' as any]: `var(${interTight.variable})`,
-        ['--font-landing' as any]: `var(${interTight.variable})`
+        ['--font-gilroy' as any]: `var(${manrope.variable})`,
+        ['--font-landing' as any]: `var(${manrope.variable})`,
+        ['--font-heading' as any]: `var(${manrope.variable})`,
+        ['--font-accent' as any]: `var(${instrumentSerif.variable})`
       }}>
         {/* Google tag (gtag.js) */}
         <Script
