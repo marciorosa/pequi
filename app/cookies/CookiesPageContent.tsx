@@ -149,7 +149,7 @@ export default function CookiesPageContent() {
               </LegalSubsection>
             ))}
             {section.cookieTable && (
-              <div className="mb-8 ml-0 overflow-x-auto rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(31,42,23,0.04)] sm:ml-12">
+              <div className="mb-8 ml-0 overflow-x-auto rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.04)] sm:ml-12">
                 <table className="w-full min-w-[36rem] border-collapse text-sm">
                   <thead>
                     <tr className="border-b border-castanha-150 bg-castanha-50">
@@ -181,7 +181,7 @@ export default function CookiesPageContent() {
                 {section.thirdParties.map((party) => (
                   <div
                     key={party.name}
-                    className="rounded-2xl border border-castanha-150 bg-castanha-50 p-6 transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)]"
+                    className="rounded-2xl border border-castanha-150 bg-castanha-50 p-6 transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(36,37,33,0.06)]"
                   >
                     <h3 className="mb-2 text-[1.0625rem] font-medium text-ink">{party.name}</h3>
                     <p className="mb-3 text-[0.9375rem] leading-[160%] text-castanha-600">{party.purpose}</p>
@@ -212,7 +212,7 @@ export default function CookiesPageContent() {
           aria-modal="true"
           aria-labelledby="cookie-prefs-title"
         >
-          <div className="w-full max-w-2xl rounded-[2rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(31,42,23,0.12)] md:p-10">
+          <div className="w-full max-w-2xl rounded-[2rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(36,37,33,0.12)] md:p-10">
             <h2 id="cookie-prefs-title" className="mb-8 text-[1.5rem] font-medium text-ink">
               Preferências de cookies
             </h2>

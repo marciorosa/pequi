@@ -122,7 +122,7 @@ function LoginForm() {
 function LoginAside() {
   return (
     <>
-      <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+      <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
         <div className="border-b border-castanha-150 bg-castanha-50 px-8 py-6">
           <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">
             Assistente Pequi
@@ -169,7 +169,7 @@ function LoginAside() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+      <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
         <svg className="mb-4 h-8 w-8 text-ink/20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
           <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
         </svg>

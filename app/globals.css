@@ -3,35 +3,38 @@
 /* ==========================================================================
    Paleta Pequi
    --------------------------------------------------------------------------
-   Inspirada no pequi, fruto do Cerrado: a polpa amarelo-ouro (cor da marca
-   #F7BE09), a casca verde, o caroço e a terra vermelha do Cerrado, e o creme
-   da castanha. Cada família vai de 50 (mais claro) a 900/950 (mais escuro).
+   Esquema M&C (o mesmo da Lucia, desde 2026-11-06): papel creme e grafite com
+   o coral #FA5A50 do marciorosa.com como destaque. Os nomes das famílias
+   (pequi, cerrado, terra, castanha) foram mantidos para não mexer nos
+   componentes; só os valores mudaram. Versão anterior (amarelo + verde) em
+   Pequi/_backup_antes_cores_coral_2026-11-06. Cada família vai de 50 (mais
+   claro) a 900/950 (mais escuro).
    ========================================================================== */
 :root {
-  /* Polpa — amarelo-ouro da marca */
-  --pequi-50: #FFF9E5;
-  --pequi-100: #FEF0C0;
-  --pequi-200: #FDE28A;
-  --pequi-300: #FBD24E;
-  --pequi-400: #F9C72A;
-  --pequi-500: #F7BE09; /* cor da marca */
-  --pequi-600: #D9A100;
-  --pequi-700: #B07F04;
-  --pequi-800: #87610A;
-  --pequi-900: #5C430C;
+  /* "pequi": cor de destaque — coral M&C #FA5A50 (era amarelo-ouro #F7BE09) */
+  --pequi-50: #FFF1EF;
+  --pequi-100: #FEE0DC;
+  --pequi-200: #FDC2BC;
+  --pequi-300: #FC9C93;
+  --pequi-400: #FB7A70;
+  --pequi-500: #FA5A50; /* cor da marca */
+  --pequi-600: #E2463C;
+  --pequi-700: #BC352C;
+  --pequi-800: #922A24;
+  --pequi-900: #6B211C;
 
-  /* Casca — verde do Cerrado */
-  --cerrado-50: #F3F6EE;
-  --cerrado-100: #E2EBD6;
-  --cerrado-200: #C4D7AE;
-  --cerrado-300: #9EBC81;
-  --cerrado-400: #779F59;
-  --cerrado-500: #59823C;
-  --cerrado-600: #45672E;
-  --cerrado-700: #365125;
-  --cerrado-800: #2A401E;
-  --cerrado-900: #1E2E16;
-  --cerrado-950: #131D0E;
+  /* "cerrado": grafite (era verde do Cerrado) */
+  --cerrado-50: #F4F3EE;
+  --cerrado-100: #E4E3DC;
+  --cerrado-200: #CFCDC2;
+  --cerrado-300: #A8A79C;
+  --cerrado-400: #7E7E74;
+  --cerrado-500: #5F6058;
+  --cerrado-600: #45463F;
+  --cerrado-700: #34352F;
+  --cerrado-800: #2B2C27;
+  --cerrado-900: #242521;
+  --cerrado-950: #1B1C19;
 
   /* Caroço e terra do Cerrado */
   --terra-50: #FAF4EE;
@@ -45,19 +48,19 @@
   --terra-800: #472B1B;
   --terra-900: #2F1D13;
 
-  /* Castanha — neutros quentes (fundos, bordas e textos) */
+  /* "castanha": neutros creme (fundos, bordas e textos) */
   --castanha-0: #FFFFFF;
-  --castanha-25: #FFFDF8;
-  --castanha-50: #FCF8EE;
-  --castanha-100: #F7F0DF;
-  --castanha-150: #F2E9D2;
-  --castanha-200: #ECE2C8;
-  --castanha-300: #DCCDA8;
-  --castanha-400: #B3A684;
-  --castanha-500: #8A8270;
-  --castanha-600: #66614F;
-  --castanha-700: #4A4738;
-  --castanha-800: #34362A;
+  --castanha-25: #F8F7F3;
+  --castanha-50: #F4F3EE;
+  --castanha-100: #EEEDE6;
+  --castanha-150: #E8E7E0;
+  --castanha-200: #E4E3DC;
+  --castanha-300: #D3D2C9;
+  --castanha-400: #A8A79C;
+  --castanha-500: #75756D;
+  --castanha-600: #66685F;
+  --castanha-700: #4A4B44;
+  --castanha-800: #34352F;
 
   /* Estados */
   --pq-success: #59823C;
@@ -68,8 +71,8 @@
   /* --------------------------------------------------------------------
      Tokens de uso (o que os componentes consomem)
      -------------------------------------------------------------------- */
-  --pq-ink: #1F2A17;              /* texto principal: verde quase preto */
-  --pq-ink-soft: #2D3A23;
+  --pq-ink: #242521;              /* texto principal: grafite */
+  --pq-ink-soft: #34352F;
   --pq-text-strong: var(--castanha-800);
   --pq-text-muted: var(--castanha-600);
   --pq-text-subtle: var(--castanha-500);
@@ -81,7 +84,7 @@
   --pq-muted: var(--castanha-100);
   --pq-muted-strong: var(--castanha-150);
 
-  --pq-border-soft: #EFE7D2;
+  --pq-border-soft: #EEEDE6;
   --pq-border: var(--castanha-200);
   --pq-border-strong: var(--castanha-300);
 
@@ -91,7 +94,7 @@
   --pq-brand: var(--pequi-500);
   --pq-brand-hover: var(--pequi-400);
   --pq-brand-strong: var(--pequi-600);
-  --pq-on-brand: var(--pq-ink);          /* texto sobre o amarelo (contraste AA) */
+  --pq-on-brand: #FFFFFF;          /* texto branco sobre o coral */
 
   /* Variáveis já usadas pelo app */
   --background: var(--castanha-25);
@@ -313,7 +316,7 @@
 
 .btn-primary-gradient {
   background: var(--pequi-500) !important;
-  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
   color: var(--pq-on-brand) !important;
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -330,7 +333,7 @@
 
 .btn-primary-gradient:focus-visible {
   outline: none;
-  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), 0 0 0 3px var(--pequi-200) !important;
+  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), 0 0 0 3px var(--pequi-200) !important;
 }
 
 /* Chat page animations and styling */
@@ -351,7 +354,7 @@
 }
 
 .shadow-glow {
-  box-shadow: 0 0 15px rgba(247, 190, 9, 0.12);
+  box-shadow: 0 0 15px rgba(250, 90, 80, 0.12);
 }
 
 /* Custom scrollbar styling */
@@ -664,7 +667,7 @@ details[open] .faqMinus {
 .landing-primary-btn {
   border-radius: 999px;
   background: var(--pequi-500);
-  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   color: var(--pq-on-brand);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
@@ -686,7 +689,7 @@ details[open] .faqMinus {
 
 .landing-primary-btn:focus-visible {
   outline: none;
-  box-shadow: inset 0 0 0 1px rgba(31, 42, 23, 0.10), 0 0 0 3px var(--pequi-200);
+  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), 0 0 0 3px var(--pequi-200);
 }
 
 .landing-secondary-btn {
@@ -717,7 +720,7 @@ details[open] .faqMinus {
   transform: translateY(-2px);
   background: var(--cerrado-100);
   border-color: var(--cerrado-300);
-  box-shadow: 0 8px 20px rgba(42, 64, 30, 0.12);
+  box-shadow: 0 8px 20px rgba(36, 37, 33, 0.12);
 }
 
 .landing-surface {
@@ -744,14 +747,14 @@ details[open] .faqMinus {
 
 .bg-pequi-glow {
   background:
-    radial-gradient(60% 50% at 20% 0%, rgba(247, 190, 9, 0.18), transparent 70%),
-    radial-gradient(50% 45% at 90% 10%, rgba(89, 130, 60, 0.14), transparent 70%),
+    radial-gradient(60% 50% at 20% 0%, rgba(250, 90, 80, 0.18), transparent 70%),
+    radial-gradient(50% 45% at 90% 10%, rgba(250, 90, 80, 0.14), transparent 70%),
     var(--background);
 }
 
 .bg-cerrado-deep {
   background:
-    radial-gradient(70% 60% at 15% 0%, rgba(247, 190, 9, 0.14), transparent 65%),
+    radial-gradient(70% 60% at 15% 0%, rgba(250, 90, 80, 0.14), transparent 65%),
     linear-gradient(180deg, var(--cerrado-900), var(--cerrado-950));
   color: var(--castanha-25);
 }

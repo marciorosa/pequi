@@ -32,7 +32,7 @@ export default function PricingSection() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 mb-10 flex w-fit flex-col items-center gap-3 rounded-2xl border border-castanha-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(31,42,23,0.06)] sm:flex-row sm:rounded-full sm:px-3 sm:py-2">
+          <div className="mx-auto mt-10 mb-10 flex w-fit flex-col items-center gap-3 rounded-2xl border border-castanha-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(36,37,33,0.06)] sm:flex-row sm:rounded-full sm:px-3 sm:py-2">
             <div className="inline-flex rounded-full border border-castanha-150 bg-castanha-25 p-1">
               <button
                 onClick={() => setBillingPeriod('monthly')}
@@ -64,8 +64,8 @@ export default function PricingSection() {
                 key={plan.name}
                 className={`relative flex h-full flex-col rounded-[1.5rem] border p-6 md:p-8 transition ${
                   plan.popular
-                    ? 'border-cerrado-900 bg-cerrado-900 text-white shadow-[0_24px_50px_rgba(31,42,23,0.22)]'
-                    : 'border-castanha-200 bg-castanha-25 text-ink shadow-[0_10px_28px_rgba(31,42,23,0.07)]'
+                    ? 'border-cerrado-900 bg-cerrado-900 text-white shadow-[0_24px_50px_rgba(36,37,33,0.22)]'
+                    : 'border-castanha-200 bg-castanha-25 text-ink shadow-[0_10px_28px_rgba(36,37,33,0.07)]'
                 }`}
               >
                 {plan.popular && (

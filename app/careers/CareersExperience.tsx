@@ -57,7 +57,7 @@ const cultureTiles = [
 
 function JobRow({ job }: { job: CareerJobFull }) {
   return (
-    <article className="landing-surface shadow-[0_12px_28px_rgba(31,42,23,0.04)] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(31,42,23,0.07)] p-6 md:p-8">
+    <article className="landing-surface shadow-[0_12px_28px_rgba(36,37,33,0.04)] transition-all duration-300 hover:shadow-[0_20px_40px_rgba(36,37,33,0.07)] p-6 md:p-8">
       <div className="mb-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div className="min-w-0">
           <h3 className="mb-2 text-xl font-medium text-ink">{job.title}</h3>
@@ -148,7 +148,7 @@ export default function CareersExperience() {
                   go-to-market.
                 </p>
               </div>
-              <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
+              <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(36,37,33,0.06)]">
                 <div className="relative h-48 border-b border-castanha-150 bg-gradient-to-br from-castanha-100 via-castanha-150 to-castanha-200">
                   <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_50%)]" aria-hidden />
                   <div className="relative flex h-full items-end p-8">
@@ -178,7 +178,7 @@ export default function CareersExperience() {
               {values.map((v) => (
                 <div
                   key={v.title}
-                  className="rounded-2xl border border-castanha-150 bg-castanha-100/85 p-6 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)]"
+                  className="rounded-2xl border border-castanha-150 bg-castanha-100/85 p-6 backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(36,37,33,0.06)]"
                 >
                   <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-castanha-200 bg-white text-castanha-800">
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -205,7 +205,7 @@ export default function CareersExperience() {
               {cultureTiles.map((t) => (
                 <div
                   key={t.label}
-                  className={`flex aspect-[4/3] items-end rounded-[1.25rem] border border-castanha-150 bg-gradient-to-br p-5 font-medium text-ink shadow-[0_8px_24px_rgba(31,42,23,0.05)] ${t.surface}`}
+                  className={`flex aspect-[4/3] items-end rounded-[1.25rem] border border-castanha-150 bg-gradient-to-br p-5 font-medium text-ink shadow-[0_8px_24px_rgba(36,37,33,0.05)] ${t.surface}`}
                 >
                   <span className="text-[0.9375rem]">{t.label}</span>
                 </div>
@@ -254,7 +254,7 @@ export default function CareersExperience() {
                   onClick={() => setActiveTab(tab)}
                   className={`rounded-full border px-4 py-2.5 text-[0.875rem] font-medium transition-all ${
                     activeTab === tab
-                      ? 'border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(31,42,23,0.12)]'
+                      ? 'border-cerrado-800 bg-cerrado-800 text-white shadow-[0_6px_16px_rgba(36,37,33,0.12)]'
                       : 'border-castanha-200 bg-castanha-100 text-castanha-600 hover:border-castanha-300 hover:text-ink'
                   }`}
                 >
@@ -267,7 +267,7 @@ export default function CareersExperience() {
               {filtered.length > 0 ? (
                 filtered.map((job) => <JobRow key={job.id} job={job} />)
               ) : (
-                <div className="rounded-[1.25rem] border border-castanha-150 bg-white p-12 text-center shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+                <div className="rounded-[1.25rem] border border-castanha-150 bg-white p-12 text-center shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
                   <p className="mb-2 text-castanha-600">Não há vagas abertas nesta equipe no momento.</p>
                   <p className="text-sm text-castanha-600">
                     <Link href="/contact" className="font-medium text-ink hover:underline">

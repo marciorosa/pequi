@@ -191,7 +191,7 @@ export default function LegalExperience() {
             ))}
           </div>
 
-          <div className="max-w-[48rem] mx-auto rounded-[1.875rem] border border-castanha-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(31,42,23,0.06)]">
+          <div className="max-w-[48rem] mx-auto rounded-[1.875rem] border border-castanha-200 bg-white p-8 md:p-10 shadow-[0_20px_40px_rgba(36,37,33,0.06)]">
             <div className="mb-8 pb-6 border-b border-castanha-200">
               <h2 className="text-ink text-[1.75rem] font-medium mb-2">{activeDoc.title}</h2>
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-castanha-500">

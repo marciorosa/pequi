@@ -134,7 +134,7 @@ export default function ContactExperience() {
               <ul className="space-y-8">
                 {contactChannels.map((ch) => (
                   <li key={ch.title} className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.875rem] border border-castanha-150 bg-castanha-50 text-ink shadow-[0_4px_12px_rgba(31,42,23,0.04)]">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.875rem] border border-castanha-150 bg-castanha-50 text-ink shadow-[0_4px_12px_rgba(36,37,33,0.04)]">
                       <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                         {ch.icon}
                       </svg>
@@ -161,7 +161,7 @@ export default function ContactExperience() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="relative overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_20px_40px_rgba(31,42,23,0.06)] md:p-10">
+              <div className="relative overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_20px_40px_rgba(36,37,33,0.06)] md:p-10">
                 <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-castanha-50" aria-hidden />
 
                 {!isSubmitted ? (
@@ -351,7 +351,7 @@ export default function ContactExperience() {
             {offices.map((office) => (
               <article
                 key={office.name}
-                className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-castanha-50 shadow-[0_8px_24px_rgba(31,42,23,0.04)] transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(31,42,23,0.06)]"
+                className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-castanha-50 shadow-[0_8px_24px_rgba(36,37,33,0.04)] transition-all duration-300 hover:border-castanha-300 hover:shadow-[0_12px_28px_rgba(36,37,33,0.06)]"
               >
                 <div className="relative overflow-hidden bg-cerrado-900 px-6 py-8 text-white">
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_50%)]" aria-hidden />
@@ -402,7 +402,7 @@ export default function ContactExperience() {
 
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <div className="gap-8 rounded-[1.875rem] border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(31,42,23,0.05)] md:flex md:items-center md:justify-between md:p-10">
+          <div className="gap-8 rounded-[1.875rem] border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.05)] md:flex md:items-center md:justify-between md:p-10">
             <div>
               <h3 className="mb-2 text-lg font-medium text-ink">Atendimento no Brasil</h3>
               <p className="max-w-xl text-[0.9375rem] leading-relaxed text-castanha-600">

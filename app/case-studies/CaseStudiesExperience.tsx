@@ -17,7 +17,7 @@ const FILTERS: { id: string; name: string }[] = [
 
 function StudyCard({ study }: { study: CaseStudyRecord }) {
   return (
-    <article className="group flex flex-col rounded-[1.875rem] border border-castanha-200 bg-white overflow-hidden shadow-[0_12px_28px_rgba(31,42,23,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_20px_40px_rgba(31,42,23,0.08)]">
+    <article className="group flex flex-col rounded-[1.875rem] border border-castanha-200 bg-white overflow-hidden shadow-[0_12px_28px_rgba(36,37,33,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]">
       <div className={`relative h-44 md:h-52 bg-gradient-to-br ${study.accent} px-6 py-5 flex flex-col justify-end`}>
         <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_45%)]" aria-hidden />
         <p className="relative text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white/70">{study.industry}</p>
@@ -91,7 +91,7 @@ export default function CaseStudiesExperience() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-[1.25rem] border border-castanha-200 bg-white px-6 py-7 text-center shadow-[0_8px_24px_rgba(31,42,23,0.04)]"
+                className="rounded-[1.25rem] border border-castanha-200 bg-white px-6 py-7 text-center shadow-[0_8px_24px_rgba(36,37,33,0.04)]"
               >
                 <div className="text-ink text-3xl md:text-4xl font-medium mb-2">{s.value}</div>
                 <div className="text-ink text-[0.9375rem] font-medium mb-1">{s.label}</div>

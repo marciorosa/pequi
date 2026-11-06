@@ -100,7 +100,7 @@ function ForgotPasswordForm() {
 
 function ForgotAside() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-castanha-50 shadow-[0_12px_28px_rgba(31,42,23,0.04)]">
+    <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-castanha-50 shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
       <div className="border-b border-castanha-150 bg-white px-8 py-8">
         <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">Recuperação segura</p>
         <p className="mb-4 text-lg font-medium leading-snug text-ink">

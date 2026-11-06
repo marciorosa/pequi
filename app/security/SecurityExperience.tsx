@@ -6,10 +6,10 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]';
 
 const certCardClass =
-  'rounded-2xl border border-castanha-150 bg-white p-6 text-center shadow-[0_12px_28px_rgba(31,42,23,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)] md:p-8';
+  'rounded-2xl border border-castanha-150 bg-white p-6 text-center shadow-[0_12px_28px_rgba(36,37,33,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)] md:p-8';
 
 export default function SecurityExperience() {
   const securityFeatures = [
@@ -263,7 +263,7 @@ export default function SecurityExperience() {
       <FadeInSection delay={0.12}>
         <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(31,42,23,0.06)] md:px-12 md:py-14">
+            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 px-6 py-12 text-center shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:px-12 md:py-14">
               <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem] lg:text-[2.5rem]">
                 Visão geral de segurança e whitepaper
               </h2>

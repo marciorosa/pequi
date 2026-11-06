@@ -142,17 +142,17 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
         <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
           <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
             <div className="space-y-10 lg:col-span-2">
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
                 <h2 className="mb-4 text-xl font-medium text-ink">Sobre a vaga</h2>
                 <p className="text-[1rem] leading-[175%] text-castanha-600">{job.description}</p>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
                 <h2 className="mb-5 text-xl font-medium text-ink">O que você vai fazer</h2>
                 <ul className="space-y-3">{job.responsibilities.map((r, i) => listItem(r, `resp-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
                 <h2 className="mb-5 text-xl font-medium text-ink">O que procuramos</h2>
                 <h3 className="mb-3 text-[0.9375rem] font-medium text-ink">Obrigatório</h3>
                 <ul className="mb-8 space-y-3">{job.requirements.map((r, i) => listItem(r, `req-${i}`))}</ul>
@@ -160,12 +160,12 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
                 <ul className="space-y-3">{job.preferred.map((p, i) => listItem(p, `pref-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
                 <h2 className="mb-5 text-xl font-medium text-ink">O que oferecemos</h2>
                 <ul className="grid gap-3 sm:grid-cols-2">{job.benefits.map((b, i) => listItem(b, `ben-${i}`))}</ul>
               </section>
 
-              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-10">
+              <section className="landing-surface p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-10">
                 <h2 className="mb-5 text-xl font-medium text-ink">Equipe e cultura</h2>
                 <p className="mb-4 leading-[175%] text-castanha-600">{job.team}</p>
                 <p className="leading-[175%] text-castanha-600">{job.culture}</p>
@@ -173,7 +173,7 @@ export default function CareerDetailExperience({ job, jobId }: Props) {
             </div>
 
             <div className="space-y-6">
-              <div className="landing-surface p-6 shadow-[0_12px_28px_rgba(31,42,23,0.04)] md:p-8 lg:sticky lg:top-28">
+              <div className="landing-surface p-6 shadow-[0_12px_28px_rgba(36,37,33,0.04)] md:p-8 lg:sticky lg:top-28">
                 <h3 className="mb-6 text-lg font-medium text-ink">Candidate-se</h3>
 
                 {!isSubmitted ? (

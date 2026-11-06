@@ -6,7 +6,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]';
 
 function FeatureIcon({ children }: { children: React.ReactNode }) {
   return (
@@ -213,7 +213,7 @@ export default function KnowledgeExperience() {
               Um exemplo de consulta e resultados estruturados, apenas ilustrativo e sem caráter de aconselhamento jurídico.
             </p>
 
-            <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
+            <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">
               <div className="border-b border-castanha-200 p-6 md:p-8">
                 <h3 className="mb-4 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Digite sua consulta de pesquisa jurídica</h3>
                 <div className="mb-6 rounded-[0.875rem] border border-castanha-200 bg-castanha-100 p-5">
@@ -245,7 +245,7 @@ export default function KnowledgeExperience() {
                 </div>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-[0.875rem] bg-cerrado-800 px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(31,42,23,0.15)]"
+                  className="inline-flex items-center justify-center rounded-[0.875rem] bg-cerrado-800 px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(36,37,33,0.15)]"
                 >
                   Pesquisar
                 </button>
@@ -277,7 +277,7 @@ export default function KnowledgeExperience() {
       <FadeInSection delay={0.12}>
         <section className="bg-white pb-16 lg:pb-[7rem]">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="mx-auto max-w-4xl overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(31,42,23,0.06)]">
+            <div className="mx-auto max-w-4xl overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(36,37,33,0.06)]">
               <div className="md:flex">
                 <div className="md:w-[min(280px,36%)] shrink-0 bg-cerrado-800 p-8 md:p-10 flex items-center justify-center min-h-[200px] md:min-h-0">
                   <div className="text-center md:text-left">

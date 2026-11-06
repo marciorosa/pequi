@@ -126,7 +126,7 @@ export default function AssistantExperience() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(31,42,23,0.06)]"
+                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]"
                 >
                   <div className="inline-flex w-full items-center justify-start">{feature.icon}</div>
                   <div className="mt-auto pt-6">
@@ -148,7 +148,7 @@ export default function AssistantExperience() {
               Faça uma pergunta abaixo e veja como o Pequi responde em contexto, com o tom de um copiloto jurídico de confiança.
             </p>
 
-            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(31,42,23,0.06),0_48px_100px_rgba(31,42,23,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(31,42,23,0.08)]">
+            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">
               <AssistantChat />
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function AssistantExperience() {
             <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 p-5 sm:p-7 lg:p-10">
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div className="relative order-2 lg:order-1">
-                  <div className="rounded-[1.5rem] border border-castanha-150 bg-white p-4 shadow-[0_16px_36px_rgba(31,42,23,0.06)] sm:p-5">
+                  <div className="rounded-[1.5rem] border border-castanha-150 bg-white p-4 shadow-[0_16px_36px_rgba(36,37,33,0.06)] sm:p-5">
                     <div className="space-y-3">
                       {[
                         'Criador de contratos simples',
