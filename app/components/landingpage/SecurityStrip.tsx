@@ -6,13 +6,13 @@ export default function SecurityStrip() {
     {
       id: '01',
       title: 'Assistente',
-      desc: 'Tire suas dúvidas com um assistente pessoal de IA especializado em pesquisa e explicações jurídicas.',
+      desc: 'Tire suas dúvidas com um assistente de IA que explica temas jurídicos em linguagem simples. Ele não é advogado.',
       tone: 'from-cerrado-400 to-cerrado-600',
     },
     {
       id: '02',
       title: 'Conhecimento',
-      desc: 'Acesso instantâneo a leis, decisões e mudanças importantes, com citações verificadas.',
+      desc: 'Explicações sobre leis e direitos, com indicação das normas citadas para você conferir nas fontes oficiais.',
       tone: 'from-pequi-500 to-pequi-700',
     },
     {

@@ -54,12 +54,12 @@ export default function ChatSupportPage() {
     {
       id: '2',
       question: 'Status da assinatura',
-      answer: 'Os detalhes da assinatura podem ser gerenciados na seção Assinatura do seu painel. Lá você pode fazer upgrade, alterar a forma de pagamento ou cancelar seu plano.'
+      answer: 'Os detalhes da assinatura podem ser gerenciados na seção Plano do seu painel. Lá você pode fazer upgrade, alterar a forma de pagamento ou cancelar seu plano.'
     },
     {
       id: '3',
       question: 'Protocolo de segurança de dados',
-      answer: 'O Pequi utiliza criptografia de nível militar em todos os documentos. Seus dados são criptografados em repouso e em trânsito com os padrões AES-256 e SSL/TLS.'
+      answer: 'Os dados trafegam por conexão criptografada (HTTPS) e os arquivos do Cofre ficam em armazenamento com acesso restrito. Para saber como tratamos seus dados pessoais, consulte a Política de Privacidade.'
     }
   ];
 
@@ -152,10 +152,10 @@ export default function ChatSupportPage() {
     } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('olá') || lowerCaseMessage.includes('oi')) {
       response = 'Olá! Estou aqui para facilitar sua experiência com o Pequi. Como posso ajudar?';
     } else if (lowerCaseMessage.includes('human') || lowerCaseMessage.includes('agent') || lowerCaseMessage.includes('atendente')) {
-      response = 'Entendido. Vou transferir você para um atendente sênior. Aguarde um momento enquanto estabelecemos uma conexão segura.';
-      setTimeout(() => setWaitTime(Math.floor(Math.random() * 5) + 2), 2000);
+      // Não há atendimento humano em tempo real neste chat: encaminha para o formulário
+      response = 'Este chat responde automaticamente às dúvidas mais comuns. Para falar com a nossa equipe, envie uma solicitação pelo formulário de contato ou por e-mail. Respondemos em até 24 horas úteis, de segunda a sexta (horário de Brasília).';
     } else {
-      response = 'Obrigado pela sua mensagem. Estou analisando sua solicitação. Para uma solução imediata, você também pode encontrar respostas nas Dúvidas frequentes ou pesquisar em nossa base de conhecimento.';
+      response = 'Obrigado pela sua mensagem. Este chat responde automaticamente às dúvidas mais comuns. Se não encontrou o que precisa, consulte as Dúvidas frequentes ou envie uma solicitação pelo formulário de contato.';
     }
 
     simulateAgentTyping(response);
@@ -190,13 +190,13 @@ export default function ChatSupportPage() {
   };
 
   return (
-    <DashboardLayout title="Suporte Concierge">
+    <DashboardLayout title="Ajuda">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-10 h-full flex flex-col">
         <div className="mb-6 md:mb-12 flex-shrink-0">
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-2 md:mb-3">Atendimento ao vivo</p>
-          <h1 className="text-2xl md:text-4xl font-light text-foreground mb-2 md:mb-4 tracking-tight">Concierge de suporte</h1>
+          <h1 className="text-2xl md:text-4xl font-light text-foreground mb-2 md:mb-4 tracking-tight">Ajuda automática</h1>
           <p className="text-foreground/50 max-w-2xl text-sm md:text-lg font-light leading-relaxed">
-            Conecte-se na hora com nosso concierge automatizado ou solicite a transferência prioritária para um especialista humano.
+            Respostas automáticas para as dúvidas mais comuns. Para falar com a equipe, use o formulário de contato.
           </p>
         </div>
 
@@ -217,9 +217,9 @@ export default function ChatSupportPage() {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">Concierge ativo</h2>
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">Atendimento automático</h2>
                   <p className="text-[10px] text-foreground/30 font-bold uppercase tracking-tighter">
-                    {isAgentTyping ? 'O concierge está digitando...' : waitTime ? 'Na fila de atendimento' : 'Sistema pronto'}
+                    {isAgentTyping ? 'Respondendo...' : waitTime ? 'Na fila de atendimento' : 'Sistema pronto'}
                   </p>
                 </div>
               </div>
@@ -405,7 +405,7 @@ export default function ChatSupportPage() {
             <div className="bg-castanha-50 border border-castanha-100 rounded-[32px] p-8">
               <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Planos Enterprise</h3>
               <p className="text-xs text-foreground/50 leading-relaxed font-light mb-8">
-                Assinantes dos planos Enterprise contam com concierge dedicado 24 horas por dia, 7 dias por semana, e suporte humano personalizado.
+                Assinantes do plano Enterprise contam com gerente de conta dedicado, em dias úteis.
               </p>
               <div className="space-y-4">
                 <a href="/dashboard/help/email" className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-foreground/40 hover:text-foreground transition-all group">

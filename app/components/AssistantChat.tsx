@@ -101,7 +101,7 @@ export default function AssistantChat() {
         <div>
           <h3 className="text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Assistente Pequi</h3>
           <p className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
-            IA de consultoria especializada
+            Assistente de IA · conteúdo informativo
           </p>
         </div>
         <div className="flex items-center gap-2">

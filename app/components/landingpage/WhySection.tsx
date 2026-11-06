@@ -54,23 +54,23 @@ export default function WhySection() {
           <div className="landing-card mt-6 p-6 md:p-10 lg:p-[48px]">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               <div>
-                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">10x mais rápido</p>
-                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Fluxos de trabalho</p>
-                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Acelere pesquisas e a leitura de documentos</p>
+                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">Simples</p>
+                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Linguagem clara</p>
+                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Explicações sem juridiquês sobre as leis brasileiras</p>
               </div>
               <div>
                 <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">24/7</p>
-                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Suporte de IA</p>
-                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Assistência contínua sempre que você precisar</p>
+                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Acesso à IA</p>
+                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">A ferramenta fica disponível a qualquer hora</p>
               </div>
               <div>
-                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">50K+</p>
-                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Casos gerenciados</p>
-                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Conduzidos com eficiência e cuidado</p>
+                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">30 áreas</p>
+                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Assistentes de IA</p>
+                <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Do consumidor ao trabalho, da família à saúde</p>
               </div>
               <div>
-                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">Confiança</p>
-                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">De clientes</p>
+                <p className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-none">Brasil</p>
+                <p className="text-castanha-600 text-[1rem] font-semibold leading-[1.28225rem] uppercase mt-[10px]">Feito para você</p>
                 <p className="mt-2 w-full max-w-[170px] text-castanha-600 text-[1rem] font-normal leading-[1.28225rem]">Feita para pessoas e pequenos negócios do Brasil</p>
               </div>
             </div>

@@ -74,8 +74,8 @@ export default function AssistantExperience() {
                   Seu assistente jurídico pessoal
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-                  Resolva dúvidas jurídicas em linguagem natural. Feito para quem não é advogado, com a clareza que
-                  você espera de um bom especialista.
+                  Resolva dúvidas jurídicas em linguagem natural. Feito para quem não é advogado, com
+                  linguagem clara. Conteúdo informativo, que não substitui um profissional.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link

@@ -82,7 +82,7 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
             <p className="px-4 text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] mb-4">Principal</p>
             <div className="space-y-1.5">
               <MobileNavItem href="/dashboard" label="Pesquisa" exact icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>} />
-              <MobileNavItem href="/dashboard/chat" label="Canais" icon={<Image src="/landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/chat" label="Chat" icon={<Image src="/landingpage/hero/channels.svg" alt="Chat" width={32} height={32} className="w-8 h-8" />} />
               <MobileNavItem href="/dashboard/lawyers" label="Assistentes" icon={<Image src="/landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />} />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           <div>
             <p className="px-4 text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] mb-4">Recursos</p>
             <div className="space-y-1.5">
-              <MobileNavItem href="/dashboard/docs" label="Registro" icon={<Image src="/landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />} />
+              <MobileNavItem href="/dashboard/docs" label="Documentos" icon={<Image src="/landingpage/hero/document-registory.svg" alt="Documentos" width={32} height={32} className="w-8 h-8" />} />
               <MobileNavItem href="/dashboard/vault" label="Cofre" icon={<Image src="/landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />} />
               <MobileNavItem href="/dashboard/workflow-builder" label="Fluxos" icon={<Image src="/landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />} />
             </div>
@@ -98,8 +98,8 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
         </div>
 
         <div className="p-6 border-t border-castanha-200 space-y-4">
-          <MobileNavItem href="/dashboard/billing" label="Assinatura" icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75-10.5h16.5a1.5 1.5 0 011.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5z" /></svg>} />
-          <MobileNavItem href="/dashboard/help" label="Concierge" icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
+          <MobileNavItem href="/dashboard/billing" label="Plano" icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75-10.5h16.5a1.5 1.5 0 011.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5z" /></svg>} />
+          <MobileNavItem href="/dashboard/help" label="Ajuda" icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
           <button
             onClick={handleLogout}
             className="w-full flex items-center px-4 py-3 text-red-500 font-medium text-sm hover:bg-red-50 rounded-2xl transition-all"
@@ -135,7 +135,7 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           <div className="h-8 w-px bg-castanha-200 hidden lg:block" />
           
           <div className="flex flex-col truncate">
-            <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] hidden sm:block">Intelligence.Core</span>
+            <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.4em] hidden sm:block">Painel</span>
             <h1 className="text-lg md:text-2xl font-medium text-ink tracking-[-0.04em] leading-tight mt-1 truncate max-w-[200px] md:max-w-none">{title}</h1>
           </div>
         </div>
@@ -183,8 +183,8 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           />
           <DockItem
             href="/dashboard/chat"
-            label="Canais"
-            icon={<Image src="/landingpage/hero/channels.svg" alt="Canais" width={32} height={32} className="w-8 h-8" />}
+            label="Chat"
+            icon={<Image src="/landingpage/hero/channels.svg" alt="Chat" width={32} height={32} className="w-8 h-8" />}
           />
           <DockItem
             href="/dashboard/lawyers"
@@ -194,8 +194,8 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           <div className="w-px h-8 bg-castanha-200 mx-1" />
           <DockItem
             href="/dashboard/docs"
-            label="Registro"
-            icon={<Image src="/landingpage/hero/document-registory.svg" alt="Registro" width={32} height={32} className="w-8 h-8" />}
+            label="Documentos"
+            icon={<Image src="/landingpage/hero/document-registory.svg" alt="Documentos" width={32} height={32} className="w-8 h-8" />}
           />
           <DockItem
             href="/dashboard/vault"
@@ -210,12 +210,12 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
           <div className="w-px h-8 bg-castanha-200 mx-1" />
           <DockItem
             href="/dashboard/billing"
-            label="Assinatura"
+            label="Plano"
             icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75-10.5h16.5a1.5 1.5 0 011.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5z" /></svg>}
           />
           <DockItem
             href="/dashboard/help"
-            label="Concierge"
+            label="Ajuda"
             icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
           />
         </nav>

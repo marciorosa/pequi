@@ -60,12 +60,13 @@ interface ProfileData {
     workflowCount: number;
   };
   subscription?: {
+    isAdmin?: boolean;
     limits?: {
-      searchCount: number;
-      chatCount: number;
-      docsCount: number;
-      vaultFolderCount: number;
-      workflowCount: number;
+      searchCount: number | null;
+      chatCount: number | null;
+      docsCount: number | null;
+      vaultFolderCount: number | null;
+      workflowCount: number | null;
     };
   };
 }
@@ -96,7 +97,7 @@ function BillingContent() {
       features: [
         'Pesquisa Inteligente (5 pesquisas)',
         'Chat Jurídico com IA (5 mensagens)',
-        'Advogados de IA (acesso a 5 personas)',
+        'Assistentes de IA (5 áreas liberadas)',
         'Sem acesso ao Cofre/Documentos',
         'Sem Criador de Fluxos'
       ],
@@ -107,11 +108,11 @@ function BillingContent() {
       name: 'Pro Monthly',
       price: 399,
       billingPeriod: 'monthly',
-      description: 'Ideal para escritórios em crescimento e profissionais ativos',
+      description: 'Ideal para quem lida com questões jurídicas com frequência',
       features: [
         'Pesquisa Inteligente (50 pesquisas)',
         'Chat Jurídico com IA (50 mensagens)',
-        'Acesso completo aos Advogados de IA (todas as 50 personas)',
+        'Todos os assistentes de IA, em todas as áreas',
         'Operações com documentos (50 operações)',
         'Cofre seguro (50 pastas, 500 MB)',
         'Criador de Fluxos avançado (5 fluxos)'
@@ -124,11 +125,11 @@ function BillingContent() {
       name: 'Enterprise',
       price: 0, // Handled as custom string in UI
       billingPeriod: 'monthly',
-      description: 'Para grandes escritórios que precisam de recursos ilimitados',
+      description: 'Para pequenos negócios que precisam de recursos ilimitados',
       features: [
         'Pesquisa Inteligente ilimitada',
         'Chat Jurídico com IA ilimitado',
-        'Acesso ilimitado aos Advogados de IA',
+        'Acesso ilimitado aos assistentes de IA',
         'Operações com documentos ilimitadas',
         'Armazenamento e pastas ilimitados no Cofre',
         'Criador de Fluxos ilimitado',
@@ -392,8 +393,10 @@ function BillingContent() {
   };
 
   // Render usage meter
-  const renderMeter = (title: string, current: number, limit: number) => {
-    const percent = limit === 0 ? 100 : Math.min(100, (current / limit) * 100);
+  // limit null = sem limite (conta de administrador ou Enterprise)
+  const renderMeter = (title: string, current: number, rawLimit: number | null) => {
+    const limit = rawLimit === null || rawLimit === undefined ? Infinity : rawLimit;
+    const percent = limit === Infinity ? 0 : limit === 0 ? 100 : Math.min(100, (current / limit) * 100);
     const strokeColor = percent > 90 ? '#C2462B' : '#1F2A17';
 
     return (
@@ -416,8 +419,8 @@ function BillingContent() {
             />
           </svg>
           <div className="absolute flex flex-col items-center">
-            <span className="text-xl font-bold text-ink tracking-tighter">{limit === Infinity ? '∞' : current}</span>
-            <span className="text-[9px] font-bold text-castanha-400 uppercase tracking-widest mt-0.5">/ {limit === Infinity ? '∞' : limit}</span>
+            <span className="text-xl font-bold text-ink tracking-tighter">{current}</span>
+            <span className="text-[9px] font-bold text-castanha-400 uppercase tracking-widest mt-0.5">{limit === Infinity ? 'sem limite' : limit === 0 ? 'não incluso' : `/ ${limit}`}</span>
           </div>
         </div>
       </div>
@@ -432,7 +435,7 @@ function BillingContent() {
         <div className="border-b border-castanha-200 pb-8 mb-12">
            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
               <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Arquitetura financeira</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Plano e cobrança</span>
             </div>
             <h1 className="text-4xl font-medium tracking-tight text-ink">Cobrança e Assinatura</h1>
             <p className="text-castanha-600 text-lg max-w-2xl mt-4 font-medium opacity-60">Gerencie sua capacidade de uso, seu acesso ao arquivo e seu histórico de cobrança.</p>
@@ -442,16 +445,22 @@ function BillingContent() {
         {(profileData as ProfileData)?.apiUsage && (profileData as ProfileData)?.subscription?.limits && (
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-8">
-               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400">Consumo no ciclo</h2>
+               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400">Seu consumo</h2>
                <div className="h-px flex-1 bg-castanha-200" />
             </div>
+            {(profileData as ProfileData).subscription?.isAdmin && (
+              <p className="mb-6 text-sm font-medium text-castanha-600">Esta é a conta de administrador: os limites do plano não se aplicam a ela, para permitir testes e suporte.</p>
+            )}
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
               {renderMeter("Pesquisas", (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
-              {renderMeter("Chat", (profileData as ProfileData).apiUsage!.chatCount, (profileData as ProfileData).subscription!.limits!.chatCount)}
+              {renderMeter("Mensagens", (profileData as ProfileData).apiUsage!.chatCount, (profileData as ProfileData).subscription!.limits!.chatCount)}
               {renderMeter("Op. de docs", (profileData as ProfileData).apiUsage!.docsCount, (profileData as ProfileData).subscription!.limits!.docsCount)}
               {renderMeter("Pastas do cofre", (profileData as ProfileData).apiUsage!.vaultFolderCount, (profileData as ProfileData).subscription!.limits!.vaultFolderCount)}
               {renderMeter("Fluxos", (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
             </div>
+            <p className="mt-6 text-xs font-medium text-castanha-500 leading-relaxed">
+              &quot;Mensagens&quot; soma as conversas no Chat, com os Assistentes de IA e com arquivos do Cofre. O histórico do Chat fica salvo apenas neste navegador; por isso pode aparecer vazio em outro aparelho.
+            </p>
           </div>
         )}
 
@@ -687,7 +696,7 @@ function BillingContent() {
                 </svg>
               </div>
               <h3 className="text-foreground font-bold mb-3">Formas de pagamento?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">Aceitamos os principais cartões de crédito, incluindo Visa, Mastercard e American Express, processados com segurança pela Stripe.</p>
+              <p className="text-foreground/60 text-sm leading-relaxed">No momento, aceitamos apenas cartão de crédito (Visa, Mastercard e American Express), processado pela Stripe.</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">

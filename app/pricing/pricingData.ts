@@ -25,7 +25,7 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       'Pesquisa Inteligente (5 pesquisas)',
       'Chat Jurídico com IA (5 mensagens)',
-      'Advogados de IA (acesso a 5 personas)',
+      'Assistentes de IA (5 áreas liberadas)',
       'Sem acesso ao Cofre/Documentos',
       'Sem Criador de Fluxos',
     ],
@@ -40,7 +40,7 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       'Pesquisa Inteligente (50 pesquisas)',
       'Chat Jurídico com IA (50 mensagens)',
-      'Acesso completo aos Advogados de IA (todas as 50 personas)',
+      'Todos os assistentes de IA, em todas as áreas',
       'Operações com documentos (50 operações)',
       'Cofre seguro (50 pastas, 500 MB)',
       'Criador de Fluxos avançado (5 fluxos)',
@@ -56,7 +56,7 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       'Pesquisa Inteligente ilimitada',
       'Chat Jurídico com IA ilimitado',
-      'Acesso ilimitado aos Advogados de IA',
+      'Acesso ilimitado aos assistentes de IA',
       'Operações com documentos ilimitadas',
       'Armazenamento e pastas ilimitados no Cofre',
       'Criador de Fluxos ilimitado',

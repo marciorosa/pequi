@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '@/app/components/DashboardLayout';
-import { getLawyer, getLawyerResponse, uploadDocument } from '../../../services/lawyerService';
+import { getLawyer, getLawyerResponse, uploadDocument, isLawyerLockedForPlan } from '../../../services/lawyerService';
+import { toast } from 'react-hot-toast';
 import { LawyerData } from '@/app/services/lawyerService';
 import ReactMarkdown from 'react-markdown';
 
@@ -39,12 +40,35 @@ export default function LawyerDetailPage({ params }: Props) {
       setLawyer(data);
       setMessages([{
         role: 'assistant',
-        content: `Olá. Sou o ${data.name}. Meus parâmetros neurais estão ajustados para ${data.expertise.join(', ')}. Como podemos prosseguir com sua consulta jurídica?`,
+        content: `Olá! Sou o ${data.name}, uma ferramenta de inteligência artificial. Posso explicar temas como ${data.expertise.join(', ')}. Não sou advogado: minhas respostas são informativas e não substituem a análise do seu caso por um profissional inscrito na OAB.`,
         timestamp: new Date()
       }]);
     };
     initializeId();
   }, [params]);
+
+  // Quem abre pelo endereço direto um assistente fora do plano volta para a página de planos.
+  // O servidor também recusa as mensagens, então a trava não depende só desta tela.
+  useEffect(() => {
+    if (!id) return;
+    const checkPlan = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/auth/profile`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const data = await res.json();
+        const plan = data?.subscription?.plan || 'Free';
+        if (!data?.subscription?.isAdmin && isLawyerLockedForPlan(id, plan)) {
+          toast.error('Este assistente faz parte do plano Pro.');
+          router.replace('/dashboard/billing');
+        }
+      } catch (error) {
+        console.error('Failed to check plan', error);
+      }
+    };
+    checkPlan();
+  }, [id, router]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -88,7 +112,7 @@ export default function LawyerDetailPage({ params }: Props) {
   };
 
   return (
-    <DashboardLayout title={lawyer?.name || 'Especialista Neural'}>
+    <DashboardLayout title={lawyer?.name || 'Assistente de IA'}>
       <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Profile Sidebar */}
         <aside className="hidden lg:flex flex-col w-96 h-full bg-castanha-50 border-r border-castanha-100 p-10 space-y-12">
@@ -103,13 +127,13 @@ export default function LawyerDetailPage({ params }: Props) {
             </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tight">{lawyer?.name}</h1>
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/30">Núcleo de consultoria ativo</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/30">Assistente de IA · conteúdo informativo</p>
             </div>
             <p className="text-[13px] leading-relaxed font-medium text-foreground/40">{lawyer?.description}</p>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Matriz de especialização</h3>
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Temas</h3>
             <div className="flex flex-wrap gap-2">
               {lawyer?.expertise.map((skill, i) => (
                 <span key={i} className="px-3 py-1.5 rounded-full bg-white border border-castanha-100 text-[10px] font-bold uppercase tracking-wider text-foreground/60">{skill}</span>
@@ -122,8 +146,8 @@ export default function LawyerDetailPage({ params }: Props) {
         <main className="flex-1 flex flex-col min-w-0 bg-white">
           <header className="h-20 px-10 border-b border-castanha-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
             <div className="flex flex-col">
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Canal Node.0{Math.floor(Math.random() * 100)}</span>
-              <h2 className="text-xl font-light tracking-tight">Sessão de consultoria ativa</h2>
+              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Assistente de IA</span>
+              <h2 className="text-xl font-light tracking-tight">Conversa com o assistente</h2>
             </div>
             <div className="flex items-center gap-3">
               <button onClick={() => fileInputRefPdf.current?.click()} className="p-3 text-foreground/40 hover:text-foreground hover:bg-castanha-50 rounded-xl transition-all">
@@ -174,7 +198,7 @@ export default function LawyerDetailPage({ params }: Props) {
               <textarea
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Inicie sua consulta jurídica..."
+                placeholder="Escreva sua dúvida..."
                 rows={1}
                 className="w-full bg-castanha-50/50 border border-castanha-100 focus:bg-white focus:ring-4 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2rem] py-6 pl-8 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
@@ -184,6 +208,9 @@ export default function LawyerDetailPage({ params }: Props) {
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
             </form>
+            <p className="max-w-4xl mx-auto mt-4 text-[11px] font-medium text-foreground/40 text-center leading-relaxed">
+              Este assistente é uma ferramenta de inteligência artificial, não um advogado. Não há advogado responsável pelas respostas, que têm caráter apenas informativo. Para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+            </p>
             <style jsx>{`
                     .html-content p {
                         margin-bottom: 1rem;

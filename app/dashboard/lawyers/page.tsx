@@ -4,11 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '../../components/DashboardLayout';
-import { getAllLawyers, LawyerData } from '../../services/lawyerService';
+import { getAllLawyers, LawyerData, isLawyerLockedForPlan } from '../../services/lawyerService';
 import { toast } from 'react-hot-toast';
 
 // Category mapping for organization
 const categories = {
+  'Direito do Consumidor': ['consumer-protection'],
+  'Direito do Trabalho': ['employment'],
+  'Saúde e Planos de Saúde': ['healthcare', 'elder'],
+  'Dados Pessoais e Direito Digital': ['cybersecurity'],
   'Direito Penal': ['criminal'],
   'Direito Civil': ['civil', 'personal-injury'],
   'Direito Societário e Empresarial': ['corporate', 'mergers'],
@@ -17,7 +21,7 @@ const categories = {
   'Direito Imobiliário': ['real-estate'],
   'Propriedade Intelectual': ['intellectual-property'],
   'Tributário e Financeiro': ['tax', 'bankruptcy'],
-  'Outras especializações': ['military', 'estate-planning', 'healthcare', 'environmental', 'technology', 'entertainment', 'civil-rights', 'employment']
+  'Outras áreas': ['military', 'estate-planning', 'environmental', 'entertainment', 'civil-rights', 'international', 'mediation', 'construction', 'aviation', 'space-law', 'energy', 'agricultural', 'education', 'sports', 'insurance', 'legal-document']
 };
 
 export default function LawyersPage() {
@@ -25,6 +29,7 @@ export default function LawyersPage() {
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [lawyersList, setLawyersList] = useState<LawyerData[]>([]);
   const [userPlan, setUserPlan] = useState<string>('Free');
+  const [isAdmin, setIsAdmin] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -42,6 +47,7 @@ export default function LawyersPage() {
         const data = await res.json();
         if (data && data.subscription && data.subscription.plan) {
           setUserPlan(data.subscription.plan);
+          setIsAdmin(Boolean(data.subscription.isAdmin));
         }
       } catch (error) {
         console.error('Failed to fetch profile', error);
@@ -70,10 +76,13 @@ export default function LawyersPage() {
   // Get unique categories from lawyers
   const uniqueCategories = ['Todas', ...Object.keys(categories)];
 
-  const handleLawyerClick = (e: React.MouseEvent, index: number) => {
-    if (userPlan === 'Free' && index >= 5) {
+  // A trava vale por assistente (não pela posição na lista) e também é aplicada no servidor
+  const isLocked = (lawyerId: string) => !isAdmin && isLawyerLockedForPlan(lawyerId, userPlan);
+
+  const handleLawyerClick = (e: React.MouseEvent, lawyerId: string) => {
+    if (isLocked(lawyerId)) {
       e.preventDefault();
-      toast.error("Desbloqueie todos os 50 especialistas jurídicos de IA fazendo upgrade para o Pro!");
+      toast.error("Este assistente faz parte do plano Pro. Faça upgrade para liberar todos os assistentes de IA.");
       router.push('/dashboard/billing');
     }
   };
@@ -84,11 +93,11 @@ export default function LawyersPage() {
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40 text-nowrap">Núcleos de inteligência especializada</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40 text-nowrap">Assistentes de inteligência artificial</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">Especialistas jurídicos de IA</h1>
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">Assistentes de IA por área do Direito</h1>
           <p className="text-lg text-castanha-600 font-medium opacity-60 leading-relaxed">
-            Conecte-se a agentes de IA de nível pericial treinados com protocolos jurídicos globais e acervos privados de casos.
+            Ferramentas de inteligência artificial que explicam temas jurídicos em linguagem simples. Elas não são advogados, não prestam consultoria e não substituem a análise do seu caso por um profissional inscrito na OAB.
           </p>
         </div>
 
@@ -100,7 +109,7 @@ export default function LawyersPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Pesquise um agente especializado..."
+                placeholder="Pesquise um assistente ou tema..."
                 className="w-full bg-white border border-castanha-200 hover:border-cerrado-900/20 focus:outline-none focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-2xl px-6 py-4 transition-all duration-300 placeholder-foreground/20 text-ink font-medium pr-14 shadow-sm"
               />
               <div className="absolute right-5 top-1/2 transform -translate-y-1/2 text-foreground/20 group-focus-within:text-ink transition-colors">
@@ -128,18 +137,18 @@ export default function LawyersPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredLawyers.map((lawyer, index) => {
-            const isLocked = userPlan === 'Free' && index >= 5;
+          {filteredLawyers.map((lawyer) => {
+            const locked = isLocked(lawyer.id);
  
             return (
               <Link
                 key={lawyer.id}
                 href={`/dashboard/lawyers/${lawyer.id}`}
-                onClick={(e) => handleLawyerClick(e, index)}
-                className={`bg-white border rounded-[2rem] p-8 transition-all duration-500 group shadow-sm relative ${isLocked ? 'border-castanha-200 opacity-70 grayscale' : 'border-castanha-200 hover:border-cerrado-900/10 hover:shadow-2xl hover:-translate-y-2'}`}
+                onClick={(e) => handleLawyerClick(e, lawyer.id)}
+                className={`bg-white border rounded-[2rem] p-8 transition-all duration-500 group shadow-sm relative ${locked ? 'border-castanha-200 opacity-70 grayscale' : 'border-castanha-200 hover:border-cerrado-900/10 hover:shadow-2xl hover:-translate-y-2'}`}
               >
                 {/* Lock Overlay Badge */}
-                {isLocked && (
+                {locked && (
                   <div className="absolute top-6 right-6 bg-cerrado-900 rounded-full px-4 py-1.5 flex items-center text-[10px] font-bold text-white shadow-xl">
                     <svg className="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -149,7 +158,7 @@ export default function LawyersPage() {
                 )}
  
                 <div className="flex flex-col">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm border transition-all duration-500 ${isLocked ? 'bg-castanha-50 border-castanha-200 text-castanha-400' : 'bg-castanha-50 border-castanha-200 group-hover:bg-cerrado-900 group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)] text-ink'}`}>
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm border transition-all duration-500 ${locked ? 'bg-castanha-50 border-castanha-200 text-castanha-400' : 'bg-castanha-50 border-castanha-200 group-hover:bg-cerrado-900 group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)] text-ink'}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="w-7 h-7">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
                     </svg>
@@ -161,7 +170,7 @@ export default function LawyersPage() {
  
                     <div className="flex flex-wrap gap-2">
                       {lawyer.expertise.slice(0, 3).map((skill, expertiseIndex) => (
-                        <span key={expertiseIndex} className={`text-[9px] px-3 py-1.5 rounded-full border border-castanha-200 font-bold uppercase tracking-[0.1em] ${isLocked ? 'bg-castanha-50 text-foreground/20' : 'bg-castanha-50 text-foreground/50'}`}>
+                        <span key={expertiseIndex} className={`text-[9px] px-3 py-1.5 rounded-full border border-castanha-200 font-bold uppercase tracking-[0.1em] ${locked ? 'bg-castanha-50 text-foreground/20' : 'bg-castanha-50 text-foreground/50'}`}>
                           {skill}
                         </span>
                       ))}
@@ -180,7 +189,7 @@ export default function LawyersPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>
             </div>
-            <h3 className="text-xl font-medium text-foreground mb-2">Nenhum advogado encontrado</h3>
+            <h3 className="text-xl font-medium text-foreground mb-2">Nenhum assistente encontrado</h3>
             <p className="text-foreground/60">Tente ajustar sua pesquisa ou os critérios de filtro</p>
           </div>
         )}

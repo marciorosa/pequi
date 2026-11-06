@@ -16,9 +16,9 @@ const capabilities = [
   },
   {
     icon: '⇄',
-    title: 'Assinatura de Documento',
+    title: 'Documentos',
     description:
-      'Crie documentos jurídicos em segundos, envie para assinatura pela DocuSign e mantenha cada caso sempre organizado.',
+      'Crie, analise e compare documentos com ajuda da IA e mantenha tudo organizado. Revise sempre o resultado antes de usar.',
   },
   {
     icon: '⌘',
