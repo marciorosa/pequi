@@ -11,7 +11,7 @@ export default function IntroSection({ imageSrc = '/landingpage/intro/ai-assista
         <div className="relative overflow-hidden rounded-[1.5rem] bg-white p-2 [box-shadow:0_0_0_1px_var(--castanha-200),0_24px_64px_-28px_rgba(44,37,21,0.25)] sm:rounded-[2rem] sm:p-3">
           <Image
             src={imageSrc}
-            alt="Painel do Pequi Enterprise com assistentes de IA, pesquisa e cartões de especialidades"
+            alt="Prévia do painel do Pequi"
             width={1272}
             height={706}
             className="h-auto w-full rounded-[1rem] object-cover object-top sm:rounded-[1.4rem]"
