@@ -185,50 +185,17 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
 
       {/* Floating Bottom Dock (Hidden on mobile, visible on iPad/md and up) */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block">
-        <nav className="bg-white/80 backdrop-blur-3xl border border-castanha-200 rounded-[2.5rem] p-2 flex items-center gap-1 shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
-          <DockItem
-            href="/dashboard"
-            label="Pesquisa"
-            exact
-            icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>}
-          />
-          <DockItem
-            href="/dashboard/chat"
-            label="Chat"
-            icon={<Image src="/landingpage/hero/channels.svg" alt="Chat" width={32} height={32} className="w-8 h-8" />}
-          />
-          <DockItem
-            href="/dashboard/lawyers"
-            label="Assistentes"
-            icon={<Image src="/landingpage/hero/ai-assistants.svg" alt="Assistentes" width={32} height={32} className="w-8 h-8" />}
-          />
-          <div className="w-px h-8 bg-castanha-200 mx-1" />
-          <DockItem
-            href="/dashboard/docs"
-            label="Documentos"
-            icon={<Image src="/landingpage/hero/document-registory.svg" alt="Documentos" width={32} height={32} className="w-8 h-8" />}
-          />
-          <DockItem
-            href="/dashboard/vault"
-            label="Cofre"
-            icon={<Image src="/landingpage/hero/vault-access.svg" alt="Cofre" width={32} height={32} className="w-8 h-8" />}
-          />
-          <DockItem
-            href="/dashboard/workflow-builder"
-            label="Fluxos"
-            icon={<Image src="/landingpage/hero/automation.svg" alt="Fluxos" width={32} height={32} className="w-8 h-8" />}
-          />
-          <div className="w-px h-8 bg-castanha-200 mx-1" />
-          <DockItem
-            href="/dashboard/billing"
-            label="Plano"
-            icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75-10.5h16.5a1.5 1.5 0 011.5 1.5v10.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5z" /></svg>}
-          />
-          <DockItem
-            href="/dashboard/help"
-            label="Ajuda"
-            icon={<svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
-          />
+        <nav className="bg-white/90 backdrop-blur-3xl border border-castanha-200 rounded-full px-4 py-2.5 flex items-center gap-2.5 shadow-[0_18px_40px_-18px_rgba(36,37,33,0.25)]">
+          <DockItem href="/dashboard" label="Pesquisa" exact icon={<DockIcon d={['M16.5 16.5L21 21', 'M10.5 17a6.5 6.5 0 100-13 6.5 6.5 0 000 13z']} />} />
+          <DockItem href="/dashboard/chat" label="Chat" icon={<DockIcon d={['M5 5h14v10H9l-4 4V5z']} />} />
+          <DockItem href="/dashboard/lawyers" label="Assistentes" icon={<DockIcon d={['M12 4v16M7 20h10M5 7h14', 'M5 7l-3 6a3 3 0 006 0L5 7zM19 7l-3 6a3 3 0 006 0l-3-6z']} />} />
+          <div className="w-px h-6 bg-castanha-200" />
+          <DockItem href="/dashboard/docs" label="Documentos" icon={<DockIcon d={['M7 3h7l5 5v13H7V3z', 'M14 3v5h5M10 13h6M10 17h6']} />} />
+          <DockItem href="/dashboard/vault" label="Cofre" icon={<DockIcon d={['M7.5 10.5h9a2.5 2.5 0 012.5 2.5v5a2.5 2.5 0 01-2.5 2.5h-9A2.5 2.5 0 015 18v-5a2.5 2.5 0 012.5-2.5z', 'M8.5 10.5V8a3.5 3.5 0 017 0v2.5']} />} />
+          <DockItem href="/dashboard/workflow-builder" label="Fluxos" icon={<DockIcon d={['M4.5 4h4a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 018.5 10h-4A1.5 1.5 0 013 8.5v-3A1.5 1.5 0 014.5 4zM15.5 14h4a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-3a1.5 1.5 0 011.5-1.5z', 'M10 7h4a2 2 0 012 2v5']} />} />
+          <div className="w-px h-6 bg-castanha-200" />
+          <DockItem href="/dashboard/billing" label="Plano" icon={<DockIcon d={['M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z', 'M3 10h18']} />} />
+          <DockItem href="/dashboard/help" label="Ajuda" icon={<DockIcon d={['M12 20.5a8.5 8.5 0 100-17 8.5 8.5 0 000 17z', 'M12 11v5M12 8v.01']} />} />
         </nav>
       </div>
 
@@ -251,6 +218,17 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   );
 }
 
+// Ícones de traço simples, no mesmo estilo das prévias da página inicial
+function DockIcon({ d }: { d: string[] }) {
+  return (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      {d.map((path) => (
+        <path key={path} d={path} />
+      ))}
+    </svg>
+  );
+}
+
 function DockItem({ href, label, icon, exact = false }: { href: string; label: string; icon: React.ReactNode; exact?: boolean }) {
   const pathname = usePathname();
   const isActivePath = (path: string) => {
@@ -262,20 +240,18 @@ function DockItem({ href, label, icon, exact = false }: { href: string; label: s
   return (
     <Link
       href={href}
-      className={`relative flex flex-col items-center justify-center w-16 h-16 rounded-[2rem] transition-all duration-300 group ${active
-        ? 'scale-110 -translate-y-2'
-        : 'text-foreground/40 hover:bg-cerrado-950/5 hover:text-foreground hover:-translate-y-1'
+      aria-label={label}
+      aria-current={active ? 'page' : undefined}
+      className={`relative flex items-center justify-center w-11 h-11 rounded-[0.9rem] transition-all duration-200 group ${active
+        ? 'bg-pequi-500 text-white shadow-[0_8px_18px_-8px_rgba(250,90,80,0.7)]'
+        : 'bg-castanha-100 text-castanha-600 hover:bg-castanha-150 hover:text-ink hover:-translate-y-0.5'
         }`}
     >
-      <div className="mb-0">
-        {icon}
-      </div>
-      <span className={`absolute -bottom-8 px-2 py-1 bg-cerrado-900 text-white text-[9px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap z-50`}>
+      {icon}
+      <span className="absolute -top-9 px-2 py-1 bg-cerrado-900 text-white text-[9px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap z-50">
         {label}
       </span>
-      {active && (
-        <div className="absolute -bottom-1 w-1.5 h-1.5 bg-cerrado-900 rounded-full" />
-      )}
+      {active && <div className="absolute -bottom-2 w-1 h-1 bg-ink rounded-full" />}
     </Link>
   );
 }
