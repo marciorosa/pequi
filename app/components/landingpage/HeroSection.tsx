@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { ToolIconTile, ToolIconName } from '../ToolIcon';
 import FadeInSection from './FadeInSection';
 
 type HeroSectionProps = {
@@ -14,31 +14,31 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
     {
       title: 'Chat',
       copy: 'Reúna conversas e arquivos do caso em um lugar.',
-      icon: '/landingpage/hero/channels.svg',
+      icon: 'chat' as ToolIconName,
       preview: '/landingpage/intro/channels-img.png',
     },
     {
       title: 'Assistentes de IA',
       copy: 'Tire dúvidas jurídicas e entenda documentos em linguagem simples.',
-      icon: '/landingpage/hero/ai-assistants.svg',
+      icon: 'assistants' as ToolIconName,
       preview: '/landingpage/intro/ai-assistant-img.png',
     },
     {
       title: 'Documentos',
       copy: 'Crie, analise e organize documentos e contratos simples com ajuda da IA.',
-      icon: '/landingpage/hero/document-registory.svg',
+      icon: 'docs' as ToolIconName,
       preview: '/landingpage/intro/document-img.png',
     },
     {
       title: 'Acesso ao Cofre',
       copy: 'Guarde documentos pessoais em pastas protegidas por senha.',
-      icon: '/landingpage/hero/vault-access.svg',
+      icon: 'vault' as ToolIconName,
       preview: '/landingpage/intro/valut-img.png',
     },
     {
       title: 'Automações',
       copy: 'Monte fluxos de etapas para organizar burocracias com a ajuda da IA.',
-      icon: '/landingpage/hero/automation.svg',
+      icon: 'flows' as ToolIconName,
       preview: '/landingpage/intro/automation-img.png',
     },
   ];
@@ -82,7 +82,7 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
           </p>
 
           <div className="mt-12 grid w-full grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {featureCards.map((card, index) => (
+            {featureCards.map((card) => (
               <button
                 key={card.title}
                 type="button"
@@ -92,14 +92,7 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
                 }`}
               >
                 <div className="inline-flex w-full items-center justify-start">
-                  <Image
-                    src={card.icon}
-                    alt={`Ícone de ${card.title}`}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 object-contain opacity-95"
-                    priority={index < 2}
-                  />
+                  <ToolIconTile name={card.icon} active={activePreview === card.preview} size="lg" />
                 </div>
                 <div className="mt-auto">
                   <h3 className="text-[1.1rem] font-semibold leading-snug tracking-[-0.03em] text-ink">{card.title}</h3>
