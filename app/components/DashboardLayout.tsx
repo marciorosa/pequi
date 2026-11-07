@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PequiMark } from './PequiWordmark';
+import { PequiLogo } from './PequiWordmark';
 import Link from 'next/link';
 import ToolIcon, { ToolIconName, ToolIconTile } from './ToolIcon';
 import { useRouter, usePathname } from 'next/navigation';
@@ -69,14 +69,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         className={`fixed inset-y-0 left-0 z-50 flex flex-col w-72 bg-castanha-25 border-r border-castanha-200 transition-transform duration-300 md:hidden ${showSidebar ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="h-24 flex items-center px-8 border-b border-castanha-200 mb-6">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-              <PequiMark className="h-9 w-9" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-foreground font-semibold text-[17px] tracking-[-0.04em] leading-none">Pequi</span>
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
-            </div>
+          <Link href="/" className="flex flex-col items-start gap-1.5" aria-label="Página inicial do Pequi">
+            <PequiLogo className="h-[24px] w-auto" />
+            <span className="text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">IA Jurídica</span>
           </Link>
         </div>
 
@@ -125,14 +120,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
           
-          <Link href="/" className="flex items-center gap-3 hidden sm:flex lg:mr-4">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-              <PequiMark className="h-9 w-9" />
-            </div>
-            <div className="flex flex-col hidden lg:flex">
-              <span className="text-foreground font-semibold text-[17px] tracking-[-0.04em] leading-none">Pequi</span>
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em] mt-1">IA Jurídica</span>
-            </div>
+          <Link href="/" className="hidden sm:flex flex-col items-start gap-1.5 lg:mr-4" aria-label="Página inicial do Pequi">
+            <PequiLogo className="h-[22px] w-auto" />
+            <span className="hidden lg:block text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">IA Jurídica</span>
           </Link>
 
           <div className="h-8 w-px bg-castanha-200 hidden lg:block" />
