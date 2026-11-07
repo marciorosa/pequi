@@ -14,9 +14,9 @@ const Footer = () => {
           <div>
             <PequiWordmark />
             <p className="mt-5 max-w-md text-2xl font-medium leading-snug tracking-tight">
-              O Direito tem espinhos por dentro.
+              Sua inteligência jurídica
               <br />
-              <span className="pq-accent text-[1.15em]">A gente ajuda você a evitá-los.</span>
+              <span className="pq-accent text-[1.15em]">acessível.</span>
             </p>
           </div>
           <Link

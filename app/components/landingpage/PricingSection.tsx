@@ -23,7 +23,7 @@ export default function PricingSection() {
 
   return (
     <FadeInSection delay={0.15}>
-      <section id="pricing" className="bg-pequi-50 scroll-mt-24 md:scroll-mt-28">
+      <section id="pricing" className="bg-[#eeece4] scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
           <div className="mx-auto max-w-[840px] text-center">
             <h3 className={sectionHeadingClass}>Preços simples para <span className="pq-accent text-[1.1em]">cada necessidade</span></h3>
