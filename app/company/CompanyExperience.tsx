@@ -27,7 +27,7 @@ export default function CompanyExperience() {
     {
       name: 'Luiz Felipe de Oliveira',
       position: 'Especialista em Direito Digital',
-      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual.',
+      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual, sócio fundador da Plataforma Pequi.',
       image: '/company/luiz-felipe.webp',
       // Foto retangular: recortada em círculo para ficar igual às demais
       circle: true,
