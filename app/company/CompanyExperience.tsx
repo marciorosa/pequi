@@ -25,10 +25,12 @@ export default function CompanyExperience() {
       image: heroAvatars[0],
     },
     {
-      name: 'Hélio Lourenço',
-      position: 'Diretor de produto (CPO)',
-      bio: 'GTM corporativo para softwares jurídicos e de compliance; trabalha lado a lado com diretores jurídicos e equipes de inovação.',
-      image: heroAvatars[3],
+      name: 'Luiz Felipe de Oliveira',
+      position: 'Especialista em Direito Digital, LGPD e Direito Contratual',
+      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual, reconhecido pela atuação estratégica em litígios complexos e pela vanguarda no Direito Digital. Na Pequi, ajuda a definir as regras jurídicas que orientam a IA, para que cada resposta seja precisa, atual e segura.',
+      image: '/company/luiz-felipe.webp',
+      // Foto retangular: recortada em círculo para ficar igual às demais
+      circle: true,
     },
     {
       name: 'David Wilson',
@@ -287,20 +289,32 @@ export default function CompanyExperience() {
                   className="group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]"
                 >
                   <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
-                    <Image
-                      src={executive.image}
-                      alt=""
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                    />
+                    {'circle' in executive && executive.circle ? (
+                      <div className="absolute inset-[4%] overflow-hidden rounded-full border-[5px] border-white transition-transform duration-500 group-hover:scale-[1.03]">
+                        <Image
+                          src={executive.image}
+                          alt={executive.name}
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 640px) 100vw, 25vw"
+                        />
+                      </div>
+                    ) : (
+                      <Image
+                        src={executive.image}
+                        alt={executive.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 100vw, 25vw"
+                      />
+                    )}
                   </div>
                   <div className="p-6 md:p-7">
                     <h3 className="text-[1.125rem] font-medium text-ink">{executive.name}</h3>
                     <p className="mb-3 mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">
                       {executive.position}
                     </p>
-                    <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{executive.bio}</p>
+                    {executive.bio && <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{executive.bio}</p>}
                   </div>
                 </article>
               ))}

@@ -73,7 +73,7 @@ const Navbar = () => {
             <PequiWordmark />
           </Link>
 
-          <div className="hidden items-center gap-0.5 rounded-full bg-castanha-50 px-1.5 py-1 text-[0.9rem] font-medium xl:flex">
+          <div className="hidden items-center gap-0.5 text-[0.9rem] font-medium xl:flex">
             {navLinks.map((item) => (
               <Link key={item.href} href={item.href} className={navLinkClass(isActive(item.href))}>
                 {item.label}
