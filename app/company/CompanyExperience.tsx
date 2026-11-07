@@ -27,7 +27,7 @@ export default function CompanyExperience() {
     {
       name: 'Luiz Felipe de Oliveira',
       position: 'Especialista em Direito Digital',
-      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual, reconhecido pela atuação estratégica em litígios complexos e pela vanguarda no Direito Digital. Na Pequi, ajuda a definir as regras jurídicas que orientam a IA, para que cada resposta seja precisa, atual e segura.',
+      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual.',
       image: '/company/luiz-felipe.webp',
       // Foto retangular: recortada em círculo para ficar igual às demais
       circle: true,
