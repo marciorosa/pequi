@@ -230,7 +230,6 @@ function DockItem({ href, label, icon, exact = false }: { href: string; label: s
       <span className="absolute -top-9 px-2 py-1 bg-cerrado-900 text-white text-[9px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap z-50">
         {label}
       </span>
-      {active && <div className="absolute -bottom-2 w-1 h-1 bg-ink rounded-full" />}
     </Link>
   );
 }
