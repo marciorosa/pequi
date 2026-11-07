@@ -7,10 +7,14 @@ interface AgreementFormatterProps {
   agreement: {
     title: string;
     content: string;
+    documentType?: string;
   };
 }
 
 const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) => {
+  // Petições (como a do Limpa Nome) já trazem o próprio fecho e assinatura do advogado:
+  // não recebem as assinaturas de contrato no fim
+  const isPetition = /peti[çc][ãa]o/i.test(agreement.documentType || '');
   // Parse the agreement content to render it with proper formatting
   const formatContent = (content: string) => {
     // First, process the content line by line to handle different cases
@@ -141,12 +145,13 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
         }
       }
 
-      // Add signature lines at the end
-      if (y > pageHeight - 50) {
+      // Add signature lines at the end (contracts only)
+      if (!isPetition && y > pageHeight - 50) {
         pdf.addPage();
         y = margin;
       }
 
+      if (!isPetition) {
       y += 20; // Space before signatures
 
       // Draw signature lines
@@ -174,6 +179,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
       y += 5;
       pdf.text("Data", margin, y);
       pdf.text("Data", pageWidth - margin - 70, y);
+      }
 
       // Add page numbers and footer to all pages
       const totalPages = pdf.getNumberOfPages();
@@ -182,7 +188,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
         pdf.setFont("helvetica", "normal");
         pdf.setFontSize(10);
         pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-        pdf.text(`Pequi | Contrato Jurídico | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+        pdf.text(`Pequi | ${isPetition ? 'Petição' : 'Contrato Jurídico'} | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
         pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
       }
 
@@ -220,6 +226,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
             dangerouslySetInnerHTML={{ __html: formatContent(agreement.content) }}
           />
 
+          {!isPetition && (
           <div className="signature-section mt-12 pt-6 border-t border-castanha-300">
             <div className="grid grid-cols-2 gap-12">
               <div className="signature-block">
@@ -234,6 +241,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
 

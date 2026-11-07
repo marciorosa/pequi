@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import DashboardLayout from '../../components/DashboardLayout';
 import documentService from '../../services/documentService';
 import UpgradeModal from '../../components/UpgradeModal';
+import { LimpaNomeForm, LimpaNomeFormData, LIMPA_NOME_DESCRIPTION } from '../../components/LimpaNomeForm';
+import { aiService } from '../../services/api';
 import { toast } from 'react-hot-toast';
 import jsPDF from 'jspdf';
 
@@ -21,6 +23,7 @@ type DocTool =
    | 'create-agreement-light'
    | 'document-translation'
    | 'create-agreement-pro'
+   | 'limpa-nome'
    | 'image-to-text';
 
 interface DocHistoryItem {
@@ -212,7 +215,7 @@ const templateOptionsByType: Record<string, string[]> = {
 
 export default function DocumentGenerationPage() {
    const [,] = useState<DocHistoryItem[]>([]);
-   const [selectedTool, setSelectedTool] = useState<DocTool>('agreement-summary');
+   const [selectedTool, setSelectedTool] = useState<DocTool>('limpa-nome');
    const [recentDocuments, setRecentDocuments] = useState<DocHistoryItem[]>([]);
 
    // Document processing states
@@ -815,6 +818,8 @@ export default function DocumentGenerationPage() {
             return 'Tradução de documentos';
          case 'image-to-text':
             return 'Conversão de imagem em texto';
+         case 'limpa-nome':
+            return 'Limpa Nome';
          default:
             return 'Documentos';
       }
@@ -890,6 +895,17 @@ export default function DocumentGenerationPage() {
 
       return (
          <div className="grid grid-cols-1 gap-3">
+            <DocToolButton
+               title="Limpa Nome"
+               description="Petição para tirar o nome do Serasa e do SPC quando a dívida não é sua, com pedido de liminar"
+               icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+               </svg>}
+               isActive={selectedTool === 'limpa-nome'}
+               isPro={true}
+               onClick={() => handleToolChange('limpa-nome')}
+            />
+
             <DocToolButton
                title="Análise de documentos"
                description="Extraia informações-chave de contratos e documentos jurídicos"
@@ -2317,6 +2333,41 @@ export default function DocumentGenerationPage() {
       );
    };
 
+   // Limpa Nome (recurso Pro): o mesmo formulário da Pesquisa Inteligente
+   const renderLimpaNome = () => {
+      return (
+         <div className="space-y-8">
+            <ContentContainer>
+               <h2 className="text-foreground text-xl font-medium mb-8 pb-4 border-b border-castanha-100">Limpa Nome</h2>
+               <p className="text-foreground/70 mb-8">{LIMPA_NOME_DESCRIPTION}</p>
+               <LimpaNomeForm isGenerating={isProcessing} onSubmit={handleLimpaNome} />
+            </ContentContainer>
+         </div>
+      );
+   };
+
+   const handleLimpaNome = async (data: LimpaNomeFormData) => {
+      setIsProcessing(true);
+      toast.loading('Gerando a petição do Limpa Nome...', { id: 'limpa-nome' });
+      try {
+         const result = await aiService.createLimpaNome(data);
+         toast.success('Petição criada com sucesso!', { id: 'limpa-nome' });
+         // Abre a petição no visualizador de documentos (PDF, Word e edição)
+         router.push(`/dashboard/agreements/${result.id}`);
+      } catch (error: any) {
+         console.error('Error generating Limpa Nome:', error);
+         toast.dismiss('limpa-nome');
+         const status = error.response?.status || error.status;
+         if (status === 403 || status === 402) {
+            setShowUpgradeModal(true);
+         } else {
+            toast.error('Não foi possível gerar a petição. Tente novamente em instantes; esta tentativa não consumiu sua cota.', { id: 'limpa-nome' });
+         }
+      } finally {
+         setIsProcessing(false);
+      }
+   };
+
    const renderDocumentTranslation = () => {
       return (
          <div className="space-y-8">
@@ -2617,6 +2668,8 @@ export default function DocumentGenerationPage() {
             return renderDocumentTranslation();
          case 'create-agreement-pro':
             return renderCreateAgreementPro();
+         case 'limpa-nome':
+            return renderLimpaNome();
          case 'image-to-text':
             return renderImageToText();
          default:
