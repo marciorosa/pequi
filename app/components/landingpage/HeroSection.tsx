@@ -31,13 +31,13 @@ export default function HeroSection({ activePreview, onPreviewChange }: HeroSect
     },
     {
       title: 'Acesso ao Cofre',
-      copy: 'Proteja documentos pessoais com criptografia e controle de quem acessa.',
+      copy: 'Guarde documentos pessoais em pastas protegidas por senha.',
       icon: '/landingpage/hero/vault-access.svg',
       preview: '/landingpage/intro/valut-img.png',
     },
     {
       title: 'Automações',
-      copy: 'Organize lembretes e burocracias com a ajuda da IA.',
+      copy: 'Monte fluxos de etapas para organizar burocracias com a ajuda da IA.',
       icon: '/landingpage/hero/automation.svg',
       preview: '/landingpage/intro/automation-img.png',
     },

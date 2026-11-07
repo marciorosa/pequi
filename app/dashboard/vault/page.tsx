@@ -958,7 +958,7 @@ export default function VaultPage() {
               Cofre seguro de <span className="font-light opacity-60 italic">documentos.</span>
             </h1>
             <p className="text-lg lg:text-xl text-ink/40 font-medium leading-relaxed">
-              Armazenamento com criptografia de nível militar para seus documentos jurídicos mais sensíveis. Crie pastas, envie arquivos para o AWS S3 e proteja o acesso com senha.
+              Guarde seus documentos em pastas na nuvem (Amazon S3), acessíveis só pela sua conta, e proteja cada pasta com uma senha própria.
             </p>
           </div>
         </section>

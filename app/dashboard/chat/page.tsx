@@ -7,6 +7,7 @@ import { aiService } from '../../services/api';
 import ReactMarkdown from 'react-markdown';
 import { toast } from 'react-hot-toast';
 import UpgradeModal from '../../components/UpgradeModal';
+import { chatListKey, chatMessagesKey, removeLegacyChatHistory } from '../../services/chatStorage';
 
 interface Message {
   id: string;
@@ -73,9 +74,9 @@ export default function ChatPage() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
+    // Rola só a lista de mensagens; scrollIntoView rolava a página inteira e escondia o topo do cartão
+    const box = messagesEndRef.current?.parentElement;
+    if (box) box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
   }, [messages, isLoading]);
 
   useEffect(() => {
@@ -86,7 +87,8 @@ export default function ChatPage() {
   }, [input]);
 
   useEffect(() => {
-    const savedChats = localStorage.getItem('legalAiChats');
+    removeLegacyChatHistory();
+    const savedChats = localStorage.getItem(chatListKey());
     if (savedChats) {
       try {
         setRecentChats(JSON.parse(savedChats));
@@ -105,7 +107,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     if (currentChatId) {
-      const savedMessages = localStorage.getItem(`chat_messages_${currentChatId}`);
+      const savedMessages = localStorage.getItem(chatMessagesKey(currentChatId));
       if (savedMessages) {
         try {
           const parsedMessages = JSON.parse(savedMessages, (key, value) => {
@@ -123,9 +125,9 @@ export default function ChatPage() {
   // Persist messages and update recent chats archive
   useEffect(() => {
     if (currentChatId && messages.length > 1) {
-      localStorage.setItem(`chat_messages_${currentChatId}`, JSON.stringify(messages));
+      localStorage.setItem(chatMessagesKey(currentChatId), JSON.stringify(messages));
       
-      const savedChats = localStorage.getItem('legalAiChats');
+      const savedChats = localStorage.getItem(chatListKey());
       let chats: Chat[] = [];
       if (savedChats) {
         try {
@@ -151,7 +153,7 @@ export default function ChatPage() {
         chats.unshift(newChat);
       }
 
-      localStorage.setItem('legalAiChats', JSON.stringify(chats));
+      localStorage.setItem(chatListKey(), JSON.stringify(chats));
       setRecentChats(chats);
     }
   }, [messages, currentChatId]);
@@ -299,14 +301,14 @@ export default function ChatPage() {
   const deleteChat = (id: string) => {
     const updated = recentChats.filter(c => c._id !== id);
     setRecentChats(updated);
-    localStorage.setItem('legalAiChats', JSON.stringify(updated));
-    localStorage.removeItem(`chat_messages_${id}`);
+    localStorage.setItem(chatListKey(), JSON.stringify(updated));
+    localStorage.removeItem(chatMessagesKey(id));
     if (currentChatId === id) startNewChat();
   };
 
   return (
-    <DashboardLayout title="Chat">
-      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
+    <DashboardLayout title="Chat" fitScreen>
+      <div className="flex h-full min-h-0 rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Mobile Sidebar Backdrop */}
         {showSidebar && (
           <div 

@@ -42,7 +42,7 @@ export default function VaultExperience() {
   const features = [
     {
       title: 'Armazenamento seguro de documentos',
-      description: 'Criptografia e controles de acesso garantem que documentos sensíveis fiquem disponíveis apenas para quem você autorizar.',
+      description: 'Seus arquivos ficam na nuvem da AWS, acessíveis só pela sua conta, e cada pasta pode ter uma senha própria.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -83,8 +83,8 @@ export default function VaultExperience() {
       ),
     },
     {
-      title: 'Colaboração e permissões',
-      description: 'Compartilhe com familiares e advogados escolhendo quem acessa, sem perder o controle.',
+      title: 'Organização por pastas',
+      description: 'Separe os documentos por assunto em pastas e encontre cada arquivo com facilidade.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -102,7 +102,7 @@ export default function VaultExperience() {
     { title: 'Conexão criptografada', desc: 'Os dados trafegam por HTTPS.' },
     { title: 'Pastas com senha', desc: 'Proteja pastas sensíveis com uma senha própria.' },
     { title: 'Acesso restrito', desc: 'Cada pessoa vê apenas os próprios arquivos.' },
-    { title: 'Acesso baseado em funções', desc: 'Gestão detalhada de permissões.' },
+    { title: 'Armazenamento na AWS', desc: 'Os arquivos ficam guardados no Amazon S3.' },
   ];
 
   return (

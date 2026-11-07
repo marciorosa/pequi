@@ -135,8 +135,8 @@ const Icons = {
 
 const TRIGGER_NODES = [
   { type: 'trigger', subtype: 'file_upload', label: 'Envio de arquivo' },
-  { type: 'trigger', subtype: 'document_signed', label: 'Documento assinado' },
-  { type: 'trigger', subtype: 'new_client', label: 'Novo cliente' },
+  // "Documento assinado" saiu da lista: o Pequi não tem função de assinatura (fluxos antigos continuam abrindo)
+  { type: 'trigger', subtype: 'new_client', label: 'Novo contato' },
 ];
 
 const ACTION_NODES = [
@@ -150,7 +150,7 @@ const ACTION_NODES = [
 
 const OUTPUT_NODES = [
   { type: 'output', subtype: 'save_vault', label: 'Salvar no cofre' },
-  { type: 'output', subtype: 'email_client', label: 'Enviar e-mail ao cliente' },
+  { type: 'output', subtype: 'email_client', label: 'Enviar por e-mail' },
 ];
 
 const IconMap: Record<string, React.ReactNode> = {
@@ -690,7 +690,7 @@ export default function WorkflowBuilderPage() {
                         <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Destinatário</label>
                         <input
                           type="email"
-                          placeholder="cliente@escritorio.com.br"
+                          placeholder="nome@exemplo.com.br"
                           value={selectedNode.data.config?.recipient || ''}
                           className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { recipient: e.target.value })}

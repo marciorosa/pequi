@@ -170,22 +170,11 @@ function LoginAside() {
       </div>
 
       <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
-        <svg className="mb-4 h-8 w-8 text-ink/20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-          <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-        </svg>
-        <p className="mb-6 text-[1.0625rem] leading-[175%] text-castanha-600">
-          O Pequi transformou a eficiência do nosso departamento jurídico. Reduzimos significativamente o tempo de revisão de contratos
-          e, ao mesmo tempo, melhoramos a precisão das pesquisas.
+        <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Importante</p>
+        <p className="text-[1.0625rem] leading-[175%] text-castanha-600">
+          O Pequi é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. Não é um
+          escritório de advocacia e não substitui a análise do seu caso por um advogado inscrito na OAB ou pela Defensoria Pública.
         </p>
-        <div className="flex items-center gap-4">
-          <div className="h-12 w-12 rounded-full border border-castanha-150 bg-castanha-100" />
-          <div>
-            <p className="font-medium text-ink">Sarah Johnson</p>
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-castanha-600">
-              Diretora Jurídica
-            </p>
-          </div>
-        </div>
       </div>
     </>
   );

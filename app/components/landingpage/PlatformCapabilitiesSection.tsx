@@ -12,7 +12,7 @@ const capabilities = [
     icon: '✳',
     title: 'Inteligência de Conhecimento',
     description:
-      'Encontre explicações instantâneas sobre leis, decisões e seus documentos com buscas simples.',
+      'Encontre explicações rápidas sobre leis e sobre os seus documentos com buscas simples.',
   },
   {
     icon: '⇄',
@@ -28,15 +28,15 @@ const capabilities = [
   },
   {
     icon: '▤',
-    title: 'Painel de Desempenho',
+    title: 'Fluxos de trabalho',
     description:
-      'Acompanhe o andamento dos seus casos, os próximos passos e as pendências importantes com informações atualizadas em uma tela só para você.',
+      'Monte sequências de etapas com ajuda da IA (plano Pro) para organizar tarefas que se repetem.',
   },
   {
     icon: '◉',
     title: 'Cofre e Segurança',
     description:
-      'Guarde documentos pessoais sensíveis em um cofre criptografado, com permissões definidas por você e controles de segurança reforçados.',
+      'Guarde documentos pessoais em pastas protegidas por senha, armazenadas na nuvem da AWS (plano Pro).',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function PlatformCapabilitiesSection() {
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
           <h3 className={sectionHeadingClass}>Descubra o que o Pequi <span className="pq-accent text-[1.1em]">pode fazer</span></h3>
           <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[38rem]`}>
-            Simplifique sua vida jurídica com automação inteligente, documentos seguros e controle total de cada etapa importante.
+            Simplifique sua vida jurídica com explicações claras, documentos organizados e ferramentas de IA.
           </p>
 
           <div className="overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">

@@ -31,11 +31,11 @@ export default function WhySection() {
               <div className="landing-card p-5 md:p-6">
                 <h4 className="text-ink text-[1.25rem] md:text-[1.35rem] font-medium leading-[1.35]">Apoio jurídico inteligente</h4>
                 <ul className="mt-4 space-y-2.5 text-castanha-600 text-[1rem] leading-[1.55rem]">
-                  <li>Plataforma jurídica completa</li>
+                  <li>Informação jurídica em linguagem simples</li>
                   <li>Seus casos bem organizados</li>
                   <li>Feita para você</li>
                   <li>Documentos sempre à mão</li>
-                  <li>Compartilhamento seguro com advogados</li>
+                  <li>Pastas protegidas por senha no Cofre</li>
                 </ul>
               </div>
               <div className="landing-card p-5 md:p-6">
@@ -45,7 +45,7 @@ export default function WhySection() {
                   <li>Explicações geradas por IA</li>
                   <li>Menos trabalho manual</li>
                   <li>Leitura inteligente de documentos</li>
-                  <li>Lembretes de etapas automatizados</li>
+                  <li>Fluxos de etapas com ajuda da IA</li>
                 </ul>
               </div>
             </div>

@@ -71,7 +71,9 @@ export default function LawyerDetailPage({ params }: Props) {
   }, [id, router]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Rola só a lista de mensagens; scrollIntoView rolava a página inteira e escondia o topo do cartão
+    const box = messagesEndRef.current?.parentElement;
+    if (box) box.scrollTo({ top: box.scrollHeight, behavior: 'smooth' });
   }, [messages, isTyping]);
 
   const handleSendMessage = async (e?: React.FormEvent) => {
@@ -112,10 +114,10 @@ export default function LawyerDetailPage({ params }: Props) {
   };
 
   return (
-    <DashboardLayout title={lawyer?.name || 'Assistente de IA'}>
-      <div className="flex h-[calc(100vh-160px)] rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
+    <DashboardLayout title={lawyer?.name || 'Assistente de IA'} fitScreen>
+      <div className="flex h-full min-h-0 rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
         {/* Profile Sidebar */}
-        <aside className="hidden lg:flex flex-col w-96 h-full bg-castanha-50 border-r border-castanha-100 p-10 space-y-12">
+        <aside className="hidden lg:flex flex-col w-80 xl:w-96 shrink-0 h-full overflow-y-auto bg-castanha-50 border-r border-castanha-100 p-8 xl:p-10 space-y-10 custom-scrollbar">
           <button onClick={() => router.back()} className="flex items-center gap-2 text-foreground/40 hover:text-foreground transition-all">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Voltar ao diretório</span>
@@ -144,7 +146,7 @@ export default function LawyerDetailPage({ params }: Props) {
 
         {/* Chat Main Area */}
         <main className="flex-1 flex flex-col min-w-0 bg-white">
-          <header className="h-20 px-10 border-b border-castanha-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
+          <header className="h-20 shrink-0 px-5 md:px-10 border-b border-castanha-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
             <div className="flex flex-col">
               <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Assistente de IA</span>
               <h2 className="text-xl font-light tracking-tight">Conversa com o assistente</h2>
@@ -157,12 +159,12 @@ export default function LawyerDetailPage({ params }: Props) {
             </div>
           </header>
 
-          <div className="flex-1 overflow-y-auto px-10 py-10 space-y-10 custom-scrollbar">
+          <div className="flex-1 min-h-0 overflow-y-auto px-5 md:px-10 py-8 space-y-8 custom-scrollbar">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
                 <div className={`max-w-[85%] ${m.role === 'user' 
                   ? 'rounded-[1.5rem] py-4 px-6 btn-primary-gradient text-white shadow-[0_12px_24px_rgba(0,0,0,0.12)] border border-white/5' 
-                  : 'rounded-[2.5rem] p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
+                  : 'rounded-[2rem] p-6 md:p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
                   <div className={`prose prose-sm max-w-none font-medium leading-[1.6] text-[1.05rem] ${m.role === 'user' ? 'prose-invert' : 'prose-gray'}`}>
                     {m.role === 'assistant' ? (
                       <div 
@@ -193,22 +195,22 @@ export default function LawyerDetailPage({ params }: Props) {
             <div ref={messagesEndRef} />
           </div>
 
-          <footer className="p-10 bg-white/80 backdrop-blur-xl">
+          <footer className="shrink-0 px-5 md:px-10 pt-4 pb-5 bg-white/80 backdrop-blur-xl border-t border-castanha-50">
             <form onSubmit={handleSendMessage} className="max-w-4xl mx-auto relative group">
               <textarea
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Escreva sua dúvida..."
                 rows={1}
-                className="w-full bg-castanha-50/50 border border-castanha-100 focus:bg-white focus:ring-4 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2rem] py-6 pl-8 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
+                className="w-full bg-castanha-50/50 border border-castanha-100 focus:bg-white focus:ring-4 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2rem] py-5 pl-6 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
                 onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
-                style={{ height: '76px' }}
+                style={{ height: '68px' }}
               />
               <button type="submit" disabled={isTyping || !inputMessage.trim()} className="absolute right-3 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center text-white rounded-full transition-all shadow-xl disabled:opacity-20 btn-primary-gradient">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
               </button>
             </form>
-            <p className="max-w-4xl mx-auto mt-4 text-[11px] font-medium text-foreground/40 text-center leading-relaxed">
+            <p className="max-w-4xl mx-auto mt-3 text-[11px] font-medium text-foreground/40 text-center leading-relaxed">
               Este assistente é uma ferramenta de inteligência artificial, não um advogado. Não há advogado responsável pelas respostas, que têm caráter apenas informativo. Para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
             </p>
             <style jsx>{`

@@ -10,10 +10,12 @@ import { useAuth } from '../contexts/AuthContext';
 interface DashboardLayoutProps {
   children: React.ReactNode;
   title: string;
+  // Telas de conversa: o conteúdo ocupa a altura livre da janela e a página não rola
+  fitScreen?: boolean;
   actions?: React.ReactNode;
 }
 
-export default function DashboardLayout({ children, title, actions }: DashboardLayoutProps) {
+export default function DashboardLayout({ children, title, actions, fitScreen = false }: DashboardLayoutProps) {
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -165,13 +167,21 @@ export default function DashboardLayout({ children, title, actions }: DashboardL
       </header>
 
       {/* Main content area */}
-      <main className="flex-1 overflow-auto pb-32 md:pb-40">
-        <div className="p-4 md:p-12 max-w-7xl mx-auto">
-          <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000">
+      {fitScreen ? (
+        <main className="flex-1 min-h-0 overflow-hidden">
+          <div className="h-full p-3 md:px-12 md:pt-8 md:pb-32 max-w-7xl mx-auto">
             {children}
           </div>
-        </div>
-      </main>
+        </main>
+      ) : (
+        <main className="flex-1 overflow-auto pb-32 md:pb-40">
+          <div className="p-4 md:p-12 max-w-7xl mx-auto">
+            <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000">
+              {children}
+            </div>
+          </div>
+        </main>
+      )}
 
       {/* Floating Bottom Dock (Hidden on mobile, visible on iPad/md and up) */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block">

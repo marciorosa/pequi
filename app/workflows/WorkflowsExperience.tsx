@@ -31,7 +31,7 @@ export default function WorkflowsExperience() {
     },
     {
       title: 'Menos erros nas transições',
-      description: 'Validações e verificações por IA em cada etapa reduzem retrabalho e aprovações esquecidas.',
+      description: 'A IA ajuda a montar cada etapa, e você revisa o resultado antes de usar.',
       icon: (
         <path
           strokeLinecap="round"
@@ -43,7 +43,7 @@ export default function WorkflowsExperience() {
     },
     {
       title: 'Integração com o cofre',
-      description: 'Os resultados, de minutas a PDFs assinados, vão por padrão para um armazenamento controlado.',
+      description: 'Os documentos gerados pelos fluxos podem ser guardados nas pastas do seu cofre.',
       icon: (
         <path
           strokeLinecap="round"
@@ -66,10 +66,10 @@ export default function WorkflowsExperience() {
   ];
 
   const steps = [
-    { num: '1', title: 'Desenhe', desc: 'Editor de arrastar e soltar para etapas, tarefas e prazos.' },
-    { num: '2', title: 'Automatize', desc: 'Adicione regras de geração por IA, revisão e encaminhamento.' },
-    { num: '3', title: 'Implante', desc: 'Publique com um clique e conecte as ferramentas que você já usa.' },
-    { num: '4', title: 'Monitore', desc: 'Acompanhe andamento, pendências e sinais de atenção.' },
+    { num: '1', title: 'Desenhe', desc: 'Monte as etapas do fluxo num editor visual.' },
+    { num: '2', title: 'Automatize', desc: 'Inclua etapas de geração de texto e de análise por IA.' },
+    { num: '3', title: 'Execute', desc: 'Rode o fluxo quando precisar, com um clique.' },
+    { num: '4', title: 'Revise', desc: 'Confira o resultado de cada etapa antes de usar.' },
   ];
 
   return (
@@ -199,63 +199,6 @@ export default function WorkflowsExperience() {
         </section>
       </FadeInSection>
 
-      <FadeInSection delay={0.16}>
-        <section className="bg-white pb-16 lg:pb-[7rem]">
-          <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white shadow-[0_24px_64px_rgba(36,37,33,0.06)]">
-              <div className="grid lg:grid-cols-2 gap-0 lg:gap-0">
-                <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-                  <p className="mb-4 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">
-                    História de sucesso
-                  </p>
-                  <h2 className="mb-6 text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem]">
-                    De 12 dias para 2 dias
-                  </h2>
-                  <p className="mb-8 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                    &quot;Antes do Pequi, nosso processo de revisão de contratos levava em média 12 dias. Com fluxos
-                    automatizados, reduzimos para cerca de dois dias, melhorando a consistência e o compliance.&quot;
-                  </p>
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="h-11 w-11 shrink-0 overflow-hidden rounded-full border-2 border-castanha-200 bg-castanha-100">
-                      <Image
-                        src="/landingpage/hero/img1.png"
-                        alt=""
-                        width={44}
-                        height={44}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-[0.9375rem] font-medium text-ink">John Anderson</p>
-                      <p className="text-[0.8125rem] text-castanha-600">Diretor jurídico, empresa de tecnologia da Fortune 500</p>
-                    </div>
-                  </div>
-                  <Link
-                    href="/customers"
-                    className="inline-flex w-fit items-center gap-2 rounded-[0.875rem] border border-castanha-200 px-6 py-3 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-castanha-25"
-                  >
-                    Ver mais casos de sucesso
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-                <div className="relative flex min-h-[280px] items-center border-t border-castanha-200 bg-castanha-100 p-6 lg:min-h-0 lg:border-l lg:border-t-0 md:p-8 lg:p-10">
-                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">
-                    <Image
-                      src="/landingpage/features/workflow-automation.png"
-                      alt="Visualização do fluxo de trabalho da equipe"
-                      fill
-                      className="object-contain p-4 md:p-6"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
     </>
   );
 }

@@ -835,3 +835,18 @@ details[open] .faqMinus {
      destaque da marca ...... bg-pequi-500 com text-ink (nunca texto branco)
      sucesso ................ cerrado-500/600 · atenção: pequi-600 · erro: red
    ========================================================================== */
+
+/* Aviso anexado pelo servidor quando a resposta da IA cita súmulas, enunciados ou julgados */
+.citation-check {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #f2c94c;
+  border-radius: 1rem;
+  background: #fff8e1;
+  color: #5b4300;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.citation-check p { margin: 0 0 0.4rem; }
+.citation-check ul { margin: 0; padding-left: 1.2rem; list-style: disc; }
+.citation-check li { margin: 0.1rem 0; }
