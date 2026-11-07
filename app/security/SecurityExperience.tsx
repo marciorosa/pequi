@@ -138,19 +138,15 @@ export default function SecurityExperience() {
 
               <div className="relative min-h-[280px] w-full sm:min-h-[340px] lg:min-h-[380px]">
                 <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
-                  <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl bg-cerrado-900 sm:min-h-[280px] lg:min-h-[300px]">
-                    <div className="absolute inset-3 sm:inset-4 md:inset-5">
-                      <div className="relative h-full min-h-[160px] w-full">
-                        <Image
-                          src="/landingpage/features/secure-document-vault.png"
-                          alt="Prévia do cofre seguro de documentos"
-                          fill
-                          className="object-contain object-center"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          priority
-                        />
-                      </div>
-                    </div>
+                  <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl bg-castanha-100 sm:min-h-[280px] lg:min-h-[300px]">
+                    <Image
+                      src="/landingpage/security/revisao-de-documentos.jpg"
+                      alt="Duas pessoas revisando documentos em uma mesa"
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                    />
                   </div>
                 </div>
               </div>
@@ -190,18 +186,14 @@ export default function SecurityExperience() {
               </div>
               <div className="relative">
                 <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-castanha-100/85 p-3 backdrop-blur-sm md:p-4">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-cerrado-900">
-                    <div className="absolute inset-4 md:inset-6">
-                      <div className="relative h-full w-full">
-                        <Image
-                          src="/landingpage/features/secure-document-vault.png"
-                          alt="Prévia do cofre seguro de documentos"
-                          fill
-                          className="object-contain object-center"
-                          sizes="(max-width: 1024px) 100vw, 560px"
-                        />
-                      </div>
-                    </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-castanha-100">
+                    <Image
+                      src="/landingpage/security/justica.jpg"
+                      alt="Estátua da Justiça segurando a balança"
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                    />
                   </div>
                 </div>
               </div>
