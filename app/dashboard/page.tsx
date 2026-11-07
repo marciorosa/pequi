@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { aiService } from '../services/api';
 import DashboardLayout from '../components/DashboardLayout';
 import UpgradeModal from '../components/UpgradeModal';
+import LimpaNomeModal, { LimpaNomeFormData } from '../components/LimpaNomeModal';
 
 // Add custom CSS styles for the enhanced query display
 import './enhanced-query.css';
@@ -26,7 +27,38 @@ export default function DashboardPage() {
     "Direitos do inquilino no fim do aluguel"
   ]);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+  // Serviço Limpa Nome: o resultado aparece no mesmo lugar da resposta da pesquisa
+  const [showLimpaNome, setShowLimpaNome] = useState(false);
+  const [isGeneratingLimpaNome, setIsGeneratingLimpaNome] = useState(false);
+  const [resultKind, setResultKind] = useState<'pesquisa' | 'limpa-nome'>('pesquisa');
   const router = useRouter();
+
+  const handleLimpaNome = async (data: LimpaNomeFormData) => {
+    setIsGeneratingLimpaNome(true);
+    try {
+      const response = await aiService.createLimpaNome(data);
+      setResultKind('limpa-nome');
+      setEnhancedQuery(response.content);
+      setFollowUpPrompts([]);
+      setSearchError(null);
+      setHasSearched(true);
+      setShowLimpaNome(false);
+    } catch (error: any) {
+      console.error('Error generating Limpa Nome:', error);
+      const status = error.response?.status || error.status;
+      setShowLimpaNome(false);
+      if (status === 403) {
+        setShowUpgradeModal(true);
+      } else {
+        setResultKind('limpa-nome');
+        setEnhancedQuery(null);
+        setHasSearched(true);
+        setSearchError('Não foi possível gerar a petição. Tente novamente em instantes; esta tentativa não consumiu sua cota.');
+      }
+    } finally {
+      setIsGeneratingLimpaNome(false);
+    }
+  };
 
   const handleSearch = async (e: React.FormEvent | null, customQuery?: string) => {
     if (e) e.preventDefault();
@@ -36,6 +68,7 @@ export default function DashboardPage() {
 
     setIsSearching(true);
     setHasSearched(true);
+    setResultKind('pesquisa');
     setSearchError(null);
     setEnhancedQuery(null);
     setFollowUpPrompts([]);
@@ -86,7 +119,7 @@ export default function DashboardPage() {
     const fileDownload = document.createElement('a');
     document.body.appendChild(fileDownload);
     fileDownload.href = source;
-    fileDownload.download = 'Pequi_Minuta.doc';
+    fileDownload.download = resultKind === 'limpa-nome' ? 'Pequi_Limpa_Nome.doc' : 'Pequi_Minuta.doc';
     fileDownload.click();
     document.body.removeChild(fileDownload);
   };
@@ -175,6 +208,21 @@ export default function DashboardPage() {
                 </button>
               </form>
 
+              <button
+                type="button"
+                onClick={() => setShowLimpaNome(true)}
+                className="group flex w-full items-center justify-between gap-4 rounded-2xl border border-pequi-500/30 bg-pequi-500/5 px-5 py-4 text-left transition-all duration-300 hover:border-pequi-500/60 hover:bg-pequi-500/10"
+              >
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-pequi-600">Serviço</p>
+                  <p className="mt-1 text-lg font-medium text-ink">Limpa Nome</p>
+                  <p className="text-sm text-ink/60">Nome negativado por dívida que não é sua? Gere a petição com pedido de liminar.</p>
+                </div>
+                <svg className="h-5 w-5 shrink-0 text-pequi-600 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
               {!hasSearched && (
                 <div className="space-y-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Acesso rápido</p>
@@ -215,8 +263,14 @@ export default function DashboardPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Resposta da IA</h3>
-                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Gerada por inteligência artificial · conteúdo informativo</p>
+                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">
+                        {resultKind === 'limpa-nome' ? 'Limpa Nome · minuta de petição' : 'Resposta da IA'}
+                      </h3>
+                      <p className="text-xs font-medium text-foreground/60 mt-0.5">
+                        {resultKind === 'limpa-nome'
+                          ? 'Gerada por inteligência artificial · revise e complete os campos [PREENCHER] com um advogado'
+                          : 'Gerada por inteligência artificial · conteúdo informativo'}
+                      </p>
                     </div>
                   </div>
                   <div
@@ -263,7 +317,7 @@ export default function DashboardPage() {
                     disabled={!enhancedQuery}
                     className="w-full py-5 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all disabled:opacity-50 disabled:cursor-not-allowed btn-primary-gradient"
                   >
-                    Redigir contrato
+                    {resultKind === 'limpa-nome' ? 'Baixar petição (Word)' : 'Redigir contrato'}
                   </button>
                   <button 
                     className="w-full py-5 bg-cerrado-950/5 hover:bg-cerrado-950/10 text-ink border border-cerrado-900/10 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] transition-all" 
@@ -277,6 +331,12 @@ export default function DashboardPage() {
           </div>
         )}
       </div>
+      <LimpaNomeModal
+        isOpen={showLimpaNome}
+        isGenerating={isGeneratingLimpaNome}
+        onClose={() => setShowLimpaNome(false)}
+        onSubmit={handleLimpaNome}
+      />
       <UpgradeModal
         isOpen={showUpgradeModal}
         onClose={() => setShowUpgradeModal(false)}
