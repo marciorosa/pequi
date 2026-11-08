@@ -68,7 +68,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-5 border-t border-current/15 py-6 text-xs">
-          <p>© {new Date().getFullYear()} <a href="https://marciorosa.com" target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline underline-offset-4">M&amp;C</a> LTDA. CNPJ 68.716.930/0001-80.</p>
+          <p>© {new Date().getFullYear()} <a href="https://marciorosa.com" target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4">M&amp;C</a> LTDA. CNPJ 68.716.930/0001-80.</p>
           <div className="flex flex-wrap items-center gap-5 [&_a:hover]:underline [&_a]:underline-offset-4">
             <Link href="/terms">Termos de Serviço</Link>
             <Link href="/privacy-policy">Política de Privacidade</Link>
