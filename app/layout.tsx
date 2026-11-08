@@ -99,6 +99,17 @@ export default function RootLayout({
             gtag('config', 'G-TP6TNKTK39');
           `}
         </Script>
+        {/* Google Tag Manager (GTM-K5LW5NCG) */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          `}
+        </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-K5LW5NCG"
+          strategy="afterInteractive"
+        />
         <AuthProvider>
           <DashboardAwareLayout>{children}</DashboardAwareLayout>
           <Toaster
