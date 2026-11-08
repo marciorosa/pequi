@@ -227,7 +227,7 @@ export default function PressKitPage() {
       {/* Footer strip */}
       <section className="py-8 px-6 border-t border-castanha-100">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between items-center gap-4">
-          <p className="text-foreground/40 text-xs">© {new Date().getFullYear()} Pequi, Inc. Todos os direitos reservados.</p>
+          <p className="text-foreground/40 text-xs">© {new Date().getFullYear()} <a href="https://marciorosa.com" target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline underline-offset-4">M&amp;C</a> LTDA. CNPJ 68.716.930/0001-80.</p>
           <div className="flex gap-6">
             <a href="mailto:press@AIForLawyers.com" className="text-foreground/40 hover:text-foreground transition-colors text-xs font-bold">press@AIForLawyers.com</a>
             <a href="tel:+18005551234" className="text-foreground/40 hover:text-foreground transition-colors text-xs font-bold">+1 (800) 555-1234</a>

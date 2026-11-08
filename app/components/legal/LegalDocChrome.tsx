@@ -152,7 +152,7 @@ export function LegalFooterBar({
   return (
     <section className="border-t border-castanha-150 bg-white py-8">
       <div className="mx-auto flex max-w-[1274px] flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between md:px-8 lg:px-6 xl:px-0">
-        <p className="text-[0.8125rem] text-castanha-600">© {new Date().getFullYear()} Pequi, Inc. Todos os direitos reservados.</p>
+        <p className="text-[0.8125rem] text-castanha-600">© {new Date().getFullYear()} <a href="https://marciorosa.com" target="_blank" rel="noopener noreferrer" className="font-semibold hover:underline underline-offset-4">M&amp;C</a> LTDA. CNPJ 68.716.930/0001-80.</p>
         <div className="flex flex-wrap items-center gap-6">
           <button
             type="button"
