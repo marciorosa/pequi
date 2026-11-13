@@ -96,7 +96,7 @@ export const authService = {
       localStorage.setItem('user', JSON.stringify(response.data.user));
 
       // Store in cookies for middleware
-      document.cookie = `token=${response.data.token}; path=/; max-age=${60 * 60 * 24 * 7}`; // 7 days
+      document.cookie = `token=${response.data.token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax${window.location.protocol === 'https:' ? '; Secure' : ''}`; // 7 days
     }
 
     return response.data;

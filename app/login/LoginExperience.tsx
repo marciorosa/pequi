@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import {
   AuthHero,
@@ -17,11 +17,12 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { login } = useAuth();
 
-  const redirectTo = searchParams.get('from') || '/dashboard';
+  // Só aceita caminhos internos do site; qualquer outra coisa vai para o painel
+  const from = searchParams.get('from') || '';
+  const redirectTo = from.startsWith('/') && !from.startsWith('//') && !from.startsWith('/login') ? from : '/dashboard';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,13 +37,17 @@ function LoginForm() {
 
     try {
       await login({ email, password });
-      router.push(redirectTo);
+      // Carrega a página de novo em vez de navegar por dentro do Next.js: a navegação interna
+      // podia reaproveitar o redirecionamento para o login guardado enquanto a pessoa ainda
+      // não estava logada, e a pessoa ficava parada no login mesmo com a senha certa.
+      window.location.assign(redirectTo);
+      return;
     } catch (err: unknown) {
       setError(
         (err as { response?: { data?: { message?: string } } }).response?.data?.message ||
           'Falha no login. Verifique suas credenciais.'
       );
-    } finally {
+      // Só volta o botão ao normal se deu erro; no sucesso a página já está carregando o painel
       setIsLoading(false);
     }
   };
