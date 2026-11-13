@@ -223,14 +223,16 @@ export const aiService = {
   },
 
   // Serviço Limpa Nome: gera a petição inicial a partir do formulário da Pesquisa Inteligente
-  createLimpaNome: async (data: Record<string, string>) => {
+  createLimpaNome: async (data: Record<string, string | undefined>) => {
     const response = await api.post('/ai/limpa-nome', { data }, { timeout: 125000 });
     return response.data as { success: boolean; id: string; title: string; content: string };
   },
 
   searchLegalDatabase: async (query: string, filters?: Record<string, unknown>) => {
+    // O servidor pode levar até 90 s quando o modelo principal está lento e a reserva entra
     const response = await api.get('/ai/search', {
-      params: { query, ...filters }
+      params: { query, ...filters },
+      timeout: 95000,
     });
     return response.data;
   },
