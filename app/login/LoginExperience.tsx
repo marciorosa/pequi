@@ -15,7 +15,10 @@ import {
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const searchParamsForError = useSearchParams();
+  const [error, setError] = useState(
+    searchParamsForError.get('bloqueado') ? 'Esta conta está bloqueada. Fale com o suporte do Pequi.' : ''
+  );
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const { login } = useAuth();

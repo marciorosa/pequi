@@ -69,6 +69,15 @@ api.interceptors.response.use(
         }
       }
 
+      // Conta bloqueada pela administração: sai e volta ao login com o aviso
+      const data: any = error.response.data;
+      if (status === 403 && data?.blocked && typeof window !== 'undefined') {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        document.cookie = 'token=; path=/; max-age=0';
+        window.location.href = '/login?bloqueado=1';
+      }
+
       // Handle 504 Gateway Timeout
       if (status === 504) {
         console.error('Gateway timeout - server took too long to respond');
@@ -546,6 +555,22 @@ export const workflowService = {
     const response = await api.post(`/workflows/${id}/run`, data);
     return response.data;
   },
+};
+
+// Área administrativa (só responde para administradores)
+export type AdminUserAction = 'grantPro' | 'revokePro' | 'resetUsage' | 'block' | 'unblock' | 'makeAdmin' | 'removeAdmin';
+
+export const adminService = {
+  overview: async () => (await api.get('/admin/overview')).data,
+  users: async (params: { q?: string; filter?: string; page?: number }) => (await api.get('/admin/users', { params })).data,
+  user: async (id: string) => (await api.get(`/admin/users/${id}`)).data,
+  userAction: async (id: string, action: AdminUserAction, extra: { days?: number; reason?: string } = {}) =>
+    (await api.post(`/admin/users/${id}/actions`, { action, ...extra })).data,
+  subscriptions: async (params: { status?: string; page?: number }) => (await api.get('/admin/subscriptions', { params })).data,
+  billing: async () => (await api.get('/admin/billing')).data,
+  logs: async () => (await api.get('/admin/logs')).data,
+  // Saúde do servidor (rota pública /health, fora de /api)
+  health: async () => (await api.get(`${(API_URL || '').replace(/\/api\/?$/, '')}/health`)).data,
 };
 
 export { api };

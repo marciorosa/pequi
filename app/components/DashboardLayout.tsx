@@ -19,7 +19,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const { logout } = useAuth();
+  const { logout, isAdmin } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -98,6 +98,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         <div className="p-6 border-t border-castanha-200 space-y-4">
           <MobileNavItem href="/dashboard/billing" label="Plano" icon="plan" />
           <MobileNavItem href="/dashboard/help" label="Ajuda" icon="help" />
+          {isAdmin && <MobileNavItem href="/dashboard/admin" label="Administração" icon="admin" />}
           <button
             onClick={handleLogout}
             className="w-full flex items-center px-4 py-3 text-red-500 font-medium text-sm hover:bg-red-50 rounded-2xl transition-all"
@@ -186,6 +187,12 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
           <div className="w-px h-6 bg-castanha-200" />
           <DockItem href="/dashboard/billing" label="Plano" icon={<ToolIcon name="plan" />} />
           <DockItem href="/dashboard/help" label="Ajuda" icon={<ToolIcon name="help" />} />
+          {isAdmin && (
+            <>
+              <div className="w-px h-6 bg-castanha-200" />
+              <DockItem href="/dashboard/admin" label="Administração" icon={<ToolIcon name="admin" />} />
+            </>
+          )}
         </nav>
       </div>
 

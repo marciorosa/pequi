@@ -13,6 +13,8 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   isAuthenticated: boolean;
+  /** Conta com acesso à área administrativa */
+  isAdmin: boolean;
   login: (credentials: { email: string; password: string }) => Promise<void>;
   logout: () => void;
   checkAuthStatus: () => Promise<boolean>;
@@ -24,6 +26,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // Check auth status on mount
   useEffect(() => {
@@ -43,6 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         try {
           const profile = await authService.getProfile();
           setUser(profile.user);
+          setIsAdmin(Boolean(profile.subscription?.isAdmin));
           setIsAuthenticated(true);
           return true;
         } catch (error) {
@@ -95,8 +99,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // Update state
     setUser(null);
     setIsAuthenticated(false);
-    
-    console.log('User logged out successfully');
+    setIsAdmin(false);
   };
 
   return (
@@ -104,6 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user, 
       isLoading, 
       isAuthenticated, 
+      isAdmin,
       login, 
       logout,
       checkAuthStatus
