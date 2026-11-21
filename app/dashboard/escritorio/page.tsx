@@ -12,7 +12,8 @@ import { toast } from 'react-hot-toast';
 import DashboardLayout from '../../components/DashboardLayout';
 import { officeService } from '../../services/api';
 import { useAuth } from '../../contexts/AuthContext';
-import { PlansEditor, LeadsList, ClientsList, FinancePanel, card, errorMessage } from '../../components/office/OfficeBlocks';
+import { PlansEditor, LeadsList, ClientsList, FinancePanel, PequiSubscriptionBadge, pequiSubscriptionLabel, card, errorMessage, btnPrimary, btnSoft } from '../../components/office/OfficeBlocks';
+import Link from 'next/link';
 
 type Section = 'clients' | 'finance' | 'plans' | 'leads';
 
@@ -60,8 +61,20 @@ export default function OfficePage() {
             <p className="text-lg font-semibold text-ink">{data.name}</p>
             <p className="mt-1 text-sm text-ink/60">
               Painel: <a className="underline" href={data.panelUrl} target="_blank" rel="noreferrer">{data.panelUrl}</a> · comissão do Pequi:{' '}
-              {data.commissionPercent}% · plano Pequi: {data.pequiPlan === 'enterprise' ? 'Enterprise' : 'Pro'}
+              {data.commissionPercent}%
             </p>
+            <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-castanha-200 bg-castanha-25 p-4">
+              <div className="flex-1">
+                <p className="text-sm font-medium text-ink">Assinatura do escritório no Pequi</p>
+                <p className="text-xs text-ink/60">Pro por R$ 399/mês ou R$ 3.999/ano. Os planos dos seus clientes ficam em Planos à venda.</p>
+              </div>
+              <PequiSubscriptionBadge sub={data.pequiSubscription} />
+              {isOwner && (
+                <Link href="/dashboard/billing" className={pequiSubscriptionLabel(data.pequiSubscription).ok ? btnSoft : btnPrimary}>
+                  {pequiSubscriptionLabel(data.pequiSubscription).ok ? 'Gerenciar assinatura' : 'Assinar o Pequi'}
+                </Link>
+              )}
+            </div>
             <p className="mt-1 text-xs text-ink/50">Para trocar logo, cores, sites autorizados ou o código do widget, fale com o suporte do Pequi.</p>
           </div>
 

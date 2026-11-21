@@ -461,3 +461,25 @@ export function FinancePanel({
     </div>
   );
 }
+
+/* ------------------------------ assinatura do escritório ------------------------------ */
+
+/** Situação da assinatura do escritório no Pequi (Pro R$ 399/mês ou R$ 3.999/ano) */
+export function pequiSubscriptionLabel(s: any): { text: string; ok: boolean } {
+  if (!s || s.status === 'sem-assinatura') return { text: 'Sem assinatura do Pequi', ok: false };
+  if (s.status === 'sem-responsavel') return { text: 'Sem responsável cadastrado', ok: false };
+  if (s.status === 'cortesia') return { text: `Pro de cortesia até ${day(s.currentPeriodEnd)}`, ok: true };
+  const st = STATUS[s.status]?.label || s.status;
+  const ok = ['active', 'trialing'].includes(s.status);
+  const when = ok ? (s.cancelAtPeriodEnd ? ` · termina em ${day(s.currentPeriodEnd)}` : ` · renova em ${day(s.currentPeriodEnd)}`) : '';
+  return { text: `Pro ${s.plan || ''}: ${st.toLowerCase()}${when}`, ok };
+}
+
+export function PequiSubscriptionBadge({ sub }: { sub: any }) {
+  const l = pequiSubscriptionLabel(sub);
+  return (
+    <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${l.ok ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'}`}>
+      {l.text}
+    </span>
+  );
+}

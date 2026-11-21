@@ -12,6 +12,7 @@ import {
   PlansEditor,
   LeadsList,
   ClientsList,
+  PequiSubscriptionBadge,
   FinancePanel,
   card,
   inputCls,
@@ -166,6 +167,7 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
               <tr className="text-[10px] uppercase tracking-[0.2em] text-castanha-400">
                 <th className="px-4 py-3">Escritório</th>
                 <th className="px-4 py-3">Situação</th>
+                <th className="px-4 py-3">Assinatura Pequi</th>
                 <th className="px-4 py-3">Comissão</th>
                 <th className="px-4 py-3">Contas</th>
                 <th className="px-4 py-3">Assinaturas</th>
@@ -185,6 +187,7 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
                     </div>
                   </td>
                   <td className="px-4 py-3">{t.status === 'active' ? 'Ativo' : 'Suspenso'}</td>
+                  <td className="px-4 py-3"><PequiSubscriptionBadge sub={t.pequiSubscription} /></td>
                   <td className="px-4 py-3">{t.commissionPercent}%</td>
                   <td className="px-4 py-3">{t.users}</td>
                   <td className="px-4 py-3">{t.activeSubscriptions}</td>
@@ -276,7 +279,10 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <button type="button" onClick={onBack} className="text-sm text-ink/60 hover:text-ink">← Escritórios</button>
-          <p className="mt-1 text-lg font-semibold text-ink">{isNew ? 'Novo escritório' : tenant.name}</p>
+          <p className="mt-1 flex flex-wrap items-center gap-2 text-lg font-semibold text-ink">
+            {isNew ? 'Novo escritório' : tenant.name}
+            {!isNew && <PequiSubscriptionBadge sub={tenant.pequiSubscription} />}
+          </p>
           {!isNew && (
             <p className="text-xs text-ink/50">
               Painel: <a className="underline" href={`${tenant.panelUrl}`} target="_blank" rel="noreferrer">{tenant.panelUrl}</a> · teste sem domínio:{' '}
