@@ -7,6 +7,8 @@ import { stripeService } from '../../services/api';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-hot-toast';
 import { formatPlanPrice } from '../../pricing/pricingData';
+import { useTenant } from '../../contexts/TenantContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 // Initialize Stripe
 const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -79,6 +81,13 @@ function BillingContent() {
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { tenant } = useTenant();
+  const { user } = useAuth();
+
+  // Cliente de um escritório (white-label) assina os planos do escritório, não os do Pequi
+  useEffect(() => {
+    if (tenant && user && !['owner', 'staff'].includes(String(user.tenantRole || ''))) router.replace('/assinar');
+  }, [tenant, user, router]);
 
   // Current profile data
   const [profileData, setProfileData] = useState<unknown>(null);

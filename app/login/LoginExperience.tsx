@@ -1,5 +1,6 @@
 'use client';
 
+import { useTenant } from '../contexts/TenantContext';
 import { Suspense, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -128,12 +129,13 @@ function LoginForm() {
 }
 
 function LoginAside() {
+  const { tenant } = useTenant();
   return (
     <>
       <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
         <div className="border-b border-castanha-150 bg-castanha-50 px-8 py-6">
           <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">
-            Assistente Pequi
+            {tenant ? `Assistente ${tenant.name}` : 'Assistente Pequi'}
           </p>
           <p className="text-lg font-medium leading-snug text-ink">
             Como posso analisar os riscos deste contrato de aluguel?

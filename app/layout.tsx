@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 import DashboardAwareLayout from "./components/DashboardAwareLayout";
 import { AuthProvider } from "./contexts/AuthContext";
+import { TenantProvider } from "./contexts/TenantContext";
 import { Toaster } from "react-hot-toast";
 
 // Font configurations
@@ -111,7 +112,9 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <AuthProvider>
-          <DashboardAwareLayout>{children}</DashboardAwareLayout>
+          <TenantProvider>
+            <DashboardAwareLayout>{children}</DashboardAwareLayout>
+          </TenantProvider>
           <Toaster
             position="top-right"
             toastOptions={{

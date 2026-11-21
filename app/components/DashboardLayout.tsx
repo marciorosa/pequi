@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PequiLogo } from './PequiWordmark';
+import { BrandLogo } from './PequiWordmark';
+import { useTenant } from '../contexts/TenantContext';
 import Link from 'next/link';
 import ToolIcon, { ToolIconName, ToolIconTile } from './ToolIcon';
 import { useRouter, usePathname } from 'next/navigation';
@@ -19,7 +20,11 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const { logout, isAdmin } = useAuth();
+  const { logout, isAdmin, user } = useAuth();
+  const { tenant } = useTenant();
+  // Equipe do escritório (white-label) vê a área do escritório; clientes do escritório assinam em /assinar
+  const isOfficeTeam = ['owner', 'staff'].includes(String((user as any)?.tenantRole || ''));
+  const planHref = tenant && !isOfficeTeam ? '/assinar' : '/dashboard/billing';
 
   const handleLogout = () => {
     logout();
@@ -69,9 +74,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         className={`fixed inset-y-0 left-0 z-50 flex flex-col w-72 bg-castanha-25 border-r border-castanha-200 transition-transform duration-300 md:hidden ${showSidebar ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="h-24 flex items-center px-8 border-b border-castanha-200 mb-6">
-          <Link href="/" className="flex flex-col items-start gap-1.5" aria-label="Página inicial do Pequi">
-            <PequiLogo className="h-[24px] w-auto" />
-            <span className="text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">IA Jurídica</span>
+          <Link href="/" className="flex flex-col items-start gap-1.5" aria-label="Página inicial">
+            <BrandLogo className="h-[24px] w-auto" />
+            <span className="text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">{tenant ? 'Assistente jurídica' : 'IA Jurídica'}</span>
           </Link>
         </div>
 
@@ -96,7 +101,8 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         </div>
 
         <div className="p-6 border-t border-castanha-200 space-y-4">
-          <MobileNavItem href="/dashboard/billing" label="Plano" icon="plan" />
+          <MobileNavItem href={planHref} label="Plano" icon="plan" />
+          {isOfficeTeam && <MobileNavItem href="/dashboard/escritorio" label="Escritório" icon="admin" />}
           <MobileNavItem href="/dashboard/help" label="Ajuda" icon="help" />
           {isAdmin && <MobileNavItem href="/dashboard/admin" label="Administração" icon="admin" />}
           <button
@@ -121,9 +127,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </button>
           
-          <Link href="/" className="hidden sm:flex flex-col items-start gap-1.5 lg:mr-4" aria-label="Página inicial do Pequi">
-            <PequiLogo className="h-[22px] w-auto" />
-            <span className="hidden lg:block text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">IA Jurídica</span>
+          <Link href="/" className="hidden sm:flex flex-col items-start gap-1.5 lg:mr-4" aria-label="Página inicial">
+            <BrandLogo className="h-[22px] w-auto" />
+            <span className="hidden lg:block text-[10px] font-bold text-foreground/30 uppercase tracking-[0.3em]">{tenant ? 'Assistente jurídica' : 'IA Jurídica'}</span>
           </Link>
 
           <div className="h-8 w-px bg-castanha-200 hidden lg:block" />
@@ -185,7 +191,8 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
           <DockItem href="/dashboard/vault" label="Cofre" icon={<ToolIcon name="vault" />} />
           <DockItem href="/dashboard/workflow-builder" label="Fluxos" icon={<ToolIcon name="flows" />} />
           <div className="w-px h-6 bg-castanha-200" />
-          <DockItem href="/dashboard/billing" label="Plano" icon={<ToolIcon name="plan" />} />
+          <DockItem href={planHref} label="Plano" icon={<ToolIcon name="plan" />} />
+          {isOfficeTeam && <DockItem href="/dashboard/escritorio" label="Escritório" icon={<ToolIcon name="admin" />} />}
           <DockItem href="/dashboard/help" label="Ajuda" icon={<ToolIcon name="help" />} />
           {isAdmin && (
             <>
@@ -229,7 +236,7 @@ function DockItem({ href, label, icon, exact = false }: { href: string; label: s
       aria-label={label}
       aria-current={active ? 'page' : undefined}
       className={`relative flex items-center justify-center w-11 h-11 rounded-[0.9rem] transition-all duration-200 group ${active
-        ? 'bg-pequi-500 text-white shadow-[0_8px_18px_-8px_rgba(250,90,80,0.7)]'
+        ? 'bg-pequi-500 text-white shadow-[0_8px_18px_-8px_color-mix(in_srgb,var(--pequi-500)_70%,transparent)]'
         : 'bg-castanha-100 text-castanha-600 hover:bg-castanha-150 hover:text-ink hover:-translate-y-0.5'
         }`}
     >

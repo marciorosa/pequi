@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { authService } from '../services/api';
+import { useTenant } from '../contexts/TenantContext';
 import {
   AuthHero,
   AuthPageLayout,
@@ -89,6 +90,7 @@ export default function SignupExperience() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const { tenant } = useTenant();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -116,6 +118,8 @@ export default function SignupExperience() {
         name: formData.name,
         email: formData.email,
         password: formData.password,
+        // No painel de um escritório (white-label), a conta nasce como cliente dele
+        ...(tenant ? { tenantSlug: tenant.slug } : {}),
       });
       router.push('/login');
     } catch (err: unknown) {
@@ -133,7 +137,7 @@ export default function SignupExperience() {
       <AuthHero
         eyebrow="Comece agora"
         title="Crie sua conta"
-        subtitle="Junte-se ao Pequi e comece a cuidar dos seus direitos com nossa IA jurídica."
+        subtitle={tenant ? `Crie sua conta no atendimento de ${tenant.name}.` : "Junte-se ao Pequi e comece a cuidar dos seus direitos com nossa IA jurídica."}
       />
       <AuthPageLayout
         aside={<SignupAside />}

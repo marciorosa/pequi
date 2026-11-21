@@ -7,6 +7,9 @@ interface User {
   id: string;
   name: string;
   email: string;
+  /** Escritório (white-label) da conta, quando houver */
+  tenantId?: string | null;
+  tenantRole?: 'owner' | 'staff' | 'client' | null;
 }
 
 interface AuthContextType {

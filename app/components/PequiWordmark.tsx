@@ -1,3 +1,7 @@
+'use client';
+
+import { useTenant } from '../contexts/TenantContext';
+
 // Marca do Pequi: logotipo oficial em coral (PequiLogo) no menu, no rodapé e no painel.
 // PequiMark (símbolo quadrado) fica disponível para usos pequenos.
 type Props = {
@@ -37,4 +41,21 @@ export default function PequiWordmark({ className = '', tone = 'ink' }: Props) {
       <PequiLogo className="h-[26px] w-auto" tone={tone === 'light' ? 'light' : 'brand'} />
     </span>
   );
+}
+
+/**
+ * Logo da marca em uso: no painel de um escritório (white-label) mostra o logo
+ * ou o nome do escritório; no Pequi, o logotipo do Pequi.
+ */
+export function BrandLogo({ className = 'h-7 w-auto', tone = 'brand' }: { className?: string; tone?: 'brand' | 'light' | 'ink' }) {
+  const { tenant } = useTenant();
+  if (tenant) {
+    return tenant.logoUrl ? (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={tenant.logoUrl} alt={tenant.name} className={`${className} max-w-[180px] object-contain`} />
+    ) : (
+      <span className="text-lg font-semibold tracking-tight text-pequi-600">{tenant.name}</span>
+    );
+  }
+  return <PequiLogo className={className} tone={tone} />;
 }

@@ -8,14 +8,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import DashboardLayout from '../../components/DashboardLayout';
 import { adminService, AdminUserAction } from '../../services/api';
+import TenantsAdmin from './TenantsAdmin';
 
-type Tab = 'overview' | 'users' | 'subscriptions' | 'billing' | 'logs' | 'system';
+type Tab = 'overview' | 'users' | 'subscriptions' | 'billing' | 'tenants' | 'logs' | 'system';
 
 const TABS: Array<{ id: Tab; label: string }> = [
   { id: 'overview', label: 'Visão geral' },
   { id: 'users', label: 'Usuários' },
   { id: 'subscriptions', label: 'Assinaturas' },
   { id: 'billing', label: 'Faturamento' },
+  { id: 'tenants', label: 'Escritórios' },
   { id: 'logs', label: 'Registro' },
   { id: 'system', label: 'Sistema' },
 ];
@@ -634,6 +636,16 @@ export default function AdminPage() {
   const [allowed, setAllowed] = useState<boolean | null>(null);
   const [openUser, setOpenUser] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [initialTenant, setInitialTenant] = useState<string | null>(null);
+
+  // Volta do cadastro no Stripe: /dashboard/admin?tab=tenants&tenant=<id>
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    if (q.get('tab') === 'tenants') {
+      setTab('tenants');
+      setInitialTenant(q.get('tenant'));
+    }
+  }, []);
 
   // Confere a permissão no servidor antes de mostrar qualquer aba
   useEffect(() => {
@@ -669,6 +681,7 @@ export default function AdminPage() {
           {tab === 'users' && <Users onOpenUser={setOpenUser} refreshKey={refreshKey} />}
           {tab === 'subscriptions' && <Subscriptions onOpenUser={setOpenUser} />}
           {tab === 'billing' && <Billing />}
+          {tab === 'tenants' && <TenantsAdmin initialTenantId={initialTenant} key={initialTenant || 'list'} />}
           {tab === 'logs' && <Logs onOpenUser={setOpenUser} />}
           {tab === 'system' && <System />}
         </div>
