@@ -11,7 +11,8 @@ import { brandScale } from '../../contexts/TenantContext';
 import {
   PlansEditor,
   LeadsList,
-  StripeConnectCard,
+  ClientsList,
+  FinancePanel,
   card,
   inputCls,
   labelCls,
@@ -120,7 +121,7 @@ const toBody = (f: Form) => ({
 /** Lê um arquivo de imagem pequeno como data URL (até 200 KB) */
 const readImage = (file: File): Promise<string> =>
   new Promise((resolve, reject) => {
-    if (file.size > 200 * 1024) return reject(new Error('A imagem passa de 200 KB. Use um arquivo menor ou um endereço https://.'));
+    if (file.size > 500 * 1024) return reject(new Error('A imagem passa de 500 KB. Use um arquivo menor ou um endereço https://.'));
     const r = new FileReader();
     r.onload = () => resolve(String(r.result));
     r.onerror = () => reject(new Error('Não foi possível ler a imagem.'));
@@ -166,7 +167,6 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
                 <th className="px-4 py-3">Escritório</th>
                 <th className="px-4 py-3">Situação</th>
                 <th className="px-4 py-3">Comissão</th>
-                <th className="px-4 py-3">Stripe</th>
                 <th className="px-4 py-3">Contas</th>
                 <th className="px-4 py-3">Assinaturas</th>
                 <th className="px-4 py-3">Contatos</th>
@@ -186,7 +186,6 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
                   </td>
                   <td className="px-4 py-3">{t.status === 'active' ? 'Ativo' : 'Suspenso'}</td>
                   <td className="px-4 py-3">{t.commissionPercent}%</td>
-                  <td className="px-4 py-3">{t.stripeReady ? 'Pronto' : 'Pendente'}</td>
                   <td className="px-4 py-3">{t.users}</td>
                   <td className="px-4 py-3">{t.activeSubscriptions}</td>
                   <td className="px-4 py-3">{t.leads}</td>
@@ -207,7 +206,8 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
   const [tenant, setTenant] = useState<any>(null);
   const [form, setForm] = useState<Form>(emptyForm());
   const [saving, setSaving] = useState(false);
-  const [section, setSection] = useState<'config' | 'plans' | 'leads'>('config');
+  const [inviteLink, setInviteLink] = useState<string | null>(null);
+  const [section, setSection] = useState<'config' | 'clients' | 'finance' | 'plans' | 'leads'>('config');
 
   useEffect(() => {
     if (isNew) return;
@@ -228,11 +228,13 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
       if (isNew) {
         const d = await adminService.createTenant(toBody(form));
         toast.success('Escritório cadastrado.');
+        if (d.inviteLink) sessionStorage.setItem(`pq_invite_${d.tenant._id}`, d.inviteLink);
         onCreated(d.tenant._id);
       } else {
         const d = await adminService.updateTenant(id, toBody(form));
         setTenant(d.tenant);
         setForm(toForm(d.tenant));
+        if (d.inviteLink) setInviteLink(d.inviteLink);
         toast.success('Alterações salvas.');
       }
     } catch (e) {
@@ -250,15 +252,19 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
     }),
     [id]
   );
-  const stripeApi = useMemo(
-    () => ({
-      onboard: (returnUrl: string) => adminService.tenantStripeOnboard(id, returnUrl),
-      refresh: () => adminService.tenantStripeRefresh(id),
-      dashboard: () => adminService.tenantStripeDashboard(id),
-    }),
-    [id]
-  );
+  const loadClients = useCallback(() => adminService.tenantClients(id), [id]);
+  const loadFinance = useCallback(() => adminService.tenantFinance(id), [id]);
+  const payout = useCallback((b: any) => adminService.createTenantPayout(id, b), [id]);
   const loadLeads = useCallback(() => adminService.tenantLeads(id), [id]);
+
+  useEffect(() => {
+    if (isNew) return;
+    const saved = sessionStorage.getItem(`pq_invite_${id}`);
+    if (saved) {
+      setInviteLink(saved);
+      sessionStorage.removeItem(`pq_invite_${id}`);
+    }
+  }, [id, isNew]);
 
   if (!isNew && !tenant) return <p className="py-10 text-center text-sm text-ink/50">Carregando…</p>;
 
@@ -280,31 +286,38 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
         </div>
         {!isNew && (
           <nav className="flex gap-2">
-            {(['config', 'plans', 'leads'] as const).map((s) => (
+            {(['config', 'clients', 'finance', 'plans', 'leads'] as const).map((s) => (
               <button
                 key={s}
                 type="button"
                 onClick={() => setSection(s)}
                 className={`rounded-xl px-3 py-1.5 text-sm ${section === s ? 'bg-ink text-white' : 'text-ink/60 hover:bg-castanha-100'}`}
               >
-                {s === 'config' ? 'Configuração' : s === 'plans' ? 'Planos e Stripe' : 'Contatos'}
+                {{ config: 'Configuração', clients: 'Usuários e planos', finance: 'Valores e repasses', plans: 'Planos à venda', leads: 'Contatos' }[s]}
               </button>
             ))}
           </nav>
         )}
       </div>
 
-      {section === 'plans' && !isNew && (
-        <div className="space-y-6">
-          <StripeConnectCard
-            stripe={tenant.stripe}
-            api={stripeApi}
-            returnUrl={`${window.location.origin}/dashboard/admin?tab=tenants&tenant=${tenant._id}`}
-            onChange={(s) => setTenant({ ...tenant, stripe: s })}
-          />
-          <PlansEditor api={plansApi} commissionPercent={tenant.commissionPercent} />
+      {inviteLink && (
+        <div className="rounded-2xl border border-pequi-200 bg-pequi-50 p-4 text-sm">
+          <p className="font-medium text-ink">Conta do responsável criada.</p>
+          <p className="mt-1 text-ink/70">
+            Enviamos por e-mail o link para definir a senha (vale por 7 dias). Se o e-mail não chegar, envie este link à pessoa:
+          </p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <code className="break-all rounded-lg bg-white px-2 py-1 text-[11px]">{inviteLink}</code>
+            <button type="button" className={btnSoft} onClick={() => navigator.clipboard.writeText(inviteLink).then(() => toast.success('Link copiado.'))}>
+              Copiar link
+            </button>
+          </div>
         </div>
       )}
+
+      {section === 'plans' && !isNew && <PlansEditor api={plansApi} commissionPercent={tenant.commissionPercent} />}
+      {section === 'clients' && !isNew && <ClientsList load={loadClients} />}
+      {section === 'finance' && !isNew && <FinancePanel load={loadFinance} onPayout={payout} />}
 
       {section === 'leads' && !isNew && <LeadsList load={loadLeads} />}
 
@@ -324,7 +337,7 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
                   <p className="mt-1 text-[11px] text-ink/50">Vira o endereço {form.slug || 'slug'}.pequi.me</p>
                 </div>
                 <div>
-                  <label className={labelCls}>E-mail do responsável (conta já criada no Pequi)</label>
+                  <label className={labelCls}>E-mail do responsável (acesso à administração do escritório)</label>
                   <input className={inputCls} type="email" value={form.ownerEmail} onChange={(e) => set('ownerEmail', e.target.value)} />
                 </div>
                 <div className="grid grid-cols-2 gap-3">

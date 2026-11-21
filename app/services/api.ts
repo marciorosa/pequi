@@ -582,9 +582,10 @@ export const adminService = {
   createTenantPlan: async (id: string, body: any) => (await api.post(`/admin/tenants/${id}/plans`, body)).data,
   updateTenantPlan: async (id: string, planId: string, body: any) => (await api.put(`/admin/tenants/${id}/plans/${planId}`, body)).data,
   tenantLeads: async (id: string) => (await api.get(`/admin/tenants/${id}/leads`)).data,
-  tenantStripeOnboard: async (id: string, returnUrl: string) => (await api.post(`/admin/tenants/${id}/stripe/onboard`, { returnUrl })).data,
-  tenantStripeRefresh: async (id: string) => (await api.post(`/admin/tenants/${id}/stripe/refresh`)).data,
-  tenantStripeDashboard: async (id: string) => (await api.post(`/admin/tenants/${id}/stripe/dashboard`)).data,
+  tenantClients: async (id: string) => (await api.get(`/admin/tenants/${id}/clients`)).data,
+  tenantFinance: async (id: string) => (await api.get(`/admin/tenants/${id}/finance`)).data,
+  createTenantPayout: async (id: string, body: { amount: string; paidAt?: string; note?: string }) =>
+    (await api.post(`/admin/tenants/${id}/payouts`, body)).data,
 };
 
 /** Área do escritório (dono e equipe de um escritório white-label) */
@@ -594,9 +595,8 @@ export const officeService = {
   createPlan: async (body: any) => (await api.post('/office/plans', body)).data,
   updatePlan: async (planId: string, body: any) => (await api.put(`/office/plans/${planId}`, body)).data,
   leads: async () => (await api.get('/office/leads')).data,
-  stripeOnboard: async (returnUrl: string) => (await api.post('/office/stripe/onboard', { returnUrl })).data,
-  stripeRefresh: async () => (await api.post('/office/stripe/refresh')).data,
-  stripeDashboard: async () => (await api.post('/office/stripe/dashboard')).data,
+  clients: async () => (await api.get('/office/clients')).data,
+  finance: async () => (await api.get('/office/finance')).data,
 };
 
 /** Cliente de um escritório: planos e assinatura */

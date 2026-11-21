@@ -102,7 +102,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
 
         <div className="p-6 border-t border-castanha-200 space-y-4">
           <MobileNavItem href={planHref} label="Plano" icon="plan" />
-          {isOfficeTeam && <MobileNavItem href="/dashboard/escritorio" label="Escritório" icon="admin" />}
+          {isOfficeTeam && <MobileNavItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon="admin" />}
           <MobileNavItem href="/dashboard/help" label="Ajuda" icon="help" />
           {isAdmin && <MobileNavItem href="/dashboard/admin" label="Administração" icon="admin" />}
           <button
@@ -192,7 +192,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
           <DockItem href="/dashboard/workflow-builder" label="Fluxos" icon={<ToolIcon name="flows" />} />
           <div className="w-px h-6 bg-castanha-200" />
           <DockItem href={planHref} label="Plano" icon={<ToolIcon name="plan" />} />
-          {isOfficeTeam && <DockItem href="/dashboard/escritorio" label="Escritório" icon={<ToolIcon name="admin" />} />}
+          {isOfficeTeam && <DockItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon={<ToolIcon name="admin" />} />}
           <DockItem href="/dashboard/help" label="Ajuda" icon={<ToolIcon name="help" />} />
           {isAdmin && (
             <>

@@ -23,6 +23,12 @@ async function frameAncestorsFor(key: string): Promise<string[]> {
   }
 }
 
+// Mantém o ?tenant=slug (teste do painel de um escritório) nos redirecionamentos de login
+function keepTenant(request: NextRequest, url: URL) {
+  const tenant = request.nextUrl.searchParams.get('tenant');
+  if (tenant !== null) url.searchParams.set('tenant', tenant);
+}
+
 export async function middleware(request: NextRequest) {
   // Chat embutido (widget white-label): só os sites cadastrados do escritório podem abrir o iframe
   if (request.nextUrl.pathname.startsWith('/embed')) {
@@ -45,6 +51,7 @@ export async function middleware(request: NextRequest) {
   if (isAuthRoute && !isValidToken) {
     const url = new URL('/login', request.url);
     url.searchParams.set('from', request.nextUrl.pathname);
+    keepTenant(request, url);
 
     // Clear any potentially invalid tokens
     const response = NextResponse.redirect(url);
@@ -55,7 +62,9 @@ export async function middleware(request: NextRequest) {
 
   // If trying to access login page with valid token, redirect to dashboard
   if (isLoginPage && isValidToken) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+    const url = new URL('/dashboard', request.url);
+    keepTenant(request, url);
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();

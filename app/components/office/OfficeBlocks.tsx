@@ -234,58 +234,219 @@ export function LeadsList({ load }: { load: () => Promise<{ conversations: any[]
   );
 }
 
-/* ------------------------------------ Stripe ------------------------------------ */
+/* ------------------------------------ clientes ------------------------------------ */
 
-type StripeApi = {
-  onboard: (returnUrl: string) => Promise<{ url: string }>;
-  refresh: () => Promise<{ stripe: any }>;
-  dashboard: () => Promise<{ url: string }>;
+const STATUS: Record<string, { label: string; cls: string }> = {
+  active: { label: 'Ativa', cls: 'bg-emerald-50 text-emerald-700' },
+  trialing: { label: 'Em teste', cls: 'bg-emerald-50 text-emerald-700' },
+  past_due: { label: 'Pagamento atrasado', cls: 'bg-amber-50 text-amber-700' },
+  unpaid: { label: 'Não paga', cls: 'bg-red-50 text-red-700' },
+  canceled: { label: 'Cancelada', cls: 'bg-castanha-100 text-ink/60' },
+  incomplete: { label: 'Incompleta', cls: 'bg-castanha-100 text-ink/60' },
+  incomplete_expired: { label: 'Expirada', cls: 'bg-castanha-100 text-ink/60' },
+  paused: { label: 'Pausada', cls: 'bg-castanha-100 text-ink/60' },
 };
+const day = (v?: string) => (v ? new Date(v).toLocaleDateString('pt-BR') : '—');
 
-export function StripeConnectCard({ stripe, api, returnUrl, onChange }: { stripe: any; api: StripeApi; returnUrl: string; onChange?: (s: any) => void }) {
-  const [busy, setBusy] = useState('');
-  const run = async (what: string, fn: () => Promise<void>) => {
-    setBusy(what);
-    try {
-      await fn();
-    } catch (e) {
-      toast.error(errorMessage(e, 'Não foi possível falar com o Stripe.'));
-    } finally {
-      setBusy('');
-    }
-  };
-  const status = !stripe?.accountId
-    ? { label: 'Não conectado', cls: 'bg-castanha-100 text-ink/60' }
-    : stripe.chargesEnabled
-      ? { label: 'Recebendo pagamentos', cls: 'bg-emerald-50 text-emerald-700' }
-      : { label: 'Cadastro pendente', cls: 'bg-amber-50 text-amber-700' };
-
+export function ClientsList({ load }: { load: () => Promise<{ clients: any[] }> }) {
+  const [rows, setRows] = useState<any[] | null>(null);
+  const [q, setQ] = useState('');
+  useEffect(() => {
+    load().then((d) => setRows(d.clients)).catch((e) => toast.error(errorMessage(e, 'Não foi possível carregar os clientes.')));
+  }, [load]);
+  const list = (rows || []).filter((r) => !q || `${r.name} ${r.email}`.toLowerCase().includes(q.toLowerCase()));
+  const active = (rows || []).filter((r) => r.subscription && ['active', 'trialing'].includes(r.subscription.status)).length;
   return (
     <div className={card}>
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <p className="text-sm font-semibold text-ink">Recebimentos (Stripe Connect)</p>
-        <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${status.cls}`}>{status.label}</span>
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-sm font-semibold text-ink">Usuários e planos contratados</p>
+          <p className="text-xs text-ink/50">{rows ? `${rows.length} conta(s) · ${active} assinatura(s) ativa(s)` : 'Carregando…'}</p>
+        </div>
+        <input className={`${inputCls} max-w-xs`} placeholder="Buscar por nome ou e-mail" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Buscar cliente" />
       </div>
-      <p className="mb-4 text-xs text-ink/60">
-        O escritório preenche CNPJ, dados bancários e documentos na página do próprio Stripe. Depois disso, as assinaturas dos clientes
-        caem na conta do escritório, já com a comissão do Pequi descontada.
-        {stripe?.accountId && <> Conta: <code className="text-[11px]">{stripe.accountId}</code>.</>}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {!stripe?.chargesEnabled && (
-          <button type="button" className={btnPrimary} disabled={!!busy} onClick={() => run('onboard', async () => { const d = await api.onboard(returnUrl); window.location.href = d.url; })}>
-            {busy === 'onboard' ? 'Abrindo…' : stripe?.accountId ? 'Continuar cadastro no Stripe' : 'Conectar Stripe'}
-          </button>
+      {rows && list.length === 0 && <p className="text-sm text-ink/50">Nenhum usuário.</p>}
+      {list.length > 0 && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="text-[10px] uppercase tracking-[0.2em] text-castanha-400">
+                <th className="py-2 pr-4">Usuário</th>
+                <th className="py-2 pr-4">Plano</th>
+                <th className="py-2 pr-4">Situação</th>
+                <th className="py-2 pr-4">Próxima cobrança</th>
+                <th className="py-2 pr-4">Total pago</th>
+                <th className="py-2">Cadastro</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-castanha-100">
+              {list.map((r) => {
+                const st = r.subscription ? STATUS[r.subscription.status] || { label: r.subscription.status, cls: 'bg-castanha-100 text-ink/60' } : null;
+                return (
+                  <tr key={r._id} className="align-top">
+                    <td className="py-2 pr-4">
+                      <p className="font-medium text-ink">
+                        {r.name} {r.role !== 'client' && <span className="ml-1 rounded-full bg-ink px-2 py-0.5 text-[10px] text-white">{r.role === 'owner' ? 'responsável' : 'equipe'}</span>}
+                      </p>
+                      <p className="text-xs text-ink/60">{r.email}</p>
+                    </td>
+                    <td className="py-2 pr-4">
+                      {r.subscription ? (
+                        <>
+                          <p className="text-ink">{r.subscription.plan || 'Plano'}</p>
+                          <p className="text-xs text-ink/50">{money(r.subscription.priceCents)} / {r.subscription.interval === 'year' ? 'ano' : 'mês'}</p>
+                        </>
+                      ) : (
+                        <span className="text-ink/40">Sem plano</span>
+                      )}
+                    </td>
+                    <td className="py-2 pr-4">
+                      {st ? <span className={`rounded-full px-2 py-0.5 text-xs ${st.cls}`}>{st.label}{r.subscription.cancelAtPeriodEnd ? ' (cancelando)' : ''}</span> : '—'}
+                    </td>
+                    <td className="py-2 pr-4 text-ink/70">{r.subscription && ['active', 'trialing', 'past_due'].includes(r.subscription.status) ? day(r.subscription.currentPeriodEnd) : '—'}</td>
+                    <td className="py-2 pr-4">{money(r.totalPaidCents || 0)}</td>
+                    <td className="py-2 text-ink/60">{day(r.createdAt)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------ extrato ------------------------------------ */
+
+function Box({ label, value, hint, strong }: { label: string; value: string; hint?: string; strong?: boolean }) {
+  return (
+    <div className={`rounded-2xl border p-4 ${strong ? 'border-pequi-200 bg-pequi-50' : 'border-castanha-200 bg-white'}`}>
+      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-400">{label}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-ink">{value}</p>
+      {hint && <p className="mt-1 text-xs text-ink/50">{hint}</p>}
+    </div>
+  );
+}
+
+/**
+ * Valores do escritório: bruto pago pelos clientes, comissão do Pequi, líquido,
+ * já repassado e saldo a receber. Com onPayout (admin do Pequi), registra repasses.
+ */
+export function FinancePanel({
+  load,
+  onPayout,
+}: {
+  load: () => Promise<any>;
+  onPayout?: (body: { amount: string; paidAt?: string; note?: string }) => Promise<any>;
+}) {
+  const [data, setData] = useState<any>(null);
+  const [form, setForm] = useState({ amount: '', paidAt: '', note: '' });
+  const [saving, setSaving] = useState(false);
+  const reload = useCallback(() => {
+    load().then(setData).catch((e) => toast.error(errorMessage(e, 'Não foi possível carregar os valores.')));
+  }, [load]);
+  useEffect(reload, [reload]);
+  if (!data) return <div className={card}><p className="text-sm text-ink/50">Carregando…</p></div>;
+  const t = data.totals;
+
+  return (
+    <div className="space-y-6">
+      <div className={card}>
+        <p className="mb-1 text-sm font-semibold text-ink">Valores</p>
+        <p className="mb-4 text-xs text-ink/50">
+          Os clientes pagam na conta do Pequi. Comissão do Pequi em vigor: {data.commissionPercent}%. Valores antes das tarifas do Stripe.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <Box label="Pago pelos clientes" value={money(t.grossCents)} hint={`${t.invoices} fatura(s) · ${money(t.month.grossCents)} neste mês`} />
+          <Box label="Comissão do Pequi" value={money(t.commissionCents)} hint={`${money(t.month.commissionCents)} neste mês`} />
+          <Box label="Valor do escritório" value={money(t.netCents)} hint={`${money(t.month.netCents)} neste mês`} />
+          <Box label="Já repassado" value={money(t.paidOutCents)} />
+          <Box label="A receber" value={money(t.balanceCents)} strong />
+        </div>
+      </div>
+
+      <div className={card}>
+        <p className="mb-4 text-sm font-semibold text-ink">Faturas pagas</p>
+        {data.earnings.length === 0 && <p className="text-sm text-ink/50">Nenhuma fatura paga ainda.</p>}
+        {data.earnings.length > 0 && (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="text-[10px] uppercase tracking-[0.2em] text-castanha-400">
+                  <th className="py-2 pr-4">Data</th>
+                  <th className="py-2 pr-4">Cliente</th>
+                  <th className="py-2 pr-4">Plano</th>
+                  <th className="py-2 pr-4">Valor pago</th>
+                  <th className="py-2 pr-4">Comissão</th>
+                  <th className="py-2">Escritório</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-castanha-100">
+                {data.earnings.map((e: any) => (
+                  <tr key={e._id}>
+                    <td className="py-2 pr-4 text-ink/70">{day(e.paidAt)}</td>
+                    <td className="py-2 pr-4">{e.client ? `${e.client.name} (${e.client.email})` : '—'}</td>
+                    <td className="py-2 pr-4">{e.plan || '—'}</td>
+                    <td className="py-2 pr-4">{money(e.amountCents)}</td>
+                    <td className="py-2 pr-4">{money(e.commissionCents)} <span className="text-xs text-ink/50">({e.commissionPercent}%)</span></td>
+                    <td className="py-2 font-medium">{money(e.netCents)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
-        {stripe?.accountId && (
-          <button type="button" className={btnSoft} disabled={!!busy} onClick={() => run('refresh', async () => { const d = await api.refresh(); onChange?.(d.stripe); toast.success('Situação atualizada.'); })}>
-            {busy === 'refresh' ? 'Consultando…' : 'Atualizar situação'}
-          </button>
+      </div>
+
+      <div className={card}>
+        <p className="mb-4 text-sm font-semibold text-ink">Repasses ao escritório</p>
+        {onPayout && (
+          <div className="mb-4 grid gap-3 rounded-2xl border border-castanha-200 bg-castanha-25 p-4 sm:grid-cols-[1fr_1fr_2fr_auto] sm:items-end">
+            <div>
+              <label className={labelCls}>Valor (R$)</label>
+              <input className={inputCls} inputMode="decimal" value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder={(t.balanceCents / 100).toFixed(2).replace('.', ',')} />
+            </div>
+            <div>
+              <label className={labelCls}>Data</label>
+              <input className={inputCls} type="date" value={form.paidAt} onChange={(e) => setForm({ ...form, paidAt: e.target.value })} />
+            </div>
+            <div>
+              <label className={labelCls}>Observação</label>
+              <input className={inputCls} value={form.note} onChange={(e) => setForm({ ...form, note: e.target.value })} placeholder="Ex.: PIX de novembro" />
+            </div>
+            <button
+              type="button"
+              className={btnPrimary}
+              disabled={saving || !form.amount}
+              onClick={async () => {
+                setSaving(true);
+                try {
+                  await onPayout(form);
+                  toast.success('Repasse registrado.');
+                  setForm({ amount: '', paidAt: '', note: '' });
+                  reload();
+                } catch (e) {
+                  toast.error(errorMessage(e, 'Não foi possível registrar o repasse.'));
+                } finally {
+                  setSaving(false);
+                }
+              }}
+            >
+              Registrar repasse
+            </button>
+          </div>
         )}
-        {stripe?.detailsSubmitted && (
-          <button type="button" className={btnSoft} disabled={!!busy} onClick={() => run('dash', async () => { const d = await api.dashboard(); window.open(d.url, '_blank', 'noopener'); })}>
-            Painel do Stripe
-          </button>
+        {data.payouts.length === 0 && <p className="text-sm text-ink/50">Nenhum repasse registrado.</p>}
+        {data.payouts.length > 0 && (
+          <ul className="divide-y divide-castanha-100 text-sm">
+            {data.payouts.map((p: any) => (
+              <li key={p._id} className="flex justify-between gap-4 py-2">
+                <span className="text-ink/70">{day(p.paidAt)}{p.note ? ` · ${p.note}` : ''}</span>
+                <span className="font-medium">{money(p.amountCents)}</span>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </div>
