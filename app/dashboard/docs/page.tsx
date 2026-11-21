@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../../contexts/TenantContext';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '../../components/DashboardLayout';
@@ -214,6 +215,7 @@ const templateOptionsByType: Record<string, string[]> = {
 };
 
 export default function DocumentGenerationPage() {
+  const brand = useBrand();
    const [,] = useState<DocHistoryItem[]>([]);
    const [selectedTool, setSelectedTool] = useState<DocTool>('limpa-nome');
    const [recentDocuments, setRecentDocuments] = useState<DocHistoryItem[]>([]);
@@ -1029,8 +1031,8 @@ export default function DocumentGenerationPage() {
                                     pdf.setProperties({
                                        title: 'Relatório de Análise de Documento',
                                        subject: 'Análise de Documento Jurídico',
-                                       author: 'Pequi',
-                                       creator: 'Análise de Documentos Pequi'
+                                       author: brand.name,
+                                       creator: `Análise de Documentos ${brand.name}`
                                     });
 
                                     // Define margins and dimensions
@@ -1072,7 +1074,7 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`Pequi | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, footerY, { align: 'center' });
+                                       pdf.text(`${brand.name} | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, footerY, { align: 'center' });
 
                                        return margin;
                                     };
@@ -1332,7 +1334,7 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`Pequi | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`${brand.name} | Análise de Documento | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
                                        pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 
@@ -1621,8 +1623,8 @@ export default function DocumentGenerationPage() {
                                     pdf.setProperties({
                                        title: 'Relatório de Comparação de Documentos',
                                        subject: 'Comparação de Documentos Jurídicos',
-                                       author: 'Pequi',
-                                       creator: 'Comparação de Documentos Pequi'
+                                       author: brand.name,
+                                       creator: `Comparação de Documentos ${brand.name}`
                                     });
 
                                     // Define margins and dimensions
@@ -1770,7 +1772,7 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`Pequi | Comparação de Documentos | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`${brand.name} | Comparação de Documentos | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
                                        pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 
@@ -2059,8 +2061,8 @@ export default function DocumentGenerationPage() {
                                     pdf.setProperties({
                                        title: (agreementResult as AgreementResult).title || 'Contrato Jurídico',
                                        subject: 'Documento de Contrato Jurídico',
-                                       author: 'Pequi',
-                                       creator: 'Criador de Documentos Pequi'
+                                       author: brand.name,
+                                       creator: `Criador de Documentos ${brand.name}`
                                     });
 
                                     // Define margins and dimensions
@@ -2202,7 +2204,7 @@ export default function DocumentGenerationPage() {
                                        pdf.setFont("helvetica", "normal");
                                        pdf.setFontSize(10);
                                        pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-                                       pdf.text(`Pequi | Contrato Jurídico | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+                                       pdf.text(`${brand.name} | Contrato Jurídico | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
                                        pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
                                     }
 

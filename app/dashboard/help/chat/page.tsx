@@ -33,7 +33,7 @@ export default function ChatSupportPage() {
     {
       id: '1',
       type: 'system',
-      content: 'Olá. Sou o concierge de suporte do Pequi. Como posso ajudar você hoje?',
+      content: 'Olá. Sou o concierge de suporte. Como posso ajudar você hoje?',
       timestamp: new Date()
     }
   ]);
@@ -150,7 +150,7 @@ export default function ChatSupportPage() {
     } else if (lowerCaseMessage.includes('secure') || lowerCaseMessage.includes('encrypt') || lowerCaseMessage.includes('segur') || lowerCaseMessage.includes('criptograf')) {
       response = faqs[2].answer;
     } else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('olá') || lowerCaseMessage.includes('oi')) {
-      response = 'Olá! Estou aqui para facilitar sua experiência com o Pequi. Como posso ajudar?';
+      response = 'Olá! Estou aqui para facilitar sua experiência. Como posso ajudar?';
     } else if (lowerCaseMessage.includes('human') || lowerCaseMessage.includes('agent') || lowerCaseMessage.includes('atendente')) {
       // Não há atendimento humano em tempo real neste chat: encaminha para o formulário
       response = 'Este chat responde automaticamente às dúvidas mais comuns. Para falar com a nossa equipe, envie uma solicitação pelo formulário de contato ou por e-mail. Respondemos em até 24 horas úteis, de segunda a sexta (horário de Brasília).';

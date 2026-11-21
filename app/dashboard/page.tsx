@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../contexts/TenantContext';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { aiService } from '../services/api';
@@ -12,6 +13,7 @@ import './enhanced-query.css';
 const SEARCH_ERROR_MESSAGE = 'Não foi possível concluir a pesquisa. Tente novamente em instantes; esta tentativa não consumiu sua cota.';
 
 export default function DashboardPage() {
+  const brand = useBrand();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [enhancedQuery, setEnhancedQuery] = useState<string | null>(null);
@@ -86,7 +88,7 @@ export default function DashboardPage() {
     const fileDownload = document.createElement('a');
     document.body.appendChild(fileDownload);
     fileDownload.href = source;
-    fileDownload.download = 'Pequi_Minuta.doc';
+    fileDownload.download = `${brand.name.replace(/[^A-Za-z0-9]+/g, '_')}_Minuta.doc`;
     fileDownload.click();
     document.body.removeChild(fileDownload);
   };
@@ -130,7 +132,7 @@ export default function DashboardPage() {
               <div className="p-5 rounded-2xl bg-white/60 border border-castanha-200 space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Importante</span>
                 <p className="text-sm font-medium text-ink/70 leading-relaxed">
-                  As respostas são geradas por inteligência artificial e têm caráter apenas informativo. O Pequi não é um escritório de advocacia e não presta consultoria jurídica. Para avaliar o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+                  As respostas são geradas por inteligência artificial e têm caráter apenas informativo. {brand.tenant ? `${brand.subject} não presta consultoria jurídica: para avaliar o seu caso, fale com um advogado do escritório.` : 'O Pequi não é um escritório de advocacia e não presta consultoria jurídica. Para avaliar o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
                 </p>
               </div>
             </div>

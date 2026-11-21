@@ -164,3 +164,18 @@ export function TenantProvider({ children }: { children: ReactNode }) {
 }
 
 export const useTenant = () => useContext(TenantContext);
+
+/**
+ * Nome da marca em uso nas telas: o do escritório (white-label) ou "Pequi".
+ * Frases sobre a ferramenta usam "a assistente de <escritório>" no painel do escritório.
+ */
+export function useBrand() {
+  const { tenant } = useTenant();
+  return {
+    tenant,
+    name: tenant?.name || 'Pequi',
+    assistant: tenant ? `Assistente ${tenant.name}` : 'Assistente Pequi',
+    /** Sujeito das frases de aviso: "O Pequi" ou "A assistente de <escritório>" */
+    subject: tenant ? `A assistente de ${tenant.name}` : 'O Pequi',
+  };
+}

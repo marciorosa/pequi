@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../../contexts/TenantContext';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '../../components/DashboardLayout';
@@ -33,6 +34,7 @@ interface Chat {
 }
 
 export default function ChatPage() {
+  const brand = useBrand();
   const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -42,6 +44,18 @@ export default function ChatPage() {
       timestamp: new Date(),
     }
   ]);
+
+  // No painel de um escritório (white-label), a saudação usa o nome do escritório
+  useEffect(() => {
+    if (!brand.tenant) return;
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === '1' && m.role === 'assistant'
+          ? { ...m, content: `Olá! Sou a assistente de IA de ${brand.name}. Posso explicar temas jurídicos em linguagem simples. Lembre que não sou advogada: minhas respostas são informativas e não substituem a análise do seu caso por um profissional.` }
+          : m
+      )
+    );
+  }, [brand.tenant, brand.name]);
 
   const [currentChatId, setCurrentChatId] = useState<string | null>(null);
   const [recentChats, setRecentChats] = useState<Chat[]>([]);
@@ -497,7 +511,7 @@ export default function ChatPage() {
                 <div className="flex items-center gap-1.5 text-terra-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
               </div>
               <p className="text-[11px] font-medium text-foreground/40 text-center leading-relaxed pt-1">
-                Respostas geradas por IA, com caráter informativo. O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+                Respostas geradas por IA, com caráter informativo. {brand.tenant ? `${brand.subject} não presta consultoria jurídica; para o seu caso, fale com um advogado do escritório.` : 'O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
               </p>
 
               <style jsx>{`

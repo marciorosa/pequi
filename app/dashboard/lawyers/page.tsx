@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../../contexts/TenantContext';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -25,6 +26,7 @@ const categories = {
 };
 
 export default function LawyersPage() {
+  const brand = useBrand();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [lawyersList, setLawyersList] = useState<LawyerData[]>([]);
@@ -88,7 +90,7 @@ export default function LawyersPage() {
   };
 
   return (
-    <DashboardLayout title="Pequi">
+    <DashboardLayout title={brand.name}>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-6">

@@ -18,7 +18,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const searchParamsForError = useSearchParams();
   const [error, setError] = useState(
-    searchParamsForError.get('bloqueado') ? 'Esta conta está bloqueada. Fale com o suporte do Pequi.' : ''
+    searchParamsForError.get('bloqueado') ? 'Esta conta está bloqueada. Fale com o suporte.' : ''
   );
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
@@ -130,6 +130,7 @@ function LoginForm() {
 
 function LoginAside() {
   const { tenant } = useTenant();
+  const brandSubject = tenant ? `A assistente de ${tenant.name}` : 'O Pequi';
   return (
     <>
       <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
@@ -182,8 +183,9 @@ function LoginAside() {
       <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
         <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Importante</p>
         <p className="text-[1.0625rem] leading-[175%] text-castanha-600">
-          O Pequi é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. Não é um
-          escritório de advocacia e não substitui a análise do seu caso por um advogado inscrito na OAB ou pela Defensoria Pública.
+          {tenant
+            ? `${brandSubject} é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. As respostas são informativas e não substituem a análise do seu caso por um advogado.`
+            : 'O Pequi é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. Não é um escritório de advocacia e não substitui a análise do seu caso por um advogado inscrito na OAB ou pela Defensoria Pública.'}
         </p>
       </div>
     </>

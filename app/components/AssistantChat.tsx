@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../contexts/TenantContext';
 import { useState, useRef, useEffect } from 'react';
 import { aiService } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
@@ -12,6 +13,7 @@ interface Message {
 }
 
 export default function AssistantChat() {
+  const brand = useBrand();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -99,7 +101,7 @@ export default function AssistantChat() {
       {/* Chat header */}
       <div className="flex items-center justify-between border-b border-castanha-200 px-6 py-5 md:px-8 md:py-6">
         <div>
-          <h3 className="text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Assistente Pequi</h3>
+          <h3 className="text-[1.125rem] font-medium text-ink md:text-[1.25rem]">{brand.assistant}</h3>
           <p className="mt-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
             Assistente de IA · conteúdo informativo
           </p>
@@ -178,7 +180,7 @@ export default function AssistantChat() {
           </button>
         </div>
         <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
-          Com a inteligência do Pequi
+          {brand.tenant ? brand.name : 'Com a inteligência do Pequi'}
         </p>
       </form>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../../contexts/TenantContext';
 import { useState } from 'react';
 import Link from 'next/link';
 import DashboardLayout from '../../components/DashboardLayout';
@@ -11,18 +12,19 @@ interface FAQItem {
 }
 
 export default function HelpPage() {
+  const brand = useBrand();
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   // Sample FAQs
   const faqs: FAQItem[] = [
     {
-      question: "Como começo a usar o Pequi?",
+      question: `Como começo a usar ${brand.tenant ? "a assistente" : "o Pequi"}?`,
       answer: "Para começar, basta entrar na sua conta e acessar o painel. Lá você encontra nossos assistentes de chat com IA, ferramentas de documentos e outros recursos. Recomendamos começar com uma pergunta simples no chat para se familiarizar com a forma como nossa IA responde."
     },
     {
       question: "Que tipos de documentos jurídicos posso criar?",
-      answer: "O Pequi pode ajudar você a criar diversos documentos jurídicos, incluindo contratos, acordos, contratos de locação, testamentos e muito mais. Acesse a seção Documentos no seu painel para conhecer todas as opções de criação e os modelos disponíveis."
+      answer: `${brand.subject} pode ajudar você a criar diversos documentos jurídicos, incluindo contratos, acordos, contratos de locação, testamentos e muito mais. Acesse a seção Documentos no seu painel para conhecer todas as opções de criação e os modelos disponíveis.`
     },
     {
       question: "Qual é a precisão das informações jurídicas fornecidas?",
@@ -30,7 +32,7 @@ export default function HelpPage() {
     },
     {
       question: "Posso falar com um advogado de verdade pela plataforma?",
-      answer: "Não. O Pequi é uma ferramenta de inteligência artificial com conteúdo informativo e não presta serviços de advocacia, nem indica advogados ou escritórios. Se o seu caso precisar de um profissional, procure um advogado de sua confiança inscrito na OAB, a Defensoria Pública ou o serviço de assistência jurídica da OAB do seu estado."
+      answer: `Não. ${brand.subject} é uma ferramenta de inteligência artificial com conteúdo informativo e não presta serviços de advocacia, nem indica advogados ou escritórios. Se o seu caso precisar de um profissional, procure um advogado de sua confiança inscrito na OAB, a Defensoria Pública ou o serviço de assistência jurídica da OAB do seu estado.`
     },
     {
       question: "Como faço upgrade da minha assinatura?",
