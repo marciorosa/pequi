@@ -14,9 +14,9 @@ const Footer = () => {
           <div>
             <PequiWordmark />
             <p className="mt-5 max-w-md text-2xl font-medium leading-snug tracking-tight">
-              Sua inteligência jurídica
+              A IA jurídica com a
               <br />
-              <span className="pq-accent text-[1.15em]">acessível.</span>
+              <span className="pq-accent text-[1.15em]">marca do seu escritório.</span>
             </p>
           </div>
           <Link
@@ -32,7 +32,7 @@ const Footer = () => {
 
         <div className="grid grid-cols-2 gap-9 py-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <p className="col-span-2 max-w-xs text-sm leading-relaxed opacity-70 md:col-span-1">
-            Inteligência jurídica em linguagem simples para pessoas, famílias e pequenos negócios.
+            Assistente jurídica com IA, white-label, para escritórios de advocacia oferecerem aos seus clientes.
           </p>
           <nav aria-label="Produtos" className={col}>
             <p className={label}>Produtos</p>
@@ -45,11 +45,11 @@ const Footer = () => {
             <p className={label}>Plataforma</p>
             <Link href="/#features">Recursos</Link>
             <Link href="/#why">Por que nós</Link>
-            <Link href="/#pricing">Planos e preços</Link>
             <Link href="/#faq">Perguntas frequentes</Link>
           </nav>
           <nav aria-label="Empresa" className={col}>
             <p className={label}>Empresa</p>
+            <Link href="/pricing">Preços e planos</Link>
             <Link href="/company">Sobre nós</Link>
             <Link href="/security">Segurança</Link>
             <Link href="/login">Entrar</Link>

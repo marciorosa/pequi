@@ -7,10 +7,10 @@ import { useAuth } from '../contexts/AuthContext';
 import PequiWordmark from './PequiWordmark';
 
 // Menu no formato do da Lucia. Os produtos ficam listados direto no menu,
-// depois de "Empresa" (sem a lista suspensa "Produtos"). "Segurança" saiu do
+// depois de "Preços" (sem a lista suspensa "Produtos"). "Segurança" saiu do
 // menu e continua no rodapé.
 const navLinks = [
-  { label: 'Empresa', href: '/company' },
+  { label: 'Preços', href: '/pricing' },
   { label: 'Assistentes de IA', href: '/assistant' },
   { label: 'Acesso ao Cofre', href: '/vault' },
   { label: 'Base de Conhecimento', href: '/knowledge' },

@@ -6,37 +6,37 @@ const capabilities = [
     icon: '↔',
     title: 'Assistentes de IA',
     description:
-      'Conecte-se a assistentes jurídicos especializados em consumo, trabalho, família, moradia e contratos para decidir com mais tranquilidade.',
+      'Seus clientes conversam com assistentes especializados em consumo, trabalho, família, moradia e contratos, com o nome do escritório.',
   },
   {
     icon: '✳',
-    title: 'Inteligência de Conhecimento',
+    title: 'Chat no site do escritório',
     description:
-      'Encontre explicações rápidas sobre leis e sobre os seus documentos com buscas simples.',
+      'Um código simples coloca a assistente no seu site. Ela atende os visitantes e pede o contato para a sua equipe.',
   },
   {
     icon: '⇄',
     title: 'Documentos',
     description:
-      'Crie, analise e compare documentos com ajuda da IA e mantenha tudo organizado. Revise sempre o resultado antes de usar.',
+      'Os clientes criam, analisam e comparam documentos com ajuda da IA. Os PDFs saem com o nome do escritório.',
   },
   {
     icon: '⌘',
-    title: 'Central de Canais',
+    title: 'Marca do escritório',
     description:
-      'Reúna conversas, arquivos e anotações sobre seus assuntos jurídicos para que tudo fique guardado em um único lugar seguro.',
+      'Logo, cores, nome e domínio próprio. A IA e os e-mails também usam o nome do escritório, não o do Pequi.',
   },
   {
     icon: '▤',
     title: 'Fluxos de trabalho',
     description:
-      'Monte sequências de etapas com ajuda da IA (plano Pro) para organizar tarefas que se repetem.',
+      'Sequências de etapas com ajuda da IA para organizar tarefas que se repetem no atendimento.',
   },
   {
     icon: '◉',
     title: 'Cofre e Segurança',
     description:
-      'Guarde documentos pessoais em pastas protegidas por senha, armazenadas na nuvem da AWS (plano Pro).',
+      'Os clientes guardam documentos em pastas protegidas por senha, armazenadas na nuvem da AWS.',
   },
 ];
 
@@ -45,9 +45,9 @@ export default function PlatformCapabilitiesSection() {
     <FadeInSection delay={0.17}>
       <section id="platform-capabilities" className="scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <h3 className={sectionHeadingClass}>Descubra o que o Pequi <span className="pq-accent text-[1.1em]">pode fazer</span></h3>
+          <h3 className={sectionHeadingClass}>O que o seu escritório <span className="pq-accent text-[1.1em]">passa a oferecer</span></h3>
           <p className={`${sectionSubTextClass} mt-4 mb-10 max-w-[38rem]`}>
-            Simplifique sua vida jurídica com explicações claras, documentos organizados e ferramentas de IA.
+            Uma assistente jurídica completa para os seus clientes, pronta para usar com a sua marca.
           </p>
 
           <div className="overflow-hidden rounded-[1.25rem] border border-castanha-200 bg-white">

@@ -14,28 +14,28 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
 
   const faqs = [
     {
-      question: "O que está incluído no plano gratuito?",
-      answer: "O plano Gratuito dá acesso a 5 pesquisas de Inteligência com IA, 5 mensagens no Chat e 5 Assistentes de IA (Penal, Civil, Empresarial, Família e Migração) para você experimentar a plataforma. Essas quantidades não renovam."
+      question: "Quem paga a assinatura?",
+      answer: "O escritório. Os clientes do escritório usam a assistente sem custo, dentro do plano do escritório."
     },
     {
-      question: "Posso mudar de plano a qualquer momento?",
-      answer: "Sim, você pode fazer upgrade para o Pro a qualquer momento. As alterações entram em vigor imediatamente."
+      question: "O que o escritório recebe no plano Pro?",
+      answer: "Painel com logo, cores e nome do escritório, chat de atendimento para colar no site, IA e e-mails com o nome do escritório, lista de clientes e contatos deixados no chat."
     },
     {
-      question: "Meus dados estão seguros?",
-      answer: "A comunicação usa conexão criptografada (HTTPS) e os arquivos do Cofre ficam na AWS (Amazon S3), com acesso restrito à sua conta."
+      question: "Quanto cada cliente pode usar?",
+      answer: "No Pro, cada cliente do escritório tem 50 pesquisas, 50 mensagens e 50 operações com documentos por mês, renovadas a cada ciclo. No Enterprise, o uso é ilimitado."
     },
     {
-      question: "Como funcionam os créditos do plano Pro?",
-      answer: "O plano Pro oferece 50 pesquisas, 50 mensagens e 50 operações com documentos por ciclo de cobrança. Esses limites são renovados automaticamente no início do próximo ciclo de cobrança."
+      question: "Posso usar o endereço do meu escritório?",
+      answer: "Sim. O painel pode ficar em um endereço do escritório (por exemplo, ia.seuescritorio.com.br) ou em um subdomínio do Pequi."
     },
     {
       question: "Quais formas de pagamento vocês aceitam?",
-      answer: "No momento, aceitamos apenas cartão de crédito, processado pela Stripe."
+      answer: "Cartão de crédito, processado pela Stripe. No Enterprise, combinamos a forma de pagamento com o escritório."
     },
     {
-      question: "Posso cancelar minha assinatura a qualquer momento?",
-      answer: "Sim, você pode cancelar sua assinatura pelo painel a qualquer momento. Você continuará com acesso até o fim do período de cobrança atual."
+      question: "Posso cancelar a assinatura a qualquer momento?",
+      answer: "Sim. O acesso do escritório e dos clientes continua até o fim do período já pago."
     }
   ];
 
@@ -82,14 +82,14 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         <div className="container mx-auto max-w-7xl relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
             <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Seleção de planos</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Planos para escritórios</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Investimento <span className="font-light opacity-60 italic">consciente.</span>
+            Sua marca, <span className="font-light opacity-60 italic">nossa IA.</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            Inteligência jurídica acessível. Escolha o plano ideal para o tamanho da sua necessidade.
+            O escritório assina e oferece aos clientes uma assistente jurídica com a própria marca. Os clientes não pagam nada.
           </p>
 
           {/* Billing Toggle */}
@@ -205,7 +205,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
               </div>
               <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="font-light opacity-60 italic">planos.</span></h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
-                Recursos detalhados de cada plano para suas necessidades.
+                Limites de uso de cada cliente do escritório, por mês.
               </p>
             </div>
           </div>
@@ -223,6 +223,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
                 </thead>
                 <tbody className="divide-y divide-castanha-200">
                   {[
+                    { feature: 'Marca do escritório e chat no site', starter: '✗', pro: '✓', enterprise: '✓' },
                     { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
                     { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
                     { feature: 'Assistentes de IA', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
@@ -251,7 +252,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="font-light opacity-60 italic">frequentes.</span></h2>
             <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
-              Respostas simples sobre planos e pagamentos.
+              Respostas simples sobre o white-label, os planos e os pagamentos.
             </p>
           </div>
 
@@ -275,10 +276,10 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cerrado-950/10 to-transparent" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
-            Amplie sua <span className="font-light opacity-60 italic">inteligência.</span>
+            Leve a IA para <span className="font-light opacity-60 italic">o seu escritório.</span>
           </h2>
           <p className="text-foreground/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
-            Organize seus assuntos jurídicos com o Pequi hoje mesmo. Não é preciso cartão de crédito para começar.
+            Comece pelo plano Gratuito ou fale com a gente para configurar a marca do seu escritório.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5 shadow-2xl">

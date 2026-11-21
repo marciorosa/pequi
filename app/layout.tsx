@@ -63,9 +63,9 @@ const interTight = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pequi - Inteligência Jurídica Acessível",
-  description: "IA jurídica para pessoas, famílias e pequenos negócios entenderem seus direitos e contratos sem juridiquês.",
-  keywords: "IA, tecnologia jurídica, direito, inteligência artificial, assistente jurídico, pesquisa jurídica, Pequi",
+  title: "Pequi - IA jurídica white-label para escritórios",
+  description: "Ofereça aos clientes do seu escritório uma assistente jurídica com IA, com o logo, as cores e o nome do escritório. O escritório assina e os clientes usam sem custo.",
+  keywords: "IA jurídica, white-label, escritório de advocacia, assistente jurídico, chat jurídico para site, B2B, Pequi",
   icons: {
     icon: "/logo/favicon.png",
     shortcut: "/logo/favicon.png",

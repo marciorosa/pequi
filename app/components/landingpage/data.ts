@@ -40,28 +40,28 @@ export const testimonials = [
 
 export const faqs: { question: string; answer: string }[] = [
   {
-    question: 'Como o Pequi protege meus dados pessoais?',
+    question: 'Como funciona o white-label?',
     answer:
-      'Usamos criptografia em trânsito e em repouso, acesso controlado por você, registros de atividade e cuidados alinhados à forma como a LGPD trata informações pessoais e dados sigilosos.',
+      'O escritório assina o Pequi e cadastra logo, cores e nome. O painel, o chat do site, a IA e os e-mails passam a usar a marca do escritório. Os clientes não veem o nome do Pequi.',
   },
   {
-    question: 'Posso compartilhar casos e contratos com meu advogado?',
+    question: 'Os clientes do escritório pagam alguma coisa?',
     answer:
-      'Sim. Espaços de trabalho compartilhados, comentários e histórico de versões ajudam você, sua família, seu negócio e o seu advogado de confiança a manterem tudo alinhado sem perder o controle de documentos sensíveis.',
+      'Não. Quem assina é o escritório. Os clientes usam a assistente dentro do plano do escritório, sem custo e sem cadastro de cartão.',
   },
   {
-    question: 'A IA substitui o meu advogado?',
+    question: 'A IA substitui o advogado do escritório?',
     answer:
-      'Não. O Pequi ajuda você a entender sua situação e se preparar melhor, mas casos complexos, prazos e ações judiciais sempre pedem um bom advogado de confiança ao seu lado.',
+      'Não. A assistente explica temas jurídicos em linguagem simples e organiza as informações. A análise do caso continua com a equipe do escritório, que recebe os contatos dos clientes.',
   },
   {
-    question: 'Em quanto tempo eu já consigo começar a usar o Pequi?',
+    question: 'Como coloco o chat no site do escritório?',
     answer:
-      'Basta criar sua conta gratuita para começar em poucos minutos. Oferecemos primeiros passos guiados e, se preferir, nossa equipe ajuda por e-mail, telefone ou chat ao vivo.',
+      'Cadastramos o endereço do seu site e geramos um código. Basta colar esse código nas páginas do site. O chat só funciona nos endereços autorizados.',
   },
   {
-    question: 'Vocês oferecem suporte para pessoas físicas?',
+    question: 'Como os dados dos clientes são protegidos?',
     answer:
-      'Sim. Qualquer pessoa pode falar com a nossa equipe por e-mail e telefone, e normalmente respondemos em até um dia útil às suas mensagens.',
+      'A comunicação usa conexão criptografada (HTTPS), os arquivos do Cofre ficam na AWS com acesso restrito à conta de cada cliente, e cada escritório vê apenas os próprios clientes e contatos.',
   },
 ];

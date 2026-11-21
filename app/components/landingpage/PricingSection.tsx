@@ -26,9 +26,9 @@ export default function PricingSection() {
       <section id="pricing" className="bg-[#eeece4] scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
           <div className="mx-auto max-w-[840px] text-center">
-            <h3 className={sectionHeadingClass}>Preços simples para <span className="pq-accent text-[1.1em]">cada necessidade</span></h3>
+            <h3 className={sectionHeadingClass}>Um plano para o <span className="pq-accent text-[1.1em]">seu escritório</span></h3>
             <p className={`${sectionSubTextClass} mt-4`}>
-              Escolha o plano ideal para o seu momento e cuide dos seus direitos com mais segurança e tranquilidade.
+              O escritório assina e oferece a assistente aos clientes, com a própria marca. Os clientes não pagam nada.
             </p>
           </div>
 
