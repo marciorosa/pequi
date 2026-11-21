@@ -90,7 +90,15 @@ function AssinarContent() {
       {tenant.billingReady && plans && plans.length > 0 && (
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {plans.map((p) => (
-            <div key={p._id} className="flex flex-col rounded-[1.5rem] border border-castanha-200 bg-white p-6">
+            <div
+              key={p._id}
+              className={`relative flex flex-col rounded-[1.5rem] border bg-white p-6 ${p.popular ? 'border-pequi-500 shadow-[0_18px_40px_-20px_var(--pequi-500)] ring-1 ring-pequi-500' : 'border-castanha-200'}`}
+            >
+              {p.popular && (
+                <span className="absolute -top-3 left-6 rounded-full bg-pequi-500 px-3 py-1 text-[11px] font-semibold" style={{ color: 'var(--pq-on-brand)' }}>
+                  Mais popular
+                </span>
+              )}
               <p className="text-lg font-semibold text-ink">{p.name}</p>
               {p.description && <p className="mt-1 text-sm text-castanha-600">{p.description}</p>}
               <p className="mt-4 text-3xl font-semibold text-ink">
@@ -101,7 +109,9 @@ function AssinarContent() {
                 {(p.features || []).map((f: string) => (
                   <li key={f}>• {f}</li>
                 ))}
-                <li>• {p.limits?.chatCount === null ? 'Mensagens sem limite' : `${p.limits?.chatCount} mensagens no chat`}</li>
+                {(!p.features || p.features.length === 0) && (
+                  <li>• {p.limits?.chatCount === null ? 'Mensagens sem limite' : `${p.limits?.chatCount} mensagens no chat`}</li>
+                )}
               </ul>
               {isAuthenticated ? (
                 <button

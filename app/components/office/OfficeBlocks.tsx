@@ -41,6 +41,7 @@ const emptyPlan = () => ({
   features: '',
   limits: { chatCount: '100', searchCount: '50', docsCount: '20', vaultFolderCount: '10', workflowCount: '0' } as Record<string, string>,
   active: true,
+  popular: false,
 });
 
 const toForm = (p: any) => ({
@@ -51,6 +52,7 @@ const toForm = (p: any) => ({
   features: (p.features || []).join('\n'),
   limits: Object.fromEntries(LIMITS.map((l) => [l.key, p.limits?.[l.key] === null ? '' : String(p.limits?.[l.key] ?? 0)])),
   active: p.active,
+  popular: Boolean(p.popular),
 });
 
 export function PlansEditor({ api, canEdit = true, commissionPercent }: { api: PlanApi; canEdit?: boolean; commissionPercent?: number }) {
@@ -139,10 +141,16 @@ export function PlansEditor({ api, canEdit = true, commissionPercent }: { api: P
             <label className={labelCls}>Itens do plano (um por linha)</label>
             <textarea className={inputCls} rows={3} value={form.features} onChange={(e) => setForm({ ...form, features: e.target.value })} />
           </div>
-          <label className="flex items-center gap-2 text-sm text-ink/70">
-            <input type="checkbox" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />
-            Plano à venda
-          </label>
+          <div className="flex flex-wrap gap-4">
+            <label className="flex items-center gap-2 text-sm text-ink/70">
+              <input type="checkbox" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />
+              Plano à venda
+            </label>
+            <label className="flex items-center gap-2 text-sm text-ink/70">
+              <input type="checkbox" checked={form.popular} onChange={(e) => setForm({ ...form, popular: e.target.checked })} />
+              Destacar como &quot;Mais popular&quot;
+            </label>
+          </div>
           {commissionPercent !== undefined && price > 0 && (
             <p className="text-xs text-ink/60 sm:text-right">
               Comissão do Pequi ({commissionPercent}%): {money(Math.round(price * commissionPercent))} · escritório recebe{' '}
@@ -164,7 +172,8 @@ export function PlansEditor({ api, canEdit = true, commissionPercent }: { api: P
             <li key={p._id} className="flex items-center justify-between gap-4 py-3">
               <div>
                 <p className="text-sm font-medium text-ink">
-                  {p.name} {!p.active && <span className="ml-1 rounded-full bg-castanha-100 px-2 py-0.5 text-[10px] text-ink/60">fora de venda</span>}
+                  {p.name} {p.popular && <span className="ml-1 rounded-full bg-pequi-500 px-2 py-0.5 text-[10px] text-white">mais popular</span>}{' '}
+                  {!p.active && <span className="ml-1 rounded-full bg-castanha-100 px-2 py-0.5 text-[10px] text-ink/60">fora de venda</span>}
                 </p>
                 <p className="text-xs text-ink/50">
                   {money(p.priceCents)} / {p.interval === 'year' ? 'ano' : 'mês'} · {p.limits?.chatCount === null ? 'mensagens sem limite' : `${p.limits?.chatCount} mensagens`}
