@@ -6,8 +6,10 @@ import { useState } from 'react';
 import { formatPlanPrice, pricingPlans } from './pricingData';
 import { useTenant } from '../contexts/TenantContext';
 import TenantPricing from '../components/office/TenantPricing';
+import DashboardLayout from '../components/DashboardLayout';
+import { useAuth } from '../contexts/AuthContext';
 
-function PequiPricing() {
+function PequiPricing({ embedded = false }: { embedded?: boolean }) {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
 
   const faqs = [
@@ -54,7 +56,7 @@ function PequiPricing() {
   return (
     <>
       {/* Hero Header */}
-      <section className="relative -mt-20 pt-[13rem] pb-48 px-6 overflow-hidden landing-gilroy bg-background">
+      <section className={`relative ${embedded ? 'rounded-[2rem] pt-16' : '-mt-20 pt-[13rem]'} pb-48 px-6 overflow-hidden landing-gilroy bg-background`}>
         {/* Real Background Image like News Page */}
         <Image
           src="/landingpage/hero/hero-bgimg.png"
@@ -268,6 +270,7 @@ function PequiPricing() {
       </section>
 
       {/* Final CTA */}
+      {!embedded && (
       <section className="py-40 px-6 relative overflow-hidden border-t border-castanha-200 landing-gilroy bg-background">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cerrado-950/10 to-transparent" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
@@ -287,6 +290,7 @@ function PequiPricing() {
           </div>
         </div>
       </section>
+      )}
     </>
   );
 }
@@ -295,6 +299,11 @@ function PequiPricing() {
 /** No painel de um escritório (white-label), /pricing mostra os planos do escritório */
 export default function PricingPage() {
   const { tenant, loading } = useTenant();
-  if (loading) return null;
+  const { isAuthenticated, isLoading } = useAuth();
+  if (loading || isLoading) return null;
+  // Logado: dentro do painel, com o menu inferior, o perfil e o botão de sair
+  if (isAuthenticated) {
+    return <DashboardLayout title="Planos">{tenant ? <TenantPricing /> : <PequiPricing embedded />}</DashboardLayout>;
+  }
   return tenant ? <TenantPricing /> : <PequiPricing />;
 }

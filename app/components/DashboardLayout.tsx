@@ -104,7 +104,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         </div>
 
         <div className="p-6 border-t border-castanha-200 space-y-4">
-          {showSejaPro && <MobileNavItem href={sejaProHref} label="Seja Pro" icon="heart" />}
+          {showSejaPro && sejaProHref !== planHref && <MobileNavItem href={sejaProHref} label="Seja Pro" icon="heart" />}
           <MobileNavItem href={planHref} label="Plano" icon="plan" />
           {isOfficeTeam && <MobileNavItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon="admin" />}
           <MobileNavItem href="/dashboard/help" label="Ajuda" icon="help" />
@@ -201,7 +201,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
           <DockItem href="/dashboard/vault" label="Cofre" icon={<ToolIcon name="vault" />} />
           <DockItem href="/dashboard/workflow-builder" label="Fluxos" icon={<ToolIcon name="flows" />} />
           <div className="w-px h-6 bg-castanha-200" />
-          {showSejaPro && <DockItem href={sejaProHref} label="Seja Pro" icon={<ToolIcon name="heart" />} />}
+          {showSejaPro && sejaProHref !== planHref && <DockItem href={sejaProHref} label="Seja Pro" icon={<ToolIcon name="heart" />} />}
           <DockItem href={planHref} label="Plano" icon={<ToolIcon name="plan" />} />
           {isOfficeTeam && <DockItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon={<ToolIcon name="admin" />} />}
           <DockItem href="/dashboard/help" label="Ajuda" icon={<ToolIcon name="help" />} />

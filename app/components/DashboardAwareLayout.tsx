@@ -4,12 +4,15 @@ import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useTenant } from '../contexts/TenantContext';
+import { useAuth } from '../contexts/AuthContext';
 import { BrandLogo } from './PequiWordmark';
 import Link from 'next/link';
 
 export default function DashboardAwareLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isDashboard = pathname?.startsWith('/dashboard');
+  const { isAuthenticated } = useAuth();
+  // A página de planos abre dentro do painel (menu, perfil e sair) para quem está logado
+  const isDashboard = pathname?.startsWith('/dashboard') || (pathname === '/pricing' && isAuthenticated);
   const { tenant } = useTenant();
 
   // Chat embutido no site do escritório: só o conteúdo, sem menu nem rodapé
