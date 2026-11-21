@@ -3,7 +3,7 @@
 /**
  * Chat do widget white-label, dentro do iframe aberto pelo widget.js no site do escritório.
  * O visitante conversa sem conta; depois das mensagens grátis deixa o contato;
- * esgotadas as mensagens após o contato, vê os planos do escritório.
+ * esgotadas as mensagens após o contato, o chat encerra e a equipe do escritório entra em contato.
  */
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -12,7 +12,7 @@ import { applyTenantTheme, PublicTenant } from '../../contexts/TenantContext';
 const API_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
 
 type Msg = { role: 'user' | 'assistant'; content: string };
-type Gate = 'none' | 'lead' | 'plan';
+type Gate = 'none' | 'lead' | 'contact';
 type State = { gate: Gate; hasLead: boolean; remaining: number; messages: Msg[] };
 
 /** Limpa o HTML da resposta da IA antes de mostrar (sem scripts, eventos ou links javascript:) */
@@ -57,7 +57,6 @@ export default function EmbedChat() {
   const [error, setError] = useState('');
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
-  const [plansUrl, setPlansUrl] = useState('');
   const [lead, setLead] = useState({ name: '', email: '', phone: '' });
   const [leadError, setLeadError] = useState('');
   const listRef = useRef<HTMLDivElement>(null);
@@ -94,7 +93,6 @@ export default function EmbedChat() {
         setTenant(data.tenant);
         setToken(data.token);
         setState(data.state);
-        setPlansUrl(data.plansUrl || `${data.tenant.panelUrl}/pricing`);
         applyTenantTheme(data.tenant);
         document.title = `Atendimento · ${data.tenant.name}`;
       })
@@ -123,7 +121,6 @@ export default function EmbedChat() {
       });
       const data = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(data?.message || 'Não foi possível enviar a mensagem.');
-      if (data.plansUrl) setPlansUrl(data.plansUrl);
       if (data.gate) {
         // Bloqueado antes de responder: devolve o texto para a caixa
         setInput(text);
@@ -212,13 +209,10 @@ export default function EmbedChat() {
           </form>
         )}
 
-        {state.gate === 'plan' && (
-          <div className="space-y-2 rounded-2xl border border-castanha-200 bg-white p-4 text-sm">
-            <p className="font-medium">Você usou as mensagens gratuitas do atendimento.</p>
-            <p className="text-castanha-600">Para continuar com a assistente sem limite, conheça os planos de {tenant.name}.</p>
-            <a href={plansUrl} target="_blank" rel="noopener noreferrer" className="block w-full rounded-xl bg-pequi-500 px-4 py-2 text-center font-semibold" style={{ color: 'var(--pq-on-brand)' }}>
-              Ver planos
-            </a>
+        {state.gate === 'contact' && (
+          <div className="space-y-1 rounded-2xl border border-castanha-200 bg-white p-4 text-sm">
+            <p className="font-medium">Obrigado pela conversa!</p>
+            <p className="text-castanha-600">A equipe de {tenant.name} recebeu o seu contato e vai falar com você em breve.</p>
           </div>
         )}
       </div>

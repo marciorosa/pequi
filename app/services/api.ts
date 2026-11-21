@@ -577,34 +577,17 @@ export const adminService = {
   createTenant: async (body: any) => (await api.post('/admin/tenants', body)).data,
   updateTenant: async (id: string, body: any) => (await api.put(`/admin/tenants/${id}`, body)).data,
   rotateTenantKey: async (id: string) => (await api.post(`/admin/tenants/${id}/rotate-key`)).data,
-  applyTenantCommission: async (id: string) => (await api.post(`/admin/tenants/${id}/apply-commission`)).data,
-  tenantPlans: async (id: string) => (await api.get(`/admin/tenants/${id}/plans`)).data,
-  createTenantPlan: async (id: string, body: any) => (await api.post(`/admin/tenants/${id}/plans`, body)).data,
-  updateTenantPlan: async (id: string, planId: string, body: any) => (await api.put(`/admin/tenants/${id}/plans/${planId}`, body)).data,
   tenantLeads: async (id: string) => (await api.get(`/admin/tenants/${id}/leads`)).data,
   tenantClients: async (id: string) => (await api.get(`/admin/tenants/${id}/clients`)).data,
-  tenantFinance: async (id: string) => (await api.get(`/admin/tenants/${id}/finance`)).data,
-  createTenantPayout: async (id: string, body: { amount: string; paidAt?: string; note?: string }) =>
-    (await api.post(`/admin/tenants/${id}/payouts`, body)).data,
 };
 
 /** Área do escritório (dono e equipe de um escritório white-label) */
 export const officeService = {
   summary: async () => (await api.get('/office/summary')).data,
-  plans: async () => (await api.get('/office/plans')).data,
-  createPlan: async (body: any) => (await api.post('/office/plans', body)).data,
-  updatePlan: async (planId: string, body: any) => (await api.put(`/office/plans/${planId}`, body)).data,
   leads: async () => (await api.get('/office/leads')).data,
   clients: async () => (await api.get('/office/clients')).data,
-  finance: async () => (await api.get('/office/finance')).data,
 };
 
-/** Cliente de um escritório: planos e assinatura */
-export const tenantBillingService = {
-  plans: async (slug: string) => (await api.get(`/tenants/public/${slug}/plans`)).data,
-  checkout: async (planId: string) => (await api.post('/tenant-billing/checkout', { planId })).data,
-  confirm: async (sessionId: string) => (await api.post('/tenant-billing/confirm', { sessionId })).data,
-};
 
 export { api };
 const apiServices = {

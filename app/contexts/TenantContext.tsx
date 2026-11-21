@@ -24,7 +24,6 @@ export interface PublicTenant {
   welcomeMessage: string;
   widgetPosition: 'right' | 'left';
   panelUrl: string;
-  billingReady: boolean;
 }
 
 interface TenantContextType {

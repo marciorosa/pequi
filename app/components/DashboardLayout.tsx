@@ -22,11 +22,13 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   const pathname = usePathname();
   const { logout, isAdmin, user, plan } = useAuth();
   const { tenant } = useTenant();
-  // Equipe do escritório (white-label) vê a área do escritório; clientes do escritório assinam em /pricing
+  // White-label: a equipe do escritório vê a área do escritório e assina o Pequi;
+  // os clientes do escritório não assinam nada (o acesso é coberto pelo plano do escritório)
   const isOfficeTeam = ['owner', 'staff'].includes(String((user as any)?.tenantRole || ''));
-  const planHref = tenant && !isOfficeTeam ? '/pricing' : '/dashboard/billing';
-  // "Seja Pro": aparece para quem ainda não tem plano pago
-  const showSejaPro = plan === 'Free';
+  const isOfficeClient = Boolean(tenant) && !isOfficeTeam;
+  const planHref = isOfficeClient ? '/pricing' : '/dashboard/billing';
+  // "Seja Pro": para quem ainda não tem plano pago (nunca para clientes de escritório)
+  const showSejaPro = plan === 'Free' && !isOfficeClient;
   const sejaProHref = isOfficeTeam ? '/dashboard/billing' : '/pricing';
 
   const handleLogout = () => {

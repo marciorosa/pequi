@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { formatPlanPrice, pricingPlans } from './pricingData';
 import { useTenant } from '../contexts/TenantContext';
-import TenantPricing from '../components/office/TenantPricing';
+import TenantAccess from '../components/office/TenantAccess';
 import DashboardLayout from '../components/DashboardLayout';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -296,14 +296,18 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
 }
 
 
-/** No painel de um escritório (white-label), /pricing mostra os planos do escritório */
+/**
+ * /pricing
+ * - Painel de um escritório (white-label), para os clientes dele: aviso de que o acesso é oferecido
+ *   pelo escritório (o cliente não assina nada).
+ * - Equipe do escritório e usuários do Pequi: planos do Pequi (Pro R$ 399/mês ou R$ 3.999/ano, Enterprise).
+ * Logado, a página abre dentro do painel (menu inferior, perfil e sair).
+ */
 export default function PricingPage() {
   const { tenant, loading } = useTenant();
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   if (loading || isLoading) return null;
-  // Logado: dentro do painel, com o menu inferior, o perfil e o botão de sair
-  if (isAuthenticated) {
-    return <DashboardLayout title="Planos">{tenant ? <TenantPricing /> : <PequiPricing embedded />}</DashboardLayout>;
-  }
-  return tenant ? <TenantPricing /> : <PequiPricing />;
+  const isOfficeTeam = ['owner', 'staff'].includes(String(user?.tenantRole || ''));
+  const content = tenant && !isOfficeTeam ? <TenantAccess /> : <PequiPricing embedded={isAuthenticated} />;
+  return isAuthenticated ? <DashboardLayout title="Planos">{content}</DashboardLayout> : content;
 }

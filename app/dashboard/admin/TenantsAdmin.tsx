@@ -9,11 +9,9 @@ import { toast } from 'react-hot-toast';
 import { adminService } from '../../services/api';
 import { brandScale } from '../../contexts/TenantContext';
 import {
-  PlansEditor,
   LeadsList,
   ClientsList,
   PequiSubscriptionBadge,
-  FinancePanel,
   card,
   inputCls,
   labelCls,
@@ -30,7 +28,6 @@ type Form = {
   status: 'active' | 'suspended';
   pequiPlan: 'pro' | 'enterprise';
   ownerEmail: string;
-  commissionPercent: string;
   displayName: string;
   logoUrl: string;
   faviconUrl: string;
@@ -53,7 +50,6 @@ const emptyForm = (): Form => ({
   status: 'active',
   pequiPlan: 'pro',
   ownerEmail: '',
-  commissionPercent: '15',
   displayName: '',
   logoUrl: '',
   faviconUrl: '',
@@ -76,7 +72,6 @@ const toForm = (t: any): Form => ({
   status: t.status,
   pequiPlan: t.pequiPlan,
   ownerEmail: t.owner?.email || '',
-  commissionPercent: String(t.commissionPercent ?? 15),
   displayName: t.branding?.displayName || '',
   logoUrl: t.branding?.logoUrl || '',
   faviconUrl: t.branding?.faviconUrl || '',
@@ -99,7 +94,6 @@ const toBody = (f: Form) => ({
   status: f.status,
   pequiPlan: f.pequiPlan,
   ownerEmail: f.ownerEmail,
-  commissionPercent: Number(String(f.commissionPercent).replace(',', '.')),
   branding: {
     displayName: f.displayName || f.name,
     logoUrl: f.logoUrl,
@@ -168,9 +162,7 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
                 <th className="px-4 py-3">Escritório</th>
                 <th className="px-4 py-3">Situação</th>
                 <th className="px-4 py-3">Assinatura Pequi</th>
-                <th className="px-4 py-3">Comissão</th>
                 <th className="px-4 py-3">Contas</th>
-                <th className="px-4 py-3">Assinaturas</th>
                 <th className="px-4 py-3">Contatos</th>
               </tr>
             </thead>
@@ -188,9 +180,7 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
                   </td>
                   <td className="px-4 py-3">{t.status === 'active' ? 'Ativo' : 'Suspenso'}</td>
                   <td className="px-4 py-3"><PequiSubscriptionBadge sub={t.pequiSubscription} /></td>
-                  <td className="px-4 py-3">{t.commissionPercent}%</td>
                   <td className="px-4 py-3">{t.users}</td>
-                  <td className="px-4 py-3">{t.activeSubscriptions}</td>
                   <td className="px-4 py-3">{t.leads}</td>
                 </tr>
               ))}
@@ -210,7 +200,7 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
   const [form, setForm] = useState<Form>(emptyForm());
   const [saving, setSaving] = useState(false);
   const [inviteLink, setInviteLink] = useState<string | null>(null);
-  const [section, setSection] = useState<'config' | 'clients' | 'finance' | 'plans' | 'leads'>('config');
+  const [section, setSection] = useState<'config' | 'clients' | 'leads'>('config');
 
   useEffect(() => {
     if (isNew) return;
@@ -247,17 +237,7 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
     }
   };
 
-  const plansApi = useMemo(
-    () => ({
-      list: () => adminService.tenantPlans(id),
-      create: (b: any) => adminService.createTenantPlan(id, b),
-      update: (planId: string, b: any) => adminService.updateTenantPlan(id, planId, b),
-    }),
-    [id]
-  );
   const loadClients = useCallback(() => adminService.tenantClients(id), [id]);
-  const loadFinance = useCallback(() => adminService.tenantFinance(id), [id]);
-  const payout = useCallback((b: any) => adminService.createTenantPayout(id, b), [id]);
   const loadLeads = useCallback(() => adminService.tenantLeads(id), [id]);
 
   useEffect(() => {
@@ -292,14 +272,14 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
         </div>
         {!isNew && (
           <nav className="flex gap-2">
-            {(['config', 'clients', 'finance', 'plans', 'leads'] as const).map((s) => (
+            {(['config', 'clients', 'leads'] as const).map((s) => (
               <button
                 key={s}
                 type="button"
                 onClick={() => setSection(s)}
                 className={`rounded-xl px-3 py-1.5 text-sm ${section === s ? 'bg-ink text-white' : 'text-ink/60 hover:bg-castanha-100'}`}
               >
-                {{ config: 'Configuração', clients: 'Usuários e planos', finance: 'Valores e repasses', plans: 'Planos à venda', leads: 'Contatos' }[s]}
+                {{ config: 'Configuração', clients: 'Usuários', leads: 'Contatos' }[s]}
               </button>
             ))}
           </nav>
@@ -321,9 +301,7 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
         </div>
       )}
 
-      {section === 'plans' && !isNew && <PlansEditor api={plansApi} commissionPercent={tenant.commissionPercent} />}
       {section === 'clients' && !isNew && <ClientsList load={loadClients} />}
-      {section === 'finance' && !isNew && <FinancePanel load={loadFinance} onPayout={payout} />}
 
       {section === 'leads' && !isNew && <LeadsList load={loadLeads} />}
 
@@ -348,7 +326,7 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className={labelCls}>Plano Pequi</label>
+                    <label className={labelCls}>Plano do escritório no Pequi</label>
                     <select className={inputCls} value={form.pequiPlan} onChange={(e) => set('pequiPlan', e.target.value as any)}>
                       <option value="pro">Pro</option>
                       <option value="enterprise">Enterprise</option>
@@ -408,12 +386,8 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
             </div>
 
             <div className={card}>
-              <p className="mb-4 text-sm font-semibold text-ink">Widget e comissão</p>
+              <p className="mb-4 text-sm font-semibold text-ink">Widget</p>
               <div className="grid gap-3 sm:grid-cols-3">
-                <div>
-                  <label className={labelCls}>Comissão do Pequi (%)</label>
-                  <input className={inputCls} inputMode="decimal" value={form.commissionPercent} onChange={(e) => set('commissionPercent', e.target.value)} />
-                </div>
                 <div>
                   <label className={labelCls}>Mensagens grátis antes do contato</label>
                   <input className={inputCls} inputMode="numeric" value={form.freeMessages} onChange={(e) => set('freeMessages', e.target.value.replace(/\D/g, ''))} />
@@ -435,26 +409,8 @@ function TenantEditor({ id, onBack, onCreated }: { id: string | 'new'; onBack: (
                   Widget ativo
                 </label>
               </div>
-              {!isNew && Number(form.commissionPercent) !== tenant.commissionPercent && (
-                <p className="mt-3 text-xs text-amber-700">Salve para valer nas novas assinaturas.</p>
-              )}
-              {!isNew && (
-                <button
-                  type="button"
-                  className={`${btnSoft} mt-4`}
-                  onClick={async () => {
-                    try {
-                      const r = await adminService.applyTenantCommission(id);
-                      toast.success(`Comissão de ${tenant.commissionPercent}% aplicada a ${r.updated} de ${r.total} assinatura(s) ativa(s).`);
-                      if (r.errors?.length) toast.error(r.errors[0]);
-                    } catch (e) {
-                      toast.error(errorMessage(e, 'Não foi possível aplicar a comissão.'));
-                    }
-                  }}
-                >
-                  Aplicar a comissão salva às assinaturas ativas
-                </button>
-              )}
+
+
             </div>
 
             <div className="flex gap-2">
