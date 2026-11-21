@@ -4,8 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { formatPlanPrice, pricingPlans } from './pricingData';
+import { useTenant } from '../contexts/TenantContext';
+import TenantPricing from '../components/office/TenantPricing';
 
-export default function PricingPage() {
+function PequiPricing() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
 
   const faqs = [
@@ -287,4 +289,12 @@ export default function PricingPage() {
       </section>
     </>
   );
+}
+
+
+/** No painel de um escritório (white-label), /pricing mostra os planos do escritório */
+export default function PricingPage() {
+  const { tenant, loading } = useTenant();
+  if (loading) return null;
+  return tenant ? <TenantPricing /> : <PequiPricing />;
 }

@@ -94,7 +94,7 @@ export default function EmbedChat() {
         setTenant(data.tenant);
         setToken(data.token);
         setState(data.state);
-        setPlansUrl(`${data.tenant.panelUrl}/assinar`);
+        setPlansUrl(data.plansUrl || `${data.tenant.panelUrl}/pricing`);
         applyTenantTheme(data.tenant);
         document.title = `Atendimento · ${data.tenant.name}`;
       })

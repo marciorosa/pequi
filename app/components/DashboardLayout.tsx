@@ -22,9 +22,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   const pathname = usePathname();
   const { logout, isAdmin, user } = useAuth();
   const { tenant } = useTenant();
-  // Equipe do escritório (white-label) vê a área do escritório; clientes do escritório assinam em /assinar
+  // Equipe do escritório (white-label) vê a área do escritório; clientes do escritório assinam em /pricing
   const isOfficeTeam = ['owner', 'staff'].includes(String((user as any)?.tenantRole || ''));
-  const planHref = tenant && !isOfficeTeam ? '/assinar' : '/dashboard/billing';
+  const planHref = tenant && !isOfficeTeam ? '/pricing' : '/dashboard/billing';
 
   const handleLogout = () => {
     logout();

@@ -86,7 +86,7 @@ function BillingContent() {
 
   // Cliente de um escritório (white-label) assina os planos do escritório, não os do Pequi
   useEffect(() => {
-    if (tenant && user && !['owner', 'staff'].includes(String(user.tenantRole || ''))) router.replace('/assinar');
+    if (tenant && user && !['owner', 'staff'].includes(String(user.tenantRole || ''))) router.replace('/pricing');
   }, [tenant, user, router]);
 
   // Current profile data
