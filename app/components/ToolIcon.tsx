@@ -1,7 +1,7 @@
 // Ícones de traço simples das ferramentas do Pequi (mesmo estilo das prévias da página inicial).
 // Usados nos cartões do topo da página inicial, na barra do painel e no menu do celular.
 
-export type ToolIconName = 'search' | 'chat' | 'assistants' | 'docs' | 'vault' | 'flows' | 'plan' | 'help' | 'admin';
+export type ToolIconName = 'search' | 'chat' | 'assistants' | 'docs' | 'vault' | 'flows' | 'plan' | 'help' | 'admin' | 'heart';
 
 const PATHS: Record<ToolIconName, string[]> = {
   search: ['M16.5 16.5L21 21', 'M10.5 17a6.5 6.5 0 100-13 6.5 6.5 0 000 13z'],
@@ -18,6 +18,7 @@ const PATHS: Record<ToolIconName, string[]> = {
   ],
   plan: ['M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z', 'M3 10h18'],
   help: ['M12 20.5a8.5 8.5 0 100-17 8.5 8.5 0 000 17z', 'M12 11v5M12 8v.01'],
+  heart: ['M12 20s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 10c0 5.65-7 10-7 10z'],
   admin: ['M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6L12 3z', 'M9 12l2 2 4-4'],
 };
 

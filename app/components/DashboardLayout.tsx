@@ -20,11 +20,14 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const { logout, isAdmin, user } = useAuth();
+  const { logout, isAdmin, user, plan } = useAuth();
   const { tenant } = useTenant();
   // Equipe do escritório (white-label) vê a área do escritório; clientes do escritório assinam em /pricing
   const isOfficeTeam = ['owner', 'staff'].includes(String((user as any)?.tenantRole || ''));
   const planHref = tenant && !isOfficeTeam ? '/pricing' : '/dashboard/billing';
+  // "Seja Pro": aparece para quem ainda não tem plano pago
+  const showSejaPro = plan === 'Free';
+  const sejaProHref = isOfficeTeam ? '/dashboard/billing' : '/pricing';
 
   const handleLogout = () => {
     logout();
@@ -101,6 +104,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         </div>
 
         <div className="p-6 border-t border-castanha-200 space-y-4">
+          {showSejaPro && <MobileNavItem href={sejaProHref} label="Seja Pro" icon="heart" />}
           <MobileNavItem href={planHref} label="Plano" icon="plan" />
           {isOfficeTeam && <MobileNavItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon="admin" />}
           <MobileNavItem href="/dashboard/help" label="Ajuda" icon="help" />
@@ -145,6 +149,12 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
             {actions}
           </div>
           <div className="h-8 w-px bg-castanha-200 mx-2 hidden md:block" />
+          {showSejaPro && (
+            <Link href={sejaProHref} className="btn-primary-gradient flex items-center gap-2 rounded-2xl px-3 py-2 text-sm md:px-4" aria-label="Seja Pro">
+              <ToolIcon name="heart" />
+              <span className="hidden sm:inline">Seja Pro</span>
+            </Link>
+          )}
           <Link 
             href="/dashboard/profile"
             className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center transition-all ${isActivePath('/dashboard/profile') ? 'btn-primary-gradient' : 'bg-white border border-castanha-200 text-foreground/20 shadow-sm hover:border-cerrado-900/20'}`}
@@ -191,6 +201,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
           <DockItem href="/dashboard/vault" label="Cofre" icon={<ToolIcon name="vault" />} />
           <DockItem href="/dashboard/workflow-builder" label="Fluxos" icon={<ToolIcon name="flows" />} />
           <div className="w-px h-6 bg-castanha-200" />
+          {showSejaPro && <DockItem href={sejaProHref} label="Seja Pro" icon={<ToolIcon name="heart" />} />}
           <DockItem href={planHref} label="Plano" icon={<ToolIcon name="plan" />} />
           {isOfficeTeam && <DockItem href="/dashboard/escritorio" label={isAdmin ? 'Escritório' : 'Administração'} icon={<ToolIcon name="admin" />} />}
           <DockItem href="/dashboard/help" label="Ajuda" icon={<ToolIcon name="help" />} />
