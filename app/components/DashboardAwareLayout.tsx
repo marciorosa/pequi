@@ -27,7 +27,7 @@ export default function DashboardAwareLayout({ children }: { children: React.Rea
           </Link>
         </header>
         <main className="flex-grow pt-20">{children}</main>
-        <footer className="py-6 text-center text-xs text-castanha-500">{tenant.name} · tecnologia Pequi</footer>
+        <footer className="py-6 text-center text-xs text-castanha-500">{tenant.name}</footer>
       </>
     );
   }

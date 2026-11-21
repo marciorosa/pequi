@@ -1,5 +1,6 @@
 'use client';
 
+import { useBrand } from '../contexts/TenantContext';
 import React from 'react';
 import { jsPDF } from 'jspdf';
 
@@ -12,6 +13,7 @@ interface AgreementFormatterProps {
 }
 
 const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) => {
+  const brand = useBrand();
   // Petições (como a do Limpa Nome) já trazem o próprio fecho e assinatura do advogado:
   // não recebem as assinaturas de contrato no fim
   const isPetition = /peti[çc][ãa]o/i.test(agreement.documentType || '');
@@ -94,8 +96,8 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
       pdf.setProperties({
         title: agreement.title || 'Contrato Jurídico',
         subject: 'Documento de Contrato Jurídico',
-        author: 'Pequi',
-        creator: 'Criador de Documentos Pequi'
+        author: brand.name,
+        creator: `Criador de Documentos ${brand.name}`
       });
 
       // Define margins and dimensions
@@ -188,7 +190,7 @@ const AgreementFormatter: React.FC<AgreementFormatterProps> = ({ agreement }) =>
         pdf.setFont("helvetica", "normal");
         pdf.setFontSize(10);
         pdf.setTextColor(80, 80, 80); // Darker gray for better readability
-        pdf.text(`Pequi | ${isPetition ? 'Petição' : 'Contrato Jurídico'} | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
+        pdf.text(`${brand.name} | ${isPetition ? 'Petição' : 'Contrato Jurídico'} | Gerado em ${new Date().toLocaleDateString('pt-BR')}`, margin, pageHeight - margin);
         pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - margin, { align: 'right' });
       }
 

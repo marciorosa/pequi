@@ -252,7 +252,7 @@ export default function EmbedChat() {
         </button>
       </form>
       <p className="bg-white px-4 pb-2 text-center text-[10px] text-castanha-500">
-        Assistente com IA: as respostas são informativas e não substituem a orientação de um advogado. Tecnologia Pequi.
+        Assistente com IA: as respostas são informativas e não substituem a orientação de um advogado.
       </p>
     </div>
   );

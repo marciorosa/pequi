@@ -155,6 +155,23 @@ export function TenantProvider({ children }: { children: ReactNode }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // O Next volta o título e o ícone da aba para os do Pequi a cada troca de página: reaplica os do escritório
+  useEffect(() => {
+    if (!tenant) return;
+    const apply = () => {
+      const title = `${tenant.name} · Assistente jurídica`;
+      if (document.title !== title) document.title = title;
+      if (tenant.faviconUrl || tenant.logoUrl) setFavicon(tenant.faviconUrl || tenant.logoUrl);
+    };
+    apply();
+    const t1 = setTimeout(apply, 50);
+    const t2 = setTimeout(apply, 500);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [tenant, pathname]);
+
   // No painel do escritório, a página inicial de marketing do Pequi não aparece
   useEffect(() => {
     if (tenant && pathname === '/') router.replace('/login');
