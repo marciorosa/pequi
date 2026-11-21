@@ -10,7 +10,7 @@ export default function AssistantExperience() {
   const features = [
     {
       title: 'Interface em linguagem natural',
-      desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. Comunique-se como faria com um amigo experiente.',
+      desc: 'Descreva o que você precisa em linguagem simples, sem prompts complexos. O cliente escreve como falaria com a sua equipe.',
       icon: (
         <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -71,18 +71,17 @@ export default function AssistantExperience() {
               <div className="text-left">
                 <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Assistente de IA</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Seu assistente jurídico pessoal
+                  A assistente jurídica do seu escritório
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-                  Resolva dúvidas jurídicas em linguagem natural. Feito para quem não é advogado, com
-                  linguagem clara. Conteúdo informativo, que não substitui um profissional.
+                  Seus clientes tiram dúvidas jurídicas em linguagem natural, a qualquer hora, com o nome e a marca do escritório. Conteúdo informativo: a análise do caso continua com a sua equipe.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
                     className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
                   >
-                    Tirar minhas dúvidas
+                    Levar para o meu escritório
                   </Link>
                   <button
                     type="button"
@@ -116,10 +115,9 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.1}>
         <section className="scroll-mt-24 bg-white px-4 py-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:py-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
-            <h2 className={sectionHeadingClass}>Sob medida para a sua realidade</h2>
+            <h2 className={sectionHeadingClass}>Sob medida para os seus clientes</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
-              Recursos pensados para o jeito como as pessoas resolvem problemas reais: respostas claras, textos rápidos e pesquisas
-              confiáveis.
+              Recursos pensados para o jeito como os clientes do escritório resolvem problemas reais: respostas claras, textos rápidos e pesquisas confiáveis.
             </p>
 
             <div className="grid gap-4 md:grid-cols-3 md:gap-5">
@@ -143,9 +141,9 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.12}>
         <section id="demo" className="scroll-mt-24 bg-white px-4 pb-16 sm:px-6 md:scroll-mt-28 lg:px-8 lg:pb-[5.5rem]">
           <div className="mx-auto max-w-[1274px]">
-            <h2 className={sectionHeadingClass}>Converse com seu assistente</h2>
+            <h2 className={sectionHeadingClass}>Veja como a assistente responde</h2>
             <p className={`${sectionSubTextClass} mb-10 mt-4 md:mb-12`}>
-              Faça uma pergunta abaixo e veja como o Pequi responde em contexto, com o tom de um copiloto jurídico de confiança.
+              Faça uma pergunta abaixo e veja como a assistente responde aos seus clientes, com o tom de um copiloto jurídico de confiança.
             </p>
 
             <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">

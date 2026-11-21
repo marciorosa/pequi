@@ -63,7 +63,7 @@ export default function SecurityExperience() {
     },
     {
       title: 'Acesso individual',
-      description: 'Cada conta consulta apenas os próprios documentos, conversas e arquivos.',
+      description: 'Cada conta consulta apenas os próprios documentos, conversas e arquivos. Cada escritório vê apenas os próprios clientes e contatos.',
       icon: (
         <path
           strokeLinecap="round"
@@ -75,7 +75,7 @@ export default function SecurityExperience() {
     },
     {
       title: 'Armazenamento em nuvem',
-      description: 'Os arquivos do Cofre ficam na AWS (Amazon S3), com acesso restrito à sua conta.',
+      description: 'Os arquivos do Cofre ficam na AWS (Amazon S3), com acesso restrito à conta de cada cliente.',
       icon: (
         <path
           strokeLinecap="round"
@@ -120,11 +120,10 @@ export default function SecurityExperience() {
               <div className="text-left">
                 <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Proteção de dados</p>
                 <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Seus dados em segurança
+                  Dados do escritório e dos clientes em segurança
                 </h1>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Seus dados pessoais exigem mais do que uma promessa bonita. Nossa plataforma foi criada para que confidencialidade,
-                  integridade e disponibilidade estejam no centro de cada conversa sua.
+                  Escritórios e clientes confiam informações sensíveis à plataforma. Ela foi criada para que confidencialidade, integridade e disponibilidade estejam no centro de cada atendimento.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
@@ -164,10 +163,10 @@ export default function SecurityExperience() {
                   Nosso compromisso
                 </p>
                 <h2 className="text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem] lg:text-[3rem]">
-                  A segurança dos seus dados é nossa prioridade
+                  A segurança dos dados é nossa prioridade
                 </h2>
                 <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Você confia a nós informações sensíveis da sua vida pessoal. O Pequi foi arquitetado com a segurança como princípio
+                  O escritório e os clientes dele confiam a nós informações sensíveis. O Pequi foi arquitetado com a segurança como princípio
                   de design, da criptografia e do controle de acesso à forma como operamos nosso ambiente de produção.
                 </p>
                 <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
@@ -210,7 +209,7 @@ export default function SecurityExperience() {
           <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
             <h2 className={sectionHeadingClass}>Recursos de segurança reforçada</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Uma visão resumida dos controles que você pode esperar antes de confiar os seus dados à IA.
+              Uma visão resumida dos controles que o escritório pode esperar antes de oferecer a IA aos clientes.
             </p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {securityFeatures.map((feature) => (

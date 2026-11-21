@@ -62,7 +62,7 @@ export default function KnowledgeExperience() {
     },
     {
       title: 'Respostas rápidas',
-      desc: 'Entenda um tema em poucos minutos e saiba o que perguntar a um advogado ou à Defensoria Pública.',
+      desc: 'O cliente entende o tema em poucos minutos e chega mais preparado para conversar com a equipe do escritório.',
       icon: (
         <FeatureIcon>
           <path
@@ -141,11 +141,10 @@ export default function KnowledgeExperience() {
                   Conhecimento
                 </h1>
                 <p className="mt-3 max-w-xl text-xl font-medium leading-snug text-castanha-800 md:text-2xl">
-                  Pesquisa rápida, em linguagem simples
+                  Pesquisa jurídica para os seus clientes, com a sua marca
                 </p>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Respostas sobre consumo, trabalho, família e moradia, com indicação das leis em que se baseiam.
-                  Confira sempre na fonte oficial.
+                  Os clientes do escritório recebem respostas sobre consumo, trabalho, família e moradia, com indicação das leis em que se baseiam. Confira sempre na fonte oficial.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link

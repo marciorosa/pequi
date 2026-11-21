@@ -42,7 +42,7 @@ export default function VaultExperience() {
   const features = [
     {
       title: 'Armazenamento seguro de documentos',
-      description: 'Seus arquivos ficam na nuvem da AWS, acessíveis só pela sua conta, e cada pasta pode ter uma senha própria.',
+      description: 'Os arquivos ficam na nuvem da AWS, acessíveis só pela conta de cada cliente, e cada pasta pode ter uma senha própria.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -127,8 +127,7 @@ export default function VaultExperience() {
                   Cofre Pequi
                 </h1>
                 <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-                  Armazenamento e gestão inteligentes de documentos jurídicos, com IA que ajuda você a encontrar, revisar e controlar
-                  o que importa.
+                  Um cofre de documentos com a marca do escritório, para cada cliente guardar, encontrar e revisar com IA o que importa no caso dele.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
@@ -169,10 +168,9 @@ export default function VaultExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Feito para seus documentos mais sensíveis</h2>
+            <h2 className={sectionHeadingClass}>Feito para os documentos mais sensíveis dos seus clientes</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Um único cofre para contratos, processos e documentos pessoais, com os controles e a inteligência que você espera de
-              verdade.
+              Um único cofre para contratos, processos e documentos pessoais, com os controles e a inteligência que o escritório e os clientes esperam.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {features.map((feature) => (
@@ -200,7 +198,7 @@ export default function VaultExperience() {
                   Explorador interativo do cofre
                 </h2>
                 <p className="mt-4 text-castanha-600 text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
-                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que você vai navegar no seu cofre real.
+                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que os seus clientes vão navegar no cofre real.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center lg:justify-end gap-2 md:gap-3">
@@ -367,8 +365,7 @@ export default function VaultExperience() {
                   Nuvem jurídica reforçada
                 </h2>
                 <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade,
-                  disponibilidade e auditabilidade para sua tranquilidade.
+                  Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade, disponibilidade e auditabilidade ao escritório e aos clientes.
                 </p>
                 <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
                   {securityPoints.map((point) => (

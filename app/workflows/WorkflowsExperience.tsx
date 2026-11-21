@@ -12,7 +12,7 @@ export default function WorkflowsExperience() {
   const benefits = [
     {
       title: 'Menos trabalho manual',
-      description: 'Automatize tarefas repetitivas para que você dedique tempo ao que importa, e não à burocracia.',
+      description: 'Automatize tarefas repetitivas para que a equipe dedique tempo ao que importa, e não à burocracia.',
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       ),
@@ -94,7 +94,7 @@ export default function WorkflowsExperience() {
                   Fluxos de trabalho com IA
                 </h1>
                 <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Organize seus assuntos jurídicos de ponta a ponta: encaminhamentos, documentos, assinaturas e histórico completo em um só lugar.
+                  Fluxos com IA no painel do escritório: encaminhamentos, documentos, assinaturas e histórico completo em um só lugar, com a sua marca.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Link
@@ -128,7 +128,7 @@ export default function WorkflowsExperience() {
       <FadeInSection delay={0.08}>
         <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Descomplique sua vida jurídica</h2>
+            <h2 className={sectionHeadingClass}>Descomplique o atendimento do escritório</h2>
             <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
               Impacto real em agilidade, qualidade e tranquilidade, sem abrir mão das ferramentas que você já usa.
             </p>
