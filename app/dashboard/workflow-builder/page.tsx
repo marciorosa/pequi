@@ -269,13 +269,15 @@ export default function WorkflowBuilderPage() {
     fetchWorkflows();
   }, [fetchWorkflows]);
 
-  // Liga o bloco novo ao último bloco que ainda não tem saída ligada (gatilhos não recebem ligação)
+  // Liga o bloco novo a um bloco anterior que tenha saída (gatilhos não recebem ligação)
   const EDGE_STYLE = { animated: true, markerEnd: { type: MarkerType.ArrowClosed }, style: { stroke: '#1a1a1a', strokeWidth: 1.5 } };
   const autoLink = (newNode: Node) => {
     if ((newNode.data as any).nodeType === 'trigger') return;
-    const open = [...nodes].reverse().find((n) =>
-      (n.data as any).nodeType !== 'output' && !edges.some((e) => e.source === n.id)
-    );
+    const canFeed = (n: Node) => (n.data as any).nodeType !== 'output';
+    // Prefere o último bloco com a saída livre; se todos já estiverem ligados,
+    // abre um ramo a partir do último bloco que tem saída (ex.: e-mail e Cofre lado a lado)
+    const open = [...nodes].reverse().find((n) => canFeed(n) && !edges.some((e) => e.source === n.id))
+      || [...nodes].reverse().find(canFeed);
     if (!open) return;
     setEdges((eds) => addEdge({ id: `e_${open.id}_${newNode.id}`, source: open.id, target: newNode.id, ...EDGE_STYLE }, eds));
   };
