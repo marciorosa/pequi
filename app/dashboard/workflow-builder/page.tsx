@@ -195,7 +195,8 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
         <Handle
           type="target"
           position={Position.Left}
-          className="!w-3 !h-3 !bg-cerrado-900 !border-[3px] !border-white !-left-1.5"
+          className="!w-5 !h-5 !bg-cerrado-900 !border-[4px] !border-white !-left-2.5 !shadow-md hover:!scale-125 !transition-transform !cursor-crosshair"
+          title="Arraste até outro bloco para ligar"
           style={{ zIndex: 10 }}
         />
       )}
@@ -218,7 +219,8 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
         <Handle
           type="source"
           position={Position.Right}
-          className="!w-3 !h-3 !bg-cerrado-900 !border-[3px] !border-white !-right-1.5"
+          className="!w-5 !h-5 !bg-cerrado-900 !border-[4px] !border-white !-right-2.5 !shadow-md hover:!scale-125 !transition-transform !cursor-crosshair"
+          title="Arraste até outro bloco para ligar"
           style={{ zIndex: 10 }}
         />
       )}
@@ -267,6 +269,17 @@ export default function WorkflowBuilderPage() {
     fetchWorkflows();
   }, [fetchWorkflows]);
 
+  // Liga o bloco novo ao último bloco que ainda não tem saída ligada (gatilhos não recebem ligação)
+  const EDGE_STYLE = { animated: true, markerEnd: { type: MarkerType.ArrowClosed }, style: { stroke: '#1a1a1a', strokeWidth: 1.5 } };
+  const autoLink = (newNode: Node) => {
+    if ((newNode.data as any).nodeType === 'trigger') return;
+    const open = [...nodes].reverse().find((n) =>
+      (n.data as any).nodeType !== 'output' && !edges.some((e) => e.source === n.id)
+    );
+    if (!open) return;
+    setEdges((eds) => addEdge({ id: `e_${open.id}_${newNode.id}`, source: open.id, target: newNode.id, ...EDGE_STYLE }, eds));
+  };
+
   const onConnect = useCallback(
     (params: Connection) =>
       setEdges((eds) =>
@@ -308,23 +321,24 @@ export default function WorkflowBuilderPage() {
       };
 
       setNodes((nds) => [...nds, newNode]);
+      autoLink(newNode);
     },
-    [setNodes]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [setNodes, nodes, edges]
   );
 
   const addNodeToCenter = (nodeData: any) => {
-    setNodes((nds) => {
-      // Posiciona o novo nó abaixo do mais baixo do canvas, para não encavalar
-      const NODE_SPACING_Y = 140;
-      const lowestY = nds.length ? Math.max(...nds.map((nd) => nd.position.y)) : null;
-      const newNode: Node = {
-        id: `node_${Date.now()}`,
-        type: 'workflowNode',
-        position: { x: 250, y: lowestY === null ? 80 : lowestY + NODE_SPACING_Y },
-        data: { ...nodeData, nodeType: nodeData.type },
-      };
-      return [...nds, newNode];
-    });
+    // Posiciona o novo nó abaixo do mais baixo do canvas, para não encavalar
+    const NODE_SPACING_Y = 140;
+    const lowestY = nodes.length ? Math.max(...nodes.map((nd) => nd.position.y)) : null;
+    const newNode: Node = {
+      id: `node_${Date.now()}`,
+      type: 'workflowNode',
+      position: { x: 250, y: lowestY === null ? 80 : lowestY + NODE_SPACING_Y },
+      data: { ...nodeData, nodeType: nodeData.type },
+    };
+    setNodes((nds) => [...nds, newNode]);
+    autoLink(newNode);
     toast.success(`${nodeData.label} adicionado ao canvas`);
   };
 
