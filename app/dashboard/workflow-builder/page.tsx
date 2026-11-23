@@ -111,7 +111,9 @@ const Icons = {
   ),
   save: (
     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 3h11l5 5v11a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7 3v5h8V3" />
+      <rect x="7" y="13" width="10" height="8" rx="1" />
     </svg>
   ),
   play: (
@@ -234,7 +236,7 @@ export default function WorkflowBuilderPage() {
   const [activeTab, setActiveTab] = useState<'canvas' | 'library'>('canvas');
   const [workflowName, setWorkflowName] = useState('Nova automação');
   const [isRunning, setIsRunning] = useState(false);
-  const [, setIsSaving] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [workflows, setWorkflows] = useState<Workflow[]>([]);
   const [loading, setLoading] = useState(false);
   const [activeWorkflowId, setActiveWorkflowId] = useState<string | null>(null);
@@ -334,15 +336,30 @@ export default function WorkflowBuilderPage() {
 
     try {
       setIsRunning(true);
-      await workflowService.runWorkflow(activeWorkflowId, {
+      if (testFile) toast(`Executando o fluxo com ${testFile.name}…`);
+      const res = await workflowService.runWorkflow(activeWorkflowId, {
         isSimulation: !!testFile,
         simulationFile: testFile,
         fileName: testFile?.name
       });
-      toast.success(testFile ? `Simulação iniciada com ${testFile.name}` : 'Execução do fluxo iniciada');
 
-      // Simulate stopping after a few seconds
-      setTimeout(() => setIsRunning(false), 3000);
+      // Mostra o que cada etapa fez (o servidor espera o fluxo terminar por até 45 s)
+      const steps: { label: string; status: string; error?: string; recipient?: string }[] = res?.steps || [];
+      const failed = steps.filter((s) => s.status === 'error');
+      if (!res?.finished) {
+        toast(res?.message || 'O fluxo continua em execução no servidor');
+      } else if (failed.length) {
+        failed.forEach((s) => toast.error(`${s.label}: ${s.error}`, { duration: 10000 }));
+      } else {
+        const done = steps.map((s) =>
+          s.status === 'docusign_sent' ? `assinatura enviada para ${s.recipient}`
+          : s.status === 'sent' ? `e-mail enviado para ${s.recipient}`
+          : s.status === 'saved' ? 'salvo no Cofre' : null
+        ).filter(Boolean);
+        toast.success(done.length ? `Fluxo executado: ${done.join(', ')}` : 'Fluxo executado');
+        if (res?.skipped) toast(`${res.skipped} etapa(s) não rodaram: confira se todos os blocos estão ligados`, { duration: 8000 });
+      }
+      setIsRunning(false);
     } catch (e: any) {
       if (e.response?.status === 403 || e.status === 403) {
         setShowUpgradeModal(true);
@@ -473,6 +490,15 @@ export default function WorkflowBuilderPage() {
                 />
                 <div className="flex gap-2">
                   <button
+                    onClick={handleSave}
+                    disabled={isSaving}
+                    title="Salvar fluxo"
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest bg-foreground text-white shadow-lg hover:opacity-90 active:scale-[0.98] transition disabled:opacity-60"
+                  >
+                    {Icons.save}
+                    {isSaving ? 'Salvando…' : 'Salvar'}
+                  </button>
+                  <button
                     onClick={handleRun}
                     className={`flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${isRunning
                       ? 'bg-red-50 text-red-500 border border-red-100'
@@ -481,12 +507,6 @@ export default function WorkflowBuilderPage() {
                   >
                     {isRunning ? Icons.stop : Icons.play}
                     {isRunning ? 'Parar' : 'Executar'}
-                  </button>
-                  <button
-                    onClick={handleSave}
-                    className="p-2.5 md:p-3 rounded-2xl border border-castanha-100 text-foreground/40 hover:text-foreground hover:bg-castanha-50 transition"
-                  >
-                    {Icons.save}
                   </button>
                 </div>
               </div>
@@ -637,7 +657,7 @@ export default function WorkflowBuilderPage() {
                     <div className="space-y-6">
                       <div>
                         <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">
-                          {selectedNode.data.subtype === 'file_upload' ? 'Arquivo para simulação' : 'Simular documento assinado'}
+                          {selectedNode.data.subtype === 'file_upload' ? 'Arquivo para executar o fluxo' : 'Documento assinado para executar o fluxo'}
                         </label>
                         <div className="relative group">
                           <input
@@ -660,7 +680,7 @@ export default function WorkflowBuilderPage() {
                         </div>
                         {selectedNode.data.subtype === 'document_signed' && (
                           <p className="text-[9px] text-foreground/30 mt-4 leading-relaxed italic">
-                            * Em produção, este gatilho se conecta aos webhooks do DocuSign/Hellosign. Para esta simulação, selecione um documento que fará o papel do &quot;Arquivo assinado&quot;.
+                            * Por enquanto este gatilho roda com o documento escolhido aqui, que faz o papel do &quot;Arquivo assinado&quot;.
                           </p>
                         )}
                       </div>
