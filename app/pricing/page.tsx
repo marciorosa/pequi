@@ -84,7 +84,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       <section
         className={`relative overflow-hidden bg-[#151816] text-white ${embedded ? 'rounded-3xl px-5 pb-12 pt-12 sm:px-8' : '-mt-20 pb-20 pt-36 sm:pt-40 lg:pb-24'}`}
       >
-        <Image src="/landingpage/hero/colunas.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[50%_40%]" />
+        <Image src="/landingpage/hero/planos.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[50%_35%]" />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
