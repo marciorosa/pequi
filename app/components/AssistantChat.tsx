@@ -27,6 +27,12 @@ export default function AssistantChat() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
+  // Pergunta digitada no topo da página inicial chega como ?q= e já fica no campo
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setInput(q.slice(0, 1000));
+  }, []);
+
   // Keep the latest message in view inside the chat panel only — avoid scrollIntoView on the page
   useEffect(() => {
     const el = messagesContainerRef.current;

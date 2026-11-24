@@ -11,17 +11,19 @@
    claro) a 900/950 (mais escuro).
    ========================================================================== */
 :root {
-  /* "pequi": cor de destaque — coral M&C #FA5A50 (era amarelo-ouro #F7BE09) */
-  --pequi-50: #FFF1EF;
-  --pequi-100: #FEE0DC;
-  --pequi-200: #FDC2BC;
-  --pequi-300: #FC9C93;
-  --pequi-400: #FB7A70;
-  --pequi-500: #FA5A50; /* cor da marca */
-  --pequi-600: #E2463C;
-  --pequi-700: #BC352C;
-  --pequi-800: #922A24;
-  --pequi-900: #6B211C;
+  /* "pequi": cor de destaque. Desde 2026-11-24 (layout inspirado na Magnar)
+     o site não usa coral: o destaque é o próprio grafite, e os tons claros
+     são creme areia. Coral anterior: #FA5A50. */
+  --pequi-50: #FAF6EA;
+  --pequi-100: #F4EFDF;
+  --pequi-200: #E6DFC9;
+  --pequi-300: #C9C2AC;
+  --pequi-400: #3A3E3A;
+  --pequi-500: #151816; /* cor da marca: grafite */
+  --pequi-600: #0E100F;
+  --pequi-700: #0A0B0A;
+  --pequi-800: #070807;
+  --pequi-900: #040504;
 
   /* "cerrado": grafite (era verde do Cerrado) */
   --cerrado-50: #F4F3EE;
@@ -33,8 +35,8 @@
   --cerrado-600: #45463F;
   --cerrado-700: #34352F;
   --cerrado-800: #2B2C27;
-  --cerrado-900: #242521;
-  --cerrado-950: #1B1C19;
+  --cerrado-900: #151816;
+  --cerrado-950: #0E100F;
 
   /* Caroço e terra do Cerrado */
   --terra-50: #FAF4EE;
@@ -50,8 +52,8 @@
 
   /* "castanha": neutros creme (fundos, bordas e textos) */
   --castanha-0: #FFFFFF;
-  --castanha-25: #F8F7F3;
-  --castanha-50: #F4F3EE;
+  --castanha-25: #FFFDF6;
+  --castanha-50: #F4EFDF;
   --castanha-100: #EEEDE6;
   --castanha-150: #E8E7E0;
   --castanha-200: #E4E3DC;
@@ -71,7 +73,7 @@
   /* --------------------------------------------------------------------
      Tokens de uso (o que os componentes consomem)
      -------------------------------------------------------------------- */
-  --pq-ink: #242521;              /* texto principal: grafite */
+  --pq-ink: #151816;              /* texto principal: grafite */
   --pq-ink-soft: #34352F;
   --pq-text-strong: var(--castanha-800);
   --pq-text-muted: var(--castanha-600);
@@ -108,10 +110,10 @@
   --card-foreground: var(--castanha-800);
   --input: var(--castanha-25);
   --ring: var(--pequi-500);
-  --font-gilroy: var(--font-manrope);
-  --font-landing: var(--font-manrope);
-  --font-heading: var(--font-manrope), system-ui, sans-serif;
-  --font-accent: var(--font-instrument-serif), Georgia, serif;
+  --font-gilroy: var(--font-inter);
+  --font-landing: var(--font-inter);
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-accent: var(--font-eb-garamond), "Palatino Linotype", Palatino, Georgia, serif;
 }
 
 @theme inline {
@@ -354,7 +356,7 @@
 }
 
 .shadow-glow {
-  box-shadow: 0 0 15px rgba(250, 90, 80, 0.12);
+  box-shadow: 0 0 15px rgba(230, 223, 201, 0.12);
 }
 
 /* Custom scrollbar styling */
@@ -654,8 +656,8 @@ details[open] .faqMinus {
 .landing-gilroy h2,
 .landing-gilroy h3 {
   font-family: var(--font-heading) !important;
-  font-weight: 600;
-  letter-spacing: -0.045em;
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
 .landing-gilroy h1 span,
@@ -730,10 +732,10 @@ details[open] .faqMinus {
 .pq-accent,
 .landing-gilroy .pq-accent {
   font-family: var(--font-accent) !important;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--pequi-500);
+  letter-spacing: -0.02em;
+  color: inherit;
 }
 
 /* Etiqueta pequena acima dos títulos: "● Texto" */
@@ -760,7 +762,7 @@ details[open] .faqMinus {
 /* Fundo do topo: papel creme com brilho coral suave (Lucia) */
 .pq-hero-glow {
   background:
-    radial-gradient(ellipse 60% 45% at 50% 38%, rgba(250, 90, 80, 0.09), transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 38%, rgba(230, 223, 201, 0.45), transparent 70%),
     var(--background);
 }
 
@@ -777,8 +779,8 @@ details[open] .faqMinus {
 
 /* Rodapé claro e quente (Lucia) */
 .pq-footer {
-  color: #3a3d35;
-  background: #efece4;
+  color: #151816;
+  background: #F4EFDF;
 }
 
 .landing-surface {
@@ -805,14 +807,14 @@ details[open] .faqMinus {
 
 .bg-pequi-glow {
   background:
-    radial-gradient(60% 50% at 20% 0%, rgba(250, 90, 80, 0.18), transparent 70%),
-    radial-gradient(50% 45% at 90% 10%, rgba(250, 90, 80, 0.14), transparent 70%),
+    radial-gradient(60% 50% at 20% 0%, rgba(230, 223, 201, 0.18), transparent 70%),
+    radial-gradient(50% 45% at 90% 10%, rgba(230, 223, 201, 0.14), transparent 70%),
     var(--background);
 }
 
 .bg-cerrado-deep {
   background:
-    radial-gradient(70% 60% at 15% 0%, rgba(250, 90, 80, 0.14), transparent 65%),
+    radial-gradient(70% 60% at 15% 0%, rgba(230, 223, 201, 0.14), transparent 65%),
     linear-gradient(180deg, var(--cerrado-900), var(--cerrado-950));
   color: var(--castanha-25);
 }

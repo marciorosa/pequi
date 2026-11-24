@@ -1,108 +1,114 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { ToolIconTile, ToolIconName } from '../ToolIcon';
-import FadeInSection from './FadeInSection';
+import { useRouter } from 'next/navigation';
 
-type HeroSectionProps = {
-  activePreview?: string;
-  onPreviewChange?: (src: string) => void;
-};
+// Topo da página inicial (2026-11-24): fundo grafite, título grande em Inter,
+// caixa para testar a assistente e um único botão de ação.
+export default function HeroSection() {
+  const router = useRouter();
+  const [question, setQuestion] = useState('');
 
-export default function HeroSection({ activePreview, onPreviewChange }: HeroSectionProps) {
-  const featureCards = [
-    {
-      title: 'Chat no seu site',
-      copy: 'Atendimento com IA no site do escritório, que capta os contatos dos clientes.',
-      icon: 'chat' as ToolIconName,
-      preview: '/landingpage/intro/channels-img.png',
-    },
-    {
-      title: 'Assistentes de IA',
-      copy: 'Assistentes por área do Direito para os seus clientes, a qualquer hora.',
-      icon: 'assistants' as ToolIconName,
-      preview: '/landingpage/intro/ai-assistant-img.png',
-    },
-    {
-      title: 'Documentos',
-      copy: 'Análise, comparação, tradução e criação de documentos e contratos.',
-      icon: 'docs' as ToolIconName,
-      preview: '/landingpage/intro/document-img.png',
-    },
-    {
-      title: 'Acesso ao Cofre',
-      copy: 'Pastas protegidas por senha para os documentos de cada cliente.',
-      icon: 'vault' as ToolIconName,
-      preview: '/landingpage/intro/valut-img.png',
-    },
-    {
-      title: 'Automações',
-      copy: 'Fluxos de etapas para organizar o atendimento e as tarefas que se repetem.',
-      icon: 'flows' as ToolIconName,
-      preview: '/landingpage/intro/automation-img.png',
-    },
-  ];
+  const ask = (e: React.FormEvent) => {
+    e.preventDefault();
+    const q = question.trim();
+    router.push(q ? `/assistant?q=${encodeURIComponent(q)}#demo` : '/assistant#demo');
+  };
 
   return (
-    <FadeInSection>
-      <section
-        id="hero"
-        className="pq-hero-glow relative -mt-20 overflow-hidden px-4 pb-12 pt-[10.5rem] sm:px-6 sm:pt-[11.5rem] lg:px-8 lg:pb-16"
-      >
-        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-          <p className="pq-eyebrow">IA jurídica white-label para escritórios</p>
-          <h1 className="mt-6 max-w-[860px] text-center text-ink text-[clamp(2.7rem,6.2vw,5.4rem)] font-semibold leading-[1.02] tracking-[-0.06em]">
-            A IA jurídica com a
-            <br />
-            <span className="pq-accent text-[1.12em] leading-[0.9]">marca do seu escritório.</span>
-          </h1>
-          <p className="mt-6 max-w-[600px] text-center text-base leading-relaxed text-castanha-600 sm:text-lg">
-            Ofereça aos seus clientes uma assistente jurídica com o logo, as cores e o nome do seu escritório:
-            no seu site, no seu painel e nos seus e-mails. O escritório assina, e os clientes usam sem custo.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/contact"
-              className="landing-primary-btn group/cta inline-flex h-12 items-center justify-center gap-2 px-6 transition"
-            >
-              Fale com a gente
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform group-hover/cta:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
-              </svg>
-            </Link>
-            <Link
-              href="/pricing"
-              className="landing-secondary-btn !h-12 !w-auto !px-6 transition"
-            >
-              Ver preços
-            </Link>
-          </div>
-          <p className="mt-4 text-xs text-castanha-500">
-            Sua marca · Chat no seu site · Assistentes de IA · Documentos · Cofre · Automações
-          </p>
+    <section
+      id="hero"
+      className="relative -mt-20 overflow-hidden bg-[#151816] px-5 pb-20 pt-40 text-white sm:px-8 sm:pt-48 lg:pb-28"
+    >
+      {/* luz quente e linhas finas no fundo */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(244,239,223,0.16), transparent 70%), radial-gradient(ellipse 50% 40% at 85% 100%, rgba(244,239,223,0.08), transparent 70%)',
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)',
+          backgroundSize: '72px 72px',
+          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%)',
+        }}
+      />
 
-          <div className="mt-12 grid w-full grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {featureCards.map((card) => (
-              <button
-                key={card.title}
-                type="button"
-                onClick={() => onPreviewChange?.(card.preview)}
-                className={`pq-card flex h-[220px] flex-col px-5 py-5 text-left hover:-translate-y-0.5 ${
-                  activePreview === card.preview ? '!shadow-[0_0_0_2px_var(--pequi-500),0_12px_28px_-14px_rgba(250,90,80,0.45)]' : ''
-                }`}
-              >
-                <div className="inline-flex w-full items-center justify-start">
-                  <ToolIconTile name={card.icon} active={activePreview === card.preview} size="lg" />
-                </div>
-                <div className="mt-auto">
-                  <h3 className="text-[1.1rem] font-semibold leading-snug tracking-[-0.03em] text-ink">{card.title}</h3>
-                  <p className="mt-2 text-[0.92rem] leading-[1.45] text-castanha-600">{card.copy}</p>
-                </div>
-              </button>
-            ))}
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
+        <p className="text-[0.78rem] uppercase tracking-[0.2em] text-white/55">IA jurídica white-label para escritórios</p>
+
+        <h1 className="mt-6 text-[clamp(2.75rem,7vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
+          A IA jurídica com a
+          <br />
+          <span className="pq-accent">marca do seu escritório.</span>
+        </h1>
+
+        <p className="mt-7 max-w-[620px] text-[1.05rem] leading-relaxed text-white/70 sm:text-lg">
+          Uma assistente jurídica com o logo, as cores e o nome do seu escritório: no seu site, no seu painel e nos seus
+          e-mails. O escritório assina, e os clientes usam sem custo.
+        </p>
+
+        <form
+          onSubmit={ask}
+          className="mt-10 w-full max-w-[640px] rounded-2xl bg-[#FFFDF6] p-2 text-left text-ink shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]"
+        >
+          <label htmlFor="hero-question" className="sr-only">
+            Faça uma pergunta para a assistente
+          </label>
+          <textarea
+            id="hero-question"
+            rows={2}
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) ask(e);
+            }}
+            placeholder="Faça uma pergunta como se fosse um cliente do escritório…"
+            className="w-full resize-none rounded-xl bg-[#F4EFDF]/70 px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink/45 focus:outline-none focus:ring-2 focus:ring-ink/15"
+          />
+          <div className="flex items-center justify-between px-2 pb-1 pt-2">
+            <span className="rounded-full border border-ink/15 px-3 py-1 text-[0.75rem] text-ink/60">Teste a assistente</span>
+            <button
+              type="submit"
+              aria-label="Enviar pergunta"
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-white transition hover:bg-ink/85"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m-6 6l6-6 6 6" />
+              </svg>
+            </button>
           </div>
-        </div>
-      </section>
-    </FadeInSection>
+        </form>
+
+        <Link
+          href="/contact"
+          className="group mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-[0.95rem] font-medium text-ink transition hover:bg-[#F4EFDF]"
+        >
+          Agendar uma demonstração
+          <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+          </svg>
+        </Link>
+
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[0.8rem] text-white/50">
+          <span>Sua marca</span>
+          <span aria-hidden="true">·</span>
+          <span>Chat no seu site</span>
+          <span aria-hidden="true">·</span>
+          <span>Cofre</span>
+          <span aria-hidden="true">·</span>
+          <span>Automações</span>
+          <span aria-hidden="true">·</span>
+          <span>Assinatura eletrônica</span>
+        </p>
+      </div>
+    </section>
   );
 }

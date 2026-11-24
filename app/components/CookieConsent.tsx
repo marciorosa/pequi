@@ -88,10 +88,10 @@ export default function CookieConsent() {
   const analyticsOn = loaded && !isEmbed && consent?.analytics === true;
 
   const btn =
-    'inline-flex flex-1 items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition-colors sm:flex-none';
+    'inline-flex flex-1 items-center justify-center rounded-full px-4 py-2 text-[0.82rem] font-medium transition-colors sm:flex-none';
   // "Aceitar todos" e "Recusar não necessários" com o mesmo destaque
-  const strong = `${btn} bg-foreground text-white hover:bg-foreground/85`;
-  const soft = `${btn} border border-border bg-white text-foreground hover:bg-muted`;
+  const strong = `${btn} bg-white text-ink hover:bg-[#F4EFDF]`;
+  const soft = `${btn} border border-white/30 text-white hover:border-white/60`;
 
   return (
     <>
@@ -121,23 +121,23 @@ export default function CookieConsent() {
           role="dialog"
           aria-modal="false"
           aria-labelledby="cookie-consent-title"
-          className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-3xl rounded-3xl border border-border bg-card p-5 text-foreground shadow-[0_18px_50px_-20px_rgba(36,37,33,0.45)] sm:inset-x-6 sm:bottom-6 sm:p-6"
+          className="fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-2xl rounded-2xl bg-[#151816] p-4 text-white shadow-[0_18px_50px_-15px_rgba(0,0,0,0.55)] ring-1 ring-white/10 sm:inset-x-6 sm:bottom-6 sm:p-5"
         >
-          <p id="cookie-consent-title" className="text-sm font-semibold">
+          <p id="cookie-consent-title" className="text-[0.86rem] font-medium">
             Cookies
           </p>
 
           {!showPanel ? (
             <>
-              <p className="mt-2 text-sm leading-relaxed opacity-80">
+              <p className="mt-1.5 text-[0.82rem] leading-relaxed text-white/70">
                 Usamos cookies necessários para o site funcionar e, com a sua permissão, cookies de análise para
                 entender como o site é usado. Você pode aceitar, recusar ou escolher. Saiba mais na{' '}
-                <Link href="/privacy-policy" className="font-medium underline underline-offset-4">
+                <Link href="/privacy-policy" className="text-white underline underline-offset-4">
                   Política de Privacidade
                 </Link>
                 .
               </p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <button type="button" className={strong} onClick={() => save(true)}>
                   Aceitar todos
                 </button>
@@ -159,21 +159,21 @@ export default function CookieConsent() {
           ) : (
             <>
               <ul className="mt-3 space-y-3">
-                <li className="flex items-start justify-between gap-4 rounded-2xl bg-muted/60 p-4">
+                <li className="flex items-start justify-between gap-4 rounded-xl bg-white/[0.06] p-3.5">
                   <div>
-                    <p className="text-sm font-semibold">Necessários (sempre ativos)</p>
-                    <p className="mt-1 text-sm opacity-75">Login, segurança e prevenção a fraudes.</p>
+                    <p className="text-[0.86rem] font-medium">Necessários (sempre ativos)</p>
+                    <p className="mt-1 text-[0.82rem] text-white/65">Login, segurança e prevenção a fraudes.</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-foreground/10 px-3 py-1 text-xs font-semibold">
+                  <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
                     Sempre ativos
                   </span>
                 </li>
-                <li className="flex items-start justify-between gap-4 rounded-2xl bg-muted/60 p-4">
+                <li className="flex items-start justify-between gap-4 rounded-xl bg-white/[0.06] p-3.5">
                   <div>
-                    <label htmlFor="cookie-analytics" className="text-sm font-semibold">
+                    <label htmlFor="cookie-analytics" className="text-[0.86rem] font-medium">
                       Análise (desativado por padrão)
                     </label>
-                    <p className="mt-1 text-sm opacity-75">Estatísticas de visitas pelo Google Analytics.</p>
+                    <p className="mt-1 text-[0.82rem] text-white/65">Estatísticas de visitas pelo Google Analytics.</p>
                   </div>
                   <button
                     id="cookie-analytics"
@@ -182,11 +182,11 @@ export default function CookieConsent() {
                     aria-checked={analyticsChoice}
                     onClick={() => setAnalyticsChoice((v) => !v)}
                     className={`relative h-7 w-12 shrink-0 rounded-full transition-colors ${
-                      analyticsChoice ? 'bg-foreground' : 'bg-foreground/20'
+                      analyticsChoice ? 'bg-white' : 'bg-white/20'
                     }`}
                   >
                     <span
-                      className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow transition-all ${
+                      className={`absolute top-1 h-5 w-5 rounded-full shadow transition-all ${analyticsChoice ? 'bg-[#151816]' : 'bg-white'} ${
                         analyticsChoice ? 'left-6' : 'left-1'
                       }`}
                     />
@@ -194,7 +194,7 @@ export default function CookieConsent() {
                   </button>
                 </li>
               </ul>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <button type="button" className={strong} onClick={() => save(analyticsChoice)}>
                   Salvar escolhas
                 </button>

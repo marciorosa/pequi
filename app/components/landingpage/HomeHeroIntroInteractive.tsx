@@ -1,16 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import HeroSection from './HeroSection';
-import IntroSection from './IntroSection';
 
+// As funcionalidades que ficavam em cartões no topo agora estão na seção
+// numerada FeatureShowcase, logo abaixo das primeiras seções da página.
 export default function HomeHeroIntroInteractive() {
-  const [activePreview, setActivePreview] = useState('/landingpage/intro/ai-assistant-img.png');
-
-  return (
-    <>
-      <HeroSection activePreview={activePreview} onPreviewChange={setActivePreview} />
-      <IntroSection imageSrc={activePreview} />
-    </>
-  );
+  return <HeroSection />;
 }

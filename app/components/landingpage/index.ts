@@ -11,3 +11,4 @@ export { default as PlatformCapabilitiesSection } from './PlatformCapabilitiesSe
 export { default as TestimonialSection } from './TestimonialSection';
 export { default as CtaSection } from './CtaSection';
 export { default as FadeInSection } from './FadeInSection';
+export { default as FeatureShowcase } from './FeatureShowcase';

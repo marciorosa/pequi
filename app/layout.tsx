@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Instrument_Serif, Lexend_Deca, Manrope, Playfair_Display } from "next/font/google";
+import { EB_Garamond, Fraunces, Inter, Instrument_Serif, Lexend_Deca, Manrope, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import DashboardAwareLayout from "./components/DashboardAwareLayout";
@@ -35,6 +35,13 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
   variable: '--font-instrument-serif',
+  display: 'swap',
+});
+
+// Serifa clássica dos títulos de destaque (no lugar da Palatino, que não é fonte web)
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: '--font-eb-garamond',
   display: 'swap',
 });
 
@@ -79,12 +86,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${manrope.variable} ${instrumentSerif.variable} ${inter.variable} ${fraunces.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable}`}>
+    <html lang="pt-BR" className={`${manrope.variable} ${instrumentSerif.variable} ${inter.variable} ${fraunces.variable} ${playfair.variable} ${lexendDeca.variable} ${interTight.variable} ${ebGaramond.variable}`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground" style={{ 
-        ['--font-gilroy' as any]: `var(${manrope.variable})`,
-        ['--font-landing' as any]: `var(${manrope.variable})`,
-        ['--font-heading' as any]: `var(${manrope.variable})`,
-        ['--font-accent' as any]: `var(${instrumentSerif.variable})`
+        ['--font-gilroy' as any]: 'var(--font-inter)',
+        ['--font-landing' as any]: 'var(--font-inter)',
+        ['--font-heading' as any]: 'var(--font-inter)',
+        ['--font-accent' as any]: 'var(--font-eb-garamond), "Palatino Linotype", Palatino, Georgia, serif'
       }}>
         {/* Analytics e Tag Manager só carregam com o consentimento (LGPD) */}
         <CookieConsent />

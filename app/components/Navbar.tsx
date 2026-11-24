@@ -1,163 +1,186 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import PequiWordmark from './PequiWordmark';
 
-// Menu no formato do da Lucia. Os produtos ficam listados direto no menu,
-// depois de "Preços" (sem a lista suspensa "Produtos"). "Segurança" saiu do
-// menu e continua no rodapé.
-const navLinks = [
-  { label: 'Preços', href: '/pricing' },
-  { label: 'Assistentes de IA', href: '/assistant' },
-  { label: 'Acesso ao Cofre', href: '/vault' },
-  { label: 'Base de Conhecimento', href: '/knowledge' },
-  { label: 'Automações', href: '/workflows' },
+// Menu no estilo editorial (2026-11-24): barra larga e discreta, "Produtos"
+// abre uma lista curta e numerada. Na página inicial a barra fica
+// transparente sobre o topo escuro e ganha fundo creme ao rolar.
+export const products = [
+  { n: '01', label: 'Assistentes de IA', href: '/assistant' },
+  { n: '02', label: 'Cofre de documentos', href: '/vault' },
+  { n: '03', label: 'Base de Conhecimento', href: '/knowledge' },
+  { n: '04', label: 'Automações', href: '/workflows' },
+  { n: '05', label: 'Assinatura eletrônica', href: '/workflows#assinatura' },
 ];
 
-const ArrowUpRightIcon = ({ className = '' }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+const links = [
+  { label: 'Preços', href: '/pricing' },
+  { label: 'Segurança', href: '/security' },
+  { label: 'Fale conosco', href: '/contact' },
+];
+
+const Chevron = ({ open }: { open: boolean }) => (
+  <svg className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+  </svg>
+);
+
+const ArrowUpRight = ({ className = 'h-3.5 w-3.5' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
     <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M8 7h9v9" />
   </svg>
 );
 
-const ArrowIcon = ({ className = '' }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
-  </svg>
-);
-
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isAuthenticated, isLoading } = useAuth();
   const pathname = usePathname();
-  const isLandingPage = pathname === '/' || pathname === '' || pathname === null;
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const isHome = pathname === '/' || !pathname;
+  // Transparente com texto claro só no topo da página inicial
+  const overDark = isHome && !scrolled && !mobileOpen;
   const isActive = (href: string) => pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
+  const productActive = products.some((p) => isActive(p.href.split('#')[0]));
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
+    setMobileOpen(false);
+    setProductsOpen(false);
   }, [pathname]);
 
-  const navLinkClass = (active: boolean) =>
-    `relative inline-flex h-9 items-center whitespace-nowrap rounded-full px-3.5 transition-colors duration-200 ${
-      active
-        ? 'bg-white text-ink shadow-[0_0_0_1px_var(--castanha-200)]'
-        : 'text-castanha-600 hover:bg-pequi-500/10 hover:text-pequi-600'
-    }`;
+  // Fecha a lista de produtos ao clicar fora ou apertar Esc
+  useEffect(() => {
+    if (!productsOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (!dropdownRef.current?.contains(e.target as Node)) setProductsOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setProductsOpen(false);
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [productsOpen]);
+
+  const text = overDark ? 'text-white/80 hover:text-white' : 'text-ink/70 hover:text-ink';
+  const activeText = overDark ? 'text-white' : 'text-ink';
+  const underline = 'underline decoration-1 underline-offset-[6px]';
 
   return (
-    <nav className={`fixed left-0 right-0 top-0 z-50 px-3 sm:px-6 transition-[padding] duration-300 ${scrolled ? 'pt-2' : 'pt-3 sm:pt-4'}`}>
-      <div className="landing-gilroy relative mx-auto w-full max-w-6xl">
-        <div
-          className={`relative flex h-[68px] items-center justify-between gap-3 rounded-[1.7rem] border px-4 backdrop-blur-xl transition-all duration-300 sm:px-5 ${
-            scrolled
-              ? 'border-castanha-200 bg-white/95 shadow-[0_12px_32px_rgba(36,37,33,0.08)]'
-              : 'border-castanha-200/80 bg-white/90 shadow-[0_8px_35px_rgba(36,37,33,0.04)]'
-          }`}
-        >
-          <Link
-            href={isLandingPage ? '/#hero' : '/'}
-            aria-label="Página inicial do Pequi"
-            className="flex shrink-0 items-center"
-          >
-            <PequiWordmark />
-          </Link>
+    <nav
+      className={`landing-gilroy fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        overDark ? 'bg-transparent' : 'border-b border-ink/10 bg-[#FFFDF6]/95 backdrop-blur-xl'
+      }`}
+    >
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
+        <Link href={isHome ? '/#hero' : '/'} aria-label="Página inicial do Pequi" className="flex shrink-0 items-center">
+          <PequiWordmark tone={overDark ? 'light' : 'ink'} />
+        </Link>
 
-          <div className="hidden items-center gap-0.5 text-[0.9rem] font-medium xl:flex">
-            {navLinks.map((item) => (
-              <Link key={item.href} href={item.href} className={navLinkClass(isActive(item.href))}>
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="hidden shrink-0 items-center gap-1 xl:flex">
-            {!isLoading && (
-              <Link
-                href={isAuthenticated ? '/dashboard' : '/login'}
-                className="inline-flex h-10 items-center justify-center rounded-full px-4 text-[0.9rem] font-medium text-castanha-600 transition hover:bg-castanha-100 hover:text-ink"
-              >
-                {isAuthenticated ? 'Painel' : 'Entrar'}
-              </Link>
-            )}
-            <Link
-              href="/contact"
-              className="landing-primary-btn group/demo inline-flex h-10 items-center justify-center gap-2 px-4"
-            >
-              Fale conosco
-              <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-200 group-hover/demo:-translate-y-0.5 group-hover/demo:translate-x-0.5" />
-            </Link>
-          </div>
-
-          <div className="flex items-center xl:hidden">
+        <div className="hidden items-center gap-7 text-[0.9rem] lg:flex">
+          <div ref={dropdownRef} className="relative">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-              aria-expanded={mobileMenuOpen}
-              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors focus:outline-none ${
-                mobileMenuOpen ? 'bg-castanha-100 text-ink' : 'text-castanha-600 hover:bg-castanha-100 hover:text-ink'
+              type="button"
+              aria-expanded={productsOpen}
+              aria-haspopup="true"
+              onClick={() => setProductsOpen((v) => !v)}
+              className={`inline-flex items-center gap-1.5 transition-colors ${productsOpen || productActive ? `${activeText} ${underline}` : text}`}
+            >
+              Produtos
+              <Chevron open={productsOpen} />
+            </button>
+
+            {productsOpen && (
+              <div className="animate-fadeIn absolute left-1/2 top-full mt-4 w-72 -translate-x-1/2 rounded-2xl border border-ink/10 bg-[#FFFDF6] p-2 shadow-[0_24px_60px_-20px_rgba(21,24,22,0.35)]">
+                {products.map((p) => (
+                  <Link
+                    key={p.href}
+                    href={p.href}
+                    className={`flex items-baseline gap-4 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#F4EFDF] ${
+                      isActive(p.href.split('#')[0]) ? 'bg-[#F4EFDF] text-ink' : 'text-ink/85'
+                    }`}
+                  >
+                    <span className="w-5 text-[0.72rem] tabular-nums text-ink/40">{p.n}</span>
+                    <span className="text-[0.92rem]">{p.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className={`transition-colors ${isActive(l.href) ? `${activeText} ${underline}` : text}`}>
+              {l.label}
+            </Link>
+          ))}
+
+          {!isLoading && (
+            <Link
+              href={isAuthenticated ? '/dashboard' : '/login'}
+              className={`inline-flex items-center gap-1.5 border-b pb-0.5 font-medium transition-colors ${
+                overDark ? 'border-white/60 text-white hover:border-white' : 'border-ink/50 text-ink hover:border-ink'
               }`}
             >
-              {mobileMenuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 7h16M4 12h16M4 17h10" />
-                </svg>
-              )}
-            </button>
-          </div>
+              {isAuthenticated ? 'Painel' : 'Entrar'}
+              <ArrowUpRight />
+            </Link>
+          )}
         </div>
 
-        {mobileMenuOpen && (
-          <div className="animate-fadeIn absolute left-0 right-0 top-full mt-2 max-h-[calc(100vh-5rem)] overflow-y-auto rounded-3xl border border-castanha-150 bg-white p-3 shadow-[0_24px_60px_rgba(36,37,33,0.14)] xl:hidden">
-            <div className="flex flex-col">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`rounded-2xl px-3 py-3 transition-colors ${
-                    isActive(item.href) ? 'bg-castanha-100 font-medium text-ink' : 'text-ink/85 hover:bg-castanha-50 hover:text-ink'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              <div className="mt-2 flex flex-col gap-2 border-t border-castanha-150 px-1 pt-3 sm:flex-row">
-                <Link
-                  href={isAuthenticated ? '/dashboard' : '/login'}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="inline-flex h-11 flex-1 items-center justify-center rounded-full border border-castanha-200 px-5 text-sm font-medium text-ink transition-colors hover:bg-castanha-50"
-                >
-                  {isAuthenticated ? 'Painel' : 'Entrar'}
-                </Link>
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="landing-primary-btn inline-flex h-11 flex-1 items-center justify-center gap-2 px-6"
-                >
-                  Fale conosco
-                  <ArrowIcon className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
+        <button
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={mobileOpen}
+          className={`flex h-10 w-10 items-center justify-center rounded-xl lg:hidden ${overDark ? 'text-white' : 'text-ink'}`}
+        >
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+            {mobileOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h10" />
+            )}
+          </svg>
+        </button>
       </div>
+
+      {mobileOpen && (
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-ink/10 bg-[#FFFDF6] px-5 pb-6 pt-3 lg:hidden">
+          <p className="px-1 pb-2 pt-2 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Produtos</p>
+          {products.map((p) => (
+            <Link key={p.href} href={p.href} className="flex items-baseline gap-4 rounded-xl px-1 py-2.5 text-ink">
+              <span className="w-5 text-[0.72rem] tabular-nums text-ink/40">{p.n}</span>
+              {p.label}
+            </Link>
+          ))}
+          <div className="my-3 border-t border-ink/10" />
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className="block rounded-xl px-1 py-2.5 text-ink">
+              {l.label}
+            </Link>
+          ))}
+          <Link
+            href={isAuthenticated ? '/dashboard' : '/login'}
+            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-ink text-sm font-medium text-white"
+          >
+            {isAuthenticated ? 'Painel' : 'Entrar'}
+            <ArrowUpRight />
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
