@@ -10,7 +10,7 @@ export default function CaseStudyNotFound() {
       </p>
       <Link
         href="/case-studies"
-        className="mt-8 inline-flex rounded-[0.875rem] bg-cerrado-900 text-white px-6 py-3.5 text-[0.9375rem] font-medium hover:bg-cerrado-900 transition-colors"
+        className="mt-8 inline-flex rounded-xl bg-cerrado-900 text-white px-6 py-3.5 text-[0.9375rem] font-medium hover:bg-cerrado-900 transition-colors"
       >
         Voltar para os casos de sucesso
       </Link>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import FadeInSection from './FadeInSection';
-import { sectionHeadingClass, sectionSubTextClass } from './sectionStyles';
+import SectionHeader, { container } from './SectionHeader';
 import { formatPlanPrice, pricingPlans } from '../../pricing/pricingData';
 
 export default function PricingSection() {
@@ -23,17 +23,12 @@ export default function PricingSection() {
 
   return (
     <FadeInSection delay={0.15}>
-      <section id="pricing" className="bg-[#eeece4] scroll-mt-24 md:scroll-mt-28">
-        <div className="max-w-[1274px] mx-auto px-4 py-[60px] md:px-8 lg:px-6 xl:px-0">
-          <div className="mx-auto max-w-[840px] text-center">
-            <h3 className={sectionHeadingClass}>Um plano para o <span className="pq-accent text-[1.1em]">seu escritório</span></h3>
-            <p className={`${sectionSubTextClass} mt-4`}>
-              O escritório assina e oferece a assistente aos clientes, com a própria marca. Os clientes não pagam nada.
-            </p>
-          </div>
+      <section id="pricing" className="scroll-mt-20 bg-[#F4EFDF] py-20 lg:py-28">
+        <div className={container}>
+          <SectionHeader title="Um plano para o seu escritório" text="O escritório assina e oferece a assistente com a própria marca. Os clientes não pagam nada." />
 
-          <div className="mx-auto mt-10 mb-10 flex w-fit flex-col items-center gap-3 rounded-2xl border border-castanha-200 bg-white px-4 py-3 shadow-[0_8px_24px_rgba(36,37,33,0.06)] sm:flex-row sm:rounded-full sm:px-3 sm:py-2">
-            <div className="inline-flex rounded-full border border-castanha-150 bg-castanha-25 p-1">
+          <div className="mb-10 mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+            <div className="inline-flex rounded-full bg-[#FFFDF6] p-1">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`rounded-full px-5 py-2 text-sm font-medium transition ${
@@ -53,19 +48,15 @@ export default function PricingSection() {
                 Anual
               </button>
             </div>
-            <p className="text-[0.8rem] font-medium uppercase tracking-[0.08em] text-castanha-600">
-              No plano anual, economize até 17%
-            </p>
+            <p className="text-[0.85rem] text-ink/55">No plano anual, economize até 17%</p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
               <article
                 key={plan.name}
-                className={`relative flex h-full flex-col rounded-[1.5rem] border p-6 md:p-8 transition ${
-                  plan.popular
-                    ? 'border-cerrado-900 bg-cerrado-900 text-white shadow-[0_24px_50px_rgba(36,37,33,0.22)]'
-                    : 'border-castanha-200 bg-castanha-25 text-ink shadow-[0_10px_28px_rgba(36,37,33,0.07)]'
+                className={`relative flex h-full flex-col rounded-3xl p-7 md:p-9 ${
+                  plan.popular ? 'bg-[#151816] text-white' : 'bg-[#FFFDF6] text-ink'
                 }`}
               >
                 {plan.popular && (
@@ -79,7 +70,7 @@ export default function PricingSection() {
                   </p>
                   <p className={`mt-2 text-sm ${plan.popular ? 'text-white/80' : 'text-castanha-600'}`}>{plan.description}</p>
                   <div className="mt-6 flex items-end gap-2">
-                    <span className="text-[2.5rem] leading-none font-semibold">{getPrice(plan)}</span>
+                    <span className="text-[2.5rem] leading-none font-medium tracking-[-0.03em]">{getPrice(plan)}</span>
                     {plan.monthlyPrice !== null && (
                       <span className={`mb-1 text-sm ${plan.popular ? 'text-white/70' : 'text-castanha-600'}`}>
                         /{billingPeriod === 'monthly' ? 'mês' : 'ano'}
@@ -89,7 +80,7 @@ export default function PricingSection() {
                   {billingPeriod === 'annual' && getSavings(plan) && (
                     <p
                       className={`mt-3 inline-flex w-fit items-center rounded-full px-3 py-1 text-xs font-medium ${
-                        plan.popular ? 'bg-white/15 text-white' : 'bg-pequi-50 text-castanha-600'
+                        plan.popular ? 'bg-white/15 text-white' : 'bg-[#F4EFDF] text-ink/70'
                       }`}
                     >
                       Economize {getSavings(plan)}% no plano anual
@@ -100,11 +91,7 @@ export default function PricingSection() {
                 <ul className="mb-8 space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5">
-                      <span
-                        className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                          plan.popular ? 'bg-white/15 text-white' : 'bg-castanha-100 text-ink'
-                        }`}
-                      >
+                      <span className={`mt-1 inline-flex shrink-0 ${plan.popular ? 'text-white/70' : 'text-ink/50'}`}>
                         <svg className="h-3 w-3" viewBox="0 0 16 16" fill="none" aria-hidden>
                           <path
                             d="M3.2 8.2L6.4 11.2L12.8 4.8"
@@ -126,7 +113,7 @@ export default function PricingSection() {
                   href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
                   className={`mt-auto inline-flex h-11 w-full items-center justify-center rounded-full text-[0.95rem] font-medium transition ${
                     plan.popular
-                      ? 'landing-secondary-btn border-0 !inline-flex !h-11 !w-full'
+                      ? 'bg-white text-ink hover:bg-[#F4EFDF]'
                       : 'landing-primary-btn'
                   }`}
                 >

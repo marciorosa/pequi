@@ -7,7 +7,7 @@ export default function CtaSection() {
     <FadeInSection delay={0.18}>
       <section>
       <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-        <div className="relative overflow-hidden rounded-[2rem] bg-cerrado-900 text-white min-h-[280px] md:min-h-[340px] border border-cerrado-700/50">
+        <div className="relative overflow-hidden rounded-3xl bg-cerrado-900 text-white min-h-[280px] md:min-h-[340px] border border-cerrado-700/50">
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,29,14,0.93)_0%,rgba(30,46,22,0.86)_52%,rgba(42,64,30,0.55)_100%)]" />
 
           <div className="relative z-10 flex h-full items-center p-6 md:p-12 lg:p-14">

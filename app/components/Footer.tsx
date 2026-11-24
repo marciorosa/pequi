@@ -9,7 +9,7 @@ const col = 'flex flex-col items-start gap-3 text-sm [&_a]:text-white/70 [&_a:ho
 
 const Footer = () => {
   return (
-    <footer className="landing-gilroy pq-footer relative z-10 mt-16 lg:mt-[130px]">
+    <footer className="landing-gilroy pq-footer relative z-10">
       <div className="mx-auto max-w-7xl overflow-hidden px-5 pt-14 sm:px-8 sm:pt-20">
         <div className="flex flex-col justify-between gap-8 border-b border-white/15 pb-12 sm:flex-row sm:items-end">
           <div>

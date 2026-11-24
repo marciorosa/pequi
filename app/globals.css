@@ -669,7 +669,7 @@ details[open] .faqMinus {
 .landing-primary-btn {
   border-radius: 999px;
   background: var(--pequi-500);
-  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  box-shadow: none;
   color: var(--pq-on-brand);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
@@ -706,8 +706,8 @@ details[open] .faqMinus {
   flex-shrink: 0;
   border-radius: 999px;
   border: 0;
-  background: #fff;
-  box-shadow: 0 0 0 1px var(--castanha-200), 0 4px 14px -8px rgba(44, 37, 21, 0.1);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(21, 24, 22, 0.25);
   color: var(--pq-ink);
   text-align: center;
   font-family: var(--font-landing), system-ui, sans-serif;
@@ -720,8 +720,8 @@ details[open] .faqMinus {
 }
 
 .landing-secondary-btn:hover {
-  background: #fff;
-  box-shadow: 0 0 0 1px var(--castanha-300), 0 8px 24px -12px rgba(44, 37, 21, 0.18);
+  background: #F4EFDF;
+  box-shadow: inset 0 0 0 1px rgba(21, 24, 22, 0.2);
 }
 
 /* --------------------------------------------------------------------
@@ -766,15 +766,15 @@ details[open] .faqMinus {
     var(--background);
 }
 
-/* Cartão padrão: branco, borda fina, sombra leve */
+/* Cartão padrão (2026-11-24, estilo editorial): plano, areia, canto 24px, sem sombra */
 .pq-card {
-  border-radius: 1.25rem;
-  background: #fff;
-  box-shadow: 0 0 0 1px var(--castanha-200), 0 4px 14px -8px rgba(44, 37, 21, 0.1);
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  border-radius: 1.5rem;
+  background: #F4EFDF;
+  box-shadow: none;
+  transition: background-color 200ms ease;
 }
 .pq-card:hover {
-  box-shadow: 0 0 0 1px var(--castanha-300), 0 8px 24px -12px rgba(44, 37, 21, 0.18);
+  background: #EDE6D2;
 }
 
 /* Rodapé claro e quente (Lucia) */
@@ -784,15 +784,17 @@ details[open] .faqMinus {
 }
 
 .landing-surface {
-  border: 1px solid var(--pq-border);
-  background: var(--pq-surface);
-  border-radius: 2rem;
+  border: 1px solid rgba(21, 24, 22, 0.1);
+  background: #FFFDF6;
+  border-radius: 1.5rem;
+  box-shadow: none;
 }
 
+/* Blocos de conteúdo: areia, sem borda nem sombra, canto 24px (como a referência) */
 .landing-card {
-  border: 1px solid var(--pq-border);
-  background: var(--pq-surface-raised);
-  border-radius: 1.25rem;
+  border: 0;
+  background: #F4EFDF;
+  border-radius: 1.5rem;
 }
 
 /* ==========================================================================

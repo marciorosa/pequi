@@ -8,7 +8,7 @@ import { sectionHeadingClass, sectionSubTextClass } from '../components/landingp
 import { trustedByLogos } from '../components/landingpage/data';
 
 const caseCardClass =
-  'group overflow-hidden rounded-[1.875rem] border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]';
+  'group overflow-hidden rounded-3xl border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1';
 
 export default function CustomersExperience() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -103,7 +103,7 @@ export default function CustomersExperience() {
       <FadeInSection delay={0.06}>
         <section className="border-b border-castanha-150 bg-white py-12 md:py-14">
           <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-[1.5rem] border border-castanha-150 bg-castanha-100/65 px-6 py-10 md:px-10 md:py-12">
+            <div className="rounded-3xl border border-castanha-150 bg-castanha-100/65 px-6 py-10 md:px-10 md:py-12">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
                 {stats.map((stat) => (
                   <div key={stat.label} className="text-center">
@@ -129,9 +129,9 @@ export default function CustomersExperience() {
               Depoimentos de clientes que usam o Pequi todos os dias.
             </p>
 
-            <div className="mb-8 rounded-[1.875rem] border border-castanha-150 bg-white p-8 shadow-[0_24px_64px_rgba(36,37,33,0.06)] md:p-12 lg:p-14">
+            <div className="mb-8 rounded-3xl border border-castanha-150 bg-white p-8 md:p-12 lg:p-14">
               <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-                <div className="mx-auto h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-castanha-200 shadow-sm md:h-28 md:w-28 lg:mx-0">
+                <div className="mx-auto h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-castanha-200 md:h-28 md:w-28 lg:mx-0">
                   <Image
                     src={testimonials[activeTestimonial].image}
                     alt=""
@@ -190,7 +190,7 @@ export default function CustomersExperience() {
               {trustedByLogos.map((logo) => (
                 <div
                   key={logo.src}
-                  className="flex h-[4.5rem] items-center justify-center rounded-[1rem] border border-castanha-200 bg-castanha-100 px-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(36,37,33,0.05)] md:h-[5rem]"
+                  className="flex h-[4.5rem] items-center justify-center rounded-2xl border border-castanha-200 bg-castanha-100 px-3 transition-all duration-300 hover:-translate-y-0.5 md:h-[5rem]"
                 >
                   <Image
                     src={logo.src}

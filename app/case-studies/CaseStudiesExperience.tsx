@@ -17,7 +17,7 @@ const FILTERS: { id: string; name: string }[] = [
 
 function StudyCard({ study }: { study: CaseStudyRecord }) {
   return (
-    <article className="group flex flex-col rounded-[1.875rem] border border-castanha-200 bg-white overflow-hidden shadow-[0_12px_28px_rgba(36,37,33,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300 hover:shadow-[0_20px_40px_rgba(36,37,33,0.08)]">
+    <article className="group flex flex-col rounded-3xl border border-castanha-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:border-castanha-300">
       <div className={`relative h-44 md:h-52 bg-gradient-to-br ${study.accent} px-6 py-5 flex flex-col justify-end`}>
         <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_45%)]" aria-hidden />
         <p className="relative text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white/70">{study.industry}</p>
@@ -32,7 +32,7 @@ function StudyCard({ study }: { study: CaseStudyRecord }) {
           {study.metrics.map((m) => (
             <div
               key={m.label}
-              className="rounded-[0.75rem] border border-castanha-100 bg-castanha-100/80 px-2 py-2.5 text-center"
+              className="rounded-xl border border-castanha-100 bg-castanha-100/80 px-2 py-2.5 text-center"
             >
               <div className="text-ink text-sm md:text-base font-semibold leading-tight">{m.value}</div>
               <div className="text-[0.625rem] font-medium uppercase tracking-[0.06em] text-castanha-500 mt-1 line-clamp-2">
@@ -91,7 +91,7 @@ export default function CaseStudiesExperience() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="rounded-[1.25rem] border border-castanha-200 bg-white px-6 py-7 text-center shadow-[0_8px_24px_rgba(36,37,33,0.04)]"
+                className="rounded-2xl border border-castanha-200 bg-white px-6 py-7 text-center"
               >
                 <div className="text-ink text-3xl md:text-4xl font-medium mb-2">{s.value}</div>
                 <div className="text-ink text-[0.9375rem] font-medium mb-1">{s.label}</div>
@@ -113,7 +113,7 @@ export default function CaseStudiesExperience() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex justify-center items-center rounded-[0.875rem] bg-cerrado-900 text-white px-6 py-3.5 text-[0.9375rem] font-medium transition-all hover:bg-cerrado-900 shrink-0"
+              className="inline-flex justify-center items-center rounded-xl bg-cerrado-900 text-white px-6 py-3.5 text-[0.9375rem] font-medium transition-all hover:bg-cerrado-900 shrink-0"
             >
               Compartilhe sua história
             </Link>

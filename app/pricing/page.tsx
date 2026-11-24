@@ -56,7 +56,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
   return (
     <>
       {/* Hero Header */}
-      <section className={`relative ${embedded ? 'rounded-[2rem] pt-16' : '-mt-20 pt-[13rem]'} pb-48 px-6 overflow-hidden landing-gilroy bg-background`}>
+      <section className={`relative ${embedded ? 'rounded-3xl pt-16' : '-mt-20 pt-[13rem]'} pb-48 px-6 overflow-hidden landing-gilroy bg-background`}>
         {/* Real Background Image like News Page */}
         <Image
           src="/landingpage/hero/hero-bgimg.png"
@@ -94,11 +94,11 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
 
           {/* Billing Toggle */}
           <div className="flex justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <div className="bg-white/50 backdrop-blur-xl border border-cerrado-900/5 rounded-full p-1.5 flex shadow-sm">
+            <div className="bg-white/50 backdrop-blur-xl border border-cerrado-900/5 rounded-full p-1.5 flex">
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 ${billingPeriod === 'monthly'
-                  ? 'btn-primary-gradient shadow-lg'
+                  ? 'btn-primary-gradient'
                   : 'text-foreground/40 hover:text-foreground'
                   }`}
               >
@@ -107,7 +107,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
               <button
                 onClick={() => setBillingPeriod('annual')}
                 className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center ${billingPeriod === 'annual'
-                  ? 'btn-primary-gradient shadow-lg'
+                  ? 'btn-primary-gradient'
                   : 'text-foreground/40 hover:text-foreground'
                   }`}
               >
@@ -129,13 +129,13 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
               <div
                 key={index}
                 className={`group relative bg-white border ${plan.popular
-                  ? 'border-foreground shadow-2xl scale-[1.03] lg:scale-105 z-10'
-                  : 'border-castanha-200 shadow-sm'
-                  } p-12 hover:shadow-2xl transition-all duration-500 rounded-[2.5rem] flex flex-col min-h-[700px]`}
+                  ? 'border-foreground scale-[1.03] lg:scale-105 z-10'
+                  : 'border-castanha-200'
+                  } p-12 transition-all duration-500 rounded-3xl flex flex-col min-h-[700px]`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="btn-primary-gradient px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full shadow-xl">
+                    <span className="btn-primary-gradient px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">
                       Mais popular
                     </span>
                   </div>
@@ -183,8 +183,8 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
                 <Link
                   href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
                   className={`block w-full py-5 rounded-2xl text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 text-center ${plan.popular
-                    ? 'btn-primary-gradient shadow-xl hover:scale-[1.02]'
-                    : 'bg-white text-foreground border border-castanha-200 hover:border-cerrado-900 shadow-sm'
+                    ? 'btn-primary-gradient hover:scale-[1.02]'
+                    : 'bg-white text-foreground border border-castanha-200 hover:border-cerrado-900'
                     }`}
                 >
                   {plan.ctaText}
@@ -210,7 +210,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
             </div>
           </div>
 
-          <div className="bg-white border border-castanha-200 rounded-[3rem] overflow-hidden shadow-sm">
+          <div className="bg-white border border-castanha-200 rounded-3xl overflow-hidden">
             <div className="overflow-x-auto overflow-y-hidden">
               <table className="w-full border-collapse">
                 <thead>
@@ -258,7 +258,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="group bg-white border border-castanha-200 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
+              <div key={index} className="group bg-white border border-castanha-200 p-8 rounded-3xl transition-all duration-300">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/10 transition-colors group-hover:bg-cerrado-900" />
                   <h3 className="text-lg font-bold tracking-tight">{faq.question}</h3>
@@ -282,7 +282,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
             Comece pelo plano Gratuito ou fale com a gente para configurar a marca do seu escritório.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5 shadow-2xl">
+            <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5">
               Iniciar teste grátis
             </Link>
             <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-castanha-200">

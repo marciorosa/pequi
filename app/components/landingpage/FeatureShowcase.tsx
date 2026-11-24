@@ -46,8 +46,8 @@ export default function FeatureShowcase() {
 
   return (
     <FadeInSection>
-      <section id="funcionalidades" className="scroll-mt-20 bg-[#151816] px-5 py-20 text-white sm:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section id="funcionalidades" className="scroll-mt-20 bg-[#151816] py-20 text-white lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 border-b border-white/15 pb-12 lg:grid-cols-2 lg:items-end">
             <h2 className="text-[clamp(2.25rem,4.6vw,3.75rem)] font-medium leading-[1.05] tracking-[-0.035em] text-white">
               Um escritório inteiro
@@ -61,7 +61,7 @@ export default function FeatureShowcase() {
           </div>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-14">
-            <div className="relative order-2 overflow-hidden rounded-3xl bg-[#F4EFDF] p-3 sm:p-4 lg:order-1">
+            <div className="relative order-2 overflow-hidden rounded-3xl lg:order-1">
               {items.map((it, i) => (
                 <Image
                   key={it.image}
@@ -70,8 +70,8 @@ export default function FeatureShowcase() {
                   width={1272}
                   height={706}
                   sizes="(max-width: 1024px) 100vw, 640px"
-                  className={`h-auto w-full rounded-2xl object-cover object-top transition-opacity duration-500 ${
-                    i === active ? 'relative opacity-100' : 'pointer-events-none absolute inset-3 opacity-0 sm:inset-4'
+                  className={`h-auto w-full object-cover object-top transition-opacity duration-500 ${
+                    i === active ? 'relative opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
                   }`}
                 />
               ))}

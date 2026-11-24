@@ -89,7 +89,7 @@ export default function PressKitPage() {
                   <p className="text-foreground/60 text-lg mb-6 leading-relaxed">Fundado em 2020 por uma equipe de especialistas em Direito e tecnologia, o Pequi cresceu e hoje atende milhares de escritórios de advocacia, departamentos jurídicos corporativos e prestadores de serviços jurídicos no mundo todo.</p>
                   <p className="text-foreground/60 text-lg leading-relaxed">O Pequi tem sede em San Francisco, escritórios em Nova York e Londres, e já captou US$ 75 milhões em capital de risco.</p>
                 </div>
-                <div className="bg-white border border-castanha-100 rounded-2xl p-8 shadow-sm">
+                <div className="bg-white border border-castanha-100 rounded-2xl p-8">
                   <h3 className="text-xl font-semibold mb-6">Dados da empresa</h3>
                   <div className="space-y-4">
                     {Object.entries(companyInfo).map(([key, val]) => (
@@ -114,7 +114,7 @@ export default function PressKitPage() {
               <h2 className="text-4xl font-light mb-12 text-center">Equipe executiva</h2>
               <div className="space-y-12">
                 {executives.map((exec, idx) => (
-                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl p-8 grid md:grid-cols-3 gap-8 items-center hover:shadow-lg transition-all">
+                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl p-8 grid md:grid-cols-3 gap-8 items-center transition-all">
                     <div className="md:col-span-1">
                       <div className="relative aspect-square overflow-hidden rounded-2xl bg-castanha-50">
                         <Image src={exec.image} alt={exec.name} fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
@@ -141,7 +141,7 @@ export default function PressKitPage() {
               <h2 className="text-4xl font-light mb-12 text-center">Comunicados à imprensa</h2>
               <div className="space-y-6">
                 {pressReleases.map((release, idx) => (
-                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl p-8 hover:shadow-md transition-all">
+                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl p-8 transition-all">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30 mb-2">{release.date}</p>
                     <h3 className="text-xl font-semibold mb-3">{release.title}</h3>
                     <p className="text-foreground/60 mb-6 text-sm leading-relaxed">{release.excerpt}</p>
@@ -162,7 +162,7 @@ export default function PressKitPage() {
               <p className="text-foreground/50 text-center mb-12 max-w-2xl mx-auto text-sm">Consulte nosso manual da marca para o uso correto do logotipo e de outros elementos visuais.</p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {["Logotipo principal", "Logotipo branco", "Ícone do app", "Manual da marca"].map((name, idx) => (
-                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl overflow-hidden hover:shadow-lg transition-all">
+                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl overflow-hidden transition-all">
                     <div className="aspect-square bg-castanha-50 flex items-center justify-center p-8">
                       <div className="w-20 h-20 rounded-2xl bg-foreground flex items-center justify-center">
                         <svg className="w-8 h-8 text-background" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -194,7 +194,7 @@ export default function PressKitPage() {
               <p className="text-foreground/50 text-center mb-12 max-w-2xl mx-auto text-sm">Fotos em alta resolução para uso da imprensa. Todas as fotos podem ser usadas com atribuição à Pequi, Inc.</p>
               <div className="grid md:grid-cols-2 gap-6">
                 {companyPhotos.map((photo, idx) => (
-                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl overflow-hidden group hover:shadow-xl transition-all">
+                  <div key={idx} className="bg-white border border-castanha-100 rounded-2xl overflow-hidden group transition-all">
                     <div className="aspect-video relative">
                       <Image src={photo.image} alt={photo.title} fill className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">

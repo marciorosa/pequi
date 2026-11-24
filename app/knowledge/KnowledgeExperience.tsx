@@ -6,7 +6,7 @@ import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
 
 const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]';
+  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5';
 
 function FeatureIcon({ children }: { children: React.ReactNode }) {
   return (
@@ -212,10 +212,10 @@ export default function KnowledgeExperience() {
               Um exemplo de consulta e resultados estruturados, apenas ilustrativo e sem caráter de aconselhamento jurídico.
             </p>
 
-            <div className="landing-surface mx-auto max-w-4xl overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">
+            <div className="landing-surface mx-auto max-w-4xl overflow-hidden transition-shadow duration-300">
               <div className="border-b border-castanha-200 p-6 md:p-8">
                 <h3 className="mb-4 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Digite sua consulta de pesquisa jurídica</h3>
-                <div className="mb-6 rounded-[0.875rem] border border-castanha-200 bg-castanha-100 p-5">
+                <div className="mb-6 rounded-xl border border-castanha-200 bg-castanha-100 p-5">
                   <p className="text-[0.9375rem] italic leading-[160%] text-castanha-600">
                     &quot;Trabalho há 5 anos na mesma empresa e fui demitido sem justa causa. Quantos dias de aviso prévio eu tenho?&quot;
                   </p>
@@ -227,7 +227,7 @@ export default function KnowledgeExperience() {
                         {label}
                       </label>
                       <select
-                        className="w-full rounded-[0.875rem] border border-castanha-200 bg-castanha-100 px-4 py-3.5 text-[0.9375rem] text-ink focus:border-castanha-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
+                        className="w-full rounded-xl border border-castanha-200 bg-castanha-100 px-4 py-3.5 text-[0.9375rem] text-ink focus:border-castanha-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
                         aria-label={label}
                       >
                         <option>{label === 'Área' ? 'Todas as áreas' : 'Simples'}</option>
@@ -244,7 +244,7 @@ export default function KnowledgeExperience() {
                 </div>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-[0.875rem] bg-cerrado-800 px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110 hover:shadow-[0_10px_24px_rgba(36,37,33,0.15)]"
+                  className="inline-flex items-center justify-center rounded-xl bg-cerrado-800 px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-all duration-300 hover:brightness-110"
                 >
                   Pesquisar
                 </button>
@@ -252,7 +252,7 @@ export default function KnowledgeExperience() {
 
               <div className="bg-castanha-100/45 p-6 md:p-8">
                 <h3 className="mb-4 text-[1.125rem] font-medium text-ink md:text-[1.25rem]">Resultados da pesquisa</h3>
-                <div className="rounded-[1.25rem] border border-castanha-150 bg-white p-6 md:p-8">
+                <div className="rounded-2xl border border-castanha-150 bg-white p-6 md:p-8">
                   <p className="mb-6 text-[0.9375rem] leading-[160%] text-castanha-600">
                     <span className="font-medium text-ink">Resumo:</span> Quem trabalhou 5 anos na mesma empresa tem 45 dias de
                     aviso prévio: 30 dias, mais 3 dias por ano completo de trabalho, até o limite de 90 dias.

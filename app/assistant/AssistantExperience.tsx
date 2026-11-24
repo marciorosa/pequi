@@ -124,7 +124,7 @@ export default function AssistantExperience() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(36,37,33,0.06)]"
+                  className="flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div className="inline-flex w-full items-center justify-start">{feature.icon}</div>
                   <div className="mt-auto pt-6">
@@ -146,7 +146,7 @@ export default function AssistantExperience() {
               Faça uma pergunta abaixo e veja como a assistente responde aos seus clientes, com o tom de um copiloto jurídico de confiança.
             </p>
 
-            <div className="landing-surface overflow-hidden shadow-[0_24px_64px_rgba(36,37,33,0.06),0_48px_100px_rgba(36,37,33,0.04)] transition-shadow duration-300 hover:shadow-[0_28px_72px_rgba(36,37,33,0.08)]">
+            <div className="landing-surface overflow-hidden transition-shadow duration-300">
               <AssistantChat />
             </div>
           </div>
@@ -156,10 +156,10 @@ export default function AssistantExperience() {
       <FadeInSection delay={0.14}>
         <section className="bg-white px-4 pb-16 sm:px-6 lg:px-8 lg:pb-[7rem]">
           <div className="mx-auto max-w-[1274px]">
-            <div className="rounded-[2rem] border border-castanha-150 bg-castanha-50 p-5 sm:p-7 lg:p-10">
+            <div className="rounded-3xl border border-castanha-150 bg-castanha-50 p-5 sm:p-7 lg:p-10">
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div className="relative order-2 lg:order-1">
-                  <div className="rounded-[1.5rem] border border-castanha-150 bg-white p-4 shadow-[0_16px_36px_rgba(36,37,33,0.06)] sm:p-5">
+                  <div className="rounded-3xl border border-castanha-150 bg-white p-4 sm:p-5">
                     <div className="space-y-3">
                       {[
                         'Criador de contratos simples',
@@ -168,7 +168,7 @@ export default function AssistantExperience() {
                       ].map((item, index) => (
                         <div
                           key={`${item}-${index}`}
-                          className="flex items-center gap-3 rounded-[0.875rem] border border-castanha-150 bg-castanha-25 px-4 py-4 text-[1rem] font-normal leading-[1.4rem] text-castanha-800"
+                          className="flex items-center gap-3 rounded-xl border border-castanha-150 bg-castanha-25 px-4 py-4 text-[1rem] font-normal leading-[1.4rem] text-castanha-800"
                         >
                           <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-castanha-150 bg-white text-castanha-600">
                             {index === 0 ? '◉' : index === 1 ? '▢' : '⎈'}
@@ -177,7 +177,7 @@ export default function AssistantExperience() {
                         </div>
                       ))}
                     </div>
-                    <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-[0.875rem] bg-cerrado-900 px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
+                    <div className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-xl bg-cerrado-900 px-4 text-[1.25rem] font-medium leading-[1.1rem] text-white sm:text-[1.375rem]">
                       Assinatura de documento
                     </div>
                   </div>

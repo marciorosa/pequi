@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="landing-gilroy bg-background text-foreground">
       <HomeHeroIntroInteractive />
-      <div className="mt-[110px] space-y-16 lg:space-y-[130px]">
+      <div>
         <FeaturesSection />
         <FeatureShowcase />
         <SecurityStrip />
