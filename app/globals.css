@@ -854,14 +854,12 @@ details[open] .faqMinus {
 .citation-check li { margin: 0.1rem 0; }
 
 /* Títulos com trecho em destaque (2026-11-24): em vez de misturar duas fontes,
-   o título inteiro fica na serifa clássica, como o trecho "sua marca". */
-:is(h1, h2, h3, h4, p):has(> .pq-accent),
-.landing-gilroy :is(h1, h2, h3, h4, p):has(> .pq-accent) {
-  font-family: var(--font-accent) !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.02em !important;
-}
+   o título inteiro fica na Inter, inclusive o trecho destacado. A serifa
+   clássica fica só nos itens numerados das funcionalidades. */
 :is(h1, h2, h3, h4, p):has(> .pq-accent) > .pq-accent {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
   font-size: 1em !important;
   line-height: inherit !important;
   opacity: 1 !important;
