@@ -49,7 +49,17 @@ const Navbar = () => {
   const darkTop = isHome || (pathname === '/pricing' && !isAuthenticated);
   const overDark = darkTop && !scrolled && !mobileOpen;
   const isActive = (href: string) => pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
-  const productActive = products.some((p) => isActive(p.href.split('#')[0]));
+  // Dois produtos podem levar à mesma página (Automações e Assinatura eletrônica
+  // em /workflows); a âncora (#assinatura) decide qual dos dois fica marcado.
+  const [hash, setHash] = useState('');
+  const isProductActive = (href: string) => {
+    const [path, anchor = ''] = href.split('#');
+    if (!isActive(path)) return false;
+    if (anchor) return hash === `#${anchor}`;
+    const siblings = products.filter((o) => o.href !== href && o.href.split('#')[0] === path);
+    return !siblings.some((o) => hash === `#${o.href.split('#')[1]}`);
+  };
+  const productActive = products.some((p) => isProductActive(p.href));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -61,7 +71,20 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setProductsOpen(false);
+    setHash(window.location.hash);
   }, [pathname]);
+
+  // O Next troca a âncora sem disparar hashchange; por isso o clique também atualiza
+  useEffect(() => {
+    const sync = () => setHash(window.location.hash);
+    window.addEventListener('hashchange', sync);
+    window.addEventListener('popstate', sync);
+    return () => {
+      window.removeEventListener('hashchange', sync);
+      window.removeEventListener('popstate', sync);
+    };
+  }, []);
+  const onProductClick = (href: string) => setHash(href.includes('#') ? `#${href.split('#')[1]}` : '');
 
   // Fecha a lista de produtos ao clicar fora ou apertar Esc
   useEffect(() => {
@@ -112,8 +135,12 @@ const Navbar = () => {
                   <Link
                     key={p.href}
                     href={p.href}
+                    onClick={() => {
+                      onProductClick(p.href);
+                      setProductsOpen(false);
+                    }}
                     className={`flex items-baseline gap-4 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#F4EFDF] ${
-                      isActive(p.href.split('#')[0]) ? 'bg-[#F4EFDF] text-ink' : 'text-ink/85'
+                      isProductActive(p.href) ? 'bg-[#F4EFDF] text-ink' : 'text-ink/85'
                     }`}
                   >
                     <span className="w-5 text-[0.72rem] tabular-nums text-ink/40">{p.n}</span>
@@ -163,7 +190,15 @@ const Navbar = () => {
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-ink/10 bg-[#FFFDF6] px-5 pb-6 pt-3 lg:hidden">
           <p className="px-1 pb-2 pt-2 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Produtos</p>
           {products.map((p) => (
-            <Link key={p.href} href={p.href} className="flex items-baseline gap-4 rounded-xl px-1 py-2.5 text-ink">
+            <Link
+              key={p.href}
+              href={p.href}
+              onClick={() => {
+                onProductClick(p.href);
+                setMobileOpen(false);
+              }}
+              className="flex items-baseline gap-4 rounded-xl px-1 py-2.5 text-ink"
+            >
               <span className="w-5 text-[0.72rem] tabular-nums text-ink/40">{p.n}</span>
               {p.label}
             </Link>
