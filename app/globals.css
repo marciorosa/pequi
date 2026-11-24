@@ -852,3 +852,17 @@ details[open] .faqMinus {
 .citation-check p { margin: 0 0 0.4rem; }
 .citation-check ul { margin: 0; padding-left: 1.2rem; list-style: disc; }
 .citation-check li { margin: 0.1rem 0; }
+
+/* Títulos com trecho em destaque (2026-11-24): em vez de misturar duas fontes,
+   o título inteiro fica na serifa clássica, como o trecho "sua marca". */
+:is(h1, h2, h3, h4, p):has(> .pq-accent),
+.landing-gilroy :is(h1, h2, h3, h4, p):has(> .pq-accent) {
+  font-family: var(--font-accent) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+}
+:is(h1, h2, h3, h4, p):has(> .pq-accent) > .pq-accent {
+  font-size: 1em !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+}

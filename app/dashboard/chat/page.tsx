@@ -384,7 +384,7 @@ export default function ChatPage() {
             {messages.length === 1 && (
               <div className="max-w-2xl mx-auto space-y-12 py-10">
                 <div className="space-y-4 text-center">
-                  <h1 className="text-4xl font-medium tracking-tight text-ink">Chat <span className="font-light italic text-castanha-600">jurídico.</span></h1>
+                  <h1 className="text-4xl font-medium tracking-tight text-ink">Chat <span className="pq-accent">jurídico.</span></h1>
                   <p className="text-castanha-600 text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Escolha uma sugestão ou escreva sua dúvida.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

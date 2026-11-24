@@ -120,7 +120,7 @@ export default function DashboardPage() {
               
               <div className="space-y-4">
                 <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-ink">
-                  Pesquisa <span className="font-light opacity-60 italic">jurídica com IA</span>
+                  Pesquisa <span className="pq-accent">jurídica com IA</span>
                 </h2>
                 <p className="text-lg text-ink/60 font-medium leading-relaxed max-w-sm">
                   Tire dúvidas sobre as leis brasileiras em linguagem simples. A pesquisa não consulta processos nem bases de jurisprudência.

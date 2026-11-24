@@ -955,7 +955,7 @@ export default function VaultPage() {
               Armazenamento criptografado V2.0
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-ink">
-              Cofre seguro de <span className="font-light opacity-60 italic">documentos.</span>
+              Cofre seguro de <span className="pq-accent">documentos.</span>
             </h1>
             <p className="text-lg lg:text-xl text-ink/40 font-medium leading-relaxed">
               Guarde seus documentos em pastas na nuvem (Amazon S3), acessíveis só pela sua conta, e proteja cada pasta com uma senha própria.

@@ -86,7 +86,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Sua marca, <span className="font-light opacity-60 italic">nossa IA.</span>
+            Sua marca, <span className="pq-accent">nossa IA.</span>
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
             O escritório assina e oferece aos clientes uma assistente jurídica com a própria marca. Os clientes não pagam nada.
@@ -203,7 +203,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8">
                 <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 leading-none mt-0.5">Especificações técnicas</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="font-light opacity-60 italic">planos.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="pq-accent">planos.</span></h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
                 Limites de uso de cada cliente do escritório, por mês.
               </p>
@@ -250,7 +250,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       <section className="py-32 px-6 landing-gilroy bg-background">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="font-light opacity-60 italic">frequentes.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="pq-accent">frequentes.</span></h2>
             <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
               Respostas simples sobre o white-label, os planos e os pagamentos.
             </p>
@@ -276,7 +276,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cerrado-950/10 to-transparent" />
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
-            Leve a IA para <span className="font-light opacity-60 italic">o seu escritório.</span>
+            Leve a IA para <span className="pq-accent">o seu escritório.</span>
           </h2>
           <p className="text-foreground/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
             Comece pelo plano Gratuito ou fale com a gente para configurar a marca do seu escritório.
