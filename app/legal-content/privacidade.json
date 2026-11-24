@@ -1,0 +1,370 @@
+{
+ "title": "POLÍTICA DE PRIVACIDADE DO PEQUI",
+ "version": "Versão de 24 de novembro de 2026",
+ "intro": [
+  {
+   "type": "p",
+   "text": "Esta Política explica como o Pequi trata dados pessoais de quem visita o site pequi.me, de advogados e escritórios que contratam a plataforma e de profissionais que contatamos para apresentar nossos serviços. Escrevemos de forma direta, para que você saiba o que fazemos com seus dados, por quê, por quanto tempo e como exercer seus direitos."
+  }
+ ],
+ "parts": [
+  {
+   "title": null,
+   "subtitle": null,
+   "intro": [],
+   "sections": [
+    {
+     "id": "s1",
+     "title": "1. QUEM SOMOS E QUEM É O CONTROLADOR",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "1.1. O Pequi é uma plataforma de software da M&C LTDA., sociedade inscrita no CNPJ sob o nº 68.716.930/0001-80, com sede na Rua Dr. Antônio Álvares Lobo, 660, Box A64, Sala 64, Botafogo, Campinas/SP, CEP 13020-110, que é a controladora dos dados pessoais tratados nos termos desta Política."
+      },
+      {
+       "type": "p",
+       "text": "1.2. Canal de privacidade: contato@pequi.me. A identidade e o contato do encarregado pelo tratamento de dados pessoais serão divulgados nesta Política e no site pequi.me; até lá, todas as solicitações sobre dados pessoais devem ser enviadas a esse canal."
+      }
+     ]
+    },
+    {
+     "id": "s2",
+     "title": "2. A QUEM ESTA POLÍTICA SE APLICA, E A QUEM NÃO SE APLICA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "2.1. Esta Política se aplica: (a) aos visitantes do site pequi.me; (b) aos advogados, sociedades de advogados e seus usuários que se cadastram e contratam a plataforma (\"Assinantes\"); (c) aos advogados e escritórios que contatamos para apresentar o Pequi; e (d) a quem usa a demonstração do assistente no site pequi.me."
+      },
+      {
+       "type": "p",
+       "text": "2.2. Esta Política não se aplica aos dados dos visitantes e clientes dos escritórios que usam o Pequi com a própria marca, nem aos documentos e conversas que os escritórios e seus clientes inserem na plataforma. Nesses casos, quem decide sobre o tratamento é o escritório, que é o controlador, e o Pequi atua como operador, seguindo as instruções do escritório e o acordo de tratamento de dados firmado com ele. Se você é cliente ou visitante de um escritório, consulte o aviso de privacidade desse escritório, exibido no próprio chat ou no site dele."
+      },
+      {
+       "type": "p",
+       "text": "2.3. Como operador, o Pequi não usa os dados dos clientes e visitantes dos escritórios para nenhuma finalidade própria: não os usa para publicidade, não os compartilha entre escritórios, não forma com eles base de contatos e não os usa para treinar modelos de inteligência artificial. Contratamos os serviços de inteligência artificial em modalidades nas quais o fornecedor não usa esses dados para treinar ou aprimorar seus modelos."
+      },
+      {
+       "type": "p",
+       "text": "2.4. Na demonstração do assistente disponível no site pequi.me, não há escritório envolvido, e o Pequi é o controlador das mensagens digitadas. A demonstração serve apenas para mostrar o funcionamento da ferramenta: não informe dados pessoais reais, seus ou de outras pessoas, nem relate caso concreto. As respostas da demonstração não constituem orientação jurídica."
+      }
+     ]
+    },
+    {
+     "id": "s3",
+     "title": "3. QUAIS DADOS TRATAMOS, PARA QUÊ E COM QUAL BASE LEGAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "O quadro resume cada atividade. As bases legais são as previstas na Lei 13.709/2018 (LGPD)."
+      },
+      {
+       "type": "table",
+       "head": [
+        "Atividade",
+        "Dados",
+        "Finalidade",
+        "Base legal"
+       ],
+       "rows": [
+        [
+         "Navegação no site",
+         "Endereço IP, dispositivo, navegador, páginas acessadas, identificadores de cookies",
+         "Funcionamento e segurança do site; estatísticas de audiência (Google Analytics)",
+         "Legítimo interesse para cookies necessários e segurança; consentimento para cookies de análise (ver seção 10)"
+        ],
+        [
+         "Demonstração do assistente no site",
+         "Mensagens digitadas na demonstração. Pedimos que você não informe dados pessoais reais",
+         "Demonstrar o funcionamento do assistente; não usamos as mensagens para outra finalidade",
+         "Legítimo interesse (art. 7º, IX), limitado à demonstração"
+        ],
+        [
+         "Cadastro e conta",
+         "Nome, e-mail, número de inscrição e seccional da OAB, nome e CNPJ do escritório, senha (armazenada apenas em forma de hash), logo, cores e domínio do escritório",
+         "Criar e manter a conta e prestar o serviço contratado",
+         "Execução de contrato (art. 7º, V)"
+        ],
+        [
+         "Verificação da inscrição na OAB",
+         "Nome e número de inscrição, conferidos no Cadastro Nacional dos Advogados",
+         "Garantir que a plataforma seja usada apenas por advogados e sociedades de advogados, como exigem nossos Termos",
+         "Execução de contrato (art. 7º, V) e legítimo interesse (art. 7º, IX)"
+        ],
+        [
+         "Pagamento e faturamento",
+         "Nome, e-mail, dados de cobrança e de transação; os dados completos do cartão ficam com a Stripe",
+         "Cobrar a assinatura e emitir documentos fiscais",
+         "Execução de contrato (art. 7º, V) e cumprimento de obrigação legal (art. 7º, II)"
+        ],
+        [
+         "Uso da plataforma pelo Assinante",
+         "Registros de acesso, contagens de uso (número de pesquisas, mensagens, documentos)",
+         "Controlar limites do plano, segurança, suporte e guarda de registros exigida por lei",
+         "Execução de contrato; cumprimento de obrigação legal (Lei 12.965/2014, art. 15)"
+        ],
+        [
+         "Suporte e comunicações de serviço",
+         "Mensagens trocadas, dados da conta",
+         "Atender solicitações e avisar sobre o serviço, os Termos e os planos",
+         "Execução de contrato"
+        ],
+        [
+         "Novidades para Assinantes",
+         "Nome e e-mail",
+         "Informar novas funcionalidades e conteúdos",
+         "Legítimo interesse, com opção de descadastramento em toda mensagem"
+        ],
+        [
+         "Inscrição em demonstração, webinar ou conteúdo",
+         "Nome, e-mail profissional, cidade/UF, porte do escritório, áreas de atuação",
+         "Realizar a demonstração ou o evento e, se você autorizar, enviar novidades",
+         "Consentimento (art. 7º, I), revogável a qualquer tempo"
+        ],
+        [
+         "Prospecção B2B a partir de cadastro público",
+         "Razão social, nome fantasia, e-mail declarado, município/UF, natureza jurídica e data de início de atividade de sociedades de advocacia, obtidos nos Dados Abertos do CNPJ da Receita Federal",
+         "Apresentar o Pequi a escritórios de advocacia por e-mail",
+         "Legítimo interesse (art. 7º, IX), observados os §§ 3º e 7º do art. 7º, com avaliação documentada, informação da origem e descadastramento em um clique"
+        ],
+        [
+         "Contatos de rede e indicações",
+         "Nome e contato profissional",
+         "Apresentar o Pequi a colegas por meio de contato pessoal dos sócios",
+         "Legítimo interesse"
+        ]
+       ]
+      },
+      {
+       "type": "p",
+       "text": "3.1. Não tratamos dados pessoais sensíveis dos Assinantes para finalidade própria. A plataforma não se destina a menores de 18 anos, e o cadastro é restrito a advogados."
+      }
+     ]
+    },
+    {
+     "id": "s4",
+     "title": "4. PROSPECÇÃO DE ESCRITÓRIOS: COMO FUNCIONA E COMO SAIR",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "4.1. Usamos dados públicos do Cadastro Nacional da Pessoa Jurídica, publicados pela Receita Federal, para enviar e-mails apresentando o Pequi a sociedades de advocacia. Selecionamos apenas sociedades de advocacia ativas e excluímos órgãos públicos, entidades e e-mails de terceiros, como os de contabilidade. Não acrescentamos a esses dados informações de outras fontes, não usamos telefone nem WhatsApp para o primeiro contato e não vendemos nem cedemos a base."
+      },
+      {
+       "type": "p",
+       "text": "4.2. Toda mensagem informa de onde obtivemos o seu e-mail e traz um link de descadastramento. Quem se descadastra entra em uma lista de supressão, que mantemos apenas para garantir que não haverá novo contato."
+      },
+      {
+       "type": "p",
+       "text": "4.3. Você pode se opor a esse tratamento a qualquer momento, pelo link da mensagem ou pelo canal de privacidade (contato@pequi.me)."
+      },
+      {
+       "type": "p",
+       "text": "4.4. As mensagens de prospecção não usam recurso de rastreamento de abertura, como pixel ou imagem invisível. Medimos apenas respostas, inscrições e descadastramentos."
+      }
+     ]
+    },
+    {
+     "id": "s5",
+     "title": "5. COM QUEM COMPARTILHAMOS DADOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "5.1. Compartilhamos dados apenas com fornecedores que nos ajudam a prestar o serviço, sob contrato e com obrigações de proteção de dados, e somente na medida necessária:"
+      },
+      {
+       "type": "table",
+       "head": [
+        "Fornecedor",
+        "Para quê",
+        "Onde trata os dados"
+       ],
+       "rows": [
+        [
+         "Amazon Web Services",
+         "Armazenamento de arquivos (cofre e documentos)",
+         "Brasil (São Paulo)"
+        ],
+        [
+         "Provedor de banco de dados (MongoDB)",
+         "Armazenamento dos dados da plataforma",
+         "Informado mediante solicitação ao canal de privacidade"
+        ],
+        [
+         "Maritaca AI",
+         "Processamento das mensagens do chat por inteligência artificial",
+         "Brasil ou exterior, conforme o modelo utilizado"
+        ],
+        [
+         "Google (Gemini)",
+         "Análise de documentos e imagens por inteligência artificial",
+         "Exterior"
+        ],
+        [
+         "Google (Analytics e Tag Manager)",
+         "Estatísticas de audiência do site, se você consentir",
+         "Exterior"
+        ],
+        [
+         "Stripe",
+         "Processamento de pagamentos",
+         "Exterior (Estados Unidos)"
+        ],
+        [
+         "DocuSign",
+         "Assinatura eletrônica de documentos",
+         "Exterior"
+        ]
+       ]
+      },
+      {
+       "type": "p",
+       "text": "5.2. Também podemos compartilhar dados para cumprir obrigação legal ou ordem de autoridade competente, para defender direitos em processo judicial, administrativo ou arbitral, ou em operação societária que envolva o Pequi, caso em que os dados continuarão protegidos nos termos desta Política."
+      },
+      {
+       "type": "p",
+       "text": "5.3. Os fornecedores de inteligência artificial tratam as mensagens e os documentos apenas para gerar a resposta solicitada, sem usá-los para treinar ou aprimorar modelos. Eventual retenção temporária pelo fornecedor limita-se ao previsto em seus termos para fins de segurança e prevenção de abuso."
+      },
+      {
+       "type": "p",
+       "text": "5.4. Mantemos a relação dos fornecedores atualizada nesta Política, com a data de cada versão."
+      },
+      {
+       "type": "p",
+       "text": "5.5. Não vendemos dados pessoais."
+      },
+      {
+       "type": "p",
+       "text": "5.6. Não tomamos, com base nos seus dados, decisões exclusivamente automatizadas que afetem os seus interesses."
+      }
+     ]
+    },
+    {
+     "id": "s6",
+     "title": "6. TRANSFERÊNCIA INTERNACIONAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "6.1. Alguns fornecedores tratam dados fora do Brasil, conforme o quadro acima. Essas transferências observam o art. 33 da LGPD, com a adoção, junto a cada fornecedor, das cláusulas-padrão contratuais aprovadas pela Resolução CD/ANPD nº 19/2024 ou de outro mecanismo admitido pela ANPD. Você pode pedir informações sobre essas garantias pelo canal de privacidade."
+      }
+     ]
+    },
+    {
+     "id": "s7",
+     "title": "7. SEGURANÇA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "7.1. Adotamos medidas técnicas e administrativas para proteger os dados, entre elas comunicação cifrada (HTTPS), senhas guardadas com função de hash, isolamento entre contas e armazenamento de arquivos com acesso por links temporários. Estamos ampliando esses controles com criptografia adicional dos dados em repouso, controle de acesso por necessidade e registro auditável de acessos, com conclusão prevista em até 90 (noventa) dias contados da publicação desta Política."
+      },
+      {
+       "type": "p",
+       "text": "7.2. Nenhum sistema é totalmente imune a incidentes. Se ocorrer um incidente que possa causar risco ou dano relevante, comunicaremos a ANPD e os titulares afetados nos prazos da regulamentação."
+      }
+     ]
+    },
+    {
+     "id": "s8",
+     "title": "8. POR QUANTO TEMPO GUARDAMOS OS DADOS",
+     "blocks": [
+      {
+       "type": "table",
+       "head": [
+        "Dados",
+        "Prazo"
+       ],
+       "rows": [
+        [
+         "Cadastro e conta do Assinante",
+         "Enquanto a conta estiver ativa e, depois, pelo prazo necessário ao exercício de direitos e ao cumprimento de obrigações legais"
+        ],
+        [
+         "Dados fiscais e de pagamento",
+         "Pelo prazo exigido pela legislação fiscal"
+        ],
+        [
+         "Registros de acesso à aplicação",
+         "6 meses (Lei 12.965/2014, art. 15), ou prazo maior se exigido por autoridade"
+        ],
+        [
+         "Mensagens digitadas na demonstração do assistente",
+         "30 dias"
+        ],
+        [
+         "Inscrições em demonstração ou webinar",
+         "Até a revogação do consentimento ou 24 meses sem interação"
+        ],
+        [
+         "Base de prospecção B2B",
+         "Atualizada a cada publicação mensal da Receita Federal; registros sem resposta são excluídos após 12 meses"
+        ],
+        [
+         "Lista de supressão (descadastramentos)",
+         "Enquanto houver prospecção, apenas com o e-mail, para impedir novo contato"
+        ],
+        [
+         "Estatísticas de audiência",
+         "Até 14 meses, conforme a configuração do Google Analytics"
+        ]
+       ]
+      },
+      {
+       "type": "p",
+       "text": "8.1. Encerrado o prazo, os dados são eliminados ou anonimizados, salvo hipótese legal de conservação."
+      }
+     ]
+    },
+    {
+     "id": "s9",
+     "title": "9. SEUS DIREITOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "9.1. Você pode, a qualquer tempo e gratuitamente, solicitar: confirmação de que tratamos seus dados; acesso; correção de dados incompletos, inexatos ou desatualizados; anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos; portabilidade; eliminação de dados tratados com base no consentimento; informação sobre com quem compartilhamos; informação sobre a possibilidade de não consentir e suas consequências; revogação do consentimento; e oposição a tratamento baseado em legítimo interesse (LGPD, art. 18)."
+      },
+      {
+       "type": "p",
+       "text": "9.2. Para exercer seus direitos, escreva para contato@pequi.me. Responderemos em até 15 (quinze) dias (LGPD, art. 19, II). Podemos pedir informações para confirmar sua identidade."
+      },
+      {
+       "type": "p",
+       "text": "9.3. Se você for cliente ou visitante de um escritório que usa o Pequi, dirija seu pedido ao escritório. Se o pedido chegar a nós, o encaminharemos a ele."
+      },
+      {
+       "type": "p",
+       "text": "9.4. Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD)."
+      }
+     ]
+    },
+    {
+     "id": "s10",
+     "title": "10. COOKIES",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "10.1. O site usa cookies e tecnologias semelhantes. Os necessários ao funcionamento são usados sempre; os de análise de audiência, apenas com o seu consentimento. Você pode apagar ou bloquear cookies nas configurações do seu navegador; bloquear os necessários pode impedir o login."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "11. ALTERAÇÕES DESTA POLÍTICA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "11.1. Podemos atualizar esta Política. A data da última atualização aparece no topo. Mudanças relevantes serão comunicadas aos Assinantes por e-mail ou na plataforma."
+      }
+     ]
+    },
+    {
+     "id": "s12",
+     "title": "12. CONTATO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "12.1. Controladora: M&C LTDA., sociedade inscrita no CNPJ sob o nº 68.716.930/0001-80, com sede na Rua Dr. Antônio Álvares Lobo, 660, Box A64, Sala 64, Botafogo, Campinas/SP, CEP 13020-110. Canal de privacidade e atendimento: contato@pequi.me."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,760 @@
+{
+ "title": "TERMOS DE LICENÇA E USO DA PLATAFORMA PEQUI WHITE-LABEL",
+ "version": "Versão de 24 de novembro de 2026",
+ "intro": [
+  {
+   "type": "p",
+   "text": "Estes Termos de Licença e Uso (\"Termos\") regulam a licença de uso da plataforma de software Pequi, disponibilizada em pequi.me, aos advogados e sociedades de advogados que a contratam. Leia-os com atenção antes de aceitá-los. Ao concluir o cadastro e marcar a caixa de aceite, você declara ter lido e aceito estes Termos, o Anexo I (Acordo de Tratamento de Dados Pessoais) e o Anexo II (Obrigações Éticas e de Conformidade), que deles fazem parte."
+  },
+  {
+   "type": "p",
+   "text": "Síntese, sem prejuízo do texto integral: o Pequi licencia software; não presta serviços jurídicos, não capta nem intermedeia clientes e não participa de honorários. A remuneração do Pequi é apenas a assinatura do plano contratado. O atendimento aos seus clientes, a orientação jurídica e as peças processuais são de sua exclusiva responsabilidade profissional."
+  }
+ ],
+ "parts": [
+  {
+   "title": null,
+   "subtitle": null,
+   "intro": [],
+   "sections": [
+    {
+     "id": "s1",
+     "title": "CLÁUSULA 1. PARTES",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "1.1. LICENCIANTE: M&C LTDA., sociedade inscrita no CNPJ sob o nº 68.716.930/0001-80, com sede na Rua Dr. Antônio Álvares Lobo, 660, Box A64, Sala 64, Botafogo, Campinas/SP, CEP 13020-110, titular da plataforma Pequi e doravante designada \"Pequi\"."
+      },
+      {
+       "type": "p",
+       "text": "1.2. LICENCIADO: o advogado regularmente inscrito na Ordem dos Advogados do Brasil, ou a sociedade de advogados ou sociedade unipessoal de advocacia regularmente registrada, que concluir o cadastro e aceitar estes Termos, doravante designado \"Licenciado\". Quem aceitar estes Termos em nome de sociedade declara ter poderes para vinculá-la."
+      }
+     ]
+    },
+    {
+     "id": "s2",
+     "title": "CLÁUSULA 2. DEFINIÇÕES",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "2.1. Para estes Termos, considera-se:"
+      },
+      {
+       "type": "p",
+       "text": "a) Plataforma: o software Pequi, acessado pela internet, com seus painéis, assistentes de inteligência artificial, ferramentas de documentos, cofre, integração de assinatura eletrônica e o código de incorporação do chat."
+      },
+      {
+       "type": "p",
+       "text": "b) Camada do Advogado: as funcionalidades utilizadas pelo Licenciado e por seus usuários autorizados no exercício da advocacia, inclusive ferramentas de apoio à elaboração de documentos."
+      },
+      {
+       "type": "p",
+       "text": "c) Fluxo do Usuário Final: as funcionalidades oferecidas pelo Licenciado, sob a sua marca, a visitantes do seu site e a seus clientes, inclusive o chat incorporado ao site e o painel do cliente."
+      },
+      {
+       "type": "p",
+       "text": "d) Usuário Final: a pessoa que interage com o Fluxo do Usuário Final, seja visitante, potencial cliente ou cliente do Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "e) Contatos: os dados de identificação e contato, e o conteúdo das mensagens, coletados pelo assistente no Fluxo do Usuário Final e encaminhados ao painel do Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "f) Conteúdo do Licenciado: todos os dados, documentos, mensagens, configurações, marcas e materiais inseridos na Plataforma pelo Licenciado, por seus usuários autorizados ou pelos Usuários Finais."
+      },
+      {
+       "type": "p",
+       "text": "g) Suboperador: o fornecedor contratado pelo Pequi que trata dados pessoais por conta do Licenciado, na forma do Anexo I."
+      },
+      {
+       "type": "p",
+       "text": "h) Plano: a modalidade de assinatura contratada, com as funcionalidades e limites descritos na página de preços vigente, observada a Cláusula 17.5."
+      }
+     ]
+    },
+    {
+     "id": "s3",
+     "title": "CLÁUSULA 3. OBJETO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "3.1. Estes Termos têm por objeto a concessão, pelo Pequi ao Licenciado, de licença de uso de software, não exclusiva, intransferível, onerosa (salvo no plano Gratuito) e temporária, pelo prazo da assinatura, para que o Licenciado utilize a Plataforma no exercício da sua atividade e a ofereça aos Usuários Finais sob a sua própria marca, nome, cores e domínio."
+      },
+      {
+       "type": "p",
+       "text": "3.2. O Pequi não presta serviços jurídicos, não exerce atividade privativa da advocacia, não presta consultoria ou assessoria jurídica a Usuários Finais, não capta, não intermedeia nem distribui clientela, não indica advogados, não interfere na estratégia ou na atuação técnica do Licenciado e não participa, a qualquer título, da receita de serviços jurídicos do Licenciado (Lei 8.906/1994, arts. 1º, 16 e 34, III e IV; Resolução CFOAB 16/2026, art. 3º, III)."
+      },
+      {
+       "type": "p",
+       "text": "3.3. Nenhuma disposição destes Termos cria sociedade, associação, parceria, mandato, representação ou vínculo de emprego entre as partes."
+      }
+     ]
+    },
+    {
+     "id": "s4",
+     "title": "CLÁUSULA 4. ELEGIBILIDADE E CADASTRO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "4.1. A Plataforma destina-se exclusivamente a advogados com inscrição ativa na OAB e a sociedades de advogados ou sociedades unipessoais de advocacia regularmente registradas. O Pequi verificará a inscrição informada no Cadastro Nacional dos Advogados e poderá recusar ou suspender o cadastro cuja inscrição não seja confirmada ou deixe de estar ativa. Esta regra aplica-se também ao plano Gratuito."
+      },
+      {
+       "type": "p",
+       "text": "4.2. O Licenciado deve fornecer dados verdadeiros e atualizados e responde pela guarda das credenciais de acesso suas e de seus usuários autorizados, bem como pelos atos praticados com elas. O Licenciado comunicará imediatamente ao Pequi, pelo canal contato@pequi.me, qualquer suspeita de acesso indevido ou de uso não autorizado dessas credenciais."
+      },
+      {
+       "type": "p",
+       "text": "4.3. Os usuários autorizados do Licenciado devem ser advogados, estagiários inscritos ou colaboradores sob sua supervisão e responsabilidade."
+      }
+     ]
+    },
+    {
+     "id": "s5",
+     "title": "CLÁUSULA 5. FUNCIONAMENTO DA PLATAFORMA E LIMITES DA INTELIGÊNCIA ARTIFICIAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "5.1. Na Camada do Advogado, a Plataforma oferece ferramentas de apoio. Todo documento ou peça gerado com auxílio da Plataforma é uma minuta, que deve ser integralmente revisada pelo Licenciado antes de qualquer uso, cabendo-lhe conferir fatos, fundamentos, citações, jurisprudência e prazos em fonte oficial."
+      },
+      {
+       "type": "p",
+       "text": "5.2. No Fluxo do Usuário Final, o assistente limita-se a triagem e orientação de caráter informativo e ao encaminhamento do Usuário Final ao Licenciado. O assistente não elabora, não entrega nem protocola peça processual ou documento jurídico para o Usuário Final, e essa limitação é característica do serviço, aplicada a todos os assistentes do fluxo."
+      },
+      {
+       "type": "p",
+       "text": "5.3. O Fluxo do Usuário Final exibe permanentemente avisos de que: (a) o atendimento é realizado por inteligência artificial do escritório; (b) as respostas são informativas e não substituem a orientação de um advogado; (c) citações e prazos devem ser conferidos em fonte oficial; e (d) não se forma relação entre advogado e cliente antes da contratação formal do Licenciado. O Licenciado não pode suprimir nem alterar o sentido desses avisos."
+      },
+      {
+       "type": "p",
+       "text": "5.4. O chat somente funciona nos domínios cadastrados pelo Licenciado e está sujeito a limites de mensagens e de operações definidos no Plano."
+      },
+      {
+       "type": "p",
+       "text": "5.5. Sistemas de inteligência artificial podem produzir respostas incompletas, desatualizadas ou incorretas. O Pequi emprega medidas para reduzir esse risco, mas não garante a exatidão das respostas, razão pela qual a revisão humana prevista nesta cláusula é obrigatória."
+      },
+      {
+       "type": "p",
+       "text": "5.6. A Plataforma utiliza modelos de inteligência artificial de terceiros, identificados no Anexo I. O Pequi poderá substituí-los, mediante aviso ao Licenciado na forma do Anexo I."
+      }
+     ]
+    },
+    {
+     "id": "s6",
+     "title": "CLÁUSULA 6. RESPONSABILIDADES DO LICENCIADO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "6.1. O Licenciado é o único responsável pela atividade profissional que exerce com o apoio da Plataforma, inclusive pelo atendimento, pela orientação e pelas peças destinadas aos seus clientes, e pelo cumprimento do Estatuto da Advocacia, do Código de Ética e Disciplina, dos provimentos do Conselho Federal da OAB e das normas da sua seccional."
+      },
+      {
+       "type": "p",
+       "text": "6.2. Compete ao Licenciado: (a) celebrar diretamente com seus clientes o contrato de honorários, sem qualquer participação do Pequi; (b) configurar o assistente, sua mensagem de boas-vindas e os sites em que o chat é exibido em conformidade com as regras de publicidade da advocacia (Provimento CFOAB 205/2021); (c) observar as obrigações do Anexo II; e (d) cumprir, como controlador, as obrigações da legislação de proteção de dados em relação aos Usuários Finais, inclusive a disponibilização de aviso de privacidade em seu nome."
+      },
+      {
+       "type": "p",
+       "text": "6.3. É vedado ao Licenciado: (a) utilizar a Plataforma para captação ativa de clientela, promessa de resultado ou qualquer forma de publicidade vedada; (b) apresentar o assistente como advogado ou sugerir que o Usuário Final dispensa a contratação de advogado; (c) contornar, por configuração, a limitação da Cláusula 5.2; (d) inserir conteúdo ilícito ou sobre o qual não tenha direito; (e) realizar engenharia reversa, copiar ou revender a Plataforma; e (f) utilizar a Plataforma em desacordo com a lei."
+      }
+     ]
+    },
+    {
+     "id": "s7",
+     "title": "CLÁUSULA 7. PREÇO, PAGAMENTO E VEDAÇÃO DE PARTICIPAÇÃO EM HONORÁRIOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "7.1. Pela licença, o Licenciado pagará ao Pequi o preço do Plano escolhido, conforme a página de preços vigente no momento da contratação. Na data desta versão: plano Pro, R$ 399,00 por mês ou R$ 3.999,00 por ano; plano Enterprise, mediante proposta; plano Gratuito, sem custo e com funcionalidades limitadas."
+      },
+      {
+       "type": "p",
+       "text": "7.2. A remuneração do Pequi consiste exclusivamente no preço da licença. É vedada a cobrança, pelo Pequi, de qualquer percentual, comissão, taxa de êxito, participação ou valor vinculado à receita de serviços jurídicos do Licenciado, ao número de clientes captados ou ao resultado de causas."
+      },
+      {
+       "type": "p",
+       "text": "7.3. O Pequi não recebe, não administra e não repassa valores pagos pelos clientes do Licenciado, que contrata e cobra seus honorários diretamente. Os Usuários Finais não pagam ao Pequi pelo uso do Fluxo do Usuário Final."
+      },
+      {
+       "type": "p",
+       "text": "7.4. Os pagamentos ao Pequi são processados pela Stripe, por meio dos meios de pagamento disponíveis no momento da contratação. O Pequi não armazena os dados completos de cartão."
+      },
+      {
+       "type": "p",
+       "text": "7.5. O preço será reajustado anualmente pela variação do IPCA/IBGE, ou alterado mediante aviso prévio de 30 (trinta) dias, ficando assegurado ao Licenciado o direito de cancelar a assinatura antes da vigência do novo preço, sem multa e com restituição do valor correspondente aos meses ainda não utilizados, calculada sobre o valor pago, sem a dedução da Cláusula 8.4."
+      }
+     ]
+    },
+    {
+     "id": "s8",
+     "title": "CLÁUSULA 8. VIGÊNCIA, RENOVAÇÃO, CANCELAMENTO E REEMBOLSO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "8.1. A assinatura vigora pelo período contratado (mensal ou anual) e renova-se automaticamente por períodos iguais, salvo cancelamento pelo Licenciado antes da data de renovação. No plano anual, o Pequi avisará o Licenciado por e-mail, com antecedência mínima de 15 (quinze) dias, sobre a data da renovação e o valor a ser cobrado."
+      },
+      {
+       "type": "p",
+       "text": "8.2. O Licenciado pode cancelar a assinatura a qualquer tempo pelo painel da Plataforma. O cancelamento impede a renovação e mantém o acesso até o fim do período já pago."
+      },
+      {
+       "type": "p",
+       "text": "8.3. Na contratação realizada pela internet, o Licenciado que se enquadre como consumidor poderá desistir no prazo de 7 (sete) dias contados da contratação, com devolução integral dos valores pagos (Lei 8.078/1990, art. 49). O Pequi estende essa faculdade a todos os Licenciados na primeira contratação. A desistência pode ser exercida pelo mesmo meio usado na contratação, pelo painel da Plataforma ou pelo e-mail contato@pequi.me; o Pequi confirmará o recebimento e solicitará de imediato à instituição de pagamento o estorno ou o cancelamento da cobrança."
+      },
+      {
+       "type": "p",
+       "text": "8.4. No plano anual, após o prazo da Cláusula 8.3, o cancelamento dará direito à restituição do valor pago, deduzido o valor dos meses iniciados até o cancelamento, calculados pelo preço vigente do plano mensal, sem saldo a pagar pelo Licenciado. Exemplos, aos preços desta versão (anual de R$ 3.999,00 e mensal de R$ 399,00): com 3 (três) meses iniciados, restituição de R$ 2.802,00; com 10 (dez) meses iniciados, restituição de R$ 9,00; a partir do 11º (décimo primeiro) mês iniciado, não há valor a restituir."
+      },
+      {
+       "type": "p",
+       "text": "8.5. No plano mensal, após o prazo da Cláusula 8.3, não há reembolso do mês em curso."
+      },
+      {
+       "type": "p",
+       "text": "8.6. O Pequi poderá conceder, a seu critério, período de plano Pro em caráter de cortesia, que não se converte automaticamente em assinatura paga sem aceite expresso do Licenciado."
+      }
+     ]
+    },
+    {
+     "id": "s9",
+     "title": "CLÁUSULA 9. SUSPENSÃO E RESCISÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "9.1. O Pequi poderá suspender o acesso, mediante aviso prévio de 10 (dez) dias, em caso de inadimplemento, e imediatamente, com comunicação ao Licenciado, em caso de: (a) uso que viole a lei, estes Termos ou o Anexo II; (b) risco à segurança da Plataforma ou de terceiros; ou (c) inscrição na OAB não confirmada, suspensa ou cancelada."
+      },
+      {
+       "type": "p",
+       "text": "9.2. Qualquer das partes poderá rescindir a relação por descumprimento não sanado em 15 (quinze) dias da notificação."
+      },
+      {
+       "type": "p",
+       "text": "9.3. Encerrada a relação, o Licenciado poderá exportar o Conteúdo do Licenciado no prazo de 30 (trinta) dias. Após esse prazo, o Pequi eliminará os dados na forma do Anexo I, ressalvadas as hipóteses legais de conservação."
+      }
+     ]
+    },
+    {
+     "id": "s10",
+     "title": "CLÁUSULA 10. PROTEÇÃO DE DADOS PESSOAIS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "10.1. Em relação aos dados pessoais inseridos na Plataforma pelo Licenciado, por seus usuários e pelos Usuários Finais, inclusive os Contatos, o Licenciado é o controlador e o Pequi atua como operador, nos termos do Anexo I."
+      },
+      {
+       "type": "p",
+       "text": "10.2. Em relação aos dados cadastrais, de faturamento e de navegação do Licenciado e de seus usuários, o Pequi atua como controlador, na forma da sua Política de Privacidade."
+      },
+      {
+       "type": "p",
+       "text": "10.3. O Pequi não utiliza os Contatos nem o Conteúdo do Licenciado para finalidade própria, inclusive prospecção, publicidade, cruzamento entre escritórios, formação de base de clientes ou treinamento de modelos de inteligência artificial, e contrata os serviços de inteligência artificial em modalidades nas quais o fornecedor não utiliza esses dados para treinar ou aprimorar seus modelos."
+      }
+     ]
+    },
+    {
+     "id": "s11",
+     "title": "CLÁUSULA 11. CONFIDENCIALIDADE E SEGURANÇA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "11.1. O Pequi manterá sigilo sobre o Conteúdo do Licenciado, que pode conter informações protegidas por sigilo profissional, e o tratará apenas na medida necessária à prestação do serviço."
+      },
+      {
+       "type": "p",
+       "text": "11.2. O Pequi adota as medidas de segurança descritas no Anexo I, entre elas comunicação cifrada (HTTPS), armazenamento de senhas com função de hash e isolamento lógico entre contas, e implementará, em até 90 (noventa) dias contados da publicação destes Termos, criptografia adicional dos dados em repouso sob controle do Pequi, controle de acesso por necessidade e registro auditável dos acessos ao banco de dados e ao armazenamento."
+      }
+     ]
+    },
+    {
+     "id": "s12",
+     "title": "CLÁUSULA 12. PROPRIEDADE INTELECTUAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "12.1. A Plataforma, seu código, a marca Pequi e seus elementos são de titularidade da M&C LTDA. ou por ela licenciados com direito de sublicenciar. A licença não transfere ao Licenciado nenhum direito além do uso previsto nestes Termos."
+      },
+      {
+       "type": "p",
+       "text": "12.2. O Conteúdo do Licenciado permanece de titularidade do Licenciado ou de quem de direito. O Licenciado concede ao Pequi apenas a autorização necessária para hospedar, processar e exibir esse conteúdo com a finalidade de prestar o serviço. Essa autorização não é exclusiva, não pode ser cedida nem usada para outra finalidade, vigora apenas enquanto durar a licença e extingue-se com a eliminação dos dados na forma do Anexo I."
+      },
+      {
+       "type": "p",
+       "text": "12.3. O Pequi não reivindica nenhum direito sobre os textos e documentos gerados na Plataforma a pedido do Licenciado, que ficam à disposição exclusiva deste, observada a Cláusula 5.1."
+      },
+      {
+       "type": "p",
+       "text": "12.4. O Licenciado declara ser titular ou estar autorizado a usar as marcas, logotipos e domínios que configurar na Plataforma, e responde por eventual violação de direitos de terceiros."
+      }
+     ]
+    },
+    {
+     "id": "s13",
+     "title": "CLÁUSULA 13. DISPONIBILIDADE E SUPORTE",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "13.1. O Pequi empregará esforços razoáveis para manter a Plataforma disponível, ressalvadas interrupções por manutenção, preferencialmente comunicadas com antecedência, e eventos fora do seu controle razoável, inclusive falhas de fornecedores."
+      },
+      {
+       "type": "p",
+       "text": "13.2. O suporte é prestado pelo canal contato@pequi.me. O plano Enterprise poderá prever níveis de serviço específicos em proposta própria."
+      }
+     ]
+    },
+    {
+     "id": "s14",
+     "title": "CLÁUSULA 14. RESPONSABILIDADE",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "14.1. O Pequi não responde pelo conteúdo jurídico das orientações e peças utilizadas pelo Licenciado, por decisões profissionais tomadas com apoio da Plataforma, nem pela perda de prazos, cabendo ao Licenciado a revisão prevista na Cláusula 5."
+      },
+      {
+       "type": "p",
+       "text": "14.2. Nas relações não regidas pelo Código de Defesa do Consumidor, que as partes reconhecem paritárias e simétricas (Código Civil, art. 421-A), a responsabilidade total do Pequi por danos diretos decorrentes destes Termos fica limitada ao valor pago pelo Licenciado nos 12 (doze) meses anteriores ao evento, excluídos lucros cessantes e danos indiretos. Sendo o Licenciado pessoa jurídica considerada consumidora, a limitação aplica-se nos termos do art. 51, I, parte final, do Código de Defesa do Consumidor, por se tratar de licença de software de baixo custo em relação ao risco da atividade profissional do Licenciado. A limitação não se aplica a dolo ou culpa grave, nem a danos decorrentes de violação de dados pessoais imputável ao Pequi."
+      },
+      {
+       "type": "p",
+       "text": "14.3. O Licenciado responderá perante o Pequi pelos prejuízos decorrentes do uso da Plataforma em violação da lei, destes Termos ou do Anexo II, inclusive reclamações de Usuários Finais e de autoridades."
+      }
+     ]
+    },
+    {
+     "id": "s15",
+     "title": "CLÁUSULA 15. COMUNICAÇÕES E CANAIS DE ATENDIMENTO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "15.1. As comunicações entre as partes serão feitas pelo e-mail cadastrado pelo Licenciado e pelo e-mail contato@pequi.me."
+      },
+      {
+       "type": "p",
+       "text": "15.2. Assuntos de proteção de dados devem ser dirigidos ao canal contato@pequi.me. A identidade e o contato do encarregado pelo tratamento de dados pessoais do Pequi serão divulgados de forma clara no site pequi.me (LGPD, art. 41, § 1º)."
+      }
+     ]
+    },
+    {
+     "id": "s16",
+     "title": "CLÁUSULA 16. ALTERAÇÕES DESTES TERMOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "16.1. O Pequi poderá alterar estes Termos mediante aviso ao Licenciado com antecedência mínima de 30 (trinta) dias. Se não concordar com a alteração, o Licenciado poderá cancelar a assinatura antes da sua vigência, com restituição do valor correspondente aos meses ainda não utilizados, calculada sobre o valor pago, sem a dedução da Cláusula 8.4, porque o cancelamento decorre de alteração promovida pelo Pequi."
+      },
+      {
+       "type": "p",
+       "text": "16.2. Alterações exigidas por lei, por decisão de autoridade ou por norma da OAB poderão vigorar em prazo menor, com a devida comunicação."
+      }
+     ]
+    },
+    {
+     "id": "s17",
+     "title": "CLÁUSULA 17. DISPOSIÇÕES GERAIS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "17.1. A aceitação eletrônica destes Termos, com registro de data, hora, identificação do usuário e versão aceita, é admitida pelas partes como meio de comprovação de autoria e integridade, nos termos do art. 10, § 2º, da Medida Provisória 2.200-2/2001."
+      },
+      {
+       "type": "p",
+       "text": "17.2. A tolerância quanto ao descumprimento de qualquer disposição não importa renúncia. A invalidade de uma disposição não prejudica as demais."
+      },
+      {
+       "type": "p",
+       "text": "17.3. Se norma superveniente, decisão judicial ou orientação da OAB tornar necessária a adaptação do modelo da Plataforma, as partes envidarão esforços para ajustá-lo, prevalecendo as regras do Anexo II."
+      },
+      {
+       "type": "p",
+       "text": "17.4. Estes Termos regem-se pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de Campinas/SP, ressalvado ao Licenciado que se enquadre como consumidor o direito de demandar no foro do seu domicílio (Lei 8.078/1990, art. 101, I)."
+      },
+      {
+       "type": "p",
+       "text": "17.5. Em caso de divergência entre estes Termos, seus Anexos e a página de preços, materiais comerciais, publicações ou apresentações sobre a Plataforma, prevalecem estes Termos e seus Anexos, em especial a Cláusula 5.2 e o Anexo II. Nenhuma funcionalidade descrita em material comercial autoriza a elaboração de documento jurídico para Usuário Final."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "ANEXO I",
+   "subtitle": "ACORDO DE TRATAMENTO DE DADOS PESSOAIS",
+   "intro": [
+    {
+     "type": "p",
+     "text": "Este Anexo integra os Termos de Licença e Uso da Plataforma Pequi White-label e disciplina o tratamento de dados pessoais realizado pelo Pequi por conta do Licenciado, nos termos da Lei 13.709/2018 (LGPD)."
+    }
+   ],
+   "sections": [
+    {
+     "id": "s18",
+     "title": "CLÁUSULA 1. PAPÉIS DAS PARTES",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "1.1. O Licenciado é o controlador dos dados pessoais inseridos na Plataforma por ele, por seus usuários e pelos Usuários Finais, inclusive os Contatos, e define as finalidades do tratamento. O Pequi é o operador desses dados e os trata exclusivamente conforme as instruções do Licenciado, que são as constantes dos Termos, deste Anexo e das configurações feitas na Plataforma."
+      },
+      {
+       "type": "p",
+       "text": "1.2. No Fluxo do Usuário Final, o controlador perante o titular é o Licenciado. O aviso de privacidade e os termos exibidos ao Usuário Final são apresentados em nome do Licenciado. O Pequi disponibiliza modelos desses documentos, cuja adoção e adaptação cabem ao Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "1.3. Quanto aos dados cadastrais, de faturamento e de navegação do próprio Licenciado, o Pequi é controlador e os trata conforme sua Política de Privacidade."
+      }
+     ]
+    },
+    {
+     "id": "s19",
+     "title": "CLÁUSULA 2. OBJETO, NATUREZA E FINALIDADE",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "2.1. O tratamento consiste em hospedar, armazenar, processar por meio de modelos de inteligência artificial, exibir ao Licenciado, transmitir aos Suboperadores e eliminar os dados, com a finalidade única de prestar as funcionalidades da Plataforma ao Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "2.2. É vedado ao Pequi tratar esses dados para finalidade própria, inclusive prospecção, publicidade, perfilamento, compartilhamento ou cruzamento de Contatos entre escritórios, comercialização ou treinamento de modelos de inteligência artificial, inclusive por meio dos Suboperadores."
+      }
+     ]
+    },
+    {
+     "id": "s20",
+     "title": "CLÁUSULA 3. CATEGORIAS DE TITULARES E DE DADOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "3.1. Titulares: o Licenciado e seus usuários; os Usuários Finais; e terceiros mencionados em conversas e documentos, como partes contrárias, testemunhas e familiares."
+      },
+      {
+       "type": "p",
+       "text": "3.2. Dados: identificação e contato (nome, e-mail, telefone); conteúdo de mensagens; documentos e imagens enviados; dados de uso e registros de acesso. Por se tratar de atendimento jurídico, o conteúdo pode incluir dados pessoais sensíveis (LGPD, art. 11) e dados de crianças e adolescentes (LGPD, art. 14), cujo tratamento exige do Licenciado base legal adequada e cuidado reforçado."
+      }
+     ]
+    },
+    {
+     "id": "s21",
+     "title": "CLÁUSULA 4. REGRAS ESPECÍFICAS SOBRE OS CONTATOS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "4.1. Os Contatos pertencem ao Licenciado e ficam vinculados exclusivamente à sua conta."
+      },
+      {
+       "type": "p",
+       "text": "4.2. O Pequi obriga-se a, em até 90 (noventa) dias contados da publicação destes Termos: (a) restringir o acesso de seus administradores aos Contatos às hipóteses de necessidade técnica de suporte ou segurança; (b) ocultar dos administradores o conteúdo das mensagens dos Usuários Finais; e (c) registrar, de forma auditável, cada acesso a Contatos, com identificação do autor, data, hora e motivo. Enquanto essas medidas não estiverem implementadas, o Pequi informará ao Licenciado a forma de acesso existente."
+      },
+      {
+       "type": "p",
+       "text": "4.3. O Pequi não utilizará os Contatos para nenhuma finalidade própria e não os compartilhará entre escritórios."
+      }
+     ]
+    },
+    {
+     "id": "s22",
+     "title": "CLÁUSULA 5. CONFIDENCIALIDADE DO PESSOAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "5.1. O Pequi limitará o acesso aos dados às pessoas que dele necessitem para suas funções, na forma da Cláusula 6.2."
+      },
+      {
+       "type": "p",
+       "text": "5.2. O Pequi submeterá ao dever de confidencialidade, por escrito, todas as pessoas autorizadas a acessar os dados."
+      }
+     ]
+    },
+    {
+     "id": "s23",
+     "title": "CLÁUSULA 6. SEGURANÇA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "6.1. Medidas atualmente adotadas: comunicação cifrada (HTTPS); senhas armazenadas com função de hash (bcrypt); expiração de sessões; isolamento lógico entre contas; arquivos do cofre e documentos em armazenamento Amazon S3 na região de São Paulo, com download por links temporários válidos por uma hora; pastas do cofre com senha adicional; chat limitado aos domínios cadastrados."
+      },
+      {
+       "type": "p",
+       "text": "6.2. Medidas a implementar em até 90 (noventa) dias contados da publicação destes Termos: criptografia dos dados em repouso sob controle do Pequi, adicional à dos fornecedores; controle de acesso ao banco de dados e ao armazenamento baseado em necessidade; registro auditável de acessos; e as medidas da Cláusula 4.2 deste Anexo."
+      },
+      {
+       "type": "p",
+       "text": "6.3. O Pequi poderá substituir medidas por outras de eficácia igual ou superior."
+      },
+      {
+       "type": "p",
+       "text": "6.4. Nenhum sistema é imune a falhas ou ataques. O Pequi não garante a inexistência de incidentes, mas responde pela adoção das medidas deste Anexo e pelo cumprimento das obrigações da Cláusula 9."
+      }
+     ]
+    },
+    {
+     "id": "s24",
+     "title": "CLÁUSULA 7. SUBOPERADORES",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "7.1. O Licenciado autoriza a contratação dos Suboperadores abaixo, cada qual sujeito a obrigações de proteção de dados compatíveis com este Anexo:"
+      },
+      {
+       "type": "table",
+       "head": [
+        "Suboperador",
+        "Atividade",
+        "Local de tratamento"
+       ],
+       "rows": [
+        [
+         "Maritaca AI (modelo Sabiá)",
+         "Processamento das mensagens do chat",
+         "Brasil ou exterior, conforme o modelo utilizado"
+        ],
+        [
+         "Google (Gemini)",
+         "Análise de PDFs e imagens; modelo de reserva do chat",
+         "Exterior; o fornecedor admite armazenamento transitório em qualquer país onde mantenha instalações"
+        ],
+        [
+         "Amazon Web Services (S3)",
+         "Armazenamento do cofre e dos documentos",
+         "Brasil (região São Paulo, sa-east-1)"
+        ],
+        [
+         "MongoDB (banco de dados)",
+         "Armazenamento dos dados da Plataforma",
+         "Informado ao Licenciado mediante solicitação"
+        ],
+        [
+         "DocuSign",
+         "Assinatura eletrônica de documentos",
+         "Exterior (o fornecedor não oferece região de dados no Brasil)"
+        ]
+       ]
+      },
+      {
+       "type": "p",
+       "text": "7.2. Quanto aos dados de pagamento do Licenciado, o Pequi é controlador e a Stripe atua como sua fornecedora; a Stripe não trata Conteúdo do Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "7.3. O Pequi informará ao Licenciado, com antecedência mínima de 30 (trinta) dias, a inclusão ou substituição de Suboperador. O Licenciado poderá opor-se fundamentadamente e, não havendo solução, cancelar a assinatura, com restituição do valor correspondente aos meses ainda não utilizados, calculada sobre o valor pago, sem a dedução da Cláusula 8.4 dos Termos."
+      },
+      {
+       "type": "p",
+       "text": "7.4. O Pequi responde perante o Licenciado pelo cumprimento, pelos Suboperadores, das obrigações deste Anexo."
+      },
+      {
+       "type": "p",
+       "text": "7.5. Os Suboperadores de inteligência artificial tratam o Conteúdo do Licenciado apenas para gerar a resposta solicitada, sem utilizá-lo para treinar ou aprimorar modelos. Eventual retenção temporária pelo fornecedor limita-se ao previsto em seus termos para fins de segurança e prevenção de abuso."
+      },
+      {
+       "type": "p",
+       "text": "7.6. O Pequi manterá relação atualizada dos Suboperadores, com a data de cada inclusão, substituição ou exclusão, e a fornecerá ao Licenciado mediante solicitação."
+      }
+     ]
+    },
+    {
+     "id": "s25",
+     "title": "CLÁUSULA 8. TRANSFERÊNCIA INTERNACIONAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "8.1. Parte do tratamento realizado pelos Suboperadores ocorre fora do Brasil, conforme o quadro da Cláusula 7. Essas transferências fundamentam-se no art. 33 da LGPD e serão realizadas mediante as cláusulas-padrão contratuais aprovadas pela Resolução CD/ANPD nº 19/2024, ou outro mecanismo admitido pela ANPD, incorporadas aos contratos com os Suboperadores."
+      },
+      {
+       "type": "p",
+       "text": "8.2. O Pequi manterá à disposição do Licenciado a relação atualizada dos países de tratamento e dos mecanismos adotados."
+      }
+     ]
+    },
+    {
+     "id": "s26",
+     "title": "CLÁUSULA 9. INCIDENTES DE SEGURANÇA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "9.1. O Pequi comunicará ao Licenciado qualquer incidente de segurança que afete dados tratados por conta dele em até 24 (vinte e quatro) horas contadas do conhecimento, para que o Licenciado, como controlador, possa cumprir o prazo de 3 (três) dias úteis para comunicação à ANPD e aos titulares previsto na Resolução CD/ANPD nº 15/2024."
+      },
+      {
+       "type": "p",
+       "text": "9.2. A comunicação conterá, no mínimo, a natureza do incidente, as categorias e a quantidade aproximada de titulares e de dados afetados, as medidas adotadas e as recomendadas, e será complementada à medida que novas informações forem obtidas. Considerando que o conteúdo tratado pode estar protegido por sigilo profissional, o Pequi tratará todo incidente como potencialmente relevante até avaliação em contrário."
+      }
+     ]
+    },
+    {
+     "id": "s27",
+     "title": "CLÁUSULA 10. DIREITOS DOS TITULARES E COOPERAÇÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "10.1. O Pequi encaminhará ao Licenciado, em até 2 (dois) dias úteis, toda solicitação de titular que receber relativa a dados tratados por conta dele, e prestará o auxílio técnico necessário ao seu atendimento, inclusive acesso, correção, portabilidade e eliminação."
+      },
+      {
+       "type": "p",
+       "text": "10.2. O Pequi cooperará com o Licenciado na elaboração de relatório de impacto e no atendimento a autoridades."
+      }
+     ]
+    },
+    {
+     "id": "s28",
+     "title": "CLÁUSULA 11. RETENÇÃO E ELIMINAÇÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "11.1. Durante a vigência, os dados são mantidos conforme as configurações do Licenciado, que pode excluir documentos, pastas e conversas a qualquer tempo. Salvo exclusão anterior pelo Licenciado, conversas, documentos e Contatos são mantidos enquanto durar a assinatura."
+      },
+      {
+       "type": "p",
+       "text": "11.2. Encerrada a relação, observado o prazo de exportação de 30 (trinta) dias, o Pequi eliminará os dados em até 30 (trinta) dias, inclusive nos Suboperadores, ressalvada a guarda de registros de acesso a aplicações pelo prazo legal (Lei 12.965/2014, art. 15) e outras hipóteses legais de conservação."
+      }
+     ]
+    },
+    {
+     "id": "s29",
+     "title": "CLÁUSULA 12. AUDITORIA E INFORMAÇÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "12.1. O Pequi fornecerá ao Licenciado, mediante solicitação razoável, informações suficientes para demonstrar o cumprimento deste Anexo."
+      }
+     ]
+    },
+    {
+     "id": "s30",
+     "title": "CLÁUSULA 13. RESPONSABILIDADE",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "13.1. Cada parte responde pelos danos a que der causa em violação à legislação de proteção de dados, nos termos dos arts. 42 a 45 da LGPD. O Pequi responde solidariamente, em especial, quando descumprir as obrigações da legislação de proteção de dados ou não seguir as instruções lícitas do Licenciado (LGPD, art. 42, § 1º, I)."
+      },
+      {
+       "type": "p",
+       "text": "13.2. A parte que reparar dano ao titular tem direito de regresso contra a outra, na medida da participação desta no evento danoso (LGPD, art. 42, § 4º)."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "ANEXO II",
+   "subtitle": "OBRIGAÇÕES ÉTICAS E DE CONFORMIDADE",
+   "intro": [
+    {
+     "type": "p",
+     "text": "Este Anexo integra os Termos de Licença e Uso da Plataforma Pequi White-label. Ele consolida os compromissos destinados a assegurar que a Plataforma seja utilizada como ferramenta de apoio à advocacia, com o advogado no comando, em conformidade com o Estatuto da Advocacia (Lei 8.906/1994), o Código de Ética e Disciplina da OAB (arts. 5º, 7º, 39 e 40), o Provimento CFOAB 205/2021, a Recomendação CFOAB 001/2024 e os parâmetros do art. 3º da Resolução CFOAB 16/2026. Em caso de conflito com qualquer outra disposição dos Termos, prevalece este Anexo."
+    }
+   ],
+   "sections": [
+    {
+     "id": "s31",
+     "title": "CLÁUSULA 1. REMUNERAÇÃO EXCLUSIVA POR LICENÇA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "1.1. O Pequi é remunerado exclusivamente pelo preço da licença de software. O Pequi não recebe, a qualquer título, percentual, comissão, taxa de êxito ou participação na receita de serviços jurídicos do Licenciado ou de seus clientes, não fixa honorários e não recebe nem repassa valores pagos por clientes do Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "1.2. É vedada a oferta conjunta, por preço único, de tecnologia e serviço jurídico."
+      }
+     ]
+    },
+    {
+     "id": "s32",
+     "title": "CLÁUSULA 2. AUSÊNCIA DE CAPTAÇÃO E DE INTERMEDIAÇÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "2.1. O Pequi não capta, não intermedeia, não distribui nem direciona clientes, não indica advogados aos Usuários Finais e não interfere na escolha do advogado, na estratégia ou na atuação técnica do Licenciado."
+      },
+      {
+       "type": "p",
+       "text": "2.2. Os Contatos captados pelo assistente pertencem exclusivamente ao Licenciado em cuja página foram obtidos, e o Pequi não os utiliza, não os compartilha entre escritórios e não forma base própria de clientes, observadas as regras técnicas da Cláusula 4 do Anexo I."
+      }
+     ]
+    },
+    {
+     "id": "s33",
+     "title": "CLÁUSULA 3. INTELIGÊNCIA ARTIFICIAL NO FLUXO DO USUÁRIO FINAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "3.1. No Fluxo do Usuário Final, o assistente realiza apenas triagem e orientação informativa e encaminha o Usuário Final ao Licenciado. Não elabora, não entrega nem protocola peça ou documento jurídico, e essa trava aplica-se a todos os assistentes do fluxo."
+      },
+      {
+       "type": "p",
+       "text": "3.2. O assistente identifica-se como ferramenta de inteligência artificial do escritório e exibe os avisos da Cláusula 5.3 dos Termos, que o Licenciado não pode suprimir."
+      },
+      {
+       "type": "p",
+       "text": "3.3. A coleta de nome, e-mail e telefone pelo assistente é precedida de informação ao Usuário Final sobre a finalidade da coleta e o aviso de privacidade do Licenciado."
+      }
+     ]
+    },
+    {
+     "id": "s34",
+     "title": "CLÁUSULA 4. REVISÃO HUMANA E SUPERVISÃO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "4.1. Todo conteúdo gerado na Camada do Advogado deve ser integralmente revisado pelo Licenciado antes de qualquer uso, especialmente em juízo, conforme a Recomendação CFOAB 001/2024. Sócios e gestores do Licenciado zelam pela supervisão do uso da Plataforma por seus colaboradores."
+      },
+      {
+       "type": "p",
+       "text": "4.2. A Plataforma não substitui o julgamento profissional do advogado e não deve ser apresentada como capaz de fazê-lo."
+      }
+     ]
+    },
+    {
+     "id": "s35",
+     "title": "CLÁUSULA 5. COMUNICAÇÃO AO CLIENTE SOBRE O USO DE INTELIGÊNCIA ARTIFICIAL",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "5.1. Conforme os itens 4.4.1 a 4.4.6 da Recomendação CFOAB 001/2024, que tem natureza orientativa, recomenda-se ao Licenciado formalizar ao cliente, por escrito e previamente, a intenção de utilizar inteligência artificial generativa na prestação dos serviços e obter o seu consentimento informado explícito, mantendo o documento arquivado durante a prestação dos serviços. O Pequi poderá disponibilizar ao Licenciado modelo de termo de ciência e consentimento."
+      }
+     ]
+    },
+    {
+     "id": "s36",
+     "title": "CLÁUSULA 6. PUBLICIDADE",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "6.1. O Licenciado configurará e divulgará o assistente de forma informativa, discreta e sóbria, sem promessa de resultado, sem angariação ativa de clientela e em conformidade com o Provimento CFOAB 205/2021 e as normas da sua seccional."
+      },
+      {
+       "type": "p",
+       "text": "6.2. Nenhuma das partes apresentará a Plataforma como substituta do advogado, nem sugerirá parceria, aprovação, certificação ou chancela da OAB que não exista formalmente (Resolução CFOAB 16/2026, art. 3º, V, e art. 5º)."
+      }
+     ]
+    },
+    {
+     "id": "s37",
+     "title": "CLÁUSULA 7. FERRAMENTAS DE GERAÇÃO DE PEÇAS",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "7.1. Funcionalidades de geração de peças processuais, como o recurso Limpa Nome, são disponibilizadas apenas a advogados com inscrição verificada no Cadastro Nacional dos Advogados, nunca a Usuários Finais ou a pessoas não inscritas, em qualquer modalidade, gratuita ou paga."
+      }
+     ]
+    },
+    {
+     "id": "s38",
+     "title": "CLÁUSULA 8. ADAPTAÇÃO NORMATIVA",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "8.1. Sobrevindo norma, decisão judicial ou orientação da OAB que afete o modelo da Plataforma, inclusive no âmbito de seccionais em que atue o Licenciado, as partes adaptarão a configuração e o uso da Plataforma, e o Licenciado poderá cancelar a assinatura sem ônus se a adaptação inviabilizar o uso."
+      }
+     ]
+    },
+    {
+     "id": "s39",
+     "title": "CLÁUSULA 9. DESCUMPRIMENTO",
+     "blocks": [
+      {
+       "type": "p",
+       "text": "9.1. O descumprimento deste Anexo autoriza a suspensão imediata das funcionalidades afetadas e a rescisão dos Termos, sem prejuízo da responsabilidade da parte infratora."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
