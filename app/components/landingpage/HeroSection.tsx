@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -21,28 +22,26 @@ export default function HeroSection() {
       id="hero"
       className="relative -mt-20 overflow-hidden bg-[#151816] px-5 pb-20 pt-40 text-white sm:px-8 sm:pt-48 lg:pb-28"
     >
-      {/* luz quente e linhas finas no fundo */}
+      {/* Foto de fundo (colunas de um palácio da justiça) com véu grafite para o texto ler bem */}
+      <Image
+        src="/landingpage/hero/colunas.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[50%_45%]"
+      />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(244,239,223,0.16), transparent 70%), radial-gradient(ellipse 50% 40% at 85% 100%, rgba(244,239,223,0.08), transparent 70%)',
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)',
-          backgroundSize: '72px 72px',
-          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%)',
+            'linear-gradient(180deg, rgba(21,24,22,0.7) 0%, rgba(21,24,22,0.5) 30%, rgba(21,24,22,0.4) 45%, rgba(21,24,22,0.6) 75%, rgba(21,24,22,0.92) 100%), radial-gradient(ellipse 60% 50% at 50% 45%, rgba(21,24,22,0.35), transparent 75%)',
         }}
       />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
-        <p className="text-[0.78rem] uppercase tracking-[0.2em] text-white/55">IA jurídica white-label para escritórios</p>
+        <p className="rounded-full bg-[#151816]/60 px-4 py-1.5 text-[0.72rem] uppercase tracking-[0.2em] text-white/75 ring-1 ring-white/10 backdrop-blur-sm">IA jurídica white-label para escritórios</p>
 
         <h1 className="mt-6 text-[clamp(2.75rem,7vw,5.5rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white">
           A IA jurídica com a
