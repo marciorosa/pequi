@@ -13,6 +13,17 @@ import { ClosingCta } from '../components/landingpage/ProductBlocks';
 
 function PequiPricing({ embedded = false }: { embedded?: boolean }) {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
+  const [selected, setSelected] = useState<'Pro' | 'Enterprise'>('Pro');
+  const paidPlans = pricingPlans.filter((p) => p.name !== 'Gratuito');
+  const current = paidPlans.find((p) => p.name === selected) ?? paidPlans[0];
+  const heroNote: Record<string, string> = {
+    Pro: 'A assistente com a marca do escritório.',
+    Enterprise: 'Para escritórios maiores e redes.',
+  };
+  const heroCheck: Record<string, string> = {
+    Pro: 'Clientes usam sem custo',
+    Enterprise: 'Uso ilimitado para equipe e clientes',
+  };
 
   const faqs = [
     {
@@ -105,61 +116,142 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
             O escritório assina e oferece aos clientes uma assistente jurídica com a própria marca. Os clientes não pagam nada.
           </p>
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
-            {pricingPlans.map((plan) => {
-              const dark = plan.popular;
-              const savings = billingPeriod === 'annual' ? getSavings(plan) : null;
+          {/* Só os dois planos pagos sobre a foto, com o valor; o detalhe fica na seção abaixo */}
+          <div className="mt-12 grid max-w-[880px] gap-4 sm:grid-cols-2">
+            {paidPlans.map((plan) => {
+              const dark = plan.name === 'Enterprise';
               return (
                 <article
                   key={plan.name}
-                  className={`flex flex-col rounded-3xl p-7 sm:p-8 ${dark ? 'bg-[#151816] text-white ring-1 ring-white/15' : 'bg-[#FFFDF6] text-ink'}`}
+                  className={`flex flex-col rounded-3xl p-7 sm:p-8 ${dark ? 'bg-[#151816]/90 text-white ring-1 ring-white/15 backdrop-blur-md' : 'bg-[#FFFDF6] text-ink'}`}
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <h2 className="text-[1.6rem] font-medium tracking-[-0.02em]">{plan.name}</h2>
-                    {plan.popular && (
-                      <span className="rounded-full bg-white/10 px-3 py-1 text-[0.72rem] font-medium text-white/80">Mais popular</span>
-                    )}
-                  </div>
-                  <p className={`mt-2 min-h-[3rem] text-[0.92rem] leading-snug ${dark ? 'text-white/60' : 'text-ink/60'}`}>{plan.description}</p>
-
-                  <div className="mt-8 flex items-baseline gap-2">
+                  <h2 className="text-[1.6rem] font-medium tracking-[-0.02em]">{plan.name}</h2>
+                  <p className={`mt-1 text-[0.9rem] ${dark ? 'text-white/60' : 'text-ink/55'}`}>{heroNote[plan.name]}</p>
+                  <div className="mt-10 flex items-baseline gap-2">
                     <span className="text-[2.6rem] font-medium leading-none tracking-[-0.03em]">{getPrice(plan)}</span>
-                    {plan.monthlyPrice !== null && (
-                      <span className={`text-[0.85rem] ${dark ? 'text-white/50' : 'text-ink/45'}`}>{billingPeriod === 'monthly' ? '/ mês' : '/ ano'}</span>
-                    )}
                   </div>
-                  <p className={`mt-2 h-5 text-[0.8rem] ${dark ? 'text-white/50' : 'text-ink/45'}`}>
-                    {savings ? `Economia de ${savings}% no plano anual` : plan.monthlyPrice === null ? 'Proposta conforme o tamanho do escritório' : ''}
+                  <p className={`mt-2 text-[0.72rem] font-medium uppercase tracking-[0.12em] ${dark ? 'text-white/50' : 'text-ink/45'}`}>
+                    {plan.monthlyPrice === null ? 'Conforme o tamanho do escritório' : billingPeriod === 'monthly' ? 'Por escritório · mês' : 'Por escritório · ano'}
                   </p>
-
-                  <ul className={`mt-6 flex-1 space-y-3 border-t pt-6 ${dark ? 'border-white/15' : 'border-ink/12'}`}>
-                    {plan.features.map((feature) => (
-                      <li key={feature} className={`flex gap-3 text-[0.92rem] leading-snug ${dark ? 'text-white/80' : 'text-ink/75'}`}>
-                        <svg className={`mt-0.5 h-4 w-4 flex-shrink-0 ${dark ? 'text-white/60' : 'text-ink/45'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
-                    className={`mt-8 inline-flex h-11 items-center justify-center rounded-full px-6 text-[0.92rem] font-medium transition-colors ${dark ? 'bg-white text-ink hover:bg-white/85' : 'bg-ink text-white hover:bg-ink/85'}`}
-                  >
-                    {plan.ctaText}
-                  </Link>
+                  <p className={`mt-6 flex items-center gap-2 border-t pt-5 text-[0.88rem] ${dark ? 'border-white/15 text-white/80' : 'border-ink/12 text-ink/70'}`}>
+                    <svg className="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {heroCheck[plan.name]}
+                  </p>
                 </article>
               );
             })}
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#comparar" className="inline-flex h-10 items-center rounded-full bg-white/10 px-5 text-[0.88rem] font-medium text-white ring-1 ring-white/15 backdrop-blur-md hover:bg-white/15">
-              Comparar os planos
+            <a href="#montar" className="inline-flex h-10 items-center rounded-full bg-[#FFFDF6] px-5 text-[0.88rem] font-medium text-ink hover:bg-white">
+              Montar o plano →
             </a>
-            <Link href="/contact" className="inline-flex h-10 items-center rounded-full px-3 text-[0.88rem] font-medium text-white/75 hover:text-white">
-              Tirar dúvidas com a equipe →
+            <Link href="/signup" className="inline-flex h-10 items-center rounded-full bg-white/10 px-5 text-[0.88rem] font-medium text-white ring-1 ring-white/15 backdrop-blur-md hover:bg-white/15">
+              Começar grátis
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Detalhe no padrão do "monte o plano" da Magnar: escolhas à esquerda, resumo escuro à direita */}
+      <section id="montar" className={`scroll-mt-24 bg-[#F4EFDF] ${embedded ? 'mt-6 rounded-3xl px-5 py-14 sm:px-8' : 'py-20 lg:py-28'}`}>
+        <div className={embedded ? '' : container}>
+          <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Monte o plano do escritório.</h2>
+          <p className="mt-4 max-w-[520px] text-[1.02rem] leading-relaxed text-ink/65">Escolha o plano e a forma de cobrança e veja o que está incluído.</p>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-[1.25fr_1fr] lg:items-start">
+            <div className="space-y-3">
+              {paidPlans.map((plan) => {
+                const active = selected === plan.name;
+                return (
+                  <button
+                    key={plan.name}
+                    type="button"
+                    onClick={() => setSelected(plan.name as 'Pro' | 'Enterprise')}
+                    aria-pressed={active}
+                    className={`flex w-full items-center justify-between gap-6 rounded-2xl bg-[#FFFDF6] px-6 py-5 text-left transition-shadow ${active ? 'ring-2 ring-ink' : 'ring-1 ring-ink/10 hover:ring-ink/30'}`}
+                  >
+                    <span>
+                      <span className="block text-[1.15rem] font-medium tracking-[-0.01em] text-ink">{plan.name}</span>
+                      <span className="mt-1 block text-[0.85rem] text-ink/55">{getPrice(plan)}{plan.monthlyPrice !== null ? (billingPeriod === 'monthly' ? ' / mês' : ' / ano') : ''} · {heroCheck[plan.name]}</span>
+                    </span>
+                    <span className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full ring-1 ${active ? 'bg-ink ring-ink' : 'ring-ink/30'}`} aria-hidden="true">
+                      {active && <span className="h-2 w-2 rounded-full bg-white" />}
+                    </span>
+                  </button>
+                );
+              })}
+
+              <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-[#FFFDF6] px-6 py-5 ring-1 ring-ink/10">
+                <span>
+                  <span className="block text-[1.15rem] font-medium tracking-[-0.01em] text-ink">Cobrança</span>
+                  <span className="mt-1 block text-[0.85rem] text-ink/55">No anual, o escritório economiza 17%.</span>
+                </span>
+                <div role="group" aria-label="Período de cobrança" className="inline-flex rounded-full bg-[#F4EFDF] p-1">
+                  {(['monthly', 'annual'] as const).map((p) => (
+                    <button
+                      key={p}
+                      type="button"
+                      onClick={() => setBillingPeriod(p)}
+                      aria-pressed={billingPeriod === p}
+                      className={`rounded-full px-4 py-1.5 text-[0.82rem] font-medium transition-colors ${billingPeriod === p ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}
+                    >
+                      {p === 'monthly' ? 'Mensal' : 'Anual'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <p className="px-1 pt-2 text-[0.85rem] text-ink/55">
+                Quer só conhecer? O plano Gratuito tem 5 pesquisas e 5 mensagens, sem marca própria.{' '}
+                <Link href="/signup" className="font-medium text-ink underline underline-offset-4">Começar grátis</Link>
+              </p>
+            </div>
+
+            <aside className="rounded-3xl bg-[#151816] p-7 text-white sm:p-8">
+              <p className="text-[0.85rem] text-white/55">Plano {current.name}</p>
+              <div className="mt-2 flex items-baseline gap-2">
+                <span className="text-[2.8rem] font-medium leading-none tracking-[-0.03em]">{getPrice(current)}</span>
+                {current.monthlyPrice !== null && <span className="text-[0.9rem] text-white/55">{billingPeriod === 'monthly' ? '/ mês' : '/ ano'}</span>}
+              </div>
+              <p className="mt-2 h-5 text-[0.8rem] text-white/50">
+                {current.monthlyPrice === null
+                  ? 'Proposta conforme o tamanho do escritório'
+                  : billingPeriod === 'annual' && getSavings(current)
+                    ? `Economia de ${getSavings(current)}% em relação ao mensal`
+                    : 'Cancele quando quiser'}
+              </p>
+
+              <p className="mt-7 border-t border-white/15 pt-6 text-[0.72rem] font-medium uppercase tracking-[0.12em] text-white/45">O que está incluído</p>
+              <ul className="mt-4 space-y-3">
+                {current.features.map((feature) => (
+                  <li key={feature} className="flex gap-3 text-[0.92rem] leading-snug text-white/80">
+                    <svg className="mt-0.5 h-4 w-4 flex-shrink-0 text-white/55" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={current.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
+                className="mt-8 flex h-11 items-center justify-center rounded-full bg-[#FFFDF6] px-6 text-[0.92rem] font-medium text-ink hover:bg-white"
+              >
+                {current.ctaText} →
+              </Link>
+            </aside>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-[#FFFDF6] px-6 py-6 ring-1 ring-ink/10">
+            <span>
+              <span className="block text-[1.15rem] font-medium tracking-[-0.01em] text-ink">Precisa de algo sob medida?</span>
+              <span className="mt-1 block text-[0.85rem] text-ink/55">Para redes de escritórios ou necessidades específicas, montamos um plano com a sua equipe.</span>
+            </span>
+            <Link href="/contact" className="inline-flex h-10 items-center rounded-full bg-ink px-5 text-[0.88rem] font-medium text-white hover:bg-ink/85">
+              Falar com a equipe →
             </Link>
           </div>
         </div>
@@ -195,7 +287,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       </section>
 
       {/* Perguntas frequentes */}
-      <section className={`bg-[#F4EFDF] ${embedded ? 'rounded-3xl px-5 py-14 sm:px-8' : 'py-20 lg:py-28'}`}>
+      <section className={`border-t border-ink/12 ${embedded ? 'py-14' : 'py-20 lg:py-28'}`}>
         <div className={`${embedded ? '' : container} grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16`}>
           <div>
             <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Perguntas frequentes</h2>
