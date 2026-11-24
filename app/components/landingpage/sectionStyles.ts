@@ -1,6 +1,6 @@
-// Títulos e subtítulos das seções da landing, no esquema M&C (igual à Lucia):
-// Manrope firme e compacta; subtítulo cinza quente.
+// Títulos e subtítulos de seção no estilo editorial (2026-11-24): alinhados à
+// esquerda, Inter média e justa, texto de apoio curto em grafite suave.
 export const sectionHeadingClass =
-  'mx-auto max-w-[980px] text-center text-ink text-[clamp(2.1rem,4.2vw,3.25rem)] font-semibold leading-[1.08] tracking-[-0.05em]';
+  'max-w-[880px] text-left text-ink text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em]';
 export const sectionSubTextClass =
-  'w-full max-w-[39.1975rem] mx-auto text-castanha-600 text-center text-[1rem] md:text-[1.0625rem] lg:text-[1.125rem] font-normal leading-[160%]';
+  'w-full max-w-[520px] text-left text-ink/65 text-[1.02rem] font-normal leading-relaxed';

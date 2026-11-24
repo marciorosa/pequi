@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
+import { ClosingCta, FeatureList, ProductHero } from '../components/landingpage/ProductBlocks';
 
 const featureCardClass =
   'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5';
@@ -121,88 +122,24 @@ export default function KnowledgeExperience() {
 
   return (
     <>
-      <FadeInSection>
-        <section
-          id="hero"
-          className="relative -mt-20 overflow-hidden px-4 pb-12 pt-[12rem] sm:px-6 sm:pt-[13rem] lg:px-8 lg:pb-16 lg:pt-[12rem] scroll-mt-24 md:scroll-mt-28"
-        >
-          <Image
-            src="/landingpage/hero/hero-bgimg.png"
-            alt="Imagem de fundo"
-            fill
-            priority
-            className="object-cover object-top"
-          />
-          <div className="relative z-10 mx-auto w-full max-w-[1274px]">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
-              <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Pequi</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Conhecimento
-                </h1>
-                <p className="mt-3 max-w-xl text-xl font-medium leading-snug text-castanha-800 md:text-2xl">
-                  Pesquisa jurídica para os seus clientes, com a sua marca
-                </p>
-                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Os clientes do escritório recebem respostas sobre consumo, trabalho, família e moradia, com indicação das leis em que se baseiam. Confira sempre na fonte oficial.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/contact"
-                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
-                  >
-                    Tirar minhas dúvidas
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
-                  >
-                    Ver demonstração
-                  </button>
-                </div>
-              </div>
+      <ProductHero
+        eyebrow="Base de Conhecimento"
+        title="Pesquisa jurídica com a sua marca"
+        text="Seus clientes recebem explicações sobre consumo, trabalho, família e moradia, com as leis indicadas para conferir na fonte."
+        primary={{ label: 'Levar para o meu escritório', href: '/contact' }}
+        secondary={{ label: 'Experimentar a pesquisa', href: '#demo' }}
+        image="/landingpage/features/ai-powered-legal-assistant.png"
+        imageAlt="Pesquisa jurídica do Pequi"
+        imageRatio="16/7"
+        fit="contain"
+      />
 
-              <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
-                  <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
-                    <Image
-                      src="/landingpage/features/ai-powered-legal-assistant.png"
-                      alt="Pesquisa de inteligência jurídica com IA"
-                      fill
-                      className="object-contain object-center"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.08}>
-        <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
-          <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Pesquisa jurídica descomplicada</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Da pergunta à explicação em linguagem simples, com a indicação das leis para você conferir.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {features.map((f) => (
-                <div key={f.title} className={featureCardClass}>
-                  <div className="inline-flex w-full items-center justify-start">{f.icon}</div>
-                  <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{f.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
+      <FeatureList
+        columns={3}
+        title="Pesquisa jurídica descomplicada"
+        text="Da pergunta à explicação em linguagem simples, com as leis para conferir."
+        items={features.map((f) => ({ title: f.title, text: f.desc }))}
+      />
 
       <FadeInSection delay={0.1}>
         <section id="demo" className="bg-white pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">

@@ -1,391 +1,117 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import FadeInSection from '../components/landingpage/FadeInSection';
-import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
+import { ClosingCta, FeatureList } from '../components/landingpage/ProductBlocks';
+import { container } from '../components/landingpage/SectionHeader';
 
-const featureCardClass =
-  'flex min-h-[200px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 md:px-6 md:py-8 lg:p-[40px]';
-
-const heroAvatars = [
-  '/landingpage/hero/img1.png',
-  '/landingpage/hero/img2.png',
-  '/landingpage/hero/img3.png',
-  '/landingpage/hero/img4.png',
-  '/landingpage/hero/img5.png',
+// Página "Sobre" (2026-11-24), no estilo editorial do site: sem caixas
+// aninhadas. Ficaram só pessoas reais da equipe; investidores e executivos de
+// exemplo do modelo antigo foram retirados.
+const leaders = [
+  {
+    name: 'Marcio Rosa',
+    position: 'Diretor executivo (CEO)',
+    bio: 'Estratégia em legal tech, com foco em IA confiável para escritórios.',
+  },
+  {
+    name: 'Luiz Felipe de Oliveira',
+    position: 'Sócio fundador · Direito Digital',
+    bio: 'Advogado especialista em Direito Digital, LGPD e Direito Contratual.',
+  },
 ];
 
+const values = [
+  { title: 'Inovação', text: 'Tecnologia de ponta sem perder de vista a rotina real do escritório.' },
+  { title: 'Excelência', text: 'Segurança, precisão e bom atendimento, todos os dias.' },
+  { title: 'Integridade', text: 'Transparência sobre recursos, limites e uso dos dados.' },
+  { title: 'Foco no escritório', text: 'Vencemos quando o escritório atende melhor os clientes.' },
+];
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .filter((p) => p.length > 2)
+    .slice(0, 2)
+    .map((p) => p[0])
+    .join('');
+
 export default function CompanyExperience() {
-  const executives = [
-    {
-      name: 'Marcio Rosa',
-      position: 'Diretor executivo (CEO)',
-      bio: 'Ex-líder de estratégia em legal tech; focado em entregar IA de nível corporativo sem abrir mão da confiança.',
-      image: heroAvatars[0],
-    },
-    {
-      name: 'Luiz Felipe de Oliveira',
-      position: 'Especialista em Direito Digital',
-      bio: 'Advogado especialista em Direito Digital, proteção de dados (LGPD) e Direito Contratual, sócio fundador da Plataforma Pequi.',
-      image: '/company/luiz-felipe.webp',
-      // Foto retangular: recortada em círculo para ficar igual às demais
-      circle: true,
-    },
-    {
-      name: 'David Wilson',
-      position: 'Diretor de tecnologia (CTO)',
-      bio: 'Experiência em ML aplicado e sistemas seguros; defensor da privacidade, das avaliações e do rigor operacional.',
-      image: heroAvatars[2],
-    },
-    {
-      name: 'Elena Rodriguez',
-      position: 'Diretora de receita (CRO)',
-      bio: 'Cria fluxos de trabalho que os advogados realmente adotam, unindo prática jurídica, design e avaliação de modelos.',
-      image: heroAvatars[1],
-    },
-  ];
-
-  const investors = [
-    {
-      name: 'Marc Andreessen',
-      designation: 'Cofundador e sócio-geral',
-      firm: 'Andreessen Horowitz',
-      image: heroAvatars[1],
-    },
-    {
-      name: 'Neil Sequoia',
-      designation: 'Sócio-diretor',
-      firm: 'Sequoia Capital',
-      image: heroAvatars[2],
-    },
-    {
-      name: 'Sarah Chen',
-      designation: 'Sócia',
-      firm: 'Bessemer Venture Partners',
-      image: heroAvatars[3],
-    },
-    {
-      name: 'James Rodriguez',
-      designation: 'Sócio-geral',
-      firm: 'Accel',
-      image: heroAvatars[4],
-    },
-  ];
-
-  const values = [
-    {
-      title: 'Inovação',
-      description: 'Usamos tecnologia jurídica de ponta sem perder de vista a rotina real de cada escritório e dos clientes dele.',
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-        />
-      ),
-    },
-    {
-      title: 'Excelência',
-      description: 'Altos padrões de segurança, precisão e atendimento aos clientes, todos os dias.',
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-        />
-      ),
-    },
-    {
-      title: 'Integridade',
-      description: 'Transparência sobre recursos, limitações e a forma como os dados dos clientes são tratados.',
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-        />
-      ),
-    },
-    {
-      title: 'Foco no escritório',
-      description: 'Vencemos quando o escritório atende melhor os seus clientes; nosso produto é guiado por esse padrão.',
-      icon: (
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      ),
-    },
-  ];
-
   return (
     <>
-      <FadeInSection>
-        <section
-          id="hero"
-          className="relative -mt-20 overflow-hidden px-4 pb-12 pt-[12rem] sm:px-6 sm:pt-[13rem] lg:px-8 lg:pb-16 lg:pt-[12rem] scroll-mt-24 md:scroll-mt-28"
-        >
-          <Image
-            src="/landingpage/hero/hero-bgimg.png"
-            alt="Imagem de fundo"
-            fill
-            priority
-            className="object-cover object-top"
-          />
-          <div className="relative z-10 mx-auto flex w-full max-w-[1274px] flex-col items-center text-center">
-            <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Sobre a Pequi</p>
-            <h1 className="mt-5 max-w-3xl text-[2.7rem] font-medium leading-[1.08] tracking-[-0.08rem] text-ink sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-              IA jurídica para escritórios, com a marca deles
+      <section className="pb-16 pt-32 sm:pt-36 lg:pb-20">
+        <div className={`${container} grid gap-8 lg:grid-cols-2 lg:items-end`}>
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Sobre o Pequi</p>
+            <h1 className="mt-5 text-[clamp(2.6rem,5.6vw,4.6rem)] font-medium leading-[1.02] tracking-[-0.04em] text-ink">
+              IA jurídica com a marca do escritório
             </h1>
-            <p className="mt-5 max-w-2xl text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-              Desenvolvemos IA que respeita a advocacia. Escritórios oferecem aos clientes uma assistente jurídica com a própria
-              marca, e a análise de cada caso continua com o advogado.
-            </p>
-            <Link
-              href="/careers"
-              className="landing-primary-btn mt-8 inline-flex h-11 items-center justify-center px-6 transition"
-            >
-              Ver carreiras
-            </Link>
           </div>
-        </section>
-      </FadeInSection>
+          <p className="max-w-[500px] text-[1.05rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Criamos IA que respeita a advocacia. O escritório oferece aos clientes uma assistente com a própria marca, e a análise
+            de cada caso continua com o advogado.
+          </p>
+        </div>
+      </section>
 
-      <FadeInSection delay={0.06}>
-        <section className="bg-white py-16 lg:py-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Quem somos</p>
-                <h2 className="text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem] lg:text-[3rem]">
-                  Sobre a Pequi
-                </h2>
-                <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Fundada em 2020, a Pequi leva o nome do fruto do Cerrado: casca dura, polpa valiosa e espinhos escondidos, como
-                  o Direito. Hoje oferecemos a escritórios de advocacia uma IA jurídica white-label, que atende os clientes com a
-                  marca do escritório.
-                </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Advogados, pesquisadores e criadores de produto trabalham lado a lado para que cada resposta reflita como o Direito
-                  funciona na prática e para que o escritório tenha controle sobre a experiência dos seus clientes.
-                </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Com escritórios em Brasília, São Paulo e Campinas, temos uma equipe pronta para implantar a IA no seu escritório.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="overflow-hidden rounded-3xl border border-castanha-150 bg-white p-3 md:p-4">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-castanha-100">
-                    <Image
-                      src="/landingpage/features/workflow-automation.png"
-                      alt=""
-                      fill
-                      className="object-contain p-4 md:p-6"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-              </div>
+      <FadeInSection>
+        <section className="py-16 lg:py-20">
+          <div className={`${container} grid gap-12 lg:grid-cols-2 lg:gap-16`}>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+              <Image src="/landingpage/hero/colunas.jpg" alt="Colunas de um palácio da justiça" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 600px" />
             </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.08}>
-        <section className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
-            <div className="grid gap-5 md:grid-cols-2">
-              <div className={featureCardClass}>
-                <div className="mb-6 inline-flex w-full items-center justify-start">
-                  <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <div className="mt-auto">
-                  <h3 className="mb-4 text-[1.5rem] font-medium leading-tight text-castanha-800 md:text-[1.75rem]">Nossa missão</h3>
-                  <p className="text-[1rem] leading-[160%] text-castanha-800 md:text-[1.0625rem]">
-                    Dar a cada escritório de advocacia uma IA jurídica com a própria marca, para atender mais clientes com
-                    clareza e segurança, mantendo o advogado no comando de cada caso.
-                  </p>
-                </div>
-              </div>
-              <div className="rounded-2xl border border-cerrado-800 bg-cerrado-800 p-6 text-white transition-all duration-300 hover:-translate-y-0.5 md:p-8 lg:p-[40px]">
-                <div className="mb-6 inline-flex w-full items-center justify-start">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-white/10">
-                  <svg className="h-7 w-7 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </svg>
-                  </div>
-                </div>
-                <h3 className="mb-4 text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">Nossa visão</h3>
-                <p className="text-[1rem] leading-[160%] text-white/80 md:text-[1.0625rem]">
-                  Um mercado em que a IA fortalece a advocacia: escritórios mais próximos dos clientes e direitos mais claros
-                  para quem procura ajuda.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.1}>
-        <section className="bg-white pb-16 lg:pb-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Nossos valores essenciais</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Princípios presentes na forma como desenvolvemos, vendemos e damos suporte à plataforma.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {values.map((value) => (
-                <div key={value.title} className={featureCardClass}>
-                  <div className="mb-6 inline-flex w-full items-center justify-start">
-                    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      {value.icon}
-                    </svg>
-                  </div>
-                  <div className="mt-auto">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{value.title}</h3>
-                    <p className="mt-2 text-[1rem] leading-[1.4rem] text-castanha-800">{value.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.12}>
-        <section className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
-            <h2 className={sectionHeadingClass}>Liderança</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Executivos e criadores com ampla experiência em Direito, software corporativo e IA.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {executives.map((executive) => (
-                <article
-                  key={executive.name}
-                  className="group overflow-hidden rounded-3xl border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
-                    {'circle' in executive && executive.circle ? (
-                      <div className="absolute inset-[4%] overflow-hidden rounded-full border-[5px] border-white transition-transform duration-500 group-hover:scale-[1.03]">
-                        <Image
-                          src={executive.image}
-                          alt={executive.name}
-                          fill
-                          className="object-cover object-top"
-                          sizes="(max-width: 640px) 100vw, 25vw"
-                        />
-                      </div>
-                    ) : (
-                      <Image
-                        src={executive.image}
-                        alt={executive.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        sizes="(max-width: 640px) 100vw, 25vw"
-                      />
-                    )}
-                  </div>
-                  <div className="p-6 md:p-7">
-                    <h3 className="text-[1.125rem] font-medium text-ink">{executive.name}</h3>
-                    <p className="mb-3 mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">
-                      {executive.position}
-                    </p>
-                    {executive.bio && <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{executive.bio}</p>}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.14}>
-        <section className="bg-white pb-16 lg:pb-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Apoiada por investidores de referência</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Parceiros que entendem apostas de longo prazo em software regulado e de missão crítica.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {investors.map((investor) => (
-                <article
-                  key={investor.name}
-                  className="group overflow-hidden rounded-3xl border border-castanha-150 bg-white transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative aspect-square overflow-hidden border-b border-castanha-150 bg-castanha-100">
-                    <Image
-                      src={investor.image}
-                      alt=""
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                    />
-                  </div>
-                  <div className="p-6 md:p-7">
-                    <h3 className="text-[1.0625rem] font-medium text-ink">{investor.name}</h3>
-                    <p className="mt-1 text-[0.875rem] text-castanha-600">{investor.designation}</p>
-                    <p className="mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-castanha-600">
-                      {investor.firm}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.16}>
-        <section className="bg-white pb-16 lg:pb-[7rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-3xl border border-castanha-150 bg-castanha-50 px-6 py-12 text-center md:px-12 md:py-14">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem]">Junte-se à nossa missão</h2>
-              <p className="mx-auto mt-4 max-w-xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                Contratamos pela excelência, curiosidade e respeito pela profissão jurídica. Veja as vagas abertas ou entre em contato.
+            <div className="self-center">
+              <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Por que Pequi</h2>
+              <p className="mt-5 max-w-[520px] text-[1.02rem] leading-relaxed text-ink/65">
+                O pequi é o fruto do Cerrado de casca dura, polpa valiosa e espinhos escondidos, como o Direito. Advogados e
+                criadores de produto trabalham juntos para que cada resposta reflita a prática jurídica.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/careers"
-                  className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
-                >
-                  Ver vagas abertas
-                </Link>
-                <Link
-                  href="/contact"
-                  className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
-                >
-                  Fale conosco
-                </Link>
-              </div>
+              <dl className="mt-8 border-t border-ink/12">
+                <div className="grid gap-1 border-b border-ink/12 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                  <dt className="font-medium text-ink">Missão</dt>
+                  <dd className="text-ink/65">Dar a cada escritório uma IA com a própria marca, com o advogado no comando de cada caso.</dd>
+                </div>
+                <div className="grid gap-1 border-b border-ink/12 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                  <dt className="font-medium text-ink">Visão</dt>
+                  <dd className="text-ink/65">Uma advocacia mais próxima dos clientes, com direitos mais claros para quem procura ajuda.</dd>
+                </div>
+                <div className="grid gap-1 border-b border-ink/12 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                  <dt className="font-medium text-ink">Onde</dt>
+                  <dd className="text-ink/65">Brasília, São Paulo e Campinas.</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </section>
       </FadeInSection>
+
+      <FeatureList tone="sand" title="Nossos valores" text="O que guia cada decisão de produto." items={values} />
+
+      <FadeInSection>
+        <section className="py-20 lg:py-28">
+          <div className={container}>
+            <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Liderança</h2>
+            <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+              {leaders.map((l) => (
+                <article key={l.name} className="border-t border-ink/20 pt-6">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#151816] text-[1rem] font-medium text-white">
+                    {initials(l.name)}
+                  </div>
+                  <h3 className="mt-5 text-[1.3rem] font-medium tracking-[-0.02em] text-ink">{l.name}</h3>
+                  <p className="mt-1 text-[0.85rem] text-ink/50">{l.position}</p>
+                  <p className="mt-3 max-w-[22rem] text-[0.98rem] leading-relaxed text-ink/65">{l.bio}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      </FadeInSection>
+
+      <ClosingCta
+        title="Vamos levar a IA ao seu escritório"
+        text="Uma conversa de 20 minutos para mostrar o Pequi com a sua marca."
+        action={{ label: 'Falar com a equipe', href: '/contact' }}
+      />
     </>
   );
 }

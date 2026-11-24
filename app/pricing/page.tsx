@@ -80,13 +80,10 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         </div>
 
         <div className="container mx-auto max-w-7xl relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
-            <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Planos para escritórios</span>
-          </div>
+          <p className="mb-8 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Planos para escritórios</p>
 
           <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
-            Sua marca, <span className="pq-accent">nossa IA.</span>
+            Sua marca, nossa IA.
           </h1>
           <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
             O escritório assina e oferece aos clientes uma assistente jurídica com a própria marca. Os clientes não pagam nada.
@@ -128,10 +125,10 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`group relative bg-white border ${plan.popular
-                  ? 'border-foreground scale-[1.03] lg:scale-105 z-10'
-                  : 'border-castanha-200'
-                  } p-12 transition-all duration-500 rounded-3xl flex flex-col min-h-[700px]`}
+                className={`group relative ${plan.popular
+                  ? 'bg-[#F4EFDF] ring-2 ring-ink z-10'
+                  : 'bg-[#F4EFDF]'
+                  } p-10 rounded-3xl flex flex-col min-h-[640px]`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -144,9 +141,6 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
                 <div className="mb-12">
                   <div className="flex justify-between items-start mb-6">
                     <h3 className="text-3xl font-medium tracking-tight">{plan.name}</h3>
-                    <div className="w-10 h-10 rounded-xl bg-cerrado-950/5 flex items-center justify-center">
-                      <svg className="w-5 h-5 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                    </div>
                   </div>
                   <p className="text-foreground/50 text-base leading-relaxed h-12 mb-10">{plan.description}</p>
 
@@ -184,7 +178,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
                   href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
                   className={`block w-full py-5 rounded-2xl text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 text-center ${plan.popular
                     ? 'btn-primary-gradient hover:scale-[1.02]'
-                    : 'bg-white text-foreground border border-castanha-200 hover:border-cerrado-900'
+                    : 'bg-[#FFFDF6] text-foreground hover:bg-white'
                     }`}
                 >
                   {plan.ctaText}
@@ -200,10 +194,8 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-8">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 leading-none mt-0.5">Especificações técnicas</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os <span className="pq-accent">planos.</span></h2>
+              <p className="mb-6 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Especificações</p>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os planos</h2>
               <p className="text-foreground/50 text-xl font-medium leading-relaxed">
                 Limites de uso de cada cliente do escritório, por mês.
               </p>
@@ -250,20 +242,17 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       <section className="py-32 px-6 landing-gilroy bg-background">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas <span className="pq-accent">frequentes.</span></h2>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas frequentes</h2>
             <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
               Respostas simples sobre o white-label, os planos e os pagamentos.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="border-t border-ink/15">
             {faqs.map((faq, index) => (
-              <div key={index} className="group bg-white border border-castanha-200 p-8 rounded-3xl transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/10 transition-colors group-hover:bg-cerrado-900" />
-                  <h3 className="text-lg font-bold tracking-tight">{faq.question}</h3>
-                </div>
-                <p className="text-foreground/60 leading-relaxed pl-5.5 font-medium text-[0.95rem]">{faq.answer}</p>
+              <div key={index} className="border-b border-ink/15 py-6">
+                <h3 className="text-[1.1rem] font-medium tracking-tight text-ink">{faq.question}</h3>
+                <p className="mt-2 max-w-[640px] text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
               </div>
             ))}
           </div>

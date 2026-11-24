@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { contactApi } from '../services/contactApi';
 import {
-  AuthHero,
   authInputClass,
   authLabelClass,
   authPrimaryButtonClass,
@@ -11,7 +10,7 @@ import {
 
 const offices = [
   {
-    name: 'Brasilia',
+    name: 'Brasília',
     address: 'SCS, Quadra 09, Bloco C, Torre C',
     phone: '+55 (11) 94492-0944',
     email: 'brasilia@pequi.me',
@@ -111,39 +110,37 @@ export default function ContactExperience() {
 
   return (
     <div className="min-h-screen">
-      <AuthHero
-        eyebrow="Estamos aqui para ajudar"
-        title="Fale conosco"
-        subtitle="Dúvidas sobre recursos, segurança ou preços? Envie uma mensagem e responderemos rapidamente."
-      />
+      <section className="pt-32 sm:pt-36">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 border-b border-ink/12 px-5 pb-12 sm:px-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Contato</p>
+            <h1 className="mt-5 text-[clamp(2.6rem,5.6vw,4.6rem)] font-medium leading-[1.02] tracking-[-0.04em] text-ink">Fale conosco</h1>
+          </div>
+          <p className="max-w-[500px] text-[1.05rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Recursos, segurança ou preços: mande sua pergunta e respondemos em até um dia útil.
+          </p>
+        </div>
+      </section>
 
-      <section className="border-b border-castanha-150 bg-white">
-        <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0 py-12 md:py-16">
+      <section>
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             <div className="lg:col-span-5 space-y-10">
               <div>
-                <h2 className="mb-4 text-[1.5rem] font-medium leading-tight text-ink md:text-[1.75rem]">
-                  Fale com a nossa equipe
-                </h2>
-                <p className="text-[1rem] leading-[175%] text-castanha-600 md:text-[1.0625rem]">
-                  Conte um pouco sobre você ou seu pequeno negócio e o que você deseja resolver. Vamos direcionar você para a
-                  pessoa certa.
+                <h2 className="text-[1.6rem] font-medium tracking-[-0.025em] text-ink">Fale com a nossa equipe</h2>
+                <p className="mt-3 max-w-[420px] text-[1rem] leading-relaxed text-ink/65">
+                  Conte sobre o seu escritório e o que precisa. Encaminhamos para a pessoa certa.
                 </p>
               </div>
 
-              <ul className="space-y-8">
+              <ul className="border-t border-ink/12">
                 {contactChannels.map((ch) => (
-                  <li key={ch.title} className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-castanha-150 bg-castanha-50 text-ink">
-                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        {ch.icon}
-                      </svg>
-                    </div>
+                  <li key={ch.title} className="grid grid-cols-[9rem_1fr] gap-4 border-b border-ink/12 py-4">
                     <div>
-                      <p className="font-medium text-ink">{ch.title}</p>
-                      <p className="mb-1 mt-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">
-                        {ch.hint}
-                      </p>
+                      <p className="text-[0.95rem] font-medium text-ink">{ch.title}</p>
+                      <p className="mt-0.5 text-[0.8rem] text-ink/50">{ch.hint}</p>
+                    </div>
+                    <div className="self-center">
                       {ch.href ? (
                         <a
                           href={ch.href}
@@ -161,8 +158,7 @@ export default function ContactExperience() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="relative overflow-hidden rounded-3xl border border-castanha-150 bg-white p-8 md:p-10">
-                <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-castanha-50" aria-hidden />
+              <div className="relative rounded-3xl bg-[#F4EFDF] p-7 md:p-10 [&_input]:bg-[#FFFDF6] [&_textarea]:bg-[#FFFDF6]">
 
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="relative space-y-5">
@@ -338,88 +334,26 @@ export default function ContactExperience() {
         </div>
       </section>
 
-      <section className="border-b border-castanha-150 bg-white py-14 md:py-16">
-        <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <div className="mb-10 md:mb-12">
-            <h2 className="mb-3 text-[1.5rem] font-medium text-ink md:text-[1.75rem]">Nossos escritórios</h2>
-            <p className="max-w-2xl text-[1rem] leading-relaxed text-castanha-600">
-              Equipes em Brasília, São Paulo e Campinas: a mesma plataforma, com suporte bem próximo.
+      <section className="bg-[#F4EFDF] py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-6 pb-4 lg:grid-cols-2 lg:items-end">
+            <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Nossos escritórios</h2>
+            <p className="max-w-[480px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
+              Brasília, São Paulo e Campinas. Atendimento online, em português, de segunda a sexta, no horário de Brasília.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {offices.map((office) => (
-              <article
-                key={office.name}
-                className="overflow-hidden rounded-3xl border border-castanha-150 bg-castanha-50 transition-all duration-300 hover:border-castanha-300"
-              >
-                <div className="relative overflow-hidden bg-cerrado-900 px-6 py-8 text-white">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_0%,#fff_0%,transparent_50%)]" aria-hidden />
-                  <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white/60 mb-2 relative">
-                    {office.regionLabel}
-                  </p>
-                  <h3 className="text-xl font-medium relative">{office.name}</h3>
-                </div>
-                <div className="space-y-5 bg-white p-6 md:p-7">
-                  <div className="flex gap-3">
-                    <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-castanha-200 bg-castanha-100">
-                      <svg className="h-4 w-4 text-castanha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <address className="text-[0.9375rem] not-italic leading-relaxed text-castanha-600">{office.address}</address>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-castanha-200 bg-castanha-100">
-                      <svg className="h-4 w-4 text-castanha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <a
-                      href={`tel:${office.phone.replace(/\s/g, '')}`}
-                      className="text-[0.9375rem] font-medium text-ink hover:underline"
-                    >
-                      {office.phone}
-                    </a>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-castanha-200 bg-castanha-100">
-                      <svg className="h-4 w-4 text-castanha-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <a href={`mailto:${office.email}`} className="break-all text-[0.9375rem] font-medium text-ink hover:underline">
-                      {office.email}
-                    </a>
-                  </div>
+              <article key={office.name} className="border-t border-ink/20 pt-6">
+                <span className="text-[0.75rem] uppercase tracking-[0.14em] text-ink/45">{office.regionLabel}</span>
+                <h3 className="mt-4 text-[1.4rem] font-medium tracking-[-0.02em] text-ink">{office.name}</h3>
+                <address className="mt-3 text-[0.98rem] not-italic leading-relaxed text-ink/65">{office.address}</address>
+                <div className="mt-4 flex flex-col gap-1 text-[0.95rem]">
+                  <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-ink hover:underline">{office.phone}</a>
+                  <a href={`mailto:${office.email}`} className="text-ink hover:underline">{office.email}</a>
                 </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-12 md:py-16">
-        <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-          <div className="gap-8 rounded-3xl border border-castanha-150 bg-castanha-50 p-8 md:flex md:items-center md:justify-between md:p-10">
-            <div>
-              <h3 className="mb-2 text-lg font-medium text-ink">Atendimento no Brasil</h3>
-              <p className="max-w-xl text-[0.9375rem] leading-relaxed text-castanha-600">
-                Atendimento 100% online, em português, de segunda a sexta, no horário de Brasília.
-              </p>
-            </div>
-            <div className="mt-6 md:mt-0 flex flex-wrap gap-3 shrink-0">
-              {['Online', 'Em português', 'Horário de Brasília'].map((city) => (
-                <span
-                  key={city}
-                  className="inline-flex items-center rounded-full border border-castanha-200 bg-white px-4 py-2 text-[0.8125rem] font-medium text-ink"
-                >
-                  <span className="mr-2 h-2 w-2 rounded-full bg-cerrado-900" aria-hidden />
-                  {city}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>

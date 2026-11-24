@@ -1,13 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import FadeInSection from '../components/landingpage/FadeInSection';
-import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
-
-const featureCardClass =
-  'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5';
+import { ClosingCta, FeatureList, ProductHero } from '../components/landingpage/ProductBlocks';
 
 const tabs = [
   { id: 'all' as const, label: 'Todos' },
@@ -41,8 +36,8 @@ export default function VaultExperience() {
 
   const features = [
     {
-      title: 'Armazenamento seguro de documentos',
-      description: 'Os arquivos ficam na nuvem da AWS, acessíveis só pela conta de cada cliente, e cada pasta pode ter uma senha própria.',
+      title: 'Armazenamento seguro',
+      description: 'Arquivos na nuvem da AWS, visíveis só para a conta de cada cliente.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -56,7 +51,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Análise com IA',
-      description: 'Identifique riscos, termos-chave e resumos nos documentos e contratos do seu caso.',
+      description: 'Riscos, termos-chave e resumo de cada contrato em segundos.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -70,7 +65,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Integração com os fluxos',
-      description: 'Os fluxos de trabalho podem salvar documentos diretamente nas pastas do cofre.',
+      description: 'Os fluxos salvam documentos direto nas pastas do cofre.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -84,7 +79,7 @@ export default function VaultExperience() {
     },
     {
       title: 'Organização por pastas',
-      description: 'Separe os documentos por assunto em pastas e encontre cada arquivo com facilidade.',
+      description: 'Pastas por assunto e busca para achar qualquer arquivo.',
       icon: (
         <svg className="w-7 h-7 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
           <path
@@ -107,98 +102,32 @@ export default function VaultExperience() {
 
   return (
     <>
-      <FadeInSection>
-        <section
-          id="hero"
-          className="relative -mt-20 overflow-hidden px-4 pb-12 pt-[12rem] sm:px-6 sm:pt-[13rem] lg:px-8 lg:pb-16 lg:pt-[12rem] scroll-mt-24 md:scroll-mt-28"
-        >
-          <Image
-            src="/landingpage/hero/hero-bgimg.png"
-            alt="Imagem de fundo"
-            fill
-            priority
-            className="object-cover object-top"
-          />
-          <div className="relative z-10 mx-auto w-full max-w-[1274px]">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
-              <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Inteligência segura</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Cofre Pequi
-                </h1>
-                <p className="mt-4 max-w-[620px] text-[1rem] font-normal leading-[1.5rem] text-castanha-600">
-                  Um cofre de documentos com a marca do escritório, para cada cliente guardar, encontrar e revisar com IA o que importa no caso dele.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/contact"
-                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
-                  >
-                    Solicitar acesso
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('explorer')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="landing-secondary-btn inline-flex h-[2.83331rem] min-w-[10.81025rem] items-center justify-center px-6 transition hover:bg-castanha-150"
-                  >
-                    Demonstração do cofre
-                  </button>
-                </div>
-              </div>
+      <ProductHero
+        eyebrow="Cofre de documentos"
+        title="O cofre do escritório e dos clientes"
+        text="Cada cliente guarda, encontra e revisa com IA os documentos do caso, em pastas com senha e com a marca do escritório."
+        primary={{ label: 'Solicitar acesso', href: '/contact' }}
+        secondary={{ label: 'Ver o cofre em ação', href: '#explorer' }}
+        image="/landingpage/intro/valut-img.png"
+        imageAlt="Tela do Cofre do Pequi"
+      />
 
-              <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
-                  <div className="relative min-h-[220px] flex-1 sm:min-h-[280px] lg:min-h-[300px]">
-                    <Image
-                      src="/landingpage/features/secure-document-vault.png"
-                      alt="Prévia do cofre seguro de documentos"
-                      fill
-                      className="object-contain object-center"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.08}>
-        <section className="bg-white py-16 lg:py-[5.5rem] scroll-mt-24 md:scroll-mt-28">
-          <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Feito para os documentos mais sensíveis dos seus clientes</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Um único cofre para contratos, processos e documentos pessoais, com os controles e a inteligência que o escritório e os clientes esperam.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {features.map((feature) => (
-                <div key={feature.title} className={featureCardClass}>
-                  <div className="inline-flex w-full items-center justify-start">
-                    {feature.icon}
-                  </div>
-                  <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{feature.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
+      <FeatureList
+        title="Feito para documentos sensíveis"
+        text="Contratos, processos e documentos pessoais em um só lugar, com controle de acesso e análise por IA."
+        items={features.map((f) => ({ title: f.title, text: f.description }))}
+      />
 
       <FadeInSection delay={0.1}>
-        <section id="explorer" className="bg-white pb-16 lg:pb-[5.5rem] scroll-mt-24 md:scroll-mt-28">
-          <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
+        <section id="explorer" className="scroll-mt-20 py-20 lg:py-28">
+          <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-12">
               <div className="text-center lg:text-left">
-                <h2 className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
-                  Explorador interativo do cofre
+                <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">
+                  Veja o cofre em ação
                 </h2>
-                <p className="mt-4 text-castanha-600 text-[1rem] md:text-[1.125rem] max-w-[36rem] mx-auto lg:mx-0 leading-[160%]">
-                  Filtre por tipo de caso e pesquise na biblioteca de demonstração, do mesmo jeito que os seus clientes vão navegar no cofre real.
+                <p className="mt-4 max-w-[30rem] text-[1.02rem] leading-relaxed text-ink/65">
+                  Filtre e pesquise como os seus clientes fazem no cofre real.
                 </p>
               </div>
               <div className="flex flex-wrap justify-center lg:justify-end gap-2 md:gap-3">
@@ -207,10 +136,8 @@ export default function VaultExperience() {
                     key={tab.id}
                     type="button"
                     onClick={() => setActiveTab(tab.id)}
-                    className={`inline-flex h-11 md:h-[3.4375rem] justify-center items-center rounded-lg text-[0.875rem] md:text-[1rem] leading-none transition-colors px-4 md:px-[1.625rem] ${
-                      activeTab === tab.id
-                        ? 'border border-cerrado-800 bg-cerrado-800 text-white'
-                        : 'bg-castanha-100 text-castanha-600 border border-castanha-200 hover:bg-castanha-150 hover:text-ink'
+                    className={`inline-flex h-10 items-center rounded-full px-5 text-[0.9rem] transition-colors ${
+                      activeTab === tab.id ? 'bg-ink text-white' : 'bg-[#F4EFDF] text-ink/70 hover:text-ink'
                     }`}
                   >
                     {tab.label}
@@ -355,40 +282,18 @@ export default function VaultExperience() {
         </section>
       </FadeInSection>
 
-      <FadeInSection delay={0.12}>
-        <section className="bg-white pb-16 lg:pb-[7rem]">
-          <div className="max-w-[1274px] mx-auto px-4 md:px-8 lg:px-6 xl:px-0">
-            <div>
-              <div>
-                <p className="mb-3 text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Arquitetura</p>
-                <h2 className="text-ink text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-medium leading-[1.1]">
-                  Nuvem jurídica reforçada
-                </h2>
-                <p className="mt-5 max-w-[39.1975rem] text-[1rem] font-normal leading-[160%] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Documentos jurídicos exigem mais do que um armazenamento genérico de arquivos. O cofre foi criado para garantir confidencialidade, disponibilidade e auditabilidade ao escritório e aos clientes.
-                </p>
-                <div className="mt-10 grid sm:grid-cols-2 gap-x-10 gap-y-8">
-                  {securityPoints.map((point) => (
-                    <div key={point.title}>
-                      <h4 className="mb-1.5 text-[1rem] font-medium text-ink">{point.title}</h4>
-                      <p className="text-[0.9375rem] leading-[160%] text-castanha-600">{point.desc}</p>
-                    </div>
-                  ))}
-                </div>
-                <Link
-                  href="/security"
-                  className="mt-10 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-80"
-                >
-                  Ver visão geral de segurança
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
+      <FeatureList
+        tone="sand"
+        title="Segurança de ponta a ponta"
+        text="Confidencialidade, disponibilidade e registro de cada acesso, para o escritório e para os clientes."
+        items={securityPoints.map((p) => ({ title: p.title, text: p.desc }))}
+      />
+
+      <ClosingCta
+        title="Leve o cofre para o seu escritório"
+        text="Pastas com senha, análise por IA e integração com os fluxos, com a sua marca."
+        action={{ label: 'Falar com a equipe', href: '/contact' }}
+      />
     </>
   );
 }

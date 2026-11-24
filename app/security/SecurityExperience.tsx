@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FadeInSection from '../components/landingpage/FadeInSection';
 import { sectionHeadingClass, sectionSubTextClass } from '../components/landingpage/sectionStyles';
+import { ClosingCta, FeatureList, ProductHero } from '../components/landingpage/ProductBlocks';
 
 const featureCardClass =
   'flex min-h-[240.8px] flex-col rounded-2xl border border-castanha-150 bg-castanha-100/85 px-5 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5';
@@ -102,184 +103,69 @@ export default function SecurityExperience() {
 
   return (
     <>
-      <FadeInSection>
-        <section
-          id="hero"
-          className="relative -mt-20 overflow-hidden px-4 pb-12 pt-[12rem] sm:px-6 sm:pt-[13rem] lg:px-8 lg:pb-16 lg:pt-[12rem] scroll-mt-24 md:scroll-mt-28"
-        >
-          <Image
-            src="/landingpage/hero/hero-bgimg.png"
-            alt="Imagem de fundo"
-            fill
-            priority
-            className="z-0 object-cover object-top"
-            sizes="100vw"
-          />
-          <div className="relative z-10 mx-auto w-full max-w-[1274px]">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-14">
-              <div className="text-left">
-                <p className="text-[0.94444rem] font-normal leading-[1.41663rem] text-castanha-600">Proteção de dados</p>
-                <h1 className="mt-5 max-w-[700px] font-medium leading-[1.08] tracking-[-0.08rem] text-ink text-[2.7rem] sm:text-[3.25rem] sm:leading-[1.08] sm:tracking-[-0.12rem]">
-                  Dados do escritório e dos clientes em segurança
-                </h1>
-                <p className="mt-5 max-w-xl text-[1rem] font-normal leading-[1.5rem] text-castanha-600 md:text-[1.125rem] lg:text-[1.25rem]">
-                  Escritórios e clientes confiam informações sensíveis à plataforma. Ela foi criada para que confidencialidade, integridade e disponibilidade estejam no centro de cada atendimento.
-                </p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/contact"
-                    className="landing-primary-btn inline-flex h-11 items-center justify-center px-6 transition"
-                  >
-                    Fale com a equipe de segurança
-                  </Link>
-                </div>
-              </div>
-
-              <div className="relative min-h-[280px] w-full sm:min-h-[340px] lg:min-h-[380px]">
-                <div className="flex h-full min-h-[inherit] flex-col rounded-2xl border border-castanha-150 p-5 sm:p-6">
-                  <div className="relative min-h-[220px] w-full flex-1 overflow-hidden rounded-xl bg-castanha-100 sm:min-h-[280px] lg:min-h-[300px]">
-                    <Image
-                      src="/landingpage/security/revisao-de-documentos.jpg"
-                      alt="Duas pessoas revisando documentos em uma mesa"
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      priority
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
+      <ProductHero
+        eyebrow="Segurança"
+        title="Dados do escritório e dos clientes protegidos"
+        text="Confidencialidade, integridade e disponibilidade no centro de cada atendimento, do login ao Cofre."
+        primary={{ label: 'Falar com a equipe', href: '/contact' }}
+        secondary={{ label: 'Ver os controles', href: '#features' }}
+        image="/landingpage/security/revisao-de-documentos.jpg"
+        imageAlt="Advogada revisando documentos"
+        imageRatio="16/7"
+      />
 
       <FadeInSection delay={0.06}>
-        <section className="bg-white py-16 lg:py-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-castanha-600">
-                  Nosso compromisso
-                </p>
-                <h2 className="text-[2rem] font-medium leading-[1.1] text-ink md:text-[2.5rem] lg:text-[3rem]">
-                  A segurança dos dados é nossa prioridade
-                </h2>
-                <p className="mt-5 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  O escritório e os clientes dele confiam a nós informações sensíveis. O Pequi foi arquitetado com a segurança como princípio
-                  de design, da criptografia e do controle de acesso à forma como operamos nosso ambiente de produção.
-                </p>
-                <p className="mt-4 text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                  Revisamos e atualizamos as proteções da plataforma conforme ela evolui.
-                </p>
-                <ul className="mt-8 space-y-3 text-[1rem] leading-[160%] text-castanha-600">
-                  {checkItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 shrink-0 text-ink" aria-hidden>
-                        ▶
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="relative">
-                <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-castanha-100/85 p-3 backdrop-blur-sm md:p-4">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-castanha-100">
-                    <Image
-                      src="/landingpage/security/justica.jpg"
-                      alt="Estátua da Justiça segurando a balança"
-                      fill
-                      className="object-cover object-center"
-                      sizes="(max-width: 1024px) 100vw, 560px"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.08}>
-        <section
-          id="features"
-          className="border-t border-castanha-150 bg-white pb-16 lg:pb-[5.5rem]"
-        >
-          <div className="mx-auto max-w-[1274px] px-4 pt-16 md:px-8 lg:px-6 lg:pt-[5.5rem] xl:px-0">
-            <h2 className={sectionHeadingClass}>Recursos de segurança reforçada</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              Uma visão resumida dos controles que o escritório pode esperar antes de oferecer a IA aos clientes.
-            </p>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {securityFeatures.map((feature) => (
-                <div key={feature.title} className={featureCardClass}>
-                  <div className="inline-flex w-full items-center justify-start">
-                    <svg className="h-10 w-10 text-castanha-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      {feature.icon}
-                    </svg>
-                  </div>
-                  <div className="mt-auto pt-6">
-                    <h3 className="text-[1.125rem] font-medium leading-[1.575rem] text-castanha-800">{feature.title}</h3>
-                    <p className="mt-2 text-[1rem] font-normal leading-[1.4rem] text-castanha-800">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.1}>
-        <section className="bg-white pb-16 lg:pb-[5.5rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <h2 className={sectionHeadingClass}>Privacidade e seus dados</h2>
-            <p className={`${sectionSubTextClass} mt-4 mb-10 md:mb-12`}>
-              O Pequi ainda não possui certificações de segurança. Veja abaixo como tratamos seus dados.
-            </p>
-            <div className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4">
-              {certifications.map((cert) => (
-                <div key={cert.name} className={certCardClass}>
-                  <div className="mb-4 inline-flex min-h-[3.25rem] items-center justify-center rounded-xl bg-cerrado-900 px-4 text-[0.9375rem] font-medium text-white md:text-[1rem]">
-                    {cert.name}
-                  </div>
-                  <p className="text-[0.8125rem] leading-[150%] text-castanha-600 md:text-[0.875rem]">{cert.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      <FadeInSection delay={0.12}>
-        <section className="bg-white pb-16 lg:pb-[7rem]">
-          <div className="mx-auto max-w-[1274px] px-4 md:px-8 lg:px-6 xl:px-0">
-            <div className="rounded-3xl border border-castanha-150 bg-castanha-50 px-6 py-12 text-center md:px-12 md:py-14">
-              <h2 className="text-[1.75rem] font-medium leading-tight text-ink md:text-[2.25rem] lg:text-[2.5rem]">
-                Visão geral de segurança e whitepaper
+        <section className="py-20 lg:py-28">
+          <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">
+                Segurança desde o projeto
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-[1rem] leading-[160%] text-castanha-600 md:text-[1.125rem]">
-                Solicite nosso pacote completo de segurança, com diagramas de arquitetura, mapeamento de controles e detalhes sobre como tratamos
-                incidentes e suboperadores.
+              <p className="mt-5 max-w-[520px] text-[1.02rem] leading-relaxed text-ink/65">
+                Criptografia, controle de acesso e cuidado com o ambiente de produção. Revisamos as proteções conforme a plataforma evolui.
               </p>
-              <Link
-                href="/contact"
-                className="landing-primary-btn mx-auto mt-8 inline-flex h-11 items-center justify-center gap-2 px-6 transition"
-              >
-                <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Solicitar materiais de segurança
-              </Link>
+              <ul className="mt-8 border-t border-ink/12">
+                {checkItems.map((item) => (
+                  <li key={item} className="border-b border-ink/12 py-3 text-[0.98rem] text-ink/80">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+              <Image
+                src="/landingpage/security/justica.jpg"
+                alt="Estátua da Justiça segurando a balança"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
             </div>
           </div>
         </section>
       </FadeInSection>
+
+      <div id="features" className="scroll-mt-20">
+        <FeatureList
+          tone="sand"
+          columns={3}
+          title="Controles de segurança"
+          text="O que o escritório pode esperar antes de oferecer a IA aos clientes."
+          items={securityFeatures.map((f) => ({ title: f.title, text: f.description }))}
+        />
+      </div>
+
+      <FeatureList
+        title="Privacidade e seus dados"
+        text="O Pequi ainda não tem certificações de segurança. Veja como tratamos os seus dados."
+        items={certifications.map((c) => ({ title: c.name, text: c.description }))}
+      />
+
+      <ClosingCta
+        title="Precisa dos detalhes técnicos?"
+        text="Enviamos a arquitetura, os controles e como tratamos incidentes e suboperadores."
+        action={{ label: 'Solicitar materiais', href: '/contact' }}
+      />
     </>
   );
 }
