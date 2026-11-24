@@ -82,7 +82,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
   return (
     <>
       <section
-        className={`relative overflow-hidden bg-[#151816] text-white ${embedded ? 'rounded-3xl px-5 pb-12 pt-12 sm:px-8' : '-mt-20 pb-20 pt-36 sm:pt-40 lg:pb-24'}`}
+        className={`relative overflow-hidden bg-[#151816] text-white ${embedded ? 'pb-20 pt-14 lg:pb-24' : '-mt-20 pb-20 pt-36 sm:pt-40 lg:pb-24'}`}
       >
         <Image src="/landingpage/hero/planos.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[50%_35%]" />
         <div
@@ -94,7 +94,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
           }}
         />
 
-        <div className={`relative z-10 ${embedded ? '' : container}`}>
+        <div className={`relative z-10 ${container}`}>
           <div role="group" aria-label="Período de cobrança" className="inline-flex rounded-full bg-white/10 p-1 ring-1 ring-white/15 backdrop-blur-md">
             {(['monthly', 'annual'] as const).map((p) => (
               <button
@@ -156,8 +156,8 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       </section>
 
       {/* Detalhe no padrão do "monte o plano" da Magnar: escolhas à esquerda, resumo escuro à direita */}
-      <section id="montar" className={`scroll-mt-24 bg-[#F4EFDF] ${embedded ? 'mt-6 rounded-3xl px-5 py-14 sm:px-8' : 'py-20 lg:py-28'}`}>
-        <div className={embedded ? '' : container}>
+      <section id="montar" className={`scroll-mt-24 bg-[#F4EFDF] py-20 lg:py-28`}>
+        <div className={container}>
           <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Monte o plano do escritório.</h2>
           <p className="mt-4 max-w-[520px] text-[1.02rem] leading-relaxed text-ink/65">Escolha o plano e a forma de cobrança e veja o que está incluído.</p>
 
@@ -258,8 +258,8 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       </section>
 
       {/* Comparação: tabela aberta, só com linhas */}
-      <section id="comparar" className={`scroll-mt-24 ${embedded ? 'py-16' : 'py-20 lg:py-28'}`}>
-        <div className={embedded ? '' : container}>
+      <section id="comparar" className={`scroll-mt-24 py-20 lg:py-28`}>
+        <div className={container}>
           <SectionHeader line={false} title="Compare os planos" text="Limites de uso de cada cliente do escritório, por mês." />
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse text-left">
@@ -287,8 +287,8 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
       </section>
 
       {/* Perguntas frequentes */}
-      <section className={`border-t border-ink/12 ${embedded ? 'py-14' : 'py-20 lg:py-28'}`}>
-        <div className={`${embedded ? '' : container} grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16`}>
+      <section className={`border-t border-ink/12 py-20 lg:py-28`}>
+        <div className={`${container} grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16`}>
           <div>
             <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Perguntas frequentes</h2>
             <p className="mt-5 max-w-[380px] text-[1.02rem] leading-relaxed text-ink/65">Respostas simples sobre o white-label, os planos e os pagamentos.</p>
@@ -329,5 +329,5 @@ export default function PricingPage() {
   if (loading || isLoading) return null;
   const isOfficeTeam = ['owner', 'staff'].includes(String(user?.tenantRole || ''));
   const content = tenant && !isOfficeTeam ? <TenantAccess /> : <PequiPricing embedded={isAuthenticated} />;
-  return isAuthenticated ? <DashboardLayout title="Planos">{content}</DashboardLayout> : content;
+  return isAuthenticated ? <DashboardLayout title="Planos" fullBleed={!(tenant && !isOfficeTeam)}>{content}</DashboardLayout> : content;
 }

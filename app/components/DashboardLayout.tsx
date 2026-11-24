@@ -13,10 +13,12 @@ interface DashboardLayoutProps {
   title: string;
   // Telas de conversa: o conteúdo ocupa a altura livre da janela e a página não rola
   fitScreen?: boolean;
+  // Páginas com foto em tela cheia (ex.: preços): sem margem nem largura máxima
+  fullBleed?: boolean;
   actions?: React.ReactNode;
 }
 
-export default function DashboardLayout({ children, title, actions, fitScreen = false }: DashboardLayoutProps) {
+export default function DashboardLayout({ children, title, actions, fitScreen = false, fullBleed = false }: DashboardLayoutProps) {
   const [showSidebar, setShowSidebar] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -184,7 +186,7 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         </main>
       ) : (
         <main className="flex-1 overflow-auto pb-32 md:pb-40">
-          <div className="p-4 md:p-12 max-w-7xl mx-auto">
+          <div className={fullBleed ? '' : 'p-4 md:p-12 max-w-7xl mx-auto'}>
             <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000">
               {children}
             </div>
