@@ -44,8 +44,10 @@ const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === '/' || !pathname;
-  // Transparente com texto claro só no topo da página inicial
-  const overDark = isHome && !scrolled && !mobileOpen;
+  // Transparente com texto claro no topo das páginas com foto escura no topo
+  // (início e preços; logado, a página de preços abre dentro do painel)
+  const darkTop = isHome || (pathname === '/pricing' && !isAuthenticated);
+  const overDark = darkTop && !scrolled && !mobileOpen;
   const isActive = (href: string) => pathname === href || (pathname?.startsWith(`${href}/`) ?? false);
   const productActive = products.some((p) => isActive(p.href.split('#')[0]));
 

@@ -8,6 +8,8 @@ import { useTenant } from '../contexts/TenantContext';
 import TenantAccess from '../components/office/TenantAccess';
 import DashboardLayout from '../components/DashboardLayout';
 import { useAuth } from '../contexts/AuthContext';
+import SectionHeader, { container } from '../components/landingpage/SectionHeader';
+import { ClosingCta } from '../components/landingpage/ProductBlocks';
 
 function PequiPricing({ embedded = false }: { embedded?: boolean }) {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
@@ -53,204 +55,155 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
     return percentage;
   };
 
+  const compare = [
+    { feature: 'Marca do escritório e chat no site', starter: '—', pro: 'Incluído', enterprise: 'Incluído' },
+    { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
+    { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
+    { feature: 'Assistentes de IA', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
+    { feature: 'Operações com documentos', starter: '—', pro: '50 operações', enterprise: 'Ilimitado' },
+    { feature: 'Pastas no Cofre', starter: '—', pro: '50 pastas', enterprise: 'Ilimitado' },
+    { feature: 'Armazenamento no Cofre', starter: '—', pro: '500 MB', enterprise: 'Escala de TB' },
+    { feature: 'Criador de Fluxos', starter: '—', pro: '5 fluxos', enterprise: 'Ilimitado' },
+  ];
+
+  // Topo no padrão da página de preços da Magnar (2026-11-24): foto de fundo
+  // em tela cheia, título branco à esquerda e os planos por cima da foto.
   return (
     <>
-      {/* Hero Header */}
-      <section className={`relative ${embedded ? 'rounded-3xl pt-16' : '-mt-20 pt-[13rem]'} pb-48 px-6 overflow-hidden landing-gilroy bg-background`}>
-        {/* Real Background Image like News Page */}
-        <Image
-          src="/landingpage/hero/hero-bgimg.png"
-          alt="Imagem de fundo"
-          fill
-          priority
-          className="z-0 object-cover object-top"
-          sizes="100vw"
+      <section
+        className={`relative overflow-hidden bg-[#151816] text-white ${embedded ? 'rounded-3xl px-5 pb-12 pt-12 sm:px-8' : '-mt-20 pb-20 pt-36 sm:pt-40 lg:pb-24'}`}
+      >
+        <Image src="/landingpage/hero/colunas.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[50%_40%]" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(21,24,22,0.55) 0%, rgba(21,24,22,0.2) 32%, rgba(21,24,22,0.3) 60%, rgba(21,24,22,0.8) 100%), linear-gradient(90deg, rgba(21,24,22,0.55) 0%, rgba(21,24,22,0) 55%)',
+          }}
         />
 
-        {/* Architectural Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03] z-1">
-          <svg width="100%" height="100%">
-            <defs>
-              <pattern id="grid-pricing" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-pricing)" />
-          </svg>
-        </div>
+        <div className={`relative z-10 ${embedded ? '' : container}`}>
+          <div role="group" aria-label="Período de cobrança" className="inline-flex rounded-full bg-white/10 p-1 ring-1 ring-white/15 backdrop-blur-md">
+            {(['monthly', 'annual'] as const).map((p) => (
+              <button
+                key={p}
+                type="button"
+                onClick={() => setBillingPeriod(p)}
+                aria-pressed={billingPeriod === p}
+                className={`rounded-full px-4 py-1.5 text-[0.82rem] font-medium transition-colors ${billingPeriod === p ? 'bg-white text-ink' : 'text-white/75 hover:text-white'}`}
+              >
+                {p === 'monthly' ? 'Mensal' : 'Anual · economize 17%'}
+              </button>
+            ))}
+          </div>
 
-        <div className="container mx-auto max-w-7xl relative z-10 text-center">
-          <p className="mb-8 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Planos para escritórios</p>
-
-          <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-8 leading-[0.9] animate-in fade-in slide-in-from-bottom-8 duration-700">
+          <h1 className="mt-7 max-w-[11ch] text-[clamp(2.8rem,6.4vw,5.4rem)] font-medium leading-[1.0] tracking-[-0.04em]">
             Sua marca, nossa IA.
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <p className="mt-6 max-w-[520px] text-[1.05rem] leading-relaxed text-white/75">
             O escritório assina e oferece aos clientes uma assistente jurídica com a própria marca. Os clientes não pagam nada.
           </p>
 
-          {/* Billing Toggle */}
-          <div className="flex justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-            <div className="bg-white/50 backdrop-blur-xl border border-cerrado-900/5 rounded-full p-1.5 flex">
-              <button
-                onClick={() => setBillingPeriod('monthly')}
-                className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 ${billingPeriod === 'monthly'
-                  ? 'btn-primary-gradient'
-                  : 'text-foreground/40 hover:text-foreground'
-                  }`}
-              >
-                Mensal
-              </button>
-              <button
-                onClick={() => setBillingPeriod('annual')}
-                className={`px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all duration-300 flex items-center ${billingPeriod === 'annual'
-                  ? 'btn-primary-gradient'
-                  : 'text-foreground/40 hover:text-foreground'
-                  }`}
-              >
-                Anual
-                <span className={`ml-2 text-[9px] px-2 py-0.5 rounded-full ${billingPeriod === 'annual' ? 'bg-white/20 text-white' : 'bg-cerrado-950/5 text-ink'}`}>
-                  ECONOMIZE 17%
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Cards */}
-      <section className="py-24 px-6 relative -mt-32 landing-gilroy bg-background">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {pricingPlans.map((plan, index) => (
-              <div
-                key={index}
-                className={`group relative ${plan.popular
-                  ? 'bg-[#F4EFDF] ring-2 ring-ink z-10'
-                  : 'bg-[#F4EFDF]'
-                  } p-10 rounded-3xl flex flex-col min-h-[640px]`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="btn-primary-gradient px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">
-                      Mais popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-12">
-                  <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-3xl font-medium tracking-tight">{plan.name}</h3>
-                  </div>
-                  <p className="text-foreground/50 text-base leading-relaxed h-12 mb-10">{plan.description}</p>
-
-                  <div className="pt-8 border-t border-castanha-200">
-                    <div className="flex items-baseline gap-1 mb-2">
-                      <span className="text-5xl font-medium tracking-tight">{getPrice(plan)}</span>
-                      {plan.monthlyPrice !== null && (
-                        <span className="text-sm font-bold text-foreground/20 uppercase tracking-widest whitespace-nowrap">
-                          {billingPeriod === 'monthly' ? '/ mês' : '/ ano'}
-                        </span>
-                      )}
-                    </div>
-                    {billingPeriod === 'annual' && getSavings(plan) && (
-                      <div className="inline-block text-[9px] font-bold uppercase tracking-widest text-cerrado-500 bg-cerrado-50 px-2 py-0.5 rounded-md">
-                        Economia de {getSavings(plan)}%
-                      </div>
+          <div className="mt-12 grid gap-4 lg:grid-cols-3">
+            {pricingPlans.map((plan) => {
+              const dark = plan.popular;
+              const savings = billingPeriod === 'annual' ? getSavings(plan) : null;
+              return (
+                <article
+                  key={plan.name}
+                  className={`flex flex-col rounded-3xl p-7 sm:p-8 ${dark ? 'bg-[#151816] text-white ring-1 ring-white/15' : 'bg-[#FFFDF6] text-ink'}`}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <h2 className="text-[1.6rem] font-medium tracking-[-0.02em]">{plan.name}</h2>
+                    {plan.popular && (
+                      <span className="rounded-full bg-white/10 px-3 py-1 text-[0.72rem] font-medium text-white/80">Mais popular</span>
                     )}
                   </div>
-                </div>
+                  <p className={`mt-2 min-h-[3rem] text-[0.92rem] leading-snug ${dark ? 'text-white/60' : 'text-ink/60'}`}>{plan.description}</p>
 
-                <ul className="space-y-5 mb-12 flex-1 pt-4">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <div className="w-4 h-4 rounded-full bg-cerrado-950/5 flex items-center justify-center mt-1 mr-4 flex-shrink-0 group-hover:bg-cerrado-950/10 transition-colors">
-                        <svg className="w-2.5 h-2.5 text-ink/40 group-hover:text-ink transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <div className="mt-8 flex items-baseline gap-2">
+                    <span className="text-[2.6rem] font-medium leading-none tracking-[-0.03em]">{getPrice(plan)}</span>
+                    {plan.monthlyPrice !== null && (
+                      <span className={`text-[0.85rem] ${dark ? 'text-white/50' : 'text-ink/45'}`}>{billingPeriod === 'monthly' ? '/ mês' : '/ ano'}</span>
+                    )}
+                  </div>
+                  <p className={`mt-2 h-5 text-[0.8rem] ${dark ? 'text-white/50' : 'text-ink/45'}`}>
+                    {savings ? `Economia de ${savings}% no plano anual` : plan.monthlyPrice === null ? 'Proposta conforme o tamanho do escritório' : ''}
+                  </p>
+
+                  <ul className={`mt-6 flex-1 space-y-3 border-t pt-6 ${dark ? 'border-white/15' : 'border-ink/12'}`}>
+                    {plan.features.map((feature) => (
+                      <li key={feature} className={`flex gap-3 text-[0.92rem] leading-snug ${dark ? 'text-white/80' : 'text-ink/75'}`}>
+                        <svg className={`mt-0.5 h-4 w-4 flex-shrink-0 ${dark ? 'text-white/60' : 'text-ink/45'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
-                      </div>
-                      <span className="text-foreground/70 text-[0.95rem] font-medium leading-tight">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
 
-                <Link
-                  href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
-                  className={`block w-full py-5 rounded-2xl text-[11px] font-bold uppercase tracking-[0.25em] transition-all duration-300 text-center ${plan.popular
-                    ? 'btn-primary-gradient hover:scale-[1.02]'
-                    : 'bg-[#FFFDF6] text-foreground hover:bg-white'
-                    }`}
-                >
-                  {plan.ctaText}
-                </Link>
-              </div>
-            ))}
+                  <Link
+                    href={plan.name === 'Enterprise' ? '/contact' : '/dashboard/billing'}
+                    className={`mt-8 inline-flex h-11 items-center justify-center rounded-full px-6 text-[0.92rem] font-medium transition-colors ${dark ? 'bg-white text-ink hover:bg-white/85' : 'bg-ink text-white hover:bg-ink/85'}`}
+                  >
+                    {plan.ctaText}
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#comparar" className="inline-flex h-10 items-center rounded-full bg-white/10 px-5 text-[0.88rem] font-medium text-white ring-1 ring-white/15 backdrop-blur-md hover:bg-white/15">
+              Comparar os planos
+            </a>
+            <Link href="/contact" className="inline-flex h-10 items-center rounded-full px-3 text-[0.88rem] font-medium text-white/75 hover:text-white">
+              Tirar dúvidas com a equipe →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Comparison Grid */}
-      <section className="py-32 px-6 bg-castanha-25 landing-gilroy">
-        <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
-            <div className="max-w-2xl">
-              <p className="mb-6 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Especificações</p>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">Compare os planos</h2>
-              <p className="text-foreground/50 text-xl font-medium leading-relaxed">
-                Limites de uso de cada cliente do escritório, por mês.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-white border border-castanha-200 rounded-3xl overflow-hidden">
-            <div className="overflow-x-auto overflow-y-hidden">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-castanha-50/50">
-                    <th className="py-8 px-10 text-left text-[10px] font-bold uppercase tracking-widest text-ink/30 w-1/4">Recurso</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Gratuito</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30">Pro</th>
-                    <th className="py-8 px-10 text-center text-[10px] font-bold uppercase tracking-widest text-ink/30 bg-cerrado-950/5 text-ink">Enterprise</th>
+      {/* Comparação: tabela aberta, só com linhas */}
+      <section id="comparar" className={`scroll-mt-24 ${embedded ? 'py-16' : 'py-20 lg:py-28'}`}>
+        <div className={embedded ? '' : container}>
+          <SectionHeader line={false} title="Compare os planos" text="Limites de uso de cada cliente do escritório, por mês." />
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-left">
+              <thead>
+                <tr className="border-b border-ink/12 text-[0.8rem] text-ink/50">
+                  <th className="w-[34%] py-5 pr-4 font-medium">Recurso</th>
+                  <th className="py-5 pr-4 font-medium">Gratuito</th>
+                  <th className="py-5 pr-4 font-medium text-ink">Pro</th>
+                  <th className="py-5 font-medium">Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compare.map((row) => (
+                  <tr key={row.feature} className="border-b border-ink/12">
+                    <td className="py-5 pr-4 font-medium text-ink">{row.feature}</td>
+                    <td className="py-5 pr-4 text-ink/55">{row.starter}</td>
+                    <td className="py-5 pr-4 text-ink">{row.pro}</td>
+                    <td className="py-5 text-ink/75">{row.enterprise}</td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-castanha-200">
-                  {[
-                    { feature: 'Marca do escritório e chat no site', starter: '✗', pro: '✓', enterprise: '✓' },
-                    { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
-                    { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
-                    { feature: 'Assistentes de IA', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
-                    { feature: 'Operações com documentos', starter: '✗', pro: '50 operações', enterprise: 'Ilimitado' },
-                    { feature: 'Pastas no Cofre', starter: '✗', pro: '50 pastas', enterprise: 'Ilimitado' },
-                    { feature: 'Armazenamento no Cofre', starter: '✗', pro: '500 MB', enterprise: 'Escala de TB' },
-                    { feature: 'Criador de Fluxos', starter: '✗', pro: '5 fluxos', enterprise: 'Ilimitado' },
-                  ].map((row, index) => (
-                    <tr key={index} className="hover:bg-castanha-50/50 transition-colors group">
-                      <td className="py-7 px-10 font-bold text-[13px] uppercase tracking-widest text-ink">{row.feature}</td>
-                      <td className="py-7 px-10 text-center text-foreground/50 text-[14px] font-medium">{row.starter}</td>
-                      <td className="py-7 px-10 text-center text-foreground/50 text-[14px] font-medium">{row.pro}</td>
-                      <td className="py-7 px-10 text-center text-ink text-[14px] font-bold bg-cerrado-900/[0.02]">{row.enterprise}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-32 px-6 landing-gilroy bg-background">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Perguntas frequentes</h2>
-            <p className="text-foreground/50 text-xl font-medium leading-relaxed max-w-xl mx-auto">
-              Respostas simples sobre o white-label, os planos e os pagamentos.
-            </p>
+      {/* Perguntas frequentes */}
+      <section className={`bg-[#F4EFDF] ${embedded ? 'rounded-3xl px-5 py-14 sm:px-8' : 'py-20 lg:py-28'}`}>
+        <div className={`${embedded ? '' : container} grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16`}>
+          <div>
+            <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Perguntas frequentes</h2>
+            <p className="mt-5 max-w-[380px] text-[1.02rem] leading-relaxed text-ink/65">Respostas simples sobre o white-label, os planos e os pagamentos.</p>
           </div>
-
           <div className="border-t border-ink/15">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border-b border-ink/15 py-6">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="border-b border-ink/15 py-6">
                 <h3 className="text-[1.1rem] font-medium tracking-tight text-ink">{faq.question}</h3>
                 <p className="mt-2 max-w-[640px] text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
               </div>
@@ -259,27 +212,12 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         </div>
       </section>
 
-      {/* Final CTA */}
       {!embedded && (
-      <section className="py-40 px-6 relative overflow-hidden border-t border-castanha-200 landing-gilroy bg-background">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cerrado-950/10 to-transparent" />
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <h2 className="text-6xl md:text-8xl font-medium tracking-tight mb-10 leading-[0.9]">
-            Leve a IA para <span className="pq-accent">o seu escritório.</span>
-          </h2>
-          <p className="text-foreground/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
-            Comece pelo plano Gratuito ou fale com a gente para configurar a marca do seu escritório.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/signup" className="landing-primary-btn w-full sm:w-auto px-12 py-5">
-              Iniciar teste grátis
-            </Link>
-            <Link href="/contact" className="landing-secondary-btn w-full sm:w-auto px-12 py-5 bg-white border border-castanha-200">
-              Tirar dúvidas
-            </Link>
-          </div>
-        </div>
-      </section>
+        <ClosingCta
+          title="Leve a IA para o seu escritório"
+          text="Comece pelo plano Gratuito ou fale com a gente para configurar a marca do escritório."
+          action={{ label: 'Começar grátis', href: '/signup' }}
+        />
       )}
     </>
   );
