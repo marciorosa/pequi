@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, Instrument_Serif, Lexend_Deca, Manrope, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
-import Script from "next/script";
 import "./globals.css";
 import DashboardAwareLayout from "./components/DashboardAwareLayout";
+import CookieConsent from "./components/CookieConsent";
 import { AuthProvider } from "./contexts/AuthContext";
 import { TenantProvider } from "./contexts/TenantContext";
 import { Toaster } from "react-hot-toast";
@@ -86,31 +86,8 @@ export default function RootLayout({
         ['--font-heading' as any]: `var(${manrope.variable})`,
         ['--font-accent' as any]: `var(${instrumentSerif.variable})`
       }}>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TP6TNKTK39"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-TP6TNKTK39');
-          `}
-        </Script>
-        {/* Google Tag Manager (GTM-K5LW5NCG) */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-          `}
-        </Script>
-        <Script
-          src="https://www.googletagmanager.com/gtm.js?id=GTM-K5LW5NCG"
-          strategy="afterInteractive"
-        />
+        {/* Analytics e Tag Manager só carregam com o consentimento (LGPD) */}
+        <CookieConsent />
         <AuthProvider>
           <TenantProvider>
             <DashboardAwareLayout>{children}</DashboardAwareLayout>

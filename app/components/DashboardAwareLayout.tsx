@@ -7,6 +7,7 @@ import { useTenant } from '../contexts/TenantContext';
 import { useAuth } from '../contexts/AuthContext';
 import { BrandLogo } from './PequiWordmark';
 import Link from 'next/link';
+import { CookiePreferencesLink } from './CookieConsent';
 
 export default function DashboardAwareLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -30,7 +31,10 @@ export default function DashboardAwareLayout({ children }: { children: React.Rea
           </Link>
         </header>
         <main className="flex-grow pt-20">{children}</main>
-        <footer className="py-6 text-center text-xs text-castanha-500">{tenant.name}</footer>
+        <footer className="flex justify-center gap-4 py-6 text-center text-xs text-castanha-500">
+          <span>{tenant.name}</span>
+          <CookiePreferencesLink className="hover:underline underline-offset-4" />
+        </footer>
       </>
     );
   }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PequiWordmark from './PequiWordmark';
+import { CookiePreferencesLink } from './CookieConsent';
 
 // Rodapé no esquema M&C, no mesmo formato do rodapé da Lucia: cartão claro e
 // quente, colunas de links com rótulos pequenos e a assinatura grande ao fundo.
@@ -73,6 +74,7 @@ const Footer = () => {
             <Link href="/terms">Termos de Serviço</Link>
             <Link href="/privacy-policy">Política de Privacidade</Link>
             <Link href="/cookies">Política de Cookies</Link>
+            <CookiePreferencesLink className="hover:underline underline-offset-4" />
             <a href="#" className="inline-flex items-center gap-2">
               Voltar ao topo
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
