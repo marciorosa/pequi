@@ -158,7 +158,7 @@ export default function TenantsAdmin({ initialTenantId }: { initialTenantId?: st
         {tenants && tenants.length > 0 && (
           <table className="w-full text-left text-sm">
             <thead>
-              <tr className="text-[10px] uppercase tracking-[0.2em] text-castanha-400">
+              <tr className="text-[0.72rem] uppercase tracking-[0.2em] text-castanha-400">
                 <th className="px-4 py-3">Escritório</th>
                 <th className="px-4 py-3">Situação</th>
                 <th className="px-4 py-3">Assinatura Pequi</th>

@@ -193,7 +193,7 @@ export default function ChatSupportPage() {
     <DashboardLayout title="Ajuda">
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-10 h-full flex flex-col">
         <div className="mb-6 md:mb-12 flex-shrink-0">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-2 md:mb-3">Atendimento ao vivo</p>
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45 mb-2 md:mb-3">Atendimento ao vivo</p>
           <h1 className="text-2xl md:text-4xl font-light text-foreground mb-2 md:mb-4 tracking-tight">Ajuda automática</h1>
           <p className="text-foreground/50 max-w-2xl text-sm md:text-lg font-light leading-relaxed">
             Respostas automáticas para as dúvidas mais comuns. Para falar com a equipe, use o formulário de contato.
@@ -202,12 +202,12 @@ export default function ChatSupportPage() {
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 lg:h-[700px] flex-1 min-h-0">
           {/* Main Chat Area */}
-          <div className="flex-1 bg-white border border-castanha-100 rounded-[32px] overflow-hidden shadow-sm flex flex-col relative h-[80vh] min-h-[500px] lg:h-auto lg:min-h-0 flex-shrink-0 lg:flex-shrink">
+          <div className="flex-1 bg-white border border-castanha-100 rounded-[32px] overflow-hidden flex flex-col relative h-[80vh] min-h-[500px] lg:h-auto lg:min-h-0 flex-shrink-0 lg:flex-shrink">
             {/* Header */}
             <div className="p-4 md:p-6 border-b border-castanha-50 flex items-center justify-between bg-castanha-50/30 flex-shrink-0">
               <div className="flex items-center gap-3 md:gap-4">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-2xl bg-foreground flex items-center justify-center text-background shadow-lg shadow-black/10">
+                  <div className="w-12 h-12 rounded-2xl bg-foreground flex items-center justify-center text-background shadow-black/10">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>
@@ -217,15 +217,15 @@ export default function ChatSupportPage() {
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">Atendimento automático</h2>
-                  <p className="text-[10px] text-foreground/30 font-bold uppercase tracking-tighter">
+                  <h2 className="text-sm font-medium text-foreground">Atendimento automático</h2>
+                  <p className="text-[0.72rem] text-ink/45 font-bold uppercase tracking-tighter">
                     {isAgentTyping ? 'Respondendo...' : waitTime ? 'Na fila de atendimento' : 'Sistema pronto'}
                   </p>
                 </div>
               </div>
               <button
                 onClick={handleNewChat}
-                className="p-3 text-foreground/30 hover:text-foreground hover:bg-white rounded-xl transition-all border border-transparent hover:border-castanha-100"
+                className="p-3 text-ink/45 hover:text-foreground hover:bg-white rounded-xl transition-all border border-transparent hover:border-castanha-100"
                 title="Reiniciar sessão"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -241,13 +241,13 @@ export default function ChatSupportPage() {
                   <div className={`flex gap-4 max-w-[85%] ${item.type === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                     {item.type !== 'user' && (
                       <div className="w-10 h-10 rounded-xl bg-castanha-100 border border-castanha-100 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-5 h-5 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                         </svg>
                       </div>
                     )}
                     <div>
-                      <div className={`p-4 md:p-6 rounded-3xl text-sm leading-relaxed shadow-sm ${item.type === 'user'
+                      <div className={`p-4 md:p-6 rounded-3xl text-sm leading-relaxed ${item.type === 'user'
                         ? 'text-white rounded-tr-none btn-primary-gradient'
                         : item.type === 'system'
                           ? 'bg-castanha-50 text-foreground border border-castanha-100 italic rounded-tl-none font-light'
@@ -270,7 +270,7 @@ export default function ChatSupportPage() {
                           </div>
                         )}
                       </div>
-                      <p className={`text-[9px] font-bold uppercase tracking-widest mt-2 ${item.type === 'user' ? 'text-right text-foreground/30' : 'text-left text-foreground/20'}`}>
+                      <p className={`text-[0.72rem] font-medium mt-2 ${item.type === 'user' ? 'text-right text-ink/45' : 'text-left text-ink/40'}`}>
                         {formatTime(item.timestamp)}
                       </p>
                     </div>
@@ -294,7 +294,7 @@ export default function ChatSupportPage() {
 
               {waitTime !== null && (
                 <div className="px-10 py-8 bg-cerrado-50/50 border border-cerrado-100 rounded-3xl text-center space-y-2 animate-in slide-in-from-top duration-500">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-cerrado-600">Fila prioritária estabelecida</p>
+                  <p className="text-[0.72rem] font-medium text-cerrado-600">Fila prioritária estabelecida</p>
                   <p className="text-xl font-light text-foreground">Conexão com um atendente em aprox. {waitTime} minutos</p>
                   <p className="text-xs text-cerrado-700/50">ID da sua sessão: PR-1005-{Math.floor(Math.random() * 9000) + 1000}</p>
                 </div>
@@ -313,17 +313,17 @@ export default function ChatSupportPage() {
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={filePreview} alt="prévia" className="w-10 h-10 object-cover rounded-lg border border-castanha-200" />
                     ) : (
-                      <div className="w-10 h-10 bg-white border border-castanha-200 rounded-lg flex items-center justify-center text-foreground/20">
+                      <div className="w-10 h-10 bg-white border border-castanha-200 rounded-lg flex items-center justify-center text-ink/40">
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                         </svg>
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-foreground truncate">{selectedFile.name}</p>
-                      <p className="text-[9px] text-foreground/40 uppercase">{(selectedFile.size / 1024).toFixed(1)} KB</p>
+                      <p className="text-[0.72rem] font-medium text-foreground truncate">{selectedFile.name}</p>
+                      <p className="text-[0.72rem] text-foreground/40 uppercase">{(selectedFile.size / 1024).toFixed(1)} KB</p>
                     </div>
-                    <button type="button" onClick={clearSelectedFile} className="p-1.5 hover:bg-white rounded-lg transition-colors text-foreground/30 hover:text-red-500">
+                    <button type="button" onClick={clearSelectedFile} className="p-1.5 hover:bg-white rounded-lg transition-colors text-ink/45 hover:text-red-500">
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                       </svg>
@@ -353,7 +353,7 @@ export default function ChatSupportPage() {
                     }
                   }}
                   placeholder="Pergunte ao concierge..."
-                  className="w-full bg-castanha-50 border border-castanha-100 rounded-2xl py-4 md:py-5 px-4 md:px-6 pr-24 md:pr-32 text-xs md:text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all resize-none shadow-inner"
+                  className="w-full bg-castanha-50 border border-castanha-100 rounded-2xl py-4 md:py-5 px-4 md:px-6 pr-24 md:pr-32 text-xs md:text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all resize-none"
                   rows={1}
                   disabled={waitTime !== null}
                 />
@@ -361,7 +361,7 @@ export default function ChatSupportPage() {
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className={`p-2 transition-all rounded-lg ${selectedFile ? 'text-foreground' : 'text-foreground/20 hover:text-foreground'}`}
+                    className={`p-2 transition-all rounded-lg ${selectedFile ? 'text-foreground' : 'text-ink/40 hover:text-foreground'}`}
                     title="Anexar arquivo"
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -371,7 +371,7 @@ export default function ChatSupportPage() {
                   <button
                     type="submit"
                     disabled={!inputValue.trim()}
-                    className="px-4 md:px-6 py-2 text-white rounded-xl font-bold uppercase text-[9px] md:text-[10px] tracking-widest disabled:opacity-20 transition-all shadow-lg shadow-black/10 btn-primary-gradient"
+                    className="px-4 md:px-6 py-2 text-white rounded-xl font-bold uppercase text-[0.72rem] md:text-[0.72rem] tracking-widest disabled:opacity-20 transition-all shadow-black/10 btn-primary-gradient"
                   >
                     Enviar
                   </button>
@@ -382,8 +382,8 @@ export default function ChatSupportPage() {
 
           {/* Sidebar */}
           <div className="w-full lg:w-80 flex-shrink-0 space-y-4 md:space-y-8 pb-10 lg:pb-0">
-            <div className="bg-white border border-castanha-100 rounded-[32px] p-6 md:p-8 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-4 md:mb-8 px-1">Dúvidas frequentes</p>
+            <div className="bg-white border border-castanha-100 rounded-[32px] p-6 md:p-8">
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45 mb-4 md:mb-8 px-1">Dúvidas frequentes</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                 {faqs.map(faq => (
                   <button
@@ -393,7 +393,7 @@ export default function ChatSupportPage() {
                   >
                     <div className="flex items-center justify-between">
                       <span>{faq.question}</span>
-                      <svg className="w-4 h-4 text-foreground/10 group-hover:text-foreground transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-4 h-4 text-ink/40 group-hover:text-foreground transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -403,13 +403,13 @@ export default function ChatSupportPage() {
             </div>
 
             <div className="bg-castanha-50 border border-castanha-100 rounded-[32px] p-8">
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Planos Enterprise</h3>
+              <h3 className="text-sm font-medium mb-4">Planos Enterprise</h3>
               <p className="text-xs text-foreground/50 leading-relaxed font-light mb-8">
                 Assinantes do plano Enterprise contam com gerente de conta dedicado, em dias úteis.
               </p>
               <div className="space-y-4">
-                <a href="/dashboard/help/email" className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-foreground/40 hover:text-foreground transition-all group">
-                  <div className="w-8 h-8 rounded-lg bg-white border border-castanha-100 flex items-center justify-center text-foreground/20 group-hover:text-foreground transition-all">
+                <a href="/dashboard/help/email" className="flex items-center gap-3 text-[0.72rem] font-medium text-foreground/40 hover:text-foreground transition-all group">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-castanha-100 flex items-center justify-center text-ink/40 group-hover:text-foreground transition-all">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>

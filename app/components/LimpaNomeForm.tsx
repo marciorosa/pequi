@@ -236,7 +236,7 @@ export function LimpaNomeForm({
         <button
           type="submit"
           disabled={isGenerating || danoExcessivo}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl px-6 text-[11px] font-bold uppercase tracking-[0.2em] btn-primary-gradient disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl px-6 text-[11px] font-semibold uppercase tracking-[0.16em] btn-primary-gradient disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isGenerating ? 'Gerando a petição…' : 'Gerar petição'}
         </button>

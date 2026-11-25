@@ -87,7 +87,7 @@ export default function ContactSupportPage() {
     <DashboardLayout title="Falar com o suporte">
       <div className="max-w-4xl mx-auto px-6 py-10">
         <div className="mb-12">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/30 mb-3">Suporte</p>
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45 mb-3">Suporte</p>
           <h1 className="text-4xl font-light text-foreground mb-4 tracking-tight">Atendimento especializado</h1>
           <p className="text-foreground/50 max-w-2xl text-lg font-light leading-relaxed">
             Nossa equipe especializada está pronta para ajudar. Envie uma solicitação abaixo e retornaremos em até 24 horas úteis.
@@ -95,7 +95,7 @@ export default function ContactSupportPage() {
         </div>
 
         {isSubmitted ? (
-          <div className="bg-white border border-castanha-100 rounded-[32px] p-16 text-center shadow-xl shadow-black/5 animate-in fade-in zoom-in duration-500">
+          <div className="bg-white border border-castanha-100 rounded-[32px] p-16 text-center shadow-black/5 animate-in fade-in zoom-in duration-500">
             <div className="w-20 h-20 rounded-full bg-cerrado-50 flex items-center justify-center mx-auto mb-8 border border-cerrado-100">
               <svg className="w-8 h-8 text-cerrado-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -108,13 +108,13 @@ export default function ContactSupportPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleReset}
-                className="px-8 py-4 bg-castanha-50 hover:bg-castanha-100 text-foreground text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all"
+                className="px-8 py-4 bg-castanha-50 hover:bg-castanha-100 text-foreground text-[11px] font-medium rounded-xl transition-all"
               >
                 Nova solicitação
               </button>
               <a
                 href="/dashboard/help"
-                className="px-8 py-4 text-white text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all shadow-lg btn-primary-gradient"
+                className="px-8 py-4 text-white text-[11px] font-medium rounded-xl transition-all btn-primary-gradient"
               >
                 Voltar à central
               </a>
@@ -123,12 +123,12 @@ export default function ContactSupportPage() {
         ) : (
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <div className="bg-white border border-castanha-100 rounded-[32px] overflow-hidden shadow-sm">
+              <div className="bg-white border border-castanha-100 rounded-[32px] overflow-hidden">
                 <div className="p-8 border-b border-castanha-50 flex items-center justify-between">
                   <h2 className="text-lg font-semibold text-foreground">Abrir um chamado</h2>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-cerrado-500 animate-pulse" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">Suporte prioritário ativo</span>
+                    <span className="text-[0.72rem] font-medium text-ink/45">Suporte prioritário ativo</span>
                   </div>
                 </div>
 
@@ -144,7 +144,7 @@ export default function ContactSupportPage() {
 
                   <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="subject" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
+                      <label htmlFor="subject" className="text-[11px] font-medium text-foreground/40 ml-1">
                         Assunto
                       </label>
                       <input
@@ -160,7 +160,7 @@ export default function ContactSupportPage() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="category" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
+                      <label htmlFor="category" className="text-[11px] font-medium text-foreground/40 ml-1">
                         Categoria
                       </label>
                       <select
@@ -181,7 +181,7 @@ export default function ContactSupportPage() {
                   </div>
 
                   <div className="flex flex-col gap-2 mb-8">
-                    <label htmlFor="message" className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1">
+                    <label htmlFor="message" className="text-[11px] font-medium text-foreground/40 ml-1">
                       Mensagem
                     </label>
                     <textarea
@@ -197,7 +197,7 @@ export default function ContactSupportPage() {
                   </div>
 
                   <div className="mb-10">
-                    <label className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 ml-1 block mb-3">
+                    <label className="text-[11px] font-medium text-foreground/40 ml-1 block mb-3">
                       Anexos
                     </label>
                     <div className="flex flex-wrap items-center gap-4">
@@ -217,7 +217,7 @@ export default function ContactSupportPage() {
                         multiple
                         className="hidden"
                       />
-                      <p className="text-[10px] text-foreground/30 font-bold uppercase tracking-widest">
+                      <p className="text-[0.72rem] text-ink/45 font-medium">
                         Máximo de 3 arquivos, 5 MB cada (PNG, JPG, PDF)
                       </p>
                     </div>
@@ -231,19 +231,19 @@ export default function ContactSupportPage() {
                           >
                             <div className="flex items-center gap-3">
                               <div className="w-8 h-8 rounded-lg bg-white border border-castanha-100 flex items-center justify-center">
-                                <svg className="w-4 h-4 text-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="w-4 h-4 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                               </div>
                               <div>
                                 <p className="text-xs font-semibold text-foreground truncate max-w-[200px]">{file.name}</p>
-                                <p className="text-[9px] text-foreground/30 font-bold uppercase">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                                <p className="text-[0.72rem] text-ink/45 font-bold uppercase">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
                               </div>
                             </div>
                             <button
                               type="button"
                               onClick={() => removeAttachment(index)}
-                              className="text-foreground/30 hover:text-red-500 p-2 transform group-hover:scale-110 transition-all"
+                              className="text-ink/45 hover:text-red-500 p-2 transform group-hover:scale-110 transition-all"
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -259,14 +259,14 @@ export default function ContactSupportPage() {
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="text-[11px] font-bold uppercase tracking-widest text-foreground/40 hover:text-foreground transition-colors"
+                      className="text-[11px] font-medium text-foreground/40 hover:text-foreground transition-colors"
                     >
                       Limpar formulário
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-10 py-4 text-white text-[11px] font-bold uppercase tracking-widest rounded-xl transition-all shadow-xl shadow-black/10 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed btn-primary-gradient"
+                      className="px-10 py-4 text-white text-[11px] font-medium rounded-xl transition-all shadow-black/10 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed btn-primary-gradient"
                     >
                       {isSubmitting ? (
                         <>
@@ -288,8 +288,8 @@ export default function ContactSupportPage() {
             </div>
 
             <div className="lg:col-span-1 space-y-8">
-              <div className="bg-white border border-castanha-100 rounded-[32px] p-8 shadow-sm">
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/30 mb-8 px-1">Outros canais</h3>
+              <div className="bg-white border border-castanha-100 rounded-[32px] p-8">
+                <h3 className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/45 mb-8 px-1">Outros canais</h3>
                 <div className="space-y-8">
                   <div className="flex items-start gap-4 group">
                     <div className="w-10 h-10 rounded-xl bg-castanha-50 flex items-center justify-center text-foreground/40 group-hover:bg-foreground group-hover:text-background transition-all">
@@ -330,11 +330,11 @@ export default function ContactSupportPage() {
               </div>
 
               <div className="bg-castanha-50 border border-castanha-100 rounded-[32px] p-8">
-                <h4 className="text-[11px] font-bold uppercase tracking-widest mb-4">Planos Enterprise</h4>
+                <h4 className="text-[11px] font-medium mb-4">Planos Enterprise</h4>
                 <p className="text-xs text-foreground/50 leading-relaxed mb-6">
                   Contas Enterprise contam com um gerente de conta dedicado e tempo de resposta prioritário de 1 hora.
                 </p>
-                <a href="/pricing" className="text-[10px] font-bold uppercase tracking-widest text-foreground hover:underline">Ver benefícios</a>
+                <a href="/pricing" className="text-[0.72rem] font-medium text-foreground hover:underline">Ver benefícios</a>
               </div>
             </div>
           </div>

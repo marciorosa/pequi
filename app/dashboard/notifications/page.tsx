@@ -197,10 +197,7 @@ export default function NotificationsPage() {
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 border-b border-castanha-200 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Notificações</span>
-            </div>
+            <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Notificações</p>
             <h1 className="text-4xl font-medium tracking-tight text-ink">Notificações</h1>
             <p className="text-castanha-600 mt-3 font-medium opacity-60">
               Há {unreadCount} mensagens não lidas na sua fila de arquivo.
@@ -210,14 +207,14 @@ export default function NotificationsPage() {
           <div className="flex gap-4">
             <button
               onClick={markAllAsRead}
-              className="px-6 py-3 bg-castanha-50 border border-castanha-200 hover:bg-white hover:shadow-xl text-ink rounded-2xl transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30"
+              className="px-6 py-3 bg-castanha-50 border border-castanha-200 hover:bg-white text-ink rounded-2xl transition-all duration-300 text-[0.72rem] font-semibold uppercase tracking-[0.16em] disabled:opacity-30"
               disabled={unreadCount === 0}
             >
               Marcar todas como lidas
             </button>
             <button
               onClick={clearAllNotifications}
-              className="px-6 py-3 rounded-2xl transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] disabled:opacity-30 btn-primary-gradient"
+              className="px-6 py-3 rounded-2xl transition-all duration-300 text-[0.72rem] font-semibold uppercase tracking-[0.16em] disabled:opacity-30 btn-primary-gradient"
               disabled={notifications.length === 0}
             >
               Limpar arquivo
@@ -231,8 +228,8 @@ export default function NotificationsPage() {
             <button
               key={tab}
               onClick={() => setFilter(tab as 'all' | 'unread' | 'system' | 'account' | 'document' | 'alert')}
-              className={`px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] whitespace-nowrap border transition-all duration-300 ${filter === tab
-                ? 'btn-primary-gradient border-transparent shadow-xl'
+              className={`px-6 py-2.5 rounded-full text-[0.72rem] font-semibold uppercase tracking-[0.16em] whitespace-nowrap border transition-all duration-300 ${filter === tab
+                ? 'btn-primary-gradient border-transparent'
                 : 'bg-white border-castanha-200 text-castanha-400 hover:bg-castanha-50 hover:border-cerrado-900/10'
                 }`}
             >
@@ -250,7 +247,7 @@ export default function NotificationsPage() {
 
         {/* Error state */}
         {error && !loading && (
-          <div className="bg-red-50 border border-red-100 text-red-600 p-6 rounded-xl mb-8 flex items-center shadow-sm">
+          <div className="bg-red-50 border border-red-100 text-red-600 p-6 rounded-xl mb-8 flex items-center">
             <svg className="w-6 h-6 mr-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -265,7 +262,7 @@ export default function NotificationsPage() {
               notifications.map(notification => (
                 <div
                   key={notification._id}
-                  className={`bg-white border rounded-[2rem] p-8 transition-all duration-500 hover:shadow-2xl relative overflow-hidden group mb-6 ${notification.read ? 'border-castanha-200 opacity-70' : 'border-cerrado-900 shadow-xl'
+                  className={`bg-white border rounded-3xl p-8 transition-all duration-500 relative overflow-hidden group mb-6 ${notification.read ? 'border-castanha-200 opacity-70' : 'border-cerrado-900'
                     }`}
                 >
                   <div className="absolute top-0 right-0 p-8 opacity-[0.02] pointer-events-none">
@@ -282,7 +279,7 @@ export default function NotificationsPage() {
                   )}
 
                   <div className="flex">
-                    <div className={`w-16 h-16 rounded-[1.5rem] flex items-center justify-center mr-8 transition-all duration-500 flex-shrink-0 ${notification.read ? 'bg-castanha-50' : 'bg-cerrado-900 text-white shadow-xl rotate-3 group-hover:rotate-0'
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mr-8 transition-all duration-500 flex-shrink-0 ${notification.read ? 'bg-castanha-50' : 'bg-cerrado-900 text-white rotate-3 group-hover:rotate-0'
                       }`}>
                       <div className="scale-125">
                         {getNotificationIcon(notification.type)}
@@ -295,14 +292,14 @@ export default function NotificationsPage() {
                           {notification.title}
                         </h3>
                         <div className="flex items-center gap-4">
-                          <span className="text-castanha-400 text-[10px] font-bold uppercase tracking-[0.2em]">
+                          <span className="text-castanha-400 text-[0.72rem] font-semibold uppercase tracking-[0.16em]">
                             {formatTimestamp(notification.createdAt)}
                           </span>
                           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                             {!notification.read && (
                               <button
                                 onClick={() => markAsRead(notification._id)}
-                                className="text-castanha-400 hover:text-ink transition-colors duration-300 p-2 bg-castanha-50 rounded-xl hover:shadow-md"
+                                className="text-castanha-400 hover:text-ink transition-colors duration-300 p-2 bg-castanha-50 rounded-xl"
                                 title="Marcar como lida"
                               >
                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -312,7 +309,7 @@ export default function NotificationsPage() {
                             )}
                             <button
                               onClick={() => deleteNotification(notification._id)}
-                              className="text-castanha-400 hover:text-[#E84C3D] transition-colors duration-300 p-2 bg-castanha-50 rounded-xl hover:shadow-md"
+                              className="text-castanha-400 hover:text-[#E84C3D] transition-colors duration-300 p-2 bg-castanha-50 rounded-xl"
                               title="Excluir mensagem"
                             >
                               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -331,7 +328,7 @@ export default function NotificationsPage() {
                         <div className="flex">
                           <a
                             href={`/dashboard/${notification.type === 'document' ? 'docs' : 'chats'}/${notification.relatedId}`}
-                            className="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.2em] text-ink border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all"
+                            className="inline-flex items-center text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all"
                           >
                             <span>Abrir registro</span>
                             <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -345,9 +342,9 @@ export default function NotificationsPage() {
                 </div>
               ))
             ) : (
-              <div className="bg-white border border-castanha-100 rounded-3xl p-16 text-center shadow-sm">
-                <div className="w-24 h-24 rounded-full bg-castanha-50 flex items-center justify-center mx-auto mb-6 border border-castanha-100 shadow-inner">
-                  <svg className="w-12 h-12 text-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-white border border-castanha-100 rounded-3xl p-16 text-center">
+                <div className="w-24 h-24 rounded-full bg-castanha-50 flex items-center justify-center mx-auto mb-6 border border-castanha-100">
+                  <svg className="w-12 h-12 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                 </div>

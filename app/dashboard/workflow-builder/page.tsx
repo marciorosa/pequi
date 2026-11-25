@@ -180,7 +180,7 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
 
   return (
     <div
-      className={`bg-white border transition-all duration-300 ${selected ? 'border-cerrado-900 ring-4 ring-pequi-500/5 shadow-2xl scale-[1.02]' : 'border-castanha-200 shadow-[0_4px_15px_rgba(0,0,0,0.02)]'} rounded-3xl min-w-[200px] overflow-visible relative`}
+      className={`bg-white border transition-all duration-300 ${selected ? 'border-cerrado-900 ring-4 ring-pequi-500/5 scale-[1.02]' : 'border-castanha-200'} rounded-3xl min-w-[200px] overflow-visible relative`}
     >
       <div className="absolute top-0 right-0 p-4 opacity-[0.03] pointer-events-none">
         <svg width="60" height="60" viewBox="0 0 100 100">
@@ -207,7 +207,7 @@ function WorkflowNode({ data, selected }: { data: Record<string, unknown>; selec
             {IconMap[data.subtype as string] || Icons.sparkles}
           </div>
           <div>
-            <span className="inline-block text-[8px] font-bold uppercase tracking-[0.3em] text-castanha-400 mb-1">
+            <span className="inline-block text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400 mb-1">
               {({ trigger: 'gatilho', action: 'ação', output: 'saída' } as Record<string, string>)[data.nodeType as string] ?? (data.nodeType as string)}
             </span>
             <p className="text-[11px] font-bold text-ink leading-tight tracking-tight">{data.label as string}</p>
@@ -475,14 +475,14 @@ export default function WorkflowBuilderPage() {
           <div className="flex bg-castanha-50 rounded-xl p-0.5 md:p-1 border border-castanha-100">
             <button
               onClick={() => setActiveTab('canvas')}
-              className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${activeTab === 'canvas' ? 'btn-primary-gradient shadow-sm' : 'text-foreground/30 hover:text-foreground'
+              className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[0.72rem] md:text-[0.72rem] font-medium transition ${activeTab === 'canvas' ? 'btn-primary-gradient' : 'text-ink/45 hover:text-foreground'
                 }`}
             >
               Canvas
             </button>
             <button
               onClick={() => setActiveTab('library')}
-              className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${activeTab === 'library' ? 'btn-primary-gradient shadow-sm' : 'text-foreground/30 hover:text-foreground'
+              className={`px-2 md:px-4 py-1.5 md:py-2 rounded-lg text-[0.72rem] md:text-[0.72rem] font-medium transition ${activeTab === 'library' ? 'btn-primary-gradient' : 'text-ink/45 hover:text-foreground'
                 }`}
             >
               Biblioteca
@@ -495,7 +495,7 @@ export default function WorkflowBuilderPage() {
         {activeTab === 'canvas' ? (
           <div className="flex flex-col lg:flex-1 lg:flex-row gap-4 lg:gap-6 overflow-hidden h-full">
             {/* Sidebar Palette */}
-            <aside className="w-full lg:w-64 bg-white border border-castanha-100 rounded-3xl p-4 md:p-6 flex flex-col shadow-sm max-h-[300px] lg:max-h-full flex-shrink-0 lg:overflow-hidden">
+            <aside className="w-full lg:w-64 bg-white border border-castanha-100 rounded-3xl p-4 md:p-6 flex flex-col max-h-[300px] lg:max-h-full flex-shrink-0 lg:overflow-hidden">
               <div className="mb-6">
                 <input
                   type="text"
@@ -509,16 +509,16 @@ export default function WorkflowBuilderPage() {
                     onClick={handleSave}
                     disabled={isSaving}
                     title="Salvar fluxo"
-                    className="flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest bg-foreground text-white shadow-lg hover:opacity-90 active:scale-[0.98] transition disabled:opacity-60"
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[0.72rem] md:text-[0.72rem] font-medium bg-foreground text-white hover:opacity-90 active:scale-[0.98] transition disabled:opacity-60"
                   >
                     {Icons.save}
                     {isSaving ? 'Salvando…' : 'Salvar'}
                   </button>
                   <button
                     onClick={handleRun}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[9px] md:text-[10px] font-bold uppercase tracking-widest transition ${isRunning
+                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 md:py-3 rounded-2xl text-[0.72rem] md:text-[0.72rem] font-medium transition ${isRunning
                       ? 'bg-red-50 text-red-500 border border-red-100'
-                      : 'btn-primary-gradient shadow-lg'
+                      : 'btn-primary-gradient'
                       }`}
                   >
                     {isRunning ? Icons.stop : Icons.play}
@@ -530,7 +530,7 @@ export default function WorkflowBuilderPage() {
               <div className="flex-1 overflow-y-auto lg:overflow-y-auto space-y-6 md:space-y-6 flex flex-col lg:block">
                 <div className="flex lg:block gap-4 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
                   <div className="flex-shrink-0 lg:w-full">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Gatilhos</p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40 mb-3">Gatilhos</p>
                     <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {TRIGGER_NODES.map((n) => (
                         <div
@@ -544,14 +544,14 @@ export default function WorkflowBuilderPage() {
                           className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
-                          <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
+                          <span className="text-[0.72rem] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Ações de IA</p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40 mb-3">Ações de IA</p>
                     <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {ACTION_NODES.map((n) => (
                         <div
@@ -565,14 +565,14 @@ export default function WorkflowBuilderPage() {
                           className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
-                          <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
+                          <span className="text-[0.72rem] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="flex-shrink-0 lg:w-full lg:mt-6">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/20 mb-3">Saídas</p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40 mb-3">Saídas</p>
                     <div className="flex lg:flex-col gap-2 lg:gap-3">
                       {OUTPUT_NODES.map((n) => (
                         <div
@@ -586,7 +586,7 @@ export default function WorkflowBuilderPage() {
                           className="flex items-center gap-3 p-2.5 md:p-3 bg-castanha-50 border border-transparent rounded-2xl cursor-grab active:cursor-grabbing hover:border-castanha-200 transition min-w-[120px] lg:min-w-0"
                         >
                           <div className="text-foreground/40">{IconMap[n.subtype] || Icons.sparkles}</div>
-                          <span className="text-[10px] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
+                          <span className="text-[0.72rem] md:text-[11px] font-bold text-foreground/70">{n.label}</span>
                         </div>
                       ))}
                     </div>
@@ -596,7 +596,7 @@ export default function WorkflowBuilderPage() {
             </aside>
 
             {/* Main Canvas */}
-            <div className="flex-1 bg-white border border-castanha-200 rounded-[2.5rem] overflow-hidden relative shadow-2xl" ref={reactFlowWrapper}>
+            <div className="flex-1 rounded-3xl bg-[#F1EDE0] overflow-hidden relative" ref={reactFlowWrapper}>
               <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -616,12 +616,12 @@ export default function WorkflowBuilderPage() {
                 }}
               >
                 <Background variant={BackgroundVariant.Dots} gap={32} size={1} color="#e7e5e1" />
-                <Controls showInteractive={false} className="bg-white border-castanha-200 shadow-2xl rounded-2xl overflow-hidden" />
+                <Controls showInteractive={false} className="bg-white border-castanha-200 rounded-2xl overflow-hidden" />
               </ReactFlow>
 
               {nodes.length === 0 && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <div className="w-20 h-20 rounded-[2rem] bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink/10 mb-8 relative">
+                  <div className="w-20 h-20 rounded-3xl bg-castanha-50 border border-castanha-200 flex items-center justify-center text-ink/40 mb-8 relative">
                     <div className="absolute inset-0 opacity-[0.05]">
                       <svg width="100%" height="100%">
                         <pattern id="grid-empty" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -634,7 +634,7 @@ export default function WorkflowBuilderPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
                     </svg>
                   </div>
-                  <h3 className="text-[10px] font-bold text-castanha-400 uppercase tracking-[0.4em]">Fluxo vazio</h3>
+                  <h3 className="text-[0.72rem] font-bold text-castanha-400 uppercase tracking-[0.16em]">Fluxo vazio</h3>
                   <p className="text-[11px] text-castanha-400 mt-3 font-medium opacity-60">Arraste e solte componentes para iniciar o fluxo</p>
                 </div>
               )}
@@ -642,12 +642,12 @@ export default function WorkflowBuilderPage() {
 
             {/* Node Settings Drawer */}
             {selectedNode && (
-              <div className="absolute lg:relative inset-x-4 bottom-4 lg:inset-auto lg:w-80 bg-white border border-castanha-100 rounded-[2.5rem] p-6 md:p-8 overflow-y-auto animate-in slide-in-from-bottom md:slide-in-from-right duration-500 shadow-2xl lg:shadow-xl lg:ml-2 z-20 max-h-[80%] lg:max-h-full">
+              <div className="absolute lg:relative inset-x-4 bottom-4 lg:inset-auto lg:w-80 bg-white border border-castanha-100 rounded-3xl p-6 md:p-8 overflow-y-auto animate-in slide-in-from-bottom md:slide-in-from-right duration-500 lg:shadow-xl lg:ml-2 z-20 max-h-[80%] lg:max-h-full">
                 <div className="flex items-center justify-between mb-6 md:mb-10">
                   <h3 className="text-sm font-bold text-foreground uppercase tracking-widest">Configurações</h3>
                   <button
                     onClick={() => setSelectedNodeId(null)}
-                    className="p-2 rounded-xl hover:bg-castanha-50 text-foreground/20 transition-colors"
+                    className="p-2 rounded-xl hover:bg-castanha-50 text-ink/40 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -657,11 +657,11 @@ export default function WorkflowBuilderPage() {
 
                 <div className="space-y-8 relative z-10">
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/40 block mb-4">Nome</label>
+                    <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-4">Nome</label>
                     <input
                       type="text"
                       value={selectedNode.data.label}
-                      className="w-full bg-castanha-50 border border-castanha-200 rounded-2xl px-6 py-5 text-[11px] font-bold text-ink outline-none focus:border-cerrado-900/10 focus:bg-white transition-all shadow-inner placeholder:opacity-30"
+                      className="w-full bg-castanha-50 border border-castanha-200 rounded-2xl px-6 py-5 text-[11px] font-bold text-ink outline-none focus:border-cerrado-900/10 focus:bg-white transition-all placeholder:opacity-30"
                       onChange={(e) => {
                         setNodes(nds => nds.map(n => n.id === selectedNodeId ? { ...n, data: { ...n.data, label: e.target.value } } : n))
                       }}
@@ -672,7 +672,7 @@ export default function WorkflowBuilderPage() {
                   {(selectedNode.data.subtype === 'file_upload' || selectedNode.data.subtype === 'document_signed') && (
                     <div className="space-y-6">
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">
+                        <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-3">
                           {selectedNode.data.subtype === 'file_upload' ? 'Arquivo para executar o fluxo' : 'Documento assinado para executar o fluxo'}
                         </label>
                         <div className="relative group">
@@ -684,18 +684,18 @@ export default function WorkflowBuilderPage() {
                           />
                           <label
                             htmlFor="trigger-file-upload"
-                            className="flex flex-col items-center justify-center border-2 border-dashed border-castanha-100 rounded-[2rem] p-8 hover:bg-castanha-50 hover:border-castanha-200 transition-all cursor-pointer"
+                            className="flex flex-col items-center justify-center border-2 border-dashed border-castanha-100 rounded-3xl p-8 hover:bg-castanha-50 hover:border-castanha-200 transition-all cursor-pointer"
                           >
-                            <div className="w-12 h-12 rounded-2xl bg-white border border-castanha-100 flex items-center justify-center text-foreground/20 mb-3 group-hover:scale-110 transition-transform">
+                            <div className="w-12 h-12 rounded-2xl bg-white border border-castanha-100 flex items-center justify-center text-ink/40 mb-3 group-hover:scale-110 transition-transform">
                               {Icons.file}
                             </div>
-                            <span className="text-[10px] font-bold text-foreground line-clamp-1 px-4">
+                            <span className="text-[0.72rem] font-bold text-foreground line-clamp-1 px-4">
                               {testFile ? testFile.name : 'Selecionar PDF'}
                             </span>
                           </label>
                         </div>
                         {selectedNode.data.subtype === 'document_signed' && (
-                          <p className="text-[9px] text-foreground/30 mt-4 leading-relaxed italic">
+                          <p className="text-[0.72rem] text-ink/45 mt-4 leading-relaxed italic">
                             * Por enquanto este gatilho roda com o documento escolhido aqui, que faz o papel do &quot;Arquivo assinado&quot;.
                           </p>
                         )}
@@ -706,12 +706,12 @@ export default function WorkflowBuilderPage() {
                   {/* Summarize Config */}
                   {selectedNode.data.subtype === 'summarize' && (
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Nível de detalhe</label>
+                      <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block">Nível de detalhe</label>
                       {['concise', 'balanced', 'extensive'].map(lvl => (
                         <button
                           key={lvl}
                           onClick={() => updateNodeConfig(selectedNode.id, { level: lvl })}
-                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.level === lvl ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
+                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[0.72rem] font-medium transition-all ${selectedNode.data.config?.level === lvl ? 'btn-primary-gradient border-transparent' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
                         >
                           {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[lvl] ?? lvl}
                         </button>
@@ -723,22 +723,22 @@ export default function WorkflowBuilderPage() {
                   {selectedNode.data.subtype === 'email_client' && (
                     <div className="space-y-6">
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Destinatário</label>
+                        <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-3">Destinatário</label>
                         <input
                           type="email"
                           placeholder="nome@exemplo.com.br"
                           value={selectedNode.data.config?.recipient || ''}
-                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { recipient: e.target.value })}
                         />
                       </div>
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Assunto</label>
+                        <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-3">Assunto</label>
                         <input
                           type="text"
                           placeholder="ex.: Revisão de contrato"
                           value={selectedNode.data.config?.subject || ''}
-                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { subject: e.target.value })}
                         />
                       </div>
@@ -752,11 +752,11 @@ export default function WorkflowBuilderPage() {
                               onChange={(e) => updateNodeConfig(selectedNode.id, { useDocuSign: e.target.checked })}
                             />
                             <div className="w-10 h-6 bg-castanha-100 rounded-full peer peer-checked:bg-foreground transition-all"></div>
-                            <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-4 transition-all shadow-sm"></div>
+                            <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-4 transition-all"></div>
                           </div>
-                          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40 group-hover:text-foreground transition-colors">Solicitar assinatura digital</span>
+                          <span className="text-[0.72rem] font-medium text-foreground/40 group-hover:text-foreground transition-colors">Solicitar assinatura digital</span>
                         </label>
-                        <p className="text-[8px] text-foreground/20 mt-2 uppercase tracking-tight italic">Usa o DocuSign para garantir validade jurídica</p>
+                        <p className="text-[0.72rem] text-ink/40 mt-2 uppercase tracking-tight italic">Usa o DocuSign para garantir validade jurídica</p>
                       </div>
                     </div>
                   )}
@@ -764,12 +764,12 @@ export default function WorkflowBuilderPage() {
                   {/* Risk Analysis Config */}
                   {selectedNode.data.subtype === 'risk_analysis' && (
                     <div className="space-y-3">
-                      <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block">Profundidade da análise</label>
+                      <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block">Profundidade da análise</label>
                       {['standard', 'deep_scan'].map(depth => (
                         <button
                           key={depth}
                           onClick={() => updateNodeConfig(selectedNode.id, { depth })}
-                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[10px] font-bold uppercase tracking-widest transition-all ${selectedNode.data.config?.depth === depth ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
+                          className={`w-full text-left px-5 py-3.5 rounded-2xl border text-[0.72rem] font-medium transition-all ${selectedNode.data.config?.depth === depth ? 'btn-primary-gradient border-transparent' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-300'}`}
                         >
                           {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[depth] ?? depth.replace('_', ' ')}
                         </button>
@@ -781,23 +781,23 @@ export default function WorkflowBuilderPage() {
                   {selectedNode.data.subtype === 'draft_reply' && (
                     <div className="space-y-6">
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Tom</label>
+                        <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-3">Tom</label>
                         {['formal', 'conciliatory', 'aggressive'].map(tone => (
                           <button
                             key={tone}
                             onClick={() => updateNodeConfig(selectedNode.id, { tone })}
-                            className={`w-full text-left px-5 py-3 rounded-2xl border text-[10px] font-bold uppercase tracking-widest mb-2 transition-all ${selectedNode.data.config?.tone === tone ? 'btn-primary-gradient border-transparent shadow-lg' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-200'}`}
+                            className={`w-full text-left px-5 py-3 rounded-2xl border text-[0.72rem] font-medium mb-2 transition-all ${selectedNode.data.config?.tone === tone ? 'btn-primary-gradient border-transparent' : 'bg-white text-foreground/40 border-castanha-100 hover:border-castanha-200'}`}
                           >
                             {({ concise: 'conciso', balanced: 'equilibrado', extensive: 'detalhado', standard: 'padrão', deep_scan: 'análise profunda', formal: 'formal', conciliatory: 'conciliador', aggressive: 'incisivo' } as Record<string, string>)[tone] ?? tone}
                           </button>
                         ))}
                       </div>
                       <div>
-                        <label className="text-[9px] font-bold uppercase tracking-[0.2em] text-foreground/40 block mb-3">Contexto/finalidade</label>
+                        <label className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/40 block mb-3">Contexto/finalidade</label>
                         <textarea
                           placeholder="ex.: Responder a uma notificação de inadimplemento"
                           value={selectedNode.data.config?.purpose || ''}
-                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all shadow-inner h-24 resize-none"
+                          className="w-full bg-castanha-50 border border-transparent rounded-2xl px-4 py-3.5 text-[11px] font-bold text-foreground outline-none focus:border-foreground/10 focus:bg-white transition-all h-24 resize-none"
                           onChange={(e) => updateNodeConfig(selectedNode.id, { purpose: e.target.value })}
                         />
                       </div>
@@ -807,12 +807,12 @@ export default function WorkflowBuilderPage() {
 
                 <div className="mt-20 pt-10 border-t border-castanha-50">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-castanha-50 flex items-center justify-center text-foreground/20">
+                    <div className="w-12 h-12 rounded-2xl bg-castanha-50 flex items-center justify-center text-ink/40">
                       {IconMap[selectedNode.data.subtype as string]}
                     </div>
                     <div>
-                      <p className="text-[8px] font-bold uppercase tracking-widest text-foreground/40">Nó do sistema</p>
-                      <p className="text-[10px] font-mono truncate max-w-[120px] text-foreground/20 italic">{selectedNode.id}</p>
+                      <p className="text-[0.72rem] font-medium text-foreground/40">Nó do sistema</p>
+                      <p className="text-[0.72rem] font-mono truncate max-w-[120px] text-ink/40 italic">{selectedNode.id}</p>
                     </div>
                   </div>
                 </div>
@@ -826,12 +826,12 @@ export default function WorkflowBuilderPage() {
               <div className="flex justify-center py-20">{Icons.plus}</div> // Spinner placeholder
             ) : workflows.length === 0 ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
-                <div className="w-20 h-20 rounded-[2.5rem] bg-castanha-50 border border-castanha-100 flex items-center justify-center text-foreground/10 mb-6 font-bold text-4xl">📄</div>
+                <div className="w-20 h-20 rounded-3xl bg-castanha-50 border border-castanha-100 flex items-center justify-center text-ink/40 mb-6 font-bold text-4xl">📄</div>
                 <h2 className="text-2xl font-bold text-foreground mb-2">Biblioteca vazia</h2>
                 <p className="text-sm text-foreground/40 max-w-sm mb-10">Você ainda não salvou nenhum fluxo de automação. Crie o primeiro no canvas.</p>
                 <button
                   onClick={() => setActiveTab('canvas')}
-                  className="px-8 py-4 rounded-[1.5rem] text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl transition btn-primary-gradient"
+                  className="px-8 py-4 rounded-2xl text-[0.72rem] font-semibold uppercase tracking-[0.16em] transition btn-primary-gradient"
                 >
                   Criar fluxo
                 </button>
@@ -842,7 +842,7 @@ export default function WorkflowBuilderPage() {
                   <div
                     key={wf._id}
                     onClick={() => loadWorkflow(wf)}
-                    className="bg-white border border-castanha-100 p-6 rounded-[2.5rem] hover:shadow-xl hover:border-foreground/10 transition cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
+                    className="bg-white border border-castanha-100 p-6 rounded-3xl hover:border-foreground/10 transition cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
                   >
                     <div className="flex items-center justify-between mb-6">
                       <div className="w-12 h-12 rounded-2xl bg-castanha-50 flex items-center justify-center text-foreground/40 font-bold group-hover:bg-foreground group-hover:text-white transition-all duration-300">
@@ -850,7 +850,7 @@ export default function WorkflowBuilderPage() {
                       </div>
                       <button
                         onClick={(e) => deleteWorkflow(wf._id, e)}
-                        className="p-2 text-foreground/10 hover:text-red-500 transition-colors"
+                        className="p-2 text-ink/40 hover:text-red-500 transition-colors"
                       >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -858,11 +858,11 @@ export default function WorkflowBuilderPage() {
                       </button>
                     </div>
                     <h4 className="font-bold text-foreground text-lg mb-2">{wf.name}</h4>
-                    <div className="flex items-center gap-4 text-[10px] uppercase font-bold tracking-widest text-foreground/20">
+                    <div className="flex items-center gap-4 text-[0.72rem] uppercase font-bold tracking-widest text-ink/40">
                       <span>{wf.nodes.length} etapas</span>
                       <span>{wf.runCount} execuções</span>
                     </div>
-                    <p className="mt-4 text-[10px] font-bold text-foreground/20 uppercase tracking-widest">
+                    <p className="mt-4 text-[0.72rem] font-bold text-ink/40 uppercase tracking-widest">
                       Última atualização: {new Date(wf.updatedAt).toLocaleDateString('pt-BR')}
                     </p>
                   </div>

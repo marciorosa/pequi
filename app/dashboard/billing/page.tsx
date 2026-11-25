@@ -401,323 +401,223 @@ function BillingContent() {
     }
   };
 
-  // Render usage meter
+  // Medidor de uso em linha (padrão editorial 2026-11-24): rótulo, número e barra fina.
   // limit null = sem limite (conta de administrador ou Enterprise)
   const renderMeter = (title: string, current: number, rawLimit: number | null) => {
     const limit = rawLimit === null || rawLimit === undefined ? Infinity : rawLimit;
     const percent = limit === Infinity ? 0 : limit === 0 ? 100 : Math.min(100, (current / limit) * 100);
-    const strokeColor = percent > 90 ? '#C2462B' : '#242521';
-
     return (
-      <div className="bg-white p-6 rounded-[2rem] border border-castanha-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center group hover:shadow-xl transition-all duration-500">
-        <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-castanha-400 mb-6">{title}</h4>
-        <div className="relative w-24 h-24 flex items-center justify-center">
-          <svg className="w-full h-full transform -rotate-90">
-            <circle cx="48" cy="48" r="40" stroke="#F2E9D2" strokeWidth="6" fill="transparent" />
-            <circle
-              cx="48"
-              cy="48"
-              r="40"
-              stroke={strokeColor}
-              strokeWidth="6"
-              fill="transparent"
-              strokeDasharray={2 * Math.PI * 40}
-              strokeDashoffset={(2 * Math.PI * 40) - (percent / 100) * (2 * Math.PI * 40)}
-              className="transition-all duration-1000 ease-out"
-              strokeLinecap="round"
-            />
-          </svg>
-          <div className="absolute flex flex-col items-center">
-            <span className="text-xl font-bold text-ink tracking-tighter">{current}</span>
-            <span className="text-[9px] font-bold text-castanha-400 uppercase tracking-widest mt-0.5">{limit === Infinity ? 'sem limite' : limit === 0 ? 'não incluso' : `/ ${limit}`}</span>
-          </div>
+      <div className="border-t border-ink/15 pt-4">
+        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45">{title}</p>
+        <p className="mt-2 text-[1.9rem] font-medium leading-none tracking-[-0.03em] text-ink">
+          {current}
+          <span className="ml-1.5 text-[0.85rem] font-normal tracking-normal text-ink/45">
+            {limit === Infinity ? 'sem limite' : limit === 0 ? 'não incluso' : `de ${limit}`}
+          </span>
+        </p>
+        <div className="mt-3 h-1 overflow-hidden rounded-full bg-ink/8">
+          <div className={`h-full rounded-full ${percent > 90 ? 'bg-[#C2462B]' : 'bg-[#151816]'}`} style={{ width: `${limit === 0 ? 0 : percent}%` }} />
         </div>
       </div>
     );
   };
 
+  const planLabel = (name: string) => ({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[name] ?? name;
+  const statusLabel = (st: string) =>
+    ({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[st] ?? st;
+  const eyebrow = 'text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45';
+  const sectionTitle = 'text-[clamp(1.6rem,2.6vw,2.2rem)] font-medium tracking-[-0.03em] text-ink';
+
   return (
-    <DashboardLayout
-      title="Cobrança e Assinatura"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="border-b border-castanha-200 pb-8 mb-12">
-           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Plano e cobrança</span>
-            </div>
-            <h1 className="text-4xl font-medium tracking-tight text-ink">Cobrança e Assinatura</h1>
-            <p className="text-castanha-600 text-lg max-w-2xl mt-4 font-medium opacity-60">Gerencie sua capacidade de uso, seu acesso ao arquivo e seu histórico de cobrança.</p>
+    <DashboardLayout title="Cobrança e Assinatura">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-6 border-b border-ink/12 pb-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className={eyebrow}>Plano e cobrança</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Cobrança e assinatura</h2>
+          </div>
+          <p className="max-w-[460px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Acompanhe o seu consumo, gerencie a assinatura e consulte o histórico de cobranças.
+          </p>
         </div>
 
-        {/* Credit Usage Row */}
+        {/* Consumo */}
         {(profileData as ProfileData)?.apiUsage && (profileData as ProfileData)?.subscription?.limits && (
-          <div className="mb-16">
-            <div className="flex items-center gap-4 mb-8">
-               <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400">Seu consumo</h2>
-               <div className="h-px flex-1 bg-castanha-200" />
-            </div>
+          <section className="mt-10">
+            <h3 className={sectionTitle}>Seu consumo</h3>
             {(profileData as ProfileData).subscription?.isAdmin && (
-              <p className="mb-6 text-sm font-medium text-castanha-600">Esta é a conta de administrador: os limites do plano não se aplicam a ela, para permitir testes e suporte.</p>
+              <p className="mt-2 text-[0.92rem] text-ink/60">Esta é a conta de administrador: os limites do plano não se aplicam a ela, para permitir testes e suporte.</p>
             )}
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
-              {renderMeter("Pesquisas", (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
-              {renderMeter("Mensagens", (profileData as ProfileData).apiUsage!.chatCount, (profileData as ProfileData).subscription!.limits!.chatCount)}
-              {renderMeter("Op. de docs", (profileData as ProfileData).apiUsage!.docsCount, (profileData as ProfileData).subscription!.limits!.docsCount)}
-              {renderMeter("Pastas do cofre", (profileData as ProfileData).apiUsage!.vaultFolderCount, (profileData as ProfileData).subscription!.limits!.vaultFolderCount)}
-              {renderMeter("Fluxos", (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
+            <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 lg:grid-cols-5">
+              {renderMeter('Pesquisas', (profileData as ProfileData).apiUsage!.searchCount, (profileData as ProfileData).subscription!.limits!.searchCount)}
+              {renderMeter('Mensagens', (profileData as ProfileData).apiUsage!.chatCount, (profileData as ProfileData).subscription!.limits!.chatCount)}
+              {renderMeter('Op. de docs', (profileData as ProfileData).apiUsage!.docsCount, (profileData as ProfileData).subscription!.limits!.docsCount)}
+              {renderMeter('Pastas do Cofre', (profileData as ProfileData).apiUsage!.vaultFolderCount, (profileData as ProfileData).subscription!.limits!.vaultFolderCount)}
+              {renderMeter('Fluxos', (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
             </div>
-            <p className="mt-6 text-xs font-medium text-castanha-500 leading-relaxed">
+            <p className="mt-5 text-[0.82rem] leading-relaxed text-ink/50">
               &quot;Mensagens&quot; soma as conversas no Chat, com os Assistentes de IA e com arquivos do Cofre. O histórico do Chat fica salvo apenas neste navegador; por isso pode aparecer vazio em outro aparelho.
             </p>
-          </div>
+          </section>
         )}
 
-        {/* Current subscription */}
-        <div className="bg-white rounded-[2.5rem] p-12 mb-16 border border-castanha-200 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
-            <svg width="200" height="200" viewBox="0 0 100 100">
-              <pattern id="grid-billing" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="black" strokeWidth="0.5" />
-              </pattern>
-              <rect width="100" height="100" fill="url(#grid-billing)" />
-            </svg>
-          </div>
-
+        {/* Assinatura atual */}
+        <section className="mt-14 rounded-3xl bg-[#F1EDE0] p-6 sm:p-8">
           {currentSubscription ? (
             <>
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-8 relative z-10">
+              <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
                 <div>
-                  <h2 className="text-3xl font-medium tracking-tight text-ink">Assinatura ativa</h2>
-                  <p className="text-castanha-600 font-medium opacity-60 mt-2">Gerencie seu acesso atual e seus dados de cobrança.</p>
+                  <p className={eyebrow}>Assinatura</p>
+                  <h3 className={`mt-2 ${sectionTitle}`}>Assinatura ativa</h3>
                 </div>
                 <button
                   onClick={handleManageSubscription}
-                  className="px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl font-bold text-[11px] uppercase tracking-[0.2em] btn-primary-gradient"
+                  className="inline-flex h-11 items-center justify-center rounded-xl bg-[#151816] px-5 text-[0.92rem] font-medium text-white transition-colors hover:bg-[#151816]/90"
                 >
                   Gerenciar assinatura
                 </button>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
-                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Plano</h3>
-                  <p className="text-ink text-2xl font-bold tracking-tight">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[currentSubscription.plan] ?? currentSubscription.plan}</p>
+              <dl className="mt-6 grid gap-x-8 sm:grid-cols-3">
+                <div className="border-t border-ink/15 py-4">
+                  <dt className={eyebrow}>Plano</dt>
+                  <dd className="mt-1.5 text-[1.3rem] font-medium text-ink">{planLabel(currentSubscription.plan)}</dd>
                 </div>
-                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
-                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Status</h3>
-                  <div className="flex items-center">
-                    <span className="w-2.5 h-2.5 rounded-full bg-cerrado-500 mr-3 shadow-[0_0_15px_rgba(89,130,60,0.4)] animate-pulse"></span>
-                    <span className="text-ink text-2xl font-bold tracking-tight capitalize">{({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[currentSubscription.status] ?? currentSubscription.status}</span>
-                  </div>
+                <div className="border-t border-ink/15 py-4">
+                  <dt className={eyebrow}>Status</dt>
+                  <dd className="mt-1.5 flex items-center gap-2 text-[1.3rem] font-medium capitalize text-ink">
+                    <span className="h-2 w-2 rounded-full bg-[#151816]" />
+                    {statusLabel(currentSubscription.status)}
+                  </dd>
                 </div>
-                <div className="p-8 bg-castanha-50 rounded-[2rem] border border-castanha-200">
-                  <h3 className="text-castanha-400 text-[10px] uppercase tracking-[0.3em] font-bold mb-3">Próxima renovação</h3>
-                  <p className="text-ink text-2xl font-bold tracking-tight">{formatDate(currentSubscription.nextBillingDate)}</p>
+                <div className="border-t border-ink/15 py-4">
+                  <dt className={eyebrow}>Próxima renovação</dt>
+                  <dd className="mt-1.5 text-[1.3rem] font-medium text-ink">{formatDate(currentSubscription.nextBillingDate)}</dd>
                 </div>
-              </div>
+              </dl>
             </>
           ) : (
-            <div className="text-center py-12 relative z-10">
-              <div className="w-24 h-24 bg-cerrado-950/5 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-cerrado-900/5">
-                <svg className="w-12 h-12 text-ink/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-              </div>
-              <h2 className="text-3xl font-medium tracking-tight text-ink mb-4">Acesso ao plano inicial</h2>
-              <p className="text-castanha-600 max-w-lg mx-auto mb-10 font-medium opacity-60">No momento, você está usando o plano inicial. Faça upgrade para um plano pago para desbloquear todos os recursos.</p>
+            <div>
+              <p className={eyebrow}>Assinatura</p>
+              <h3 className={`mt-2 ${sectionTitle}`}>Você está no plano Gratuito</h3>
+              <p className="mt-2 max-w-xl text-[0.98rem] leading-relaxed text-ink/65">Assine o Pro para liberar todos os assistentes, o Cofre, os Fluxos e a marca do escritório.</p>
             </div>
           )}
-        </div>
+        </section>
 
-        {/* Plans */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-24">
-          {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`relative bg-white rounded-[2.5rem] overflow-hidden border-2 transition-all duration-500 hover:shadow-2xl hover:scale-[1.01] flex flex-col h-full ${plan.isPopular ? 'border-cerrado-900 shadow-2xl' : 'border-castanha-200 shadow-lg'
-                } p-10`}
-            >
-              {plan.isPopular && (
-                <div className="absolute top-0 right-0">
-                  <div className="bg-cerrado-900 text-white text-[9px] font-bold tracking-[0.3em] px-6 py-3 rounded-bl-2xl uppercase">
-                    Mais popular
+        {/* Planos */}
+        <section className="mt-14">
+          <h3 className={sectionTitle}>Planos</h3>
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            {plans.map((plan) => {
+              const dark = plan.isPopular || plan.id === 'pro-monthly';
+              return (
+                <div key={plan.id} className={`flex flex-col rounded-3xl p-7 ${dark ? 'bg-[#151816] text-white' : 'bg-[#FFFDF6] text-ink ring-1 ring-ink/10'}`}>
+                  <div className="flex items-center justify-between gap-3">
+                    <h4 className="text-[1.5rem] font-medium tracking-[-0.02em]">{planLabel(plan.name)}</h4>
+                    {plan.isPopular && <span className="rounded-full bg-white/10 px-3 py-1 text-[0.72rem] font-medium text-white/80">Mais popular</span>}
                   </div>
-                </div>
-              )}
-
-              <h3 className="text-2xl font-medium tracking-tight text-ink mb-2">{({ Free: 'Gratuito', 'Pro Monthly': 'Pro Mensal' } as Record<string, string>)[plan.name] ?? plan.name}</h3>
-              <div className="mb-8 flex items-baseline">
-                <span className="text-5xl font-bold text-ink tracking-tighter">
-                  {plan.price === 0 && plan.id === 'free' ? formatPlanPrice(0) : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : formatPlanPrice(plan.id === 'pro-monthly' ? 399 : plan.price)}
-                </span>
-                {plan.price !== 0 && (
-                  <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
-                )}
-                {plan.price === 0 && plan.id === 'free' && (
-                   <span className="text-castanha-400 ml-2 text-sm font-bold uppercase tracking-widest">/ para sempre</span>
-                )}
-              </div>
-
-              <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 text-sm h-12 overflow-hidden">{plan.description}</p>
-
-              <div className="w-full h-px bg-castanha-200 mb-10"></div>
-
-              <ul className="space-y-5 mb-12 flex-grow">
-                {plan.features.map((feature, index) => (
-                  <li key={index} className="flex items-start text-ink">
-                    <div className="mt-1 mr-4 bg-cerrado-900 text-white rounded-full p-1 border border-white/10 scale-90">
-                      <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="text-sm font-medium opacity-80">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => handleSubscribe(plan)}
-                disabled={isLoading || selectedPlan?.id === plan.id || currentSubscription?.plan === plan.name}
-                className={`w-full py-5 px-6 mt-auto rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all duration-500 transform active:scale-95 ${plan.isPopular || plan.id === 'pro-monthly'
-                  ? 'btn-primary-gradient shadow-xl'
-                  : 'bg-white border-2 border-castanha-200 hover:border-cerrado-900 text-ink'
-                  } disabled:opacity-50 disabled:cursor-not-allowed`}
-              >
-                {selectedPlan?.id === plan.id ? (
-                  <div className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Processando...
+                  <p className={`mt-1 min-h-[2.75rem] text-[0.9rem] leading-snug ${dark ? 'text-white/60' : 'text-ink/60'}`}>{plan.description}</p>
+                  <div className="mt-6 flex items-baseline gap-2">
+                    <span className="text-[2.4rem] font-medium leading-none tracking-[-0.03em]">
+                      {plan.price === 0 && plan.id === 'free' ? formatPlanPrice(0) : plan.price === 0 && plan.id === 'enterprise' ? 'Sob consulta' : formatPlanPrice(plan.id === 'pro-monthly' ? 399 : plan.price)}
+                    </span>
+                    {plan.price !== 0 && (
+                      <span className={`text-[0.85rem] ${dark ? 'text-white/50' : 'text-ink/45'}`}>/ {plan.billingPeriod === 'monthly' ? 'mês' : plan.billingPeriod === 'yearly' || plan.billingPeriod === 'annual' ? 'ano' : plan.billingPeriod}</span>
+                    )}
+                    {plan.price === 0 && plan.id === 'free' && <span className="text-[0.85rem] text-ink/45">/ para sempre</span>}
                   </div>
-                ) : currentSubscription?.plan === plan.name ? (
-                  'Plano atual'
-                ) : plan.id === 'free' ? (
-                  'Nível atual'
-                ) : plan.id === 'enterprise' ? (
-                  'Solicitar acesso'
-                ) : (
-                  'Ativar o Pro'
-                )}
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* Billing history */}
-        <div className="mb-24">
-          <div className="flex items-center mb-10">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400 mr-6">Histórico de transações</h2>
-            <div className="h-px flex-1 bg-castanha-200"></div>
-          </div>
-
-          {invoices.length > 0 ? (
-            <div className="bg-white rounded-[2.5rem] border border-castanha-200 shadow-xl overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-castanha-200">
-                  <thead className="bg-castanha-50">
-                    <tr>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
-                        ID da fatura
-                      </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
-                        Data
-                      </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
-                        Valor
-                      </th>
-                      <th scope="col" className="px-10 py-6 text-left text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
-                        Status
-                      </th>
-                      <th scope="col" className="px-10 py-6 text-right text-[9px] font-bold text-castanha-400 uppercase tracking-[0.3em]">
-                        Ação
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-castanha-200">
-                    {invoices.map(invoice => (
-                      <tr key={invoice.id} className="hover:bg-castanha-50 transition-all duration-300 group">
-                        <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm font-bold text-ink group-hover:text-ink tracking-tight">{invoice.id}</div>
-                        </td>
-                        <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm text-castanha-600 font-medium opacity-60">{formatDate(invoice.date)}</div>
-                        </td>
-                        <td className="px-10 py-6 whitespace-nowrap">
-                          <div className="text-sm font-bold text-ink">{formatCurrency(invoice.amount, invoice.currency)}</div>
-                        </td>
-                        <td className="px-10 py-6 whitespace-nowrap">
-                           <span className={`px-4 py-1.5 text-[9px] font-bold rounded-full uppercase tracking-widest ${invoice.status === 'paid' ? 'bg-cerrado-500/10 text-cerrado-500' : 'bg-red-500/10 text-red-500'}`}>
-                              {({ active: 'ativa', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', trialing: 'em teste', incomplete: 'incompleta', paid: 'paga', pending: 'pendente', failed: 'falhou' } as Record<string, string>)[invoice.status] ?? invoice.status}
-                           </span>
-                        </td>
-                        <td className="px-10 py-6 whitespace-nowrap text-right">
-                          <a
-                            href={invoice.downloadUrl}
-                            className="inline-flex items-center text-ink hover:scale-105 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border-b border-cerrado-900/10 hover:border-cerrado-900"
-                          >
-                            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4-4v12" />
-                            </svg>
-                            Recibo
-                          </a>
-                        </td>
-                      </tr>
+                  <ul className={`mt-6 flex-1 space-y-3 border-t pt-6 ${dark ? 'border-white/15' : 'border-ink/12'}`}>
+                    {plan.features.map((feature, index) => (
+                      <li key={index} className={`flex gap-3 text-[0.9rem] leading-snug ${dark ? 'text-white/80' : 'text-ink/75'}`}>
+                        <svg className={`mt-0.5 h-4 w-4 flex-shrink-0 ${dark ? 'text-white/60' : 'text-ink/45'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {feature}
+                      </li>
                     ))}
-                  </tbody>
-                </table>
-              </div>
+                  </ul>
+                  <button
+                    onClick={() => handleSubscribe(plan)}
+                    disabled={isLoading || selectedPlan?.id === plan.id || currentSubscription?.plan === plan.name}
+                    className={`mt-7 inline-flex h-11 items-center justify-center rounded-xl px-5 text-[0.92rem] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${dark ? 'bg-[#FFFDF6] text-ink hover:bg-white' : 'bg-[#151816] text-white hover:bg-[#151816]/90'}`}
+                  >
+                    {selectedPlan?.id === plan.id
+                      ? 'Processando...'
+                      : currentSubscription?.plan === plan.name
+                        ? 'Plano atual'
+                        : plan.id === 'free'
+                          ? 'Nível atual'
+                          : plan.id === 'enterprise'
+                            ? 'Solicitar acesso'
+                            : 'Ativar o Pro'}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Histórico */}
+        <section className="mt-14">
+          <h3 className={sectionTitle}>Histórico de cobranças</h3>
+          {invoices.length > 0 ? (
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[620px] border-collapse text-left">
+                <thead>
+                  <tr className="border-b border-ink/15 text-[0.8rem] text-ink/50">
+                    <th className="py-4 pr-4 font-medium">Fatura</th>
+                    <th className="py-4 pr-4 font-medium">Data</th>
+                    <th className="py-4 pr-4 font-medium">Valor</th>
+                    <th className="py-4 pr-4 font-medium">Status</th>
+                    <th className="py-4 text-right font-medium">Recibo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {invoices.map((invoice) => (
+                    <tr key={invoice.id} className="border-b border-ink/10 text-[0.92rem]">
+                      <td className="py-4 pr-4 font-medium text-ink">{invoice.id}</td>
+                      <td className="py-4 pr-4 text-ink/60">{formatDate(invoice.date)}</td>
+                      <td className="py-4 pr-4 font-medium text-ink">{formatCurrency(invoice.amount, invoice.currency)}</td>
+                      <td className="py-4 pr-4">
+                        <span className={`rounded-full px-2.5 py-1 text-[0.75rem] font-medium ${invoice.status === 'paid' ? 'bg-ink/8 text-ink/70' : 'bg-red-50 text-red-700'}`}>{statusLabel(invoice.status)}</span>
+                      </td>
+                      <td className="py-4 text-right">
+                        <a href={invoice.downloadUrl} className="text-[0.88rem] font-medium text-ink underline underline-offset-4 hover:text-ink/70">
+                          Baixar
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           ) : (
-            <div className="text-center py-24 bg-white border border-castanha-200 rounded-[2.5rem] shadow-lg">
-              <div className="w-20 h-20 bg-castanha-50 rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 border border-castanha-200">
-                <svg className="w-10 h-10 text-ink/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-ink text-2xl font-medium tracking-tight mb-4">Nenhuma fatura no histórico</h3>
-              <p className="text-castanha-400 max-w-sm mx-auto font-medium text-sm">
-                Seu histórico de cobranças aparecerá aqui assim que houver transações.
-              </p>
-            </div>
+            <p className="mt-4 border-t border-ink/12 pt-4 text-[0.95rem] text-ink/55">Nenhuma cobrança ainda. As faturas aparecem aqui assim que houver transações.</p>
           )}
-        </div>
+        </section>
 
-        {/* FAQ Section */}
-        <div className="bg-castanha-50 rounded-3xl p-10 mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-10 text-center">Perguntas frequentes</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-foreground font-bold mb-3">Posso mudar de plano depois?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">Sim, você pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações serão refletidas imediatamente no próximo ciclo de cobrança.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-              </div>
-              <h3 className="text-foreground font-bold mb-3">Formas de pagamento?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">No momento, aceitamos apenas cartão de crédito (Visa, Mastercard e American Express), processado pela Stripe.</p>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 bg-castanha-50 rounded-xl flex items-center justify-center mb-4 text-castanha-400">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-foreground font-bold mb-3">Política de reembolso?</h3>
-              <p className="text-foreground/60 text-sm leading-relaxed">Oferecemos garantia de reembolso de 30 dias. Se não estiver satisfeito, fale com nossa equipe de suporte para receber o reembolso integral, sem complicações.</p>
-            </div>
+        {/* Perguntas frequentes, conforme os Termos de Uso (cláusula 8) */}
+        <section className="mt-14 grid gap-8 border-t border-ink/12 pt-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <h3 className={sectionTitle}>Perguntas frequentes</h3>
+          <div className="border-t border-ink/20">
+            {[
+              { q: 'Posso cancelar quando quiser?', a: 'Sim, pelo painel. O cancelamento impede a renovação e o acesso continua até o fim do período já pago.' },
+              { q: 'Quais formas de pagamento vocês aceitam?', a: 'Cartão de crédito, processado pela Stripe.' },
+              { q: 'Existe reembolso?', a: 'Você pode desistir em até 7 dias da contratação, com estorno da cobrança. Depois disso, no plano mensal não há reembolso do mês em curso; no anual, a devolução é proporcional, como prevê a cláusula 8 dos Termos de Uso.' },
+            ].map((f) => (
+              <details key={f.q} className="group border-b border-ink/20 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[1.05rem] font-medium text-ink">
+                  {f.q}
+                  <span className="relative h-4 w-4 shrink-0 text-ink/60" aria-hidden="true">
+                    <span className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-current" />
+                    <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current transition-transform group-open:rotate-90 group-open:opacity-0" />
+                  </span>
+                </summary>
+                <p className="max-w-[620px] pb-5 text-[0.95rem] leading-relaxed text-ink/65">{f.a}</p>
+              </details>
+            ))}
           </div>
-        </div>
+        </section>
       </div>
     </DashboardLayout>
   );

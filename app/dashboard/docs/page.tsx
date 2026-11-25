@@ -118,7 +118,7 @@ const FileDropZone = ({
 
    return (
       <div
-         className={`border-2 border-dashed ${isDragging ? 'border-cerrado-900 bg-cerrado-950/5' : 'border-castanha-200 bg-castanha-50'} rounded-[2rem] p-16 flex flex-col items-center justify-center hover:bg-white hover:border-cerrado-900/20 hover:shadow-2xl transition-all duration-500 cursor-pointer group relative overflow-hidden`}
+         className={`border-2 border-dashed ${isDragging ? 'border-cerrado-900 bg-cerrado-950/5' : 'border-castanha-200 bg-castanha-50'} rounded-3xl p-16 flex flex-col items-center justify-center hover:bg-white hover:border-cerrado-900/20 transition-all duration-500 cursor-pointer group relative overflow-hidden`}
          onDragOver={handleDragOver}
          onDragLeave={handleDragLeave}
          onDrop={handleDrop}
@@ -142,21 +142,21 @@ const FileDropZone = ({
             accept={accept}
             multiple={multiple}
          />
-         <div className="w-20 h-20 rounded-[1.5rem] bg-white mb-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-cerrado-900 group-hover:text-white transition-all duration-500 shadow-xl border border-castanha-200 relative z-10">
+         <div className="w-20 h-20 rounded-2xl bg-white mb-6 flex items-center justify-center group-hover:scale-110 group-hover:bg-cerrado-900 group-hover:text-white transition-all duration-500 border border-castanha-200 relative z-10">
             <svg className="w-10 h-10 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
          </div>
          <p className="text-ink text-xl font-medium mb-2 relative z-10 tracking-tight">Enviar documento</p>
          <p className="text-castanha-600 text-sm opacity-60 relative z-10 font-medium tracking-tight">Arraste e solte o arquivo ou <span className="underline text-ink decoration-black/20">procure no seu computador</span></p>
-         {label && <div className="text-ink/20 text-[10px] font-bold uppercase tracking-[0.3em] mt-8 relative z-10">{label}</div>}
+         {label && <div className="text-ink/40 text-[0.72rem] font-semibold uppercase tracking-[0.16em] mt-8 relative z-10">{label}</div>}
       </div>
    );
 };
 
 // Reusable content container
 const ContentContainer = ({ children }: { children: React.ReactNode }) => (
-   <div className="bg-white rounded-[2.5rem] p-10 border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+   <div className="rounded-3xl bg-[#F1EDE0] p-10">
       {children}
    </div>
 );
@@ -1001,7 +1001,7 @@ export default function DocumentGenerationPage() {
                         {/* Download and Chat Buttons */}
                         <div className="mt-6 pt-4 border-t border-castanha-100 flex flex-wrap gap-3">
                            <button
-                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
+                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center"
                               onClick={() => {
                                  toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
@@ -1340,7 +1340,7 @@ export default function DocumentGenerationPage() {
                            </button>
 
                            <button
-                              className="px-6 py-2 rounded-lg transition-all duration-300 flex items-center shadow-md btn-primary-gradient"
+                              className="px-6 py-2 rounded-lg transition-all duration-300 flex items-center btn-primary-gradient"
                               onClick={() => {
                                  // Save analysis to localStorage to share with chat page
                                  localStorage.setItem('AIForLawyers_chatContext', JSON.stringify({
@@ -1369,7 +1369,7 @@ export default function DocumentGenerationPage() {
                   <h2 className="text-foreground text-xl font-medium mb-6 pb-4 border-b border-castanha-100">Documentos analisados recentemente</h2>
                   <div className="space-y-3">
                      {recentDocuments.map(doc => (
-                        <div key={doc.id} className="flex items-center justify-between p-4 border border-castanha-100 rounded-lg hover:bg-castanha-50 transition-all bg-white shadow-sm">
+                        <div key={doc.id} className="flex items-center justify-between p-4 border border-castanha-100 rounded-lg hover:bg-castanha-50 transition-all bg-white">
                            <div className="flex items-center">
                               <div className="w-10 h-10 bg-castanha-50 rounded-full flex items-center justify-center mr-4 border border-castanha-100">
                                  {/* Show different icons based on document type */}
@@ -1496,25 +1496,25 @@ export default function DocumentGenerationPage() {
                      <h3 className="text-foreground mb-4 font-medium">Opções de comparação</h3>
                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'all' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center shadow-sm transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'all' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
                            onClick={() => setCompareType('all')}
                         >
                            <span>Todas as alterações</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'changes' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center shadow-sm transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'changes' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
                            onClick={() => setCompareType('changes')}
                         >
                            <span>Modificações</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'additions' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center shadow-sm transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'additions' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
                            onClick={() => setCompareType('additions')}
                         >
                            <span>Inclusões</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'removals' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center shadow-sm transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'removals' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
                            onClick={() => setCompareType('removals')}
                         >
                            <span>Remoções</span>
@@ -1525,7 +1525,7 @@ export default function DocumentGenerationPage() {
                   <div className="mt-8">
                      <button
                         className={`w-full py-3 rounded-lg text-white font-medium transition-all duration-300 ${firstDocument && secondDocument
-                           ? 'btn-primary-gradient shadow-md'
+                           ? 'btn-primary-gradient'
                            : 'bg-castanha-200 cursor-not-allowed text-castanha-400 opacity-50'
                            }`}
                         onClick={handleDocumentComparison}
@@ -1570,7 +1570,7 @@ export default function DocumentGenerationPage() {
                               <h4 className="text-foreground/90 font-medium mb-2">Alterações detalhadas</h4>
                               <div className="mt-4 space-y-4">
                                  {(comparisonResult as ComparisonResult).changes!.map((change: ChangeItem, index: number) => (
-                                    <div key={index} className="p-3 rounded-lg bg-white border border-castanha-100 shadow-sm">
+                                    <div key={index} className="p-3 rounded-lg bg-white border border-castanha-100">
                                        <div className="flex items-center mb-2">
                                           <span className={`px-2 py-1 text-xs rounded-md mr-2 ${change.type === 'addition' ? 'bg-cerrado-900/60 text-cerrado-200' :
                                              change.type === 'removal' ? 'bg-red-900/60 text-red-200' :
@@ -1593,7 +1593,7 @@ export default function DocumentGenerationPage() {
                         {/* Download Comparison Button */}
                         <div className="mt-6 pt-4 border-t border-castanha-100">
                            <button
-                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
+                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center"
                               onClick={() => {
                                  toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
@@ -1904,7 +1904,7 @@ export default function DocumentGenerationPage() {
                         disabled={isProcessing || !parties || !purpose}
                         className={`px-8 py-3 rounded-lg text-white font-medium transition-all duration-300 ${isProcessing || !parties || !purpose
                            ? 'bg-castanha-200 cursor-not-allowed text-castanha-400'
-                           : 'bg-cerrado-800 hover:bg-cerrado-900 shadow-md'
+                           : 'bg-cerrado-800 hover:bg-cerrado-900'
                            }`}
                      >
                         {isProcessing ? 'Criando contrato...' : 'Criar contrato'}
@@ -1919,7 +1919,7 @@ export default function DocumentGenerationPage() {
 
                      <div className="space-y-6">
                         {/* Agreement Content with improved formatting */}
-                        <div className="bg-white p-6 rounded-lg border border-castanha-200 legal-document shadow-inner">
+                        <div className="bg-white p-6 rounded-lg border border-castanha-200 legal-document">
                            <style jsx global>{`
                     .legal-document {
                       color: rgba(30, 46, 22, 0.9);
@@ -2031,7 +2031,7 @@ export default function DocumentGenerationPage() {
                         {/* Single Download PDF Button */}
                         <div className="mt-6 pt-4 border-t border-castanha-100">
                            <button
-                              className="px-6 py-2 bg-cerrado-800 hover:bg-cerrado-900 border border-cerrado-700 rounded-lg text-white transition-all duration-300 flex items-center shadow-md"
+                              className="px-6 py-2 bg-cerrado-800 hover:bg-cerrado-900 border border-cerrado-700 rounded-lg text-white transition-all duration-300 flex items-center"
                               onClick={() => {
                                  toast.loading('Gerando PDF...', { id: 'pdf-generate' });
 
@@ -2261,7 +2261,7 @@ export default function DocumentGenerationPage() {
                               />
                               <label
                                  htmlFor={`template-${index}`}
-                                 className={`block p-4 border ${templateStyle === template ? 'border-cerrado-800' : 'border-castanha-200'} rounded-lg ${templateStyle === template ? 'bg-cerrado-800 text-white' : 'bg-castanha-50 text-foreground'} hover:bg-castanha-100 cursor-pointer transition-all shadow-sm`}
+                                 className={`block p-4 border ${templateStyle === template ? 'border-cerrado-800' : 'border-castanha-200'} rounded-lg ${templateStyle === template ? 'bg-cerrado-800 text-white' : 'bg-castanha-50 text-foreground'} hover:bg-castanha-100 cursor-pointer transition-all`}
                               >
                                  {template}
                               </label>
@@ -2301,7 +2301,7 @@ export default function DocumentGenerationPage() {
                            value={specialRequirements}
                            onChange={(e) => setSpecialRequirements(e.target.value)}
                            placeholder="Descreva quaisquer requisitos específicos para este documento"
-                           className="w-full bg-castanha-50 rounded-md border border-castanha-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-castanha-300 placeholder:text-foreground/30 min-h-[120px] resize-none shadow-inner"
+                           className="w-full bg-castanha-50 rounded-md border border-castanha-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-castanha-300 placeholder:text-ink/45 min-h-[120px] resize-none"
                         />
                      </div>
                   </div>
@@ -2311,7 +2311,7 @@ export default function DocumentGenerationPage() {
                   <button
                      onClick={handleCreateAgreementPro}
                      disabled={isProcessing}
-                     className={`px-6 py-3 bg-cerrado-800 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-castanha-400 focus:ring-offset-2 transition-all ${isProcessing ? 'opacity-70 cursor-not-allowed' : 'hover:bg-cerrado-900 shadow-md'}`}
+                     className={`px-6 py-3 bg-cerrado-800 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-castanha-400 focus:ring-offset-2 transition-all ${isProcessing ? 'opacity-70 cursor-not-allowed' : 'hover:bg-cerrado-900'}`}
                   >
                      {isProcessing ? 'Criando documento...' : 'Criar documento profissional'}
                   </button>
@@ -2468,7 +2468,7 @@ export default function DocumentGenerationPage() {
                      <div className="mt-4">
                         <button
                            className={`w-full py-3 rounded-lg text-white font-medium transition-all duration-300 ${documentForTranslation
-                              ? 'bg-cerrado-800 hover:bg-cerrado-900 shadow-md'
+                              ? 'bg-cerrado-800 hover:bg-cerrado-900'
                               : 'bg-castanha-100 cursor-not-allowed text-castanha-400'
                               }`}
                            onClick={handleDocumentTranslation}
@@ -2503,7 +2503,7 @@ export default function DocumentGenerationPage() {
                         {/* Download Translation Button */}
                         <div className="mt-6 pt-4 border-t border-castanha-100 flex flex-wrap gap-4">
                            <button
-                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
+                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center"
                               onClick={() => {
                                  // In a real application, this would download the translated file
                                  toast.success('Baixando documento traduzido');
@@ -2517,7 +2517,7 @@ export default function DocumentGenerationPage() {
 
                            {includeLegalGlossary && (
                               <button
-                                 className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
+                                 className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center"
                                  onClick={() => {
                                     // In a real application, this would download the glossary
                                     toast.success('Baixando glossário jurídico');
@@ -2584,14 +2584,14 @@ export default function DocumentGenerationPage() {
 
                      <div className="space-y-6">
                         {/* Text Content */}
-                        <div className="bg-white border border-castanha-100 p-4 rounded-lg max-h-96 overflow-y-auto shadow-inner">
+                        <div className="bg-white border border-castanha-100 p-4 rounded-lg max-h-96 overflow-y-auto">
                            <pre className="whitespace-pre-wrap text-foreground/80 font-mono text-sm">{(ocrResult as OcrResult).text || "Nenhum texto extraído"}</pre>
                         </div>
 
                         {/* Download Options */}
                         <div className="mt-6 pt-4 border-t border-castanha-100 flex flex-wrap gap-4">
                            <button
-                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center shadow-sm"
+                              className="px-6 py-2 bg-castanha-100 hover:bg-castanha-200 border border-castanha-200 rounded-lg text-foreground transition-all duration-300 flex items-center"
                               onClick={() => {
                                  // Create a text blob with the OCR result
                                  const textBlob = new Blob([(ocrResult as OcrResult).text || ""], { type: 'text/plain' });
@@ -2747,30 +2747,19 @@ export default function DocumentGenerationPage() {
    return (
       <DashboardLayout 
          title={getPageTitle()}
-         actions={
-            <button 
-               onClick={() => setShowUpgradeModal(true)}
-               className="px-4 py-2 bg-pequi-100 hover:bg-pequi-200 text-pequi-900 text-[10px] font-bold rounded-lg uppercase tracking-wider transition-all flex items-center shadow-sm border border-pequi-200"
-            >
-               <svg className="w-3.5 h-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-               </svg>
-               SEJA PRO
-            </button>
-         }
       >
          {/* Add history button in top-right corner */}
          <div className="absolute top-6 right-6 z-10" ref={historyDropdownRef}>
             <button
                onClick={() => setIsHistoryOpen(!isHistoryOpen)}
-               className="relative bg-white border border-castanha-100 hover:bg-castanha-50 rounded-full p-2 transition-all duration-200 shadow-sm"
+               className="relative bg-white border border-castanha-100 hover:bg-castanha-50 rounded-full p-2 transition-all duration-200"
                aria-label="Ver histórico de documentos"
             >
                <svg className="w-6 h-6 text-foreground/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                </svg>
                {recentDocuments.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-cerrado-800 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow-sm">
+                  <span className="absolute -top-1 -right-1 bg-cerrado-800 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                      {recentDocuments.length}
                   </span>
                )}
@@ -2778,7 +2767,7 @@ export default function DocumentGenerationPage() {
 
             {/* History dropdown */}
             {isHistoryOpen && (
-               <div className="absolute right-0 mt-2 w-96 max-h-[70vh] overflow-y-auto bg-white border border-castanha-100 rounded-lg shadow-xl z-50">
+               <div className="absolute right-0 mt-2 w-96 max-h-[70vh] overflow-y-auto bg-white border border-castanha-100 rounded-lg z-50">
                   <div className="p-4">
                      <div className="flex items-center justify-between mb-4 pb-2 border-b border-castanha-100">
                         <h3 className="text-foreground font-medium text-lg">Documentos recentes</h3>
@@ -2796,7 +2785,7 @@ export default function DocumentGenerationPage() {
                         <div className="space-y-3">
                            {recentDocuments.map(doc => (
                               <div key={doc.id}
-                                 className="flex items-center justify-between p-3 border border-castanha-100 rounded-lg hover:bg-castanha-50 transition-colors bg-white shadow-sm"
+                                 className="flex items-center justify-between p-3 border border-castanha-100 rounded-lg hover:bg-castanha-50 transition-colors bg-white"
                               >
                                  <div className="flex items-center flex-1 min-w-0">
                                     <div className="w-10 h-10 bg-castanha-50 border border-castanha-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
@@ -2822,7 +2811,7 @@ export default function DocumentGenerationPage() {
                                        <div className="text-foreground text-sm font-medium truncate">{doc.title}</div>
                                        <div className="flex items-center mt-0.5">
                                           <span className="text-foreground/60 text-xs">{formatDate(doc.timestamp)}</span>
-                                          <span className="mx-2 text-foreground/20">•</span>
+                                          <span className="mx-2 text-ink/40">•</span>
                                           <span className="text-foreground/60 text-xs bg-castanha-50 px-2 py-0.5 rounded-full border border-castanha-100">{({ COMPARISON: 'COMPARAÇÃO', TRANSLATION: 'TRADUÇÃO', OCR: 'OCR', 'Advanced Agreement': 'Contrato avançado', Agreement: 'Contrato' } as Record<string, string>)[doc.type] ?? doc.type}</span>
                                        </div>
                                     </div>
@@ -2865,7 +2854,7 @@ export default function DocumentGenerationPage() {
                         </div>
                      ) : (
                         <div className="text-foreground/60 text-center py-8 px-4">
-                           <svg className="w-12 h-12 mx-auto mb-3 text-foreground/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <svg className="w-12 h-12 mx-auto mb-3 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                            </svg>
                            <p>Ainda não há documentos no seu histórico</p>

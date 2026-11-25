@@ -1,6 +1,5 @@
 'use client';
 
-import { useBrand } from '../../contexts/TenantContext';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -26,7 +25,6 @@ const categories = {
 };
 
 export default function LawyersPage() {
-  const brand = useBrand();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todas');
   const [lawyersList, setLawyersList] = useState<LawyerData[]>([]);
@@ -89,113 +87,99 @@ export default function LawyersPage() {
     }
   };
 
+  // Nome curto na lista ("Direito de Família" em vez de "Assistente de IA em Direito de Família")
+  const shortName = (name: string) => name.replace(/^Assistente(?: Jurídico)? de IA (?:em |para )?/i, '') || name;
+  const isFree = (lawyerId: string) => !isLawyerLockedForPlan(lawyerId, 'Free');
+
+  // Lista no padrão editorial (2026-11-24): título à esquerda, busca na moldura
+  // areia e assistentes em faixas numeradas, como nas telas do site.
   return (
-    <DashboardLayout title={brand.name}>
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40 text-nowrap">Assistentes de inteligência artificial</span>
+    <DashboardLayout title="Assistentes de IA">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-6 border-b border-ink/12 pb-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Assistentes de IA</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Um assistente para cada área</h2>
           </div>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">Assistentes de IA por área do Direito</h1>
-          <p className="text-lg text-castanha-600 font-medium opacity-60 leading-relaxed">
-            Ferramentas de inteligência artificial que explicam temas jurídicos em linguagem simples. Elas não são advogados, não prestam consultoria e não substituem a análise do seu caso por um profissional inscrito na OAB.
+          <p className="max-w-[460px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Ferramentas de IA que explicam temas jurídicos em linguagem simples. Não são advogados e não substituem a análise do seu caso
+            por um profissional inscrito na OAB.
           </p>
         </div>
 
-        {/* Search and filters */}
-        <div className="mb-12 flex flex-col md:flex-row gap-4 md:items-center">
-          <div className="flex-1">
-            <div className="relative group">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Pesquise um assistente ou tema..."
-                className="w-full bg-white border border-castanha-200 hover:border-cerrado-900/20 focus:outline-none focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-2xl px-6 py-4 transition-all duration-300 placeholder-foreground/20 text-ink font-medium pr-14 shadow-sm"
-              />
-              <div className="absolute right-5 top-1/2 transform -translate-y-1/2 text-foreground/20 group-focus-within:text-ink transition-colors">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </div>
-          </div>
- 
-          <div className="md:w-72">
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full bg-white border border-castanha-200 hover:border-cerrado-900/20 focus:outline-none focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-2xl px-6 py-4 transition-all duration-300 text-ink font-medium appearance-none shadow-sm cursor-pointer"
-              style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2310101A' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 1.25rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.2em 1.2em' }}
-            >
-              {uniqueCategories.map((category) => (
-                <option key={category} value={category} className="bg-white text-foreground">
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className="mt-10 flex flex-col gap-2 rounded-3xl border border-ink/10 bg-[#F1EDE0] p-3 sm:p-4 md:flex-row">
+          <label className="flex flex-1 items-center gap-2 rounded-2xl bg-[#FFFDF6] px-4 ring-1 ring-ink/10 focus-within:ring-ink/30">
+            <svg className="h-5 w-5 flex-shrink-0 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar um assistente ou tema..."
+              aria-label="Buscar um assistente ou tema"
+              className="h-12 min-w-0 flex-1 border-0 bg-transparent px-1 text-[1rem] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-0"
+            />
+          </label>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            aria-label="Área do Direito"
+            className="h-12 cursor-pointer appearance-none rounded-2xl border-0 bg-[#FFFDF6] px-4 pr-10 text-[0.95rem] text-ink ring-1 ring-ink/10 focus:outline-none focus:ring-ink/30 md:w-72"
+            style={{ backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23151816' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`, backgroundPosition: 'right 0.9rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1.1em 1.1em' }}
+          >
+            {uniqueCategories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredLawyers.map((lawyer) => {
+        <div className="mt-6 grid gap-2 md:grid-cols-2">
+          {filteredLawyers.map((lawyer, index) => {
             const locked = isLocked(lawyer.id);
- 
             return (
               <Link
                 key={lawyer.id}
                 href={`/dashboard/lawyers/${lawyer.id}`}
                 onClick={(e) => handleLawyerClick(e, lawyer.id)}
-                className={`bg-white border rounded-[2rem] p-8 transition-all duration-500 group shadow-sm relative ${locked ? 'border-castanha-200 opacity-70 grayscale' : 'border-castanha-200 hover:border-cerrado-900/10 hover:shadow-2xl hover:-translate-y-2'}`}
+                className={`group flex items-center gap-4 rounded-2xl px-5 py-4 transition-colors ${locked ? 'bg-[#F1EDE0]/60 text-ink/55' : 'bg-[#F1EDE0] text-ink hover:bg-[#E9E3D2]'}`}
               >
-                {/* Lock Overlay Badge */}
-                {locked && (
-                  <div className="absolute top-6 right-6 bg-cerrado-900 rounded-full px-4 py-1.5 flex items-center text-[10px] font-bold text-white shadow-xl">
-                    <svg className="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <span className="w-6 flex-shrink-0 text-[0.85rem] tabular-nums text-ink/40">{index + 1}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[1rem] font-medium leading-snug">{shortName(lawyer.name)}</span>
+                  <span className="mt-0.5 block truncate text-[0.85rem] text-ink/55">{lawyer.description}</span>
+                </span>
+                {locked ? (
+                  <span className="flex flex-shrink-0 items-center gap-1.5 rounded-full bg-[#151816] px-2.5 py-1 text-[0.7rem] font-semibold text-white">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                    BLOQUEADO
-                  </div>
-                )}
- 
-                <div className="flex flex-col">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm border transition-all duration-500 ${locked ? 'bg-castanha-50 border-castanha-200 text-castanha-400' : 'bg-castanha-50 border-castanha-200 group-hover:bg-cerrado-900 group-hover:text-white group-hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)] text-ink'}`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.2} stroke="currentColor" className="w-7 h-7">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
+                    Pro
+                  </span>
+                ) : (
+                  <span className="flex flex-shrink-0 items-center gap-3">
+                    {isFree(lawyer.id) && userPlan === 'Free' && (
+                      <span className="rounded-full bg-ink/8 px-2.5 py-1 text-[0.7rem] font-semibold text-ink/60">Gratuito</span>
+                    )}
+                    <svg className="h-4 w-4 text-ink/35 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
                     </svg>
-                  </div>
- 
-                  <div className="flex-1">
-                    <h2 className="text-xl font-medium mb-3 text-ink group-hover:text-ink transition-colors tracking-tight leading-none">{lawyer.name}</h2>
-                    <p className="text-castanha-600 text-[1rem] font-medium opacity-60 mb-6 line-clamp-2 leading-relaxed">{lawyer.description}</p>
- 
-                    <div className="flex flex-wrap gap-2">
-                      {lawyer.expertise.slice(0, 3).map((skill, expertiseIndex) => (
-                        <span key={expertiseIndex} className={`text-[9px] px-3 py-1.5 rounded-full border border-castanha-200 font-bold uppercase tracking-[0.1em] ${locked ? 'bg-castanha-50 text-foreground/20' : 'bg-castanha-50 text-foreground/50'}`}>
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                  </span>
+                )}
               </Link>
             );
           })}
         </div>
 
         {filteredLawyers.length === 0 && (
-          <div className="text-center py-16">
-            <div className="bg-castanha-100 inline-block p-4 rounded-full mb-4 border border-castanha-200">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-foreground/40">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-medium text-foreground mb-2">Nenhum assistente encontrado</h3>
-            <p className="text-foreground/60">Tente ajustar sua pesquisa ou os critérios de filtro</p>
+          <div className="mt-6 rounded-2xl bg-[#F1EDE0] px-6 py-10 text-center">
+            <p className="text-[1.05rem] font-medium text-ink">Nenhum assistente encontrado</p>
+            <p className="mt-1 text-[0.92rem] text-ink/55">Tente outra palavra ou escolha outra área.</p>
           </div>
         )}
       </div>
     </DashboardLayout>
   );
-} 
+}

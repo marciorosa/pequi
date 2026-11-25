@@ -56,14 +56,14 @@ const money = (value: number, currency = 'BRL') =>
   value.toLocaleString('pt-BR', { style: 'currency', currency: currency || 'BRL' });
 const errorMessage = (e: any, fallback: string) => e?.response?.data?.message || fallback;
 
-const card = 'rounded-[1.5rem] border border-castanha-200 bg-white p-6';
-const th = 'px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-400';
+const card = 'rounded-2xl border border-castanha-200 bg-white p-6';
+const th = 'px-4 py-3 text-left text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400';
 const td = 'px-4 py-3 text-sm text-ink/80 align-top';
 
 function Stat({ label, value, hint }: { label: string; value: React.ReactNode; hint?: string }) {
   return (
     <div className={card}>
-      <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-castanha-400">{label}</p>
+      <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400">{label}</p>
       <p className="mt-3 text-3xl font-semibold tracking-tight text-ink">{value}</p>
       {hint && <p className="mt-1 text-xs text-ink/50">{hint}</p>}
     </div>
@@ -186,7 +186,7 @@ function Users({ onOpenUser, refreshKey }: { onOpenUser: (id: string) => void; r
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-[1.5rem] border border-castanha-200 bg-white">
+      <div className="overflow-x-auto rounded-2xl border border-castanha-200 bg-white">
         <table className="w-full min-w-[760px]">
           <thead className="border-b border-castanha-100">
             <tr>
@@ -270,10 +270,10 @@ function UserPanel({ id, onClose, onChanged }: { id: string; onClose: () => void
 
   return (
     <div className="fixed inset-0 z-[60] flex justify-end bg-cerrado-950/40 backdrop-blur-sm" onClick={onClose}>
-      <aside className="flex h-full w-full max-w-xl flex-col overflow-y-auto bg-castanha-25 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+      <aside className="flex h-full w-full max-w-xl flex-col overflow-y-auto bg-castanha-25" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-start justify-between border-b border-castanha-200 px-6 py-5">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-castanha-400">Usuário</p>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400">Usuário</p>
             <h2 className="mt-1 text-xl font-semibold text-ink">{u?.name || '…'}</h2>
             <p className="text-sm text-ink/50">{u?.email}</p>
           </div>
@@ -442,7 +442,7 @@ function Subscriptions({ onOpenUser }: { onOpenUser: (id: string) => void }) {
           </button>
         ))}
       </div>
-      <div className="overflow-x-auto rounded-[1.5rem] border border-castanha-200 bg-white">
+      <div className="overflow-x-auto rounded-2xl border border-castanha-200 bg-white">
         <table className="w-full min-w-[760px]">
           <thead className="border-b border-castanha-100">
             <tr>
@@ -520,7 +520,7 @@ function Billing() {
           hint={data.prices.yearly ? `Anual: ${money(data.prices.yearly.amount, data.prices.yearly.currency)}` : 'Anual não configurado'}
         />
       </div>
-      <div className="overflow-x-auto rounded-[1.5rem] border border-castanha-200 bg-white">
+      <div className="overflow-x-auto rounded-2xl border border-castanha-200 bg-white">
         <table className="w-full min-w-[640px]">
           <thead className="border-b border-castanha-100">
             <tr>

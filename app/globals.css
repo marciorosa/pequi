@@ -309,16 +309,14 @@
   background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
 }
 
+/* Faixas de destaque do painel: areia lisa, sem a imagem de manchas (2026-11-24) */
 .bg-hero-gradient {
-  background-image: url('/landingpage/hero/hero-bgimg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #F1EDE0;
 }
 
 .btn-primary-gradient {
   background: var(--pequi-500) !important;
-  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  box-shadow: none !important; /* botão plano, sem brilho (2026-11-24) */
   color: var(--pq-on-brand) !important;
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -335,7 +333,7 @@
 
 .btn-primary-gradient:focus-visible {
   outline: none;
-  box-shadow: inset 0 0 0 1px rgba(36, 37, 33, 0.10), 0 0 0 3px var(--pequi-200) !important;
+  box-shadow: 0 0 0 3px rgba(21, 24, 22, 0.2) !important;
 }
 
 /* Chat page animations and styling */

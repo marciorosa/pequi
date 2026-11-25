@@ -307,16 +307,13 @@ export default function ProfilePage() {
         <div className="border-b border-castanha-200 pb-8 mb-10">
           <div className="flex justify-between items-end">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Gestão de credenciais</span>
-              </div>
-              <h1 className="text-4xl font-medium tracking-tight text-ink">Perfil da conta</h1>
+              <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Gestão de credenciais</p>
+              <h1 className="text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Perfil da conta</h1>
             </div>
             {!isLoading && !error && !isEditing ? (
               <button
                 onClick={() => setIsEditing(true)}
-                className="flex items-center gap-2 px-6 py-3 rounded-2xl transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.1)] font-bold text-[11px] uppercase tracking-[0.2em] btn-primary-gradient"
+                className="flex items-center gap-2 px-6 py-3 rounded-2xl transition-all duration-300 text-[0.92rem] font-medium btn-primary-gradient"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -327,7 +324,7 @@ export default function ProfilePage() {
               <div className="flex gap-3">
                 <button
                   onClick={handleCancelEdit}
-                  className="flex items-center gap-2 bg-white border border-castanha-200 hover:bg-castanha-50 text-castanha-600 px-6 py-3 rounded-2xl transition-all duration-300 hover:scale-[1.02] font-bold text-[11px] uppercase tracking-[0.2em]"
+                  className="flex items-center gap-2 bg-white border border-castanha-200 hover:bg-castanha-50 text-castanha-600 px-6 py-3 rounded-2xl transition-all duration-300 text-[0.92rem] font-medium"
                   disabled={isSaving}
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -337,7 +334,7 @@ export default function ProfilePage() {
                 </button>
                 <button
                   onClick={handleSaveProfile}
-                  className="flex items-center gap-2 px-6 py-3 rounded-2xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em] shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-white/10 btn-primary-gradient"
+                  className="flex items-center gap-2 px-6 py-3 rounded-2xl transition-all duration-300 text-[0.92rem] font-medium border border-white/10 btn-primary-gradient"
                   disabled={isSaving}
                 >
                   {isSaving ? (
@@ -379,7 +376,7 @@ export default function ProfilePage() {
             <p className="text-red-400 font-medium text-lg">{error}</p>
             <button
               onClick={handleRetry}
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-md transition-all duration-200 hover:scale-105 focus:ring-2 focus:ring-white/20 focus:outline-none mt-2"
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-md transition-all duration-200 focus:ring-2 focus:ring-white/20 focus:outline-none mt-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -392,15 +389,15 @@ export default function ProfilePage() {
             {/* Left Column - Personal Info */}
             <div className="w-full lg:w-2/3 space-y-6">
             {/* Profile Card */}
-              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <div className="overflow-hidden rounded-3xl bg-[#F1EDE0]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-8">Identidade</h2>
+                  <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400 mb-8">Identidade</h2>
  
                   <div className="space-y-10">
                     {/* Profile Image and Name */}
                     <div className="flex flex-col sm:flex-row gap-10 items-center sm:items-start mb-12">
                       <div className="relative group">
-                        <div className={`w-32 h-32 rounded-[2rem] overflow-hidden flex items-center justify-center bg-castanha-50 border border-castanha-200 transition-all duration-500 ${isEditing ? 'ring-8 ring-pequi-500/5' : ''}`}>
+                        <div className={`flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-[#151816] transition-all duration-500 ${isEditing ? 'ring-4 ring-ink/15' : ''}`}>
                           {isUploadingImage ? (
                             <div className="flex items-center justify-center w-full h-full bg-cerrado-950/5">
                               <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-cerrado-900"></div>
@@ -422,14 +419,14 @@ export default function ProfilePage() {
                               className="object-cover w-full h-full"
                             />
                           ) : (
-                            <div className="text-4xl font-light text-ink/20">
+                            <div className="text-4xl font-medium text-white">
                               {profile.fullName.charAt(0) || 'U'}
                             </div>
                           )}
                         </div>
  
                         {isEditing && !isUploadingImage && (
-                          <div className="absolute inset-0 bg-cerrado-950/60 opacity-0 group-hover:opacity-100 rounded-[2rem] flex items-center justify-center transition-all duration-300">
+                          <div className="absolute inset-0 bg-cerrado-950/60 opacity-0 group-hover:opacity-100 rounded-full flex items-center justify-center transition-all duration-300">
                             <label htmlFor="profile-image" className="text-white bg-white/20 rounded-full p-3 hover:bg-white/40 transition-all duration-200 cursor-pointer scale-90 group-hover:scale-100">
                               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -553,36 +550,36 @@ export default function ProfilePage() {
               </div>
 
               {/* Security Card */}
-              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
+              <div className="overflow-hidden rounded-3xl bg-[#F1EDE0]">
                 <div className="p-10">
-                  <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-8">Segurança e acesso</h2>
+                  <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45 mb-8">Segurança e acesso</h2>
  
                   <div className="space-y-8">
                     <div>
                       <div className="flex justify-between items-center mb-4">
-                        <label className="text-castanha-600 text-[11px] font-bold uppercase tracking-widest">Senha</label>
+                        <label className="text-castanha-600 text-[11px] font-medium">Senha</label>
                         <button
                           onClick={() => setIsChangePasswordModalOpen(true)}
-                          className="text-ink font-bold text-[11px] uppercase tracking-widest border-b border-cerrado-900/10 hover:border-cerrado-900 transition-colors"
+                          className="text-ink text-[0.92rem] font-medium border-b border-cerrado-900/10 hover:border-cerrado-900 transition-colors"
                         >
                           Redefinir senha
                         </button>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-full h-14 bg-castanha-50 rounded-2xl border border-castanha-200 flex items-center px-6">
-                          <svg className="w-5 h-5 text-foreground/20 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
+                          <svg className="w-5 h-5 text-ink/40 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                           </svg>
-                          <span className="text-foreground/10 tracking-[0.5em]">••••••••••••</span>
+                          <span className="text-ink/40 tracking-[0.16em]">••••••••••••</span>
                         </div>
                       </div>
                     </div>
  
                     <div>
-                      <label className="text-castanha-600 text-[11px] font-bold uppercase tracking-widest block mb-4">Sessão da conta</label>
+                      <label className="text-castanha-600 text-[11px] font-medium block mb-4">Sessão da conta</label>
                       <button
                         onClick={handleLogout}
-                        className="w-full h-14 flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 border border-red-100 text-red-600 rounded-2xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em]"
+                        className="w-full h-14 flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 border border-red-100 text-red-600 rounded-2xl transition-all duration-300 text-[0.92rem] font-medium"
                       >
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -598,31 +595,24 @@ export default function ProfilePage() {
             {/* Right Column - Subscription */}
             <div className="w-full lg:w-1/3">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-white rounded-[2.5rem] overflow-hidden border border-castanha-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-                  <div className="p-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-castanha-400 mb-10">Assinatura</h2>
+                <div>
+                  <div>
+                    <h2 className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/45">Assinatura</h2>
  
-                    <div className={`relative overflow-hidden rounded-[2rem] p-8 mb-8 ${subscription.plan === 'Pro' ? 'bg-cerrado-900 text-white shadow-2xl' : 'bg-castanha-50 border border-castanha-200'
+                    <div className={`relative overflow-hidden rounded-3xl p-8 mb-8 ${subscription.plan === 'Pro' ? 'bg-cerrado-900 text-white' : 'bg-castanha-50 border border-castanha-200'
                       }`}>
-                      {subscription.plan === 'Pro' && (
-                        <div className="absolute top-0 right-0">
-                          <div className="bg-white text-ink text-[9px] font-bold px-4 py-2 rounded-bl-2xl shadow-xl tracking-[0.2em] uppercase">
-                            Premium
-                          </div>
-                        </div>
-                      )}
  
                       <div className="mb-6">
                         <div className="flex justify-between items-center mb-6">
                           <div className={`text-2xl font-medium tracking-tight ${subscription.plan === 'Pro' ? 'text-white font-bold' : 'text-foreground'}`}>Plano {({ Free: 'Gratuito', Pro: 'Pro' } as Record<string, string>)[subscription.plan] ?? subscription.plan}</div>
-                          <div className={`text-[9px] px-3 py-1.5 rounded-full font-bold uppercase tracking-[0.1em] ${subscription.status === 'active' ? 'bg-cerrado-500/10 text-cerrado-500' :
+                          <div className={`text-[0.72rem] px-3 py-1.5 rounded-full font-semibold uppercase tracking-[0.16em] ${subscription.status === 'active' ? 'bg-cerrado-500/10 text-cerrado-500' :
                             subscription.status === 'trial' ? 'bg-cerrado-500/10 text-cerrado-500' :
                               'bg-pequi-600/10 text-pequi-600'
                             }`}>
                             {({ active: 'ativa', trial: 'teste', canceled: 'cancelada', cancelled: 'cancelada', past_due: 'em atraso', inactive: 'inativa' } as Record<string, string>)[subscription.status] ?? subscription.status}
                           </div>
                         </div>
-                        <div className={`${subscription.plan === 'Pro' ? 'text-white/40' : 'text-foreground/40'} text-[10px] font-bold uppercase tracking-widest`}>
+                        <div className={`${subscription.plan === 'Pro' ? 'text-white/40' : 'text-foreground/40'} text-[0.72rem] font-medium`}>
                           Membro desde: {formatDate(subscription.startDate)}
                         </div>
                       </div>
@@ -636,7 +626,7 @@ export default function ProfilePage() {
                       {subscription.plan !== 'Pro' && (
                         <button
                           onClick={upgradeToPro}
-                          className="w-full py-4 px-6 rounded-2xl shadow-xl transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em] btn-primary-gradient"
+                          className="w-full py-4 px-6 rounded-2xl transition-all duration-300 text-[0.92rem] font-medium btn-primary-gradient"
                         >
                           Faça upgrade para ter acesso completo
                         </button>
@@ -644,7 +634,7 @@ export default function ProfilePage() {
                     </div>
  
                     <div className="space-y-3">
-                      <div className="text-ink font-bold text-[11px] uppercase tracking-[0.15em] mb-4">Recursos do plano:</div>
+                      <div className="text-ink text-[0.92rem] font-medium mb-4">Recursos do plano:</div>
                       {subscription.features.map((feature, index) => (
                         <div key={index} className="flex items-center gap-3 text-castanha-600 text-[0.95rem] font-medium opacity-70">
                           <svg className="w-4 h-4 text-ink flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -657,10 +647,9 @@ export default function ProfilePage() {
                   </div>
                 </div>
  
-                <div className="bg-cerrado-900 text-white rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl" />
+                <div className="bg-cerrado-900 text-white rounded-3xl overflow-hidden border border-white/5 relative">
                   <div className="p-10 relative z-10">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 mb-8">Suporte</h2>
+                    <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/30 mb-8">Suporte</h2>
                     <div className="space-y-4">
                       <a href="/contact" className="flex items-center gap-4 group">
                         <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-white group-hover:text-ink transition-all duration-500">
@@ -685,7 +674,7 @@ export default function ProfilePage() {
       {/* Change Password Modal */}
       {isChangePasswordModalOpen && (
         <div className="fixed inset-0 bg-cerrado-950/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl border border-castanha-100 w-full max-w-md p-6 animate-fade-in shadow-2xl">
+          <div className="bg-white rounded-xl border border-castanha-100 w-full max-w-md p-6 animate-fade-in">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-medium text-foreground">Alterar senha</h3>
               <button
@@ -772,7 +761,7 @@ export default function ProfilePage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 font-medium rounded-lg shadow-md transition-all duration-200 flex items-center btn-primary-gradient"
+                  className="px-5 py-2 font-medium rounded-lg transition-all duration-200 flex items-center btn-primary-gradient"
                   disabled={isChangingPassword}
                 >
                   {isChangingPassword ? (

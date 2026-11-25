@@ -59,173 +59,102 @@ export default function HelpPage() {
     setExpandedFAQ(expandedFAQ === index ? null : index);
   };
 
+  const arrow = (
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+    </svg>
+  );
+
+  // Ajuda no padrão editorial (2026-11-24): título à esquerda, canais em faixas e
+  // perguntas em lista com linhas que abre ao clicar.
   return (
     <DashboardLayout title="Ajuda e Suporte">
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="mb-20 text-center relative">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 mb-6">
-            <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/40 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/40">Base de conhecimento</span>
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-6 border-b border-ink/12 pb-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Ajuda e suporte</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Como podemos ajudar?</h2>
           </div>
-          <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-ink mb-6">Como podemos ajudar?</h1>
-          <p className="text-castanha-600 text-lg font-medium opacity-60">
-            Consulte as dúvidas frequentes ou fale com a nossa equipe de suporte.
+          <p className="max-w-[460px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Consulte as dúvidas frequentes ou fale com a nossa equipe. Respondemos em até 24 horas úteis.
           </p>
- 
-          {/* Search bar */}
-          <div className="relative max-w-2xl mx-auto mt-12 group">
-            <div className="absolute inset-0 bg-cerrado-950/5 rounded-3xl blur-2xl group-hover:bg-cerrado-950/10 transition-all duration-500" />
-            <div className="relative">
+        </div>
+
+        <div className="mt-10 grid gap-2 md:grid-cols-2">
+          <Link href="/dashboard/help/chat" className="group flex items-center gap-4 rounded-2xl bg-[#F1EDE0] px-5 py-5 text-ink transition-colors hover:bg-[#E9E3D2]">
+            <span className="w-4 text-[0.85rem] tabular-nums text-ink/40">1</span>
+            <span className="flex-1">
+              <span className="block text-[1.05rem] font-medium">Assistente ao vivo</span>
+              <span className="mt-0.5 block text-[0.88rem] text-ink/55">Respostas automáticas para dúvidas comuns sobre a plataforma.</span>
+            </span>
+            <span className="text-ink/40">{arrow}</span>
+          </Link>
+          <Link href="/dashboard/help/email" className="group flex items-center gap-4 rounded-2xl bg-[#F1EDE0] px-5 py-5 text-ink transition-colors hover:bg-[#E9E3D2]">
+            <span className="w-4 text-[0.85rem] tabular-nums text-ink/40">2</span>
+            <span className="flex-1">
+              <span className="block text-[1.05rem] font-medium">Dúvidas por e-mail</span>
+              <span className="mt-0.5 block text-[0.88rem] text-ink/55">Escreva para a equipe; respondemos em até 24 horas úteis.</span>
+            </span>
+            <span className="text-ink/40">{arrow}</span>
+          </Link>
+        </div>
+
+        <section className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+          <div>
+            <h3 className="text-[clamp(1.6rem,2.6vw,2.2rem)] font-medium tracking-[-0.03em] text-ink">Perguntas frequentes</h3>
+            <label className="mt-6 flex items-center gap-2 rounded-2xl bg-[#FFFDF6] px-4 ring-1 ring-ink/10 focus-within:ring-ink/30">
+              <svg className="h-5 w-5 flex-shrink-0 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
               <input
                 type="text"
-                placeholder="Pesquise tópicos de ajuda, guias ou tutoriais..."
+                placeholder="Buscar nas perguntas..."
+                aria-label="Buscar nas perguntas"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white rounded-[2rem] border border-castanha-200 py-6 px-10 pl-16 text-ink text-lg focus:outline-none focus:ring-4 focus:ring-pequi-500/5 transition-all shadow-2xl placeholder:opacity-30 font-medium"
+                className="h-12 min-w-0 flex-1 border-0 bg-transparent px-1 text-[1rem] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-0"
               />
-              <div className="absolute inset-y-0 left-0 pl-7 flex items-center pointer-events-none">
-                <svg className="w-6 h-6 text-castanha-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </div>
+            </label>
           </div>
-        </div>
 
-        {/* Help categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-white rounded-[2.5rem] p-10 border border-castanha-200 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
-              <svg width="150" height="150" viewBox="0 0 100 100">
-                <pattern id="grid-help-1" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="black" strokeWidth="0.5" />
-                </pattern>
-                <rect width="100" height="100" fill="url(#grid-help-1)" />
-              </svg>
-            </div>
-            <div className="mb-8 w-16 h-16 rounded-2xl bg-castanha-50 flex items-center justify-center border border-castanha-200 group-hover:bg-cerrado-900 group-hover:border-cerrado-900 transition-all duration-500 shadow-sm relative z-10">
-              <svg className="w-8 h-8 text-ink group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-medium tracking-tight text-ink mb-4 relative z-10">Assistente ao vivo</h3>
-            <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Respostas automáticas para dúvidas comuns sobre a plataforma. Para falar com a equipe, use o formulário de contato.
-            </p>
-            <Link href="/dashboard/help/chat" className="inline-flex items-center text-ink font-bold text-[10px] uppercase tracking-[0.2em] border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all relative z-10">
-              Iniciar chat
-              <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
- 
-          <div className="bg-white rounded-[2.5rem] p-10 border border-castanha-200 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 group relative overflow-hidden">
-             <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
-              <svg width="150" height="150" viewBox="0 0 100 100">
-                <pattern id="grid-help-2" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="black" strokeWidth="0.5" />
-                </pattern>
-                <rect width="100" height="100" fill="url(#grid-help-2)" />
-              </svg>
-            </div>
-            <div className="mb-8 w-16 h-16 rounded-2xl bg-castanha-50 flex items-center justify-center border border-castanha-200 group-hover:bg-cerrado-900 group-hover:border-cerrado-900 transition-all duration-500 shadow-sm relative z-10">
-              <svg className="w-8 h-8 text-ink group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-medium tracking-tight text-ink mb-4 relative z-10">Dúvidas por e-mail</h3>
-            <p className="text-castanha-600 mb-10 leading-relaxed font-medium opacity-60 relative z-10">
-              Solicite suporte assíncrono. Respondemos em até 24 horas úteis.
-            </p>
-            <Link href="/dashboard/help/email" className="inline-flex items-center text-ink font-bold text-[10px] uppercase tracking-[0.2em] border-b border-cerrado-900/10 hover:border-cerrado-900 pb-1 transition-all relative z-10">
-              Enviar solicitação
-              <svg className="w-4 h-4 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-
-        {/* FAQs section */}
-        <div className="mb-24">
-          <div className="flex items-center mb-12">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] text-castanha-400 mr-8">Perguntas frequentes</h2>
-            <div className="h-px flex-1 bg-castanha-200"></div>
-          </div>
- 
-          <div className="space-y-6">
+          <div className="border-t border-ink/20">
             {filteredFAQs.length > 0 ? (
               filteredFAQs.map((faq, index) => (
-                <div
-                  key={index}
-                  className={`bg-white border rounded-[2rem] overflow-hidden transition-all duration-500 shadow-sm hover:shadow-xl ${expandedFAQ === index ? 'border-cerrado-900 ring-4 ring-pequi-500/5 shadow-2xl scale-[1.01]' : 'border-castanha-200 hover:border-cerrado-900/20'
-                    }`}
-                >
+                <div key={index} className="border-b border-ink/20">
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full px-10 py-7 text-left flex justify-between items-center focus:outline-none"
+                    aria-expanded={expandedFAQ === index}
+                    className="flex w-full items-center justify-between gap-6 py-5 text-left text-[1.05rem] font-medium text-ink focus:outline-none"
                   >
-                    <span className="font-bold text-ink text-lg tracking-tight">{faq.question}</span>
-                    <div className={`p-3 rounded-full transition-all duration-500 ${expandedFAQ === index ? 'bg-cerrado-900 text-white rotate-180 shadow-lg' : 'bg-castanha-50 text-castanha-400'}`}>
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
+                    {faq.question}
+                    <span className="relative h-4 w-4 shrink-0 text-ink/60" aria-hidden="true">
+                      <span className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-current" />
+                      <span className={`absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current transition-transform ${expandedFAQ === index ? 'rotate-90 opacity-0' : ''}`} />
+                    </span>
                   </button>
-                  <div
-                    className={`transition-all duration-500 ease-in-out ${expandedFAQ === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                  >
-                    <div className="px-10 pb-10 text-castanha-600 font-medium leading-relaxed opacity-60">
-                      {faq.answer}
-                    </div>
-                  </div>
+                  {expandedFAQ === index && <p className="max-w-[640px] pb-5 text-[0.95rem] leading-relaxed text-ink/65">{faq.answer}</p>}
                 </div>
               ))
             ) : (
-              <div className="text-center py-20 bg-white rounded-[2.5rem] border border-castanha-200 shadow-lg">
-                <div className="w-24 h-24 bg-castanha-50 rounded-full flex items-center justify-center mx-auto mb-8 border border-castanha-200">
-                  <svg className="w-12 h-12 text-ink/10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-medium tracking-tight text-ink mb-4">Nenhum resultado encontrado</h3>
-                <p className="text-castanha-400 mb-10 max-w-xs mx-auto font-medium">Não encontramos nenhum resultado para &quot;{searchQuery}&quot;.</p>
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="px-8 py-4 text-white rounded-2xl font-bold text-[10px] uppercase tracking-[0.2em] shadow-xl transition-all btn-primary-gradient"
-                >
-                  Limpar pesquisa
+              <div className="py-8">
+                <p className="text-[1.05rem] font-medium text-ink">Nenhum resultado para &quot;{searchQuery}&quot;</p>
+                <button onClick={() => setSearchQuery('')} className="mt-3 text-[0.92rem] font-medium text-ink underline underline-offset-4">
+                  Limpar a busca
                 </button>
               </div>
             )}
           </div>
-        </div>
+        </section>
 
-        {/* Contact section */}
-        <div className="bg-cerrado-900 rounded-[3rem] p-16 text-center shadow-2xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-20 opacity-[0.05] pointer-events-none group-hover:scale-110 transition-transform duration-1000">
-            <svg width="400" height="400" viewBox="0 0 100 100">
-              <pattern id="grid-help-cta" width="10" height="10" patternUnits="userSpaceOnUse">
-                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
-              </pattern>
-              <rect width="100" height="100" fill="url(#grid-help-cta)" />
-            </svg>
+        <section className="mt-14 grid gap-6 rounded-3xl bg-[#151816] p-8 text-white sm:p-10 lg:grid-cols-2 lg:items-end">
+          <h3 className="text-[clamp(1.8rem,3.2vw,2.6rem)] font-medium leading-[1.05] tracking-[-0.03em]">Fale com a nossa equipe</h3>
+          <div className="lg:justify-self-end">
+            <p className="max-w-[420px] text-[0.98rem] leading-relaxed text-white/65">Respondemos em até 24 horas úteis, de segunda a sexta-feira (horário de Brasília).</p>
+            <Link href="/dashboard/help/contact" className="mt-5 inline-flex h-11 items-center gap-2 rounded-xl bg-[#FFFDF6] px-5 text-[0.92rem] font-medium text-ink hover:bg-white">
+              Enviar solicitação {arrow}
+            </Link>
           </div>
- 
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8">Fale com a nossa equipe.</h2>
-            <p className="text-white/60 text-lg mb-12 max-w-lg mx-auto leading-relaxed font-medium">
-              Respondemos em até 24 horas úteis, de segunda a sexta-feira (horário de Brasília).
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/dashboard/help/contact" className="px-10 py-5 text-white font-bold text-[11px] uppercase tracking-[0.2em] rounded-2xl transition-all shadow-xl active:scale-95 btn-primary-gradient">
-                Enviar solicitação
-              </Link>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     </DashboardLayout>
   );

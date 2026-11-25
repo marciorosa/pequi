@@ -24,10 +24,10 @@ const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose, title, des
       />
 
       {/* Modal Content */}
-      <div className="relative w-full max-w-md bg-white rounded-[2.5rem] p-10 shadow-2xl animate-in zoom-in-95 duration-300 border border-castanha-100">
+      <div className="relative w-full max-w-md bg-white rounded-3xl p-10 animate-in zoom-in-95 duration-300 border border-castanha-100">
         <div className="flex flex-col items-center text-center">
           {/* Icon */}
-          <div className="w-20 h-20 rounded-[2rem] bg-gradient-to-br from-pequi-400 to-pequi-600 flex items-center justify-center text-ink mb-8 shadow-xl">
+          <div className="w-20 h-20 rounded-3xl bg-[#151816] flex items-center justify-center text-ink mb-8">
             <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83m-4.25 4.25L5.25 11.42a2.652 2.652 0 003.75-3.75l4.25 4.25m-4.25-4.25L21 3m-4.25 4.25L17.25 3M3 21l4.25-4.25M3 3l18 18" />
             </svg>
@@ -49,13 +49,13 @@ const UpgradeModal: React.FC<UpgradeModalProps> = ({ isOpen, onClose, title, des
           <div className="flex flex-col w-full gap-3">
             <button
               onClick={() => router.push('/dashboard/billing')}
-              className="w-full py-4 bg-foreground text-white rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="w-full py-4 bg-foreground text-white rounded-2xl text-[0.92rem] font-medium active:scale-[0.98] transition-all"
             >
               Fazer upgrade para o Pro
             </button>
             <button
               onClick={onClose}
-              className="w-full py-4 bg-castanha-50 text-foreground/40 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] hover:bg-castanha-100 transition-all"
+              className="w-full py-4 bg-castanha-50 text-foreground/40 rounded-2xl text-[0.92rem] font-medium hover:bg-castanha-100 transition-all"
             >
               Talvez depois
             </button>
