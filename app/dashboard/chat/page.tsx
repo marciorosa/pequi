@@ -320,78 +320,118 @@ export default function ChatPage() {
     if (currentChatId === id) startNewChat();
   };
 
+  // Visual no padrão editorial (2026-11-24): moldura areia, pergunta em balão
+  // grafite, resposta em cartão claro com etiqueta; conversas em faixas areia.
   return (
     <DashboardLayout title="Chat" fitScreen>
-      <div className="flex h-full min-h-0 rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
-        {/* Mobile Sidebar Backdrop */}
+      <div className="relative flex h-full min-h-[600px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
         {showSidebar && (
-          <div 
-            className="fixed inset-0 bg-cerrado-950/20 backdrop-blur-sm z-30 lg:hidden"
-            onClick={() => setShowSidebar(false)}
-          />
+          <div className="fixed inset-0 z-30 bg-[#151816]/20 backdrop-blur-sm lg:hidden" onClick={() => setShowSidebar(false)} />
         )}
 
-        <aside className={`${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} absolute lg:relative z-40 w-80 h-full bg-castanha-50 border-r border-castanha-200 transition-transform duration-300 font-sans`}>
-          <div className="flex flex-col h-full p-6">
-            <div className="flex items-center justify-between mb-8 lg:hidden">
-              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Arquivo</span>
-              <button 
-                onClick={() => setShowSidebar(false)}
-                className="p-2 -mr-2 text-foreground/40 hover:text-foreground transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <button onClick={startNewChat} className="group relative w-full py-5 rounded-[1.5rem] font-bold text-[10px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all mb-10 overflow-hidden border border-white/10 btn-primary-gradient">
-              <span className="relative z-10">Iniciar conversa</span>
+        <aside
+          className={`${showSidebar ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} absolute z-40 flex h-full w-80 flex-col border-r border-ink/10 bg-[#FFFDF6] transition-transform duration-300 lg:relative`}
+        >
+          <div className="flex h-16 flex-shrink-0 items-center justify-between border-b border-ink/10 px-5">
+            <span className="text-[0.95rem] font-medium text-ink">Conversas</span>
+            <button onClick={() => setShowSidebar(false)} className="-mr-2 p-2 text-ink/40 hover:text-ink lg:hidden" aria-label="Fechar conversas">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
-            <div className="flex-1 overflow-y-auto space-y-4 h-full pr-2 custom-scrollbar">
-              <h3 className="px-2 text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20 mb-6">Histórico de consultas</h3>
-              {recentChats.map(chat => (
-                <div key={chat._id} className={`group flex items-center justify-between p-5 rounded-[1.5rem] cursor-pointer transition-all ${currentChatId === chat._id ? 'bg-white shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-castanha-200 ring-1 ring-pequi-500/5' : 'hover:bg-cerrado-950/5 text-foreground/60'}`} onClick={() => handleChatClick(chat._id)}>
-                  <div className="flex flex-col min-w-0">
-                    <span className={`text-[13px] font-medium truncate ${currentChatId === chat._id ? 'text-ink' : ''}`}>{chat.title}</span>
-                    <span className="text-[10px] font-medium opacity-30 mt-1 uppercase tracking-[0.2em]">{new Date(chat.updatedAt).toLocaleDateString('pt-BR')}</span>
+          </div>
+
+          <div className="flex min-h-0 flex-1 flex-col p-4">
+            <button
+              onClick={startNewChat}
+              className="flex h-12 w-full flex-shrink-0 items-center justify-between rounded-2xl bg-[#151816] px-5 text-[0.92rem] font-medium text-white hover:bg-[#151816]/90"
+            >
+              Nova conversa
+              <svg className="h-4 w-4 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
+              </svg>
+            </button>
+
+            <p className="mb-2 mt-6 px-1 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/40">Histórico</p>
+            <div className="custom-scrollbar min-h-0 flex-1 space-y-2 overflow-y-auto pr-1">
+              {recentChats.length === 0 && <p className="px-1 text-[0.85rem] text-ink/45">As conversas aparecem aqui.</p>}
+              {recentChats.map((chat) => {
+                const active = currentChatId === chat._id;
+                return (
+                  <div
+                    key={chat._id}
+                    onClick={() => handleChatClick(chat._id)}
+                    className={`group flex cursor-pointer items-center gap-3 rounded-2xl px-4 py-3 transition-colors ${active ? 'bg-[#151816] text-white' : 'bg-[#F1EDE0] text-ink hover:bg-[#E9E3D2]'}`}
+                  >
+                    <svg className={`h-4 w-4 flex-shrink-0 ${active ? 'text-white/60' : 'text-ink/45'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h8M8 14h5M21 12c0 4.4-4 8-9 8-1.3 0-2.6-.2-3.7-.7L3 20l1.4-3.8C3.5 15 3 13.5 3 12c0-4.4 4-8 9-8s9 3.6 9 8z" />
+                    </svg>
+                    <span className="min-w-0 flex-1 truncate text-[0.92rem]">{chat.title}</span>
+                    <span className={`flex-shrink-0 text-[0.75rem] group-hover:hidden ${active ? 'text-white/55' : 'text-ink/45'}`}>
+                      {new Date(chat.updatedAt).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteChat(chat._id);
+                      }}
+                      className={`hidden flex-shrink-0 rounded-lg p-1 group-hover:block ${active ? 'text-white/70 hover:text-white' : 'text-ink/45 hover:text-red-600'}`}
+                      aria-label="Excluir conversa"
+                    >
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    </button>
                   </div>
-                  <button onClick={(e) => { e.stopPropagation(); deleteChat(chat._id); }} className="opacity-0 group-hover:opacity-100 p-2 text-red-400 hover:bg-red-50 rounded-xl transition-all">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </aside>
 
-        <main className="flex-1 flex flex-col min-w-0 relative bg-white">
-          <header className="h-20 px-8 border-b border-castanha-50 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <button onClick={() => setShowSidebar(!showSidebar)} className="lg:hidden p-2 text-foreground/40 hover:text-foreground">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <main className="relative flex min-w-0 flex-1 flex-col">
+          <header className="flex h-16 flex-shrink-0 items-center justify-between gap-4 border-b border-ink/10 px-5 sm:px-8">
+            <div className="flex items-center gap-3">
+              <button onClick={() => setShowSidebar(!showSidebar)} className="-ml-2 p-2 text-ink/50 hover:text-ink lg:hidden" aria-label="Abrir conversas">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
-              <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Chat com IA</span>
-                <h2 className="text-xl font-light tracking-tight">Nova conversa</h2>
-              </div>
+              <span className="hidden gap-1.5 sm:flex" aria-hidden="true">
+                <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+                <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+              </span>
             </div>
-            <div className="flex items-center gap-2">
-              <button onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')} className={`px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all border ${activeToggle === 'internet' ? 'btn-primary-gradient text-white border-transparent shadow-lg' : 'bg-castanha-50 text-foreground/40 border-castanha-100'}`}>Acesso à internet</button>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setActiveToggle(activeToggle === 'internet' ? 'prompts' : 'internet')}
+                aria-pressed={activeToggle === 'internet'}
+                className={`rounded-full px-3.5 py-1.5 text-[0.8rem] font-medium transition-colors ${activeToggle === 'internet' ? 'bg-[#151816] text-white' : 'text-ink/60 ring-1 ring-ink/15 hover:text-ink'}`}
+              >
+                Pesquisa na internet {activeToggle === 'internet' ? 'ligada' : 'desligada'}
+              </button>
+              <span className="hidden text-[0.95rem] font-medium text-ink sm:inline">{brand.tenant ? brand.name : 'Pequi'} / Chat</span>
             </div>
           </header>
 
-          <div className="flex-1 overflow-y-auto px-8 py-10 space-y-8 custom-scrollbar">
+          <div className="custom-scrollbar min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-8 sm:px-8">
             {messages.length === 1 && (
-              <div className="max-w-2xl mx-auto space-y-12 py-10">
-                <div className="space-y-4 text-center">
-                  <h1 className="text-4xl font-medium tracking-tight text-ink">Chat <span className="pq-accent">jurídico.</span></h1>
-                  <p className="text-castanha-600 text-lg leading-relaxed font-medium opacity-60 max-w-md mx-auto">Escolha uma sugestão ou escreva sua dúvida.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mx-auto max-w-2xl py-6">
+                <h1 className="text-[clamp(1.8rem,3vw,2.4rem)] font-medium leading-tight tracking-[-0.03em] text-ink">Como posso ajudar hoje?</h1>
+                <p className="mt-2 text-[1rem] text-ink/60">Escolha uma sugestão ou escreva a sua dúvida.</p>
+                <div className="mt-8 space-y-2">
                   {suggestedPrompts.map((p, i) => (
-                    <button key={i} onClick={() => setInput(p)} className="text-left p-6 rounded-[2rem] bg-castanha-50 border border-castanha-200 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-castanha-600 opacity-30 group-hover:opacity-60 mb-3 block">Sugestão</span>
-                      <span className="text-[14px] font-medium leading-relaxed text-castanha-800">{p}</span>
+                    <button
+                      key={i}
+                      onClick={() => setInput(p)}
+                      className="flex w-full items-center gap-4 rounded-2xl bg-[#FFFDF6] px-5 py-4 text-left transition-colors hover:bg-white"
+                    >
+                      <span className="w-4 flex-shrink-0 text-[0.85rem] tabular-nums text-ink/40">{i + 1}</span>
+                      <span className="flex-1 text-[0.98rem] leading-snug text-ink">{p}</span>
+                      <svg className="h-4 w-4 flex-shrink-0 text-ink/35" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                      </svg>
                     </button>
                   ))}
                 </div>
@@ -399,51 +439,56 @@ export default function ChatPage() {
             )}
 
             {messages.slice(1).map((m, i) => (
-              <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
-                <div className={`max-w-[85%] ${m.role === 'user'
-                  ? 'rounded-[1.5rem] py-4 px-6 btn-primary-gradient text-white shadow-[0_12px_24px_rgba(0,0,0,0.12)] border border-white/5'
-                  : 'rounded-[2.5rem] p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
+              <div key={i} className={`mx-auto flex max-w-4xl ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
+                <div
+                  className={
+                    m.role === 'user'
+                      ? 'max-w-[80%] rounded-2xl bg-[#151816] px-6 py-4 text-white'
+                      : 'w-full rounded-3xl bg-[#FFFDF6] p-6 text-ink sm:p-8'
+                  }
+                >
+                  {m.role === 'assistant' && (
+                    <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">
+                      Resposta{activeToggle === 'internet' ? ' com pesquisa' : ''}
+                    </p>
+                  )}
                   {m.fileData && (
                     <div className="mb-4">
-                      {m.fileData.type === 'image' && (
+                      {m.fileData.type === 'image' ? (
                         <>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="anexo" className="max-w-full h-auto rounded-[1.5rem] border border-castanha-200" />
+                          <img src={`data:${m.fileData.mimeType};base64,${m.fileData.base64Data}`} alt="anexo" className="h-auto max-w-full rounded-xl" />
                         </>
-                      )}
-                      {m.fileData.type !== 'image' && (
-                        <div className={`p-4 rounded-2xl border flex items-center gap-3 ${m.role === 'user' ? 'bg-white/10 border-white/10' : 'bg-castanha-50 border-castanha-200'}`}>
-                          <svg className={`w-5 h-5 ${m.role === 'user' ? 'text-white/40' : 'text-foreground/40'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                      ) : (
+                        <div className={`flex items-center gap-3 rounded-xl px-4 py-3 ${m.role === 'user' ? 'bg-white/10' : 'bg-[#F1EDE0]'}`}>
+                          <svg className={`h-4 w-4 ${m.role === 'user' ? 'text-white/60' : 'text-ink/45'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
-                          <span className="text-xs font-bold uppercase tracking-[0.1em] truncate">{m.fileData.name}</span>
+                          <span className="truncate text-[0.88rem]">{m.fileData.name}</span>
                         </div>
                       )}
                     </div>
                   )}
-                  <div className={`prose prose-sm max-w-none font-medium leading-[1.6] text-[1.05rem] chat-content ${m.role === 'user' ? 'prose-invert' : 'prose-gray'}`}>
-                    {m.role === 'assistant' ? (
-                      <div
-                        dangerouslySetInnerHTML={{ __html: m.content }}
-                        className="html-content"
-                      />
-                    ) : (
+                  {m.role === 'assistant' ? (
+                    <div dangerouslySetInnerHTML={{ __html: m.content }} className="html-content text-[1rem] leading-[1.75] text-ink/75" />
+                  ) : (
+                    <div className="text-[1rem] leading-relaxed [&_p]:m-0">
                       <ReactMarkdown>{m.content}</ReactMarkdown>
-                    )}
-                  </div>
-                  <div className={`text-[9px] font-bold uppercase tracking-[0.2em] ${m.role === 'user' ? 'mt-3 text-right text-white/40' : 'mt-6 text-foreground/20'}`}>
+                    </div>
+                  )}
+                  <div className={m.role === 'user' ? 'mt-2 text-right text-[0.72rem] text-white/45' : 'mt-6 border-t border-ink/10 pt-4 text-[0.78rem] text-ink/45'}>
                     {new Date(m.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                   </div>
                 </div>
               </div>
             ))}
             {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-castanha-50 border border-castanha-100 rounded-[2rem] px-8 py-6">
+              <div className="mx-auto flex max-w-4xl justify-start">
+                <div className="rounded-2xl bg-[#FFFDF6] px-6 py-5">
                   <div className="flex space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-100" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-200" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30 delay-100" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30 delay-200" />
                   </div>
                 </div>
               </div>
@@ -451,39 +496,43 @@ export default function ChatPage() {
             <div ref={messagesEndRef} />
           </div>
 
-          <footer className="p-8 bg-castanha-50/80 backdrop-blur-3xl border-t border-castanha-200">
-            <div className="max-w-4xl mx-auto space-y-6">
+          <footer className="flex-shrink-0 border-t border-ink/10 px-5 py-4 sm:px-8">
+            <div className="mx-auto max-w-4xl">
               {filePreview && (
-                <div className="relative inline-block group">
+                <div className="relative mb-3 inline-block">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={filePreview} alt="prévia" className="h-32 rounded-[1.5rem] border border-castanha-200 shadow-2xl" />
-                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-7 h-7 bg-cerrado-900 text-white rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <img src={filePreview} alt="prévia" className="h-24 rounded-xl" />
+                  <button onClick={clearSelectedFile} className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#151816] text-white" aria-label="Remover arquivo">
+                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
               )}
               {selectedFile && !filePreview && (
-                <div className="relative inline-flex items-center gap-4 p-5 bg-white rounded-[1.5rem] border border-castanha-200 group shadow-xl">
-                  <div className="w-10 h-10 rounded-xl bg-castanha-50 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-foreground/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                    </svg>
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{selectedFile.name}</span>
-                  <button onClick={clearSelectedFile} className="absolute -top-2 -right-2 w-6 h-6 bg-cerrado-900 text-white rounded-full flex items-center justify-center shadow-md">
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <div className="relative mb-3 inline-flex items-center gap-3 rounded-xl bg-[#FFFDF6] px-4 py-3">
+                  <svg className="h-4 w-4 text-ink/45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="text-[0.88rem] text-ink">{selectedFile.name}</span>
+                  <button onClick={clearSelectedFile} className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-[#151816] text-white" aria-label="Remover arquivo">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
               )}
- 
-              <form onSubmit={handleSendMessage} className="relative group">
+
+              <form onSubmit={handleSendMessage} className="flex items-end gap-2 rounded-2xl bg-[#FFFDF6] p-2 ring-1 ring-ink/10 focus-within:ring-ink/30">
                 <input type="file" ref={fileInputRef} onChange={handleFileSelect} className="hidden" accept="image/*,video/*,application/pdf,audio/*" />
-                <button type="button" onClick={() => fileInputRef.current?.click()} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center text-foreground/20 hover:text-ink transition-all">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.2">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-ink/45 hover:bg-[#F1EDE0] hover:text-ink"
+                  aria-label="Anexar imagem, vídeo, PDF ou áudio"
+                  title="Anexar imagem, vídeo, PDF ou áudio"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                   </svg>
                 </button>
@@ -493,65 +542,87 @@ export default function ChatPage() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Escreva sua dúvida..."
                   rows={1}
-                  className="w-full bg-white border border-castanha-200 focus:ring-8 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2.5rem] py-7 pl-16 pr-24 resize-none text-ink transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden font-medium text-[1.1rem]"
-                  onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(e); } }}
+                  className="max-h-40 min-h-[44px] flex-1 resize-none overflow-hidden border-0 bg-transparent px-1 py-2.5 text-[1rem] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-0"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault();
+                      handleSendMessage(e);
+                    }
+                  }}
                 />
-                <button type="submit" disabled={isLoading || isProcessingFile || (!input.trim() && !selectedFile)} className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center text-white rounded-full transition-all shadow-2xl disabled:opacity-10 group-disabled:scale-100 btn-primary-gradient">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <button
+                  type="submit"
+                  disabled={isLoading || isProcessingFile || (!input.trim() && !selectedFile)}
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#151816] text-white transition-opacity disabled:opacity-25"
+                  aria-label="Enviar"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
                   </svg>
                 </button>
               </form>
 
-              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/20 flex items-center justify-center gap-4 pt-2">
-                <span>Formatos aceitos:</span>
-                <div className="flex items-center gap-1.5 text-pequi-600/70"><div className="w-1 h-1 rounded-full bg-current" /><span>Imagens</span></div>
-                <div className="flex items-center gap-1.5 text-cerrado-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Vídeos</span></div>
-                <div className="flex items-center gap-1.5 text-red-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>PDFs</span></div>
-                <div className="flex items-center gap-1.5 text-terra-500/50"><div className="w-1 h-1 rounded-full bg-current" /><span>Áudio</span></div>
-              </div>
-              <p className="text-[11px] font-medium text-foreground/40 text-center leading-relaxed pt-1">
-                Respostas geradas por IA, com caráter informativo. {brand.tenant ? `${brand.subject} não presta consultoria jurídica; para o seu caso, fale com um advogado do escritório.` : 'O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
+              <p className="mt-3 text-center text-[0.75rem] leading-relaxed text-ink/45">
+                Respostas geradas por IA, com caráter informativo.{' '}
+                {brand.tenant
+                  ? `${brand.subject} não presta consultoria jurídica; para o seu caso, fale com um advogado do escritório.`
+                  : 'O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
               </p>
 
               <style jsx>{`
-                    textarea::-webkit-scrollbar {
-                        display: none;
-                    }
-                    .html-content p {
-                        margin-bottom: 1.25rem;
-                        line-height: 1.6;
-                    }
-                    .html-content h1, .html-content h2, .html-content h3 {
-                        font-weight: 700;
-                        margin-top: 1.75rem;
-                        margin-bottom: 0.75rem;
-                        color: #10101A;
-                    }
-                    .html-content ul, .html-content ol {
-                        margin-left: 1.5rem;
-                        margin-bottom: 1.25rem;
-                        list-style-type: disc;
-                    }
-                    .html-content ol {
-                        list-style-type: decimal;
-                    }
-                    .html-content li {
-                        margin-bottom: 0.5rem;
-                    }
-                    .html-content strong {
-                        font-weight: 700;
-                        color: #10101A;
-                    }
-                `}</style>
+                textarea::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
+              <style jsx global>{`
+                .html-content p {
+                  margin-bottom: 1rem;
+                }
+                .html-content p:last-child {
+                  margin-bottom: 0;
+                }
+                .html-content h1,
+                .html-content h2,
+                .html-content h3 {
+                  font-family: var(--font-accent);
+                  font-weight: 500;
+                  font-size: 1.6rem;
+                  line-height: 1.2;
+                  letter-spacing: -0.01em;
+                  color: #151816;
+                  margin: 1.5rem 0 0.75rem;
+                }
+                .html-content h1:first-child,
+                .html-content h2:first-child,
+                .html-content h3:first-child {
+                  margin-top: 0;
+                }
+                .html-content ul,
+                .html-content ol {
+                  margin: 0 0 1rem 1.25rem;
+                  list-style-type: disc;
+                }
+                .html-content ol {
+                  list-style-type: decimal;
+                }
+                .html-content li {
+                  margin-bottom: 0.4rem;
+                }
+                .html-content strong {
+                  font-weight: 600;
+                  color: #151816;
+                }
+                .html-content a {
+                  color: #151816;
+                  text-decoration: underline;
+                  text-underline-offset: 4px;
+                }
+              `}</style>
             </div>
           </footer>
         </main>
-      </div >
-      <UpgradeModal
-        isOpen={showUpgradeModal}
-        onClose={() => setShowUpgradeModal(false)}
-      />
-    </DashboardLayout >
+      </div>
+      <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
+    </DashboardLayout>
   );
 } 

@@ -11,7 +11,7 @@ import { useAuth } from '../contexts/AuthContext';
 interface DashboardLayoutProps {
   children: React.ReactNode;
   title: string;
-  // Telas de conversa: o conteúdo ocupa a altura livre da janela e a página não rola
+  // Telas de conversa: o conteúdo ocupa a altura livre da janela (a tela define a altura mínima; abaixo dela a página rola)
   fitScreen?: boolean;
   // Páginas com foto em tela cheia (ex.: preços): sem margem nem largura máxima
   fullBleed?: boolean;
@@ -179,8 +179,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
 
       {/* Main content area */}
       {fitScreen ? (
-        <main className="flex-1 min-h-0 overflow-hidden">
-          <div className="h-full p-3 md:px-12 md:pt-8 md:pb-32 max-w-7xl mx-auto">
+        // Ocupa a altura livre; a tela de conversa define a altura mínima e, abaixo dela, a página rola
+        <main className="flex-1 min-h-0 overflow-y-auto">
+          <div className="h-full p-3 md:px-12 md:pt-8 md:pb-28 max-w-7xl mx-auto">
             {children}
           </div>
         </main>
