@@ -123,7 +123,7 @@ export default function KnowledgeExperience() {
   return (
     <>
       <ProductHero
-        eyebrow="Base de Conhecimento"
+        eyebrow="Pesquisa jurídica"
         title="Pesquisa jurídica com a sua marca"
         text="Seus clientes recebem explicações sobre consumo, trabalho, família e moradia, com as leis indicadas para conferir na fonte."
         primary={{ label: 'Levar para o meu escritório', href: '/contact' }}

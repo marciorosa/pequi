@@ -61,7 +61,7 @@ export default function WorkflowsExperience() {
     { title: 'Cofre na AWS', text: 'Documentos e PDFs assinados guardados nas pastas do Cofre.' },
     { title: 'IA jurídica', text: 'Resumo, análise de riscos e minutas com Maritaca e Gemini.' },
     { title: 'E-mail', text: 'Envio do resultado para o cliente ou para a equipe.' },
-    { title: 'Pesquisa jurídica', text: 'Consulta à base de conhecimento dentro do fluxo.' },
+    { title: 'Pesquisa jurídica', text: 'A pesquisa jurídica dentro do fluxo.' },
     { title: 'Revisão humana', text: 'Cada etapa pode parar para o advogado aprovar.' },
   ];
 

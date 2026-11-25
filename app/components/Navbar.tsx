@@ -11,7 +11,7 @@ import PequiWordmark from './PequiWordmark';
 // transparente sobre o topo escuro e ganha fundo creme ao rolar.
 export const products = [
   { n: '01', label: 'Agentes', href: '/assistant' },
-  { n: '02', label: 'Base de Conhecimento', href: '/knowledge' },
+  { n: '02', label: 'Pesquisa jurídica', href: '/knowledge' },
   { n: '03', label: 'Automações', href: '/workflows' },
   { n: '04', label: 'Cofre de documentos', href: '/vault' },
   { n: '05', label: 'Assinatura eletrônica', href: '/workflows#assinatura' },
