@@ -324,7 +324,7 @@ export default function ChatPage() {
   // grafite, resposta em cartão claro com etiqueta; conversas em faixas areia.
   return (
     <DashboardLayout title="Chat" fitScreen>
-      <div className="relative flex h-full min-h-[600px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
+      <div className="relative flex h-full min-h-[420px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
         {showSidebar && (
           <div className="fixed inset-0 z-30 bg-[#151816]/20 backdrop-blur-sm lg:hidden" onClick={() => setShowSidebar(false)} />
         )}

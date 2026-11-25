@@ -179,9 +179,10 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
 
       {/* Main content area */}
       {fitScreen ? (
-        // Ocupa a altura livre; a tela de conversa define a altura mínima e, abaixo dela, a página rola
+        // Ocupa a altura livre entre o cabeçalho e o menu (que aqui não flutua); abaixo da
+        // altura mínima da tela de conversa, a área rola em vez de esconder o campo de digitar
         <main className="flex-1 min-h-0 overflow-y-auto">
-          <div className="h-full p-3 md:px-12 md:pt-8 md:pb-28 max-w-7xl mx-auto">
+          <div className="h-full p-3 md:px-12 md:pt-6 md:pb-2 max-w-7xl mx-auto">
             {children}
           </div>
         </main>
@@ -195,8 +196,9 @@ export default function DashboardLayout({ children, title, actions, fitScreen = 
         </main>
       )}
 
-      {/* Floating Bottom Dock (Hidden on mobile, visible on iPad/md and up) */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block">
+      {/* Menu inferior (some no celular). Nas telas de conversa ele ocupa a própria faixa no fim
+          da página, para nunca cobrir o campo de digitar; nas demais, flutua sobre o conteúdo. */}
+      <div className={fitScreen ? 'hidden shrink-0 justify-center py-3 md:flex' : 'fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:block'}>
         <nav className="bg-white/90 backdrop-blur-3xl border border-castanha-200 rounded-full px-4 py-2.5 flex items-center gap-2.5 shadow-[0_18px_40px_-18px_rgba(36,37,33,0.25)]">
           <DockItem href="/dashboard" label="Pesquisa" exact icon={<ToolIcon name="search" />} />
           <DockItem href="/dashboard/chat" label="Chat" icon={<ToolIcon name="chat" />} />

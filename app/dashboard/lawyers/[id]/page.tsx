@@ -117,7 +117,7 @@ export default function LawyerDetailPage({ params }: Props) {
   // pergunta em balão grafite e resposta em cartão claro com etiqueta.
   return (
     <DashboardLayout title={lawyer?.name || 'Assistente de IA'} fitScreen>
-      <div className="relative flex h-full min-h-[600px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
+      <div className="relative flex h-full min-h-[420px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
         <aside className="custom-scrollbar hidden w-80 shrink-0 flex-col overflow-y-auto border-r border-ink/10 bg-[#FFFDF6] lg:flex">
           <div className="flex h-16 flex-shrink-0 items-center border-b border-ink/10 px-5">
             <button onClick={() => router.back()} className="flex items-center gap-2 text-[0.9rem] text-ink/60 hover:text-ink">
