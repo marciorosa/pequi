@@ -4,6 +4,7 @@ import { useBrand } from '../contexts/TenantContext';
 import { useState, useRef, useEffect } from 'react';
 import { aiService } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
+import Link from 'next/link';
 
 interface Message {
   id: string;
@@ -25,6 +26,8 @@ export default function AssistantChat() {
   const { isAuthenticated } = useAuth();
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  // Demonstração sem login: perguntas que o visitante ainda tem (null = ainda não perguntou)
+  const [demoLeft, setDemoLeft] = useState<number | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   // Pergunta digitada no topo da página inicial chega como ?q= e já fica no campo
@@ -58,17 +61,35 @@ export default function AssistantChat() {
     setInput('');
     setIsLoading(true);
 
+    // No site de um escritório (white-label), sem login, continua pedindo cadastro
+    if (!isAuthenticated && brand.tenant) {
+      setMessages((prev) => [
+        ...prev,
+        { id: (Date.now() + 1).toString(), role: 'assistant', content: 'Faça login ou cadastre-se para conversar com seu assistente jurídico.', timestamp: new Date() },
+      ]);
+      setIsLoading(false);
+      return;
+    }
+
     if (!isAuthenticated) {
-      setTimeout(() => {
-        const authMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          role: 'assistant',
-          content: 'Faça login ou cadastre-se para conversar com seu assistente jurídico.',
-          timestamp: new Date(),
-        };
-        setMessages((prev) => [...prev, authMessage]);
+      const say = (content: string) =>
+        setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), role: 'assistant', content, timestamp: new Date() }]);
+      try {
+        const history = messages.slice(1).map((m) => ({ role: m.role, content: m.content }));
+        const r = await aiService.demoAsk({ message: userMessage.content, history });
+        say(r.reply);
+        setDemoLeft(r.remaining);
+      } catch (error: unknown) {
+        const res = (error as { response?: { status?: number; data?: { message?: string } } })?.response;
+        if (res?.status === 429) {
+          say(res.data?.message || 'Você usou as perguntas da demonstração. Crie sua conta grátis para continuar.');
+          setDemoLeft(0);
+        } else {
+          say(res?.data?.message || 'A assistente está indisponível agora. Tente de novo em instantes.');
+        }
+      } finally {
         setIsLoading(false);
-      }, 800);
+      }
       return;
     }
 
@@ -172,7 +193,7 @@ export default function AssistantChat() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Digite sua solicitação jurídica..."
             className="flex-1 rounded-[0.875rem] border border-castanha-200 bg-castanha-100 p-4 text-[0.9375rem] text-ink transition-all placeholder:text-castanha-600 focus:border-castanha-300 focus:outline-none focus:ring-2 focus:ring-pequi-500/32"
-            disabled={isLoading}
+            disabled={isLoading || (!isAuthenticated && demoLeft === 0)}
           />
           <button
             type="submit"
@@ -185,9 +206,22 @@ export default function AssistantChat() {
             </svg>
           </button>
         </div>
-        <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
-          {brand.tenant ? brand.name : 'Com a inteligência do Pequi'}
-        </p>
+        {!isAuthenticated && !brand.tenant ? (
+          <p className="mt-4 text-center text-[0.8rem] text-ink/55">
+            {demoLeft === 0
+              ? 'As perguntas da demonstração acabaram. '
+              : demoLeft === null
+                ? 'Demonstração gratuita: faça até 3 perguntas sem cadastro. '
+                : `Demonstração: ${demoLeft === 1 ? 'resta 1 pergunta' : `restam ${demoLeft} perguntas`}. `}
+            <Link href="/signup" className="font-medium text-ink underline underline-offset-4">
+              Criar conta grátis
+            </Link>
+          </p>
+        ) : (
+          <p className="mt-4 text-center text-[0.625rem] font-medium uppercase tracking-[0.14em] text-castanha-600">
+            {brand.tenant ? brand.name : 'Com a inteligência do Pequi'}
+          </p>
+        )}
       </form>
     </div>
   );

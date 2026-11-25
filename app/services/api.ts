@@ -199,6 +199,12 @@ export const authService = {
 
 // AI services
 export const aiService = {
+  // Demonstração aberta (sem login) do site do Pequi: poucas perguntas por visitante
+  demoAsk: async (data: { message: string; history?: Array<{ role: string; content: string }> }) => {
+    const response = await api.post('/demo/ask', data);
+    return response.data as { reply: string; remaining: number };
+  },
+
   generateAssistantResponse: async (data: { prompt: string; context?: unknown }) => {
     const response = await api.post('/ai/assistant', data);
     return response.data;
