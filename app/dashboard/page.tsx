@@ -93,196 +93,158 @@ export default function DashboardPage() {
     document.body.removeChild(fileDownload);
   };
 
+  // Visual no padrão editorial do painel (2026-11-24): título à esquerda e texto à
+  // direita, busca na moldura areia, sugestões em faixas numeradas e resposta em
+  // cartão claro com etiqueta, como no chat.
+  const arrow = (
+    <svg className="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+    </svg>
+  );
+
   return (
     <DashboardLayout title="Pesquisa Inteligente">
-      <div className="max-w-7xl mx-auto space-y-12">
-        {/* Two-Panel Hero Section */}
-        <div className="flex flex-col lg:flex-row rounded-[3rem] overflow-hidden shadow-2xl border border-castanha-200 min-h-[600px] bg-white">
-          {/* Left Panel: High-Density Intelligence Banner */}
-          <div className="lg:w-1/2 p-12 md:p-20 bg-hero-gradient relative flex flex-col justify-between overflow-hidden">
-            {/* Architectural Grid Background */}
-            <div className="absolute inset-0 opacity-[0.03]">
-              <svg width="100%" height="100%">
-                <defs>
-                  <pattern id="grid-left" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="black" strokeWidth="0.5" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid-left)" />
-              </svg>
-            </div>
-
-            <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cerrado-950/5 border border-cerrado-900/5 animate-in fade-in slide-in-from-top-4 duration-1000">
-                <div className="w-1.5 h-1.5 rounded-full bg-cerrado-950/20 animate-pulse" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40 text-nowrap">Pesquisa com IA</span>
-              </div>
-              
-              <div className="space-y-4">
-                <h2 className="text-4xl md:text-5xl font-medium tracking-tight leading-tight text-ink">
-                  Pesquisa <span className="pq-accent">jurídica com IA</span>
-                </h2>
-                <p className="text-lg text-ink/60 font-medium leading-relaxed max-w-sm">
-                  Tire dúvidas sobre as leis brasileiras em linguagem simples. A pesquisa não consulta processos nem bases de jurisprudência.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative z-10 pt-12">
-              <div className="p-5 rounded-2xl bg-white/60 border border-castanha-200 space-y-2">
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ink/40">Importante</span>
-                <p className="text-sm font-medium text-ink/70 leading-relaxed">
-                  As respostas são geradas por inteligência artificial e têm caráter apenas informativo. {brand.tenant ? `${brand.subject} não presta consultoria jurídica: para avaliar o seu caso, fale com um advogado do escritório.` : 'O Pequi não é um escritório de advocacia e não presta consultoria jurídica. Para avaliar o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
-                </p>
-              </div>
-            </div>
+      <div className="mx-auto max-w-6xl">
+        <div className="grid gap-6 border-b border-ink/12 pb-10 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Pesquisa com IA</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Qual é a sua dúvida jurídica?</h2>
           </div>
-
-          {/* Right Panel: Search Operating Interface */}
-          <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center bg-white">
-            <div className="max-w-md w-full mx-auto space-y-10">
-              <div className="space-y-2">
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Pesquisa</h3>
-                <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-ink">Qual é a sua dúvida?</h2>
-              </div>
-
-              <form onSubmit={handleSearch} className="relative group">
-                <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-                  <svg className="w-5 h-5 text-ink/20 transition-colors group-focus-within:text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  placeholder="Cláusula, direito ou dúvida jurídica..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-castanha-50 border border-castanha-200 text-ink placeholder-ink/30 py-5 pl-14 pr-16 rounded-2xl focus:outline-none focus:ring-4 focus:ring-pequi-500/5 transition-all duration-300 font-medium"
-                />
-                <button
-                  type="submit"
-                  disabled={isSearching}
-                  className={`absolute right-2.5 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-xl btn-primary-gradient ${isSearching ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                  {isSearching ? (
-                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                  ) : (
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  )}
-                </button>
-              </form>
-
-              {!hasSearched && (
-                <div className="space-y-4">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/20">Acesso rápido</p>
-                  <div className="flex flex-wrap gap-2">
-                    {searchSuggestions.slice(0, 4).map((suggestion, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleSuggestionClick(suggestion)}
-                        className="px-4 py-2 text-[10px] font-bold uppercase tracking-widest bg-castanha-50 hover:bg-cerrado-950/5 border border-castanha-200 rounded-full text-ink/40 hover:text-ink transition-all duration-300"
-                      >
-                        {suggestion}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
+          <p className="max-w-[460px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
+            Explicações sobre as leis brasileiras em linguagem simples. A pesquisa não consulta processos nem bases de jurisprudência.
+          </p>
         </div>
 
-        {/* Results Section */}
+        <div className="mt-10 rounded-3xl border border-ink/10 bg-[#F1EDE0] p-3 sm:p-4">
+          <form onSubmit={handleSearch} className="flex items-center gap-2 rounded-2xl bg-[#FFFDF6] p-2 ring-1 ring-ink/10 focus-within:ring-ink/30">
+            <svg className="ml-3 h-5 w-5 flex-shrink-0 text-ink/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Cláusula, direito ou dúvida jurídica..."
+              aria-label="Sua dúvida jurídica"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="h-11 min-w-0 flex-1 border-0 bg-transparent px-1 text-[1rem] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-0"
+            />
+            <button
+              type="submit"
+              disabled={isSearching || !searchQuery.trim()}
+              aria-label="Pesquisar"
+              className="flex h-11 flex-shrink-0 items-center gap-2 rounded-xl bg-[#151816] px-4 text-[0.92rem] font-medium text-white transition-opacity disabled:opacity-30"
+            >
+              {isSearching ? (
+                <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+              ) : (
+                <>
+                  <span className="hidden sm:inline">Pesquisar</span>
+                  {arrow}
+                </>
+              )}
+            </button>
+          </form>
+
+          {!hasSearched && (
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              {searchSuggestions.slice(0, 4).map((suggestion, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  className="flex items-center gap-4 rounded-2xl bg-[#FFFDF6]/70 px-5 py-4 text-left text-ink transition-colors hover:bg-[#FFFDF6]"
+                >
+                  <span className="w-4 flex-shrink-0 text-[0.85rem] tabular-nums text-ink/40">{index + 1}</span>
+                  <span className="flex-1 text-[0.95rem] leading-snug">{suggestion}</span>
+                  <span className="text-ink/35">{arrow}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <p className="mt-4 text-center text-[0.78rem] leading-relaxed text-ink/45">
+          Respostas geradas por IA, com caráter informativo.{' '}
+          {brand.tenant
+            ? `${brand.subject} não presta consultoria jurídica; para o seu caso, fale com um advogado do escritório.`
+            : 'O Pequi não presta consultoria jurídica; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.'}
+        </p>
+
         {hasSearched && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-            {/* Main Results Column */}
-            <div className="lg:col-span-2 space-y-8">
+          <div className="mt-10 grid grid-cols-1 gap-6 animate-in fade-in slide-in-from-bottom-8 duration-700 lg:grid-cols-3">
+            <div className="lg:col-span-2">
               {searchError && (
-                <div role="alert" className="bg-red-50 border border-red-100 text-red-600 rounded-2xl p-6 font-medium">
+                <div role="alert" className="rounded-2xl bg-red-50 px-5 py-4 text-[0.95rem] text-red-700 ring-1 ring-red-200">
                   {searchError}
                 </div>
               )}
 
-              {enhancedQuery && (
-                <div className="bg-white border border-castanha-200 rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-                  <div className="flex items-center gap-4 mb-10">
-                    <div className="w-10 h-10 rounded-xl bg-cerrado-900 flex items-center justify-center shadow-lg shadow-black/10">
-                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Resposta da IA</h3>
-                      <p className="text-xs font-medium text-foreground/60 mt-0.5">Gerada por inteligência artificial · conteúdo informativo</p>
-                    </div>
+              {isSearching && !enhancedQuery && (
+                <div className="rounded-3xl bg-[#FFFDF6] p-8 ring-1 ring-ink/8">
+                  <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Pesquisando</p>
+                  <div className="mt-5 space-y-3">
+                    {[92, 80, 86, 60].map((w) => (
+                      <div key={w} className="h-2.5 animate-pulse rounded-full bg-ink/8" style={{ width: `${w}%` }} />
+                    ))}
                   </div>
-                  <div
-                    className="legal-search-result prose prose-gray max-w-none text-castanha-800 leading-relaxed font-medium text-[1.1rem]"
-                    dangerouslySetInnerHTML={{ __html: enhancedQuery }}
-                  />
                 </div>
               )}
- 
+
+              {enhancedQuery && (
+                <article className="rounded-3xl bg-[#FFFDF6] p-6 ring-1 ring-ink/8 sm:p-8">
+                  <p className="mb-5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Resposta</p>
+                  <div className="legal-search-result" dangerouslySetInnerHTML={{ __html: enhancedQuery }} />
+                  <p className="mt-6 border-t border-ink/10 pt-4 text-[0.78rem] text-ink/45">Gerada por inteligência artificial · conteúdo informativo</p>
+                </article>
+              )}
             </div>
 
-            {/* Sidebar Column */}
-            <div className="space-y-8">
+            <aside className="space-y-6">
               {followUpPrompts.length > 0 && (
-                <div className="bg-castanha-50 rounded-[2.5rem] p-8 border border-castanha-200">
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30 mb-8 font-sans">Aprofundamento estratégico</h3>
-                  <div className="space-y-3">
+                <div>
+                  <p className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Para aprofundar</p>
+                  <div className="space-y-2">
                     {followUpPrompts.map((prompt, index) => (
                       <button
                         key={index}
                         onClick={() => handleFollowUpClick(prompt)}
-                        className="w-full text-left px-6 py-5 bg-white border border-castanha-200 rounded-2xl transition-all duration-300 shadow-sm text-[0.95rem] group hover:btn-primary-gradient"
                         disabled={isSearching}
+                        className="flex w-full items-center gap-3 rounded-2xl bg-[#F1EDE0] px-4 py-3.5 text-left text-[0.92rem] leading-snug text-ink transition-colors hover:bg-[#E9E3D2] disabled:opacity-50"
                       >
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium opacity-80 group-hover:opacity-100 transition-opacity leading-tight">{prompt}</span>
-                          <svg className="w-4 h-4 opacity-10 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                        </div>
+                        <span className="flex-1">{prompt}</span>
+                        <span className="text-ink/40">{arrow}</span>
                       </button>
                     ))}
                   </div>
                 </div>
               )}
- 
-              <div className="bg-hero-gradient text-ink rounded-[2.5rem] p-10 shadow-2xl overflow-hidden relative border border-cerrado-900/5">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-cerrado-950/5 rounded-full -mr-24 -mt-24 blur-3xl" />
-                <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-ink/30 mb-8 relative z-10">Agente de inteligência</h3>
-                <p className="text-[1rem] font-medium text-ink/60 leading-relaxed mb-10 relative z-10">
-                  Transforme esta pesquisa jurídica em uma minuta profissional ou solicite uma análise pericial mais aprofundada.
-                </p>
-                <div className="space-y-4 relative z-10">
-                  <button 
-                    onClick={handleDraftDocument}
-                    disabled={!enhancedQuery}
-                    className="w-full py-5 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(255,255,255,0.1)] transition-all disabled:opacity-50 disabled:cursor-not-allowed btn-primary-gradient"
-                  >
-                    Redigir contrato
-                  </button>
-                  <button 
-                    className="w-full py-5 bg-cerrado-950/5 hover:bg-cerrado-950/10 text-ink border border-cerrado-900/10 rounded-2xl font-bold text-[11px] uppercase tracking-[0.3em] transition-all" 
-                    onClick={() => router.push('/dashboard/chat')}
-                  >
-                    Consultar assistente
-                  </button>
-                </div>
+
+              <div className="rounded-3xl bg-[#151816] p-6 text-white">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white/50">Próximos passos</p>
+                <p className="mt-3 text-[0.95rem] leading-relaxed text-white/70">Leve esta resposta para um documento ou continue a conversa no chat.</p>
+                <button
+                  onClick={handleDraftDocument}
+                  disabled={!enhancedQuery}
+                  className="mt-5 flex h-11 w-full items-center justify-between rounded-xl bg-[#FFFDF6] px-4 text-[0.92rem] font-medium text-ink transition-colors hover:bg-white disabled:opacity-40"
+                >
+                  Baixar como documento (.doc)
+                  {arrow}
+                </button>
+                <button
+                  onClick={() => router.push('/dashboard/chat')}
+                  className="mt-2 flex h-11 w-full items-center justify-between rounded-xl px-4 text-[0.92rem] font-medium text-white ring-1 ring-white/20 transition-colors hover:bg-white/10"
+                >
+                  Continuar no chat
+                  {arrow}
+                </button>
               </div>
-            </div>
+            </aside>
           </div>
         )}
       </div>
-      <UpgradeModal
-        isOpen={showUpgradeModal}
-        onClose={() => setShowUpgradeModal(false)}
-      />
+      <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
     </DashboardLayout>
   );
 }

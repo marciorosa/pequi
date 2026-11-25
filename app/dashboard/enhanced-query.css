@@ -1,21 +1,22 @@
 /* Enhanced Query Styling */
 
 .legal-search-result {
-  color: var(--castanha-800);
+  color: rgb(21 24 22 / 0.78);
   font-family: inherit;
   max-width: 800px;
   margin: 0;
 }
  
 /* Title styling */
+/* Título da resposta na serifa de destaque, como no cartão da referência */
 .legal-search-result h2 {
-  font-size: 1.75rem;
+  font-family: var(--font-accent);
+  font-size: 2rem;
   font-weight: 500;
+  line-height: 1.15;
   color: var(--pq-ink);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  border-bottom: 1px solid var(--castanha-200);
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
 }
  
 /* Numbered points styling */
@@ -34,24 +35,24 @@
  
 /* Paragraph text */
 .legal-search-result p {
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-  color: var(--castanha-600);
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: rgb(21 24 22 / 0.72);
   font-size: 1rem;
 }
  
 /* Introduction paragraph - slightly larger */
 .legal-search-result>p:first-of-type {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: var(--castanha-800);
-  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: rgb(21 24 22 / 0.82);
 }
 
-/* Point container */
+/* Cada ponto separado por uma linha fina, sem caixas */
 .legal-search-result>div {
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
+  border-top: 1px solid rgb(21 24 22 / 0.1);
+  padding-top: 1.1rem;
+  margin-bottom: 1rem;
   animation: fadeIn 0.3s ease-in-out;
   animation-fill-mode: both;
 }
