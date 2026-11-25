@@ -54,7 +54,7 @@ export function BrandLogo({ className = 'h-7 w-auto', tone = 'brand' }: { classN
       // eslint-disable-next-line @next/next/no-img-element
       <img src={tenant.logoUrl} alt={tenant.name} className={`${className} max-w-[180px] object-contain`} />
     ) : (
-      <span className="text-lg font-semibold tracking-tight text-pequi-600">{tenant.name}</span>
+      <span className={`text-lg font-semibold tracking-tight ${tone === 'light' ? 'text-white' : 'text-pequi-600'}`}>{tenant.name}</span>
     );
   }
   return <PequiLogo className={className} tone={tone} />;
