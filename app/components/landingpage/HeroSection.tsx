@@ -56,7 +56,7 @@ export default function HeroSection() {
 
         <form
           onSubmit={ask}
-          className="mt-10 w-full max-w-[640px] rounded-2xl bg-[#FFFDF6] p-2 text-left text-ink shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)]"
+          className="mt-10 w-full max-w-[640px] rounded-2xl bg-[#FFFDF6] p-2 text-left text-ink ring-1 ring-white/20 transition focus-within:ring-2 focus-within:ring-white/50"
         >
           <label htmlFor="hero-question" className="sr-only">
             Faça uma pergunta para a assistente
@@ -70,14 +70,15 @@ export default function HeroSection() {
               if (e.key === 'Enter' && !e.shiftKey) ask(e);
             }}
             placeholder="Faça uma pergunta como se fosse um cliente do escritório…"
-            className="w-full resize-none rounded-xl bg-[#F4EFDF]/70 px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink/45 focus:outline-none focus:ring-2 focus:ring-ink/15"
+            className="w-full resize-none rounded-xl bg-transparent px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink/45 focus:outline-none"
           />
           <div className="flex items-center justify-between px-2 pb-1 pt-2">
             <span className="rounded-full border border-ink/15 px-3 py-1 text-[0.75rem] text-ink/60">Teste a assistente</span>
             <button
               type="submit"
               aria-label="Enviar pergunta"
-              className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-white transition hover:bg-ink/85"
+              disabled={!question.trim()}
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-white transition hover:bg-ink/85 disabled:bg-ink/10 disabled:text-ink/40"
             >
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m-6 6l6-6 6 6" />
