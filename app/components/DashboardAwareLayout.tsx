@@ -16,8 +16,8 @@ export default function DashboardAwareLayout({ children }: { children: React.Rea
   const isDashboard = pathname?.startsWith('/dashboard') || (pathname === '/pricing' && isAuthenticated);
   const { tenant } = useTenant();
 
-  // Chat embutido no site do escritório: só o conteúdo, sem menu nem rodapé
-  if (pathname?.startsWith('/embed')) {
+  // Chat embutido no site do escritório e login em tela cheia: só o conteúdo, sem menu nem rodapé
+  if (pathname?.startsWith('/embed') || pathname === '/login') {
     return <main className="flex-grow">{children}</main>;
   }
 

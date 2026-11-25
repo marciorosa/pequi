@@ -1,17 +1,21 @@
 'use client';
 
 import { useTenant } from '../contexts/TenantContext';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
-import {
-  AuthHero,
-  AuthPageLayout,
-  authInputClass,
-  authLabelClass,
-  authPrimaryButtonClass,
-} from '@/app/components/auth/AuthPageChrome';
+import { BrandLogo } from '../components/PequiWordmark';
+import PequiTrajectory from '../components/auth/PequiTrajectory';
+
+// Login no estilo da referência (2026-11-24): tela cheia em duas colunas. À esquerda,
+// fundo grafite com e-mail e senha (sem entrar com Google/Microsoft/Apple) e o aceite
+// da Política de Privacidade e dos Termos; à direita, painel areia com a animação
+// do ícone do Pequi.
+const TERMS_KEY = 'pequi_terms_accepted';
+const inputClass =
+  'h-11 w-full rounded-xl border-0 bg-[#151816] px-3.5 text-[0.92rem] text-white ring-1 ring-white/15 placeholder:text-white/35 focus:outline-none focus:ring-2 focus:ring-white/50';
+const labelClass = 'mb-1.5 block text-[0.82rem] font-medium text-white/85';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -21,7 +25,13 @@ function LoginForm() {
     searchParamsForError.get('bloqueado') ? 'Esta conta está bloqueada. Fale com o suporte.' : ''
   );
   const [isLoading, setIsLoading] = useState(false);
+  const [accepted, setAccepted] = useState(false);
   const searchParams = useSearchParams();
+
+  // Quem já aceitou neste navegador encontra a caixa marcada
+  useEffect(() => {
+    if (localStorage.getItem(TERMS_KEY)) setAccepted(true);
+  }, []);
   const { login } = useAuth();
 
   // Só aceita caminhos internos do site; qualquer outra coisa vai para o painel
@@ -35,6 +45,11 @@ function LoginForm() {
       setError('Informe o e-mail e a senha');
       return;
     }
+    if (!accepted) {
+      setError('Para entrar, aceite a Política de Privacidade e os Termos de Uso.');
+      return;
+    }
+    localStorage.setItem(TERMS_KEY, new Date().toISOString());
 
     setIsLoading(true);
     setError('');
@@ -57,164 +72,121 @@ function LoginForm() {
   };
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
-      {error && (
-        <div
-          role="alert"
-          className="rounded-[0.875rem] border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
-        >
-          {error}
-        </div>
-      )}
-
-      <div>
-        <label htmlFor="email" className={authLabelClass}>
-          Endereço de e-mail
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={authInputClass}
-          placeholder="nome@empresa.com.br"
-        />
-      </div>
-
-      <div>
-        <div className="flex justify-between gap-3 mb-2">
-          <label htmlFor="password" className={`${authLabelClass} mb-0`}>
-            Senha
-          </label>
-          <Link
-            href="/forgot-password"
-            className="text-[0.8125rem] font-medium text-castanha-600 transition-colors hover:text-ink"
-          >
-            Esqueceu a senha?
+    <form onSubmit={handleSubmit} noValidate>
+      <div className="rounded-2xl bg-[#1C201D] p-6 ring-1 ring-white/10 sm:p-7">
+        <p className="text-center text-[0.85rem] leading-relaxed text-white/60">
+          Novo por aqui?{' '}
+          <Link href="/signup" className="font-medium text-white underline underline-offset-4 hover:text-white/80">
+            Criar conta
           </Link>
+        </p>
+
+        {error && (
+          <div role="alert" className="mt-5 rounded-xl bg-red-500/10 px-3.5 py-2.5 text-[0.85rem] text-red-200 ring-1 ring-red-400/30">
+            {error}
+          </div>
+        )}
+
+        <div className="mt-5">
+          <label htmlFor="email" className={labelClass}>
+            E-mail
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={inputClass}
+            placeholder="nome@escritorio.com.br"
+          />
         </div>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={authInputClass}
-          placeholder="••••••••"
-        />
+
+        <div className="mt-4">
+          <div className="mb-1.5 flex items-center justify-between gap-3">
+            <label htmlFor="password" className={`${labelClass} mb-0`}>
+              Senha
+            </label>
+            <Link href="/forgot-password" className="text-[0.8rem] text-white/55 hover:text-white">
+              Esqueceu a senha?
+            </Link>
+          </div>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="current-password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={inputClass}
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="mt-6 h-11 w-full rounded-xl bg-[#FFFDF6] text-[0.92rem] font-medium text-[#151816] transition-colors hover:bg-white disabled:opacity-60"
+        >
+          {isLoading ? 'Entrando...' : 'Entrar'}
+        </button>
       </div>
 
-      <div className="flex items-center gap-2 pt-1">
+      <label htmlFor="accept" className="mt-4 flex cursor-pointer items-start gap-2.5 px-1 text-[0.8rem] leading-relaxed text-white/55">
         <input
-          id="remember_me"
-          name="remember_me"
+          id="accept"
           type="checkbox"
-          className="h-4 w-4 rounded border-castanha-200 text-ink focus:ring-pequi-500/60"
+          checked={accepted}
+          onChange={(e) => setAccepted(e.target.checked)}
+          className="mt-0.5 h-4 w-4 flex-shrink-0 cursor-pointer accent-[#FFFDF6]"
         />
-        <label htmlFor="remember_me" className="text-[0.875rem] text-castanha-600">
-          Lembrar de mim
-        </label>
-      </div>
-
-      <button type="submit" disabled={isLoading} className={authPrimaryButtonClass}>
-        {isLoading ? 'Entrando...' : 'Entrar'}
-      </button>
+        <span>
+          Ao continuar, aceito a{' '}
+          <Link href="/privacy-policy" target="_blank" className="text-white/80 underline underline-offset-2 hover:text-white">
+            Política de Privacidade
+          </Link>{' '}
+          e os{' '}
+          <Link href="/terms" target="_blank" className="text-white/80 underline underline-offset-2 hover:text-white">
+            Termos de Uso
+          </Link>
+          .
+        </span>
+      </label>
     </form>
   );
 }
 
-function LoginAside() {
-  const { tenant } = useTenant();
-  const brandSubject = tenant ? `A assistente de ${tenant.name}` : 'O Pequi';
-  return (
-    <>
-      <div className="overflow-hidden rounded-2xl border border-castanha-150 bg-white shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
-        <div className="border-b border-castanha-150 bg-castanha-50 px-8 py-6">
-          <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-castanha-600">
-            {tenant ? `Assistente ${tenant.name}` : 'Assistente Pequi'}
-          </p>
-          <p className="text-lg font-medium leading-snug text-ink">
-            Como posso analisar os riscos deste contrato de aluguel?
-          </p>
-        </div>
-        <div className="space-y-5 p-8">
-          <div className="flex gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cerrado-900 text-white">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                />
-              </svg>
-            </div>
-            <div className="rounded-[1rem] rounded-tl-sm border border-castanha-150 bg-castanha-100 px-4 py-3 text-[0.9375rem] leading-relaxed text-castanha-600">
-              Identifiquei várias áreas de risco importantes no contrato de aluguel: multa rescisória, redação da cláusula de reajuste e
-              devolução do imóvel.
-            </div>
-          </div>
-          <div className="flex gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cerrado-900 text-white">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                />
-              </svg>
-            </div>
-            <div className="rounded-[1rem] rounded-tl-sm border border-castanha-150 bg-white px-4 py-3 text-[0.9375rem] leading-relaxed text-castanha-600">
-              Deseja sugestões de redação alternativa para essas cláusulas?
-            </div>
-          </div>
-          <p className="pt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">
-            Seguro e confidencial
-          </p>
-        </div>
-      </div>
-
-      <div className="rounded-2xl border border-castanha-150 bg-castanha-50 p-8 shadow-[0_12px_28px_rgba(36,37,33,0.04)]">
-        <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-castanha-600">Importante</p>
-        <p className="text-[1.0625rem] leading-[175%] text-castanha-600">
-          {tenant
-            ? `${brandSubject} é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. As respostas são informativas e não substituem a análise do seu caso por um advogado.`
-            : 'O Pequi é uma ferramenta de inteligência artificial que explica temas jurídicos em linguagem simples. Não é um escritório de advocacia e não substitui a análise do seu caso por um advogado inscrito na OAB ou pela Defensoria Pública.'}
-        </p>
-      </div>
-    </>
-  );
-}
-
 export default function LoginExperience() {
+  const { tenant } = useTenant();
   return (
-    <div className="min-h-screen">
-      <AuthHero eyebrow="Conta" title="Bem-vindo de volta" subtitle="Entre para continuar no seu espaço de trabalho." />
-      <AuthPageLayout
-        aside={<LoginAside />}
-        footer={
-          <div className="mt-8 border-t border-castanha-150 pt-8 text-center">
-            <p className="text-[0.9375rem] text-castanha-600">
-              Não tem uma conta?{' '}
-              <Link href="/signup" className="font-medium text-ink underline-offset-2 hover:underline">
-                Criar conta
-              </Link>
-            </p>
+    <div className="flex min-h-screen bg-[#151816] p-2 text-white sm:p-3">
+      <div className="flex min-h-full flex-1 flex-col px-4 py-4 sm:px-8 lg:w-1/2 lg:flex-none">
+        <Link href="/" aria-label="Página inicial" className="inline-flex w-fit items-center">
+          <BrandLogo className="h-7 w-auto" tone="light" />
+        </Link>
+        <div className="flex flex-1 items-center justify-center py-10">
+          <div className="w-full max-w-[380px]">
+            <h1 className="mb-6 text-center text-[1.6rem] font-medium tracking-[-0.03em]">Entrar</h1>
+            <Suspense fallback={<p className="py-8 text-center text-sm text-white/60">Carregando...</p>}>
+              <LoginForm />
+            </Suspense>
           </div>
-        }
-      >
-        <Suspense
-          fallback={<p className="py-8 text-center text-sm text-castanha-600">Carregando...</p>}
-        >
-          <LoginForm />
-        </Suspense>
-      </AuthPageLayout>
+        </div>
+      </div>
+
+      <aside className="relative hidden flex-1 flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#F1EDE0] p-12 text-[#151816] lg:flex xl:p-16">
+        <PequiTrajectory className="pointer-events-none absolute right-[2%] top-[6%] w-[96%] text-[#151816]" />
+        <p className="relative text-[0.85rem] text-[#151816]/60">{tenant ? tenant.name : 'IA jurídica white-label'}</p>
+        <h2 className="relative mt-3 max-w-[14ch] text-[clamp(2.4rem,4vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em]">
+          {tenant ? 'A sua assistente jurídica, a qualquer hora.' : 'A IA jurídica com a marca do seu escritório.'}
+        </h2>
+        <p className="relative mt-5 max-w-[440px] text-[0.85rem] leading-relaxed text-[#151816]/55">
+          Respostas geradas por IA, com caráter informativo. A análise de cada caso continua com o advogado.
+        </p>
+      </aside>
     </div>
   );
 }
