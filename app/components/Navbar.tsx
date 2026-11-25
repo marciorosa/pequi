@@ -11,9 +11,9 @@ import PequiWordmark from './PequiWordmark';
 // transparente sobre o topo escuro e ganha fundo creme ao rolar.
 export const products = [
   { n: '01', label: 'Assistentes de IA', href: '/assistant' },
-  { n: '02', label: 'Cofre de documentos', href: '/vault' },
-  { n: '03', label: 'Base de Conhecimento', href: '/knowledge' },
-  { n: '04', label: 'Automações', href: '/workflows' },
+  { n: '02', label: 'Base de Conhecimento', href: '/knowledge' },
+  { n: '03', label: 'Automações', href: '/workflows' },
+  { n: '04', label: 'Cofre de documentos', href: '/vault' },
   { n: '05', label: 'Assinatura eletrônica', href: '/workflows#assinatura' },
 ];
 
@@ -101,9 +101,10 @@ const Navbar = () => {
     };
   }, [productsOpen]);
 
-  const text = overDark ? 'text-white/80 hover:text-white' : 'text-ink/70 hover:text-ink';
-  const activeText = overDark ? 'text-white' : 'text-ink';
+  // Hover como na referência: a cor não muda; o link sai de 90% para 100% e ganha sublinhado afastado
   const underline = 'underline decoration-1 underline-offset-[6px]';
+  const text = `${overDark ? 'text-[#FFFDF6]' : 'text-ink'} opacity-90 hover:opacity-100 hover:underline decoration-1 underline-offset-[6px]`;
+  const activeText = `${overDark ? 'text-[#FFFDF6]' : 'text-ink'} opacity-100`;
 
   return (
     <nav
@@ -123,14 +124,14 @@ const Navbar = () => {
               aria-expanded={productsOpen}
               aria-haspopup="true"
               onClick={() => setProductsOpen((v) => !v)}
-              className={`inline-flex items-center gap-1.5 transition-colors ${productsOpen || productActive ? `${activeText} ${underline}` : text}`}
+              className={`inline-flex items-center gap-1.5 transition-opacity ${productsOpen || productActive ? `${activeText} ${underline}` : text}`}
             >
               Produtos
               <Chevron open={productsOpen} />
             </button>
 
             {productsOpen && (
-              <div className="animate-fadeIn absolute left-1/2 top-full mt-4 w-72 -translate-x-1/2 rounded-2xl border border-ink/10 bg-[#FFFDF6] p-2 shadow-[0_24px_60px_-20px_rgba(21,24,22,0.35)]">
+              <div className="animate-fadeIn absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 overflow-hidden rounded-2xl border border-ink/15 bg-[#FFFDF6] py-2 shadow-[0_18px_44px_rgba(21,24,22,0.16)]">
                 {products.map((p) => (
                   <Link
                     key={p.href}
@@ -139,12 +140,12 @@ const Navbar = () => {
                       onProductClick(p.href);
                       setProductsOpen(false);
                     }}
-                    className={`flex items-baseline gap-4 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#F4EFDF] ${
-                      isProductActive(p.href) ? 'bg-[#F4EFDF] text-ink' : 'text-ink/85'
+                    className={`flex min-h-11 items-center gap-3 px-4 text-[0.9rem] font-medium text-ink transition-colors hover:bg-[#151816]/5 ${
+                      isProductActive(p.href) ? 'bg-[#151816]/5' : ''
                     }`}
                   >
-                    <span className="w-5 text-[0.72rem] tabular-nums text-ink/40">{p.n}</span>
-                    <span className="text-[0.92rem]">{p.label}</span>
+                    <span className="w-5 text-[0.72rem] tabular-nums text-ink/45">{p.n}</span>
+                    <span>{p.label}</span>
                   </Link>
                 ))}
               </div>
@@ -152,7 +153,7 @@ const Navbar = () => {
           </div>
 
           {links.map((l) => (
-            <Link key={l.href} href={l.href} className={`transition-colors ${isActive(l.href) ? `${activeText} ${underline}` : text}`}>
+            <Link key={l.href} href={l.href} className={`transition-opacity ${isActive(l.href) ? `${activeText} ${underline}` : text}`}>
               {l.label}
             </Link>
           ))}

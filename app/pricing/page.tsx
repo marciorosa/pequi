@@ -25,31 +25,28 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
     Enterprise: 'Uso ilimitado para equipe e clientes',
   };
 
+  // FAQ no estilo da referência: poucas perguntas, curtas, só sobre preço e plano
   const faqs = [
     {
-      question: "Quem paga a assinatura?",
-      answer: "O escritório. Os clientes do escritório usam a assistente sem custo, dentro do plano do escritório."
+      question: 'Quem paga a assinatura?',
+      answer: 'O escritório. Os clientes usam a assistente sem custo, dentro do plano do escritório.',
     },
     {
-      question: "O que o escritório recebe no plano Pro?",
-      answer: "Painel com logo, cores e nome do escritório, chat de atendimento para colar no site, IA e e-mails com o nome do escritório, lista de clientes e contatos deixados no chat."
+      question: 'Como o preço é calculado?',
+      answer: 'É um valor fixo por escritório: R$ 399 por mês ou R$ 3.999 por ano no Pro. Não há cobrança por cliente.',
     },
     {
-      question: "Quanto cada cliente pode usar?",
-      answer: "No Pro, cada cliente do escritório tem 50 pesquisas, 50 mensagens e 50 operações com documentos por mês, renovadas a cada ciclo. No Enterprise, o uso é ilimitado."
+      question: 'Os limites de uso são por cliente?',
+      answer: 'Sim. No Pro, cada cliente tem 50 pesquisas, 50 mensagens e 50 operações com documentos por mês, renovadas a cada ciclo. No Enterprise, o uso é ilimitado.',
     },
     {
-      question: "Posso usar o endereço do meu escritório?",
-      answer: "Sim. O painel pode ficar em um endereço do escritório (por exemplo, ia.seuescritorio.com.br) ou em um subdomínio do Pequi."
+      question: 'Posso mudar ou cancelar o plano?',
+      answer: 'Sim, quando quiser. O acesso do escritório e dos clientes continua até o fim do período já pago.',
     },
     {
-      question: "Quais formas de pagamento vocês aceitam?",
-      answer: "Cartão de crédito, processado pela Stripe. No Enterprise, combinamos a forma de pagamento com o escritório."
+      question: 'Quais formas de pagamento vocês aceitam?',
+      answer: 'Cartão de crédito, processado pela Stripe. No Enterprise, combinamos a forma de pagamento com o escritório.',
     },
-    {
-      question: "Posso cancelar a assinatura a qualquer momento?",
-      answer: "Sim. O acesso do escritório e dos clientes continua até o fim do período já pago."
-    }
   ];
 
   const getPrice = (plan: typeof pricingPlans[0]) => {
@@ -286,19 +283,22 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
         </div>
       </section>
 
-      {/* Perguntas frequentes */}
-      <section className={`border-t border-ink/12 py-20 lg:py-28`}>
+      {/* Perguntas frequentes: título curto e perguntas que abrem ao clicar, como na referência */}
+      <section className="border-t border-ink/12 py-20 lg:py-28">
         <div className={`${container} grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16`}>
-          <div>
-            <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Perguntas frequentes</h2>
-            <p className="mt-5 max-w-[380px] text-[1.02rem] leading-relaxed text-ink/65">Respostas simples sobre o white-label, os planos e os pagamentos.</p>
-          </div>
-          <div className="border-t border-ink/15">
+          <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Preços claros desde o início.</h2>
+          <div className="border-t border-ink/20">
             {faqs.map((faq) => (
-              <div key={faq.question} className="border-b border-ink/15 py-6">
-                <h3 className="text-[1.1rem] font-medium tracking-tight text-ink">{faq.question}</h3>
-                <p className="mt-2 max-w-[640px] text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
-              </div>
+              <details key={faq.question} className="group border-b border-ink/20 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[1.12rem] font-medium text-ink">
+                  {faq.question}
+                  <span className="relative h-4 w-4 shrink-0 text-ink/60" aria-hidden="true">
+                    <span className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-current" />
+                    <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current transition-transform group-open:rotate-90 group-open:opacity-0" />
+                  </span>
+                </summary>
+                <p className="max-w-[620px] pb-5 text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
+              </details>
             ))}
           </div>
         </div>

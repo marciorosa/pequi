@@ -41,27 +41,22 @@ export const testimonials = [
 export const faqs: { question: string; answer: string }[] = [
   {
     question: 'Como funciona o white-label?',
-    answer:
-      'O escritório assina o Pequi e cadastra logo, cores e nome. O painel, o chat do site, a IA e os e-mails passam a usar a marca do escritório. Os clientes não veem o nome do Pequi.',
+    answer: 'O escritório cadastra logo, cores e nome. Painel, chat do site, IA e e-mails passam a usar essa marca, e os clientes não veem o nome do Pequi.',
   },
   {
-    question: 'Os clientes do escritório pagam alguma coisa?',
-    answer:
-      'Não. Quem assina é o escritório. Os clientes usam a assistente dentro do plano do escritório, sem custo e sem cadastro de cartão.',
+    question: 'Os clientes pagam alguma coisa?',
+    answer: 'Não. Quem assina é o escritório; os clientes usam a assistente dentro do plano, sem custo e sem cartão.',
   },
   {
-    question: 'A IA substitui o advogado do escritório?',
-    answer:
-      'Não. A assistente explica temas jurídicos em linguagem simples e organiza as informações. A análise do caso continua com a equipe do escritório, que recebe os contatos dos clientes.',
+    question: 'A IA substitui o advogado?',
+    answer: 'Não. A assistente explica e organiza as informações. A análise do caso continua com a equipe do escritório.',
   },
   {
-    question: 'Como coloco o chat no site do escritório?',
-    answer:
-      'Cadastramos o endereço do seu site e geramos um código. Basta colar esse código nas páginas do site. O chat só funciona nos endereços autorizados.',
+    question: 'Como coloco o chat no meu site?',
+    answer: 'Geramos um código para o endereço do seu site. É só colar nas páginas; o chat só funciona nos endereços autorizados.',
   },
   {
-    question: 'Como os dados dos clientes são protegidos?',
-    answer:
-      'A comunicação usa conexão criptografada (HTTPS), os arquivos do Cofre ficam na AWS com acesso restrito à conta de cada cliente, e cada escritório vê apenas os próprios clientes e contatos.',
+    question: 'Como os dados são protegidos?',
+    answer: 'Conexão criptografada (HTTPS), arquivos do Cofre na AWS com acesso restrito a cada conta, e cada escritório vê apenas os próprios clientes.',
   },
 ];

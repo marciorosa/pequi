@@ -101,9 +101,9 @@ export default function HeroSection() {
           <span aria-hidden="true">·</span>
           <span>Chat no seu site</span>
           <span aria-hidden="true">·</span>
-          <span>Cofre</span>
-          <span aria-hidden="true">·</span>
           <span>Automações</span>
+          <span aria-hidden="true">·</span>
+          <span>Cofre</span>
           <span aria-hidden="true">·</span>
           <span>Assinatura eletrônica</span>
         </p>

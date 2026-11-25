@@ -11,7 +11,7 @@ export default function FaqSection() {
         <div className={`${container} grid gap-12 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-20`}>
           <div className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="text-[clamp(2.1rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">
-              Perguntas frequentes
+              Dúvidas comuns, respostas curtas.
             </h2>
             <p className="mt-5 max-w-[340px] text-[1.02rem] leading-relaxed text-ink/65">
               White-label, planos e como oferecer a assistente aos seus clientes.
@@ -27,21 +27,20 @@ export default function FaqSection() {
             </Link>
           </div>
 
-          <div className="border-t border-ink/15">
-            {faqs.map((faq, idx) => (
+          <div className="border-t border-ink/20">
+            {faqs.map((faq) => (
               <details
                 key={faq.question}
-                open={idx === 0}
-                className="group border-b border-ink/15 [&_summary::-webkit-details-marker]:hidden"
+                className="group border-b border-ink/20 [&_summary::-webkit-details-marker]:hidden"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6">
-                  <span className="text-[1.1rem] font-medium leading-snug text-ink">{faq.question}</span>
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5">
+                  <span className="text-[1.12rem] font-medium leading-snug text-ink">{faq.question}</span>
                   <span className="relative h-4 w-4 shrink-0 text-ink/60" aria-hidden="true">
                     <span className="absolute left-0 top-1/2 h-px w-4 -translate-y-1/2 bg-current" />
                     <span className="absolute left-1/2 top-0 h-4 w-px -translate-x-1/2 bg-current transition-transform group-open:rotate-90 group-open:opacity-0" />
                   </span>
                 </summary>
-                <p className="max-w-[640px] pb-6 text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
+                <p className="max-w-[640px] pb-5 text-[0.98rem] leading-relaxed text-ink/65">{faq.answer}</p>
               </details>
             ))}
           </div>

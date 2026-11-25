@@ -38,9 +38,10 @@ const Footer = () => {
           <nav aria-label="Produtos" className={col}>
             <p className={label}>Produtos</p>
             <Link href="/assistant">Assistentes de IA</Link>
-            <Link href="/vault">Acesso ao Cofre</Link>
             <Link href="/knowledge">Base de Conhecimento</Link>
             <Link href="/workflows">Automações</Link>
+            <Link href="/vault">Cofre de documentos</Link>
+            <Link href="/workflows#assinatura">Assinatura eletrônica</Link>
           </nav>
           <nav aria-label="Plataforma" className={col}>
             <p className={label}>Plataforma</p>

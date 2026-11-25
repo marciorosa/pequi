@@ -8,6 +8,8 @@ import FadeInSection from './FadeInSection';
 // Funcionalidades em destaque (2026-11-24): seção grafite com itens numerados
 // em serifa clássica. O item clicado abre com a descrição, e a tela ao lado
 // muda para a daquela funcionalidade.
+// Mesma ordem do menu de produtos (a da referência): assistentes, conhecimento,
+// automações, cofre e assinatura; o chat no site fecha a lista.
 const items = [
   {
     title: 'Assistentes de IA',
@@ -16,16 +18,16 @@ const items = [
     image: '/landingpage/intro/ai-assistant-img.png',
   },
   {
-    title: 'Chat no site do escritório',
-    text: 'Cole um código no site e a assistente recebe os visitantes, explica os direitos e entrega o contato para a sua equipe.',
-    href: '/assistant',
-    image: '/landingpage/intro/channels-img.png',
-  },
-  {
     title: 'Análise de documentos',
     text: 'Resumo, análise de riscos, comparação e tradução de contratos e documentos, prontos para a revisão do advogado.',
     href: '/knowledge',
     image: '/landingpage/intro/document-img.png',
+  },
+  {
+    title: 'Automações e assinatura',
+    text: 'Fluxos que recebem o documento, analisam, enviam para assinatura eletrônica e guardam no Cofre, sem trabalho manual.',
+    href: '/workflows',
+    image: '/landingpage/intro/automation-img.png',
   },
   {
     title: 'Cofre de documentos',
@@ -34,10 +36,10 @@ const items = [
     image: '/landingpage/intro/valut-img.png',
   },
   {
-    title: 'Automações e assinatura',
-    text: 'Fluxos que recebem o documento, analisam, enviam para assinatura eletrônica e guardam no Cofre, sem trabalho manual.',
-    href: '/workflows',
-    image: '/landingpage/intro/automation-img.png',
+    title: 'Chat no site do escritório',
+    text: 'Cole um código no site e a assistente recebe os visitantes, explica os direitos e entrega o contato para a sua equipe.',
+    href: '/assistant',
+    image: '/landingpage/intro/channels-img.png',
   },
 ];
 
