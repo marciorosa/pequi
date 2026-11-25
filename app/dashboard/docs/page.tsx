@@ -44,39 +44,25 @@ interface DocToolButtonProps {
    onClick: () => void;
 }
 
+// Ferramenta da lateral em faixa (padrão editorial 2026-11-24): areia; a ativa fica grafite
 const DocToolButton: React.FC<DocToolButtonProps> = ({ title, description, icon, isActive, isPro, onClick }) => {
    return (
       <button
          onClick={onClick}
-         className={`w-full rounded-[1.5rem] p-6 text-left relative transition-all duration-300 ${isActive
-            ? 'bg-white border-castanha-200 shadow-xl ring-1 ring-pequi-500/5'
-            : 'bg-castanha-50 hover:bg-white border-transparent hover:border-castanha-200 hover:shadow-lg'
-            }`}
+         aria-pressed={isActive}
+         title={description}
+         className={`flex w-full items-start gap-3 rounded-2xl px-4 py-3.5 text-left transition-colors ${isActive ? 'bg-[#151816] text-white' : 'bg-[#F1EDE0] text-ink hover:bg-[#E9E3D2]'}`}
       >
-         <div className="flex items-start">
-            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 transition-all ${isActive
-               ? 'btn-primary-gradient'
-               : 'bg-cerrado-950/5 text-ink/40 group-hover:bg-cerrado-950/10'
-               }`}>
-               <div className="scale-110">
-                  {icon}
-               </div>
-            </div>
-             <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1.5">
-                   <h3 className={`font-medium text-lg leading-tight tracking-tight ${isActive ? 'text-ink' : 'text-castanha-800'}`}>{title}</h3>
-                   {isPro && (
-                      <span className="bg-cerrado-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-[0.2em] border border-white/10">
-                         PRO
-                      </span>
-                   )}
-                </div>
-                <p className={`text-[0.9rem] font-medium leading-relaxed opacity-60 ${isActive ? 'text-castanha-600' : 'text-castanha-600'}`}>{description}</p>
-             </div>
-         </div>
-         {isActive && (
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-3/5 bg-hero-gradient rounded-r-full"></div>
-         )}
+         <span className={`mt-0.5 flex-shrink-0 [&_svg]:h-5 [&_svg]:w-5 ${isActive ? 'text-white/70' : 'text-ink/50'}`}>{icon}</span>
+         <span className="min-w-0 flex-1">
+            <span className="flex items-center gap-2">
+               <span className="text-[0.95rem] font-medium leading-snug">{title}</span>
+               {isPro && (
+                  <span className={`rounded-full px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.12em] ${isActive ? 'bg-white/15 text-white/80' : 'bg-ink/10 text-ink/60'}`}>Pro</span>
+               )}
+            </span>
+            <span className={`mt-1 block text-[0.8rem] leading-snug ${isActive ? 'text-white/60' : 'text-ink/50'}`}>{description}</span>
+         </span>
       </button>
    );
 };
@@ -217,7 +203,7 @@ const templateOptionsByType: Record<string, string[]> = {
 export default function DocumentGenerationPage() {
   const brand = useBrand();
    const [,] = useState<DocHistoryItem[]>([]);
-   const [selectedTool, setSelectedTool] = useState<DocTool>('limpa-nome');
+   const [selectedTool, setSelectedTool] = useState<DocTool>('agreement-summary');
    const [recentDocuments, setRecentDocuments] = useState<DocHistoryItem[]>([]);
 
    // Document processing states
@@ -896,7 +882,17 @@ export default function DocumentGenerationPage() {
       };
 
       return (
-         <div className="grid grid-cols-1 gap-3">
+         <div className="grid grid-cols-1 gap-2">
+            <DocToolButton
+               title="Análise de documentos"
+               description="Extraia informações-chave de contratos e documentos jurídicos"
+               icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+               </svg>}
+               isActive={selectedTool === 'agreement-summary'}
+               onClick={() => handleToolChange('agreement-summary')}
+            />
+
             <DocToolButton
                title="Limpa Nome"
                description="Petição para tirar o nome do Serasa e do SPC quando a dívida não é sua, com pedido de liminar"
@@ -906,16 +902,6 @@ export default function DocumentGenerationPage() {
                isActive={selectedTool === 'limpa-nome'}
                isPro={true}
                onClick={() => handleToolChange('limpa-nome')}
-            />
-
-            <DocToolButton
-               title="Análise de documentos"
-               description="Extraia informações-chave de contratos e documentos jurídicos"
-               icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-               </svg>}
-               isActive={selectedTool === 'agreement-summary'}
-               onClick={() => handleToolChange('agreement-summary')}
             />
 
             <DocToolButton
