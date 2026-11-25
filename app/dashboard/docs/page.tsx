@@ -118,7 +118,7 @@ const FileDropZone = ({
 
    return (
       <div
-         className={`border-2 border-dashed ${isDragging ? 'border-cerrado-900 bg-cerrado-950/5' : 'border-castanha-200 bg-castanha-50'} rounded-3xl p-16 flex flex-col items-center justify-center hover:bg-white hover:border-cerrado-900/20 transition-all duration-500 cursor-pointer group relative overflow-hidden`}
+         className={`border-2 border-dashed ${isDragging ? 'border-ink bg-[#FFFDF6]' : 'border-ink/25 bg-white'} rounded-3xl p-16 flex flex-col items-center justify-center hover:bg-[#FFFDF6] hover:border-ink/50 transition-all duration-300 cursor-pointer group relative overflow-hidden`}
          onDragOver={handleDragOver}
          onDragLeave={handleDragLeave}
          onDrop={handleDrop}
@@ -976,7 +976,7 @@ export default function DocumentGenerationPage() {
                </div>
 
                {isProcessing && selectedTool === 'agreement-summary' && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/50">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
                         <p className="text-foreground/80">Analisando documento...</p>
@@ -985,7 +985,7 @@ export default function DocumentGenerationPage() {
                )}
 
                {!!analysisResult && !isProcessing && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/30">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <h3 className="text-foreground text-lg font-medium mb-4">Resultados da análise</h3>
 
                      <div className="space-y-6">
@@ -1496,25 +1496,25 @@ export default function DocumentGenerationPage() {
                      <h3 className="text-foreground mb-4 font-medium">Opções de comparação</h3>
                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'all' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'all' ? 'btn-primary-gradient border-transparent text-white' : 'border-ink/20 bg-white text-ink hover:border-ink/50'} text-center transition-all`}
                            onClick={() => setCompareType('all')}
                         >
                            <span>Todas as alterações</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'changes' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'changes' ? 'btn-primary-gradient border-transparent text-white' : 'border-ink/20 bg-white text-ink hover:border-ink/50'} text-center transition-all`}
                            onClick={() => setCompareType('changes')}
                         >
                            <span>Modificações</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'additions' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'additions' ? 'btn-primary-gradient border-transparent text-white' : 'border-ink/20 bg-white text-ink hover:border-ink/50'} text-center transition-all`}
                            onClick={() => setCompareType('additions')}
                         >
                            <span>Inclusões</span>
                         </button>
                         <button
-                           className={`p-3 rounded-lg border ${compareType === 'removals' ? 'btn-primary-gradient border-transparent text-white' : 'border-castanha-100 bg-castanha-50 text-foreground'} text-center transition-all`}
+                           className={`p-3 rounded-lg border ${compareType === 'removals' ? 'btn-primary-gradient border-transparent text-white' : 'border-ink/20 bg-white text-ink hover:border-ink/50'} text-center transition-all`}
                            onClick={() => setCompareType('removals')}
                         >
                            <span>Remoções</span>
@@ -1526,7 +1526,7 @@ export default function DocumentGenerationPage() {
                      <button
                         className={`w-full py-3 rounded-lg text-white font-medium transition-all duration-300 ${firstDocument && secondDocument
                            ? 'btn-primary-gradient'
-                           : 'bg-castanha-200 cursor-not-allowed text-castanha-400 opacity-50'
+                           : 'bg-[#151816] text-white opacity-35 cursor-not-allowed'
                            }`}
                         onClick={handleDocumentComparison}
                         disabled={!firstDocument || !secondDocument}
@@ -1537,7 +1537,7 @@ export default function DocumentGenerationPage() {
                </div>
 
                {isProcessing && selectedTool === 'compare-agreements' && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/50">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
                         <p className="text-foreground/80">Comparando documentos...</p>
@@ -1546,7 +1546,7 @@ export default function DocumentGenerationPage() {
                )}
 
                {!!comparisonResult && !isProcessing && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/30">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <h3 className="text-foreground text-lg font-medium mb-4">Resultados da comparação</h3>
 
                      <div className="space-y-6">
@@ -1903,7 +1903,7 @@ export default function DocumentGenerationPage() {
                         type="submit"
                         disabled={isProcessing || !parties || !purpose}
                         className={`px-8 py-3 rounded-lg text-white font-medium transition-all duration-300 ${isProcessing || !parties || !purpose
-                           ? 'bg-castanha-200 cursor-not-allowed text-castanha-400'
+                           ? 'bg-[#151816] text-white opacity-35 cursor-not-allowed'
                            : 'bg-cerrado-800 hover:bg-cerrado-900'
                            }`}
                      >
@@ -1914,7 +1914,7 @@ export default function DocumentGenerationPage() {
 
                {/* Display the generated agreement */}
                {!!agreementResult && !isProcessing && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/30">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <h3 className="text-foreground text-lg font-medium mb-4">Contrato gerado</h3>
 
                      <div className="space-y-6">
@@ -2261,7 +2261,7 @@ export default function DocumentGenerationPage() {
                               />
                               <label
                                  htmlFor={`template-${index}`}
-                                 className={`block p-4 border ${templateStyle === template ? 'border-cerrado-800' : 'border-castanha-200'} rounded-lg ${templateStyle === template ? 'bg-cerrado-800 text-white' : 'bg-castanha-50 text-foreground'} hover:bg-castanha-100 cursor-pointer transition-all`}
+                                 className={`block p-4 border ${templateStyle === template ? 'border-cerrado-800' : 'border-ink/20'} rounded-lg ${templateStyle === template ? 'bg-cerrado-800 text-white' : 'bg-white text-ink'} hover:border-ink/50 cursor-pointer transition-all`}
                               >
                                  {template}
                               </label>
@@ -2469,7 +2469,7 @@ export default function DocumentGenerationPage() {
                         <button
                            className={`w-full py-3 rounded-lg text-white font-medium transition-all duration-300 ${documentForTranslation
                               ? 'bg-cerrado-800 hover:bg-cerrado-900'
-                              : 'bg-castanha-100 cursor-not-allowed text-castanha-400'
+                              : 'bg-[#151816] text-white opacity-35 cursor-not-allowed'
                               }`}
                            onClick={handleDocumentTranslation}
                            disabled={!documentForTranslation}
@@ -2481,7 +2481,7 @@ export default function DocumentGenerationPage() {
                </div>
 
                {isProcessing && selectedTool === 'document-translation' && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/50">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
                         <p className="text-foreground/80">Traduzindo documento...</p>
@@ -2490,7 +2490,7 @@ export default function DocumentGenerationPage() {
                )}
 
                {!!translationResult && !isProcessing && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/30">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <h3 className="text-foreground text-lg font-medium mb-4">Tradução concluída</h3>
 
                      <div className="space-y-6">
@@ -2570,7 +2570,7 @@ export default function DocumentGenerationPage() {
                </div>
 
                {isProcessing && selectedTool === 'image-to-text' && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/50">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <div className="flex items-center justify-center">
                         <div className="w-10 h-10 border-t-2 border-foreground/30 rounded-full animate-spin mr-3"></div>
                         <p className="text-foreground/80">Extraindo texto da imagem...</p>
@@ -2579,7 +2579,7 @@ export default function DocumentGenerationPage() {
                )}
 
                {!!ocrResult && !isProcessing && (
-                  <div className="mt-8 p-6 border border-castanha-100 rounded-lg bg-castanha-50/30">
+                  <div className="mt-8 p-6 rounded-xl bg-white ring-1 ring-ink/10">
                      <h3 className="text-foreground text-lg font-medium mb-4">Texto extraído</h3>
 
                      <div className="space-y-6">
