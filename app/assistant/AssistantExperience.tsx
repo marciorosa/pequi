@@ -56,13 +56,13 @@ export default function AssistantExperience() {
   return (
     <>
       <ProductHero
-        eyebrow="Assistentes de IA"
+        eyebrow="Agentes"
         title="A assistente jurídica do seu escritório"
         text="Seus clientes tiram dúvidas a qualquer hora, com o nome e a marca do escritório. A análise do caso continua com a sua equipe."
         primary={{ label: 'Levar para o meu escritório', href: '/contact' }}
         secondary={{ label: 'Experimentar o chat', href: '#demo' }}
         image="/landingpage/intro/ai-assistant-img.png"
-        imageAlt="Tela dos assistentes de IA do Pequi"
+        imageAlt="Tela dos agentes do Pequi"
       />
 
       <FeatureList

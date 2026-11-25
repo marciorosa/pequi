@@ -12,8 +12,8 @@ import FadeInSection from './FadeInSection';
 // automações, cofre e assinatura; o chat no site fecha a lista.
 const items = [
   {
-    title: 'Assistentes de IA',
-    text: 'Assistentes por área do Direito que atendem os clientes do escritório a qualquer hora, sempre com o nome e a marca do escritório.',
+    title: 'Agentes',
+    text: 'Agentes por área do Direito que atendem os clientes do escritório a qualquer hora, sempre com o nome e a marca do escritório.',
     href: '/assistant',
     image: '/landingpage/intro/ai-assistant-img.png',
   },

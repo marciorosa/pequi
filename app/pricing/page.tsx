@@ -67,7 +67,7 @@ function PequiPricing({ embedded = false }: { embedded?: boolean }) {
     { feature: 'Marca do escritório e chat no site', starter: '—', pro: 'Incluído', enterprise: 'Incluído' },
     { feature: 'Pesquisa Inteligente', starter: '5 consultas', pro: '50 consultas', enterprise: 'Ilimitado' },
     { feature: 'Chat Jurídico com IA', starter: '5 mensagens', pro: '50 mensagens', enterprise: 'Ilimitado' },
-    { feature: 'Assistentes de IA', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
+    { feature: 'Agentes', starter: '5 áreas', pro: 'Todas as áreas', enterprise: 'Todas as áreas' },
     { feature: 'Operações com documentos', starter: '—', pro: '50 operações', enterprise: 'Ilimitado' },
     { feature: 'Pastas no Cofre', starter: '—', pro: '50 pastas', enterprise: 'Ilimitado' },
     { feature: 'Armazenamento no Cofre', starter: '—', pro: '500 MB', enterprise: 'Escala de TB' },

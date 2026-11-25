@@ -116,7 +116,7 @@ export default function LawyerDetailPage({ params }: Props) {
   // Mesmo padrão do chat do painel (2026-11-24): moldura areia, perfil à esquerda,
   // pergunta em balão grafite e resposta em cartão claro com etiqueta.
   return (
-    <DashboardLayout title={lawyer?.name || 'Assistente de IA'} fitScreen>
+    <DashboardLayout title={lawyer?.name || 'Agente de IA'} fitScreen>
       <div className="relative flex h-full min-h-[420px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
         <aside className="custom-scrollbar hidden w-80 shrink-0 flex-col overflow-y-auto border-r border-ink/10 bg-[#FFFDF6] lg:flex">
           <div className="flex h-16 flex-shrink-0 items-center border-b border-ink/10 px-5">
@@ -124,7 +124,7 @@ export default function LawyerDetailPage({ params }: Props) {
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
-              Todos os assistentes
+              Todos os agentes
             </button>
           </div>
           <div className="p-6">
@@ -134,7 +134,7 @@ export default function LawyerDetailPage({ params }: Props) {
               </svg>
             </div>
             <h1 className="mt-5 text-[1.5rem] font-medium leading-tight tracking-[-0.02em] text-ink">{lawyer?.name}</h1>
-            <p className="mt-1 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40">Assistente de IA · informativo</p>
+            <p className="mt-1 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40">Agente de IA · informativo</p>
             <p className="mt-4 text-[0.92rem] leading-relaxed text-ink/65">{lawyer?.description}</p>
 
             {!!lawyer?.expertise?.length && (
@@ -166,9 +166,9 @@ export default function LawyerDetailPage({ params }: Props) {
               <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
             </span>
             <button onClick={() => router.back()} className="text-[0.9rem] text-ink/60 hover:text-ink lg:hidden">
-              ← Assistentes
+              ← Agentes
             </button>
-            <span className="truncate text-[0.95rem] font-medium text-ink">Assistentes / {lawyer?.name || '...'}</span>
+            <span className="truncate text-[0.95rem] font-medium text-ink">Agentes / {lawyer?.name || '...'}</span>
           </header>
 
           <div className="custom-scrollbar min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-8 sm:px-8">

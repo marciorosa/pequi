@@ -59,7 +59,7 @@ export default function ProfilePage() {
     features: [
       'Pesquisa inteligente (5 pesquisas)',
       'Chat jurídico com IA (5 mensagens)',
-      'Assistentes de IA (5 áreas liberadas)',
+      'Agentes (5 áreas liberadas)',
       'Sem acesso ao Cofre e às operações com documentos',
       'Sem criador de fluxos'
     ]

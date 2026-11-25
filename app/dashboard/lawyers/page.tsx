@@ -82,27 +82,27 @@ export default function LawyersPage() {
   const handleLawyerClick = (e: React.MouseEvent, lawyerId: string) => {
     if (isLocked(lawyerId)) {
       e.preventDefault();
-      toast.error("Este assistente faz parte do plano Pro. Faça upgrade para liberar todos os assistentes de IA.");
+      toast.error("Este assistente faz parte do plano Pro. Faça upgrade para liberar todos os agentes.");
       router.push('/dashboard/billing');
     }
   };
 
-  // Nome curto na lista ("Direito de Família" em vez de "Assistente de IA em Direito de Família")
-  const shortName = (name: string) => name.replace(/^Assistente(?: Jurídico)? de IA (?:em |para )?/i, '') || name;
+  // Nome curto na lista ("Direito de Família" em vez de "Agente de IA em Direito de Família")
+  const shortName = (name: string) => name.replace(/^(?:Assistente|Agente)(?: Jurídico)? de IA (?:em |para )?/i, '') || name;
   const isFree = (lawyerId: string) => !isLawyerLockedForPlan(lawyerId, 'Free');
 
   // Lista no padrão editorial (2026-11-24): título à esquerda, busca na moldura
   // areia e assistentes em faixas numeradas, como nas telas do site.
   return (
-    <DashboardLayout title="Assistentes de IA">
+    <DashboardLayout title="Agentes">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 border-b border-ink/12 pb-10 lg:grid-cols-2 lg:items-end">
           <div>
-            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Assistentes de IA</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Um assistente para cada área</h2>
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">Agentes</p>
+            <h2 className="mt-4 text-[clamp(2.2rem,4.4vw,3.6rem)] font-medium leading-[1.04] tracking-[-0.035em] text-ink">Um agente para cada área</h2>
           </div>
           <p className="max-w-[460px] text-[1.02rem] leading-relaxed text-ink/65 lg:justify-self-end">
-            Ferramentas de IA que explicam temas jurídicos em linguagem simples. Não são advogados e não substituem a análise do seu caso
+            Agentes de IA que explicam temas jurídicos em linguagem simples. Não são advogados e não substituem a análise do seu caso
             por um profissional inscrito na OAB.
           </p>
         </div>

@@ -106,7 +106,7 @@ function BillingContent() {
       features: [
         'Pesquisa Inteligente (5 pesquisas)',
         'Chat Jurídico com IA (5 mensagens)',
-        'Assistentes de IA (5 áreas liberadas)',
+        'Agentes (5 áreas liberadas)',
         'Sem acesso ao Cofre/Documentos',
         'Sem Criador de Fluxos'
       ],
@@ -121,7 +121,7 @@ function BillingContent() {
       features: [
         'Pesquisa Inteligente (50 pesquisas)',
         'Chat Jurídico com IA (50 mensagens)',
-        'Todos os assistentes de IA, em todas as áreas',
+        'Todos os agentes, em todas as áreas',
         'Operações com documentos (50 operações)',
         'Cofre seguro (50 pastas, 500 MB)',
         'Criador de Fluxos avançado (5 fluxos)'
@@ -138,7 +138,7 @@ function BillingContent() {
       features: [
         'Pesquisa Inteligente ilimitada',
         'Chat Jurídico com IA ilimitado',
-        'Acesso ilimitado aos assistentes de IA',
+        'Acesso ilimitado aos agentes',
         'Operações com documentos ilimitadas',
         'Armazenamento e pastas ilimitados no Cofre',
         'Criador de Fluxos ilimitado',
@@ -456,7 +456,7 @@ function BillingContent() {
               {renderMeter('Fluxos', (profileData as ProfileData).apiUsage!.workflowCount, (profileData as ProfileData).subscription!.limits!.workflowCount)}
             </div>
             <p className="mt-5 text-[0.82rem] leading-relaxed text-ink/50">
-              &quot;Mensagens&quot; soma as conversas no Chat, com os Assistentes de IA e com arquivos do Cofre. O histórico do Chat fica salvo apenas neste navegador; por isso pode aparecer vazio em outro aparelho.
+              &quot;Mensagens&quot; soma as conversas no Chat, com os Agentes e com arquivos do Cofre. O histórico do Chat fica salvo apenas neste navegador; por isso pode aparecer vazio em outro aparelho.
             </p>
           </section>
         )}

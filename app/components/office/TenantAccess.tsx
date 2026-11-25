@@ -19,7 +19,7 @@ export default function TenantAccess() {
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pequi-600">{tenant.name}</p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Seu acesso à assistente jurídica</h1>
       <p className="mt-3 text-sm leading-relaxed text-castanha-600">
-        O acesso é oferecido por {tenant.name}, sem custo para você. Use o chat, os assistentes por área, os documentos e o cofre
+        O acesso é oferecido por {tenant.name}, sem custo para você. Use o chat, os agentes por área, os documentos e o cofre
         dentro dos limites do plano do escritório. Para tratar do seu caso, fale com a equipe do escritório.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">

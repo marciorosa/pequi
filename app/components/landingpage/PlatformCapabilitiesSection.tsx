@@ -3,7 +3,7 @@ import SectionHeader, { container } from './SectionHeader';
 
 // Seis recursos em grade aberta, cada um com uma linha no topo. Sem caixas.
 const capabilities = [
-  { title: 'Assistentes de IA', text: 'Especialistas em consumo, trabalho, família, moradia e contratos, com o nome do escritório.' },
+  { title: 'Agentes', text: 'Especialistas em consumo, trabalho, família, moradia e contratos, com o nome do escritório.' },
   { title: 'Chat no site', text: 'A assistente atende os visitantes do site e entrega o contato para a sua equipe.' },
   { title: 'Documentos', text: 'Os clientes criam, analisam e comparam documentos. Os PDFs saem com a sua marca.' },
   { title: 'Marca do escritório', text: 'Logo, cores, nome e domínio próprio. A IA e os e-mails também falam pelo escritório.' },

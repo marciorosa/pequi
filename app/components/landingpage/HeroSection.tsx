@@ -69,7 +69,7 @@ export default function HeroSection() {
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) ask(e);
             }}
-            placeholder="Faça uma pergunta como se fosse um cliente do escritório…"
+            placeholder="Faça uma pergunta difícil…"
             className="w-full resize-none rounded-xl bg-transparent px-4 py-3 text-[0.95rem] text-ink placeholder:text-ink/45 focus:outline-none"
           />
           <div className="flex items-center justify-between px-2 pb-1 pt-2">

@@ -27,7 +27,7 @@ export const pricingPlans: PricingPlan[] = [
     features: [
       'Pesquisa Inteligente (5 pesquisas)',
       'Chat Jurídico com IA (5 mensagens)',
-      'Assistentes de IA (5 áreas liberadas)',
+      'Agentes (5 áreas liberadas)',
       'Sem marca própria e sem chat no site',
       'Sem Cofre, Documentos e Fluxos',
     ],
@@ -45,7 +45,7 @@ export const pricingPlans: PricingPlan[] = [
       'Chat de atendimento no site do escritório',
       'IA e e-mails com o nome do escritório',
       'Clientes usam sem custo, cada um com 50 pesquisas, 50 mensagens e 50 operações com documentos por mês',
-      'Todos os assistentes de IA, Cofre e Fluxos',
+      'Todos os agentes, Cofre e Fluxos',
       'Lista de clientes e contatos do chat',
     ],
     popular: true,

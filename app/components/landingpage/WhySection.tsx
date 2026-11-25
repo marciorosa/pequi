@@ -4,7 +4,7 @@ import SectionHeader, { container } from './SectionHeader';
 
 // "Atenda mais clientes": foto única, duas listas sem caixa e números em linha.
 const forFirm = ['Sua marca em todas as telas e e-mails', 'Chat de atendimento no seu site', 'Contatos de novos clientes', 'Sem programar nem manter servidor'];
-const forClients = ['Dúvidas jurídicas em linguagem simples', 'Assistentes por área do Direito', 'Análise de documentos e contratos', 'Uso sem custo, pago pelo escritório'];
+const forClients = ['Dúvidas jurídicas em linguagem simples', 'Agentes por área do Direito', 'Análise de documentos e contratos', 'Uso sem custo, pago pelo escritório'];
 const stats = [
   { value: 'Sua marca', label: 'Logo, cores, nome e domínio' },
   { value: '24/7', label: 'Atendimento a qualquer hora' },

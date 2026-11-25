@@ -10,7 +10,7 @@ import PequiWordmark from './PequiWordmark';
 // abre uma lista curta e numerada. Na página inicial a barra fica
 // transparente sobre o topo escuro e ganha fundo creme ao rolar.
 export const products = [
-  { n: '01', label: 'Assistentes de IA', href: '/assistant' },
+  { n: '01', label: 'Agentes', href: '/assistant' },
   { n: '02', label: 'Base de Conhecimento', href: '/knowledge' },
   { n: '03', label: 'Automações', href: '/workflows' },
   { n: '04', label: 'Cofre de documentos', href: '/vault' },
