@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import { BrandLogo } from '../components/PequiWordmark';
-import PequiService from '../components/auth/PequiService';
+import PequiGlobe from '../components/auth/PequiGlobe';
 
 // Login no estilo da referência (2026-11-24): tela cheia em duas colunas. À esquerda,
 // fundo grafite com e-mail e senha (sem entrar com Google/Microsoft/Apple) e o aceite
@@ -74,20 +74,13 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div className="rounded-2xl bg-[#1C201D] p-6 ring-1 ring-white/10 sm:p-7">
-        <p className="text-center text-[0.85rem] leading-relaxed text-white/60">
-          Novo por aqui?{' '}
-          <Link href="/signup" className="font-medium text-white underline underline-offset-4 hover:text-white/80">
-            Criar conta
-          </Link>
-        </p>
-
         {error && (
-          <div role="alert" className="mt-5 rounded-xl bg-red-500/10 px-3.5 py-2.5 text-[0.85rem] text-red-200 ring-1 ring-red-400/30">
+          <div role="alert" className="mb-5 rounded-xl bg-red-500/10 px-3.5 py-2.5 text-[0.85rem] text-red-200 ring-1 ring-red-400/30">
             {error}
           </div>
         )}
 
-        <div className="mt-5">
+        <div>
           <label htmlFor="email" className={labelClass}>
             E-mail
           </label>
@@ -133,6 +126,13 @@ function LoginForm() {
         >
           {isLoading ? 'Entrando...' : 'Entrar'}
         </button>
+
+        <p className="mt-5 border-t border-white/10 pt-5 text-center text-[0.85rem] leading-relaxed text-white/60">
+          Novo por aqui?{' '}
+          <Link href="/signup" className="font-medium text-white underline underline-offset-4 hover:text-white/80">
+            Criar conta
+          </Link>
+        </p>
       </div>
 
       <label htmlFor="accept" className="mt-4 flex cursor-pointer items-start gap-2.5 px-1 text-[0.8rem] leading-relaxed text-white/55">
@@ -178,7 +178,7 @@ export default function LoginExperience() {
       </div>
 
       <aside className="relative hidden flex-1 flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#F1EDE0] p-12 text-[#151816] lg:flex xl:p-16">
-        <PequiService className="pointer-events-none absolute left-[6%] top-[10%] w-[88%] text-[#151816]" />
+        <PequiGlobe className="pointer-events-none absolute inset-x-0 top-0 h-[68%] w-full" />
         <p className="relative text-[0.85rem] text-[#151816]/60">{tenant ? tenant.name : 'IA jurídica white-label'}</p>
         <h2 className="relative mt-3 max-w-[14ch] text-[clamp(2.4rem,4vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em]">
           {tenant ? 'A sua assistente jurídica, a qualquer hora.' : 'A IA jurídica com a marca do seu escritório.'}
