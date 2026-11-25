@@ -470,7 +470,7 @@ export default function ChatPage() {
                     </div>
                   )}
                   {m.role === 'assistant' ? (
-                    <div dangerouslySetInnerHTML={{ __html: m.content }} className="html-content text-[1rem] leading-[1.75] text-ink/75" />
+                    <div dangerouslySetInnerHTML={{ __html: m.content }} className="pq-answer" />
                   ) : (
                     <div className="text-[1rem] leading-relaxed [&_p]:m-0">
                       <ReactMarkdown>{m.content}</ReactMarkdown>
@@ -572,50 +572,6 @@ export default function ChatPage() {
               <style jsx>{`
                 textarea::-webkit-scrollbar {
                   display: none;
-                }
-              `}</style>
-              <style jsx global>{`
-                .html-content p {
-                  margin-bottom: 1rem;
-                }
-                .html-content p:last-child {
-                  margin-bottom: 0;
-                }
-                .html-content h1,
-                .html-content h2,
-                .html-content h3 {
-                  font-family: var(--font-accent);
-                  font-weight: 500;
-                  font-size: 1.6rem;
-                  line-height: 1.2;
-                  letter-spacing: -0.01em;
-                  color: #151816;
-                  margin: 1.5rem 0 0.75rem;
-                }
-                .html-content h1:first-child,
-                .html-content h2:first-child,
-                .html-content h3:first-child {
-                  margin-top: 0;
-                }
-                .html-content ul,
-                .html-content ol {
-                  margin: 0 0 1rem 1.25rem;
-                  list-style-type: disc;
-                }
-                .html-content ol {
-                  list-style-type: decimal;
-                }
-                .html-content li {
-                  margin-bottom: 0.4rem;
-                }
-                .html-content strong {
-                  font-weight: 600;
-                  color: #151816;
-                }
-                .html-content a {
-                  color: #151816;
-                  text-decoration: underline;
-                  text-underline-offset: 4px;
                 }
               `}</style>
             </div>

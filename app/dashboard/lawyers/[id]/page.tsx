@@ -113,81 +113,91 @@ export default function LawyerDetailPage({ params }: Props) {
     }
   };
 
+  // Mesmo padrão do chat do painel (2026-11-24): moldura areia, perfil à esquerda,
+  // pergunta em balão grafite e resposta em cartão claro com etiqueta.
   return (
     <DashboardLayout title={lawyer?.name || 'Assistente de IA'} fitScreen>
-      <div className="flex h-full min-h-0 rounded-[2.5rem] bg-white border border-castanha-100 shadow-2xl overflow-hidden relative">
-        {/* Profile Sidebar */}
-        <aside className="hidden lg:flex flex-col w-80 xl:w-96 shrink-0 h-full overflow-y-auto bg-castanha-50 border-r border-castanha-100 p-8 xl:p-10 space-y-10 custom-scrollbar">
-          <button onClick={() => router.back()} className="flex items-center gap-2 text-foreground/40 hover:text-foreground transition-all">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Voltar ao diretório</span>
-          </button>
-
-          <div className="space-y-8">
-            <div className="w-24 h-24 rounded-3xl bg-white border border-castanha-100 shadow-2xl flex items-center justify-center text-foreground">
-              <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>
-            </div>
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tight">{lawyer?.name}</h1>
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-foreground/30">Assistente de IA · conteúdo informativo</p>
-            </div>
-            <p className="text-[13px] leading-relaxed font-medium text-foreground/40">{lawyer?.description}</p>
+      <div className="relative flex h-full min-h-[600px] overflow-hidden rounded-3xl border border-ink/10 bg-[#F1EDE0]">
+        <aside className="custom-scrollbar hidden w-80 shrink-0 flex-col overflow-y-auto border-r border-ink/10 bg-[#FFFDF6] lg:flex">
+          <div className="flex h-16 flex-shrink-0 items-center border-b border-ink/10 px-5">
+            <button onClick={() => router.back()} className="flex items-center gap-2 text-[0.9rem] text-ink/60 hover:text-ink">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Todos os assistentes
+            </button>
           </div>
-
-          <div className="space-y-4">
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/20">Temas</h3>
-            <div className="flex flex-wrap gap-2">
-              {lawyer?.expertise.map((skill, i) => (
-                <span key={i} className="px-3 py-1.5 rounded-full bg-white border border-castanha-100 text-[10px] font-bold uppercase tracking-wider text-foreground/60">{skill}</span>
-              ))}
+          <div className="p-6">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#151816] text-white">
+              <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
+              </svg>
             </div>
+            <h1 className="mt-5 text-[1.5rem] font-medium leading-tight tracking-[-0.02em] text-ink">{lawyer?.name}</h1>
+            <p className="mt-1 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink/40">Assistente de IA · informativo</p>
+            <p className="mt-4 text-[0.92rem] leading-relaxed text-ink/65">{lawyer?.description}</p>
+
+            {!!lawyer?.expertise?.length && (
+              <>
+                <p className="mb-2 mt-8 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink/40">Temas</p>
+                <div className="space-y-2">
+                  {lawyer.expertise.map((skill, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setInputMessage(`Tenho uma dúvida sobre ${skill.toLowerCase()}: `)}
+                      className="flex w-full items-center gap-3 rounded-2xl bg-[#F1EDE0] px-4 py-3 text-left text-[0.92rem] text-ink transition-colors hover:bg-[#E9E3D2]"
+                    >
+                      <span className="w-4 flex-shrink-0 text-[0.8rem] tabular-nums text-ink/40">{i + 1}</span>
+                      <span className="flex-1">{skill}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </aside>
 
-        {/* Chat Main Area */}
-        <main className="flex-1 flex flex-col min-w-0 bg-white">
-          <header className="h-20 shrink-0 px-5 md:px-10 border-b border-castanha-50 flex items-center justify-between backdrop-blur-xl bg-white/80 sticky top-0 z-20">
-            <div className="flex flex-col">
-              <span className="text-[10px] font-bold text-foreground/20 uppercase tracking-[0.3em]">Assistente de IA</span>
-              <h2 className="text-xl font-light tracking-tight">Conversa com o assistente</h2>
-            </div>
-            <div className="flex items-center gap-3">
-              <button onClick={() => fileInputRefPdf.current?.click()} className="p-3 text-foreground/40 hover:text-foreground hover:bg-castanha-50 rounded-xl transition-all">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>
-              </button>
-              <input type="file" ref={fileInputRefPdf} className="hidden" accept=".pdf" onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0], 'pdf')} />
-            </div>
+        <main className="flex min-w-0 flex-1 flex-col">
+          <header className="flex h-16 shrink-0 items-center justify-between gap-4 border-b border-ink/10 px-5 sm:px-8">
+            <span className="hidden gap-1.5 sm:flex" aria-hidden="true">
+              <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+              <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+              <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+            </span>
+            <button onClick={() => router.back()} className="text-[0.9rem] text-ink/60 hover:text-ink lg:hidden">
+              ← Assistentes
+            </button>
+            <span className="truncate text-[0.95rem] font-medium text-ink">Assistentes / {lawyer?.name || '...'}</span>
           </header>
 
-          <div className="flex-1 min-h-0 overflow-y-auto px-5 md:px-10 py-8 space-y-8 custom-scrollbar">
+          <div className="custom-scrollbar min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-8 sm:px-8">
             {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
-                <div className={`max-w-[85%] ${m.role === 'user' 
-                  ? 'rounded-[1.5rem] py-4 px-6 btn-primary-gradient text-white shadow-[0_12px_24px_rgba(0,0,0,0.12)] border border-white/5' 
-                  : 'rounded-[2rem] p-6 md:p-8 bg-white border border-castanha-200 text-castanha-800 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'}`}>
-                  <div className={`prose prose-sm max-w-none font-medium leading-[1.6] text-[1.05rem] ${m.role === 'user' ? 'prose-invert' : 'prose-gray'}`}>
-                    {m.role === 'assistant' ? (
-                      <div 
-                        dangerouslySetInnerHTML={{ __html: m.content }} 
-                        className="html-content"
-                      />
-                    ) : (
+              <div key={i} className={`mx-auto flex max-w-4xl ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-4 duration-500`}>
+                <div className={m.role === 'user' ? 'max-w-[80%] rounded-2xl bg-[#151816] px-6 py-4 text-white' : 'w-full rounded-3xl bg-[#FFFDF6] p-6 text-ink sm:p-8'}>
+                  {m.role === 'assistant' && (
+                    <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink/45">{lawyer?.name || 'Resposta'}</p>
+                  )}
+                  {m.role === 'assistant' ? (
+                    <div dangerouslySetInnerHTML={{ __html: m.content }} className="pq-answer" />
+                  ) : (
+                    <div className="text-[1rem] leading-relaxed [&_p]:m-0">
                       <ReactMarkdown>{m.content}</ReactMarkdown>
-                    )}
-                  </div>
-                  <div className={`text-[9px] font-bold uppercase tracking-[0.2em] ${m.role === 'user' ? 'mt-3 text-right text-white/40' : 'mt-6 text-foreground/20'}`}>
+                    </div>
+                  )}
+                  <div className={m.role === 'user' ? 'mt-2 text-right text-[0.72rem] text-white/45' : 'mt-6 border-t border-ink/10 pt-4 text-[0.78rem] text-ink/45'}>
                     {new Date(m.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
                   </div>
                 </div>
               </div>
             ))}
             {isTyping && (
-              <div className="flex justify-start">
-                <div className="bg-castanha-50 border border-castanha-100 rounded-[2rem] px-8 py-6">
+              <div className="mx-auto flex max-w-4xl justify-start">
+                <div className="rounded-2xl bg-[#FFFDF6] px-6 py-5">
                   <div className="flex space-x-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-100" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 animate-bounce delay-200" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30 delay-100" />
+                    <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink/30 delay-200" />
                   </div>
                 </div>
               </div>
@@ -195,53 +205,50 @@ export default function LawyerDetailPage({ params }: Props) {
             <div ref={messagesEndRef} />
           </div>
 
-          <footer className="shrink-0 px-5 md:px-10 pt-4 pb-5 bg-white/80 backdrop-blur-xl border-t border-castanha-50">
-            <form onSubmit={handleSendMessage} className="max-w-4xl mx-auto relative group">
+          <footer className="shrink-0 border-t border-ink/10 px-5 py-4 sm:px-8">
+            <form onSubmit={handleSendMessage} className="mx-auto flex max-w-4xl items-end gap-2 rounded-2xl bg-[#FFFDF6] p-2 ring-1 ring-ink/10 focus-within:ring-ink/30">
+              <input type="file" ref={fileInputRefPdf} className="hidden" accept=".pdf" onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0], 'pdf')} />
+              <button
+                type="button"
+                onClick={() => fileInputRefPdf.current?.click()}
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-ink/45 hover:bg-[#F1EDE0] hover:text-ink"
+                aria-label="Anexar PDF"
+                title="Anexar PDF"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                </svg>
+              </button>
               <textarea
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Escreva sua dúvida..."
                 rows={1}
-                className="w-full bg-castanha-50/50 border border-castanha-100 focus:bg-white focus:ring-4 focus:ring-pequi-500/5 focus:border-cerrado-900/10 rounded-[2rem] py-5 pl-6 pr-20 resize-none text-foreground transition-all duration-300 shadow-sm overflow-hidden scrollbar-none"
-                onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
-                style={{ height: '68px' }}
+                className="max-h-40 min-h-[44px] flex-1 resize-none border-0 bg-transparent px-1 py-2.5 text-[1rem] text-ink placeholder:text-ink/40 focus:outline-none focus:ring-0"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSendMessage();
+                  }
+                }}
               />
-              <button type="submit" disabled={isTyping || !inputMessage.trim()} className="absolute right-3 top-1/2 -translate-y-1/2 w-14 h-14 flex items-center justify-center text-white rounded-full transition-all shadow-xl disabled:opacity-20 btn-primary-gradient">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              <button
+                type="submit"
+                disabled={isTyping || !inputMessage.trim()}
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#151816] text-white transition-opacity disabled:opacity-25"
+                aria-label="Enviar"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+                </svg>
               </button>
             </form>
-            <p className="max-w-4xl mx-auto mt-3 text-[11px] font-medium text-foreground/40 text-center leading-relaxed">
-              Este assistente é uma ferramenta de inteligência artificial, não um advogado. Não há advogado responsável pelas respostas, que têm caráter apenas informativo. Para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
+            <p className="mx-auto mt-3 max-w-4xl text-center text-[0.75rem] leading-relaxed text-ink/45">
+              Este assistente é uma ferramenta de IA, não um advogado. As respostas têm caráter informativo; para o seu caso, procure um advogado inscrito na OAB ou a Defensoria Pública.
             </p>
-            <style jsx>{`
-                    .html-content p {
-                        margin-bottom: 1rem;
-                    }
-                    .html-content h1, .html-content h2, .html-content h3 {
-                        font-weight: 700;
-                        margin-top: 1.5rem;
-                        margin-bottom: 0.5rem;
-                        color: #10101A;
-                    }
-                    .html-content ul, .html-content ol {
-                        margin-left: 1.5rem;
-                        margin-bottom: 1rem;
-                        list-style-type: disc;
-                    }
-                    .html-content ol {
-                        list-style-type: decimal;
-                    }
-                    .html-content li {
-                        margin-bottom: 0.25rem;
-                    }
-                    .html-content strong {
-                        font-weight: 700;
-                        color: #10101A;
-                    }
-                `}</style>
           </footer>
         </main>
       </div>
     </DashboardLayout>
   );
-} 
+}

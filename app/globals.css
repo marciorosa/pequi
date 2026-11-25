@@ -866,3 +866,19 @@ details[open] .faqMinus {
   line-height: inherit !important;
   opacity: 1 !important;
 }
+
+/* Resposta da IA nas telas de conversa (chat e assistentes), padrão editorial 2026-11-24:
+   texto Inter confortável e títulos na serifa de destaque */
+.pq-answer { font-size: 1rem; line-height: 1.75; color: rgb(21 24 22 / 0.78); }
+.pq-answer p { margin-bottom: 1rem; }
+.pq-answer > :last-child { margin-bottom: 0; }
+.pq-answer h1, .pq-answer h2, .pq-answer h3 {
+  font-family: var(--font-accent); font-weight: 500; font-size: 1.6rem; line-height: 1.2;
+  letter-spacing: -0.01em; color: #151816; margin: 1.5rem 0 0.75rem;
+}
+.pq-answer > h1:first-child, .pq-answer > h2:first-child, .pq-answer > h3:first-child { margin-top: 0; }
+.pq-answer ul, .pq-answer ol { margin: 0 0 1rem 1.25rem; list-style-type: disc; }
+.pq-answer ol { list-style-type: decimal; }
+.pq-answer li { margin-bottom: 0.4rem; }
+.pq-answer strong { font-weight: 600; color: #151816; }
+.pq-answer a { color: #151816; text-decoration: underline; text-underline-offset: 4px; }
