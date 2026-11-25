@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import { BrandLogo } from '../components/PequiWordmark';
-import PequiTrajectory from '../components/auth/PequiTrajectory';
+import PequiService from '../components/auth/PequiService';
 
 // Login no estilo da referência (2026-11-24): tela cheia em duas colunas. À esquerda,
 // fundo grafite com e-mail e senha (sem entrar com Google/Microsoft/Apple) e o aceite
@@ -178,7 +178,7 @@ export default function LoginExperience() {
       </div>
 
       <aside className="relative hidden flex-1 flex-col justify-end overflow-hidden rounded-[1.75rem] bg-[#F1EDE0] p-12 text-[#151816] lg:flex xl:p-16">
-        <PequiTrajectory className="pointer-events-none absolute right-[2%] top-[6%] w-[96%] text-[#151816]" />
+        <PequiService className="pointer-events-none absolute left-[6%] top-[10%] w-[88%] text-[#151816]" />
         <p className="relative text-[0.85rem] text-[#151816]/60">{tenant ? tenant.name : 'IA jurídica white-label'}</p>
         <h2 className="relative mt-3 max-w-[14ch] text-[clamp(2.4rem,4vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.035em]">
           {tenant ? 'A sua assistente jurídica, a qualquer hora.' : 'A IA jurídica com a marca do seu escritório.'}
