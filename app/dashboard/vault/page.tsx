@@ -232,7 +232,7 @@ const PasswordModal = ({
           onChange={(e) => setPw(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && pw && onConfirm(pw)}
           placeholder="Senha de acesso obrigatória"
-          className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-4 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 mb-8 relative z-10 font-medium placeholder:opacity-30"
+          className="w-full border border-ink/20 bg-white rounded-2xl px-6 py-4 text-ink focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 mb-8 relative z-10 font-medium placeholder:opacity-30"
         />
         <div className="flex gap-4 relative z-10">
           <button onClick={onClose} className="flex-1 py-4 rounded-2xl border border-castanha-200 text-castanha-400 text-[0.72rem] font-semibold uppercase tracking-[0.16em] hover:bg-castanha-50 transition-all duration-300">
@@ -291,13 +291,13 @@ const FolderModal = ({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Nome da pasta (ex.: Processos 2024)"
-            className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 font-medium placeholder:opacity-30"
+            className="w-full border border-ink/20 bg-white rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 font-medium placeholder:opacity-30"
           />
           <input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Descrição (opcional)"
-            className="w-full border border-castanha-200 bg-castanha-50 rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-4 focus:ring-pequi-500/5 font-medium placeholder:opacity-30"
+            className="w-full border border-ink/20 bg-white rounded-2xl px-6 py-5 text-ink focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 font-medium placeholder:opacity-30"
           />
           <div>
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-castanha-400 mb-4">Cor de identificação</p>

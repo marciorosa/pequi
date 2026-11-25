@@ -353,7 +353,7 @@ export default function ChatSupportPage() {
                     }
                   }}
                   placeholder="Pergunte ao concierge..."
-                  className="w-full bg-castanha-50 border border-castanha-100 rounded-2xl py-4 md:py-5 px-4 md:px-6 pr-24 md:pr-32 text-xs md:text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all resize-none"
+                  className="w-full bg-white border border-ink/20 rounded-2xl py-4 md:py-5 px-4 md:px-6 pr-24 md:pr-32 text-xs md:text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 transition-all resize-none"
                   rows={1}
                   disabled={waitTime !== null}
                 />

@@ -116,7 +116,7 @@ export const LIMPA_NOME_DESCRIPTION =
   'Gera a minuta de uma petição inicial para tirar o nome de cadastros como Serasa e SPC quando a dívida não é sua, com pedido de liminar e de indenização por danos morais.';
 
 const inputClass =
-  'w-full rounded-xl border border-castanha-200 bg-castanha-50 px-4 py-3 text-[0.95rem] text-ink placeholder-ink/30 focus:outline-none focus:ring-4 focus:ring-pequi-500/10';
+  'w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[0.95rem] text-ink placeholder-ink/40 focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50';
 
 /** Formulário do Limpa Nome (recurso Pro da página Documentos). */
 export function LimpaNomeForm({
@@ -151,7 +151,7 @@ export function LimpaNomeForm({
             aria-checked={active}
             onClick={() => setForm((f) => ({ ...f, [key]: active ? '' : c.value }))}
             className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-              active ? 'border-pequi-500 bg-pequi-500 text-white' : 'border-castanha-200 bg-castanha-50 text-ink/80 hover:border-castanha-300'
+              active ? 'border-pequi-500 bg-pequi-500 text-white' : 'border-ink/20 bg-white text-ink/80 hover:border-ink/50'
             }`}
           >
             {c.label}

@@ -1803,7 +1803,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Partes do contrato*</label>
                         <textarea
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 min-h-[100px]"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 min-h-[100px]"
                            placeholder="Informe os nomes de todas as partes envolvidas"
                            value={parties}
                            onChange={(e) => setParties(e.target.value)}
@@ -1814,7 +1814,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Objeto do contrato*</label>
                         <textarea
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 min-h-[100px]"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 min-h-[100px]"
                            placeholder="Descreva a finalidade deste contrato"
                            value={purpose}
                            onChange={(e) => setPurpose(e.target.value)}
@@ -1827,7 +1827,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Principais obrigações</label>
                         <textarea
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 min-h-[100px]"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 min-h-[100px]"
                            placeholder="O que cada parte deve fazer ou fornecer"
                            value={obligations}
                            onChange={(e) => setObligations(e.target.value)}
@@ -1837,7 +1837,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Consequências</label>
                         <textarea
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200 min-h-[100px]"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 min-h-[100px]"
                            placeholder="O que acontece se as obrigações não forem cumpridas"
                            value={consequences}
                            onChange={(e) => setConsequences(e.target.value)}
@@ -1849,7 +1849,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Datas importantes</label>
                         <textarea
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                            placeholder="Datas de início/término, prazos etc."
                            value={dates}
                            onChange={(e) => setDates(e.target.value)}
@@ -1860,7 +1860,7 @@ export default function DocumentGenerationPage() {
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Lei aplicável</label>
                         <input
                            type="text"
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                            placeholder="Jurisdição (ex.: 'República Federativa do Brasil')"
                            value={jurisdiction}
                            onChange={(e) => setJurisdiction(e.target.value)}
@@ -1872,7 +1872,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Forma de assinatura</label>
                         <select
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                            value={signingMethod}
                            onChange={(e) => setSigningMethod(e.target.value)}
                         >
@@ -1886,7 +1886,7 @@ export default function DocumentGenerationPage() {
                      <div>
                         <label className="block mb-2 text-sm text-foreground/80 font-medium">Linguagem do contrato</label>
                         <select
-                           className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                           className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                            value={language}
                            onChange={(e) => setLanguage(e.target.value)}
                         >
@@ -2235,7 +2235,7 @@ export default function DocumentGenerationPage() {
                      <select
                         value={documentType}
                         onChange={(e) => setDocumentType(e.target.value)}
-                        className="w-full bg-castanha-50 rounded-md border border-castanha-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-castanha-300"
+                        className="w-full bg-white rounded-md border border-ink/20 p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                      >
                         <option value="Locação Imobiliária">Locação Imobiliária</option>
                         <option value="Contrato de Trabalho">Contrato de Trabalho</option>
@@ -2301,7 +2301,7 @@ export default function DocumentGenerationPage() {
                            value={specialRequirements}
                            onChange={(e) => setSpecialRequirements(e.target.value)}
                            placeholder="Descreva quaisquer requisitos específicos para este documento"
-                           className="w-full bg-castanha-50 rounded-md border border-castanha-200 p-3 text-foreground focus:outline-none focus:ring-1 focus:ring-castanha-300 placeholder:text-ink/45 min-h-[120px] resize-none"
+                           className="w-full bg-white rounded-md border border-ink/20 p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50 placeholder:text-ink/45 min-h-[120px] resize-none"
                         />
                      </div>
                   </div>
@@ -2394,7 +2394,7 @@ export default function DocumentGenerationPage() {
                         <div>
                            <label className="block text-foreground/80 font-medium mb-2 text-sm">Idioma de origem</label>
                            <select
-                              className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                              className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                               value={sourceLanguage}
                               onChange={(e) => setSourceLanguage(e.target.value)}
                            >
@@ -2416,7 +2416,7 @@ export default function DocumentGenerationPage() {
                         <div>
                            <label className="block text-foreground/80 font-medium mb-2 text-sm">Idioma de destino</label>
                            <select
-                              className="w-full bg-castanha-50 border border-castanha-200 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-castanha-200"
+                              className="w-full bg-white border border-ink/20 rounded-lg p-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ink/10 focus:border-ink/50"
                               value={targetLanguage}
                               onChange={(e) => setTargetLanguage(e.target.value)}
                            >

@@ -154,7 +154,7 @@ export default function ContactSupportPage() {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-castanha-50/50 border border-castanha-100 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-castanha-200 transition-all"
+                        className="w-full bg-white/50 border border-ink/20 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-ink/20 transition-all"
                         placeholder="Breve descrição do problema"
                       />
                     </div>
@@ -169,7 +169,7 @@ export default function ContactSupportPage() {
                         value={formData.category}
                         onChange={handleInputChange}
                         required
-                        className="w-full bg-castanha-50/50 border border-castanha-100 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-castanha-200 transition-all appearance-none"
+                        className="w-full bg-white/50 border border-ink/20 rounded-xl py-3.5 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-ink/20 transition-all appearance-none"
                       >
                         <option value="general">Dúvida geral</option>
                         <option value="technical">Suporte técnico</option>
@@ -191,7 +191,7 @@ export default function ContactSupportPage() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full bg-castanha-50/50 border border-castanha-100 rounded-xl py-4 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-castanha-200 transition-all resize-none"
+                      className="w-full bg-white/50 border border-ink/20 rounded-xl py-4 px-5 text-foreground text-sm focus:bg-white focus:outline-none focus:ring-4 focus:ring-foreground/5 focus:border-ink/20 transition-all resize-none"
                       placeholder="Forneça o máximo de detalhes possível para nos ajudar a resolver seu problema rapidamente."
                     ></textarea>
                   </div>
