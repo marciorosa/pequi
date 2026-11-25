@@ -130,8 +130,7 @@ export default function KnowledgeExperience() {
         secondary={{ label: 'Experimentar a pesquisa', href: '#demo' }}
         image="/landingpage/features/ai-powered-legal-assistant.png"
         imageAlt="Pesquisa jurídica do Pequi"
-        imageRatio="16/7"
-        fit="contain"
+        imageRatio="2544/1112"
       />
 
       <FeatureList
